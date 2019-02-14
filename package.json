@@ -1,0 +1,25 @@
+{
+  "name": "nest-angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-client": "cd client&&npm i",
+    "install-server": "cd server&&npm i",
+    "install": "npm run install-client&&npm run install-server&&npm run gen-client",
+    "gen-client": "node  ./node_modules/nest-client-generator/lib/index.js",
+    "debug-server": "cd server&&npm run start:debug"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^10.12.24",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.1"
+  },
+  "dependencies": {
+    "class-transformer": "^0.2.0",
+    "class-validator": "^0.9.1",
+    "nest-client-generator": "0.0.13"
+  }
+}

@@ -1,0 +1,14 @@
+<div class="login-page" dir="rtl">
+  <div class="login-main">
+    <div class="form">
+      <div class="login-logo">
+        <img src="favicon.ico" />
+      </div>
+      <form autocomplete="off" (submit)="login()">
+        <p-text-box [form]="form.controls['email']" name='email' [placeholder]='dic.email'></p-text-box>
+        <p-text-box [form]="form.controls['password']" name='password' [placeholder]='dic.password'>></p-text-box>
+        <button [disabled]='form.invalid' mat-raised-button color="primary">{{dic.login}}</button>
+      </form>
+    </div>
+  </div>
+</div>

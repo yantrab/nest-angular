@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "declaration": true,
+      "removeComments": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "target": "es6",
+      "sourceMap": false,
+      "lib": ["es2018"],
+      "outDir": "./shared/dist",
+    },
+    "files": ["./shared/index.ts"]
+  }
+   
