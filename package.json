@@ -7,7 +7,7 @@
     "install-client": "cd client&&npm i",
     "install-server": "cd server&&npm i",
     "install": "npm run install-client&&npm run install-server&&npm run gen-client",
-    "gen-client": "node  ./node_modules/nest-client-generator/lib/index.js",
+    "gen-client": "ts-node ./generator",
     "debug-server": "cd server&&npm run start:debug"
   },
   "author": "",
@@ -15,11 +15,11 @@
   "devDependencies": {
     "@types/node": "^10.12.24",
     "ts-node": "^8.0.2",
-    "typescript": "^3.3.1"
+    "typescript": "^3.3.1",
+    "ts-morph": "^1.1.0"
   },
   "dependencies": {
     "class-transformer": "^0.2.0",
-    "class-validator": "^0.9.1",
-    "nest-client-generator": "0.0.13"
+    "class-validator": "^0.9.1"
   }
 }
