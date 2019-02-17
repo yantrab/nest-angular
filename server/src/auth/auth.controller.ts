@@ -1,7 +1,7 @@
 import { Controller, Post, Get, Body,Req } from '@nestjs/common';
 import { LoginRequest, User } from 'shared'
 
-@Controller('auth')
+@Controller('rest/auth')
 export class AuthController {
     @Post('login')
     async login(@Body() user: LoginRequest): Promise<User> {

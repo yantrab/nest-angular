@@ -1,4 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body {
     margin: 0;
+}
+
+.center {
+    position: absolute;
+    /*it can be fixed too*/
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /*this to solve "the content will not be cut when the window is smaller than the content": */
+    max-width: 100%;
+    max-height: 100%;
 }

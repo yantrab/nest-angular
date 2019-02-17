@@ -1,0 +1,43 @@
+#login-page {
+    background-image: linear-gradient(to top, #1e90ff, #70a1ff);
+    -moz-osx-font-smoothing: grayscale;
+    width: calc(100vw);
+    height: calc(100vh);
+    font-family: "Roboto", sans-serif;
+    .login-main {
+        width: 300px;
+        height: 330px;
+        background: #FFFFFF;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        padding: 25px;
+        .login-logo {
+            margin-bottom: 30px;
+            text-align: center;
+            img {
+                width: 70px;
+                height: 70px;
+                object-fit: contain;
+            }
+        }
+        input,
+        button {
+            font-family: "Roboto", sans-serif;
+        }
+        button {
+            text-transform: uppercase;
+            background: #1e90ff;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            transition: all 0.3 ease;
+            cursor: pointer;
+        }
+        button:hover,
+        .form button:active,
+        .form button:focus {
+            background: #43A047;
+        }
+    }
+}

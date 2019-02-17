@@ -7,7 +7,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     if (control && control.invalid) {
-      this.error = Object.keys(control.errors).filter(key => control.errors[key])[0];
+      this.error = control.errors[0];
+      //Object.keys(control.errors).filter(key => control.errors[key])[0];
     }
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }

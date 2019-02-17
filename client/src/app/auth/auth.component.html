@@ -1,14 +1,12 @@
-<div class="login-page" dir="rtl">
-  <div class="login-main">
-    <div class="form">
+<div id="login-page" >
+  <div class="login-main center">
       <div class="login-logo">
         <img src="favicon.ico" />
       </div>
-      <form autocomplete="off" (submit)="login()">
+      <form autocomplete="off" *ngIf="form" >
         <p-text-box [form]="form.controls['email']" name='email' [placeholder]='dic.email'></p-text-box>
         <p-text-box [form]="form.controls['password']" name='password' [placeholder]='dic.password'>></p-text-box>
-        <button [disabled]='form.invalid' mat-raised-button color="primary">{{dic.login}}</button>
+        <button (click)="login($event)" [disabled]='form.invalid' mat-raised-button color="primary">{{dic.login}}</button>
       </form>
-    </div>
   </div>
 </div>
