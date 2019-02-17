@@ -18,12 +18,3 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
             .catch(err => done(err, false))
     }
 }
-
-export const callback = (err, user, info) => {
-    if (typeof info != 'undefined') {
-        throw new UnauthorizedException(info.message)
-    } else if (err || !user) {
-        throw err || new UnauthorizedException();
-    }
-    return user;
-}

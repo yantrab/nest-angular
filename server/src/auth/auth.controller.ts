@@ -2,11 +2,10 @@ import { Controller, Post, Get, Body,Req, UseGuards, HttpCode, HttpStatus } from
 import { LoginRequest, User } from 'shared'
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
-import { callback } from './passport';
 
 @Controller('rest/auth')
 export class AuthController {
-    constructor(private authService:AuthService){}
+    constructor(){}
     @Post('login')
     @UseGuards(AuthGuard('local'))
     @HttpCode(HttpStatus.OK)
