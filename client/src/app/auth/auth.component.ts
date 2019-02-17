@@ -23,6 +23,7 @@ export class AuthComponent {
     this.api.login({ email: this.form.value.email, password: this.form.value.password }).then(user => {
       this.router.navigate(['/' + window.location.pathname.replace('login/', ''), {}]);
     })
+    e.preventDefault();
   }
 
 }
