@@ -1,6 +1,5 @@
-import { Controller, Post, Get, Body,Req, UseGuards, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Get, Body,Req, UseGuards, HttpCode, HttpStatus, Session } from '@nestjs/common';
 import { LoginRequest, User } from 'shared'
-import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
 
 @Controller('rest/auth')
@@ -13,8 +12,8 @@ export class AuthController {
         return req.user;
     }
 
-    @Get('isAuthenticatd')
-    async isAuthenticatd(@Req() req) {
-        return { isAuthenticatd: !!req.user };
+    @Get('getUserAuthenticated')
+    async getUserAuthenticated(@Req() req) {
+        return {user:req.user};
     }
 }

@@ -12,6 +12,7 @@ export class LoginRequest {
 export enum Role{
     Admin,
     app1,
+    app2,
 }
 
 export class User {

@@ -2,16 +2,16 @@ import { Module, NestModule ,MiddlewareConsumer, RequestMethod } from '@nestjs/c
 import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { FrontendMiddleware } from 'middlewares/frontend.middleware';
-
+import { PassportModule } from '@nestjs/passport';
 @Module({
-  imports: [AuthModule, AdminModule],
+  imports: [AuthModule, AdminModule,PassportModule.register({ session: true })],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer): void {
     consumer.apply(FrontendMiddleware).forRoutes(
       {
-        path: '/**', // For all routes
-        method: RequestMethod.ALL, // For all methods
+        path: '/**', 
+        method: RequestMethod.ALL,
       },
     );
     consumer.apply(new FrontendMiddleware().resolve)

@@ -1,6 +1,6 @@
 
 import { Role, User } from './'
-export const canActivate =
+export const hasPermission =
   (user: User, roles: Role[]) =>
     user &&
     user.roles &&

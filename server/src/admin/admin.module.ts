@@ -12,8 +12,8 @@ export class AdminModule {
   configure(consumer: MiddlewareConsumer): void {
     consumer.apply(new GuardMiddleware([Role.Admin]).resolve).forRoutes(
       {
-        path: '/**', // For all routes
-        method: RequestMethod.ALL, // For all methods
+        path: '/admin', 
+        method: RequestMethod.ALL,
       },
     );
   }

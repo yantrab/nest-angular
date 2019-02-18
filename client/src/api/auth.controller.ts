@@ -12,7 +12,7 @@ export class AuthController {
     }
 
     
-    async isAuthenticatd(): Promise<{ isAuthenticatd: boolean; }> {
-        return new Promise((resolve) => get('rest/auth/isAuthenticatd').then((data:any) => resolve(data)))
+    async getUserAuthenticated(): Promise<{ user: any; }> {
+        return new Promise((resolve) => get('rest/auth/getUserAuthenticated').then((data:any) => resolve(data)))
     }
 }
