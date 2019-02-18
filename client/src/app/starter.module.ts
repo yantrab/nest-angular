@@ -12,7 +12,7 @@ export class AppComponent {
 }
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login/app1', pathMatch: 'full' },
+  { path: '', redirectTo: 'login/app1', pathMatch: 'full', canActivate:[]},
   { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
   { path: 'app2', loadChildren: 'src/app/app2/app1.module#App2Module' },
   { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' }
