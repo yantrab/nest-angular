@@ -32,17 +32,18 @@ const startGenerator = () => {
                 method.getDecorators().forEach(d => {
                     const name = d.getName()
                     if (!config.decorators[name]) return d.remove()
-                    const methodPath = d.getArguments()[0].compilerNode.getText().replace(/'/g, '')
+                    const args = d.getArguments()
+                    const methodPath = args[0] ?  args[0].compilerNode.getText().replace(/'/g, '') : ''
                     replacment =
                         config.decorators[name]
                             .replace('{url}', basePath + '/' + methodPath)
-                            .replace('{body}', method.getParameters().map(p => p.compilerNode.name.getText()).join(', '))
+                            .replace('{body}', method.getParameters().filter(p => p.getDecorators().find(d => d.getName() == 'Body')).map(p => p.compilerNode.name.getText()).join(', '))
                     d.remove()
                 })
 
                 method.getParameters().forEach(p => {
                     const bodyDecorator = p.getDecorators().find(d => d.getName() == 'Body');
-                    if (!bodyDecorator) return p.remove();
+                    if (!bodyDecorator) return  p.remove();
                     p.getDecorators().forEach(d => d.remove())
                 })
 

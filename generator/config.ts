@@ -1,7 +1,7 @@
 export const clientPath = './client/src/api/'
 export const decorators = {
-    Get: "return new Promise((resolve) => get('rest/{url}').then((data:any) => {resolve}))",
-    Post: "return new Promise((resolve) => post('rest/{url}',{body}).then((data:any) => {resolve}))"
+    Get: "return new Promise((resolve) => get('{url}').then((data:any) => {resolve}))",
+    Post: "return new Promise((resolve) => post('{url}',{body}).then((data:any) => {resolve}))"
 }
 export const httpServiceTemplate = `
     function handleErrors(response) {

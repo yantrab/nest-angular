@@ -9,5 +9,17 @@
             "restart": true,
             "protocol": "inspector",
         },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "generator",
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register",
+            ],
+            "args": [
+                "${workspaceFolder}/generator/index.ts"
+            ]
+        },
     ]
 }

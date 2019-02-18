@@ -25,7 +25,6 @@ export class FrontendMiddleware implements NestMiddleware {
             } else if (allowedExt.filter(ext => url.indexOf(ext) > 0).length > 0) {
                 res.sendFile(resolvePath(url));
             } else {
-                // in all other cases, redirect to the index.html!
                 res.sendFile(resolvePath('index.html'));
             }
         };

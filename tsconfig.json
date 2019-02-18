@@ -7,7 +7,7 @@
       "experimentalDecorators": true,
       "target": "es6",
       "sourceMap": false,
-      "lib": ["es2018"],
+      "lib": ["es2018"]
     },
   }
    

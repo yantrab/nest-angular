@@ -1,10 +1,20 @@
-import { Module, CanActivate, ExecutionContext } from '@nestjs/common';
+import { Module, CanActivate, ExecutionContext, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { AdminController } from './admin.controller';
 import { AdminService } from './admin.service';
-
+import { APP_GUARD } from '@nestjs/core';
+import {GuardMiddleware} from '../middlewares/guard.middleware'
+import { Role } from 'shared';
 @Module({
   controllers: [AdminController],
   providers: [AdminService]
 })
-export class AuthModule {
+export class AdminModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(new GuardMiddleware([Role.Admin]).resolve).forRoutes(
+      {
+        path: '/**', // For all routes
+        method: RequestMethod.ALL, // For all methods
+      },
+    );
+  }
 }

@@ -23,11 +23,7 @@
               }
             })
             .then(handleErrors)
-            .then(res =>
-              {
-               resolve(res.json())
-              }
-              )
+            .then(res => resolve(res.json()))
         })
       }
     
