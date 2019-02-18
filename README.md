@@ -19,5 +19,7 @@ Hit F5 and select the process
 
 ## Future
 -- Client generator with full types.
+
 -- Auto transform result to real object
+
 -- Share models between server & client

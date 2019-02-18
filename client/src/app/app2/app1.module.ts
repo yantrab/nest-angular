@@ -11,4 +11,4 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild([{ path: '', component: App2Component}])
   ],
 })
-export class App1Module { }
+export class App2Module { }
