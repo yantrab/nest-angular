@@ -1,31 +1,35 @@
 import { Strategy } from 'passport-local';
 import { AuthService } from './auth.service';
-import { PassportStrategy } from '@nestjs/passport';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
+import { use } from 'passport';
+import passport = require('passport');
 
 @Injectable()
-export class LocalStrategy extends PassportStrategy(Strategy) {
+export class LocalStrategy {
     constructor(private readonly authService: AuthService) {
-        super({
-            usernameField: 'email',
-            passReqToCallback: false
-        });
+        this.init();
     }
 
-    async validate(email, password, done: Function) {
-        await this.authService.login(email, password)
-            .then(user => {
-                done(null, user)
-            })
-            .catch(err => done(err, false))
+    private init(): void {
+        passport.serializeUser(function(user, done) {
+            done(null, user);
+          });
+          
+          passport.deserializeUser(function(user, done) {
+            done(null, user);
+          });
+
+        use('local-signin', new Strategy({
+            usernameField: 'email',
+            passwordField: 'password'
+        }, async (email: string, password: string, done: Function) => {
+            try {
+                const foundUser = await this.authService.login(email,password);
+                if (!foundUser) throw new HttpException('User not found', 401);
+                done(null, foundUser);
+            } catch (error) {
+                done(error, false);
+            }
+        }));
     }
 }
-
-export const callback = (err, user, info) => {
-    if (typeof info != 'undefined') {
-      throw new UnauthorizedException(info.message)
-    } else if (err || !user) {
-      throw err || new UnauthorizedException();
-    }
-    return user;
-  }

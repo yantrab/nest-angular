@@ -1,11 +1,18 @@
-import { Module } from '@nestjs/common';
+import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { LocalStrategy } from './passport';
+import { ROUTE_PREFIX } from 'shared';
+import { authenticate } from 'passport';
 
 @Module({
   controllers: [AuthController],
   providers: [AuthService, LocalStrategy]
 })
 export class AuthModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer
+      .apply(authenticate('local-signin', { session: true }))
+      .forRoutes({ path: `${ROUTE_PREFIX}/auth/login`, method: RequestMethod.POST } as any);
+  }
 }

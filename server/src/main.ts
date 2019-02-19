@@ -1,7 +1,7 @@
 import { NestFactory, FastifyAdapter } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
-import * as session from 'express-session'
+import passport = require('passport');
 
 //import {join} from 'path'
 async function bootstrap() {
@@ -9,18 +9,15 @@ async function bootstrap() {
   //app.useStaticAssets(join(__dirname, '../../', 'client/dist'));
   //app.setGlobalPrefix('rest');
   app.useGlobalPipes(new ValidationPipe());
-  app.use(session({
-    secret: "mysecretkey",
+  app.use(require('cookie-parser')());
+  app.use(require('body-parser').urlencoded({ extended: true }));
+  app.use(require('express-session')({
+    secret: 'keyboard cat',
     resave: true,
-    saveUninitialized: true,
-    maxAge: 36000,
-    cookie: {
-      path: "/",
-      httpOnly: true,
-      secure: false,
-      maxAge: null
-    }
-  }))
+    saveUninitialized: true
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   await app.listen(3000);
 }
