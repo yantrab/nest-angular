@@ -1,18 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { User, Role } from 'shared';
-import { DBService, Repository, FindConditions } from './db.service';
+import { DBService, Repository } from './db.service';
 
 @Injectable()
 export class UserService {
-    userRepo:Repository<FindConditions<User>>;
-    constructor(private db:DBService){
-        this.userRepo = db.getRepository<User>(User,'users')
-        this.userRepo.updateOne({},{},{upsert:true})
+    userRepo: Repository<User>;
+    constructor(private db: DBService) {
+        db.getConnection.subscribe(db => {
+            this.userRepo = db.getRepository<User>(User, 'users')
+            this.userRepo.saveOrUpdate({ _id: 'admin@admin.com', fName: 'yoyo', lName: 'toto', roles: [Role.Admin] })
+        });
     }
 
     public async validateUser(email, password) {
-        const user = this.userRepo.findOne({_id:email});
-        return <User>{fName:'yaniv',lName:'trabelsi',roles:[Role.app1]};
+        const user = await this.userRepo.collection.findOne({ _id: email });
+        return user;
         //     return await this.userService.findOne({email: email})
         //     .then(async user => {
         //       return await this.cryptoService.checkPassword(user.password, password)
