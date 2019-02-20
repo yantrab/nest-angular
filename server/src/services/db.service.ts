@@ -1,10 +1,9 @@
 import { MongoClient, connect, Db, Collection } from 'mongodb';
-import { Entity, User } from '../../../shared';
+import { Entity, EntityWithoutGetters } from 'shared';
 import { Injectable } from '@nestjs/common';
 import { equal } from 'assert'
 import {ReplaySubject} from 'rxjs'
 const url = 'mongodb://localhost:27017';
-
 
 @Injectable()
 export class DBService {
@@ -24,9 +23,9 @@ export class DBService {
 }
 
 export class Repository<T extends Entity>{
-    constructor(public collection: Collection<Partial<T>>) { }
-    saveOrUpdate(entity:Partial<T>){
-        this.collection.updateOne({_id:entity._id},{$set:entity},{upsert:true})
+    constructor(public collection: Collection<Partial<EntityWithoutGetters<T>>>) { }
+    saveOrUpdate(entity:Partial<EntityWithoutGetters<T>>){
+        this.collection.updateOne({_id:entity['_id']},{$set:entity},{upsert:true})
     }
 }
 
