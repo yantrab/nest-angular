@@ -11,7 +11,7 @@ import {hasPermission} from 'shared'
 export class Guard implements CanActivate {
     constructor(private router: Router, private authService: AuthService) { }
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        const user = await this.authService.getUserAuthenticated();
+        const user = (await this.authService.getUserAuthenticated()).user;
         return hasPermission(user,route.data.roles)
     }
 }
