@@ -17,22 +17,22 @@ export class AuthController {
         return req.user;
     }
     @Get('getUserAuthenticated')
-    async getUserAuthenticated(@Req() req) {
+    async getUserAuthenticated(@Req() req):Promise<{user:User}>{
         return {user:req.user};
     }
 }
 ```
-#### Run 
+#### run 
 ```sh
 npm run gen-client
 ```
-#### End you get:
+#### result:
 ```typescript
 export class AuthController {
     async login(user: LoginRequest): Promise<User> {
         return new Promise((resolve) => post('rest/auth/login',user).then((data:any) => resolve(plainToClass(User,<User>data))))
     }
-    async getUserAuthenticated(): Promise<{ user: any; }> {
+    async getUserAuthenticated():Promise<{user:User}>{
         return new Promise((resolve) => get('rest/auth/getUserAuthenticated').then((data:any) => resolve(data)))
     }
 }
