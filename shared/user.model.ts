@@ -1,5 +1,6 @@
 
 import {Length, IsEmail} from "class-validator";
+import { Entity } from "./Entity";
 
 export class LoginRequest {
     
@@ -15,7 +16,7 @@ export enum Role{
     app2,
 }
 
-export class User {
+export class User extends Entity{
     fName: string;
     lName: string;
     roles:Role[];

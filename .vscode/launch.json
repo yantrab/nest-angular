@@ -8,6 +8,7 @@
             "processId": "${command:PickProcess}",
             "restart": true,
             "protocol": "inspector",
+            "smartStep": false
         },
         {
             "type": "node",

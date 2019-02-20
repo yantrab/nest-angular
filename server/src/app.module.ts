@@ -2,9 +2,11 @@ import { Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/c
 import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { FrontendMiddleware } from 'middlewares/frontend.middleware';
+import { DBService } from 'services/db.service';
 
 @Module({
   imports: [AuthModule, AdminModule],
+  providers:[DBService]
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer): void {

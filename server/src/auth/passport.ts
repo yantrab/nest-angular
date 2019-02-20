@@ -1,12 +1,12 @@
 import { Strategy } from 'passport-local';
-import { AuthService } from './auth.service';
+import { UserService } from '../services/user.service'
 import { HttpException, Injectable } from '@nestjs/common';
 import { use } from 'passport';
 import passport = require('passport');
 
 @Injectable()
 export class LocalStrategy {
-    constructor(private readonly authService: AuthService) {
+    constructor(private readonly authService: UserService) {
         this.init();
     }
 
@@ -24,7 +24,7 @@ export class LocalStrategy {
             passwordField: 'password'
         }, async (email: string, password: string, done: Function) => {
             try {
-                const foundUser = await this.authService.login(email,password);
+                const foundUser = await this.authService.validateUser(email,password);
                 if (!foundUser) throw new HttpException('User not found', 401);
                 done(null, foundUser);
             } catch (error) {
