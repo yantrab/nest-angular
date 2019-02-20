@@ -1,0 +1,10 @@
+{
+    "loginPage": {
+        "login": "כניסה",
+        "email": "אמייל",
+        "password": "ססמה"
+    },
+    "validation":{
+        "required":"required"
+    }
+}

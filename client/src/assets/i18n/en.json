@@ -1,0 +1,10 @@
+{
+    "loginPage": {
+        "login": "login",
+        "email": "email",
+        "password": "password"
+    },
+    "validation":{
+        "required":"required"
+    }
+}

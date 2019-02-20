@@ -23,7 +23,8 @@ export class DynaValidator {
 
         PropertyUtils.setProperty(obj, controlName, transformedValue);
 
-        const valResult: ValidationError[] = validateSync(obj, { skipMissingProperties: true });
+        // TODO skipMissingProperties 
+        const valResult: ValidationError[] = validateSync(obj, { skipMissingProperties: false });
 
         if (valResult.length > 0) {
           const msgs: Array<String> =

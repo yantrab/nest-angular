@@ -7,6 +7,7 @@ export class UserService {
     userRepo: Repository<User>;
     constructor(private db: DBService) {
         db.getConnection.subscribe(db => {
+            this.userRepo = db.getRepository<User>(User,'user')
             this.userRepo.collection.find({})
             this.userRepo.saveOrUpdate({ _id: 'admin@admin.com', fName: 'yoyo', lName: 'toto', roles: [Role.Admin] })
         });

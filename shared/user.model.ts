@@ -1,5 +1,5 @@
 
-import {Length, IsEmail} from "class-validator";
+import {Length, IsEmail, IsNotEmpty} from "class-validator";
 import { Entity } from "./Entity";
 
 export class LoginRequest {

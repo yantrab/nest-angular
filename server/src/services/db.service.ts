@@ -1,7 +1,6 @@
 import { MongoClient, connect, Db, Collection } from 'mongodb';
 import { Entity, EntityWithoutGetters } from 'shared';
 import { Injectable } from '@nestjs/common';
-import { equal } from 'assert'
 import {ReplaySubject} from 'rxjs'
 const url = 'mongodb://localhost:27017';
 

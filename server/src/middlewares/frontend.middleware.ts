@@ -11,6 +11,7 @@ const allowedExt = [
     '.woff',
     '.ttf',
     '.svg',
+    '.json'
 ];
 
 const resolvePath = (file: string) => resolve(`../client/dist/${file}`);

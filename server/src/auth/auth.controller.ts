@@ -11,7 +11,7 @@ export class AuthController {
     }
 
     @Get('getUserAuthenticated')
-    async getUserAuthenticated(@Req() req) {
+    async getUserAuthenticated(@Req() req):Promise<{user:User}>{
         return {user:req.user};
     }
 }
