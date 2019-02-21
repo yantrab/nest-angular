@@ -1,14 +1,6 @@
-
 import {Length, IsEmail, IsNotEmpty} from "class-validator";
 import { Entity } from "./Entity";
 
-export class LoginRequest {
-    @IsEmail()
-    email: string
-
-    @Length(6,10)
-    password: string
-}
 export enum Role{
     Admin,
     app1,
@@ -16,9 +8,24 @@ export enum Role{
 }
 
 export class User extends Entity{
-    fName: string;
-    lName: string;
+    fName?: string;
+    lName?: string;
     roles:Role[];
     get FullName() { return this.fName + ' ' + this.lName }
 }
 
+export class AddUserDTO extends User{
+    @IsEmail()
+    _id:string;
+
+    @Length(5,10)
+    password:string;
+}
+
+export class LoginRequest {
+    @IsEmail()
+    email: string
+
+    @Length(5,10)
+    password: string
+}

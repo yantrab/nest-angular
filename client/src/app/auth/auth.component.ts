@@ -5,7 +5,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginRequest } from 'shared'
 import { DynaFormBuilder, validateAllFields } from 'src/dyna-form/dyna-form.builder';
 import { BaseComponent } from '../baseComponent';
-import { I18nLoginPage } from '../shared/interfaces/i18n.interface'
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -22,7 +21,6 @@ export class AuthComponent extends BaseComponent {
     // On case that there is no changes in form
     validateAllFields(this.form)
     if (this.form.valid) {
-
       this.authService.login(this.form.value).then(user => {
         this.router.navigate(['/' + window.location.pathname.replace('login/', ''), {}]);
       })
