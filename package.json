@@ -8,7 +8,8 @@
     "install-server": "cd server&&npm i",
     "install": "npm run install-client&&npm run install-server&&npm run gen-client",
     "gen-client": "ts-node ./generator",
-    "debug-server": "cd server&&npm run start:debug"
+    "debug-server": "cd server&&npm run start:debug",
+    "build:client:cordova": "cd client&& npm run build:cordova"
   },
   "author": "",
   "license": "ISC",

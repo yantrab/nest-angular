@@ -5,15 +5,15 @@ import passport = require('passport');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, FastifyAdapter);
-  //app.useStaticAssets(join(__dirname, '../../', 'client/dist'));
-  //app.setGlobalPrefix('rest');
+  // app.useStaticAssets(join(__dirname, '../../', 'client/dist'));
+  // app.setGlobalPrefix('rest');
   app.useGlobalPipes(new ValidationPipe());
   app.use(require('cookie-parser')());
   app.use(require('body-parser').urlencoded({ extended: true }));
   app.use(require('express-session')({
     secret: 'keyboard cat',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
   }));
   app.use(passport.initialize());
   app.use(passport.session());

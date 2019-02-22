@@ -1,5 +1,5 @@
-import { Injectable, NestMiddleware } from "@nestjs/common";
-import {resolve} from 'path'
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import {resolve} from 'path';
 
 const allowedExt = [
     '.js',
@@ -11,7 +11,7 @@ const allowedExt = [
     '.woff',
     '.ttf',
     '.svg',
-    '.json'
+    '.json',
 ];
 
 const resolvePath = (file: string) => resolve(`../client/dist/${file}`);

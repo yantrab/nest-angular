@@ -1,1 +1,1 @@
-export const ROUTE_PREFIX = 'rest'
+export const ROUTE_PREFIX = 'rest';

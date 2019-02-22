@@ -1,6 +1,6 @@
 import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { AuthController } from './auth.controller';
-import { UserService } from '../services/user.service'
+import { UserService } from '../services/user.service';
 import { LocalStrategy } from './passport';
 import { ROUTE_PREFIX } from 'shared';
 import { authenticate } from 'passport';
@@ -8,7 +8,7 @@ import { DBService } from 'services/db.service';
 
 @Module({
   controllers: [AuthController],
-  providers: [UserService,DBService,LocalStrategy]
+  providers: [UserService, DBService, LocalStrategy],
 })
 export class AuthModule {
   configure(consumer: MiddlewareConsumer): void {

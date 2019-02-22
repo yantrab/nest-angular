@@ -1,31 +1,31 @@
-import {Length, IsEmail, IsNotEmpty} from "class-validator";
-import { Entity } from "./Entity";
+import {Length, IsEmail, IsNotEmpty} from 'class-validator';
+import { Entity } from './Entity';
 
-export enum Role{
+export enum Role {
     Admin,
     app1,
     app2,
 }
 
-export class User extends Entity{
+export class User extends Entity {
     fName?: string;
     lName?: string;
-    roles:Role[];
-    get FullName() { return this.fName + ' ' + this.lName }
+    roles: Role[];
+    get FullName() { return this.fName + ' ' + this.lName; }
 }
 
-export class AddUserDTO extends User{
+export class AddUserDTO extends User {
     @IsEmail()
-    _id:string;
+    _id: string;
 
-    @Length(5,10)
-    password:string;
+    @Length(5, 10)
+    password: string;
 }
 
 export class LoginRequest {
     @IsEmail()
-    email: string
+    email: string;
 
-    @Length(5,10)
-    password: string
+    @Length(5, 10)
+    password: string;
 }

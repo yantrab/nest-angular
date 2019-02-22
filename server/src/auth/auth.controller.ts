@@ -1,9 +1,8 @@
-import { Controller, Post, Get, Body,Req, UseGuards, HttpCode, HttpStatus, Session } from '@nestjs/common';
-import { LoginRequest, User } from 'shared'
+import { Controller, Post, Get, Body, Req, HttpCode, HttpStatus } from '@nestjs/common';
+import { LoginRequest, User } from 'shared';
 
 @Controller('rest/auth')
 export class AuthController {
-    constructor(){}
     @Post('login')
     @HttpCode(HttpStatus.OK)
     async login(@Body() user: LoginRequest, @Req() req): Promise<User> {
@@ -11,7 +10,7 @@ export class AuthController {
     }
 
     @Get('getUserAuthenticated')
-    async getUserAuthenticated(@Req() req):Promise<{user:User}>{
-        return {user:req.user};
+    async getUserAuthenticated(@Req() req): Promise<{ user: User }> {
+        return { user: req.user };
     }
 }

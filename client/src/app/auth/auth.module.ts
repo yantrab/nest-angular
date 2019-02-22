@@ -6,6 +6,7 @@ import { AuthComponent } from './auth.component';
 import { ComponentsModule } from 'src/components/components.modules'
 import { RouterModule } from '@angular/router';
 import {DynaFormBuilder} from 'src/dyna-form/dyna-form.builder'
+import { AuthController } from 'src/api/auth.controller';
 
 @NgModule({
   declarations: [AuthComponent],
@@ -14,6 +15,6 @@ import {DynaFormBuilder} from 'src/dyna-form/dyna-form.builder'
     ComponentsModule,
     RouterModule.forChild([{ path: '', component: AuthComponent}])
   ],
-  providers:[DynaFormBuilder]
+  providers:[DynaFormBuilder, AuthController]
 })
 export class AuthModule { }

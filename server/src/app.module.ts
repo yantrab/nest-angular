@@ -6,7 +6,7 @@ import { DBService } from 'services/db.service';
 
 @Module({
   imports: [AuthModule, AdminModule],
-  providers:[DBService]
+  providers: [DBService],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer): void {

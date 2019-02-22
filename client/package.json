@@ -5,6 +5,11 @@
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
+    "build:prod": "ng build",
+    "build:prod:cordova": "ng build --prod --base-href . --output-path ./CordovaMobileApp/www/",
+    "cordova:init": "cordova create CordovaMobileApp com.acme.app CordovaMobileApp",
+    "cordova:build": "npm run cordova:init&&npm run build:prod:cordova",
+    "cordova:run:browser": "cd CordovaMobileApp&&cordova platform add browser&&cordova run browser",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
