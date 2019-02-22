@@ -1,7 +1,7 @@
 import { MongoClient, connect, Db, Collection } from 'mongodb';
 import { Entity, EntityWithoutGetters } from 'shared';
 import { Injectable } from '@nestjs/common';
-import {ReplaySubject} from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 const url = 'mongodb://localhost:27017';
 
 @Injectable()
@@ -21,9 +21,10 @@ export class DBService {
     }
 }
 
+// tslint:disable-next-line: max-classes-per-file
 export class Repository<T extends Entity> {
     constructor(public collection: Collection<Partial<EntityWithoutGetters<T>>>) { }
     saveOrUpdate(entity: Partial<EntityWithoutGetters<T>>) {
-        this.collection.updateOne({_id: entity._id}, {$set: entity}, {upsert: true});
+        this.collection.updateOne({ _id: entity['_id'] }, { $set: entity }, { upsert: true });
     }
 }

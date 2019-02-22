@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
+    "start": "ng serve --proxy-config proxy.conf.json --open",
+    "build": "ng build --watch",
     "build:prod": "ng build",
     "build:prod:cordova": "ng build --prod --base-href . --output-path ./CordovaMobileApp/www/",
     "cordova:init": "cordova create CordovaMobileApp com.acme.app CordovaMobileApp",
