@@ -4,10 +4,18 @@
 This is a repo for a starter appliation for a Single Page MEAN Stack application
 includes nest js + angular 7 + angular material + client api generator.
 
-## Installation 
+### Installation 
 ```sh
+git clone https://github.com/yantrab/nest-angular.git
+cd .\nest-angular
 npm i
 ```
+### Run debug
+```sh
+npm run build-client
+npm run debug-server
+```
+Hit F5 and select the process
 
 ## client api generator
 #### server controller:
@@ -28,6 +36,15 @@ export class AuthController {
 ```sh
 npm run gen-client
 ```
+
+## Cordova
+```
+cd client
+npm run cordova:init
+npm run build:prod:cordova
+npm run cordova:run:browser
+```
+
 #### result:
 ```typescript
 export class AuthController {
@@ -87,12 +104,6 @@ just use [validation pipe](https://docs.nestjs.com/techniques/validation)
     this.dynaFB.buildFormFromClass(LoginRequest).then(form => this.form = form);
   }
   ```
-
-## Debug with vscode
-```sh
-npm run debug-server
-```
-Hit F5 and select the process
 
 ## Future
 -- Client generator with full types.
