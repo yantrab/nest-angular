@@ -36,25 +36,25 @@ export class AuthController {
 ```sh
 npm run gen-client
 ```
-
+#### result:
+```typescript
+@Injectable()
+export class AuthController {
+    async login(user: LoginRequest): Promise<User> {
+        return new Promise((resolve) => this.api.post('rest/auth/login',user).subscribe((data:any) => resolve(plainToClass(User,<User>data))))
+    }
+    async getUserAuthenticated(): Promise<{ user: User }> {
+        return new Promise((resolve) => this.api.get('rest/auth/getUserAuthenticated').subscribe((data:any) => resolve(data)))
+    }
+    constructor(private readonly api: APIService) {}
+}
+```
 ## Cordova
 ```
 cd client
 npm run cordova:init
 npm run build:prod:cordova
 npm run cordova:run:browser
-```
-
-#### result:
-```typescript
-export class AuthController {
-    async login(user: LoginRequest): Promise<User> {
-        return new Promise((resolve) => post('rest/auth/login',user).then((data:any) => resolve(plainToClass(User,<User>data))))
-    }
-    async getUserAuthenticated():Promise<{user:User}>{
-        return new Promise((resolve) => get('rest/auth/getUserAuthenticated').then((data:any) => resolve(data)))
-    }
-}
 ```
 
 #### Extend service with api
