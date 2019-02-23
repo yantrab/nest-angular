@@ -1,14 +1,15 @@
-<div id="login-page" [dir]='dir' >
+<div id="login-page" [dir]='i18nService.dir'>
   <div class="login-main center">
-      <a   *ngIf="language == 'en'" (click)="language='he'">he</a>
-      <a  *ngIf="language == 'he'" (click)="language='en'">en</a>
-      <div class="login-logo"(click)="language='he'">
-        <img src="favicon.ico" /> 
-      </div>
-      <form autocomplete="off" *ngIf="form && dic">
-        <p-text-box [form]="form.controls['email']" name='email' [placeholder]='dic.loginPage.email'></p-text-box>
-        <p-text-box [form]="form.controls['password']" name='password' [placeholder]='dic.loginPage.password'>></p-text-box>
-        <button (click)="login($event)" mat-raised-button color="primary">{{dic.loginPage.login}}</button>
-      </form>
+    <a *ngIf="i18nService.language == 'en'" (click)="i18nService.language='he'">he</a>
+    <a *ngIf="i18nService.language == 'he'" (click)="i18nService.language='en'">en</a>
+    <div class="login-logo">
+      <img src="favicon.ico" />
+    </div>
+    <form autocomplete="off" *ngIf="form && dic">
+      <p-text-box [form]="form.controls['email']" name='email' [placeholder]='dic.loginPage.email'></p-text-box>
+      <p-text-box [form]="form.controls['password']" name='password' [placeholder]='dic.loginPage.password'>>
+      </p-text-box>
+      <button (click)="login($event)" mat-raised-button color="primary">{{dic.loginPage.login}}</button>
+    </form>
   </div>
 </div>

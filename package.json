@@ -9,8 +9,8 @@
     "install": "npm run install-client&&npm run install-server&&npm run gen-client",
     "gen-client": "ts-node ./generator",
     "debug-server": "cd server&&npm run start:debug",
-    "serve-client":"cd client&&npm run start",
-    "build-client":"cd client&&npm run build",
+    "serve-client": "cd client&&npm run start",
+    "build-client": "cd client&&npm run build",
     "build:client:cordova": "cd client&& npm run build:cordova"
   },
   "author": "",
@@ -23,6 +23,7 @@
     "typescript": "^3.3.1"
   },
   "dependencies": {
+    "chai": "^4.2.0",
     "class-transformer": "^0.2.0",
     "class-validator": "^0.9.1"
   }

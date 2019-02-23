@@ -4,16 +4,22 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginRequest } from 'shared'
 import { DynaFormBuilder, validateAllFields } from 'src/dyna-form/dyna-form.builder';
-import { BaseComponent } from '../baseComponent';
+import { I18nService } from '../shared/services/i18n.service';
+import { I18nLoginPage } from 'src/api/i18n/login.i18n';
+// import { BaseComponent } from '../baseComponent';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent extends BaseComponent {
+export class AuthComponent {//extends BaseComponent {
   form: FormGroup;
-  constructor(private router: Router, private dynaFB: DynaFormBuilder, private authService: AuthService) {
-    super()
+  dic: I18nLoginPage;
+  constructor(private router: Router,
+    private dynaFB: DynaFormBuilder,
+    private authService: AuthService,
+    public i18nService: I18nService) {
+    this.i18nService.dic.subscribe(result => this.dic = result as any)
     this.dynaFB.buildFormFromClass(LoginRequest).then(form => this.form = form);
   }
 

@@ -57,16 +57,6 @@ npm run build:prod:cordova
 npm run cordova:run:browser
 ```
 
-#### Extend service with api
-```typescript
-import { AuthController } from "src/api/auth.controller";
-import { Injectable } from "@angular/core";
-
-@Injectable()
-export class AuthService extends AuthController{
-}
-```
-
 ## class-transformer
 #### User class
 ```typescript
