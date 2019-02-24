@@ -4,18 +4,10 @@ import { UserService } from '../services/user.service';
 import { LocalStrategy } from './passport';
 import { ROUTE_PREFIX } from 'shared';
 import { authenticate } from 'passport';
-import { RepositoryFactory } from 'services/repo';
-import { MongoClient } from 'mongodb';
-//import { DBService } from 'services/db.service';
 
 @Module({
   controllers: [AuthController],
-  providers: [UserService, LocalStrategy,
-    // {
-    //   provide: 'MONGO_CONNECTION',
-    //   useFactory: async () => await new MongoClient('mongodb://localhost:27017').connect(),
-    // }, RepositoryFactory
-  ]
+  providers: [UserService, LocalStrategy]
 })
 export class AuthModule {
   configure(consumer: MiddlewareConsumer): void {
