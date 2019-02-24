@@ -11,7 +11,8 @@
     "debug-server": "cd server&&npm run start:debug",
     "serve-client": "cd client&&npm run start",
     "build-client": "cd client&&npm run build",
-    "build:client:cordova": "cd client&& npm run build:cordova"
+    "build:client:cordova": "cd client&& npm run build:cordova",
+    "gen-uml": "tsuml --glob ./shared/**/*.ts"
   },
   "author": "",
   "license": "ISC",
