@@ -12,7 +12,7 @@ npm i
 ```
 ### Run debug
 ```sh
-npm run build-client
+npm run serve-client
 npm run debug-server
 ```
 Hit F5 and select the process
