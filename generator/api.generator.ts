@@ -1,17 +1,19 @@
 import { Project , Scope} from "ts-morph";
 import { writeFileSync, mkdirSync } from 'fs'
-import * as config from './config'
+import * as defualtConfig from './config'
 const sharedFolder = '../shared'
-
-export const startGenerateClientApi = () => {
+import {resolve} from 'path'
+export const startGenerateClientApi = (config = defualtConfig) => {
+    const clientPath = resolve(config.clientPath)
+    const serverPath = resolve(config.serverPath)
     import(sharedFolder).then(models => {
 
         // Create the client folder with http service file
-        mkdirSync(config.clientPath, { recursive: true });
-        writeFileSync(config.clientPath + '/http.service.ts', config.httpServiceTemplate);
+        mkdirSync(clientPath, { recursive: true });
+        writeFileSync(clientPath + '/http.service.ts', config.httpServiceTemplate);
 
         const project = new Project();
-        const files = project.addExistingSourceFiles("./server/src/**/*controller.ts");
+        const files = project.addExistingSourceFiles(serverPath + "/**/*controller.ts");
 
         files.forEach(file => {
             const c = file.getClasses()[0];

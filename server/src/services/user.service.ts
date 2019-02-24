@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { User, Role, AddUserDTO } from 'shared';
-//import { DBService, Repository } from './db.service';
 import { Repository, RepositoryFactory } from 'mongo-nest'
 import { comparePassword, cryptPassword } from './crypt';
 @Injectable()
@@ -22,5 +21,4 @@ export class UserService {
         user.password = await cryptPassword(user.password);
         this.userRepo.saveOrUpdate(user);
     }
-
 }
