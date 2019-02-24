@@ -1,7 +1,9 @@
-import { MongoClient, connect, Db, Collection } from 'mongodb';
+import { MongoClient, Collection } from 'mongodb';
 import { Entity, EntityWithoutGetters } from 'shared';
+
 import { Injectable } from '@nestjs/common';
 import { ReplaySubject } from 'rxjs';
+import { log } from 'util';
 const url = 'mongodb://localhost:27017';
 
 @Injectable()
@@ -12,8 +14,8 @@ export class DBService {
         new MongoClient(url).connect().then(connection => {
             this.connection = connection;
             this.getConnection.next(this);
-            console.log('Connected successfully to server');
-        }, console.log);
+            log('Connected successfully to server');
+        }, log);
     }
 
     getRepository<T extends Entity>(entity: { new(): T; }, db: string) {
