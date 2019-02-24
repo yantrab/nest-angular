@@ -24,9 +24,8 @@
     "typescript": "^3.3.1"
   },
   "dependencies": {
-    "chai": "^4.2.0",
     "class-transformer": "^0.2.0",
     "class-validator": "^0.9.1",
-    "nest-client-generator": "0.0.15"
+    "nest-client-generator": "0.0.16"
   }
 }
