@@ -24,7 +24,7 @@ export class MongoRepoModule {
     static forRoot(url: string) {
         const connectionProvider = {
             provide: 'MONGO_CONNECTION',
-            useFactory: async () => await new MongoClient(url).connect(),
+            useFactory: async () => await new MongoClient(url, { useNewUrlParser: true }).connect(),
         };
         return {
             module: MongoRepoModule,
@@ -42,7 +42,7 @@ export class MongoRepoModule {
 export class Repository<T extends Entity> {
     constructor(public collection: Collection<Partial<EntityWithoutGetters<T>>>) { }
     saveOrUpdate(entity: Partial<EntityWithoutGetters<T>>) {
-        this.collection.updateOne({ _id: entity['_id'] }, { $set: entity }, { upsert: true });
+        this.collection.updateOne({ _id: (entity as T)._id}, { $set: entity }, { upsert: true });
     }
 }
 
