@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { User, Role, AddUserDTO } from 'shared';
-import { Repository, RepositoryFactory } from 'mongo-nest'
+import { Repository, RepositoryFactory } from 'mongo-nest';
 import { comparePassword, cryptPassword } from './crypt';
 @Injectable()
 export class UserService {

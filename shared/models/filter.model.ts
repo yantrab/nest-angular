@@ -5,7 +5,7 @@ export abstract class Filter extends Poly {
     isActive?: boolean;
     selected?: Entity[] | Entity;
     placeholder?: string;
-    constructor(filter:Filter){
+    constructor(filter:Partial<Filter>){
         super()
         Object.assign(this,filter)
     }

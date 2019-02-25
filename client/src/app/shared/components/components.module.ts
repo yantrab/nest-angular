@@ -27,7 +27,8 @@ import { FilterComponent } from './filters/filter/filter.component';
     exports: [
         TextBoxComponent,
         DropdownComponent,
-        FlexLayoutModule
+        FlexLayoutModule,
+        FilterComponent
     ]
 })
 export class ComponentsModule { }
