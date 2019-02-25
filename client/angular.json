@@ -15,7 +15,7 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "angular-builder-custom-terser-options:browser-custom-terser",
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
@@ -33,6 +33,9 @@
           },
           "configurations": {
             "production": {
+              "terserOptions": {
+                "keep_classnames": true
+              },
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -59,7 +62,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "angular-builder-custom-terser-options:dev-server-custom-terser",
           "options": {
             "browserTarget": "Angify:build"
           },

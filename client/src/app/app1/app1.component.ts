@@ -18,7 +18,11 @@ export class App1Component {
   constructor() {
     this.filter1 =
       new CheckboxFilter({ options: [{ _id: '1', name: 'name1' }, { _id: '2', name: 'name2' }], selected: { _id: '2', name: 'name2' } });
+
+    console.log(this.filter1);
     this.filter2 =
       new DropdownFilter({ options: [{ _id: '1', name: 'name1' }, { _id: '2', name: 'name2' }], selected: { _id: '2', name: 'name2' } });
+    console.log(this.filter2);
+
   }
 }
