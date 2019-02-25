@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
-import { ComponentsModule } from 'src/app/shared/components/components.modules'
+import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { RouterModule } from '@angular/router';
-import { DynaFormBuilder } from 'src/dyna-form/dyna-form.builder'
+import { DynaFormBuilder } from 'src/dyna-form/dyna-form.builder';
 import { AuthController } from 'src/api/auth.controller';
 import { I18nService } from '../shared/services/i18n.service';
 

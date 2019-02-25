@@ -6,9 +6,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { Guard } from './guard';
 import { Role } from 'shared';
 import { AuthService } from './auth/auth.service';
-import { InterceptorsService } from './shared/services/interceptors.service'
+import { InterceptorsService } from './shared/services/interceptors.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIService } from 'src/api/http.service';
+
 @Component({
   selector: 'p-root',
   template: '<router-outlet></router-outlet>'
@@ -28,7 +29,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [BrowserModule, BrowserAnimationsModule, RouterModule.forRoot(routes), HttpClientModule],
   bootstrap: [AppComponent],

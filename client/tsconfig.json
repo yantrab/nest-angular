@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "jsx": "preserve",
+    "jsxFactory": "createElement",
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
