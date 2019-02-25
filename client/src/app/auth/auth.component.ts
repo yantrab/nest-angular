@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup} from '@angular/forms';
 import { LoginRequest } from 'shared'
 import { DynaFormBuilder, validateAllFields } from 'src/dyna-form/dyna-form.builder';
 import { I18nService } from '../shared/services/i18n.service';
-import { I18nLoginPage } from 'src/api/i18n/login.i18n';
-// import { BaseComponent } from '../baseComponent';
+import { I18nRootObject } from 'src/api/i18n/login.i18n';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -14,7 +13,7 @@ import { I18nLoginPage } from 'src/api/i18n/login.i18n';
 })
 export class AuthComponent {//extends BaseComponent {
   form: FormGroup;
-  dic: I18nLoginPage;
+  dic: I18nRootObject;
   constructor(private router: Router,
     private dynaFB: DynaFormBuilder,
     private authService: AuthService,

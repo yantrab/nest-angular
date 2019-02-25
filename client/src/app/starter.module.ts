@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { Guard } from './guard';
 import { Role } from 'shared';
 import { AuthService } from './auth/auth.service';
-import {InterceptorsService} from './shared/services/interceptors.service'
+import { InterceptorsService } from './shared/services/interceptors.service'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIService } from 'src/api/http.service';
 @Component({
@@ -32,7 +32,7 @@ const routes: Routes = [
   ],
   imports: [BrowserModule, BrowserAnimationsModule, RouterModule.forRoot(routes), HttpClientModule],
   bootstrap: [AppComponent],
-  providers: [Guard, AuthService,APIService,
+  providers: [Guard, AuthService, APIService,
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorsService, multi: true }]
 })
 export class AppModule { }

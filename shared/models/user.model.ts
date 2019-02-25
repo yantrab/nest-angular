@@ -1,4 +1,4 @@
-import {Length, IsEmail, IsNotEmpty} from 'class-validator';
+import { Length, IsEmail, IsNotEmpty } from 'class-validator';
 import { Entity } from './Entity';
 
 export enum Role {
