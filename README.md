@@ -95,7 +95,7 @@ just use [validation pipe](https://docs.nestjs.com/techniques/validation)
   }
 ```
 
-##polymorphism
+## polymorphism
 By inheritance from Poly class  you can do the next thing:
 
 ```typescript
