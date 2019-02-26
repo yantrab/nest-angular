@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
-import { FormGroup} from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { LoginRequest } from 'shared'
 import { DynaFormBuilder, validateAllFields } from 'src/dyna-form/dyna-form.builder';
 import { I18nService } from '../shared/services/i18n.service';

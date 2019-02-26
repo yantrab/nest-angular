@@ -4,12 +4,12 @@ import { CheckboxFilter, DropdownFilter } from 'shared';
 @Component({
   selector: 'p-filter',
   template: `
-  <p-checkbox *ngIf="filter.kind == filterTypes.CheckboxFilter.name" [settings]="filter"></p-checkbox>
-  <p-dropdown *ngIf="filter.kind == filterTypes.DropdownFilter.name" [settings]="filter"></p-dropdown>
+  <p-checkbox *ngIf="filter.kind == filterTypes.checkboxFilter" [settings]="filter"></p-checkbox>
+  <p-dropdown *ngIf="filter.kind == filterTypes.dropdownFilter" [settings]="filter"></p-dropdown>
   `,
 })
 export class FilterComponent {
   @Input()
   filter: Filter;
-  filterTypes = { CheckboxFilter, DropdownFilter };
+  filterTypes = { checkboxFilter: CheckboxFilter.name, dropdownFilter: DropdownFilter.name };
 }
