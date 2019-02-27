@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { App2Component } from './app1.component';
+import { WebRTCComponent } from './webRTC.component';
 import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
-    App2Component
+    WebRTCComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild([{ path: '', component: App2Component}])
+    RouterModule.forChild([{ path: '', component: WebRTCComponent}])
   ],
 })
 export class App2Module { }
