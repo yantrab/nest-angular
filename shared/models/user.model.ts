@@ -24,7 +24,7 @@ export class AddUserDTO extends User {
 
 export class LoginRequest {
     @IsEmail()
-    email = 'asdf';
+    email:string;
 
     @Length(5, 10)
     password: string;

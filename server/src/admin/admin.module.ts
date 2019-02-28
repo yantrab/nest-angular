@@ -1,8 +1,8 @@
-import { Module, CanActivate, ExecutionContext, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
+import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { AdminController } from './admin.controller';
 import { AdminService } from './admin.service';
-import { APP_GUARD } from '@nestjs/core';
-import {GuardMiddleware} from '../middlewares/guard.middleware';
+import { GuardMiddleware } from '../middlewares/guard.middleware';
+import { SuppressMiddleware } from '../middlewares/suppress.middleware';
 import { Role } from 'shared';
 @Module({
   controllers: [AdminController],
@@ -12,7 +12,14 @@ export class AdminModule {
   configure(consumer: MiddlewareConsumer): void {
     consumer.apply(new GuardMiddleware([Role.Admin]).resolve).forRoutes(
       {
-        path: '/admin',
+        path: '/rest/admin',
+        method: RequestMethod.ALL,
+      },
+    );
+
+    consumer.apply(new SuppressMiddleware().resolve).forRoutes(
+      {
+        path: '/rest/admin/suppress',
         method: RequestMethod.ALL,
       },
     );
