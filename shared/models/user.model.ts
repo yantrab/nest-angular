@@ -1,5 +1,6 @@
-import { Length, IsEmail, IsNotEmpty } from 'class-validator';
+import { Length, IsEmail, IsNumber, IsOptional, IsString, IsBoolean, IsDate } from 'class-validator';
 import { Entity } from './Entity';
+import { isString } from 'util';
 
 export enum Role {
     Admin,
@@ -29,3 +30,22 @@ export class LoginRequest {
     @Length(5, 10)
     password: string;
 }
+
+// export class o {
+//     email: string;
+//     num: number;
+// }
+
+
+// enum Color { Red, Green, Blue }
+// export class LoginRequest {
+//     email: string;
+//     num: number;
+//     numArray:number[];
+//     color: Color;
+//     bool: boolean;
+//     data: Date;
+//     obj:o;
+//     objArr:o[]
+//     optional?:string;
+// }

@@ -27,6 +27,6 @@
     "class-transformer": "^0.2.0",
     "class-validator": "^0.9.1",
     "nest-client-generator": "0.0.16",
-    "suppress-js": "^1.0.4"
+    "suppress-js": "^1.0.6"
   }
 }

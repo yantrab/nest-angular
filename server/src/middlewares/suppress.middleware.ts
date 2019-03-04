@@ -7,7 +7,8 @@ export class SuppressMiddleware {
     resolve = (req, res: Response, next) => {
         const json = res.json;
         res.json = (result) => {
-            return json.call(res, suppress(result));
+            const suppressResult = suppress(result, 'id');
+            return json.call(res, suppressResult);
         };
         return next();
     }

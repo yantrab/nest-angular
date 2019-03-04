@@ -10,6 +10,6 @@
       "lib": ["es2018"],
       "outDir": "./dist"
     },
-    "files": ["./shared/index.ts"]
+    "files": ["./shared/index.ts", "./generator/index.ts"]
   }
    
