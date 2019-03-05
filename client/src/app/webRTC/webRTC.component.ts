@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WebRTCService } from './webRTC.service';
+
 @Component({
   selector: 'app2-root',
   template: `
@@ -13,6 +15,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['webRTC.component.scss']
 })
 export class WebRTCComponent implements OnInit {
+  peerConnection: RTCPeerConnection;
+  constructor(private socket: WebRTCService) {
+    this.peerConnection = new RTCPeerConnection();
+    this.peerConnection.createOffer({ offerToReceiveVideo: true }).th;
+  }
   localStream: MediaStream;
   ngOnInit(): void {
     this.streamLocal();
@@ -25,7 +32,6 @@ export class WebRTCComponent implements OnInit {
       navigator.mediaDevices.getUserMedia({
         audio: true, video: true
       });
+    this.socket.sendStream(this.localStream);
   }
-
-
 }

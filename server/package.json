@@ -24,6 +24,7 @@
     "@nestjs/common": "^5.4.0",
     "@nestjs/core": "^5.4.0",
     "@nestjs/passport": "^5.1.0",
+    "@nestjs/websockets": "^5.7.3",
     "@types/bcrypt": "^3.0.0",
     "@types/mongodb": "^3.1.19",
     "@types/passport-local": "^1.0.33",

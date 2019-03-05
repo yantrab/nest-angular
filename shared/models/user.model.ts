@@ -1,6 +1,5 @@
 import { Length, IsEmail, IsNumber, IsOptional, IsString, IsBoolean, IsDate } from 'class-validator';
 import { Entity } from './Entity';
-import { isString } from 'util';
 
 export enum Role {
     Admin,

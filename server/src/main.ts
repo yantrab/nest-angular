@@ -15,6 +15,7 @@ async function bootstrap() {
     secret: 'keyboard cat',
     resave: true,
     saveUninitialized: true,
+    proxy: true,
   }));
   app.use(passport.initialize());
   app.use(passport.session());
