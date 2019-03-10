@@ -1,4 +1,4 @@
-import { Length, IsEmail, IsNumber, IsOptional, IsString, IsBoolean, IsDate } from 'class-validator';
+import { Length, IsEmail, IsNumber, IsOptional, IsString, IsBoolean, IsDate, IsEnum } from 'class-validator';
 import { Entity } from './Entity';
 
 export enum Role {
@@ -8,24 +8,33 @@ export enum Role {
 }
 
 export class User extends Entity {
+    @IsOptional()
+    @IsString()
     fName?: string;
+    @IsOptional()
+    @IsString()
     lName?: string;
+    @IsEnum(Role,{ each: true })
     roles: Role[];
     get FullName() { return this.fName + ' ' + this.lName; }
 }
 
 export class AddUserDTO extends User {
+    @IsString()
     @IsEmail()
     _id: string;
 
+    @IsString()
     @Length(5, 10)
     password: string;
 }
 
 export class LoginRequest {
+    @IsString()
     @IsEmail()
     email:string;
 
+    @IsString()
     @Length(5, 10)
     password: string;
 }
