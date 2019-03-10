@@ -13,11 +13,11 @@ export abstract class Filter extends Poly {
     @IsOptional()
     @IsString()
     placeholder?: string;
-    
     constructor(filter?: Partial<Filter>) {
-        super()
-        if (filter)
+        super();
+        if (filter) {
             Object.assign(this, filter)
+        }
     }
 }
 

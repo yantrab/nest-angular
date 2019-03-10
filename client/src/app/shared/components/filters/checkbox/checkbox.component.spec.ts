@@ -20,7 +20,7 @@ describe('CheckboxComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CheckboxComponent);
     component = fixture.componentInstance;
-    component.settings = { options: [{ _id: '1', name: 'op1' }, { _id: '2', name: 'op2' }, { _id: '3', name: 'op3' }] };
+    component.settings = { _id: '1', options: [{ _id: '1', name: 'op1' }, { _id: '2', name: 'op2' }, { _id: '3', name: 'op3' }] };
     fixture.detectChanges();
   });
 

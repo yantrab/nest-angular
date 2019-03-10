@@ -8,6 +8,7 @@ import { CheckboxComponent } from './filters/checkbox/checkbox.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FilterGroupComponent } from './filters/filter-group/filter-group.component';
 import { FilterComponent } from './filters/filter/filter.component';
+import { KeyboardComponent } from './keyboard/keyboard.component';
 
 @NgModule({
     imports: [
@@ -23,12 +24,14 @@ import { FilterComponent } from './filters/filter/filter.component';
         CheckboxComponent,
         FilterGroupComponent,
         FilterComponent,
+        KeyboardComponent,
     ],
     exports: [
         TextBoxComponent,
         DropdownComponent,
         FlexLayoutModule,
-        FilterComponent
+        FilterComponent,
+        KeyboardComponent
     ]
 })
 export class ComponentsModule { }

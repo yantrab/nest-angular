@@ -18,7 +18,7 @@ export class WebRTCComponent implements OnInit {
   peerConnection: RTCPeerConnection;
   constructor(private socket: WebRTCService) {
     this.peerConnection = new RTCPeerConnection();
-    this.peerConnection.createOffer({ offerToReceiveVideo: true }).th;
+    // this.peerConnection.createOffer({ offerToReceiveVideo: true }).th;
   }
   localStream: MediaStream;
   ngOnInit(): void {

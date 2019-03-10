@@ -1,4 +1,5 @@
 {
+    "extends": ["../../tslint.json"],
     "rulesDirectory": ["tslint-class-validator-rule"],
     "rules": {
         "no-property-without-decorator":true
