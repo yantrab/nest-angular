@@ -10,7 +10,7 @@
     "cordova:init": "cordova create CordovaMobileApp com.yantrab.app CordovaMobileApp",
     "cordova:build": "npm run cordova:init&&npm run build:prod:cordova",
     "cordova:run:browser": "cd CordovaMobileApp&&cordova platform add browser&&cordova run browser",
-    "cordiva:add:android": "cordova platform add android",
+    "cordiva:add:android": "cd CordovaMobileApp&&cordova platform add android",
     "cordova:run:android": "cd CordovaMobileApp&&cordova plugin add cordovarduino&&cordova run android",
     "test": "ng test",
     "lint": "ng lint",
