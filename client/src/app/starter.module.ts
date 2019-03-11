@@ -9,18 +9,19 @@ import { AuthService } from './auth/auth.service';
 import { InterceptorsService } from './shared/services/interceptors.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIService } from 'src/api/http.service';
-
+const isCordovaApp = Object(window).cordova != null;
 @Component({
   selector: 'p-root',
-  template: '<router-outlet></router-outlet>'
+  template: `<router-outlet></router-outlet>`
 })
 export class AppComponent {
   title = 'nest-angular';
 }
 
 const routes: Routes = [
-  { path: '', redirectTo: 'intercom', pathMatch: 'full' },
-  { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard], data: { roles: [Role.Admin, Role.app1] } },
+  { path: '', redirectTo: 'login/app1', pathMatch: 'full' },
+  { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
+  // { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard], data: { roles: [Role.Admin, Role.app1] } },
   {
     path: 'webRTC', loadChildren: 'src/app/webRTC/webRTC.module#App2Module',
     canActivate: [Guard], data: { roles: [Role.Admin, Role.app2] }
@@ -39,8 +40,7 @@ const routes: Routes = [
   ],
   imports: [BrowserModule,
     BrowserAnimationsModule,
-    // useHash for cordova
-    RouterModule.forRoot(routes, { useHash: true}),
+    RouterModule.forRoot(routes, { useHash: isCordovaApp }),
     HttpClientModule],
   bootstrap: [AppComponent],
   providers: [Guard, AuthService, APIService,

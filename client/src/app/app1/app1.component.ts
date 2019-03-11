@@ -1,28 +1,20 @@
 import { Component } from '@angular/core';
-import { Filter, CheckboxFilter } from 'shared';
-import { DropdownFilter } from '../../../../shared';
-
+import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
 @Component({
   selector: 'app1-root',
   template: `
-  <div fxLayout='column' fxFlex='200px'>
-    <p-filter [filter]="filter1"></p-filter>
-    <p-filter [filter]="filter2"></p-filter>
-  <div>
+  <p-topbar [model]="topbarModel"></p-topbar>
+  <router-outlet ></router-outlet>
   `,
   styles: []
 })
 export class App1Component {
-  filter1: Filter;
-  filter2: Filter;
-  constructor() {
-    this.filter1 =
-      new CheckboxFilter({ options: [{ _id: '1', name: 'name1' }, { _id: '2', name: 'name2' }], selected: { _id: '2', name: 'name2' } });
-
-    console.log(this.filter1);
-    this.filter2 =
-      new DropdownFilter({ options: [{ _id: '1', name: 'name1' }, { _id: '2', name: 'name2' }], selected: { _id: '2', name: 'name2' } });
-    console.log(this.filter2);
-
-  }
+  topbarModel: ITopBarModel = {
+    logoutTitle: 'logout',
+    routerLinks: [
+      { link: 'poly', title: 'linkToPoly' },
+      { link: 'dumy', title: 'linkToDumy' },
+    ],
+    menuItems: []
+  };
 }

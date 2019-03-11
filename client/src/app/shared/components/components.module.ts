@@ -9,6 +9,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FilterGroupComponent } from './filters/filter-group/filter-group.component';
 import { FilterComponent } from './filters/filter/filter.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
+import { TopbarComponent } from './topbar/topbar.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [
@@ -17,6 +20,7 @@ import { KeyboardComponent } from './keyboard/keyboard.component';
         materialModule,
         CommonModule,
         FlexLayoutModule,
+        RouterModule
     ],
     declarations: [
         TextBoxComponent,
@@ -25,13 +29,16 @@ import { KeyboardComponent } from './keyboard/keyboard.component';
         FilterGroupComponent,
         FilterComponent,
         KeyboardComponent,
+        TopbarComponent,
+        NavMenuComponent,
     ],
     exports: [
         TextBoxComponent,
         DropdownComponent,
         FlexLayoutModule,
         FilterComponent,
-        KeyboardComponent
+        KeyboardComponent,
+        TopbarComponent
     ]
 })
 export class ComponentsModule { }

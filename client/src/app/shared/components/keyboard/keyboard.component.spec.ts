@@ -4,7 +4,7 @@ import { KeyboardComponent } from './keyboard.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { materialModule } from '../material/material.module';
 
-fdescribe('KeyboardComponent', () => {
+describe('KeyboardComponent', () => {
   let component: KeyboardComponent;
   let fixture: ComponentFixture<KeyboardComponent>;
 
@@ -21,7 +21,7 @@ fdescribe('KeyboardComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

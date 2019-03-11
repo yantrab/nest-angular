@@ -24,7 +24,7 @@ class TestHostComponent {
 
 
 
-fdescribe('FilterComponent', () => {
+describe('FilterComponent', () => {
   let component: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
 
@@ -42,7 +42,7 @@ fdescribe('FilterComponent', () => {
 
   });
 
-  fit('should create check box', () => {
+  it('should create check box', () => {
     component.filter =
       new CheckboxFilter({ options: [{ _id: '1', name: 'name1' }, { _id: '2', name: 'name2' }], selected: { _id: '2', name: 'name2' } });
     fixture.detectChanges();
@@ -53,7 +53,7 @@ fdescribe('FilterComponent', () => {
 
   });
 
-  fit('should create dropdown box', () => {
+  it('should create dropdown box', () => {
     component.filter =
       new DropdownFilter({ options: [{ _id: '1', name: 'name1' }, { _id: '2', name: 'name2' }], selected: { _id: '2', name: 'name2' } });
     fixture.detectChanges();
