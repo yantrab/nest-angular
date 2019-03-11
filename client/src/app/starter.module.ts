@@ -37,7 +37,11 @@ const routes: Routes = [
   declarations: [
     AppComponent,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule, RouterModule.forRoot(routes), HttpClientModule],
+  imports: [BrowserModule,
+    BrowserAnimationsModule,
+    // useHash for cordova
+    RouterModule.forRoot(routes, { useHash: true}),
+    HttpClientModule],
   bootstrap: [AppComponent],
   providers: [Guard, AuthService, APIService,
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorsService, multi: true }]

@@ -14,18 +14,21 @@ export class IntercomComponent implements OnInit {
     serial.requestPermission(
       // if user grants permission
       () => {
+        this.errorCallback('requestPermission');
+
         // open serial port
         serial.open(
           { baudRate: 9600 },
           // if port is succesfuly opened
           () => {
+            this.errorCallback('serial.open');
             this.open = true;
             // register the read callback
             serial.registerReadCallback(
               function success(data) {
                 // decode the received message
                 const view = new Uint8Array(data);
-                console.log(view);
+                this.errorCallback(data);
               },
               // error attaching the callback
               this.errorCallback
