@@ -1,4 +1,4 @@
-import { Length, IsEmail, IsNumber, IsOptional, IsString, IsBoolean, IsDate, IsEnum } from 'class-validator';
+import { Length, IsEmail, IsOptional, IsString, IsEnum } from 'class-validator';
 import { Entity } from './Entity';
 
 export enum Role {
@@ -14,7 +14,7 @@ export class User extends Entity {
     @IsOptional()
     @IsString()
     lName?: string;
-    @IsEnum(Role,{ each: true })
+    @IsEnum(Role, { each: true })
     roles: Role[];
     get FullName() { return this.fName + ' ' + this.lName; }
 }
@@ -32,7 +32,7 @@ export class AddUserDTO extends User {
 export class LoginRequest {
     @IsString()
     @IsEmail()
-    email:string;
+    email: string;
 
     @IsString()
     @Length(5, 10)
@@ -43,7 +43,6 @@ export class LoginRequest {
 //     email: string;
 //     num: number;
 // }
-
 
 // enum Color { Red, Green, Blue }
 // export class LoginRequest {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Filter } from 'shared';
 import { CheckboxFilter, DropdownFilter } from 'shared';
 @Component({

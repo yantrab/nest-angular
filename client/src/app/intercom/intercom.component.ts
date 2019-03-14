@@ -10,32 +10,25 @@ export class IntercomComponent {
   open: boolean;
   lastRead = new Date();
   str = '';
-  constructor() {
-    setTimeout(() => this.openConnection(), 5000);
-    // this.onDeviceReady();
-    // document.addEventListener('deviceready', this.onDeviceReady, false);
-  }
-  openConnection(): void {
-    alert('openConnection');
+  ngOnInit(): void {
     serial.requestPermission({ driver: 'Ch34xSerialDriver' },
       // if user grants permission
-      function (successMessage) {
-        alert(successMessage);
+      () => {
         // open serial port
         serial.open(
           { baudRate: 9600 },
           // if port is succesfuly opened
-          // tslint:disable-next-line: no-shadowed-variable
-          function (successMessage) {
-            alert(successMessage);
+          () => {
+            this.open = true;
             // register the read callback
-            serial.registerReadCallback(
-              function (data) {
-                alert(data);
-              },
-              // error attaching the callback
-              this.errorCallback
-            );
+            // serial.registerReadCallback(
+            //   (data) => {
+            //     // decode the received message
+            //     const str = new TextDecoder('utf-8').decode(new Uint8Array(data));
+            //   },
+            //   // error attaching the callback
+            //   this.errorCallback
+            // );
           },
           // error opening the port
           this.errorCallback
@@ -53,10 +46,7 @@ export class IntercomComponent {
 
   onKeyPress(key: string) {
     console.log(key);
-    // if (!this.open) {
-    //   this.openConnection();
-    // }
-
-    serial.write(key.charCodeAt(0) + 'CR');
+    serial.write(key + '\r');
+    // setTimeout(() => serial.write('1' + '\r'), 1000)
   }
 }

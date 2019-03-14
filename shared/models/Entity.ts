@@ -22,5 +22,3 @@ export abstract class Poly extends Entity {
         this.kind = this.constructor.name;
     }
 }
-
-

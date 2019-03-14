@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '../shared/components/components.module';
 import { PolyComponent } from './poly/poly.component';
 import { DumyComponent } from './dumy/dumy.component';
+import { App1Controller } from 'src/api/app1.controller';
+
 @NgModule({
   declarations: [
     App1Component,
@@ -26,5 +28,6 @@ import { DumyComponent } from './dumy/dumy.component';
         },
       ])
   ],
+  providers: [App1Controller]
 })
 export class App1Module { }

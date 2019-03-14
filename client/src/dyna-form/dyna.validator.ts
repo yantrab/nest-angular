@@ -23,7 +23,7 @@ export class DynaValidator {
 
         PropertyUtils.setProperty(obj, controlName, transformedValue);
 
-        // TODO skipMissingProperties 
+        // TODO skipMissingProperties
         const valResult: ValidationError[] = validateSync(obj, { skipMissingProperties: false });
 
         if (valResult.length > 0) {
@@ -61,7 +61,7 @@ export class DynaValidator {
 
   private static getControlName(control: FormControl): string {
     let controlName: string = null;
-    const parent = control['parent'];
+    const parent = control.parent;
 
     if (parent instanceof FormGroup) {  // iterate only if parent is a FormGroup
       Object.keys(parent.controls).forEach((name) => {

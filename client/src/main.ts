@@ -11,7 +11,11 @@ if (environment.production) {
 
 // let onDeviceReady = () => {
 platformBrowserDynamic().bootstrapModule(AppModule)
+<<<<<<< HEAD
   .catch(err => console.error(err));
+=======
+    .catch(err => console.error(err));
+>>>>>>> 06f006fe554a7754c5152fc1d723d57544badfba
 // };
 // document.addEventListener('deviceready', onDeviceReady, false);
 

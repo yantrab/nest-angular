@@ -1,5 +1,5 @@
 export const dic = {
-    "loginPage": {
+    loginPage: {
         login: 'login', email: 'email', password: 'password'
     }
-}
+};

@@ -30,7 +30,7 @@ export class PropertyUtils {
         } else {
           curProp = {};
         }
-      };
+      }
       PropertyUtils.setProperty(obj[e] = curProp, prop, value);
     } else {
       obj[prop[0]] = value;

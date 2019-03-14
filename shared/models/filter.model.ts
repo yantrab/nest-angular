@@ -1,4 +1,4 @@
-import { Poly, Entity } from './Entity'
+import { Poly, Entity } from './Entity';
 import { ValidateNested, IsOptional, IsBoolean, IsString } from 'class-validator';
 export abstract class Filter extends Poly {
     @ValidateNested({ each: true })
@@ -6,9 +6,7 @@ export abstract class Filter extends Poly {
     @IsOptional()
     @IsBoolean()
     isMultiple?: boolean;
-    @IsOptional()
-    @IsBoolean()
-    isActive?: boolean;
+    @IsOptional() @IsBoolean() isActive?: boolean;
     selected?: Entity[] | Entity;
     @IsOptional()
     @IsString()
@@ -16,7 +14,7 @@ export abstract class Filter extends Poly {
     constructor(filter?: Partial<Filter>) {
         super();
         if (filter) {
-            Object.assign(this, filter)
+            Object.assign(this, filter);
         }
     }
 }

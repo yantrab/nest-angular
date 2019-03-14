@@ -1,20 +1,15 @@
 import { Component } from '@angular/core';
-import { Filter, CheckboxFilter, DropdownFilter } from 'shared';
+import { Filter } from 'shared';
+import { App1Controller } from 'src/api/app1.controller';
 
 @Component({
   selector: 'p-poly',
   templateUrl: 'poly.component.html'
 })
 export class PolyComponent {
-  filter1: Filter;
-  filter2: Filter;
-  constructor() {
-    this.filter1 =
-      new CheckboxFilter({ options: [{ _id: '1', name: 'name1' }, { _id: '2', name: 'name2' }], selected: { _id: '2', name: 'name2' } });
-
-    console.log(this.filter1);
-    this.filter2 =
-      new DropdownFilter({ options: [{ _id: '1', name: 'name1' }, { _id: '2', name: 'name2' }], selected: { _id: '2', name: 'name2' } });
-    console.log(this.filter2);
+  filters: Filter[];
+  constructor(private api: App1Controller) {
+    this.api.getUserFilters().then(filters => this.filters = filters);
+    this.api.getFunds().then(console.log);
   }
 }

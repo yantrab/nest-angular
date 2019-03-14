@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <script type="text/javascript">
+<<<<<<< HEAD
     function downloadJSAtOnload() {
       var isCordovaApp = Object(window).cordova != null;
       if (isCordovaApp) {
@@ -8,14 +9,23 @@
         element.src = "cordova.js";
         document.body.appendChild(element);
       }
+=======
+  function downloadJSAtOnload() {
+    var isCordovaApp = Object(window).cordova != null;
+    if (isCordovaApp) {
+      var element = document.createElement("script");
+      element.src = "cordova.js";
+      document.body.appendChild(element);
+>>>>>>> 06f006fe554a7754c5152fc1d723d57544badfba
     }
-    if (window.addEventListener)
-      window.addEventListener("load", downloadJSAtOnload, false);
-    else if (window.attachEvent)
-      window.attachEvent("onload", downloadJSAtOnload);
-    else window.onload = downloadJSAtOnload;
-  </script>
-  
+  }
+  if (window.addEventListener)
+    window.addEventListener("load", downloadJSAtOnload, false);
+  else if (window.attachEvent)
+    window.attachEvent("onload", downloadJSAtOnload);
+  else window.onload = downloadJSAtOnload;
+</script>
+
 <head>
   <meta charset="utf-8">
   <title>Angify</title>
@@ -36,3 +46,21 @@
 </body>
 
 </html>
+
+<!--<!DOCTYPE html>
+ <html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+    <body>
+        <p-root></p-root>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html> -->
