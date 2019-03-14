@@ -11,8 +11,6 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es5",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "typeRoots": [
       "node_modules/@types"
     ],
