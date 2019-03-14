@@ -3,12 +3,7 @@ import { Filter, CheckboxFilter, DropdownFilter } from 'shared';
 
 @Component({
   selector: 'p-poly',
-  template: `
-  <div fxLayout='column' fxFlex='200px'>
-    <p-filter [filter]="filter1"></p-filter>
-    <p-filter [filter]="filter2"></p-filter>
-  <div>
-`
+  templateUrl: 'poly.component.html'
 })
 export class PolyComponent {
   filter1: Filter;

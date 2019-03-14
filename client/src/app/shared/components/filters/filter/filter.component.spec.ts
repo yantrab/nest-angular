@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FilterComponent } from './filter.component';
-import { materialModule } from '../../material/material.module';
+import { MaterialModule } from '../../material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CheckboxFilter, DropdownFilter, Filter } from 'shared';
@@ -31,7 +31,7 @@ describe('FilterComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [FilterComponent, CheckboxComponent, DropdownComponent, TestHostComponent],
-      imports: [materialModule, BrowserAnimationsModule, FlexLayoutModule]
+      imports: [MaterialModule, BrowserAnimationsModule, FlexLayoutModule]
     })
       .compileComponents();
   }));

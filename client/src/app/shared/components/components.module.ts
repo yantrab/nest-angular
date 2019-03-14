@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextBoxComponent } from './text-box/text-box.component';
-import { materialModule } from './material/material.module';
+import { MaterialModule } from './material/material.module';
 import { CommonModule } from '@angular/common';
 import { DropdownComponent } from './filters/dropdown/dropdown.component';
 import { CheckboxComponent } from './filters/checkbox/checkbox.component';
@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
     imports: [
         FormsModule,
         ReactiveFormsModule,
-        materialModule,
+        MaterialModule,
         CommonModule,
         FlexLayoutModule,
         RouterModule
@@ -38,7 +38,8 @@ import { RouterModule } from '@angular/router';
         FlexLayoutModule,
         FilterComponent,
         KeyboardComponent,
-        TopbarComponent
+        TopbarComponent,
+        MaterialModule,
     ]
 })
 export class ComponentsModule { }

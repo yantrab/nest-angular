@@ -19,7 +19,7 @@ export class AppComponent {
 }
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login/app1', pathMatch: 'full' },
+  { path: '', redirectTo: 'intercom', pathMatch: 'full' },
   { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
   // { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard], data: { roles: [Role.Admin, Role.app1] } },
   {

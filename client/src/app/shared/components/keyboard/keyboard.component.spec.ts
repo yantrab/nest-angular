@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { KeyboardComponent } from './keyboard.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { materialModule } from '../material/material.module';
+import { MaterialModule } from '../material/material.module';
 
 describe('KeyboardComponent', () => {
   let component: KeyboardComponent;
@@ -10,7 +10,7 @@ describe('KeyboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [KeyboardComponent], imports: [materialModule]
+      declarations: [KeyboardComponent], imports: [MaterialModule]
     })
       .compileComponents();
   }));

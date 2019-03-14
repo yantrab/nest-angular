@@ -1,7 +1,7 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { TextBoxComponent } from './text-box.component';
 import { DebugElement } from '@angular/core';
-import { materialModule } from '../material/material.module'
+import { MaterialModule } from '../material/material.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -19,7 +19,7 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             declarations: [component],
             imports:
-                [materialModule,
+                [MaterialModule,
                     FormsModule,
                     ReactiveFormsModule,
                     CommonModule,

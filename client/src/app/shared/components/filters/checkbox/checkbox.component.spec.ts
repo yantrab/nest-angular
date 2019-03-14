@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CheckboxComponent } from './checkbox.component';
-import { materialModule } from '../../material/material.module';
+import { MaterialModule } from '../../material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -12,7 +12,7 @@ describe('CheckboxComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CheckboxComponent],
-      imports: [materialModule, BrowserAnimationsModule, FlexLayoutModule]
+      imports: [MaterialModule, BrowserAnimationsModule, FlexLayoutModule]
     })
       .compileComponents();
   }));

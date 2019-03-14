@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { PolyComponent } from './poly/poly.component';
 import { DumyComponent } from './dumy/dumy.component';
 
-fdescribe('App1Component', () => {
+describe('App1Component', () => {
   let component: App1Component;
   let fixture: ComponentFixture<App1Component>;
 
@@ -34,7 +34,7 @@ fdescribe('App1Component', () => {
     fixture.detectChanges();
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

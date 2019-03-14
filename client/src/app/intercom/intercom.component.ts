@@ -6,29 +6,32 @@ declare var serial;
   templateUrl: './intercom.component.html',
   styleUrls: ['./intercom.component.scss']
 })
-export class IntercomComponent implements OnInit {
+export class IntercomComponent {
   open: boolean;
   lastRead = new Date();
   str = '';
-  ngOnInit(): void {
-    serial.requestPermission(
+  constructor() {
+    setTimeout(() => this.openConnection(), 5000);
+    // this.onDeviceReady();
+    // document.addEventListener('deviceready', this.onDeviceReady, false);
+  }
+  openConnection(): void {
+    alert('openConnection');
+    serial.requestPermission({ driver: 'Ch34xSerialDriver' },
       // if user grants permission
-      () => {
-        this.errorCallback('requestPermission');
-
+      function (successMessage) {
+        alert(successMessage);
         // open serial port
         serial.open(
           { baudRate: 9600 },
           // if port is succesfuly opened
-          () => {
-            this.errorCallback('serial.open');
-            this.open = true;
+          // tslint:disable-next-line: no-shadowed-variable
+          function (successMessage) {
+            alert(successMessage);
             // register the read callback
             serial.registerReadCallback(
-              function success(data) {
-                // decode the received message
-                const view = new Uint8Array(data);
-                this.errorCallback(data);
+              function (data) {
+                alert(data);
               },
               // error attaching the callback
               this.errorCallback
@@ -41,6 +44,7 @@ export class IntercomComponent implements OnInit {
       // user does not grant permission
       this.errorCallback
     );
+
   }
 
   errorCallback(message) {
@@ -49,6 +53,10 @@ export class IntercomComponent implements OnInit {
 
   onKeyPress(key: string) {
     console.log(key);
+    // if (!this.open) {
+    //   this.openConnection();
+    // }
+
     serial.write(key.charCodeAt(0) + 'CR');
   }
 }
