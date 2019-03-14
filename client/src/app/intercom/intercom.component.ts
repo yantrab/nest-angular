@@ -11,28 +11,24 @@ export class IntercomComponent implements OnInit {
   lastRead = new Date();
   str = '';
   ngOnInit(): void {
-    serial.requestPermission(
+    serial.requestPermission({ driver: 'Ch34xSerialDriver' },
       // if user grants permission
       () => {
-        this.errorCallback('requestPermission');
-
         // open serial port
         serial.open(
           { baudRate: 9600 },
           // if port is succesfuly opened
           () => {
-            this.errorCallback('serial.open');
             this.open = true;
             // register the read callback
-            serial.registerReadCallback(
-              function success(data) {
-                // decode the received message
-                const view = new Uint8Array(data);
-                this.errorCallback(data);
-              },
-              // error attaching the callback
-              this.errorCallback
-            );
+            // serial.registerReadCallback(
+            //   (data) => {
+            //     // decode the received message
+            //     const str = new TextDecoder('utf-8').decode(new Uint8Array(data));
+            //   },
+            //   // error attaching the callback
+            //   this.errorCallback
+            // );
           },
           // error opening the port
           this.errorCallback
@@ -49,6 +45,7 @@ export class IntercomComponent implements OnInit {
 
   onKeyPress(key: string) {
     console.log(key);
-    serial.write(key.charCodeAt(0) + 'CR');
+    serial.write(key + '\r');
+    // setTimeout(() => serial.write('1' + '\r'), 1000)
   }
 }

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { DynaValidator } from './dyna.validator';
-import { validate } from 'class-validator'
+import { validate } from 'class-validator';
 
 @Injectable()
 export class DynaFormBuilder {
   constructor(public fb: FormBuilder) { }
 
-  public async buildFormFromClass(classConstructor: new () => Object): Promise<FormGroup> {
+  public async buildFormFromClass(classConstructor: new () => any): Promise<FormGroup> {
     const classInstance = new classConstructor();
 
     console.log('create form based on model: ' + (classInstance.constructor.name));
@@ -22,6 +22,7 @@ export class DynaFormBuilder {
     });
 
     const formInstance = this.fb.group(formControls);
+// tslint:disable-next-line: no-string-literal
     formInstance['formFields'] = formFieldList;
 
     return formInstance;
@@ -37,4 +38,4 @@ export const validateAllFields = (formGroup: FormGroup) => {
       this.validateAllFields(control);
     }
   });
-}
+};

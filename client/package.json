@@ -7,6 +7,7 @@
     "build": "ng build --watch",
     "build:prod": "ng build",
     "build:prod:cordova": "ng build --prod --base-href . --output-path ./CordovaMobileApp/www/",
+    "build:dev:cordova": "ng build  --base-href . --output-path ./CordovaMobileApp/www/ --watch",
     "cordova:init": "cordova create CordovaMobileApp com.yantrab.app CordovaMobileApp",
     "cordova:build": "npm run cordova:init&&npm run build:prod:cordova",
     "cordova:run:browser": "cd CordovaMobileApp&&cordova platform add browser&&cordova run browser",

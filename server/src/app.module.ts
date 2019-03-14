@@ -4,8 +4,9 @@ import { AdminModule } from './admin/admin.module';
 import { FrontendMiddleware } from 'middlewares/frontend.middleware';
 import { MongoRepoModule } from 'mongo-nest';
 import { EventsModule } from './webRTC/events.module';
+import { App1Module } from './app1/app1.module';
 @Module({
-  imports: [AuthModule, AdminModule,
+  imports: [AuthModule, AdminModule, App1Module,
     MongoRepoModule.forRoot('mongodb://localhost:27017'),
     EventsModule],
 })

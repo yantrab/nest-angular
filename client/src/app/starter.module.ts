@@ -20,8 +20,8 @@ export class AppComponent {
 
 const routes: Routes = [
   { path: '', redirectTo: 'login/app1', pathMatch: 'full' },
-  { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
-  // { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard], data: { roles: [Role.Admin, Role.app1] } },
+  // { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
+  { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard], data: { roles: [Role.Admin, Role.app1] } },
   {
     path: 'webRTC', loadChildren: 'src/app/webRTC/webRTC.module#App2Module',
     canActivate: [Guard], data: { roles: [Role.Admin, Role.app2] }
