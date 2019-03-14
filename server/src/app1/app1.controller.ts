@@ -1,7 +1,6 @@
 import { Controller, Post, Get } from '@nestjs/common';
 import { CheckboxFilter, DropdownFilter, Filter } from 'shared';
 // tslint:disable-next-line: no-var-requires
-const funds = require('./funds.json');
 @Controller('rest/app1')
 export class AdminController {
     @Get('filters')
@@ -15,6 +14,6 @@ export class AdminController {
     }
     @Get('funds')
     async getFunds(): Promise<any> {
-        return funds;
+        return require('./funds.json');
     }
 }
