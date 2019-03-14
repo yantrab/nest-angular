@@ -2,12 +2,20 @@ export const clientPath = './client/src/api/';
 export const serverPath = './server/src';
 export const modelsPath = './shared/models';
 export const decorators = {
-  Get: 'return new Promise((resolve) => this.api.get(\'{url}\').subscribe((data:any) => {resolve}))',
-  Post: 'return new Promise((resolve) => this.api.post(\'{url}\',{body}).subscribe((data:any) => {resolve}))'
+  Get: `
+  return new Promise((resolve) => {
+    this.api.get('{url}')
+    .subscribe((data: any) => {resolve});
+});
+`,
+  Post: `
+  return new Promise((resolve) => {
+    this.api.post('{url}'{body}).subscribe((data: any) => {resolve})
+})`,
 };
 export const httpServiceTemplate = `
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+  import { HttpClient } from "@angular/common/http";
 @Injectable()
 export class APIService {
   constructor(private httpClient: HttpClient) { }
