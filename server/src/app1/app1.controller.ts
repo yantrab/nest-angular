@@ -2,7 +2,7 @@ import { Controller, Post, Get } from '@nestjs/common';
 import { CheckboxFilter, DropdownFilter, Filter } from 'shared';
 // tslint:disable-next-line: no-var-requires
 @Controller('rest/app1')
-export class AdminController {
+export class App1Controller {
     @Get('filters')
     async getUserFilters(): Promise<Filter[]> {
         const filter1 =
