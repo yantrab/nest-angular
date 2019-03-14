@@ -1,22 +1,12 @@
 <!doctype html>
 <html lang="en">
 <script type="text/javascript">
-<<<<<<< HEAD
-    function downloadJSAtOnload() {
-      var isCordovaApp = Object(window).cordova != null;
-      if (isCordovaApp) {
-        var element = document.createElement("script");
-        element.src = "cordova.js";
-        document.body.appendChild(element);
-      }
-=======
   function downloadJSAtOnload() {
     var isCordovaApp = Object(window).cordova != null;
     if (isCordovaApp) {
       var element = document.createElement("script");
       element.src = "cordova.js";
       document.body.appendChild(element);
->>>>>>> 06f006fe554a7754c5152fc1d723d57544badfba
     }
   }
   if (window.addEventListener)

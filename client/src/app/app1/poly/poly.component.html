@@ -1,9 +1,8 @@
 <mat-grid-list cols="4">
     <mat-grid-tile colspan="1"  style.background="#ffffff">
-            <div fxLayout="column" fxFlex="200px">
-                    <p-filter [filter]="filter1"></p-filter>
-                    <p-filter [filter]="filter2"></p-filter>
-            </div>
+        <div fxLayout='column' fxFlex='200px'>
+                <p-filter *ngFor="let filter of filters" [filter]="filter"></p-filter>
+        </div>
     </mat-grid-tile>
 
     <mat-grid-tile colspan="3" style.background="#DDBDF1">

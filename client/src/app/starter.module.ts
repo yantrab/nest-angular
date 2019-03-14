@@ -19,15 +19,9 @@ export class AppComponent {
 }
 
 const routes: Routes = [
-<<<<<<< HEAD
-  { path: '', redirectTo: 'intercom', pathMatch: 'full' },
-  { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
-  // { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard], data: { roles: [Role.Admin, Role.app1] } },
-=======
   { path: '', redirectTo: 'login/app1', pathMatch: 'full' },
   // { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
   { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard], data: { roles: [Role.Admin, Role.app1] } },
->>>>>>> 06f006fe554a7754c5152fc1d723d57544badfba
   {
     path: 'webRTC', loadChildren: 'src/app/webRTC/webRTC.module#App2Module',
     canActivate: [Guard], data: { roles: [Role.Admin, Role.app2] }
