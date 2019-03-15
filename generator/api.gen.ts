@@ -3,6 +3,9 @@ import { writeFileSync, mkdirSync } from 'fs';
 import * as defualtConfig from './config';
 const sharedFolder = '../shared';
 import { resolve } from 'path';
+
+import { exec } from 'child_process'
+
 export const startGenerateClientApi = (config = defualtConfig) => {
     const clientPath = resolve(config.clientPath);
     const serverPath = resolve(config.serverPath);
@@ -78,7 +81,7 @@ export const startGenerateClientApi = (config = defualtConfig) => {
                         }
                     }
                 } else if (models[type]) {
-                    resolver = `new models.${type}(data)`;
+                    resolver = `resolve(new ${type}(data))`;
                 }
                 replacment = replacment.replace('{resolve}', resolver);
                 implementation.setBodyText(replacment);
@@ -87,5 +90,9 @@ export const startGenerateClientApi = (config = defualtConfig) => {
             const out = poly ? `import * as models from 'shared';\n` : '';
             writeFileSync('client/src/api/' + file.getBaseName(), out + file.getText());
         });
+    });
+    exec('cd client&&ng lint --fix', function callback(error, stdout, stderr) {
+        // tslint:disable-next-line: no-console
+        console.log(error + stdout + stderr);
     });
 };

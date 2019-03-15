@@ -12,10 +12,7 @@ export abstract class Filter extends Poly {
     @IsString()
     placeholder?: string;
     constructor(filter?: Partial<Filter>) {
-        super();
-        if (filter) {
-            Object.assign(this, filter);
-        }
+        super(filter);
     }
 }
 

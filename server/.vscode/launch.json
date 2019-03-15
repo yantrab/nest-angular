@@ -9,5 +9,19 @@
             "restart": true,
             "protocol": "inspector",
         },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "server",
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register",
+                "-r",
+                "tsconfig-paths/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/main.ts"
+            ]
+        }
     ]
 }

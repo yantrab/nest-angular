@@ -3,8 +3,23 @@
     "configurations": [
         {
             "type": "node",
-            "request": "attach",
+            "request": "launch",
             "name": "server",
+            "runtimeArgs": [
+                "-r",
+                "ts-node",
+                "-r",
+                "tsconfig-paths/register"
+            ],
+            "args": [
+                "${workspaceRoot}\\server\\src\\main.ts"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "server-watch",
             "processId": "${command:PickProcess}",
             "restart": true,
             "protocol": "inspector",

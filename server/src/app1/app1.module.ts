@@ -1,11 +1,11 @@
 import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
-import { AdminController } from './app1.controller';
+import { App1Controller } from './app1.controller';
 import { GuardMiddleware } from '../middlewares/guard.middleware';
 import { SuppressMiddleware } from '../middlewares/suppress.middleware';
 import { Role } from 'shared';
 import { CompressionMiddleware } from '@nest-middlewares/compression';
 @Module({
-  controllers: [AdminController],
+  controllers: [App1Controller],
   providers: [],
 })
 export class App1Module {

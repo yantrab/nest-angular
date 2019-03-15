@@ -3,14 +3,15 @@ export const serverPath = './server/src';
 export const modelsPath = './shared/models';
 export const decorators = {
   Get: `
-  return new Promise((resolve) => {
-    this.api.get('{url}')
-    .subscribe((data: any) => {resolve});
+    return new Promise((resolve) => {
+      this.api.get('{url}')
+      .subscribe((data: any) => {resolve});
 });
 `,
   Post: `
-  return new Promise((resolve) => {
-    this.api.post('{url}'{body}).subscribe((data: any) => {resolve})
+    return new Promise((resolve) => {
+      this.api.post('{url}'{body})
+      .subscribe((data: any) => {resolve});
 })`,
 };
 export const httpServiceTemplate = `
