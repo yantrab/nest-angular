@@ -12,6 +12,7 @@ import { KeyboardComponent } from './keyboard/keyboard.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { RouterModule } from '@angular/router';
+import { AutocompleteComponent } from './filters/autocomplete/autocomplete.component';
 
 @NgModule({
     imports: [
@@ -31,6 +32,7 @@ import { RouterModule } from '@angular/router';
         KeyboardComponent,
         TopbarComponent,
         NavMenuComponent,
+        AutocompleteComponent,
     ],
     exports: [
         TextBoxComponent,
@@ -40,6 +42,7 @@ import { RouterModule } from '@angular/router';
         KeyboardComponent,
         TopbarComponent,
         MaterialModule,
+        AutocompleteComponent
     ]
 })
 export class ComponentsModule { }

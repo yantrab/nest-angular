@@ -4,9 +4,9 @@ import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
   selector: 'app1-root',
   template: `
   <p-topbar [model]="topbarModel"></p-topbar>
-  <router-outlet ></router-outlet>
+  <div class="content" ><router-outlet ></router-outlet></div>
   `,
-  styles: []
+  styleUrls: ['app1.component.scss']
 })
 export class App1Component {
   topbarModel: ITopBarModel = {

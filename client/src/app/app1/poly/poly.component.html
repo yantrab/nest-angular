@@ -1,11 +1,16 @@
-<mat-grid-list cols="4">
-    <mat-grid-tile colspan="1"  style.background="#ffffff">
-        <div fxLayout='column' fxFlex='200px'>
-                <p-filter *ngFor="let filter of filters" [filter]="filter"></p-filter>
-        </div>
-    </mat-grid-tile>
+<div id="poly">
+    <mat-grid-list cols="4" rowHeight="fit">
+        <mat-grid-tile colspan="1" [style.background]="'#ffffff'">
+            <div fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+                <h2>FILTERS</h2>
+                <p-autocomplete [settings]="{}" ></p-autocomplete>
+                <mat-slide-toggle color="#1e90ff">advanced view</mat-slide-toggle>
+                <p-filters></p-filters>
 
-    <mat-grid-tile colspan="3" style.background="#DDBDF1">
-    </mat-grid-tile>
-</mat-grid-list>
+            </div>
+        </mat-grid-tile>
 
+        <mat-grid-tile colspan="3" [style.background]="'lightblue'">
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

@@ -1,0 +1,18 @@
+<mat-form-field [appearance]="appearance">
+    <mat-chip-list *ngIf="chips">
+      <mat-chip *ngFor="let selectedOption of settings.selected" [removable]="true" (removed)="optionDeSelected(selectedOption)">
+        {{selectedOption.name}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  
+    <input #searchInput matInput [placeholder]="settings.placeholder" [matAutocomplete]="auto"
+           (input)="inputChange($event.target.value)">
+  
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)='optionSelected($event.option.value)'  >
+      <mat-option *ngFor="let option of filteredOptions" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  

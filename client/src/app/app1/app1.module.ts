@@ -6,12 +6,14 @@ import { ComponentsModule } from '../shared/components/components.module';
 import { PolyComponent } from './poly/poly.component';
 import { DumyComponent } from './dumy/dumy.component';
 import { App1Controller } from 'src/api/app1.controller';
+import { FiltersComponent } from './poly/filters/filters.component';
 
 @NgModule({
   declarations: [
     App1Component,
     PolyComponent,
-    DumyComponent
+    DumyComponent,
+    FiltersComponent
   ],
   imports: [
     CommonModule,

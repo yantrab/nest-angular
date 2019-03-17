@@ -4,7 +4,8 @@ import { App1Controller } from 'src/api/app1.controller';
 
 @Component({
   selector: 'p-poly',
-  templateUrl: 'poly.component.html'
+  templateUrl: 'poly.component.html',
+  styleUrls:['poly.component.scss'],
 })
 export class PolyComponent {
   filters: Filter[];

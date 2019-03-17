@@ -1,13 +1,12 @@
 import { Poly, Entity } from './Entity';
 import { ValidateNested, IsOptional, IsBoolean, IsString } from 'class-validator';
 export abstract class Filter extends Poly {
-    @ValidateNested({ each: true })
-    options: Entity[];
+    options: any[];
     @IsOptional()
     @IsBoolean()
     isMultiple?: boolean;
     @IsOptional() @IsBoolean() isActive?: boolean;
-    selected?: Entity[] | Entity;
+    selected?: any;
     @IsOptional()
     @IsString()
     placeholder?: string;
