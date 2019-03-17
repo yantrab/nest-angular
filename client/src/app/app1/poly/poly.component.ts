@@ -8,8 +8,9 @@ import { App1Controller } from 'src/api/app1.controller';
 })
 export class PolyComponent {
   filters: Filter[];
+  funds;
   constructor(private api: App1Controller) {
     this.api.getUserFilters().then(filters => this.filters = filters);
-    this.api.getFunds().then(console.log);
+    this.api.getFunds().then(data => this.funds = data);
   }
 }

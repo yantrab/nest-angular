@@ -15,12 +15,16 @@ export const decorators = {
 })`,
 };
 export const httpServiceTemplate = `
-import { Injectable } from "@angular/core";
-  import { HttpClient } from "@angular/common/http";
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { denormalize } from 'nosql-normalizer';
 @Injectable()
 export class APIService {
   constructor(private httpClient: HttpClient) { }
-  get(url) { return this.httpClient.get(url); }
-  post(url, body) { return this.httpClient.post(url, body); }
+  get(url) { return this.httpClient.get(url).pipe(map(result => denormalize(result))); }
+  post(url, body) { return this.httpClient.post(url, body).pipe(map(result => denormalize(result))); }
 }
+
 `;

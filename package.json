@@ -31,6 +31,6 @@
     "class-transformer": "^0.2.0",
     "class-validator": "^0.9.1",
     "nest-client-generator": "^0.1.2",
-    "nosql-normalizer": "^1.0.5"
+    "nosql-normalizer": "^1.0.6"
   }
 }
