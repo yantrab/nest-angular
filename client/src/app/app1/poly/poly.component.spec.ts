@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../../shared/components/components.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-fdescribe('polyComponent', () => {
+describe('polyComponent', () => {
   let component: PolyComponent;
   let fixture: ComponentFixture<PolyComponent>;
 
@@ -27,7 +27,7 @@ fdescribe('polyComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
