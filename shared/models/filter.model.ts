@@ -1,5 +1,5 @@
-import { Poly, Entity } from './Entity';
-import { ValidateNested, IsOptional, IsBoolean, IsString } from 'class-validator';
+import { Poly } from './Entity';
+import { IsOptional, IsBoolean, IsString } from 'class-validator';
 export abstract class Filter extends Poly {
     options: any[];
     @IsOptional()
