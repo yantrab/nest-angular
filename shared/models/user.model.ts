@@ -22,6 +22,7 @@ export class User extends Entity {
 export class AddUserDTO extends User {
     @IsString()
     @IsEmail()
+// tslint:disable-next-line: variable-name
     _id: string;
 
     @IsString()
