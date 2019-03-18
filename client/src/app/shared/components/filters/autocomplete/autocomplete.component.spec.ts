@@ -18,7 +18,7 @@ class TestHostComponent {
   };
 }
 
-fdescribe('autocomplete Component', () => {
+describe('autocomplete Component', () => {
   let component: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
   beforeEach(async(() => {
@@ -34,7 +34,7 @@ fdescribe('autocomplete Component', () => {
     fixture.detectChanges();
   });
 
-  fit('should show placeholder', () => {
+  it('should show placeholder', () => {
     const el: HTMLElement = fixture.nativeElement;
     fixture.detectChanges();
     const input = el.querySelector('.mat-input-element');
