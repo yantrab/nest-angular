@@ -1,18 +1,21 @@
-import { Controller, Post, Get } from '@nestjs/common';
-import { CheckboxFilter, DropdownFilter, Filter } from 'shared';
+import { Controller, Post, Get, Req } from '@nestjs/common';
+import { CheckboxFilter, DropdownFilter, Filter, InitialData } from 'shared';
+import { FundService } from 'services/fund.service';
+import { MFService } from './mf.service';
+import { UserSettings } from 'shared';
 @Controller('rest/mf')
 export class App1Controller {
-    @Get('')
-    async getInitialData(): Promise<Filter[]> {
-        const filter1 =
-            new CheckboxFilter({ options: [{ _id: '1', name: 'name1' }, { _id: '2', name: 'name2' }], selected: { _id: '2', name: 'name2' } });
+    constructor(private fundService: FundService, private mfService: MFService) { }
 
-        const filter2 =
-            new DropdownFilter({ options: [{ _id: '1', name: 'name1' }, { _id: '2', name: 'name2' }], selected: { _id: '2', name: 'name2' } });
-        return [filter1, filter2];
-    }
-    @Get('funds')
-    async getFunds(): Promise<any> {
-        return require('./funds.json');
+    @Get()
+    async getInitialData(@Req() req): Promise<InitialData> {
+        let userSettings : UserSettings = await this.mfService.getUserSettings(req.user._id);
+        if (!userSettings) {
+            userSettings = { userFilters: [(await this.mfService.getSettings()).defaultUserFilter] }
+        }
+        return {
+            funds: (await this.fundService.getFunds()),
+            userSetting: userSettings
+        }
     }
 }

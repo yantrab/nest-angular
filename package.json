@@ -28,9 +28,7 @@
     "typescript": "^3.3.1"
   },
   "dependencies": {
-    "class-transformer": "^0.2.0",
     "class-validator": "^0.9.1",
-    "mongo-nest": "0.0.5",
     "nest-client-generator": "^0.1.2",
     "nosql-normalizer": "^1.0.6"
   }
