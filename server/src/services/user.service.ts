@@ -19,6 +19,6 @@ export class UserService {
 
     async saveUser(user: AddUserDTO) {
         user.password = await cryptPassword(user.password);
-        this.userRepo.saveOrUpdate(user);
+        this.userRepo.saveOrUpdateOne(user);
     }
 }

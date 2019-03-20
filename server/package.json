@@ -30,6 +30,7 @@
     "@types/passport-local": "^1.0.33",
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
+    "class-transformer": "^0.2.0",
     "compression": "^1.7.3",
     "cookie-parser": "^1.4.4",
     "express-session": "^1.15.6",
