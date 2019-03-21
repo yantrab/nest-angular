@@ -11,13 +11,18 @@ import { map } from 'rxjs/operators';
 export class EventsGateway {
     @WebSocketServer() server;
 
-    @SubscribeMessage('stream')
-    findAll(client, data): Observable<WsResponse<number>> {
-        return from([1, 2, 3]).pipe(map(item => ({ event: 'events', data: item })));
+    @SubscribeMessage('onicecandidate')
+    onicecandidate(client, data) {
+        this.server.emit('onicecandidate', data);
     }
 
-    @SubscribeMessage('identity')
-    async identity(client, data: number): Promise<number> {
-        return data;
+    @SubscribeMessage('offer')
+    offer(client, data) {
+        this.server.emit('offer', data);
+    }
+
+    @SubscribeMessage('answer')
+    async answer(client, data) {
+        this.server.emit('offer', data);
     }
 }

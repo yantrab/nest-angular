@@ -8,6 +8,7 @@ export class UserService {
     constructor(private repositoryFactory: RepositoryFactory) {
         this.userRepo = this.repositoryFactory.getRepository<User>(User, 'users');
         this.saveUser({ _id: 'admin@admin.com', fName: 'yoyo', lName: 'toto', roles: [Role.Admin], password: '123456'} as AddUserDTO);
+        this.saveUser({ _id: 'admin2@admin.com', fName: 'yoyo', lName: 'toto', roles: [Role.Admin], password: '123456'} as AddUserDTO);
     }
 
     async validateUser(email, password) {
