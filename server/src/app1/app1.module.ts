@@ -4,9 +4,11 @@ import { GuardMiddleware } from '../middlewares/guard.middleware';
 import { SuppressMiddleware } from '../middlewares/suppress.middleware';
 import { Role } from 'shared';
 import { CompressionMiddleware } from '@nest-middlewares/compression';
+import { MFService } from './mf.service';
+import { FundService } from 'services/fund.service';
 @Module({
   controllers: [App1Controller],
-  providers: [],
+  providers: [MFService, FundService],
 })
 export class App1Module {
   configure(consumer: MiddlewareConsumer): void {

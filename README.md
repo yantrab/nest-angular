@@ -133,3 +133,11 @@ export class App1Component {
 -- Auto transform result to real object
 
 -- Share models between server & client
+
+
+recomended vscode extensions
+1. Angular Language Service
+2. angular2-inline
+3. SCSS Formatter
+4. TSLint
+

@@ -9,7 +9,7 @@ export class FundService {
         this.fundRepo.saveOrUpdateMany(require('./funds.json'));
     }
 
-    getFunds(query: Partial<Fund>) {
-        return this.fundRepo.collection.find(query || {});
+    async getFunds(query?: Partial<Fund>): Promise<Fund[]> {
+        return this.fundRepo.findMany(query || {});
     }
 }

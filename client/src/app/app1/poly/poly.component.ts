@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
-import { Filter } from 'shared';
+import { Fund, UserSettings } from 'shared';
 import { App1Controller } from 'src/api/app1.controller';
 
 @Component({
   selector: 'p-poly',
   templateUrl: 'poly.component.html',
-  styleUrls:['poly.component.scss'],
+  styleUrls: ['poly.component.scss'],
 })
 export class PolyComponent {
-  filters: Filter[];
-  funds;
+  userSetting: UserSettings;
+  funds: Fund[];
   constructor(private api: App1Controller) {
-    this.api.getUserFilters().then(filters => this.filters = filters);
-    this.api.getFunds().then(data => this.funds = data);
+    this.api.getInitialData().then(initialData => {
+      this.funds = initialData.funds;
+      this.userSetting = initialData.userSetting;
+    });
   }
 }
