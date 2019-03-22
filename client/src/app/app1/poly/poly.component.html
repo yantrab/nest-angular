@@ -1,12 +1,11 @@
 <div id="poly" *ngIf="userSetting">
     <mat-grid-list cols="4" rowHeight="fit">
         <mat-grid-tile colspan="1" [style.background]="'#ffffff'">
-            <div fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutAlign="start center">
                 <h2>FILTERS</h2>
-                <p-autocomplete [settings]="{options:userSetting.userFilters}" ></p-autocomplete>
+                <p-autocomplete [settings]="userFiltersSettings"></p-autocomplete>
                 <mat-slide-toggle color="#1e90ff">advanced view</mat-slide-toggle>
                 <p-filters></p-filters>
-
             </div>
         </mat-grid-tile>
 

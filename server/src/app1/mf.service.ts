@@ -15,11 +15,11 @@ export class MFService {
             });
     }
 
-    async getUserSettings(id: string):Promise<UserSettings> {
+    async getUserSettings(id: string): Promise<UserSettings> {
         return this.mfUserSettingsRepo.collection.findOne({ _id: id });
     }
 
-    async getSettings():Promise<MFSettings> {
+    async getSettings(): Promise<MFSettings> {
         return this.mfSettingsRepo.collection.findOne({});
     }
 }

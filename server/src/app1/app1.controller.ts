@@ -1,5 +1,5 @@
-import { Controller, Post, Get, Req } from '@nestjs/common';
-import { CheckboxFilter, DropdownFilter, Filter, InitialData } from 'shared';
+import { Controller, Get, Req } from '@nestjs/common';
+import { InitialData } from 'shared';
 import { FundService } from 'services/fund.service';
 import { MFService } from './mf.service';
 import { UserSettings } from 'shared';
@@ -9,13 +9,13 @@ export class App1Controller {
 
     @Get()
     async getInitialData(@Req() req): Promise<InitialData> {
-        let userSettings : UserSettings = await this.mfService.getUserSettings(req.user._id);
+        let userSettings: UserSettings = await this.mfService.getUserSettings(req.user._id);
         if (!userSettings) {
-            userSettings = { userFilters: [(await this.mfService.getSettings()).defaultUserFilter] }
+            userSettings = { userFilters: [(await this.mfService.getSettings()).defaultUserFilter] };
         }
         return {
             funds: (await this.fundService.getFunds()),
-            userSetting: userSettings
-        }
+            userSetting: userSettings,
+        };
     }
 }
