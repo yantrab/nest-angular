@@ -1,9 +1,9 @@
-<div id="poly" *ngIf="userSetting">
+<div id="poly" *ngIf="userFiltersSettings">
     <mat-grid-list cols="4" rowHeight="fit">
         <mat-grid-tile colspan="1" [style.background]="'#ffffff'">
             <div fxLayout="column" fxLayoutAlign="start center">
                 <h2>FILTERS</h2>
-                <p-autocomplete [settings]="userFiltersSettings"></p-autocomplete>
+                <p-autocomplete (selectedChange)="filterSelected($event)" [settings]="userFiltersSettings" [filterFn]="filterFn"></p-autocomplete>
                 <mat-slide-toggle color="#1e90ff">advanced view</mat-slide-toggle>
                 <p-filters></p-filters>
             </div>

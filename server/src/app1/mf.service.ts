@@ -11,15 +11,25 @@ export class MFService {
         this.mfSettingsRepo.saveOrUpdateOne(
             {
                 _id: '1',
-                defaultUserFilter: { _id: '1', FilterGroup: [], name: 'Default' },
+                defaultUserFilter: { _id: '1', filterGroups: [], name: 'Default', isDefualt: true },
             });
+
+        this.mfUserSettingsRepo.saveOrUpdateOne(
+            {
+                _id: 'admin@admin.com',
+                userFilters: [
+                    { _id: '1', filterGroups: [], name: 'Default', isDefualt: true },
+                    { _id: '2', filterGroups: [], name: 'bla bla'},
+                ],
+            },
+        );
     }
 
     async getUserSettings(id: string): Promise<UserSettings> {
-        return this.mfUserSettingsRepo.collection.findOne({ _id: id });
+        return this.mfUserSettingsRepo.findOne({ _id: id });
     }
 
     async getSettings(): Promise<MFSettings> {
-        return this.mfSettingsRepo.collection.findOne({});
+        return this.mfSettingsRepo.findOne({});
     }
 }

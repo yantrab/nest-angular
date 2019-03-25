@@ -1,7 +1,9 @@
 import { Input, Output, EventEmitter } from '@angular/core';
 import { Filter } from 'shared';
 export class BaseFilterComponent {
-    @Input() settings: Filter;
+    @Input() settings: Filter = { options: [] };
+
+
     @Output() selectedChange = new EventEmitter();
     optionSelected(val) {
         if (this.settings.isMultiple) {
@@ -18,4 +20,6 @@ export class BaseFilterComponent {
         this.settings.selected = this.settings.selected.filter(s => s._id !== val._id);
         this.selectedChange.emit(this.settings.selected);
     }
+
+
 }

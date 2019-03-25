@@ -28,7 +28,9 @@ export class FilterGroup extends Entity {
 
 export class UserFilter extends Entity {
     @ValidateNested({ each: true })
-    FilterGroup: Filter[];
-    @IsString()
-    name: string;
+    filterGroups: Filter[];
+
+    @IsOptional()
+    @IsBoolean()
+    isDefualt?: boolean;
 }

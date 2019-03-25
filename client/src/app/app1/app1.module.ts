@@ -7,7 +7,7 @@ import { PolyComponent } from './poly/poly.component';
 import { DumyComponent } from './dumy/dumy.component';
 import { App1Controller } from 'src/api/app1.controller';
 import { FiltersComponent } from './poly/filters/filters.component';
-
+import { MfService } from './mf.service';
 @NgModule({
   declarations: [
     App1Component,
@@ -30,6 +30,6 @@ import { FiltersComponent } from './poly/filters/filters.component';
         },
       ])
   ],
-  providers: [App1Controller]
+  providers: [App1Controller, MfService]
 })
 export class App1Module { }
