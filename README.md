@@ -10,11 +10,20 @@ git clone https://github.com/yantrab/nest-angular.git
 cd .\nest-angular
 npm i
 ```
-### Run debug
+### debug server
 ```sh
-npm run build-client
 npm run debug-server
 ```
+### build client
+```sh
+npm run build-client
+```
+
+### Run both server&client
+```sh
+npm run dev
+```
+
 Hit F5 and select the process
 
 ## client api generator

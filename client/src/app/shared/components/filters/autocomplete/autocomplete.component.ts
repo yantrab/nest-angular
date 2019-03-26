@@ -33,7 +33,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
 
   setInputSelectedValue() {
     if (!this.settings.isMultiple) {
-      setTimeout(() => this.input.setValue(this.settings.selected), 1);
+     this.input.setValue(this.settings.selected);
     }
   }
 
@@ -41,7 +41,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     const change: SimpleChange = changes.settings;
     if (change && JSON.stringify(change.previousValue) !== JSON.stringify(change.currentValue)) {
       this.settings.options.forEach(option => {
-        option._query = this.paths.reduce((query, path) => query + ' ' + option[path], '');
+        option._query = this.paths.reduce((query, path) => query + ' ' + (option[path] || ''), '');
       });
     }
     this.setInputSelectedValue();

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Filter, UserFilter, AutocompleteFilter } from 'shared';
-import { filterFn } from '../../shared/components/filters/autocomplete/autocomplete.component';
+import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocomplete.component';
 import { MfService, NEW } from '../mf.service';
 @Component({
   selector: 'p-poly',
@@ -19,7 +19,8 @@ export class PolyComponent {
   }
 
   filterFn = (options: any[], query: string) => {
-    if (this.userFiltersSettings.options.find(f => f.name !== query)) {
+    query = query.trim();
+    if (query && !this.userFiltersSettings.options.find(f => f.name === query)) {
       return [{ name: query + NEW } as UserFilter].concat(filterFn(options, query));
     }
     return filterFn(options, query);
