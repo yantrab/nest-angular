@@ -5,6 +5,12 @@ import { Fund } from './fund.model';
 export class UserSettings extends Entity {
     @ValidateNested({ each: true })
     userFilters: UserFilter[];
+    constructor(data?: Partial<UserSettings>) {
+        super();
+        if (data) {
+            this.userFilters = data.userFilters.map(userFilter =>  new UserFilter(userFilter));
+        }
+    }
 }
 
 export class InitialData {
@@ -12,9 +18,10 @@ export class InitialData {
     userSetting: UserSettings;
     @ValidateNested({ each: true })
     funds: Fund[];
-    constructor(data?) {
+    constructor(data?: Partial<InitialData>) {
         if (data) {
-            Object.assign(this, data);
+            this.userSetting = new UserSettings(data.userSetting);
+            this.funds = data.funds;
         }
     }
 }

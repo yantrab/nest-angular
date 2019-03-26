@@ -1,7 +1,7 @@
 import { Input, Output, EventEmitter } from '@angular/core';
 import { Filter } from 'shared';
 export class BaseFilterComponent {
-    @Input() settings: Filter = { options: [] };
+    @Input() settings: Filter;
 
 
     @Output() selectedChange = new EventEmitter();
