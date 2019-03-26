@@ -9,6 +9,9 @@ export abstract class Entity {
     @IsString()
     name?: string;
 
+    get isNew(){
+        return !!this._id;
+    }
     constructor(data?) {
         if (data) {
             Object.assign(this, data);

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MFSettings, UserSettings } from 'shared';
+import { MFSettings, UserSettings, UserFilter } from 'shared';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 @Injectable()
 export class MFService {
@@ -11,15 +11,15 @@ export class MFService {
         this.mfSettingsRepo.saveOrUpdateOne(
             {
                 _id: '1',
-                defaultUserFilter: { _id: '1', filterGroups: [], name: 'Default', isDefualt: true },
+                defaultUserFilter: new UserFilter({ _id: '1', filterGroups: [], name: 'Default', isDefualt: true }),
             });
 
         this.mfUserSettingsRepo.saveOrUpdateOne(
             {
                 _id: 'admin@admin.com',
                 userFilters: [
-                    { _id: '1', filterGroups: [], name: 'Default', isDefualt: true },
-                    { _id: '2', filterGroups: [], name: 'bla bla'},
+                    new UserFilter({ _id: '1', filterGroups: [], name: 'Default', isDefualt: true }),
+                    new UserFilter({ _id: '2', filterGroups: [], name: 'bla bla' }),
                 ],
             },
         );

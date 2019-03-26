@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { App1Controller } from 'src/api/app1.controller';
 import { ReplaySubject } from 'rxjs';
 import { UserFilter, UserSettings, Fund } from 'shared';
-
+export const NEW = ' (Create new) ';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,8 +21,9 @@ export class MfService {
   }
 
   setSelectedUserFilter(userFilter: UserFilter) {
-    if (!userFilter.filterGroups) {
+    if (!userFilter.isNew) {
       userFilter.filterGroups = this.userSetting.userFilters.find(f => f.isDefualt).filterGroups;
+      userFilter.name = userFilter.name.replace(NEW, '');
       this.userSetting.userFilters.push(userFilter);
       this.userFilters.next(this.userSetting.userFilters);
     }
