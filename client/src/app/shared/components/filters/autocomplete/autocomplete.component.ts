@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, SimpleChange, OnChanges, } from '@angular/core';
 import { BaseFilterComponent } from '../base.component';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -33,7 +33,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
 
   setInputSelectedValue() {
     if (!this.settings.isMultiple) {
-     this.input.setValue(this.settings.selected);
+      this.input.setValue(this.settings.selected);
     }
   }
 
@@ -64,6 +64,10 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         startWith<string | any>(''),
         map(name => name ? this.filter(name) : this.settings.options.slice())
       );
+    document
+      .querySelectorAll('p-autocomplete .mat-form-field-flex')[0]
+      .addEventListener('click', (ev) => this.clear(ev));
+
   }
   clear(ev) {
     this.input.setValue('');
