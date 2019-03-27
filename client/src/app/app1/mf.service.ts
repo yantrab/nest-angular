@@ -9,11 +9,11 @@ export const NEW = ' (Create new) ';
 export class MfService {
   readonly selectedFilter: ReplaySubject<UserFilter> = new ReplaySubject();
   readonly userFilters: ReplaySubject<UserFilter[]> = new ReplaySubject();
+  readonly funds: ReplaySubject<Fund[]> = new ReplaySubject();
   private userSetting: UserSettings;
-  private funds: Fund[];
   constructor(private api: App1Controller) {
     this.api.getInitialData().then(initialData => {
-      this.funds = initialData.funds;
+      this.funds.next(initialData.funds);
       this.userSetting = initialData.userSetting;
       this.userFilters.next(this.userSetting.userFilters);
       this.selectedFilter.next(this.userSetting.userFilters[0]);

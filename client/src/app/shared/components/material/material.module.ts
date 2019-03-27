@@ -1,5 +1,7 @@
 import {
+  MatTabsModule,
   MatGridListModule,
+  MatTableModule,
   MatInputModule, MatFormFieldModule, MatMenuModule, MatButtonModule, MatIconModule,
   MatAutocompleteModule, MatSelectModule, MatCardModule, MatSlideToggleModule, MatTreeModule,
   MatCheckboxModule, MatExpansionModule, MatChipsModule
@@ -7,12 +9,12 @@ import {
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  imports: [MatGridListModule, MatInputModule, MatFormFieldModule, MatMenuModule, MatButtonModule,
-    MatIconModule, MatAutocompleteModule, MatSelectModule, MatCardModule, MatSlideToggleModule, MatTreeModule,
+  imports: [MatGridListModule, MatInputModule, MatFormFieldModule, MatMenuModule, MatButtonModule, MatTabsModule,
+    MatIconModule, MatAutocompleteModule, MatSelectModule, MatCardModule, MatSlideToggleModule, MatTreeModule, MatTableModule,
     MatCheckboxModule, MatExpansionModule, MatChipsModule],
   exports: [MatGridListModule, MatInputModule, MatFormFieldModule, MatMenuModule, MatButtonModule,
-    MatIconModule, MatAutocompleteModule, MatSelectModule, MatCardModule, MatSlideToggleModule, MatTreeModule,
-    MatCheckboxModule, MatExpansionModule, MatChipsModule],
+    MatIconModule, MatAutocompleteModule, MatSelectModule, MatCardModule, MatSlideToggleModule, MatTreeModule, MatTableModule,
+    MatCheckboxModule, MatExpansionModule, MatChipsModule, MatTabsModule],
   declarations: [],
 })
 export class MaterialModule { }

@@ -13,7 +13,18 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { RouterModule } from '@angular/router';
 import { AutocompleteComponent } from './filters/autocomplete/autocomplete.component';
-
+import {TableModule} from './table/table.module';
+const components = [
+    TextBoxComponent,
+    DropdownComponent,
+    CheckboxComponent,
+    FilterGroupComponent,
+    FilterComponent,
+    KeyboardComponent,
+    TopbarComponent,
+    NavMenuComponent,
+    AutocompleteComponent,
+];
 @NgModule({
     imports: [
         FormsModule,
@@ -21,28 +32,10 @@ import { AutocompleteComponent } from './filters/autocomplete/autocomplete.compo
         MaterialModule,
         CommonModule,
         FlexLayoutModule,
-        RouterModule
+        RouterModule,
+        TableModule
     ],
-    declarations: [
-        TextBoxComponent,
-        DropdownComponent,
-        CheckboxComponent,
-        FilterGroupComponent,
-        FilterComponent,
-        KeyboardComponent,
-        TopbarComponent,
-        NavMenuComponent,
-        AutocompleteComponent,
-    ],
-    exports: [
-        TextBoxComponent,
-        DropdownComponent,
-        FlexLayoutModule,
-        FilterComponent,
-        KeyboardComponent,
-        TopbarComponent,
-        MaterialModule,
-        AutocompleteComponent
-    ]
+    declarations: components,
+    exports: [TableModule, MaterialModule, FlexLayoutModule].concat(components),
 })
 export class ComponentsModule { }
