@@ -15,7 +15,10 @@ $padding-top: 30px;
     font-size: 23px;
     font-weight: bold;
   }
-  .mat-tab-body-wrapper{
-    height: 800px;
+  .mat-tab-body-wrapper {
+    height: 100%;
+    mat-tab-body {
+      height: 100%;
+    }
   }
 }

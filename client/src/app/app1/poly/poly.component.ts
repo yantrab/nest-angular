@@ -1,9 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Filter, UserFilter, AutocompleteFilter, Fund } from 'shared';
+import { UserFilter, AutocompleteFilter, Fund } from 'shared';
 import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocomplete.component';
 import { MfService, NEW } from '../mf.service';
-import { Observable, of } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
+import { ColumnDef } from 'src/app/shared/components/table/table.interfaces';
 @Component({
   selector: 'p-poly',
   templateUrl: 'poly.component.html',
@@ -13,6 +12,7 @@ import { startWith, map } from 'rxjs/operators';
 export class PolyComponent {
   userFiltersSettings: AutocompleteFilter = new AutocompleteFilter({ options: [], placeholder: 'Select or create new.', selected: {} });
   funds;
+  fundColumns: ColumnDef[] = [{ field: '_id', title: 'מספר קופה' }];
   constructor(private mfService: MfService) {
     this.mfService.userFilters.subscribe(userFilters => {
       this.userFiltersSettings = Object.assign({}, this.userFiltersSettings, { options: [...userFilters] });
@@ -21,19 +21,19 @@ export class PolyComponent {
       });
     });
     this.mfService.funds.subscribe(funds => {
-      this.funds =  funds.map((fund, i) => ({ id: i + 1, name: fund._id }));
+      this.funds = funds;
     });
-}
-
-filterFn = (options: any[], query: string) => {
-  query = query.trim();
-  if (query && !this.userFiltersSettings.options.find(f => f.name === query)) {
-    return [{ name: query + NEW } as UserFilter].concat(filterFn(options, query));
   }
-  return filterFn(options, query);
-}
 
-filterSelected(userFilter: UserFilter) {
-  this.mfService.setSelectedUserFilter(userFilter);
-}
+  filterFn = (options: any[], query: string) => {
+    query = query.trim();
+    if (query && !this.userFiltersSettings.options.find(f => f.name === query)) {
+      return [{ name: query + NEW } as UserFilter].concat(filterFn(options, query));
+    }
+    return filterFn(options, query);
+  }
+
+  filterSelected(userFilter: UserFilter) {
+    this.mfService.setSelectedUserFilter(userFilter);
+  }
 }

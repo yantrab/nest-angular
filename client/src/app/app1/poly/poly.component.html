@@ -12,10 +12,10 @@
 
         <mat-grid-tile colspan="3">
             <div fxLayout="column" fxLayoutAlign="start center" fxFlex="100">
-                <mat-tab-group mat-stretch-tabs>
+                <mat-tab-group mat-stretch-tabs  fxFlex="100">
                     <mat-tab label="Grid"> Content 1 </mat-tab>
                     <mat-tab label="Table">
-                        <p-table *ngIf="funds" [_alldata]="funds">
+                        <p-table *ngIf="funds" [rows]="funds" [columnsDef]="fundColumns">
                         </p-table>
                     </mat-tab>
                     <mat-tab label="Charts"> Content 3 </mat-tab>

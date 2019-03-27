@@ -1,24 +1,27 @@
-@mixin base {
+#table {
+
+  height: 100%;
+  @mixin base {
     .mat-table {
       width: 100%;
     }
   }
-  
+
   @mixin progress {
     .mat-header-row.progress {
       border: none;
       min-height: 0;
-  
+
       .mat-header-cell {
         border: 0;
         padding: 0;
       }
-  
+
       mat-progress-bar {
         bottom: 0;
         position: absolute;
         transition: height 0.3s, opacity 0.25s linear;
-  
+
         &:not(.show) {
           height: 0;
           opacity: 0;
@@ -26,17 +29,18 @@
       }
     }
   }
-  
+
   :host {
     display: block;
   }
-  
+
   @include base;
   @include progress;
-  
+
   .title {
     height: 60px;
   }
   cdk-virtual-scroll-viewport {
-    height: 600px;
+    height: 100%;
   }
+}

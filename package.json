@@ -11,7 +11,7 @@
     "serve-client": "cd client&&npm run start",
     "debug-server": "cd server&&npm run start:debug",
     "build-client": "cd client&&npm run build",
-    "dev":"start  npm run debug-server | start npm run build-client | (cd client && code .) | (cd server && code .)",
+    "dev": "start  npm run debug-server | start npm run build-client | (cd client && code .) | (cd server && code .)",
     "build:client:cordova": "cd client&& npm run build:cordova",
     "gen-uml": "tsuml --glob ./shared/**/*.ts",
     "lint": "tslint -p .",
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "class-validator": "^0.9.1",
+    "lodash": "^4.17.11",
     "nest-client-generator": "^0.1.2",
     "nosql-normalizer": "^1.0.6"
   }
