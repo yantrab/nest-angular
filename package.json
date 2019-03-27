@@ -20,6 +20,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/lodash": "^4.14.123",
     "@types/node": "^10.12.24",
     "json-ts": "^1.6.4",
     "ts-morph": "^1.1.0",

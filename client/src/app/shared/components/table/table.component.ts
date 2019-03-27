@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
 import { GridTableDataSource } from './virtual-scroll/data-source';
 import { MatSort } from '@angular/material';
 import { ColumnDef } from './table.interfaces';
+import { orderBy } from 'shared';
 @Component({
   selector: 'p-table',
   templateUrl: './table.component.html',
@@ -42,8 +43,7 @@ export class TableComponent<T> implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // If the user changes the sort order, reset back to the the top.
     this.sort.sortChange.subscribe(() => {
-      // this.dataSource.allData = this.rows.so
-      console.log(this.sort);
+      this.dataSource.allData = orderBy(this.rows, this.sort.active, this.sort.direction as any);
     });
   }
   private init() {

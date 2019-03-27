@@ -1,3 +1,1 @@
-// export const orderBy = (items: any[], by?: string, dir) => {
-
-// }
+export { orderBy } from 'lodash';
