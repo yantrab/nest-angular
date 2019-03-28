@@ -1,16 +1,10 @@
 import { NgModule } from '@angular/core';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import {
-  MatCheckboxModule,
-  MatProgressBarModule,
-  MatSortModule,
-  MatTableModule
-} from '@angular/material';
 import { GridTableVirtualScrollModule } from './virtual-scroll/virtual-scroll.module';
-import { TableComponent } from './table.component';
+import { TableComponent, PCellDef } from './table.component';
 import { CommonModule } from '@angular/common';
-
-const components = [TableComponent];
+import {MaterialModule} from '../material/material.module'
+const components = [TableComponent, PCellDef];
 
 @NgModule({
   declarations: components,
@@ -18,11 +12,9 @@ const components = [TableComponent];
   imports: [
     CommonModule,
     GridTableVirtualScrollModule,
-    MatCheckboxModule,
-    MatProgressBarModule,
-    MatSortModule,
-    MatTableModule,
-    ScrollingModule
+    ScrollingModule,
+    MaterialModule
   ],
 })
 export class TableModule { }
+

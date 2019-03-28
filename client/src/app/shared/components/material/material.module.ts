@@ -4,17 +4,18 @@ import {
   MatTableModule,
   MatInputModule, MatFormFieldModule, MatMenuModule, MatButtonModule, MatIconModule,
   MatAutocompleteModule, MatSelectModule, MatCardModule, MatSlideToggleModule, MatTreeModule,
-  MatCheckboxModule, MatExpansionModule, MatChipsModule
+  MatCheckboxModule, MatExpansionModule, MatChipsModule,
+  MatProgressBarModule,
+  MatSortModule,
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 
+const modules = [MatProgressBarModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatMenuModule, MatButtonModule, MatTabsModule,
+  MatIconModule, MatAutocompleteModule, MatSelectModule, MatCardModule, MatSlideToggleModule, MatTreeModule, MatTableModule,
+  MatCheckboxModule, MatExpansionModule, MatChipsModule, MatSortModule]
 @NgModule({
-  imports: [MatGridListModule, MatInputModule, MatFormFieldModule, MatMenuModule, MatButtonModule, MatTabsModule,
-    MatIconModule, MatAutocompleteModule, MatSelectModule, MatCardModule, MatSlideToggleModule, MatTreeModule, MatTableModule,
-    MatCheckboxModule, MatExpansionModule, MatChipsModule],
-  exports: [MatGridListModule, MatInputModule, MatFormFieldModule, MatMenuModule, MatButtonModule,
-    MatIconModule, MatAutocompleteModule, MatSelectModule, MatCardModule, MatSlideToggleModule, MatTreeModule, MatTableModule,
-    MatCheckboxModule, MatExpansionModule, MatChipsModule, MatTabsModule],
+  imports: modules,
+  exports: modules,
   declarations: [],
 })
 export class MaterialModule { }

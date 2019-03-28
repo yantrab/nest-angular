@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, Series, DataRequest } from '../../../../shared/models/macro.model';
+import { Category, Series } from '../../../../shared/models/macro.model';
 import { BehaviorSubject } from 'rxjs';
 import { ColumnDef } from 'src/app/shared/components/table/table.interfaces';
 import { MacroController } from 'src/api/macro.controller';
+import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
 
 @Component({
   selector: 'p-macro',
@@ -11,9 +12,8 @@ import { MacroController } from 'src/api/macro.controller';
 })
 export class MacroComponent implements OnInit {
   categories: Category[];
-  allSerias: Series[];
-  selectedSerias: Series[] = [];
-  serias;
+  selectedSerias: Series[];
+  serias: Series[] = [];
   tadleDataSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   id;
   columns: ColumnDef[] = [
@@ -32,15 +32,13 @@ export class MacroComponent implements OnInit {
   topbarModel: ITopBarModel = {
     logoutTitle: 'logout',
     routerLinks: [
-      { link: 'poly', title: 'linkToPoly' },
-      { link: 'dumy', title: 'linkToDumy' },
     ],
     menuItems: []
   };
   constructor(private api: MacroController) {
     this.api.getInitialData().then(data => {
       this.categories = data.categories;
-      this.allSerias = data.serias;
+      this.serias = data.serias;
     });
   }
 

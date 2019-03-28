@@ -1,4 +1,7 @@
 <div id="table">
+	<mat-form-field>
+		<input matInput #filter placeholder="חיפוש">
+	</mat-form-field>
 	<cdk-virtual-scroll-viewport gridTableVirtualScroll (scrolledIndexChange)="nextBatch($event)">
 		<mat-table matSort [dataSource]="dataSource">
 
@@ -6,7 +9,12 @@
 				<mat-header-cell *matHeaderCellDef>
 					<div mat-sort-header>{{ column.title }}</div>
 				</mat-header-cell>
-				<mat-cell *matCellDef="let row">{{ row[column.field] }}</mat-cell>
+				<mat-cell *matCellDef="let row">
+					<ng-container *ngIf="column.template else defult" [ngTemplateOutlet]="column.template"
+						[ngTemplateOutletContext]="{row:row}">
+					</ng-container>
+					<ng-template #defult>{{ row[column.field]  }}</ng-template>
+				</mat-cell>
 			</ng-container>
 
 			<ng-container matColumnDef="progress">

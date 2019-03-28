@@ -52,8 +52,6 @@ export class GridTableVirtualScrollStrategy implements VirtualScrollStrategy {
         if (!this.viewport) {
             return;
         }
-        console.log(this.viewport.getViewportSize(),this.viewport.getViewportSize() / this.itemHeight);
-
         const amount = Math.ceil(this.viewport.getViewportSize() / this.itemHeight);
         // const amount = Math.ceil(500 / this.itemHeight);
         const offset = this.viewport.measureScrollOffset() - this.headerOffset;

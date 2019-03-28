@@ -4,12 +4,7 @@ $padding-top: 30px;
   height: calc(100% - #{$padding-top * 2});
   width: 90%;
   margin: auto;
-  mat-grid-list {
-    height: 100%;
-  }
-  p-table{
-    height: 100%;
-  }
+
   .mat-tab-label-active {
     background-color: #ffffff !important;
   }
