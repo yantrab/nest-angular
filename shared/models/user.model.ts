@@ -5,6 +5,7 @@ export enum Role {
     Admin,
     app1,
     app2,
+    Macro,
 }
 
 export class User extends Entity {

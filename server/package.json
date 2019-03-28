@@ -36,6 +36,7 @@
     "express-session": "^1.15.6",
     "mongo-nest": "^0.1.0",
     "mongodb": "^3.1.13",
+    "mssql": "^5.0.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.12",

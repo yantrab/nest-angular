@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },
 
   { path: 'intercom', loadChildren: 'src/app/intercom/intercom.module#IntercomModule' },
+  { path: 'macro', loadChildren: 'src/app/macro/macro.module#MacroModule' },
 
   { path: '**', redirectTo: 'login/app1' }
 
