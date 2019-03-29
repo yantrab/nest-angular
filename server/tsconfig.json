@@ -8,7 +8,18 @@
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src"
+    "resolveJsonModule": true,
+    "baseUrl": "./src",
+    "paths": {
+      "shared": [
+        "../../shared"
+      ],
+    "shared/*": [
+      "../../shared/*"
+    ]
+    }
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

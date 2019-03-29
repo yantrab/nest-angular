@@ -44,7 +44,7 @@ export class DataResult {
     data: { date: Date, value: number };
 }
 
-export class InitialData{
+export class InitialData {
     @ValidateNested({ each: true })
     categories: Category[];
     @ValidateNested({ each: true })
