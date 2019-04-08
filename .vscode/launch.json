@@ -21,6 +21,28 @@
             "args": [
                 "${workspaceFolder}/generator/index.ts"
             ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Server",
+            "protocol": "inspector",
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register",
+                "-r",
+                "tsconfig-paths/register"
+            ],
+            "args": [
+                "src/main.ts"
+            ],
+            "cwd": "${workspaceFolder}/server",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "env": {
+                "TS_NODE_PROJECT": "tsconfig.json",
+                "TS_NODE_TRANSPILE_ONLY": "true"
+            }
         }
     ]
 }

@@ -2,7 +2,7 @@
 
     <mat-grid-list gutterSize="10px" cols="4" rowHeight="fit">
         <mat-grid-tile colspan="1" [style.background]="'#ffffff'" fxLayout="column" fxLayoutAlign="start center">
-            <div fxLayout="column" fxLayoutAlign="start center">
+            <div style="height: 100%;" fxLayout="column" fxFlex="100" fxLayoutAlign="start center">
                 <h2>FILTERS</h2>
                 <p-autocomplete (selectedChange)="filterSelected($event)" [settings]="userFiltersSettings"
                     [filterFn]="filterFn"></p-autocomplete>
@@ -12,17 +12,15 @@
         </mat-grid-tile>
 
         <mat-grid-tile colspan="3">
-
-            <!-- <div fxLayout="column" fxLayoutAlign="start center" fxFlex="100"> -->
-                <mat-tab-group #tabGroup  mat-stretch-tabs fxFlex="100">
-                    <mat-tab label="Grid" > Content 1 </mat-tab>
-                    <mat-tab label="Table">
-                        <p-table *ngIf="funds && tabGroup.selectedIndex === 1" [rows]="funds" [columnsDef]="fundColumns">
-                        </p-table>
-                    </mat-tab>
-                    <mat-tab label="Charts"> Content 3 </mat-tab>
-                </mat-tab-group>
-            <!-- </div> -->
+            <mat-tab-group #tabGroup mat-stretch-tabs fxFlex="100">
+                <mat-tab label="Grid"> Content 1 </mat-tab>
+                <mat-tab label="Table">
+                    <mat-virtual-table *ngIf="funds && tabGroup.selectedIndex === 1" [rows]="funds"
+                        [columnsDef]="fundColumns">
+                    </mat-virtual-table>
+                </mat-tab>
+                <mat-tab label="Charts"> Content 3 </mat-tab>
+            </mat-tab-group>
         </mat-grid-tile>
     </mat-grid-list>
 </div>

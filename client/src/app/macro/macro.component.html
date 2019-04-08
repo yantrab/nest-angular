@@ -2,21 +2,30 @@
     <p-topbar [model]="topbarModel"></p-topbar>
     <div class="content">
         <mat-grid-list gutterSize="10px" cols="4" rowHeight="fit">
-            <mat-grid-tile colspan="1" fxLayout="column" fxLayoutAlign="start center">
+            <mat-grid-tile  colspan="1" fxLayout="column" fxLayoutAlign="start center">
+                    <div style="height:100%;width:100%;">
+                            <tree-root [nodes]="categories" [options]="treeOptions" ></tree-root>
+                <!-- <p-tree *ngIf="categories" [nodes]="categories" [options]="treeOptions"
+                    (select)="onSelectCategory($event)">
+                </p-tree> -->
+                </div>  
             </mat-grid-tile>
 
             <mat-grid-tile colspan="3">
-                <p-table *ngIf="serias.length" [rows]="serias" [columnsDef]="columns">
-                    <ng-template pCellDef column="startDate" let-row="row">
-                        {{row.startDate | date:"dd.MM.yyyy"}}
-                    </ng-template>
-                    <ng-template pCellDef column="endDate" let-row="row">
-                        {{row.endDate | date:"dd.MM.yyyy"}}
-                    </ng-template>
-                    <ng-template pCellDef column="hebName" let-row="row">
-                        <b>{{row.hebName}}</b>
-                    </ng-template>
-                </p-table>
+                <div style="height:100%;width:100%;">
+                    <mat-virtual-table *ngIf="serias" [rows]="serias" [filterPlaceholder]="'חיפוש'"
+                        [columnsDef]="columns">
+                        <ng-template pCellDef column="startDate" let-row="row">
+                            {{row.startDate | date:"dd.MM.yyyy"}}
+                        </ng-template>
+                        <ng-template pCellDef column="endDate" let-row="row">
+                            {{row.endDate | date:"dd.MM.yyyy"}}
+                        </ng-template>
+                        <ng-template pCellDef column="hebName" let-row="row">
+                            <b>{{row.hebName}}</b>
+                        </ng-template>
+                    </mat-virtual-table>
+                </div>
             </mat-grid-tile>
         </mat-grid-list>
     </div>

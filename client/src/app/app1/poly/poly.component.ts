@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { UserFilter, AutocompleteFilter, Fund } from 'shared';
 import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocomplete.component';
 import { MfService, NEW } from '../mf.service';
-import { ColumnDef } from 'src/app/shared/components/table/table.interfaces';
+import { ColumnDef } from 'mat-virtual-table';
 @Component({
   selector: 'p-poly',
   templateUrl: 'poly.component.html',
