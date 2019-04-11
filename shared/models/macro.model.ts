@@ -6,7 +6,7 @@ export class Category {
     @IsString()
     NameEnglish: string;
     @ValidateNested({ each: true })
-    Children: Category[] = [];
+    children: Category[] = [];
     @IsString()
     CatgID: string;
 }

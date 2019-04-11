@@ -13,7 +13,10 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { RouterModule } from '@angular/router';
 import { AutocompleteComponent } from './filters/autocomplete/autocomplete.component';
-import {TableModule} from './table/table.module';
+import { TableModule } from 'mat-virtual-table';
+import { TreeComponent } from './tree/tree.component';
+import { FocusDirective } from '../directives/focus.directive';
+import { TreeModule } from 'angular-tree-component';
 const components = [
     // TextBoxComponent,
     DropdownComponent,
@@ -24,6 +27,7 @@ const components = [
     TopbarComponent,
     NavMenuComponent,
     AutocompleteComponent,
+    TreeComponent
 ];
 @NgModule({
     imports: [
@@ -33,9 +37,10 @@ const components = [
         CommonModule,
         FlexLayoutModule,
         RouterModule,
-        TableModule
+        TableModule,
+        TreeModule.forRoot()
     ],
-    declarations: components,
-    exports: [TableModule, MaterialModule, FlexLayoutModule].concat(components),
+    declarations: [...components, FocusDirective],
+    exports: [TableModule, MaterialModule, FlexLayoutModule, TreeModule, ...components]
 })
 export class ComponentsModule { }

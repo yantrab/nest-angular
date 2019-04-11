@@ -1,0 +1,23 @@
+<div class="tree">
+  <ul>
+    <li>
+      <span [class.unextended]='node.parent && !node.expanded' [class.extended]='node.parent && node.expanded'></span>
+      <span *ngIf="node.parent" tabindex="0" [p-focus]="node.focus" (click)="node.toggle()"
+        (keydown.ArrowLeft)="onLeft($event, node)" (keydown.ArrowRight)="onRight($event, node)"
+        (keydown.ArrowUp)="onUp($event, node)" (keydown.ArrowDown)="onDown($event, node)"
+        (keydown.Space)="onSelect(node)">
+        {{ node.name }}
+      </span>
+      <div *ngIf="node.expanded">
+        <p-tree *ngFor="let child of node.nodes" [node]="child" (select)="onSelect($event, node)"></p-tree>
+        <ul>
+          <li *ngFor="let leaf of node.leafs" tabindex="0" [p-focus]="leaf.focus"
+            (keydown.ArrowLeft)="onLeft($event, leaf, true)" (keydown.ArrowRight)="onRight($event, leaf, true)"
+            (keydown.Space)="onSelect($event, leaf)" (keydown.ArrowUp)="onUp($event, leaf, true)"
+            (keydown.ArrowDown)="onDown($event, leaf, true)">
+            {{leaf.name}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

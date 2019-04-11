@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Category, Series } from '../../../../shared/models/macro.model';
 import { BehaviorSubject } from 'rxjs';
-import { ColumnDef } from 'src/app/shared/components/table/table.interfaces';
+import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
 import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
-
+import { ITreeOptions } from 'angular-tree-component';
 @Component({
   selector: 'p-macro',
   templateUrl: './macro.component.html',
@@ -12,10 +12,13 @@ import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
 })
 export class MacroComponent implements OnInit {
   categories: Category[];
+  selectedCategories: Category[] = [];
   selectedSerias: Series[];
-  serias: Series[] = [];
+  serias: Series[];
+  allSerias: Series[];
   tadleDataSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   id;
+  treeOptions: ITreeOptions = { idField: 'CatgID', displayField: 'NameHebrew'};
   columns: ColumnDef[] = [
     { field: 'hebName', title: 'שם הסידרה' },
     { field: 'catalogPath', title: 'קטלוג' },
@@ -26,7 +29,6 @@ export class MacroComponent implements OnInit {
     { field: 'unitEnName', title: 'יחידות' },
     { field: 'sourceEnName', title: 'מקור נתונים' },
   ];
-  options = { idProp: 'CatgID', nameProp: 'NameHebrew', childrenProp: 'Children' }
   // from = addMonths(new Date(), -1);
   // to = new Date();
   topbarModel: ITopBarModel = {
@@ -38,11 +40,26 @@ export class MacroComponent implements OnInit {
   constructor(private api: MacroController) {
     this.api.getInitialData().then(data => {
       this.categories = data.categories;
-      this.serias = data.serias;
+      this.allSerias = this.serias = data.serias;
     });
   }
 
   ngOnInit() {
   }
 
+  onSelectCategory(category: Category) {
+    if (this.selectedCategories.find(s => s.CatgID === category.CatgID)) {
+      this.selectedCategories = this.selectedCategories.filter(s => s.CatgID !== category.CatgID);
+    } else {
+      this.selectedCategories.push(category);
+    }
+
+
+    if (this.selectedCategories) {
+      this.serias = this.allSerias.filter(s => this.selectedCategories.find(c => c.CatgID === s.id));
+    } else {
+      this.serias = this.allSerias;
+    }
+
+  }
 }

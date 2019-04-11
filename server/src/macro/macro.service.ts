@@ -3,8 +3,9 @@ import { macroConf } from '../../../../macro/config';
 import { Logger } from '@nestjs/common';
 import { writeFile } from 'utils';
 import { createWriteStream } from 'fs';
-import { Category, Series } from './macro.model';
+import { Category, Series } from 'shared/models/macro.model';
 const dataPath = '../../macro/data/';
+import {uniqBy} from 'lodash';
 export class DataService {
     private readonly logger = new Logger('DataService');
 
@@ -62,21 +63,20 @@ export class DataService {
                 const seriasPath = dataPath + 'serias.json';
                 await pool.connect();
                 const categories: Category[] =
-                    (await pool.request().query(`
+                uniqBy<Category>((await pool.request().query(`
                         select catg_id as CatgID,
                             name_hebrew as NameHebrew,
                             name_english as NameEnglish
                         from prCatg
-                        `))
-                        .recordset;
+                        `)).recordset, 'CatgID');
                 categories.forEach(category => {
                     if (category.CatgID.length === 1) {
                         categories.push(category);
                         return;
                     }
                     const node = this.findNode(categories, category.CatgID.substring(0, category.CatgID.length - 1));
-                    if (!node.Children) { node.Children = []; }
-                    node.Children.push(category);
+                    if (!node.children) { node.children = []; }
+                    node.children.push(category);
                 });
 
                 await writeFile(categoriesPath, JSON.stringify(categories));
@@ -119,7 +119,7 @@ export class DataService {
         let res = nodes.find(n => n.CatgID === id);
         if (res) { return res; }
         for (const n of nodes) {
-            res = this.findNode(n.Children, id);
+            res = this.findNode(n.children, id);
             if (res) { return res; }
         }
     }

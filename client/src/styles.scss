@@ -2,8 +2,8 @@
 
 /* You can add global styles to this file, and also import other style files */
 // @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-@import '~@angular/material/theming';
+@import '~angular-tree-component/dist/angular-tree-component.css';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -15,10 +15,10 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $candy-app-primary: mat-palette($mat-indigo);
-$candy-app-accent:  mat-palette($mat-blue, A200, A100, A400);
+$candy-app-accent: mat-palette($mat-blue, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$candy-app-warn:    mat-palette($mat-red);
+$candy-app-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
@@ -28,43 +28,33 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 // that you are using.
 @include angular-material-theme($candy-app-theme);
 
-
 body {
-    margin: 0;
-    
+  margin: 0;
 }
 
 .center {
-    position: absolute;
-    /*it can be fixed too*/
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    /*this to solve "the content will not be cut when the window is smaller than the content": */
-    max-width: 100%;
-    max-height: 100%;
+  position: absolute;
+  /*it can be fixed too*/
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  /*this to solve "the content will not be cut when the window is smaller than the content": */
+  max-width: 100%;
+  max-height: 100%;
 }
 
-*{font-family:OpenSansHebrew;}
-
-mat-grid-tile{
-    div{
-        height: 100%;
-    }
-}
-mat-tab-group{
-    width: 100%;
-    height: 100%;
+* {
+  font-family: OpenSansHebrew;
 }
 
+mat-tab-group {
+  width: 100%;
+  height: 100%;
+}
 
 mat-grid-list {
-    height: 100%;
-  }
-  p-table{
-    height: 90%;
-    width: 90%;
-    margin: auto;
-  }
+  height: 100%;
+}
+

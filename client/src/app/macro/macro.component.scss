@@ -1,11 +1,10 @@
 
+$topbar-hight: 70px;
 
-$topbar-hight:70px;
-
-p-topbar{
-    height: $topbar-hight;
+p-topbar {
+  height: $topbar-hight;
 }
-.content{
-    height:calc(100vh - #{$topbar-hight});
-    background-color: #f1f2f6;
+.content {
+  height: calc(100vh - #{$topbar-hight});
+  background-color: #f1f2f6;
 }
