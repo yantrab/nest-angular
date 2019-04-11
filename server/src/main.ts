@@ -2,8 +2,7 @@ import { NestFactory, FastifyAdapter } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import passport = require('passport');
-import {DataService} from './macro/macro.service';
-new DataService().update();
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, FastifyAdapter);
   // app.useStaticAssets(join(__dirname, '../../', 'client/dist'));
