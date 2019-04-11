@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TextBoxComponent } from './text-box/text-box.component';
+// import { TextBoxComponent } from './text-box/text-box.component';
 import { MaterialModule } from './material/material.module';
 import { CommonModule } from '@angular/common';
 import { DropdownComponent } from './filters/dropdown/dropdown.component';
@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
 import { AutocompleteComponent } from './filters/autocomplete/autocomplete.component';
 import {TableModule} from './table/table.module';
 const components = [
-    TextBoxComponent,
+    // TextBoxComponent,
     DropdownComponent,
     CheckboxComponent,
     FilterGroupComponent,

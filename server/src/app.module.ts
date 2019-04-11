@@ -7,7 +7,7 @@ import { EventsModule } from './webRTC/events.module';
 import { App1Module } from './app1/app1.module';
 import { MacroModule } from './macro/macro.module';
 @Module({
-  imports: [AuthModule, AdminModule, App1Module, MacroModule, 
+  imports: [AuthModule, AdminModule, App1Module,// MacroModule, 
     MongoRepoModule.forRoot('mongodb://localhost:27017'),
     EventsModule],
 })

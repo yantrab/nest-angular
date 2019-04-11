@@ -23,7 +23,7 @@ export class User extends Entity {
 export class AddUserDTO extends User {
     @IsString()
     @IsEmail()
-// tslint:disable-next-line: variable-name
+    // tslint:disable-next-line: variable-name
     _id: string;
 
     @IsString()
@@ -39,6 +39,9 @@ export class LoginRequest {
     @IsString()
     @Length(5, 10)
     password: string;
+    constructor(login?: Partial<LoginRequest>) {
+        Object.assign(this, login);
+    }
 }
 
 // export class o {
