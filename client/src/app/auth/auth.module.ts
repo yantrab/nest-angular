@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { RouterModule } from '@angular/router';
-import { DynaFormBuilder } from 'src/dyna-form/dyna-form.builder';
+import { DynaFormModule } from 'ng-dyna-form';
 import { AuthController } from 'src/api/auth.controller';
 
 @NgModule({
@@ -11,8 +11,9 @@ import { AuthController } from 'src/api/auth.controller';
   imports: [
     CommonModule,
     ComponentsModule,
-    RouterModule.forChild([{ path: '', component: AuthComponent }])
+    RouterModule.forChild([{ path: '', component: AuthComponent }]),
+    DynaFormModule
   ],
-  providers: [DynaFormBuilder, AuthController]
+  providers: [AuthController]
 })
 export class AuthModule { }

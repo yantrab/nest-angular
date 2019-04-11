@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TextBoxComponent } from './text-box/text-box.component';
+// import { TextBoxComponent } from './text-box/text-box.component';
 import { MaterialModule } from './material/material.module';
 import { CommonModule } from '@angular/common';
 import { DropdownComponent } from './filters/dropdown/dropdown.component';
@@ -19,7 +19,7 @@ import { FocusDirective } from '../directives/focus.directive';
 import { TreeModule } from 'angular-tree-component';
 import { I18nService } from '../services/i18n.service';
 const components = [
-    TextBoxComponent,
+    // TextBoxComponent,
     DropdownComponent,
     CheckboxComponent,
     FilterGroupComponent,

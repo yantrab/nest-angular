@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { LoginRequest } from 'shared';
-import { DynaFormBuilder, validateAllFields } from 'src/dyna-form/dyna-form.builder';
+import { DynaFormBuilder, validateAllFields } from 'ng-dyna-form';
 import { I18nService } from '../shared/services/i18n.service';
 import { I18nRootObject } from 'src/api/i18n/login.i18n';
 @Component({
