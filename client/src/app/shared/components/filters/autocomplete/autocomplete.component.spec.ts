@@ -10,7 +10,7 @@ import { Filter } from 'shared';
 })
 
 class TestHostComponent {
-  settings: Filter = {
+  settings = {
     placeholder: 'placeholder',
     options:
       [{ _id: 1, name: 'name1' }, { _id: 2, name: 'name2' }],
