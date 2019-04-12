@@ -1,21 +1,14 @@
 
+import { Entity } from './Entity';
 import { IsString, ValidateNested, IsDate } from 'class-validator';
-export class Category {
-    @IsString()
-    NameHebrew: string;
+export class Category extends Entity {
     @IsString()
     NameEnglish: string;
     @ValidateNested({ each: true })
     children: Category[] = [];
-    @IsString()
-    CatgID: string;
 }
 
-export class Series {
-    @IsString()
-    id: string;
-    @IsString()
-    hebName: string;
+export class Series extends Entity  {
     @IsString()
     hebTypeName: string;
     @IsDate()
@@ -28,6 +21,8 @@ export class Series {
     unitEnName: string;
     @IsString()
     catalogPath: string;
+    @IsString()
+    categoryId:string;
 }
 
 export class DataRequest {
@@ -38,9 +33,7 @@ export class DataRequest {
     @IsDate()
     to: Date;
 }
-export class DataResult {
-    @IsString()
-    id: string;
+export class Data extends Entity {
     data: { date: Date, value: number };
 }
 

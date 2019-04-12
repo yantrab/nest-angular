@@ -1,14 +1,11 @@
-<div dir="rtl">
+<div [dir]='i18nService.dir'>
     <p-topbar [model]="topbarModel"></p-topbar>
     <div class="content">
         <mat-grid-list gutterSize="10px" cols="4" rowHeight="fit">
-            <mat-grid-tile  colspan="1" fxLayout="column" fxLayoutAlign="start center">
-                    <div style="height:100%;width:100%;">
-                            <tree-root [nodes]="categories" [options]="treeOptions" ></tree-root>
-                <!-- <p-tree *ngIf="categories" [nodes]="categories" [options]="treeOptions"
-                    (select)="onSelectCategory($event)">
-                </p-tree> -->
-                </div>  
+            <mat-grid-tile colspan="1" fxLayout="column" fxLayoutAlign="start center">
+                <div style="height:100%;width:100%;">
+                    <tree-root [nodes]="categories" [options]="treeOptions" (deactivate)="onSelectCategory()" (activate)="onSelectCategory($event.node.data)"></tree-root>
+                </div>
             </mat-grid-tile>
 
             <mat-grid-tile colspan="3">
@@ -21,8 +18,8 @@
                         <ng-template pCellDef column="endDate" let-row="row">
                             {{row.endDate | date:"dd.MM.yyyy"}}
                         </ng-template>
-                        <ng-template pCellDef column="hebName" let-row="row">
-                            <b>{{row.hebName}}</b>
+                        <ng-template pCellDef column="name" let-row="row">
+                            <b>{{row.name}}</b>
                         </ng-template>
                     </mat-virtual-table>
                 </div>

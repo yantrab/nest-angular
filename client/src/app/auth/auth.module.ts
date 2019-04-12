@@ -5,7 +5,6 @@ import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { RouterModule } from '@angular/router';
 import { DynaFormModule } from 'ng-dyna-form';
 import { AuthController } from 'src/api/auth.controller';
-import { I18nService } from '../shared/services/i18n.service';
 
 @NgModule({
   declarations: [AuthComponent],
@@ -15,6 +14,6 @@ import { I18nService } from '../shared/services/i18n.service';
     RouterModule.forChild([{ path: '', component: AuthComponent }]),
     DynaFormModule
   ],
-  providers: [AuthController, I18nService, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }]
+  providers: [AuthController]
 })
 export class AuthModule { }

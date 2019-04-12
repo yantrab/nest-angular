@@ -1,23 +1,25 @@
 import { Controller, Get, Req, Post, Body } from '@nestjs/common';
-import { InitialData, DataRequest, DataResult, Category } from 'shared/models/macro.model';
-import * as data from '../../../../macro/data/data.json';
-import * as categories from '../../../../macro/data/categories.json';
-import * as serias from '../../../../macro/data/serias.json';
+import { InitialData, DataRequest, Data, Category } from 'shared/models/macro.model';
+import { MacroService } from './macro.service';
+// import * as data from '../../../../macro/data/data.json';
+// import * as categories from '../../../../macro/data/categories.json';
+// import * as serias from '../../../../macro/data/serias.json';
 
 @Controller('rest/macro')
 export class MacroController {
-
+    constructor(private service: MacroService) {
+        //this.service.update();
+    }
     @Get()
-    getInitialData(@Req() req): InitialData {
-        const c = categories;
+    async getInitialData(@Req() req): Promise<InitialData> {
         return {
-            categories: categories as any,
-            serias: serias as any,
+            categories: await this.service.getCategories(),
+            serias: await this.service.getSeries(),
         };
     }
 
     @Post('/data')
-    getData(@Body() form: DataRequest): DataResult[] {
+    getData(@Body() form: DataRequest): Data[] {
         return [];
     }
 }

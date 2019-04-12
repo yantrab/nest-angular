@@ -3,9 +3,10 @@ import { MacroController } from './macro.controller';
 import { GuardMiddleware } from '../middlewares/guard.middleware';
 import { Role } from 'shared';
 import { CompressionMiddleware } from '@nest-middlewares/compression';
+import { MacroService } from './macro.service';
 @Module({
   controllers: [MacroController],
-  providers: [],
+  providers: [MacroService],
 })
 export class MacroModule {
   configure(consumer: MiddlewareConsumer): void {

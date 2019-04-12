@@ -17,6 +17,7 @@ import { TableModule } from 'mat-virtual-table';
 import { TreeComponent } from './tree/tree.component';
 import { FocusDirective } from '../directives/focus.directive';
 import { TreeModule } from 'angular-tree-component';
+import { I18nService } from '../services/i18n.service';
 const components = [
     // TextBoxComponent,
     DropdownComponent,
@@ -27,7 +28,8 @@ const components = [
     TopbarComponent,
     NavMenuComponent,
     AutocompleteComponent,
-    TreeComponent
+    TreeComponent,
+
 ];
 @NgModule({
     imports: [
@@ -41,6 +43,7 @@ const components = [
         TreeModule.forRoot()
     ],
     declarations: [...components, FocusDirective],
-    exports: [TableModule, MaterialModule, FlexLayoutModule, TreeModule, ...components]
+    exports: [TableModule, MaterialModule, FlexLayoutModule, TreeModule, ...components],
+    providers: [I18nService, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }]
 })
 export class ComponentsModule { }

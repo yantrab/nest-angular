@@ -1,28 +1,32 @@
 import * as sql from 'mssql';
+import { Injectable } from '@nestjs/common';
 import { macroConf } from '../../../../macro/config';
 import { Logger } from '@nestjs/common';
-import { writeFile } from 'utils';
-import { createWriteStream } from 'fs';
-import { Category, Series } from 'shared/models/macro.model';
-const dataPath = '../../macro/data/';
-import {uniqBy} from 'lodash';
-export class DataService {
+import { Category, Series, Data } from 'shared/models/macro.model';
+import { Repository, RepositoryFactory } from 'mongo-nest';
+@Injectable()
+export class MacroService {
     private readonly logger = new Logger('DataService');
+    private categoryRepo: Repository<Category>;
+    private seriesRepo: Repository<Series>;
+    private dataRepo: Repository<Data>;
+    constructor(private repositoryFactory: RepositoryFactory) {
+        this.categoryRepo = this.repositoryFactory.getRepository<Category>(Category, 'DBMacro');
+        this.seriesRepo = this.repositoryFactory.getRepository<Series>(Series, 'DBMacro');
+        this.dataRepo = this.repositoryFactory.getRepository<Data>(Data, 'DBMacro');
+    }
 
     async update() {
         await Promise.all([
-            //this.updateData(),
+            // this.updateData(),
             this.updateCategoriesAndSerias(),
         ]);
     }
 
     private async updateData() {
         return new Promise(async (resolve, reject) => {
+            await this.dataRepo.collection.deleteMany({});
             const pool = new sql.ConnectionPool(macroConf.db);
-            const path = dataPath + 'data.json';
-            const writeStream = createWriteStream(path);
-            await writeFile(path, '');
-            writeStream.write('{');
             pool.on('error', err => { this.logger.error('sql errors', err); });
             try {
                 await pool.connect();
@@ -37,52 +41,54 @@ export class DataService {
                         WHERE pasp_id = '${id}'
                         `;
                     const dbData = (await pool.request().query(query)).recordset;
-                    const data = [];
+                    const data: any = [];
                     dbData
                         .forEach(d => {
                             data.push([d.d, d.v]);
                         });
-                    writeStream.write(`"${id}": ${JSON.stringify(data)},`);
+                    await this.dataRepo.saveOrUpdateOne({ _id: id, data });
                 }));
-                writeStream.write('}');
+
                 resolve(true);
             } catch (err) {
                 reject(err);
                 this.logger.error(err);
             } finally {
                 pool.close();
-                writeStream.close();
             }
         });
     }
     private async updateCategoriesAndSerias() {
+        const getChildren = (categories, category) => {
+            const children =
+                categories
+                    .filter(c => c._id.length === category._id.length + 1 && c._id.slice(0, category._id.length) === category._id);
+            if (!children.length) { return undefined; }
+            children.forEach(child => child.children = getChildren(categories, child));
+            return children;
+        };
+
         return new Promise(async (resolve, reject) => {
             const pool = new sql.ConnectionPool(macroConf.db);
             try {
-                const categoriesPath = dataPath + 'categories.json';
-                const seriasPath = dataPath + 'serias.json';
                 await pool.connect();
-                const categories: Category[] =
-                uniqBy<Category>((await pool.request().query(`
-                        select catg_id as CatgID,
-                            name_hebrew as NameHebrew,
+                const categoriesDB: Category[] =
+                    (await pool.request().query(`
+                        select catg_id as _id,
+                            name_hebrew as name,
                             name_english as NameEnglish
                         from prCatg
-                        `)).recordset, 'CatgID');
-                categories.forEach(category => {
-                    if (category.CatgID.length === 1) {
-                        categories.push(category);
-                        return;
-                    }
-                    const node = this.findNode(categories, category.CatgID.substring(0, category.CatgID.length - 1));
-                    if (!node.children) { node.children = []; }
-                    node.children.push(category);
-                });
+                        `)).recordset;
+                const categories = categoriesDB.filter(category => category._id.length === 1);
 
-                await writeFile(categoriesPath, JSON.stringify(categories));
+                categories.forEach(category => {
+                    category.children = getChildren(categoriesDB, category);
+                });
+                await this.categoryRepo.collection.deleteMany({});
+                await this.categoryRepo.saveOrUpdateMany(categories);
 
                 const serias: Series[] = (await pool.request().query(`
-                SELECT  t1.catg_id as id, t1.name_hebrew as hebName,
+                SELECT t1.pasp_id as _id, t1.catg_id as categoryId, t1.name_hebrew as name,
                     t2.name_hebrew as hebTypeName, t1.first_trading_date as startDate,
                     t1.last_trading_date  as endDate,t4.SOURCE_NAME as sourceEnName, t3.UNIT_NAME as unitEnName
                 FROM [dbMacro].[dbo].[prPasp] t1
@@ -95,15 +101,16 @@ export class DataService {
                 serias.forEach(s => {
                     s.catalogPath = '';
                     for (let i = 1; i <= 3; i++) {
-                        const subId = s.id.slice(0, i);
-                        s.catalogPath += categories.find(c => c.CatgID === subId).NameHebrew;
+                        const subId = s.categoryId.slice(0, i);
+                        s.catalogPath += categoriesDB.find(c => c._id === subId).name;
 
                         if (i !== 3) {
                             s.catalogPath += ' | ';
                         }
                     }
                 });
-                await writeFile(seriasPath, JSON.stringify(serias));
+                await this.seriesRepo.collection.deleteMany({});
+                await this.seriesRepo.saveOrUpdateMany(serias);
 
                 resolve(true);
             } catch (err) {
@@ -115,12 +122,11 @@ export class DataService {
         });
     }
 
-    private findNode(nodes: Category[], id: string): Category {
-        let res = nodes.find(n => n.CatgID === id);
-        if (res) { return res; }
-        for (const n of nodes) {
-            res = this.findNode(n.children, id);
-            if (res) { return res; }
-        }
+    async getCategories() {
+        return this.categoryRepo.findMany();
+    }
+
+    async getSeries() {
+        return this.seriesRepo.findMany();
     }
 }
