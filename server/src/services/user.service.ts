@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { User, Role, AddUserDTO } from 'shared';
+import { User, Role, AddUserDTO, App } from 'shared';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import { comparePassword, cryptPassword } from './crypt';
 @Injectable()
@@ -7,8 +7,7 @@ export class UserService {
     userRepo: Repository<User>;
     constructor(private repositoryFactory: RepositoryFactory) {
         this.userRepo = this.repositoryFactory.getRepository<User>(User, 'users');
-        this.saveUser({ _id: 'admin@admin.com', fName: 'yoyo', lName: 'toto', roles: [Role.Admin], password: '123456'} as AddUserDTO);
-        this.saveUser({ _id: 'admin2@admin.com', fName: 'yoyo', lName: 'toto', roles: [Role.Admin], password: '123456'} as AddUserDTO);
+        this.saveUser({ _id: 'admin@admin.com', fName: 'yoyo', lName: 'toto', roles: [{ app: App.admin }], password: '123456' } as AddUserDTO);
     }
 
     async validateUser(email, password) {

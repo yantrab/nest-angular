@@ -8,7 +8,7 @@ export class Category extends Entity {
     children: Category[] = [];
 }
 
-export class Series extends Entity  {
+export class Series extends Entity {
     @IsString()
     hebTypeName: string;
     @IsDate()
@@ -22,7 +22,7 @@ export class Series extends Entity  {
     @IsString()
     catalogPath: string;
     @IsString()
-    categoryId:string;
+    categoryId: string;
 }
 
 export class DataRequest {
@@ -32,9 +32,15 @@ export class DataRequest {
     from: Date;
     @IsDate()
     to: Date;
+    constructor(data: Partial<DataRequest>) {
+        if (data.from) { this.from = new Date(data.from); }
+        if (data.to) { this.to = new Date(data.to); }
+        this.seriasIds = data.seriasIds;
+    }
 }
 export class Data extends Entity {
-    data: { date: Date, value: number };
+    @ValidateNested()
+    data: Array<{ date: Date, value: number }>;
 }
 
 export class InitialData {

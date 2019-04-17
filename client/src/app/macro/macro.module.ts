@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '../shared/components/components.module';
 import { MacroController } from 'src/api/macro.controller';
 import { MacroComponent } from './macro.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     MacroComponent
@@ -11,6 +12,8 @@ import { MacroComponent } from './macro.component';
   imports: [
     CommonModule,
     ComponentsModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(
       [
         {

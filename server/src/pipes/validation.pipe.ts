@@ -1,89 +1,68 @@
-import { BadRequestException } from '@nestjs/common';
-import { PipeTransform, Injectable, ArgumentMetadata } from '@nestjs/common';
-import { validate, IsArray, IsBoolean, IsDate, IsString, IsNumber, IsEnum, IsOptional } from 'class-validator';
-import { plainToClass } from 'class-transformer';
-import { Project, ClassDeclaration, TypeGuards } from 'ts-morph';
-import { resolve } from 'path';
-import { ModuleKind } from 'typescript';
-const typeDecoratorMap = {
-    boolean: { name: 'IsBoolean', arguments: [] },
-    number: { name: 'IsNumber', arguments: [] },
-    string: { name: 'IsString', arguments: [] },
-    Date: { name: 'IsDate', arguments: [] },
-    booleanArr: { name: 'IsBoolean', arguments: [{ each: true }] },
-    numberArr: { name: 'IsNumber', arguments: [{}, { each: true }] },
-    stringArr: { name: 'IsString', arguments: [{ each: true }] },
-    DateArr: { name: 'IsDate', arguments: [{ each: true }] },
-};
+import { ValidatorOptions } from '@nestjs/common/interfaces/external/validator-options.interface';
+import { ClassTransformOptions } from '@nestjs/common/interfaces/external/class-transform-options.interface';
+import { ValidationError, Injectable, PipeTransform, Optional, BadRequestException, ArgumentMetadata } from '@nestjs/common';
+import { isNil } from 'lodash';
 
-const importNames = ['IsArray', 'IsBoolean', 'IsDate', 'IsString', 'IsNumber', 'ValidateNested'];
-const outPath = resolve('../shared/dist');
-const indexParh = resolve('src/shared.ts');
-
+import {validate} from 'class-validator';
+import { loadPackage } from '@nestjs/common/utils/load-package.util';
+export interface ValidationPipeOptions extends ValidatorOptions {
+    transform?: boolean;
+    disableErrorMessages?: boolean;
+    transformOptions?: ClassTransformOptions;
+    exceptionFactory?: (errors: ValidationError[]) => any;
+}
 @Injectable()
 export class ValidationPipe implements PipeTransform<any> {
-    metaTypes;
-    constructor() {
-        const project = new Project({ compilerOptions: { outDir: outPath } });
-        const indexSourceFile = project.addExistingSourceFile(indexParh);
-        const exportedClasses = indexSourceFile.getExportedDeclarations().filter(TypeGuards.isClassDeclaration);
+    protected isTransformEnabled: boolean;
+    protected isDetailedOutputDisabled?: boolean;
+    protected validatorOptions: ValidatorOptions;
+    protected transformOptions: ClassTransformOptions;
+    protected exceptionFactory: (errors: ValidationError[]) => any;
 
-        for (const classDec of exportedClasses) {
-            const classSourceFile = classDec.getSourceFile();
-            const classValidatorImport = classSourceFile.getImportDeclaration(c => c.getModuleSpecifier().getText() === 'class-validator');
-            const existImports = classValidatorImport ? classValidatorImport.getNamedImports().map(d => d.getName()) : [];
-            const toImports = importNames.filter(name => !existImports.includes(name));
-            if (!!toImports.length) {
-                classSourceFile.addImportDeclaration({
-                    namedImports: toImports,
-                    moduleSpecifier: 'class-validator',
-                });
-            }
+    constructor(@Optional() options?: ValidationPipeOptions) {
+        options = options || {};
+        const {
+            transform,
+            disableErrorMessages,
+            transformOptions,
+            ...validatorOptions
+        } = options;
+        this.isTransformEnabled = !!transform;
+        this.validatorOptions = validatorOptions;
+        this.transformOptions = transformOptions;
+        this.isDetailedOutputDisabled = disableErrorMessages;
+        this.exceptionFactory =
+            options.exceptionFactory ||
+            (errors =>
+                new BadRequestException(
+                    this.isDetailedOutputDisabled ? undefined : errors,
+                ));
 
-            classDec.getProperties().forEach(prop => {
-                const type = prop.getType().getText();
-                const decorator = typeDecoratorMap[type.replace('[]', 'Arr')];
-                const isOptional = prop.hasQuestionToken();
-                if (decorator) {
-                    prop.addDecorator(decorator);
-                } else {
-                    const isEnum = prop.getType().isEnum();
-                    prop.addDecorator({ name: 'ValidateNested' });
-                }
-                if (isOptional) {
-                    prop.addDecorator({ name: 'IsOptional', arguments: [] });
-                }
-            });
-        }
-
-        const modelsFile = project.emit();
-        // .getFiles().map(f => f.text).join('/n');
-        import(outPath + '/shared').then(models => {
-            this.metaTypes = models;
-        });
     }
 
-    requireFromString(src) {
-        const Module = module.constructor;
-        const m = Module();
-        m._compile(src);
-        return m.exports;
-    }
-    async transform(value, metadata: ArgumentMetadata) {
-        const metatype = this.metaTypes[metadata.metatype.name];
-        if (!metatype || !this.toValidate(metatype)) {
+    public async transform(value: any, metadata: ArgumentMetadata) {
+        const { metatype } = metadata;
+        if (!metatype || !this.toValidate(metadata)) {
             return value;
         }
-        const object = plainToClass(metatype, value);
-        const errors = await validate(object, { forbidUnknownValues: true });
+        const entity = new metadata.metatype(value);
+        const errors = await validate(entity, this.validatorOptions);
         if (errors.length > 0) {
-            throw new BadRequestException('Validation failed');
+            throw this.exceptionFactory(errors as any);
         }
-        return value;
+        return entity;
     }
 
-    private toValidate(metatype): boolean {
+    private toValidate(metadata: ArgumentMetadata): boolean {
+        const { metatype, type } = metadata;
+        if (type === 'custom') {
+            return false;
+        }
         const types = [String, Boolean, Number, Array, Object];
-        return !types.find(type => metatype === type);
+        return !types.some(t => metatype === t) && !isNil(metatype);
+    }
+
+    toEmptyIfNil<T = any, R = any>(value: T): R | {} {
+        return isNil(value) ? {} : value;
     }
 }

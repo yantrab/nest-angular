@@ -8,7 +8,7 @@ import { MacroService } from './macro.service';
 @Controller('rest/macro')
 export class MacroController {
     constructor(private service: MacroService) {
-        //this.service.update();
+         this.service.update();
     }
     @Get()
     async getInitialData(@Req() req): Promise<InitialData> {
@@ -19,7 +19,7 @@ export class MacroController {
     }
 
     @Post('/data')
-    getData(@Body() form: DataRequest): Data[] {
-        return [];
+    getData(@Body() form: DataRequest): Promise<Data[]> {
+        return this.service.getData(form);
     }
 }

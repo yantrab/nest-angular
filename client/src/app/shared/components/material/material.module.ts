@@ -13,10 +13,10 @@ import {
   MatSortModule,
 } from '@angular/material';
 import { NgModule } from '@angular/core';
-
+import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 const modules = [MatProgressBarModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatMenuModule, MatButtonModule, MatTabsModule,
   MatIconModule, MatAutocompleteModule, MatSelectModule, MatCardModule, MatSlideToggleModule, MatTreeModule, MatTableModule,
-  MatCheckboxModule, MatExpansionModule, MatChipsModule, MatSortModule]
+  MatCheckboxModule, MatExpansionModule, MatChipsModule, MatSortModule, SatDatepickerModule, SatNativeDateModule]
 @NgModule({
   imports: modules,
   exports: modules,

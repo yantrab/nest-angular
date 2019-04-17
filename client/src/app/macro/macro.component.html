@@ -4,14 +4,19 @@
         <mat-grid-list gutterSize="10px" cols="4" rowHeight="fit">
             <mat-grid-tile colspan="1" fxLayout="column" fxLayoutAlign="start center">
                 <div style="height:100%;width:100%;">
-                    <tree-root [nodes]="categories" [options]="treeOptions" (deactivate)="onSelectCategory()" (activate)="onSelectCategory($event.node.data)"></tree-root>
+                    <tree-root [nodes]="categories" [options]="treeOptions" (deactivate)="onSelectCategory()"
+                        (activate)="onSelectCategory($event.node.data)"></tree-root>
                 </div>
             </mat-grid-tile>
 
             <mat-grid-tile colspan="3">
-                <div style="height:100%;width:100%;">
-                    <mat-virtual-table *ngIf="serias" [rows]="serias" [filterPlaceholder]="'חיפוש'"
+                <div fxLayout="column" fxFlex style="height:100%;width:100%;">
+                    <mat-virtual-table fxFlex *ngIf="serias" [rows]="serias" [filterPlaceholder]="'חיפוש'"
                         [columnsDef]="columns">
+                        <ng-template pCellDef column="select" let-row="row">
+                            <mat-checkbox (change)="onSelectSerias($event.checked, row)"></mat-checkbox>
+                        </ng-template>
+
                         <ng-template pCellDef column="startDate" let-row="row">
                             {{row.startDate | date:"dd.MM.yyyy"}}
                         </ng-template>
@@ -22,7 +27,21 @@
                             <b>{{row.name}}</b>
                         </ng-template>
                     </mat-virtual-table>
+                    <!-- style="height:100%;width:100%;" -->
+                    <div fxFlex="100px">
+                        <form [formGroup]="dateForm">
+                            <mat-form-field>
+                                <input matInput placeholder="Choose a date" [satDatepicker]="picker4"
+                                    formControlName="date">
+                                <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year">
+                                </sat-datepicker>
+                                <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>
+                            </mat-form-field>
+                            <button (click)="download()" mat-button>הורד</button>
+                        </form>
+                    </div>
                 </div>
+
             </mat-grid-tile>
         </mat-grid-list>
     </div>

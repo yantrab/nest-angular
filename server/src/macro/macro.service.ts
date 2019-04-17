@@ -2,7 +2,7 @@ import * as sql from 'mssql';
 import { Injectable } from '@nestjs/common';
 import { macroConf } from '../../../../macro/config';
 import { Logger } from '@nestjs/common';
-import { Category, Series, Data } from 'shared/models/macro.model';
+import { Category, Series, Data, DataRequest } from 'shared/models/macro.model';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 @Injectable()
 export class MacroService {
@@ -18,7 +18,7 @@ export class MacroService {
 
     async update() {
         await Promise.all([
-            // this.updateData(),
+            this.updateData(),
             this.updateCategoriesAndSerias(),
         ]);
     }
@@ -36,7 +36,7 @@ export class MacroService {
                 await Promise.all(ids.map(async id => {
                     const query =
                         `
-                        SELECT pasp_id as id, LEFT(CONVERT(VARCHAR, report_date, 120), 7)  as d, data_value as v
+                        SELECT pasp_id as id, report_date  as d, data_value as v
                         FROM [dbMacro].[dbo].[prData]
                         WHERE pasp_id = '${id}'
                         `;
@@ -44,7 +44,7 @@ export class MacroService {
                     const data: any = [];
                     dbData
                         .forEach(d => {
-                            data.push([d.d, d.v]);
+                            data.push({ date: d.d, value: d.v });
                         });
                     await this.dataRepo.saveOrUpdateOne({ _id: id, data });
                 }));
@@ -92,9 +92,9 @@ export class MacroService {
                     t2.name_hebrew as hebTypeName, t1.first_trading_date as startDate,
                     t1.last_trading_date  as endDate,t4.SOURCE_NAME as sourceEnName, t3.UNIT_NAME as unitEnName
                 FROM [dbMacro].[dbo].[prPasp] t1
-                join [dbMacro].[dbo].[prType] t2 on t1.[type_id] = t2.[type_id]
-                join [dbMacro].[dbo].tblUnit t3 on t1.unit_id = t3.UNIT_ID
-                join [dbMacro].[dbo].tblSource t4 on t1.source_id = t4.source_id
+                left join [dbMacro].[dbo].[prType] t2 on t1.[type_id] = t2.[type_id]
+                left join [dbMacro].[dbo].tblUnit t3 on t1.unit_id = t3.UNIT_ID
+                left join [dbMacro].[dbo].tblSource t4 on t1.source_id = t4.source_id
                 where t1.catg_id is not null
             `))
                     .recordset;
@@ -102,7 +102,7 @@ export class MacroService {
                     s.catalogPath = '';
                     for (let i = 1; i <= 3; i++) {
                         const subId = s.categoryId.slice(0, i);
-                        s.catalogPath += categoriesDB.find(c => c._id === subId).name;
+                        // s.catalogPath += categoriesDB.find(c => c._id === subId).name;
 
                         if (i !== 3) {
                             s.catalogPath += ' | ';
@@ -128,5 +128,16 @@ export class MacroService {
 
     async getSeries() {
         return this.seriesRepo.findMany();
+    }
+
+    async getData(req: DataRequest): Promise<Data[]> {
+        return this
+            .dataRepo
+            .collection
+            .find(
+                {
+                    _id: { $in: req.seriasIds },
+                    // $and: [{ 'data.date': { $gt: req.from } }, { 'data.date': { $gt: req.from } }],
+                }).toArray() as Promise<Data[]>;
     }
 }

@@ -18,6 +18,7 @@ import { TreeComponent } from './tree/tree.component';
 import { FocusDirective } from '../directives/focus.directive';
 import { TreeModule } from 'angular-tree-component';
 import { I18nService } from '../services/i18n.service';
+import { XLSXService } from '../services/xlsx/xlsx.service';
 const components = [
     // TextBoxComponent,
     DropdownComponent,
@@ -44,6 +45,6 @@ const components = [
     ],
     declarations: [...components, FocusDirective],
     exports: [TableModule, MaterialModule, FlexLayoutModule, TreeModule, ...components],
-    providers: [I18nService, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }]
+    providers: [I18nService, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }, XLSXService]
 })
 export class ComponentsModule { }

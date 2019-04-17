@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { Guard } from './guard';
-import { Role } from 'shared';
+import { App } from 'shared';
 import { AuthService } from './auth/auth.service';
 import { InterceptorsService } from './shared/services/interceptors.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -21,15 +21,14 @@ export class AppComponent {
 const routes: Routes = [
   { path: '', redirectTo: 'login/app1', pathMatch: 'full' },
   // { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
-  { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard], data: { roles: [Role.Admin, Role.app1] } },
   {
-    path: 'webRTC', loadChildren: 'src/app/webRTC/webRTC.module#App2Module',
-    canActivate: [Guard], data: { roles: [Role.Admin, Role.app2] }
+    path: App[App.app1], loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard],
+    data: { app: App.app1}
   },
   { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },
 
   { path: 'intercom', loadChildren: 'src/app/intercom/intercom.module#IntercomModule' },
-  { path: 'macro', loadChildren: 'src/app/macro/macro.module#MacroModule' },
+  { path: App[App.macro], loadChildren: 'src/app/macro/macro.module#MacroModule', canActivate: [Guard], data: { app: App.macro}},
 
   { path: '**', redirectTo: 'login/app1' }
 

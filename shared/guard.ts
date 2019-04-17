@@ -1,7 +1,7 @@
 
-import { Role, User } from './';
+import { User, App } from './models/user.model';
 export const hasPermission =
-  (user: User, roles: Role[]) =>
+  (user: User, app: App) =>
     user &&
     user.roles &&
-    user.roles.some((role) => roles.includes(role));
+    user.roles.some((role) => role.app === App.admin || role.app === app);
