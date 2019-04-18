@@ -1,6 +1,6 @@
 
 import { Entity } from './Entity';
-import { IsString, ValidateNested, IsDate } from 'class-validator';
+import { IsString, ValidateNested, IsDate, IsNumber } from 'class-validator';
 export class Category extends Entity {
     @IsString()
     NameEnglish: string;
@@ -28,19 +28,19 @@ export class Series extends Entity {
 export class DataRequest {
     @IsString({ each: true })
     seriasIds: string[];
-    @IsDate()
-    from: Date;
-    @IsDate()
-    to: Date;
+    @IsNumber()
+    from: number;
+    @IsNumber()
+    to: number;
     constructor(data: Partial<DataRequest>) {
-        if (data.from) { this.from = new Date(data.from); }
-        if (data.to) { this.to = new Date(data.to); }
+        if (data.from) { this.from = data.from; }
+        if (data.to) { this.to = data.to; }
         this.seriasIds = data.seriasIds;
     }
 }
 export class Data extends Entity {
     @ValidateNested()
-    data: Array<{ date: Date, value: number }>;
+    data: Array<{ timeStamp: number, value: number }>;
 }
 
 export class InitialData {

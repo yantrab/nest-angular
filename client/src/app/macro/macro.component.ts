@@ -28,7 +28,7 @@ export class MacroComponent implements OnInit {
   treeOptions: ITreeOptions;
   columns: ColumnDef[] = [
     { field: 'select', title: ' ' },
-    { field: 'name', title: 'שם הסידרה' },
+    { field: 'name', title: 'שם הסידרה', width: '230px' },
     { field: 'catalogPath', title: 'קטלוג' },
     { field: '_id', title: 'מספר הסדרה' },
     { field: 'hebTypeName', title: 'סוג' },
@@ -45,7 +45,7 @@ export class MacroComponent implements OnInit {
     ],
     menuItems: []
   };
-  constructor(private api: MacroController, public i18nService: I18nService, fb: FormBuilder,  private xslService: XLSXService) {
+  constructor(private api: MacroController, public i18nService: I18nService, fb: FormBuilder, private xslService: XLSXService) {
     this.treeOptions = { idField: '_id', displayField: 'name', rtl: this.i18nService.dir === 'rtl' };
     this.api.getInitialData().then(data => {
       this.categories = data.categories;
@@ -76,25 +76,26 @@ export class MacroComponent implements OnInit {
   download() {
     const formData: DataRequest = {
       seriasIds: this.selectedSerias.map(k => k._id),
-      from: this.dateForm.value.date.begin, to: this.dateForm.value.date.end
+      from: +this.dateForm.value.date.begin, to: +this.dateForm.value.date.end
     };
-
+    const transform = date => new DatePipe('en').transform(date, 'dd.MM.yyyy');
     this.api.getData(formData).then(result => {
       const dic = keyBy(result, r => r._id);
       const sheets = [];
       const names: string[] = [];
       this.selectedSerias.forEach(s => {
         const excelData: any = {};
+        if (!dic[s._id] || !dic[s._id].data || !dic[s._id].data.length) { return; }
         const sData = dic[s._id].data;
-        excelData.rows = sData.map(d => ({ ערך: d.value, תאריך: d.date }));
+        excelData.rows = sData.map(d => ({ תאריך: transform(d.timeStamp) ,ערך: d.value}));
         excelData.description = {};
         excelData.description['סדרה:'] = s._id;
         excelData.description['שם הסדרה'] = s.name;
         excelData.description['סוג נתונים:'] = s.hebTypeName;
         excelData.description['מקור:'] = s.sourceEnName;
         excelData.description['יחידות:'] = s.unitEnName;
-        excelData.description['תאריך ראשון:'] = new DatePipe('en').transform(first(sData).date, 'dd.MM.yyyy');
-        excelData.description['תאריך אחרון:'] = new DatePipe('en').transform(last(sData).date, 'dd.MM.yyyy');
+        excelData.description['תאריך ראשון:'] = transform(first(sData).timeStamp);
+        excelData.description['תאריך אחרון:'] = transform(last(sData).timeStamp);
         sheets.push(excelData);
         names.push(s._id);
       });

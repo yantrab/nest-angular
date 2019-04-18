@@ -41,10 +41,10 @@ export class MacroService {
                         WHERE pasp_id = '${id}'
                         `;
                     const dbData = (await pool.request().query(query)).recordset;
-                    const data: any = [];
+                    const data: Array<{ timeStamp: number, value: number }> = [];
                     dbData
                         .forEach(d => {
-                            data.push({ date: d.d, value: d.v });
+                            data.push({ timeStamp: +d.d, value: d.v });
                         });
                     await this.dataRepo.saveOrUpdateOne({ _id: id, data });
                 }));
@@ -134,10 +134,23 @@ export class MacroService {
         return this
             .dataRepo
             .collection
-            .find(
+            .aggregate([
+                { $match: { _id: { $in: req.seriasIds } } },
                 {
-                    _id: { $in: req.seriasIds },
-                    // $and: [{ 'data.date': { $gt: req.from } }, { 'data.date': { $gt: req.from } }],
-                }).toArray() as Promise<Data[]>;
+                    $project: {
+                        data: {
+                            $filter: {
+                                input: '$data',
+                                as: 'item',
+                                cond: {
+                                    $and: [
+                                        { $gte: ['$$item.timeStamp', req.from] },
+                                        { $lte: ['$$item.timeStamp', req.to] },
+                                    ],
+                                },
+                            },
+                        },
+                    },
+                }]).toArray() as Promise<Data[]>;
     }
 }

@@ -15,16 +15,34 @@ export const decorators = {
 })`,
 };
 export const httpServiceTemplate = `
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { denormalize } from 'nosql-normalizer';
+import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 @Injectable()
 export class APIService {
-  constructor(private httpClient: HttpClient) { }
-  get(url) { return this.httpClient.get(url).pipe(map(result => denormalize(result))); }
-  post(url, body) { return this.httpClient.post(url, body).pipe(map(result => denormalize(result))); }
-}
+  constructor(private httpClient: HttpClient, private router: Router) { }
+  handleError(error) {
+    let errorMessage = '';
+    if (error.status === 403) {
+      return this.router.navigate(['/login' + window.location.pathname, {}]);
+    }
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = 'Error:' + error.error.message;
+    } else {
+      // server-side error
+      errorMessage = 'Error Code:' + error.status + '\nMessage:' + error.message;
+    }
+    return throwError(errorMessage);
+  }
 
+  get(url) { return this.httpClient.get(url).pipe(catchError(this.handleError), map(result => denormalize(result))); }
+  post(url, body) {
+    return this.httpClient.post(url, body)
+      .pipe(catchError((err) => this.handleError(err)), map(result => denormalize(result)));
+  }
+}
 `;

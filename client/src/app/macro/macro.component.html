@@ -11,7 +11,7 @@
 
             <mat-grid-tile colspan="3">
                 <div fxLayout="column" fxFlex style="height:100%;width:100%;">
-                    <mat-virtual-table fxFlex *ngIf="serias" [rows]="serias" [filterPlaceholder]="'חיפוש'"
+                    <mat-virtual-table fxFlex  [rows]="serias" [filterPlaceholder]="'חיפוש'" [paginator]="true"
                         [columnsDef]="columns">
                         <ng-template pCellDef column="select" let-row="row">
                             <mat-checkbox (change)="onSelectSerias($event.checked, row)"></mat-checkbox>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as XLSX from './xlsx';
+import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 export class XLSXData {
   rows: Object[];
@@ -23,7 +23,7 @@ export class XLSXService {
 
   export(sheetsData: XLSXData[], sheetNames: string[], fileName): void {
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
-
+    wb.Workbook = { Views: sheetNames.map(s => ({ RTL: true }))};
     sheetsData.forEach((data, i) => {
       // Auto Fit Column Widths
       const colsWidth = [];
@@ -51,16 +51,16 @@ export class XLSXService {
       });
       if (data.description) {
         Object.keys(data.description).forEach((key, i) => {
-          aoa[1 + i][aoa[0].length - 2] = key;
-          aoa[1 + i][aoa[0].length - 3] = data.description[key];
+          aoa[1 + i][aoa[0].length - 3] = key;
+          aoa[1 + i][aoa[0].length - 2] = data.description[key];
         });
       }
       const sheet = XLSX.utils.aoa_to_sheet(aoa, { cellDates: true });
       sheet['!cols'] = colsWidth;
       sheet['!merges'] = merges;
-      wb.Sheets[sheetNames[i]] = sheet;
+      XLSX.utils.book_append_sheet(wb, sheet, sheetNames[i]);
+      // wb.Sheets[sheetNames[i]] = sheet;
     });
-    wb.SheetNames = sheetNames;
     /* save to file */
     const wbout: string = XLSX.write(wb, this.wopts);
     saveAs(new Blob([this.s2ab(wbout)]), fileName);
