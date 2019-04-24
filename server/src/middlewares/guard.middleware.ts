@@ -1,9 +1,8 @@
 import { App, hasPermission } from 'shared';
-import { ForbiddenException } from '@nestjs/common';
+import { ForbiddenException, NestMiddleware } from '@nestjs/common';
 import { Response } from 'express';
-export class GuardMiddleware {
-    constructor(private app: App) { }
-    resolve = (req, res: Response, next) => {
+export class GuardMiddleware implements NestMiddleware {
+    use(req: any, res: any, next: () => void) {
         const json = res.json;
         if (hasPermission(req.user, this.app)) {
             res.json = (a) => {
@@ -13,4 +12,5 @@ export class GuardMiddleware {
         }
         throw new ForbiddenException();
     }
+    constructor(private app: App) { }
 }
