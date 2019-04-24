@@ -17,7 +17,7 @@
    
     "prod": "set NODE_ENV=production&&ts-node app",
     "marker": "set NODE_ENV=marker&&ts-node app",
-    "start-dev": "set NODE_ENV=dev&&build-client-prod&&ts-node app&&start-server",
+    "start-dev": "set NODE_ENV=dev&&npm run build-client-prod&&npm run start-server",
     "test": "ts-node ./test/index",
     "git": "git reset --hard HEAD&&git pull",
     "deploy-dev": "npm run git&&npm i&&npm run start-dev",

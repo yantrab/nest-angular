@@ -172,6 +172,27 @@ echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
 sudo service mongod start
 
+echo "export const macroConf = {
+    db: {
+        user: '?',
+        password: '?',
+        server: '?',
+        database: '?',
+        debug: false,
+        max: 500,
+        min: 0,
+        idle: 5000,
+        acquire: 20000,
+        evict: 30000,
+        handleDisconnects: true,
+        connectionTimeout: 300000,
+        requestTimeout: 300000,
+    }
+};
+" > config.ts
+
+##Depoly
+
 
 
 
