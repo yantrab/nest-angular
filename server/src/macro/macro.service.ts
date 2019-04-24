@@ -2,8 +2,9 @@ import * as sql from 'mssql';
 import { Injectable } from '@nestjs/common';
 import { macroConf } from '../../../../config';
 import { Logger } from '@nestjs/common';
-import { Category, Series, Data, DataRequest } from 'shared/models/macro.model';
+import { Category, Series, Data, DataRequest, DataItem } from 'shared/models/macro.model';
 import { Repository, RepositoryFactory } from 'mongo-nest';
+import { pathBySelector } from 'shared/utils';
 @Injectable()
 export class MacroService {
     private readonly logger = new Logger('DataService');
@@ -131,6 +132,7 @@ export class MacroService {
     }
 
     async getData(req: DataRequest): Promise<Data[]> {
+        const path = '$$' + pathBySelector((d: DataItem) => d.timeStamp);
         return this
             .dataRepo
             .collection
@@ -144,8 +146,8 @@ export class MacroService {
                                 as: 'item',
                                 cond: {
                                     $and: [
-                                        { $gte: ['$$item.timeStamp', req.from] },
-                                        { $lte: ['$$item.timeStamp', req.to] },
+                                        { $gte: [path, req.from] },
+                                        { $lte: [path, req.to] },
                                     ],
                                 },
                             },

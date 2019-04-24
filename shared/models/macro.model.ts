@@ -38,11 +38,17 @@ export class DataRequest {
         this.seriasIds = data.seriasIds;
     }
 }
-export class Data extends Entity {
-    @ValidateNested()
-    data: Array<{ timeStamp: number, value: number }>;
+export class DataItem {
+    @IsNumber()
+    timeStamp: number;
+    @IsNumber()
+    value: number;
 }
 
+export class Data extends Entity {
+    @ValidateNested()
+    data: DataItem[];
+}
 export class InitialData {
     @ValidateNested({ each: true })
     categories: Category[];
