@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve --proxy-config ./proxy.conf.json --open",
     "build": "ng build --watch",
-    "build:prod": "ng build",
+    "build:prod": "ng build --prod",
     "build:prod:cordova": "ng build --prod --base-href . --output-path ./CordovaMobileApp/www/",
     "build:dev:cordova": "ng build  --base-href . --output-path ./CordovaMobileApp/www/ --watch",
     "cordova:init": "cordova create CordovaMobileApp com.yantrab.app CordovaMobileApp",

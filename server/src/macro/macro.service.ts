@@ -1,6 +1,6 @@
 import * as sql from 'mssql';
 import { Injectable } from '@nestjs/common';
-import { macroConf } from '../../../../macro/config';
+import { macroConf } from '../../../../config';
 import { Logger } from '@nestjs/common';
 import { Category, Series, Data, DataRequest } from 'shared/models/macro.model';
 import { Repository, RepositoryFactory } from 'mongo-nest';
