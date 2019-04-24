@@ -3,7 +3,7 @@ import { AdminController } from './admin.controller';
 import { AdminService } from './admin.service';
 import { GuardMiddleware } from '../middlewares/guard.middleware';
 import { SuppressMiddleware } from '../middlewares/suppress.middleware';
-import { Role } from 'shared';
+import { App } from 'shared';
 import { CompressionMiddleware } from '@nest-middlewares/compression';
 @Module({
   controllers: [AdminController],
@@ -11,7 +11,7 @@ import { CompressionMiddleware } from '@nest-middlewares/compression';
 })
 export class AdminModule {
   configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(new GuardMiddleware([Role.Admin]).resolve).forRoutes(
+    consumer.apply(new GuardMiddleware(App.admin).resolve).forRoutes(
       {
         path: '/rest/admin',
         method: RequestMethod.ALL,

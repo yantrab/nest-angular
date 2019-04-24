@@ -9,6 +9,7 @@
     "sourceMap": true,
     "outDir": "./dist",
     "resolveJsonModule": true,
+    
     "baseUrl": "./src",
     "paths": {
       "shared": [
@@ -19,6 +20,7 @@
     ]
     }
   },
+  "files": ["./src/main.ts"],
   "exclude": [
     "node_modules"
   ]

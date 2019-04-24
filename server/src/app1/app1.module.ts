@@ -2,7 +2,7 @@ import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { App1Controller } from './app1.controller';
 import { GuardMiddleware } from '../middlewares/guard.middleware';
 import { SuppressMiddleware } from '../middlewares/suppress.middleware';
-import { Role } from 'shared';
+import { App } from 'shared';
 import { CompressionMiddleware } from '@nest-middlewares/compression';
 import { MFService } from './mf.service';
 import { FundService } from 'services/fund.service';
@@ -12,7 +12,7 @@ import { FundService } from 'services/fund.service';
 })
 export class App1Module {
   configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(new GuardMiddleware([Role.Admin, Role.app1]).resolve).forRoutes(
+    consumer.apply(new GuardMiddleware(App.app1).resolve).forRoutes(
       {
         path: '/rest/app1',
         method: RequestMethod.ALL,

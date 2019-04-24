@@ -10,7 +10,7 @@
     "gen-client": "ts-node ./generator",
     "serve-client": "cd client&&npm run start",
     "debug-server": "cd server&&npm run start:debug",
-    "start-server": "cd server&&npm run start:prod",
+    "start-server": "cd server&&npm run start",
     "build-client": "cd client&&npm run build",
     "build-client-prod": "cd client&&npm run build:prod",
     "dev": "start  npm run debug-server | start npm run build-client | (cd client && code .) | (cd server && code .)",
