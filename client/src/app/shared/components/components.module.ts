@@ -14,7 +14,6 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { RouterModule } from '@angular/router';
 import { AutocompleteComponent } from './filters/autocomplete/autocomplete.component';
 import { TableModule } from 'mat-virtual-table';
-import { TreeComponent } from './tree/tree.component';
 import { FocusDirective } from '../directives/focus.directive';
 import { TreeModule } from 'angular-tree-component';
 import { I18nService } from '../services/i18n.service';
@@ -29,7 +28,6 @@ const components = [
     TopbarComponent,
     NavMenuComponent,
     AutocompleteComponent,
-    TreeComponent,
 
 ];
 @NgModule({
