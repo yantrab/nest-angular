@@ -10,19 +10,19 @@ import { CompressionMiddleware } from '@nest-middlewares/compression';
   providers: [AdminService],
 })
 export class AdminModule {
-  configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(new GuardMiddleware(App.admin).resolve).forRoutes(
-      {
-        path: '/rest/admin',
-        method: RequestMethod.ALL,
-      },
-    );
-    consumer.apply(CompressionMiddleware).forRoutes( '*' );
-    consumer.apply(new SuppressMiddleware().resolve).forRoutes(
-      {
-        path: '/rest/admin',
-        method: RequestMethod.ALL,
-      },
-    );
-  }
+  // configure(consumer: MiddlewareConsumer): void {
+  //   consumer.apply(new GuardMiddleware(App.admin).use).forRoutes(
+  //     {
+  //       path: '/rest/admin',
+  //       method: RequestMethod.ALL,
+  //     },
+  //   );
+  //   consumer.apply(CompressionMiddleware).forRoutes( '*' );
+  //   consumer.apply(new SuppressMiddleware().use).forRoutes(
+  //     {
+  //       path: '/rest/admin',
+  //       method: RequestMethod.ALL,
+  //     },
+  //   );
+  // }
 }

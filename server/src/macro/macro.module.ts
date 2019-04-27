@@ -10,7 +10,7 @@ import { MacroService } from './macro.service';
 })
 export class MacroModule {
   configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(new GuardMiddleware(App.macro).resolve).forRoutes(
+    consumer.apply(new GuardMiddleware(App.macro).use).forRoutes(
       {
         path: '/rest/macro',
         method: RequestMethod.ALL,

@@ -12,14 +12,14 @@ import { FundService } from 'services/fund.service';
 })
 export class App1Module {
   configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(new GuardMiddleware(App.app1).resolve).forRoutes(
+    consumer.apply(new GuardMiddleware(App.app1).use).forRoutes(
       {
         path: '/rest/app1',
         method: RequestMethod.ALL,
       },
     );
     consumer.apply(CompressionMiddleware).forRoutes( '*' );
-    consumer.apply(new SuppressMiddleware().resolve).forRoutes(
+    consumer.apply(new SuppressMiddleware().use).forRoutes(
       {
         path: '/rest/app1',
         method: RequestMethod.ALL,
