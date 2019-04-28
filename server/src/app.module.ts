@@ -7,8 +7,10 @@ import { EventsModule } from './webRTC/events.module';
 import { App1Module } from './app1/app1.module';
 import { MacroModule } from './macro/macro.module';
 import { AppController } from './app.controller';
+import { CorsMiddleware } from '@nest-middlewares/cors';
 import { ExpressSessionMiddleware } from '@nest-middlewares/express-session';
 import { PassportInitializeMiddleware, PassportSessionMiddleware } from '@nest-middlewares/passport';
+import { CookieParserMiddleware } from '@nest-middlewares/cookie-parser';
 import { HelmetMiddleware } from '@nest-middlewares/helmet';
 @Module({
   imports: [AuthModule, AdminModule, App1Module, MacroModule,
@@ -19,15 +21,21 @@ import { HelmetMiddleware } from '@nest-middlewares/helmet';
 export class AppModule {
   configure(consumer: MiddlewareConsumer): void {
     consumer.apply(FrontendMiddleware).forRoutes('*');
+    CorsMiddleware.configure({
+      origin: 'http://localhost:4200',
+      optionsSuccessStatus: 200,
+      credentials: true,
+    });
+    consumer.apply(CorsMiddleware).forRoutes('*');
+    // ! Call Middleware.configure BEFORE using it for routes
+    HelmetMiddleware.configure({});
+    consumer.apply(ExpressSessionMiddleware).forRoutes('*');
 
-    // IMPORTANT! Call Middleware.configure BEFORE using it for routes
-    //HelmetMiddleware.configure({
-    //});
-   // consumer.apply(ExpressSessionMiddleware).forRoutes('*');
-  //   consumer
-  //     .apply(PassportInitializeMiddleware)
-  //     .forRoutes('*')
-  //     .apply(PassportSessionMiddleware)
-  //     .forRoutes('*');
-   }
+    consumer.apply(CookieParserMiddleware).forRoutes('*');
+    consumer
+      .apply(PassportInitializeMiddleware)
+      .forRoutes('*')
+      .apply(PassportSessionMiddleware)
+      .forRoutes('*');
+  }
 }
