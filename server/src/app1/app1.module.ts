@@ -19,11 +19,11 @@ export class App1Module {
       },
     );
     consumer.apply(CompressionMiddleware).forRoutes( '*' );
-    consumer.apply(new SuppressMiddleware().use).forRoutes(
-      {
-        path: '/rest/app1',
-        method: RequestMethod.ALL,
-      },
-    );
+    // consumer.apply(new SuppressMiddleware().use).forRoutes(
+    //   {
+    //     path: '/rest/app1',
+    //     method: RequestMethod.ALL,
+    //   },
+    // );
   }
 }

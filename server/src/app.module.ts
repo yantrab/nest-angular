@@ -20,16 +20,16 @@ import { HelmetMiddleware } from '@nest-middlewares/helmet';
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(FrontendMiddleware).forRoutes('*');
-    CorsMiddleware.configure({
-      origin: 'http://localhost:4200',
-      optionsSuccessStatus: 200,
-      credentials: true,
-    });
-    consumer.apply(CorsMiddleware).forRoutes('*');
+    // consumer.apply(FrontendMiddleware).forRoutes('*');
+    // CorsMiddleware.configure({
+    //   origin: ['http://localhost:4200', 'http://localhost:3000'],
+    //   optionsSuccessStatus: 200,
+    //   credentials: true,
+    // });
+    // consumer.apply(CorsMiddleware).forRoutes('*');
     // ! Call Middleware.configure BEFORE using it for routes
     HelmetMiddleware.configure({});
-    consumer.apply(ExpressSessionMiddleware).forRoutes('*');
+    // consumer.apply(ExpressSessionMiddleware).forRoutes('*');
 
     consumer.apply(CookieParserMiddleware).forRoutes('*');
     consumer

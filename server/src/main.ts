@@ -11,9 +11,13 @@ import { join, resolve } from 'path';
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());
-
-  // app.use(require('cors')(corsOptions));
-
+  const corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200,
+    credentials: true,
+    methods:[ 'GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
+  };
+  app.use(require('fastify-cors'), corsOptions);
 
   // app.register(require('fastify-cookie'));
   // app.register(require('fastify-session'), {
