@@ -15,6 +15,7 @@ export const decorators = {
 })`,
 };
 export const httpServiceTemplate = `
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
@@ -39,10 +40,14 @@ export class APIService {
     return throwError(errorMessage);
   }
 
-  get(url) { return this.httpClient.get(url).pipe(catchError(this.handleError), map(result => denormalize(result))); }
+  get(url) {
+    return this.httpClient.get(url, { withCredentials: true })
+      .pipe(catchError(this.handleError), map(result => denormalize(result)));
+  }
   post(url, body) {
-    return this.httpClient.post(url, body)
+    return this.httpClient.post(url, body, { withCredentials: true })
       .pipe(catchError((err) => this.handleError(err)), map(result => denormalize(result)));
   }
 }
+
 `;

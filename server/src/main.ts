@@ -8,7 +8,12 @@ async function bootstrap() {
   // app.useStaticAssets(join(__dirname, '../../', 'client/dist'));
   // app.setGlobalPrefix('rest');
   app.useGlobalPipes(new ValidationPipe({ forbidUnknownValues: true }));
-  app.enableCors();
+  const corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200,
+    credentials: true,
+  };
+  app.enableCors(corsOptions);
   app.use(require('cookie-parser')());
   app.use(require('body-parser').urlencoded({ extended: true }));
   app.use(require('express-session')({
