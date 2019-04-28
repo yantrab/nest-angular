@@ -15,5 +15,8 @@
     "shared/*": [
       "../shared/*"
     ]
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true
   }
 }
