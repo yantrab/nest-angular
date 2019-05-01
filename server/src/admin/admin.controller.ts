@@ -5,9 +5,4 @@ export class AdminController {
     getUsersData() {
         return [];
     }
-
-    @Get('/suppress')
-    getUsersData2(){
-        return [];
-    }
 }

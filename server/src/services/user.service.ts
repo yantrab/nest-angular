@@ -1,7 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { User, Role, AddUserDTO, App } from 'shared';
+import { User, AddUserDTO, App } from 'shared';
 import { Repository, RepositoryFactory } from 'mongo-nest';
-import { comparePassword, cryptPassword } from './crypt';
+import { genSalt, hash, compare } from 'bcrypt';
+const cryptPassword = async (password) => {
+    const salt = await genSalt(10);
+    return hash(password, salt);
+};
+
+const comparePassword = (plainPass, hashword) => {
+    return compare(plainPass, hashword);
+};
+
 @Injectable()
 export class UserService {
     userRepo: Repository<User>;
