@@ -27,15 +27,14 @@ export class MacroComponent implements OnInit {
 
   treeOptions: ITreeOptions;
   columns: ColumnDef[] = [
-    { field: 'select', title: ' ' },
-    { field: 'name', title: 'שם הסידרה', width: '230px' },
+    { field: 'select', title: ' ', width: '70px', isSortable: false },
+    { field: 'name', title: 'שם הסידרה' },
     { field: 'catalogPath', title: 'קטלוג' },
     { field: '_id', title: 'מספר הסדרה' },
     { field: 'hebTypeName', title: 'סוג' },
-    { field: 'startDate', title: 'תאריך התחלה' },
-    { field: 'endDate', title: 'תאריך סוף' },
+    { field: 'startDate', title: 'תאריך התחלה', width: '100px' },
+    { field: 'endDate', title: 'תאריך סוף', width: '100px' },
     { field: 'unitEnName', title: 'יחידות' },
-    { field: 'sourceEnName', title: 'מקור נתונים' },
   ];
   // from = addMonths(new Date(), -1);
   // to = new Date();
@@ -87,7 +86,7 @@ export class MacroComponent implements OnInit {
         const excelData: any = {};
         if (!dic[s._id] || !dic[s._id].data || !dic[s._id].data.length) { return; }
         const sData = dic[s._id].data;
-        excelData.rows = sData.map(d => ({ תאריך: transform(d.timeStamp) ,ערך: d.value}));
+        excelData.rows = sData.map(d => ({ תאריך: transform(d.timeStamp), ערך: d.value }));
         excelData.description = {};
         excelData.description['סדרה:'] = s._id;
         excelData.description['שם הסדרה'] = s.name;

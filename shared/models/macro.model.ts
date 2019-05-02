@@ -21,8 +21,6 @@ export class Series extends Entity {
     unitEnName: string;
     @IsString()
     catalogPath: string;
-    @IsString()
-    categoryId: string;
 }
 
 export class DataRequest {

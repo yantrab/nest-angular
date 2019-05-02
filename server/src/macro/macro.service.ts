@@ -75,12 +75,35 @@ export class MacroService {
                 await pool.connect();
                 const categoriesDB: Category[] =
                     (await pool.request().query(`
-                        select catg_id as _id,
-                            name_hebrew as name,
-                            name_english as NameEnglish
-                        from prCatg
+                    SELECT catg_id AS _id,
+                    name_hebrew AS name,
+                    name_english AS NameEnglish,
+                    CASE LEN(catg_id)
+                    WHEN 1 THEN (SELECT COUNT(*)
+                    FROM prPasp
+                    WHERE LEFT(pasp_id,1) = prCatg.catg_id)
+                    WHEN 2 THEN (SELECT COUNT(*)
+                    FROM prPasp
+                    WHERE LEFT(pasp_id,2) = prCatg.catg_id)
+                    WHEN 3 THEN (SELECT COUNT(*)
+                    FROM prPasp
+                    WHERE LEFT(pasp_id,3) = prCatg.catg_id)
+                    END AS NumberInTree
+                    FROM prCatg
+                    WHERE CASE LEN(catg_id)
+                    WHEN 1 THEN (SELECT COUNT(*)
+                    FROM prPasp
+                    WHERE LEFT(pasp_id,1) = prCatg.catg_id)
+                    WHEN 2 THEN (SELECT COUNT(*)
+                    FROM prPasp
+                    WHERE LEFT(pasp_id,2) = prCatg.catg_id)
+                    WHEN 3 THEN (SELECT COUNT(*)
+                    FROM prPasp
+                    WHERE LEFT(pasp_id,3) = prCatg.catg_id)
+                    END <> 0
+                    ORDER BY catg_id
                         `)).recordset;
-                const categories = categoriesDB.filter(category => category._id.length === 1);
+                const categories = [...categoriesDB.filter(category => category._id.length === 1)];
 
                 categories.forEach(category => {
                     category.children = getChildren(categoriesDB, category);
@@ -89,21 +112,24 @@ export class MacroService {
                 await this.categoryRepo.saveOrUpdateMany(categories);
 
                 const serias: Series[] = (await pool.request().query(`
-                SELECT t1.pasp_id as _id, t1.catg_id as categoryId, t1.name_hebrew as name,
-                    t2.name_hebrew as hebTypeName, t1.first_trading_date as startDate,
-                    t1.last_trading_date  as endDate,t4.SOURCE_NAME as sourceEnName, t3.UNIT_NAME as unitEnName
-                FROM [dbMacro].[dbo].[prPasp] t1
-                left join [dbMacro].[dbo].[prType] t2 on t1.[type_id] = t2.[type_id]
-                left join [dbMacro].[dbo].tblUnit t3 on t1.unit_id = t3.UNIT_ID
-                left join [dbMacro].[dbo].tblSource t4 on t1.source_id = t4.source_id
-                where t1.catg_id is not null
+                SELECT prPasp.pasp_id AS _id,
+                prPasp.name_hebrew AS name,
+                prType.name_hebrew AS hebTypeName,
+                prPasp.first_trading_date AS startDate,
+                prPasp.last_trading_date AS endDate,
+                tblUnit.UNIT_NAME AS unitEnName,
+                tblSource.SOURCE_NAME AS Source
+                FROM prPasp LEFT OUTER JOIN prType ON prPasp.type_id = prType.type_id 
+				LEFT OUTER JOIN tblSource ON prPasp.source_id = tblSource.SOURCE_ID 
+                LEFT OUTER JOIN tblUnit ON prPasp.unit_id = tblUnit.UNIT_ID
+	            where left(pasp_id,3) = (SELECT catg_id FROM prCatg WHERE catg_id = left(pasp_id,3))
             `))
                     .recordset;
                 serias.forEach(s => {
                     s.catalogPath = '';
                     for (let i = 1; i <= 3; i++) {
-                        const subId = s.categoryId.slice(0, i);
-                        // s.catalogPath += categoriesDB.find(c => c._id === subId).name;
+                        const subId = s._id.slice(0, i);
+                        s.catalogPath += categoriesDB.find(c => c._id === subId).name;
 
                         if (i !== 3) {
                             s.catalogPath += ' | ';
