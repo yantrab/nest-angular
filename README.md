@@ -2,13 +2,18 @@
 
 # nest-angular-starter
 This is a repo for a starter appliation for a Single Page MEAN Stack application
-includes nest js + angular 7 + angular material + client api generator.
+includes nest js + fastify + http2 + angular 7 + angular material + client api generator.
 
 ### Installation 
 ```sh
 git clone https://github.com/yantrab/nest-angular.git
 cd .\nest-angular
 npm i
+```
+To use ssl with localhost, open cmd one level above the root and run:
+```sh
+choco install mkcert
+mkcert localhost
 ```
 ### debug server
 ```sh
@@ -114,7 +119,7 @@ By inheritance from Poly class  you can do the next thing:
  export class DropdownFilter extends Filter{}
  
  @Component({
-  selector: 'app1-root',
+  selector: 'mf-root',
   template: `
   <div fxLayout='column' fxFlex='200px'>
     <p-filter [filter]="filter1"></p-filter>
@@ -123,7 +128,7 @@ By inheritance from Poly class  you can do the next thing:
   `,
   styles: []
 })
-export class App1Component {
+export classMFComponent {
   filter1: Filter;
   filter2: Filter;
   constructor() {
@@ -196,3 +201,7 @@ echo "export const macroConf = {
 
 
 
+openssl req -x509 -out fastify.crt -keyout fastify.key \
+  -newkey rsa:2048 -nodes -sha256 \
+  -subj '/CN=localhost' -extensions EXT -config <( \
+   printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")

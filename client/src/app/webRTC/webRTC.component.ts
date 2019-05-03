@@ -27,7 +27,7 @@ export class WebRTCComponent implements OnInit {
   call() { }
   async start() {
     try {
-      this.senderId = (await this.userService.getUserAuthenticated()).user._id;
+      this.senderId = (await this.userService.getUserAuthenticated())._id;
       await this.connectPeers();
       navigator.mediaDevices.getUserMedia({ audio: true, video: true })
         .then(localStream => {

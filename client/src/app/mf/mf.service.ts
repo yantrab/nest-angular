@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { App1Controller } from 'src/api/app1.controller';
+import {MFController } from 'src/api/mf.controller';
 import { ReplaySubject } from 'rxjs';
 import { UserFilter, UserSettings, Fund } from 'shared';
 export const NEW = ' (Create new) ';
@@ -11,7 +11,7 @@ export class MfService {
   readonly userFilters: ReplaySubject<UserFilter[]> = new ReplaySubject();
   readonly funds: ReplaySubject<Fund[]> = new ReplaySubject();
   private userSetting: UserSettings;
-  constructor(private api: App1Controller) {
+  constructor(private api:MFController) {
     this.api.getInitialData().then(initialData => {
       this.funds.next(initialData.funds);
       this.userSetting = initialData.userSetting;

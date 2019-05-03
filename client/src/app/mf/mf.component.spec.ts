@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { App1Component } from './app1.component';
+import {MFComponent } from './mf.component';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../shared/components/components.module';
 import { RouterModule } from '@angular/router';
 import { PolyComponent } from './poly/poly.component';
 import { DumyComponent } from './dumy/dumy.component';
 
-describe('App1Component', () => {
-  let component: App1Component;
-  let fixture: ComponentFixture<App1Component>;
+describe('mfComponent', () => {
+  let component:MFComponent;
+  let fixture: ComponentFixture<mfComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [App1Component, PolyComponent, DumyComponent],
+      declarations: [mfComponent, PolyComponent, DumyComponent],
       imports: [
         CommonModule,
         ComponentsModule,
@@ -29,7 +29,7 @@ describe('App1Component', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(App1Component);
+    fixture = TestBed.createComponent(mfComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

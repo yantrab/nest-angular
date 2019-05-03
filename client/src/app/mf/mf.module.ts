@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { App1Component } from './app1.component';
+import {MFComponent } from './mf.component';
 import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '../shared/components/components.module';
 import { PolyComponent } from './poly/poly.component';
 import { DumyComponent } from './dumy/dumy.component';
-import { App1Controller } from 'src/api/app1.controller';
+import {MFController } from 'src/api/mf.controller';
 import { FiltersComponent } from './poly/filters/filters.component';
 import { MfService } from './mf.service';
 @NgModule({
   declarations: [
-    App1Component,
+   MFComponent,
     PolyComponent,
     DumyComponent,
     FiltersComponent
@@ -21,7 +21,7 @@ import { MfService } from './mf.service';
     RouterModule.forChild(
       [
         {
-          path: '', component: App1Component,
+          path: '', component:MFComponent,
           children: [
             { path: '', redirectTo: 'dumy' },
             { path: 'poly', component: PolyComponent },
@@ -30,6 +30,6 @@ import { MfService } from './mf.service';
         },
       ])
   ],
-  providers: [App1Controller, MfService]
+  providers: [MFController, MfService]
 })
-export class App1Module { }
+export class MFModule { }

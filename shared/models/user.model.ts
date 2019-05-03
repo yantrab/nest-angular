@@ -2,7 +2,7 @@ import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested } from 'c
 import { Entity } from './Entity';
 export enum App {
     admin,
-    app1,
+    mf,
     app2,
     macro,
 }

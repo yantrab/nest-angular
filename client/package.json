@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config ./proxy.conf.json --open",
+    "start": "ng serve --ssl --ssl-key ../../localhost-key.pem  --ssl-cert ../../localhost.pem --open",
     "build": "ng build --watch",
     "build:prod": "ng build --prod",
     "build:prod:cordova": "ng build --prod --base-href . --output-path ./CordovaMobileApp/www/",

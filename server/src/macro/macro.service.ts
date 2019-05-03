@@ -5,6 +5,7 @@ import { Logger } from '@nestjs/common';
 import { Category, Series, Data, DataRequest, DataItem } from 'shared/models/macro.model';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import { pathBySelector } from 'shared/utils';
+const DB = 'DBMacro';
 @Injectable()
 export class MacroService {
     private readonly logger = new Logger('DataService');
@@ -12,9 +13,9 @@ export class MacroService {
     private seriesRepo: Repository<Series>;
     private dataRepo: Repository<Data>;
     constructor(private repositoryFactory: RepositoryFactory) {
-        this.categoryRepo = this.repositoryFactory.getRepository<Category>(Category, 'DBMacro');
-        this.seriesRepo = this.repositoryFactory.getRepository<Series>(Series, 'DBMacro');
-        this.dataRepo = this.repositoryFactory.getRepository<Data>(Data, 'DBMacro');
+        this.categoryRepo = this.repositoryFactory.getRepository<Category>(Category, DB);
+        this.seriesRepo = this.repositoryFactory.getRepository<Series>(Series, DB);
+        this.dataRepo = this.repositoryFactory.getRepository<Data>(Data, DB);
     }
 
     async update() {

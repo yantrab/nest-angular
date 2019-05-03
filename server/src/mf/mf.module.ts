@@ -1,13 +1,14 @@
 import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
-import { MacroController } from './macro.controller';
+import {MFController } from './mf.controller';
 import { App } from 'shared';
-import { MacroService } from './macro.service';
+import { MFService } from './mf.service';
+import { FundService } from 'services/fund.service';
 import { UserService } from 'services/user.service';
 @Module({
-  controllers: [MacroController],
-  providers: [MacroService, UserService],
+  controllers: [MFController],
+  providers: [MFService, FundService, UserService],
 })
-export class MacroModule {
+export class MFModule {
   constructor(private userService: UserService) {}
   configure(consumer: MiddlewareConsumer): void {
     consumer
@@ -16,7 +17,7 @@ export class MacroModule {
         next();
       })
       .forRoutes({
-        path: '/rest/macro',
+        path: '/rest/mf',
         method: RequestMethod.ALL,
       });
   }

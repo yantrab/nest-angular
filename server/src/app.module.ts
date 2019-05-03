@@ -1,18 +1,21 @@
-import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
+import { Module, MiddlewareConsumer } from '@nestjs/common';
+import { CompressionMiddleware } from '@nest-middlewares/compression';
 import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { MongoRepoModule } from 'mongo-nest';
-import { EventsModule } from './webRTC/events.module';
-import { App1Module } from './app1/app1.module';
+import { MFModule } from './mf/mf.module';
 import { MacroModule } from './macro/macro.module';
 @Module({
   imports: [
-    AdminModule, AuthModule, 
-    // App1Module, MacroModule,
-     MongoRepoModule.forRoot('mongodb://localhost:27017'),
-    //EventsModule, AuthModule
-  ]
-  ,
+    AuthModule,
+    MFModule,
+    MacroModule,
+    AdminModule,
+    MongoRepoModule.forRoot('mongodb://localhost:27017'),
+  ],
 })
 export class AppModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(CompressionMiddleware).forRoutes('*');
+  }
 }

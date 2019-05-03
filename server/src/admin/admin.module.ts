@@ -1,7 +1,6 @@
 import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { AdminController } from './admin.controller';
 import { AdminService } from './admin.service';
-import { GuardMiddleware } from 'middlewares/guard.middleware';
 import { App } from 'shared';
 @Module({
   controllers: [AdminController],
