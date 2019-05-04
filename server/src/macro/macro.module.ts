@@ -8,16 +8,4 @@ import { UserService } from 'services/user.service';
   providers: [MacroService, UserService],
 })
 export class MacroModule {
-  constructor(private userService: UserService) {}
-  configure(consumer: MiddlewareConsumer): void {
-    consumer
-      .apply(async (req, res, next) => {
-        await this.userService.checkAuthorization(req.cookies.t, App.mf);
-        next();
-      })
-      .forRoutes({
-        path: '/rest/macro',
-        method: RequestMethod.ALL,
-      });
-  }
 }

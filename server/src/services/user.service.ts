@@ -59,16 +59,18 @@ export class UserService {
     }
     let foundUser = this.chache.get<User>(id);
     if (!foundUser) {
+      return undefined;
+    }
+
+    if (!foundUser) {
       foundUser = await this.userRepo.findOne({ _id: id });
     }
     setTimeout(() => this.chache.set(foundUser._id, foundUser));
     return foundUser;
   }
 
-  async checkAuthorization(id, app: App) {
+  async isAuthorized(id, app: App) {
     const user = await this.getUserAuthenticated(id);
-    if (!hasPermission(user, app)) {
-      throw new ForbiddenException();
-    }
+    return hasPermission(user, app);
   }
 }

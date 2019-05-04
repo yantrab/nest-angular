@@ -1,9 +1,14 @@
-import { Controller, Get, Req, Post, Body } from '@nestjs/common';
-import { InitialData, DataRequest, Data, Category } from 'shared/models/macro.model';
+import { Controller, Get, Req, Post, Body, UseInterceptors } from '@nestjs/common';
+import { InitialData, DataRequest, Data, Category} from 'shared/models/macro.model';
 import { MacroService } from './macro.service';
+import { AuthorizeInterceptor } from 'middlewares/authorize.middleware';
+import { App } from 'shared';
 
+@UseInterceptors(AuthorizeInterceptor)
 @Controller('rest/macro')
 export class MacroController {
+  static app = App.macro;
+
     constructor(private service: MacroService) {
          // this.service.update();
     }
