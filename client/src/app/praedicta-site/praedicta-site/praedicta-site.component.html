@@ -1,0 +1,25 @@
+<div *ngIf="dic" ngClass="{{direction=='rtl' ? 'ltr' : 'rtl'}}" class="container" fxLayout="row" fxLayoutAlign="stretch">
+    <span fxHide.lt-md class="en-he" (click)="changeDirection()" >{{dic.sitePage.systems.Eng_Heb}}</span>
+  <main fxFlex>
+    
+    <span class="title">{{dic.sitePage.main.WhoWeare.title}}</span>
+  </main>
+  <div  class="wrapper" fxFlex='480px' fxFlex.md='192px' fxLayout="row wrap" fxLayout.md="column" fxHide.lt-md
+    fxLayoutAlign="start stretch">
+    <div fxFlex='50%' fxFlex.md fxLayoutAlign="end center" fxLayout="column"  fxFlexOrder.md="1">
+      <span class="item_1">{{dic.sitePage.systems.Bonds}}</span>
+    </div>
+    <div fxFlex='50%' fxFlex.md='20%' fxLayoutAlign="end center" fxLayoutAlign.md="center center" fxLayout="column" fxFlexOrder.md="3">      
+      <span class="item_2">
+        {{dic.sitePage.systems.Other_solution}}
+      </span>
+    </div>
+    <div fxFlex='50%' fxFlex.md='20%' fxLayoutAlign="start center" fxLayoutAlign.md="center center"  fxLayout="column"  fxFlexOrder.md="2">
+      <span class="item_3">{{dic.sitePage.systems.Holdings}} </span></div>
+    <div fxFlex='50%' fxFlex.md fxLayoutAlign="start center" fxLayout="column"  fxFlexOrder.md="4">
+
+      <span class="item_4">{{dic.sitePage.systems.Contact_us}}</span></div>
+
+  </div>
+</div>
+
