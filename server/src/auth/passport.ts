@@ -25,7 +25,7 @@ export class LocalStrategy {
         }, async (email: string, password: string, done: (error: any, user?: any, options?: IVerifyOptions) => void) => {
             try {
                 const foundUser = await this.authService.validateUser(email, password);
-                if (!foundUser) { throw new HttpException('User not found', 401); }
+               // if (!foundUser) { throw new HttpException('User not found', 401); }
                 done(null, foundUser);
             } catch (error) {
                 done(error, false);

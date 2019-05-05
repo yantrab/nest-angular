@@ -1,5 +1,6 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import {resolve} from 'path';
+import { resolve } from 'path';
+import { createReadStream } from 'fs';
 
 const allowedExt = [
     '.js',
@@ -18,16 +19,18 @@ const resolvePath = (file: string) => resolve(`../client/dist/${file}`);
 
 @Injectable()
 export class FrontendMiddleware implements NestMiddleware {
-    resolve(...args: any[]) {
-        return (req, res, next) => {
-            const url  = req.baseUrl;
-            if (url.indexOf('rest') === 1) {
-                next();
-            } else if (allowedExt.filter(ext => url.indexOf(ext) > 0).length > 0) {
-                res.sendFile(resolvePath(url));
-            } else {
-                res.sendFile(resolvePath('index.html'));
-            }
-        };
+    use(req: any, reply: any, next: () => void) {
+        const url = req.originalUrl;
+        if (url.indexOf('rest') === 1) {
+            next();
+        } else if (allowedExt.filter(ext => url.indexOf(ext) > 0).length > 0) {
+            const stream = createReadStream(resolvePath(url));
+            // reply.write(stream,'text/html');
+            reply.type('text/html').send(stream);
+        } else {
+            const stream = createReadStream(resolvePath('index.html'));
+            //.write(stream,'text/html');
+            reply.type('text/html').send(stream);
+        }
     }
 }

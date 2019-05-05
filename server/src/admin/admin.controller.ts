@@ -2,12 +2,12 @@ import { Controller, Post, Get, Body, Req } from '@nestjs/common'
 @Controller('rest/admin')
 export class AdminController {
     @Get('/')
-    async getUsersData(): Promise<any> {
+    getUsersData() {
         return [];
     }
 
     @Get('/suppress')
-    async getUsersData2(): Promise<any> {
+    getUsersData2(){
         return [];
     }
 }

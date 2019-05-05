@@ -1,10 +1,10 @@
 import { Response } from 'express';
 import { normalize } from 'nosql-normalizer';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 
 @Injectable()
-export class SuppressMiddleware {
-    resolve = (req, res: Response, next) => {
+export class SuppressMiddleware implements NestMiddleware {
+    use(req: any, res: any, next: () => void) {
         const json = res.json;
         res.json = (result) => {
             const suppressResult = normalize(result);
