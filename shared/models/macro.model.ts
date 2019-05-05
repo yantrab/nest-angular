@@ -50,11 +50,22 @@ export class Data extends Entity {
     @ValidateNested()
     data: DataItem[];
 }
+export class SeriesGroup extends Entity {
+    @ValidateNested({ each: true })
+    series: Series[];
+}
+export class UserSettings extends Entity {
+    @ValidateNested({ each: true })
+    userTemplates: SeriesGroup[];
+}
+
 export class InitialData {
     @ValidateNested({ each: true })
     categories: Category[];
     @ValidateNested({ each: true })
     serias: Series[];
+    @ValidateNested()
+    userSettings: UserSettings;
     constructor(data?) {
         if (data) {
             Object.assign(this, data);

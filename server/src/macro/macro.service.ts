@@ -8,15 +8,18 @@ import {
   Data,
   DataRequest,
   DataItem,
+  UserSettings,
 } from 'shared/models/macro.model';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import { pathBySelector } from 'shared/utils';
+import { categoriesQuery } from './queries';
 @Injectable()
 export class MacroService {
   private readonly logger = new Logger('DataService');
   private categoryRepo: Repository<Category>;
   private seriesRepo: Repository<Series>;
   private dataRepo: Repository<Data>;
+  private userSettingsRepo: Repository<UserSettings>;
   constructor(private repositoryFactory: RepositoryFactory) {
     this.categoryRepo = this.repositoryFactory.getRepository<Category>(
       Category,
@@ -27,6 +30,10 @@ export class MacroService {
       'DBMacro',
     );
     this.dataRepo = this.repositoryFactory.getRepository<Data>(Data, 'DBMacro');
+    this.userSettingsRepo = this.repositoryFactory.getRepository<UserSettings>(
+      UserSettings,
+      'userSettings',
+    );
   }
 
   async update() {
@@ -92,35 +99,9 @@ export class MacroService {
       const pool = new sql.ConnectionPool(macroConf.db);
       try {
         await pool.connect();
-        const categoriesDB: Category[] = (await pool.request().query(`
-                    SELECT catg_id AS _id,
-                    name_hebrew AS name,
-                    name_english AS NameEnglish,
-                    CASE LEN(catg_id)
-                    WHEN 1 THEN (SELECT COUNT(*)
-                    FROM prPasp
-                    WHERE LEFT(pasp_id,1) = prCatg.catg_id)
-                    WHEN 2 THEN (SELECT COUNT(*)
-                    FROM prPasp
-                    WHERE LEFT(pasp_id,2) = prCatg.catg_id)
-                    WHEN 3 THEN (SELECT COUNT(*)
-                    FROM prPasp
-                    WHERE LEFT(pasp_id,3) = prCatg.catg_id)
-                    END AS NumberInTree
-                    FROM prCatg
-                    WHERE CASE LEN(catg_id)
-                    WHEN 1 THEN (SELECT COUNT(*)
-                    FROM prPasp
-                    WHERE LEFT(pasp_id,1) = prCatg.catg_id)
-                    WHEN 2 THEN (SELECT COUNT(*)
-                    FROM prPasp
-                    WHERE LEFT(pasp_id,2) = prCatg.catg_id)
-                    WHEN 3 THEN (SELECT COUNT(*)
-                    FROM prPasp
-                    WHERE LEFT(pasp_id,3) = prCatg.catg_id)
-                    END <> 0
-                    ORDER BY catg_id
-                        `)).recordset;
+        const categoriesDB: Category[] = (await pool
+          .request()
+          .query(categoriesQuery)).recordset;
         const categories = [
           ...categoriesDB.filter(category => category._id.length === 1),
         ];
@@ -196,5 +177,13 @@ export class MacroService {
         },
       ])
       .toArray() as Promise<Data[]>;
+  }
+
+  async getUserSettings(id: string): Promise<UserSettings> {
+    return this.userSettingsRepo.findOne({ _id: id });
+  }
+
+  async saveUserSettings(userSettings: UserSettings) {
+    return this.userSettingsRepo.saveOrUpdateOne(userSettings);
   }
 }

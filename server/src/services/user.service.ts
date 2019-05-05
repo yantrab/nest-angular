@@ -69,8 +69,4 @@ export class UserService {
     return foundUser;
   }
 
-  async isAuthorized(id, app: App) {
-    const user = await this.getUserAuthenticated(id);
-    return hasPermission(user, app);
-  }
 }

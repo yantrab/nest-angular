@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, Series, DataRequest } from 'shared/models/macro.model';
-import { BehaviorSubject } from 'rxjs';
+import {
+    Category,
+    Series,
+    DataRequest,
+    SeriesGroup,
+} from 'shared/models/macro.model';
 import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
 import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
@@ -9,7 +13,11 @@ import { I18nService } from '../shared/services/i18n.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { keyBy, first, last } from 'lodash';
 import { DatePipe } from '@angular/common';
-import { XLSXService } from '../shared/services/xlsx/xlsx.service';
+import { XLSXService } from '../shared/services/xlsx.service';
+import { AutocompleteFilter } from 'shared';
+export const NEW = ' (Create new) ';
+import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocomplete.component';
+
 @Component({
     selector: 'p-macro',
     templateUrl: './macro.component.html',
@@ -18,14 +26,20 @@ import { XLSXService } from '../shared/services/xlsx/xlsx.service';
 export class MacroComponent implements OnInit {
     categories: Category[];
     selectedCategories: Category[] = [];
-    selectedSerias: Series[] = [];
+    currentTemplate: SeriesGroup;
+    // selectedSerias: Series[] = [];
     serias: Series[];
     allSerias: Series[];
-    tadleDataSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
     id;
     dateForm: FormGroup;
 
-    treeOptions: ITreeOptions;
+    // User Templates
+    userFiltersSettings: AutocompleteFilter = new AutocompleteFilter({
+        options: [],
+        placeholder: 'Select or create new.',
+        selected: {},
+    });
+
     columns: ColumnDef[] = [
         { field: 'select', title: ' ', width: '70px', isSortable: false },
         { field: 'name', title: 'שם הסידרה' },
@@ -36,13 +50,26 @@ export class MacroComponent implements OnInit {
         { field: 'endDate', title: 'תאריך סוף', width: '100px' },
         { field: 'unitEnName', title: 'יחידות' },
     ];
-    // from = addMonths(new Date(), -1);
-    // to = new Date();
     topbarModel: ITopBarModel = {
         logoutTitle: 'logout',
         routerLinks: [],
         menuItems: [],
     };
+
+    filterFn = (options: any[], query: string) => {
+        query = query.trim();
+        if (
+            query &&
+            !this.userFiltersSettings.options.find(f => f.name === query)
+        ) {
+            return [{ name: query + NEW } as SeriesGroup].concat(
+                filterFn(options, query)
+            );
+        }
+        return filterFn(options, query);
+    };
+
+    treeOptions: ITreeOptions;
     constructor(
         private api: MacroController,
         public i18nService: I18nService,
@@ -57,6 +84,7 @@ export class MacroComponent implements OnInit {
         this.api.getInitialData().then(data => {
             this.categories = data.categories;
             this.allSerias = this.serias = data.serias;
+            // this.userFiltersSettings = data.
         });
         this.dateForm = fb.group({
             date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
@@ -76,16 +104,16 @@ export class MacroComponent implements OnInit {
     }
     onSelectSerias(cheked: boolean, series: Series) {
         if (cheked) {
-            this.selectedSerias.push(series);
+            this.currentTemplate.series.push(series);
         } else {
-            this.selectedSerias = this.selectedSerias.filter(
+            this.currentTemplate.series = this.currentTemplate.series.filter(
                 s => s._id === series._id
             );
         }
     }
     download() {
         const formData: DataRequest = {
-            seriasIds: this.selectedSerias.map(k => k._id),
+            seriasIds: this.currentTemplate.series.map(k => k._id),
             from: +this.dateForm.value.date.begin,
             to: +this.dateForm.value.date.end,
         };
@@ -95,7 +123,7 @@ export class MacroComponent implements OnInit {
             const dic = keyBy(result, r => r._id);
             const sheets = [];
             const names: string[] = [];
-            this.selectedSerias.forEach(s => {
+            this.currentTemplate.series.forEach(s => {
                 const excelData: any = {};
                 if (
                     !dic[s._id] ||
@@ -126,5 +154,9 @@ export class MacroComponent implements OnInit {
             });
             this.xslService.export(sheets, names, 'macro.xlsx');
         });
+    }
+
+    filterSelected(seriesGroup: SeriesGroup) {
+        console.log(seriesGroup);
     }
 }

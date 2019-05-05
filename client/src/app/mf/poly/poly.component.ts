@@ -9,6 +9,7 @@ import { ColumnDef } from 'mat-virtual-table';
     styleUrls: ['poly.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
+
 export class PolyComponent {
     userFiltersSettings: AutocompleteFilter = new AutocompleteFilter({
         options: [],
@@ -48,7 +49,7 @@ export class PolyComponent {
             );
         }
         return filterFn(options, query);
-    };
+    }
 
     filterSelected(userFilter: UserFilter) {
         this.mfService.setSelectedUserFilter(userFilter);

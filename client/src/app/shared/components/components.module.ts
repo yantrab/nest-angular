@@ -17,7 +17,7 @@ import { TableModule } from 'mat-virtual-table';
 import { FocusDirective } from '../directives/focus.directive';
 import { TreeModule } from 'angular-tree-component';
 import { I18nService } from '../services/i18n.service';
-import { XLSXService } from '../services/xlsx/xlsx.service';
+import { XLSXService } from '../services/xlsx.service';
 const components = [
     // TextBoxComponent,
     DropdownComponent,

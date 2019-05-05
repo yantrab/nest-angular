@@ -1,26 +1,17 @@
-import {
-  Injectable,
-  NestInterceptor,
-  ExecutionContext,
-  CallHandler,
-  ForbiddenException,
-  Inject,
-} from '@nestjs/common';
-import { Observable, of } from 'rxjs';
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler, ForbiddenException } from '@nestjs/common';
 import { UserService } from '../services/user.service';
+import { hasPermission } from 'shared';
 
 @Injectable()
 export class AuthorizeInterceptor implements NestInterceptor {
-  constructor(private userService: UserService) {}
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-    if (
-      !this.userService.isAuthorized(
-        context.getArgs()[0].cookies.t,
-        context.getClass()['app'],
-      )
-    ) {
-      throw new ForbiddenException();
+    constructor(private userService: UserService) {}
+    async intercept(context: ExecutionContext, next: CallHandler) {
+        const user = await this.userService.getUserAuthenticated(context.getArgs()[0].cookies.t);
+        if (!hasPermission(user, context.getClass()['app'])) {
+            throw new ForbiddenException();
+        }
+
+        context.getArgs()[0].user = user;
+        return next.handle();
     }
-    return next.handle();
-  }
 }

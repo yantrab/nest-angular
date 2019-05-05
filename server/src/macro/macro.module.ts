@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { MacroController } from './macro.controller';
 import { MacroService } from './macro.service';
-import { UserService } from 'services/user.service';
+import { AuthModule } from '../auth/auth.module';
+
 @Module({
   controllers: [MacroController],
-  providers: [MacroService, UserService],
+  providers: [MacroService],
+  imports: [AuthModule]
 })
 export class MacroModule {}
