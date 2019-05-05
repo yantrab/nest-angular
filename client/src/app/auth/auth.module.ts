@@ -7,13 +7,13 @@ import { DynaFormModule } from 'ng-dyna-form';
 import { AuthController } from 'src/api/auth.controller';
 
 @NgModule({
-  declarations: [AuthComponent],
-  imports: [
-    CommonModule,
-    ComponentsModule,
-    RouterModule.forChild([{ path: '', component: AuthComponent }]),
-    DynaFormModule
-  ],
-  providers: [AuthController]
+    declarations: [AuthComponent],
+    imports: [
+        CommonModule,
+        ComponentsModule,
+        RouterModule.forChild([{ path: '', component: AuthComponent }]),
+        DynaFormModule,
+    ],
+    providers: [AuthController],
 })
-export class AuthModule { }
+export class AuthModule {}

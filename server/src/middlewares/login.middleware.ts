@@ -1,10 +1,24 @@
-import { Injectable, NestInterceptor, ExecutionContext } from '@nestjs/common';
-import { Observable } from 'rxjs';
-import { timeout } from 'rxjs/operators';
+import {
+  Injectable,
+  NestInterceptor,
+  ExecutionContext,
+  CallHandler,
+} from '@nestjs/common';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from 'shared';
 
 @Injectable()
-export class TimeoutInterceptor implements NestInterceptor {
-  intercept(context: ExecutionContext, next): Observable<any> {
-    return next.handle().pipe(timeout(5000));
+export class LoginInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+    return next.handle().pipe(
+      map((user: User) => {
+        if (user) {
+          context.getArgs()[1].setCookie('t', user._id, { path: '/' });
+          return user;
+        }
+        return {};
+      }),
+    );
   }
 }

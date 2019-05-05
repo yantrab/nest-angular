@@ -8,7 +8,9 @@ export class UserSettings extends Entity {
     constructor(data?: Partial<UserSettings>) {
         super();
         if (data) {
-            this.userFilters = data.userFilters.map(userFilter =>  new UserFilter(userFilter));
+            this.userFilters = data.userFilters.map(
+                userFilter => new UserFilter(userFilter)
+            );
         }
     }
 }

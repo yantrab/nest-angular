@@ -5,62 +5,37 @@ import {
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import { ValidationPipe } from './pipes/validation.pipe';
-import passport = require('passport');
-import { join, resolve } from 'path';
-
+import { join } from 'path';
+import { readFileSync } from 'fs';
+const staticFolder = join(__dirname, '../../client/dist');
 async function bootstrap() {
-  // const app = await NestFactory.create(AppModule);
-  const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter({
+      http2: true,
+      https: {
+        allowHTTP1: true, // fallback support for HTTP1
+        cert: readFileSync(join(__dirname, '../../../localhost.pem')),
+        key: readFileSync(join(__dirname, '../../../localhost-key.pem')),
+      },
+    }),
+  );
+
+  // enable cors for static angular site.
   const corsOptions = {
-    origin: 'http://localhost:4200',
+    origin: 'https://localhost:4200',
     optionsSuccessStatus: 200,
     credentials: true,
-    methods:[ 'GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   };
-  app.use(require('fastify-cors'), corsOptions);
+  app.register(require('fastify-cors'), corsOptions);
 
-  // app.register(require('fastify-cookie'));
-  // app.register(require('fastify-session'), {
-  //   secret: 'keyboard cat bla bla bla bla 32 #char',
-  //   resave: true,
-  //   saveUninitialized: true,
-  //   proxy: true,
-  // });
+  // enable cookie for auth.
+  app.register(require('fastify-cookie'));
 
-  // app.useStaticAssets({
-  //   root: resolve('../../../client/dist')
-  // });
-  // app.useStaticAssets(resolve('../../', 'client/dist'));
-  // app.setGlobalPrefix('rest');
-
+  // validate types and extra
   app.useGlobalPipes(new ValidationPipe({ forbidUnknownValues: true }));
-<<<<<<< HEAD
-  const corsOptions = {
-    origin: 'http://localhost:4200',
-    optionsSuccessStatus: 200,
-    credentials: true,
-  };
-  app.enableCors(corsOptions);
-  app.use(require('cookie-parser')());
-  app.use(require('body-parser').urlencoded({ extended: true }));
-  app.use(require('express-session')({
-    secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true,
-    proxy: true,
-  }));
-  app.use(passport.initialize());
-  app.use(passport.session());
-=======
-  // app.enableCors();
-  // app.use(require('cookie-parser')());
-  // app.use(require('body-parser').urlencoded({ extended: true }));
-
-  // app.use(passport.initialize());
-  // app.use(passport.session());
->>>>>>> update-nest
 
   await app.listen(3000);
-
 }
 bootstrap();

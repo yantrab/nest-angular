@@ -2,13 +2,13 @@ export const clientPath = './client/src/api/';
 export const serverPath = './server/src';
 export const modelsPath = './shared/models';
 export const decorators = {
-  Get: `
+    Get: `
     return new Promise((resolve) => {
       this.api.get('{url}')
       .subscribe((data: any) => {resolve});
 });
 `,
-  Post: `
+    Post: `
     return new Promise((resolve) => {
       this.api.post('{url}'{body})
       .subscribe((data: any) => {resolve});

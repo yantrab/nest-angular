@@ -1,4 +1,3 @@
-
 import { Entity } from './Entity';
 import { IsString, ValidateNested, IsDate, IsNumber } from 'class-validator';
 export class Category extends Entity {
@@ -31,8 +30,12 @@ export class DataRequest {
     @IsNumber()
     to: number;
     constructor(data: Partial<DataRequest>) {
-        if (data.from) { this.from = data.from; }
-        if (data.to) { this.to = data.to; }
+        if (data.from) {
+            this.from = data.from;
+        }
+        if (data.to) {
+            this.to = data.to;
+        }
         this.seriasIds = data.seriasIds;
     }
 }

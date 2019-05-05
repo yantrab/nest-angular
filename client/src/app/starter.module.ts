@@ -11,39 +11,61 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIService } from 'src/api/http.service';
 const isCordovaApp = Object(window).cordova != null;
 @Component({
-  selector: 'p-root',
-  template: `<router-outlet></router-outlet>`
+    selector: 'p-root',
+    template: `
+        <router-outlet></router-outlet>
+    `,
 })
 export class AppComponent {
-  title = 'nest-angular';
+    title = 'nest-angular';
 }
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login/app1', pathMatch: 'full' },
-  // { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
-  {
-    path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard],
-    data: { app: App.app1}
-  },
-  { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },
+    { path: '', redirectTo: 'login/mf', pathMatch: 'full' },
+    // { path: 'mf', loadChildren: 'src/app/mf/mf.module#MFModule' },
+    {
+        path: 'mf',
+        loadChildren: 'src/app/mf/mf.module#MFModule',
+        canActivate: [Guard],
+        data: { app: App.mf },
+    },
+    {
+        path: 'login/:site',
+        loadChildren: 'src/app/auth/auth.module#AuthModule',
+    },
 
-  { path: 'intercom', loadChildren: 'src/app/intercom/intercom.module#IntercomModule' },
-  { path: 'macro', loadChildren: 'src/app/macro/macro.module#MacroModule', canActivate: [Guard], data: { app: App.macro}},
+    {
+        path: 'intercom',
+        loadChildren: 'src/app/intercom/intercom.module#IntercomModule',
+    },
+    {
+        path: 'macro',
+        loadChildren: 'src/app/macro/macro.module#MacroModule',
+        canActivate: [Guard],
+        data: { app: App.macro },
+    },
 
-  { path: '**', redirectTo: 'login/app1' }
-
+    { path: '**', redirectTo: 'login/mf' },
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { useHash: isCordovaApp }),
-    HttpClientModule],
-  bootstrap: [AppComponent],
-  providers: [Guard, AuthService, APIService,
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorsService, multi: true }]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        RouterModule.forRoot(routes, { useHash: isCordovaApp }),
+        HttpClientModule,
+    ],
+    bootstrap: [AppComponent],
+    providers: [
+        Guard,
+        AuthService,
+        APIService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: InterceptorsService,
+            multi: true,
+        },
+    ],
 })
-export class AppModule { }
+export class AppModule {}

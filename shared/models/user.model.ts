@@ -1,8 +1,15 @@
-import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested } from 'class-validator';
+import {
+    Length,
+    IsEmail,
+    IsOptional,
+    IsString,
+    IsEnum,
+    ValidateNested,
+} from 'class-validator';
 import { Entity } from './Entity';
 export enum App {
     admin,
-    app1,
+    mf,
     app2,
     macro,
 }
@@ -28,7 +35,9 @@ export class User extends Entity {
     lName?: string;
     @ValidateNested({ each: true })
     roles: Role[];
-    get FullName() { return this.fName + ' ' + this.lName; }
+    get FullName() {
+        return this.fName + ' ' + this.lName;
+    }
 }
 
 export class AddUserDTO extends User {
