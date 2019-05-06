@@ -1,4 +1,4 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
 import {
   FastifyAdapter,
@@ -7,7 +7,9 @@ import {
 import { ValidationPipe } from './pipes/validation.pipe';
 import { join } from 'path';
 import { readFileSync } from 'fs';
-const staticFolder = join(__dirname, '../../client/dist');
+import { AuthorizeInterceptor } from 'middlewares/authorize.middleware';
+import { AuthModule } from 'auth/auth.module';
+import { UserService } from 'services/user.service';
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
@@ -35,6 +37,8 @@ async function bootstrap() {
 
   // validate types and extra
   app.useGlobalPipes(new ValidationPipe({ forbidUnknownValues: true }));
+
+  // app.useGlobalInterceptors(new AuthorizeInterceptor(app.select(AuthModule).get(UserService)));
 
   await app.listen(3000);
 }

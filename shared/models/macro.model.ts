@@ -20,6 +20,10 @@ export class Series extends Entity {
     unitEnName: string;
     @IsString()
     catalogPath: string;
+
+    get title() {
+        return this.hebTypeName + ' ' + this._id;
+    }
 }
 
 export class DataRequest {
@@ -68,7 +72,15 @@ export class InitialData {
     userSettings: UserSettings;
     constructor(data?) {
         if (data) {
-            Object.assign(this, data);
+            if (data.categories) {
+                this.categories = data.categories.map(c => new Category(c));
+            }
+            if (data.serias) {
+                this.serias = data.serias.map(c => new Series(c));
+            }
+            if (data.userSettings) {
+                this.userSettings = new UserSettings(data.userSettings);
+            }
         }
     }
 }

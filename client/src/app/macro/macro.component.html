@@ -2,12 +2,8 @@
     <p-topbar [model]="topbarModel"></p-topbar>
     <div class="content">
         <mat-grid-list gutterSize="10px" cols="5" rowHeight="fit">
-            <mat-grid-tile
-                colspan="1"
-               
-            >
-                <div fxFill fxLayout="column"
-                fxLayoutAlign="center center">
+            <mat-grid-tile colspan="1">
+                <div fxFill fxLayout="column" fxLayoutAlign="center center">
                     <div fxFlex="300px">
                         <h2>TEMPLATES</h2>
                         <p-autocomplete
@@ -16,7 +12,17 @@
                             [filterFn]="filterFn"
                         ></p-autocomplete>
                     </div>
-                    <div fxFlex></div>
+                    <div fxFlex>
+                        <div  fxLayout="column">
+                            <span *ngFor="let serie of currentTemplate?.series">
+                                <button mat-mini-fab>
+                                    <mat-icon>clear</mat-icon>
+                                </button>
+                                {{ serie.title }}
+
+                            </span>
+                        </div>
+                    </div>
                     <div fxFlex="100px">
                         <form [formGroup]="dateForm">
                             <mat-form-field>
@@ -26,17 +32,11 @@
                                     [satDatepicker]="picker4"
                                     formControlName="date"
                                 />
-                                <sat-datepicker
-                                    #picker4
-                                    [rangeMode]="true"
-                                    orderPeriodLabel="year"
-                                >
-                                </sat-datepicker>
-                                <sat-datepicker-toggle
-                                    matSuffix
-                                    [for]="picker4"
-                                ></sat-datepicker-toggle>
+   
+                                <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year"> </sat-datepicker>
+                                <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>
                             </mat-form-field>
+
                             <button (click)="download()" mat-button>
                                 הורד
                             </button>
@@ -44,11 +44,7 @@
                     </div>
                 </div>
             </mat-grid-tile>
-            <mat-grid-tile
-                colspan="1"
-                fxLayout="column"
-                fxLayoutAlign="center center"
-            >
+            <mat-grid-tile colspan="1" fxLayout="column" fxLayoutAlign="center center">
                 <div style="height:100%;width:100%;">
                     <tree-root
                         [nodes]="categories"
@@ -69,9 +65,7 @@
                         [columnsDef]="columns"
                     >
                         <ng-template pCellDef column="select" let-row="row">
-                            <mat-checkbox
-                                (change)="onSelectSerias($event.checked, row)"
-                            ></mat-checkbox>
+                            <mat-checkbox (change)="onSelectSerias($event.checked, row)"></mat-checkbox>
                         </ng-template>
 
                         <ng-template pCellDef column="startDate" let-row="row">

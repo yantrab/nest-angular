@@ -1,9 +1,10 @@
-import { Input, Output, EventEmitter } from '@angular/core';
+import { Input, Output, EventEmitter, KeyValueDiffers, DoCheck, OnChanges } from '@angular/core';
 import { Filter } from 'shared';
 export class BaseFilterComponent {
+ 
     @Input() settings: Filter;
-
     @Output() selectedChange = new EventEmitter();
+
     optionSelected(val) {
         if (this.settings.isMultiple) {
             if (!this.settings.selected) {
@@ -18,9 +19,7 @@ export class BaseFilterComponent {
     }
 
     optionDeSelected(val) {
-        this.settings.selected = this.settings.selected.filter(
-            s => s._id !== val._id
-        );
+        this.settings.selected = this.settings.selected.filter(s => s._id !== val._id);
         this.selectedChange.emit(this.settings.selected);
     }
 }
