@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, KeyValueDiffers } from '@angular/core';
 import { BaseFilterComponent } from '../base.component';
 
 @Component({
@@ -21,6 +21,9 @@ import { BaseFilterComponent } from '../base.component';
     `,
 })
 export class DropdownComponent extends BaseFilterComponent {
+    constructor(differs: KeyValueDiffers) {
+        super(differs);
+    }
     compareFn(a, b) {
         return a && b && a.id === b.id;
     }

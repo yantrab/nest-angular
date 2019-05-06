@@ -31,21 +31,19 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         const filterValue = ' ' + value.toLowerCase();
         return this.filterFn(this.settings.options, filterValue);
     };
-    differ: any;
     constructor(differs: KeyValueDiffers) {
-        super();
-        this.differ = differs.find([]).create();
+        super(differs);
         window.addEventListener('click', () => this.setInputSelectedValue());
     }
 
-    ngDoCheck() {
-        const change = this.differ.diff(this.settings);
-        if (change && JSON.stringify(change.previousValue) !== JSON.stringify(change.currentValue)) {
+    onSettingsChange(settings) {
+       // const change = this.differ.diff(this.settings);
+        //if (change && JSON.stringify(change.previousValue) !== JSON.stringify(change.currentValue)) {
             this.settings.options.forEach(option => {
                 option._query = this.paths.reduce((query, path) => query + ' ' + (option[path] || ''), '');
             });
             this.setInputSelectedValue();
-        }
+       // }
     }
 
     setInputSelectedValue() {

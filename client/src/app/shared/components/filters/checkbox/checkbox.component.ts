@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, KeyValueDiffers } from '@angular/core';
 import { BaseFilterComponent } from '../base.component';
 
 @Component({
@@ -9,4 +9,8 @@ import { BaseFilterComponent } from '../base.component';
         }}</mat-checkbox>
     `,
 })
-export class CheckboxComponent extends BaseFilterComponent {}
+export class CheckboxComponent extends BaseFilterComponent {
+    constructor(differs: KeyValueDiffers) {
+        super(differs);
+    }
+}
