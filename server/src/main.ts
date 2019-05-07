@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+// import { AppModule } from './app.module';
+import {TadorModule} from './tador/tador.module';
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -10,7 +11,8 @@ import { readFileSync } from 'fs';
 const staticFolder = join(__dirname, '../../client/dist');
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
-    AppModule,
+    // AppModule,
+    TadorModule,
     new FastifyAdapter());
   //     {
   //     http2: true,
