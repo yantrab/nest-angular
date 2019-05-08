@@ -9,22 +9,22 @@ import { I18nRootObject } from 'src/api/i18n/site.i18n';
   styleUrls: ['./praedicta-site.component.scss']
 })
 export class PraedictaSiteComponent implements OnInit {
-direction:string ="rtl";
+  direction = 'rtl';
   dic: I18nRootObject;
   constructor(
     public i18nService: I18nService) {
-    this.i18nService.dic.subscribe(result => 
-      {
+    this.i18nService.dic.subscribe(result => {
 
-        this.dic = result as any;
-      }
+      this.dic = result as any;
+    }
     );
 
   }
   ngOnInit() {
   }
-  changeDirection(){   
-    this.direction= this.direction=="ltr"? "rtl" : "ltr";
-  } 
+  changeDirection() {
+// tslint:disable-next-line: triple-equals
+    this.direction = this.direction == 'ltr' ? 'rtl' : 'ltr';
+  }
 
 }
