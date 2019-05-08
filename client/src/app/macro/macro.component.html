@@ -38,7 +38,7 @@
             </mat-grid-tile>
             <mat-grid-tile colspan="1" fxLayout="column" fxLayoutAlign="center center">
                 <div style="height:100%;width:100%;overflow: auto;">
-                   <p-tree [data] ="categories"></p-tree>
+                   <p-tree [data]="categories" (select)="onSelectCategory($event)"></p-tree>
                 </div>
             </mat-grid-tile>
 

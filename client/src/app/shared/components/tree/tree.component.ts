@@ -12,6 +12,7 @@ interface Node {
 })
 export class TreeComponent {
     treeControl = new NestedTreeControl<Node>(node => node.children);
+    selectedNode;
     @Input() set data(data) {
         this.dataSource.data = data;
     }
@@ -22,14 +23,21 @@ export class TreeComponent {
     hasChild = (_: number, node: Node) => !!node.children && node.children.length > 0;
 
     updateNode(node, selected) {
-        node.selected = selected;
-        if (node.children) {
-            node.children.forEach(c => this.updateNode(c, selected));
+        if (selected) {
+            this.selectedNode = node;
+        } else {
+            this.selectedNode = undefined;
         }
+        // for  multy select options
+        // node.selected = selected;
+        // if (node.children) {
+        //     node.children.forEach(c => this.updateNode(c, selected));
+        // }
     }
 
     nodeSelected(node) {
         this.updateNode(node, !node.selected);
-        this.select.emit({ selected: node.selected, value: node.value });
+        this.select.emit(this.selectedNode);
+        // this.select.emit({ selected: node.selected, value: node });
     }
 }
