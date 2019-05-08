@@ -10,7 +10,7 @@ export abstract class Entity {
     name?: string;
 
     get isNew() {
-        return !!this._id;
+        return !this._id;
     }
     constructor(data?) {
         if (data) {

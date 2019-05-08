@@ -29,7 +29,7 @@ export class MacroComponent implements OnInit {
     dateForm: FormGroup;
 
     // User Templates
-    userFiltersSettings: AutocompleteFilter = new AutocompleteFilter({
+    seriesGroupsSettings: AutocompleteFilter = new AutocompleteFilter({
         options: [],
         placeholder: 'Select or create new.',
         selected: {},
@@ -53,8 +53,8 @@ export class MacroComponent implements OnInit {
 
     filterFn = (options: any[], query: string) => {
         query = query.trim();
-        if (query && !this.userFiltersSettings.options.find(f => f.name === query)) {
-            return [{ name: query + NEW } as SeriesGroup].concat(filterFn(options, query));
+        if (query && !this.seriesGroupsSettings.options.find(f => f.name === query)) {
+            return [new SeriesGroup({ name: query + NEW })].concat(filterFn(options, query));
         }
         return filterFn(options, query);
     };
@@ -74,8 +74,8 @@ export class MacroComponent implements OnInit {
         this.api.getInitialData().then(data => {
             this.categories = data.categories;
             this.allSerias = this.serias = data.serias;
-            this.userFiltersSettings.options = data.userSettings.userTemplates;
-            this.userFiltersSettings.selected = this.currentTemplate = data.userSettings.userTemplates[0];
+            this.seriesGroupsSettings.options = data.userSettings.userTemplates;
+            this.seriesGroupsSettings.selected = this.currentTemplate = data.userSettings.userTemplates[0];
         });
         this.dateForm = fb.group({
             date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
@@ -91,6 +91,7 @@ export class MacroComponent implements OnInit {
             this.serias = this.allSerias;
         }
     }
+
     onSelectSerias(cheked: boolean, series: Series) {
         if (cheked) {
             this.currentTemplate.series.push(series);
@@ -98,6 +99,7 @@ export class MacroComponent implements OnInit {
             this.currentTemplate.series = this.currentTemplate.series.filter(s => s._id === series._id);
         }
     }
+
     download() {
         const formData: DataRequest = {
             seriasIds: this.currentTemplate.series.map(k => k._id),
@@ -135,6 +137,11 @@ export class MacroComponent implements OnInit {
     }
 
     filterSelected(seriesGroup: SeriesGroup) {
-        console.log(seriesGroup);
+        if (seriesGroup.isNew) {
+            seriesGroup._id = this.seriesGroupsSettings.options.length.toString();
+            seriesGroup.series = [];
+            seriesGroup.name = seriesGroup.name.replace(NEW, '');
+            this.seriesGroupsSettings.options.push(seriesGroup);
+        }
     }
 }

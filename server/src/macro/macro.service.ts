@@ -156,7 +156,7 @@ export class MacroService {
     async getUserSettings(id: string): Promise<UserSettings> {
         return (
             (await this.userSettingsRepo.findOne({ _id: id })) ||
-            new UserSettings({ _id: id, userTemplates: [{ series: [], name: 'טמפלט' }] })
+            new UserSettings({ _id: id, userTemplates: [{ series: [], name: 'טמפלט', _id : '0' }] })
         );
     }
 
