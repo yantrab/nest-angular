@@ -15,11 +15,10 @@ import { RouterModule } from '@angular/router';
 import { AutocompleteComponent } from './filters/autocomplete/autocomplete.component';
 import { TableModule } from 'mat-virtual-table';
 import { FocusDirective } from '../directives/focus.directive';
-import { TreeModule } from 'angular-tree-component';
 import { I18nService } from '../services/i18n.service';
 import { XLSXService } from '../services/xlsx.service';
+import { TreeComponent } from './tree/tree.component';
 const components = [
-    // TextBoxComponent,
     DropdownComponent,
     CheckboxComponent,
     FilterGroupComponent,
@@ -28,7 +27,10 @@ const components = [
     TopbarComponent,
     NavMenuComponent,
     AutocompleteComponent,
+    TreeComponent,
 ];
+
+const exportsM = [TableModule, MaterialModule, FlexLayoutModule, ...components];
 @NgModule({
     imports: [
         FormsModule,
@@ -38,20 +40,9 @@ const components = [
         FlexLayoutModule,
         RouterModule,
         TableModule,
-        TreeModule.forRoot(),
     ],
-    declarations: [...components, FocusDirective],
-    exports: [
-        TableModule,
-        MaterialModule,
-        FlexLayoutModule,
-        TreeModule,
-        ...components,
-    ],
-    providers: [
-        I18nService,
-        { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' },
-        XLSXService,
-    ],
+    declarations: components,
+    exports: exportsM,
+    providers: [I18nService, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }, XLSXService],
 })
 export class ComponentsModule {}

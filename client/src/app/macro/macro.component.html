@@ -37,9 +37,8 @@
                 </div>
             </mat-grid-tile>
             <mat-grid-tile colspan="1" fxLayout="column" fxLayoutAlign="center center">
-                <div style="height:100%;width:100%;">
-                    <tree-root [nodes]="categories" [options]="treeOptions" (deactivate)="onSelectCategory()"
-                        (activate)="onSelectCategory($event.node.data)"></tree-root>
+                <div style="height:100%;width:100%;overflow: auto;">
+                   <p-tree [data] ="categories"></p-tree>
                 </div>
             </mat-grid-tile>
 
@@ -56,6 +55,9 @@
                         </ng-template>
                         <ng-template pCellDef column="endDate" let-row="row">
                             {{ row.endDate | date: 'dd.MM.yyyy' }}
+                        </ng-template>
+                        <ng-template pCellDef column="lastUpdate" let-row="row">
+                            {{ row.lastUpdate | date: 'dd.MM.yyyy' }}
                         </ng-template>
                         <ng-template pCellDef column="name" let-row="row">
                             <b>{{ row.name }}</b>

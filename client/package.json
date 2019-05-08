@@ -15,7 +15,10 @@
     "cordova:run:android": "cd CordovaMobileApp&&cordova plugin add cordovarduino&&cordova run android",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "flogin":"firebase login",
+    "fdeploy":"firebase deploy",
+    "deploy":"npm run build:prod && npm run fdeploy"
   },
   "private": true,
   "dependencies": {
@@ -57,6 +60,7 @@
     "@types/node": "~8.9.4",
     "angular-builder-custom-terser-options": "^1.0.1",
     "codelyzer": "~4.5.0",
+    "firebase-tools": "^6.9.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",

@@ -25,7 +25,7 @@ const routes: Routes = [
     // { path: '', redirectTo: 'login/app1', pathMatch: 'full' },
     // { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
     {
-        path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard],
+        path: 'app1', loadChildren: 'src/app/mf/mf.module#MfModule', canActivate: [Guard],
         data: { app: App.mf }
     },
     { path: 'praedicta', loadChildren: 'src/app/praedicta-site/praedicta-site.module#PraedictaSiteModule' },

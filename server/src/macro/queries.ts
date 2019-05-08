@@ -1,4 +1,5 @@
 export const categoriesQuery = `
+use dbMacro
 SELECT catg_id AS _id,
 name_hebrew AS name,
 name_english AS NameEnglish,

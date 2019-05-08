@@ -93,6 +93,7 @@ export class MacroService {
                 prPasp.first_trading_date AS startDate,
                 prPasp.last_trading_date AS endDate,
                 tblUnit.UNIT_NAME AS unitEnName,
+                prPasp.date_update as lastUpdate,
                 tblSource.SOURCE_NAME AS Source
                 FROM prPasp LEFT OUTER JOIN prType ON prPasp.type_id = prType.type_id 
 				LEFT OUTER JOIN tblSource ON prPasp.source_id = tblSource.SOURCE_ID 
@@ -101,6 +102,9 @@ export class MacroService {
             `)).recordset;
                 serias.forEach(s => {
                     s.catalogPath = '';
+                    s.endDate = +s.endDate;
+                    s.startDate = +s.startDate;
+                    s.lastUpdate = +s.lastUpdate;
                     for (let i = 1; i <= 3; i++) {
                         const subId = s._id.slice(0, i);
                         s.catalogPath += categoriesDB.find(c => c._id === subId).name;

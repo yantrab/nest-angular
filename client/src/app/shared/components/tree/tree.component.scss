@@ -1,0 +1,11 @@
+mat-tree {
+    .selected {
+        background-color: bisque;
+    }
+    ul,
+    li {
+        margin-top: 0;
+        margin-bottom: 0;
+        list-style-type: none;
+    }
+}

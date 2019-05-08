@@ -13,6 +13,7 @@ import { AutocompleteFilter } from 'shared';
 export const NEW = ' (Create new) ';
 import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocomplete.component';
 
+
 @Component({
     selector: 'p-macro',
     templateUrl: './macro.component.html',
@@ -28,6 +29,7 @@ export class MacroComponent implements OnInit {
     id;
     dateForm: FormGroup;
 
+
     // User Templates
     seriesGroupsSettings: AutocompleteFilter = new AutocompleteFilter({
         options: [],
@@ -38,12 +40,13 @@ export class MacroComponent implements OnInit {
     columns: ColumnDef[] = [
         { field: 'select', title: ' ', width: '70px', isSortable: false },
         { field: 'name', title: 'שם הסידרה' },
-        { field: 'catalogPath', title: 'קטלוג' },
+        //{ field: 'catalogPath', title: 'קטלוג' },
         { field: '_id', title: 'מספר הסדרה' },
         { field: 'hebTypeName', title: 'סוג' },
+        { field: 'unitEnName', title: 'יחידות' },
         { field: 'startDate', title: 'תאריך התחלה', width: '100px' },
         { field: 'endDate', title: 'תאריך סוף', width: '100px' },
-        { field: 'unitEnName', title: 'יחידות' },
+        { field: 'lastUpdate', title: 'תאריך עידכון', width: '100px' },
     ];
     topbarModel: ITopBarModel = {
         logoutTitle: 'logout',
@@ -59,18 +62,13 @@ export class MacroComponent implements OnInit {
         return filterFn(options, query);
     };
 
-    treeOptions: ITreeOptions;
     constructor(
         private api: MacroController,
         public i18nService: I18nService,
         fb: FormBuilder,
         private xslService: XLSXService,
     ) {
-        this.treeOptions = {
-            idField: '_id',
-            displayField: 'name',
-            rtl: this.i18nService.dir === 'rtl',
-        };
+
         this.api.getInitialData().then(data => {
             this.categories = data.categories;
             this.allSerias = this.serias = data.serias;
@@ -81,7 +79,6 @@ export class MacroComponent implements OnInit {
             date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
         });
     }
-
     ngOnInit() {}
 
     onSelectCategory(category?: Category) {
