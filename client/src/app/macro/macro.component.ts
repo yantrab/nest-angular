@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, Series, DataRequest } from 'shared/models/macro.model';
-import { BehaviorSubject } from 'rxjs';
+import { Category, Series, DataRequest, SeriesGroup } from 'shared/models/macro.model';
 import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
 import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
@@ -9,97 +8,140 @@ import { I18nService } from '../shared/services/i18n.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { keyBy, first, last } from 'lodash';
 import { DatePipe } from '@angular/common';
-import { XLSXService } from '../shared/services/xlsx/xlsx.service';
+import { XLSXService } from '../shared/services/xlsx.service';
+import { AutocompleteFilter } from 'shared';
+export const NEW = ' (Create new) ';
+import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocomplete.component';
+
 @Component({
-  selector: 'p-macro',
-  templateUrl: './macro.component.html',
-  styleUrls: ['./macro.component.scss']
+    selector: 'p-macro',
+    templateUrl: './macro.component.html',
+    styleUrls: ['./macro.component.scss'],
 })
 export class MacroComponent implements OnInit {
-  categories: Category[];
-  selectedCategories: Category[] = [];
-  selectedSerias: Series[] = [];
-  serias: Series[];
-  allSerias: Series[];
-  tadleDataSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
-  id;
-  dateForm: FormGroup;
+    categories: Category[];
+    selectedCategories: Category[] = [];
+    currentTemplate: SeriesGroup;
+    // selectedSerias: Series[] = [];
+    serias: Series[];
+    allSerias: Series[];
+    id;
+    dateForm: FormGroup;
 
-  treeOptions: ITreeOptions;
-  columns: ColumnDef[] = [
-    { field: 'select', title: ' ' },
-    { field: 'name', title: 'שם הסידרה', width: '230px' },
-    { field: 'catalogPath', title: 'קטלוג' },
-    { field: '_id', title: 'מספר הסדרה' },
-    { field: 'hebTypeName', title: 'סוג' },
-    { field: 'startDate', title: 'תאריך התחלה' },
-    { field: 'endDate', title: 'תאריך סוף' },
-    { field: 'unitEnName', title: 'יחידות' },
-    { field: 'sourceEnName', title: 'מקור נתונים' },
-  ];
-  // from = addMonths(new Date(), -1);
-  // to = new Date();
-  topbarModel: ITopBarModel = {
-    logoutTitle: 'logout',
-    routerLinks: [
-    ],
-    menuItems: []
-  };
-  constructor(private api: MacroController, public i18nService: I18nService, fb: FormBuilder, private xslService: XLSXService) {
-    this.treeOptions = { idField: '_id', displayField: 'name', rtl: this.i18nService.dir === 'rtl' };
-    this.api.getInitialData().then(data => {
-      this.categories = data.categories;
-      this.allSerias = this.serias = data.serias;
+    // User Templates
+    seriesGroupsSettings: AutocompleteFilter = new AutocompleteFilter({
+        options: [],
+        placeholder: 'Select or create new.',
+        selected: {},
     });
-    this.dateForm = fb.group({
-      date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }]
-    });
-  }
 
-  ngOnInit() {
-  }
-
-  onSelectCategory(category?: Category) {
-    if (category) {
-      this.serias = this.allSerias.filter(s => s._id.startsWith(category._id));
-    } else {
-      this.serias = this.allSerias;
-    }
-  }
-  onSelectSerias(cheked: boolean, series: Series) {
-    if (cheked) {
-      this.selectedSerias.push(series);
-    } else {
-      this.selectedSerias = this.selectedSerias.filter(s => s._id === series._id);
-    }
-  }
-  download() {
-    const formData: DataRequest = {
-      seriasIds: this.selectedSerias.map(k => k._id),
-      from: +this.dateForm.value.date.begin, to: +this.dateForm.value.date.end
+    columns: ColumnDef[] = [
+        { field: 'select', title: ' ', width: '70px', isSortable: false },
+        { field: 'name', title: 'שם הסידרה' },
+        { field: 'catalogPath', title: 'קטלוג' },
+        { field: '_id', title: 'מספר הסדרה' },
+        { field: 'hebTypeName', title: 'סוג' },
+        { field: 'startDate', title: 'תאריך התחלה', width: '100px' },
+        { field: 'endDate', title: 'תאריך סוף', width: '100px' },
+        { field: 'unitEnName', title: 'יחידות' },
+    ];
+    topbarModel: ITopBarModel = {
+        logoutTitle: 'logout',
+        routerLinks: [],
+        menuItems: [],
     };
-    const transform = date => new DatePipe('en').transform(date, 'dd.MM.yyyy');
-    this.api.getData(formData).then(result => {
-      const dic = keyBy(result, r => r._id);
-      const sheets = [];
-      const names: string[] = [];
-      this.selectedSerias.forEach(s => {
-        const excelData: any = {};
-        if (!dic[s._id] || !dic[s._id].data || !dic[s._id].data.length) { return; }
-        const sData = dic[s._id].data;
-        excelData.rows = sData.map(d => ({ תאריך: transform(d.timeStamp) ,ערך: d.value}));
-        excelData.description = {};
-        excelData.description['סדרה:'] = s._id;
-        excelData.description['שם הסדרה'] = s.name;
-        excelData.description['סוג נתונים:'] = s.hebTypeName;
-        excelData.description['מקור:'] = s.sourceEnName;
-        excelData.description['יחידות:'] = s.unitEnName;
-        excelData.description['תאריך ראשון:'] = transform(first(sData).timeStamp);
-        excelData.description['תאריך אחרון:'] = transform(last(sData).timeStamp);
-        sheets.push(excelData);
-        names.push(s._id);
-      });
-      this.xslService.export(sheets, names, 'macro.xlsx');
-    });
-  }
+
+    filterFn = (options: any[], query: string) => {
+        query = query.trim();
+        if (query && !this.seriesGroupsSettings.options.find(f => f.name === query)) {
+            return [new SeriesGroup({ name: query + NEW })].concat(filterFn(options, query));
+        }
+        return filterFn(options, query);
+    };
+
+    treeOptions: ITreeOptions;
+    constructor(
+        private api: MacroController,
+        public i18nService: I18nService,
+        fb: FormBuilder,
+        private xslService: XLSXService,
+    ) {
+        this.treeOptions = {
+            idField: '_id',
+            displayField: 'name',
+            rtl: this.i18nService.dir === 'rtl',
+        };
+        this.api.getInitialData().then(data => {
+            this.categories = data.categories;
+            this.allSerias = this.serias = data.serias;
+            this.seriesGroupsSettings.options = data.userSettings.userTemplates;
+            this.seriesGroupsSettings.selected = this.currentTemplate = data.userSettings.userTemplates[0];
+        });
+        this.dateForm = fb.group({
+            date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
+        });
+    }
+
+    ngOnInit() {}
+
+    onSelectCategory(category?: Category) {
+        if (category) {
+            this.serias = this.allSerias.filter(s => s._id.startsWith(category._id));
+        } else {
+            this.serias = this.allSerias;
+        }
+    }
+
+    onSelectSerias(cheked: boolean, series: Series) {
+        if (cheked) {
+            this.currentTemplate.series.push(series);
+        } else {
+            this.currentTemplate.series = this.currentTemplate.series.filter(s => s._id === series._id);
+        }
+    }
+
+    download() {
+        const formData: DataRequest = {
+            seriasIds: this.currentTemplate.series.map(k => k._id),
+            from: +this.dateForm.value.date.begin,
+            to: +this.dateForm.value.date.end,
+        };
+        const transform = date => new DatePipe('en').transform(date, 'dd.MM.yyyy');
+        this.api.getData(formData).then(result => {
+            const dic = keyBy(result, r => r._id);
+            const sheets = [];
+            const names: string[] = [];
+            this.currentTemplate.series.forEach(s => {
+                const excelData: any = {};
+                if (!dic[s._id] || !dic[s._id].data || !dic[s._id].data.length) {
+                    return;
+                }
+                const sData = dic[s._id].data;
+                excelData.rows = sData.map(d => ({
+                    תאריך: transform(d.timeStamp),
+                    ערך: d.value,
+                }));
+                excelData.description = {};
+                excelData.description['סדרה:'] = s._id;
+                excelData.description['שם הסדרה'] = s.name;
+                excelData.description['סוג נתונים:'] = s.hebTypeName;
+                excelData.description['מקור:'] = s.sourceEnName;
+                excelData.description['יחידות:'] = s.unitEnName;
+                excelData.description['תאריך ראשון:'] = transform(first(sData).timeStamp);
+                excelData.description['תאריך אחרון:'] = transform(last(sData).timeStamp);
+                sheets.push(excelData);
+                names.push(s._id);
+            });
+            this.xslService.export(sheets, names, 'macro.xlsx');
+        });
+    }
+
+    filterSelected(seriesGroup: SeriesGroup) {
+        if (seriesGroup.isNew) {
+            seriesGroup._id = this.seriesGroupsSettings.options.length.toString();
+            seriesGroup.series = [];
+            seriesGroup.name = seriesGroup.name.replace(NEW, '');
+            this.seriesGroupsSettings.options.push(seriesGroup);
+        }
+    }
 }

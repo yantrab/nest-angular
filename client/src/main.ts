@@ -6,13 +6,12 @@ import { environment } from './environments/environment';
 import 'reflect-metadata';
 import 'hammerjs';
 if (environment.production) {
-  enableProdMode();
+    enableProdMode();
 }
 
 // let onDeviceReady = () => {
-platformBrowserDynamic().bootstrapModule(AppModule)
+platformBrowserDynamic()
+    .bootstrapModule(AppModule)
     .catch(err => console.error(err));
 // };
 // document.addEventListener('deviceready', onDeviceReady, false);
-
-

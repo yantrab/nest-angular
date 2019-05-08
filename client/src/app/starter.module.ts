@@ -11,11 +11,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIService } from 'src/api/http.service';
 const isCordovaApp = Object(window).cordova != null;
 @Component({
-  selector: 'p-root',
-  template: `<router-outlet></router-outlet>`
+    selector: 'p-root',
+    template: `
+        <router-outlet></router-outlet>
+    `,
 })
 export class AppComponent {
-  title = 'nest-angular';
+    title = 'nest-angular';
 }
 
 const routes: Routes = [
@@ -24,7 +26,7 @@ const routes: Routes = [
   // { path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module' },
   {
     path: 'app1', loadChildren: 'src/app/app1/app1.module#App1Module', canActivate: [Guard],
-    data: { app: App.app1}
+    data: { app: App.mf}
   },
   { path: 'praedicta', loadChildren: 'src/app/praedicta-site/praedicta-site.module#PraedictaSiteModule' },
   
@@ -35,18 +37,27 @@ const routes: Routes = [
 
   { path: '**', redirectTo: 'praedicta' } 
 
+    { path: '**', redirectTo: 'login/mf' },
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { useHash: isCordovaApp }),
-    HttpClientModule],
-  bootstrap: [AppComponent],
-  providers: [Guard, AuthService, APIService,
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorsService, multi: true }]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        RouterModule.forRoot(routes, { useHash: isCordovaApp }),
+        HttpClientModule,
+    ],
+    bootstrap: [AppComponent],
+    providers: [
+        Guard,
+        AuthService,
+        APIService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: InterceptorsService,
+            multi: true,
+        },
+    ],
 })
-export class AppModule { }
+export class AppModule {}

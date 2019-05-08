@@ -1,23 +1,21 @@
-import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
-import { AuthModule } from './auth/auth.module';
+import { Module, MiddlewareConsumer } from '@nestjs/common';
+import { CompressionMiddleware } from '@nest-middlewares/compression';
 import { AdminModule } from './admin/admin.module';
-import { FrontendMiddleware } from 'middlewares/frontend.middleware';
 import { MongoRepoModule } from 'mongo-nest';
-import { EventsModule } from './webRTC/events.module';
-import { App1Module } from './app1/app1.module';
+import { MFModule } from './mf/mf.module';
 import { MacroModule } from './macro/macro.module';
+import { TadorModule } from './tador/tador.module';
 @Module({
-  imports: [AuthModule, AdminModule, App1Module, MacroModule,
+  imports: [
+    MFModule,
+    MacroModule,
+    AdminModule,
+    TadorModule,
     MongoRepoModule.forRoot('mongodb://localhost:27017'),
-    EventsModule],
+  ],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(FrontendMiddleware).forRoutes(
-      {
-        path: '/**',
-        method: RequestMethod.ALL,
-      },
-    );
+    consumer.apply(CompressionMiddleware).forRoutes('*');
   }
 }

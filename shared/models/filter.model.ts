@@ -1,9 +1,14 @@
 import { Poly, Entity } from './Entity';
-import { IsOptional, IsBoolean, IsString, ValidateNested } from 'class-validator';
+import {
+    IsOptional,
+    IsBoolean,
+    IsString,
+    ValidateNested,
+} from 'class-validator';
 export abstract class Filter extends Poly {
     options: any[];
-    @IsOptional()
     @IsBoolean()
+    @IsOptional()
     isMultiple?: boolean;
     @IsOptional() @IsBoolean() isActive?: boolean;
     selected?: any;
@@ -15,9 +20,9 @@ export abstract class Filter extends Poly {
     }
 }
 
-export class CheckboxFilter extends Filter { }
-export class DropdownFilter extends Filter { }
-export class AutocompleteFilter extends Filter { }
+export class CheckboxFilter extends Filter {}
+export class DropdownFilter extends Filter {}
+export class AutocompleteFilter extends Filter {}
 
 export class FilterGroup extends Entity {
     @ValidateNested({ each: true })

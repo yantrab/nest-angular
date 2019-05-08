@@ -6,21 +6,19 @@ import { MacroController } from 'src/api/macro.controller';
 import { MacroComponent } from './macro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [
-    MacroComponent
-  ],
-  imports: [
-    CommonModule,
-    ComponentsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(
-      [
-        {
-          path: '', component: MacroComponent,
-        },
-      ])
-  ],
-  providers: [MacroController]
+    declarations: [MacroComponent],
+    imports: [
+        CommonModule,
+        ComponentsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: MacroComponent,
+            },
+        ]),
+    ],
+    providers: [MacroController],
 })
-export class MacroModule { }
+export class MacroModule {}

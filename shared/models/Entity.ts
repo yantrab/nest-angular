@@ -9,8 +9,8 @@ export abstract class Entity {
     @IsString()
     name?: string;
 
-    get isNew(){
-        return !!this._id;
+    get isNew() {
+        return !this._id;
     }
     constructor(data?) {
         if (data) {
@@ -26,8 +26,13 @@ export abstract class Poly extends Entity {
     kind?: string;
     constructor(data?) {
         super(data);
-        if (Object.getPrototypeOf(Object.getPrototypeOf(this)) === Poly.prototype) {
-            throw new Error('Poly subclasses cannot be instantiated, they must be abstract');
+        if (
+            Object.getPrototypeOf(Object.getPrototypeOf(this)) ===
+            Poly.prototype
+        ) {
+            throw new Error(
+                'Poly subclasses cannot be instantiated, they must be abstract'
+            );
         }
         this.kind = this.constructor.name;
     }

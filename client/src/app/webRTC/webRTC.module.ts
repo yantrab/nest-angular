@@ -6,14 +6,12 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 const config: SocketIoConfig = { url: '', options: {} };
 
 @NgModule({
-  declarations: [
-    WebRTCComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([{ path: '', component: WebRTCComponent }]),
-    SocketIoModule.forRoot(config)
-  ],
-  providers: []
+    declarations: [WebRTCComponent],
+    imports: [
+        CommonModule,
+        RouterModule.forChild([{ path: '', component: WebRTCComponent }]),
+        SocketIoModule.forRoot(config),
+    ],
+    providers: [],
 })
-export class App2Module { }
+export class App2Module {}

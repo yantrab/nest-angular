@@ -17,7 +17,7 @@ import { TableModule } from 'mat-virtual-table';
 import { FocusDirective } from '../directives/focus.directive';
 import { TreeModule } from 'angular-tree-component';
 import { I18nService } from '../services/i18n.service';
-import { XLSXService } from '../services/xlsx/xlsx.service';
+import { XLSXService } from '../services/xlsx.service';
 const components = [
     // TextBoxComponent,
     DropdownComponent,
@@ -28,7 +28,6 @@ const components = [
     TopbarComponent,
     NavMenuComponent,
     AutocompleteComponent,
-
 ];
 @NgModule({
     imports: [
@@ -39,10 +38,20 @@ const components = [
         FlexLayoutModule,
         RouterModule,
         TableModule,
-        TreeModule.forRoot()
+        TreeModule.forRoot(),
     ],
     declarations: [...components, FocusDirective],
-    exports: [TableModule, MaterialModule, FlexLayoutModule, TreeModule, ...components],
-    providers: [I18nService, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }, XLSXService]
+    exports: [
+        TableModule,
+        MaterialModule,
+        FlexLayoutModule,
+        TreeModule,
+        ...components,
+    ],
+    providers: [
+        I18nService,
+        { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' },
+        XLSXService,
+    ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}

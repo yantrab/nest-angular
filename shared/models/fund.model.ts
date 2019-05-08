@@ -1,8 +1,8 @@
 import { Poly } from './Entity';
 import { Yeilds, DailyData } from './security.model';
 
-export class FundManager { }
-export class Trustee { }
+export class FundManager {}
+export class Trustee {}
 
 export abstract class Fund extends Poly {
     manager: FundManager;
@@ -10,8 +10,8 @@ export abstract class Fund extends Poly {
     fee: number;
 
     /**
-    * שווי נכסים במיליוני ש"ח
-    */
+     * שווי נכסים במיליוני ש"ח
+     */
     numeralValue: number;
 
     /**
@@ -20,13 +20,13 @@ export abstract class Fund extends Poly {
     duration: number;
 
     /**
-    * מחיר קנייה
-    */
+     * מחיר קנייה
+     */
     purchasePrice: number;
 
     /**
-    * מחיר פדיון
-    */
+     * מחיר פדיון
+     */
     redemptionPrice: number;
 
     trustee: Trustee;
@@ -37,24 +37,21 @@ export abstract class Fund extends Poly {
     exposureProfile: string;
 
     policy: string;
-
 }
 
 /**
  * קרנות נאמנות
  */
-export abstract class MF extends Fund {
-
-}
+export abstract class MF extends Fund {}
 
 /**
  * קרנות נאמנות מחקות
  */
 export class MTF extends MF {
-     /**
+    /**
      * מדיניות השקעה
      */
-    policy = 'fullCommitment' ;
+    policy = 'fullCommitment';
 }
 
 /**
@@ -62,9 +59,9 @@ export class MTF extends MF {
  */
 export class NMTF extends MF {
     /**
-    * מדיניות השקעה
-    */
-   policy = 'bestEffort' ;
+     * מדיניות השקעה
+     */
+    policy = 'bestEffort';
 }
 
 /**
@@ -73,4 +70,3 @@ export class NMTF extends MF {
 export class ETF extends MTF {
     dailyData: DailyData;
 }
-
