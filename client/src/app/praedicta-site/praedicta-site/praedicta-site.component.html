@@ -1,0 +1,51 @@
+<div *ngIf="dic" ngClass="{{ direction == 'rtl' ? 'ltr' : 'rtl' }}" class="container" fxLayout="row"
+  fxLayoutAlign="stretch">
+  <span fxHide.lt-md class="en-he" (click)="changeDirection()">{{
+    dic.sitePage.systems.Eng_Heb
+  }}</span>
+  <main fxFlex fxLayout="column">
+    <div class="site-logo" fxFlexOffset="2">
+      <img src="assets/img/praedicta-logo-temp.png" fxFlexOffset="500%" />
+    </div>
+    <div fxFlexOffset="15%" fxLayoutAlign="end center " fxLayoutGap="12%"  fxLayoutAlign.md="enter center">
+      <div fxLayout="column" fxFlex="359px" class="left‏">
+        <span class="title">{{ dic.sitePage.main.WhoWeare.title }}</span>
+        <p>{{ dic.sitePage.main.WhoWeare.content }} </p>
+        <a href="">{{ dic.sitePage.More }} </a>
+      </div>
+      <div fxLayout="column" fxFlex="260px" fxLayoutGap="10px" fxHide.md>
+        <span class="title">{{ dic.sitePage.main.Ourvision.title }}</span>
+        <p class="opacity">{{ dic.sitePage.main.Ourvision.content }} </p>
+        <a href="">{{ dic.sitePage.More }} </a>
+      </div>
+    </div>
+    <div fxFlexOffset="4">
+      <a href="" fxFlexOffset="60">{{ dic.sitePage.Our_clients }} </a>
+      <span class="arrow"></span>
+    </div>
+
+  </main>
+
+  <div class="wrapper" fxFlex="480px" fxFlex.md="192px" fxLayout="row wrap" fxLayout.md="column" fxHide.lt-md
+    fxLayoutAlign="start stretch">
+    <div fxFlex="50%" fxFlex.md fxLayoutAlign="end center" fxLayout="column" fxFlexOrder.md="1">
+      <span>{{ dic.sitePage.systems.Bonds }}</span>
+    </div>
+    <div fxFlex="50%" fxFlex.md="20%" fxLayoutAlign="end center" fxLayoutAlign.md="center center" fxLayout="column"
+      fxFlexOrder.md="3">
+      <span>
+        {{ dic.sitePage.systems.Other_solution }}
+      </span>
+    </div>
+    <div fxFlex="50%" fxFlex.md="20%" fxLayoutAlign="start center" fxLayoutAlign.md="center center" fxLayout="column"
+      fxFlexOrder.md="2">
+      <span>{{ dic.sitePage.systems.Holdings }} </span>
+    </div>
+    <div fxFlex="50%" fxFlex.md fxLayoutAlign="start center" fxLayout="column" fxFlexOrder.md="4">
+      <span>{{ dic.sitePage.systems.Contact_us }}</span>
+      <div class="circle" fxLayoutAlign="center center" >
+           <img src="assets/img/outline-email.png" />
+      </div>
+    </div>
+  </div>
+</div>

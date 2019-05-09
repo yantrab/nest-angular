@@ -3,9 +3,11 @@ import { App } from 'shared';
 import { FundService } from 'services/fund.service';
 import { MFService } from './mf.service';
 import { UserSettings } from 'shared';
+//import { ControllerRole } from 'auth/roles.decorator';
 import { NormelizeInterceptor } from '../middlewares/normelize.middleware';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 
+//@ControllerRole(App.mf)
 @UseInterceptors(new NormelizeInterceptor())
 @UseInterceptors(AuthorizeInterceptor)
 @Controller('rest/mf')

@@ -1,42 +1,34 @@
 <div [dir]="i18nService.dir">
     <p-topbar [model]="topbarModel"></p-topbar>
-    <div class="content">
+    <div class="content" *ngIf="currentTemplate">
         <mat-grid-list gutterSize="10px" cols="5" rowHeight="fit">
-            <mat-grid-tile
-                colspan="1"
-               
-            >
-                <div fxFill fxLayout="column"
-                fxLayoutAlign="center center">
+            <mat-grid-tile colspan="1">
+                <div fxFill fxLayout="column" fxLayoutAlign="center center">
                     <div fxFlex="300px">
                         <h2>TEMPLATES</h2>
-                        <p-autocomplete
-                            (selectedChange)="filterSelected($event)"
-                            [settings]="userFiltersSettings"
-                            [filterFn]="filterFn"
-                        ></p-autocomplete>
+                        <p-autocomplete (selectedChange)="filterSelected($event)" [settings]="seriesGroupsSettings"
+                            [filterFn]="filterFn"></p-autocomplete>
                     </div>
-                    <div fxFlex></div>
+                    <div fxFlex>
+                        <div fxLayout="column">
+                            <span *ngFor="let serie of currentTemplate.series">
+                                <button mat-mini-fab (change)="onSelectSerias(false, serie)">
+                                    <mat-icon>clear</mat-icon>
+                                </button>
+                                {{ serie.title }}
+                            </span>
+                        </div>
+                    </div>
                     <div fxFlex="100px">
                         <form [formGroup]="dateForm">
                             <mat-form-field>
-                                <input
-                                    matInput
-                                    placeholder="Choose a date"
-                                    [satDatepicker]="picker4"
-                                    formControlName="date"
-                                />
-                                <sat-datepicker
-                                    #picker4
-                                    [rangeMode]="true"
-                                    orderPeriodLabel="year"
-                                >
-                                </sat-datepicker>
-                                <sat-datepicker-toggle
-                                    matSuffix
-                                    [for]="picker4"
-                                ></sat-datepicker-toggle>
+                                <input matInput placeholder="Choose a date" [satDatepicker]="picker4"
+                                    formControlName="date" />
+
+                                <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year"> </sat-datepicker>
+                                <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>
                             </mat-form-field>
+
                             <button (click)="download()" mat-button>
                                 הורד
                             </button>
@@ -44,34 +36,18 @@
                     </div>
                 </div>
             </mat-grid-tile>
-            <mat-grid-tile
-                colspan="1"
-                fxLayout="column"
-                fxLayoutAlign="center center"
-            >
-                <div style="height:100%;width:100%;">
-                    <tree-root
-                        [nodes]="categories"
-                        [options]="treeOptions"
-                        (deactivate)="onSelectCategory()"
-                        (activate)="onSelectCategory($event.node.data)"
-                    ></tree-root>
+            <mat-grid-tile colspan="1" fxLayout="column" fxLayoutAlign="center center">
+                <div style="height:100%;width:100%;overflow: auto;">
+                   <p-tree [data]="categories" (select)="onSelectCategory($event)"></p-tree>
                 </div>
             </mat-grid-tile>
 
             <mat-grid-tile colspan="3">
                 <div fxLayout="column" fxFlex style="height:100%;width:100%;">
-                    <mat-virtual-table
-                        fxFlex
-                        [rows]="serias"
-                        [filterPlaceholder]="'חיפוש'"
-                        [paginator]="true"
-                        [columnsDef]="columns"
-                    >
+                    <mat-virtual-table fxFlex [rows]="serias" [filterPlaceholder]="'חיפוש'" [paginator]="true"
+                        [columnsDef]="columns">
                         <ng-template pCellDef column="select" let-row="row">
-                            <mat-checkbox
-                                (change)="onSelectSerias($event.checked, row)"
-                            ></mat-checkbox>
+                            <mat-checkbox (change)="onSelectSerias($event.checked, row)"></mat-checkbox>
                         </ng-template>
 
                         <ng-template pCellDef column="startDate" let-row="row">
@@ -79,6 +55,9 @@
                         </ng-template>
                         <ng-template pCellDef column="endDate" let-row="row">
                             {{ row.endDate | date: 'dd.MM.yyyy' }}
+                        </ng-template>
+                        <ng-template pCellDef column="lastUpdate" let-row="row">
+                            {{ row.lastUpdate | date: 'dd.MM.yyyy' }}
                         </ng-template>
                         <ng-template pCellDef column="name" let-row="row">
                             <b>{{ row.name }}</b>

@@ -1,11 +1,4 @@
-import {
-    Component,
-    OnInit,
-    Input,
-    SimpleChanges,
-    SimpleChange,
-    OnChanges,
-} from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, SimpleChange, OnChanges, KeyValueDiffers } from '@angular/core';
 import { BaseFilterComponent } from '../base.component';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -19,8 +12,7 @@ export const filterFn = (options: any[], query: string) =>
     templateUrl: './autocomplete.component.html',
     styleUrls: ['./autocomplete.component.scss'],
 })
-export class AutocompleteComponent extends BaseFilterComponent
-    implements OnInit, OnChanges {
+export class AutocompleteComponent extends BaseFilterComponent implements OnInit {
     chips: boolean;
     filteredOptions: Observable<any[]>;
     input: FormControl = new FormControl();
@@ -39,29 +31,25 @@ export class AutocompleteComponent extends BaseFilterComponent
         const filterValue = ' ' + value.toLowerCase();
         return this.filterFn(this.settings.options, filterValue);
     };
+    constructor(differs: KeyValueDiffers) {
+        super(differs);
+        window.addEventListener('click', () => this.setInputSelectedValue());
+    }
+
+    onSettingsChange(settings) {
+       // const change = this.differ.diff(this.settings);
+        //if (change && JSON.stringify(change.previousValue) !== JSON.stringify(change.currentValue)) {
+            this.settings.options.forEach(option => {
+                option._query = this.paths.reduce((query, path) => query + ' ' + (option[path] || ''), '');
+            });
+            this.setInputSelectedValue();
+       // }
+    }
 
     setInputSelectedValue() {
         if (!this.settings.isMultiple) {
             this.input.setValue(this.settings.selected);
         }
-    }
-
-    ngOnChanges(changes: SimpleChanges) {
-        const change: SimpleChange = changes.settings;
-        if (
-            change &&
-            JSON.stringify(change.previousValue) !==
-                JSON.stringify(change.currentValue)
-        ) {
-            this.settings.options.forEach(option => {
-                option._query = this.paths.reduce(
-                    (query, path) => query + ' ' + (option[path] || ''),
-                    ''
-                );
-            });
-        }
-        this.setInputSelectedValue();
-        window.addEventListener('click', () => this.setInputSelectedValue());
     }
 
     optionSelected(selected) {
@@ -77,9 +65,7 @@ export class AutocompleteComponent extends BaseFilterComponent
         }
         this.filteredOptions = this.input.valueChanges.pipe(
             startWith<string | any>(''),
-            map(name =>
-                name ? this.filter(name) : this.settings.options.slice()
-            )
+            map(name => (name ? this.filter(name) : this.settings.options.slice())),
         );
         document
             .querySelectorAll('p-autocomplete .mat-form-field-flex')[0]

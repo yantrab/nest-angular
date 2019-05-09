@@ -1,25 +1,37 @@
 import { Entity } from './Entity';
-import { IsString, ValidateNested, IsDate, IsNumber } from 'class-validator';
+import { IsString, ValidateNested, IsNumber } from 'class-validator';
 export class Category extends Entity {
     @IsString()
     NameEnglish: string;
     @ValidateNested({ each: true })
     children: Category[] = [];
+    constructor(data?: Partial<Category>) {
+        super(data);
+        if (data && data.children) {
+            this.children = data.children.map(c => new Category(c));
+        }
+    }
 }
 
 export class Series extends Entity {
     @IsString()
     hebTypeName: string;
-    @IsDate()
-    startDate: Date;
-    @IsDate()
-    endDate: Date;
+    @IsNumber()
+    startDate: number;
+    @IsNumber()
+    endDate: number;
+    @IsNumber()
+    lastUpdate: number;
     @IsString()
     sourceEnName: string;
     @IsString()
     unitEnName: string;
     @IsString()
     catalogPath: string;
+
+    get title() {
+        return this.name + ', ' + this._id;
+    }
 }
 
 export class DataRequest {
@@ -57,6 +69,14 @@ export class SeriesGroup extends Entity {
 export class UserSettings extends Entity {
     @ValidateNested({ each: true })
     userTemplates: SeriesGroup[];
+    constructor(data?) {
+        super(data);
+        if (data) {
+            if (data.userTemplates) {
+                this.userTemplates = data.userTemplates.map(t => new SeriesGroup(t));
+            }
+        }
+    }
 }
 
 export class InitialData {
@@ -68,7 +88,15 @@ export class InitialData {
     userSettings: UserSettings;
     constructor(data?) {
         if (data) {
-            Object.assign(this, data);
+            if (data.categories) {
+                this.categories = data.categories.map(c => new Category(c));
+            }
+            if (data.serias) {
+                this.serias = data.serias.map(c => new Series(c));
+            }
+            if (data.userSettings) {
+                this.userSettings = new UserSettings(data.userSettings);
+            }
         }
     }
 }

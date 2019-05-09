@@ -15,7 +15,10 @@
     "cordova:run:android": "cd CordovaMobileApp&&cordova plugin add cordovarduino&&cordova run android",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "flogin":"firebase login",
+    "fdeploy":"firebase deploy",
+    "deploy":"npm run build:prod && npm run fdeploy"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +41,7 @@
     "devextreme-angular": "^18.2.7",
     "file-saver": "^2.0.1",
     "hammerjs": "^2.0.8",
-    "mat-virtual-table": "^1.4.0",
+    "mat-virtual-table": "^1.4.7",
     "ng-dyna-form": "0.0.3",
     "ngx-socket-io": "^2.1.1",
     "rxjs": "~6.3.3",
@@ -50,13 +53,14 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
-    "@angular/cli": "~7.3.6",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "angular-builder-custom-terser-options": "^1.0.1",
     "codelyzer": "~4.5.0",
+    "firebase-tools": "^6.9.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
@@ -67,7 +71,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.2.2",
-    "angular-builder-custom-terser-options": "^1.0.1"
+    "typescript": "~3.2.2"
   }
 }

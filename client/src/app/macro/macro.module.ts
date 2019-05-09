@@ -19,6 +19,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
             },
         ]),
     ],
-    providers: [MacroController],
+    providers: [MacroController,  { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }],
 })
 export class MacroModule {}
