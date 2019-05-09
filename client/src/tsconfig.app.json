@@ -16,4 +16,8 @@
       "../shared/*"
     ]
   }
+  // ,
+  // "angularCompilerOptions": {
+  //   "enableIvy": true
+  // }
 }

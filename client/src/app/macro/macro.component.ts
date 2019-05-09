@@ -3,7 +3,6 @@ import { Category, Series, DataRequest, SeriesGroup } from 'shared/models/macro.
 import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
 import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
-import { ITreeOptions } from 'angular-tree-component';
 import { I18nService } from '../shared/services/i18n.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { keyBy, first, last } from 'lodash';
