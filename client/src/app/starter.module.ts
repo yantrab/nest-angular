@@ -32,6 +32,7 @@ const routes: Routes = [
 
     { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },
 
+    { path: 'intercom-admin', loadChildren: 'src/app/intercom-conf/intercom-conf.module#IntercomConfModule' },
     { path: 'intercom', loadChildren: 'src/app/intercom/intercom.module#IntercomModule' },
     { path: 'macro', loadChildren: 'src/app/macro/macro.module#MacroModule', canActivate: [Guard], data: { app: App.macro } },
 

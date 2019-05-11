@@ -20,16 +20,11 @@ import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocom
 })
 export class MacroComponent implements OnInit {
     categories: Category[];
-    selectedCategories: Category[] = [];
     currentTemplate: SeriesGroup;
-    // selectedSerias: Series[] = [];
-    serias: Series[];
-    allSerias: Series[];
+    series: Series[];
+    allSeries: Series[];
     id;
     dateForm: FormGroup;
-
-
-    // User Templates
     seriesGroupsSettings: AutocompleteFilter = new AutocompleteFilter({
         options: [],
         placeholder: 'Select or create new.',
@@ -39,7 +34,6 @@ export class MacroComponent implements OnInit {
     columns: ColumnDef[] = [
         { field: 'select', title: ' ', width: '70px', isSortable: false },
         { field: 'name', title: 'שם הסידרה' },
-        //{ field: 'catalogPath', title: 'קטלוג' },
         { field: '_id', title: 'מספר הסדרה' },
         { field: 'hebTypeName', title: 'סוג' },
         { field: 'unitEnName', title: 'יחידות' },
@@ -67,10 +61,9 @@ export class MacroComponent implements OnInit {
         fb: FormBuilder,
         private xslService: XLSXService,
     ) {
-
         this.api.getInitialData().then(data => {
             this.categories = data.categories;
-            this.allSerias = this.serias = data.serias;
+            this.allSeries = this.series = data.serias;
             this.seriesGroupsSettings.options = data.userSettings.userTemplates;
             this.seriesGroupsSettings.selected = this.currentTemplate = data.userSettings.userTemplates[0];
         });
@@ -82,14 +75,14 @@ export class MacroComponent implements OnInit {
 
     onSelectCategory(category?: Category) {
         if (category) {
-            this.serias = this.allSerias.filter(s => s._id.startsWith(category._id));
+            this.series = this.allSeries.filter(s => s._id.startsWith(category._id));
         } else {
-            this.serias = this.allSerias;
+            this.series = this.allSeries;
         }
     }
 
-    onSelectSerias(cheked: boolean, series: Series) {
-        if (cheked) {
+    onSelectSeries(checked: boolean, series: Series) {
+        if (checked) {
             this.currentTemplate.series.push(series);
         } else {
             this.currentTemplate.series = this.currentTemplate.series.filter(s => s._id === series._id);

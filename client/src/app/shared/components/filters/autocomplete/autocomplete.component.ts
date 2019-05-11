@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, SimpleChanges, SimpleChange, OnChanges, KeyValueDiffers } from '@angular/core';
-import { BaseFilterComponent } from '../base.component';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
+import {AfterViewInit, Component, Input, KeyValueDiffers, OnInit, ViewChild} from '@angular/core';
+import {BaseFilterComponent} from '../base.component';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import {MatAutocompleteTrigger} from "@angular/material";
 
 export const filterFn = (options: any[], query: string) =>
     options.filter(option => option._query.toLowerCase().includes(query));
@@ -12,7 +13,7 @@ export const filterFn = (options: any[], query: string) =>
     templateUrl: './autocomplete.component.html',
     styleUrls: ['./autocomplete.component.scss'],
 })
-export class AutocompleteComponent extends BaseFilterComponent implements OnInit {
+export class AutocompleteComponent extends BaseFilterComponent implements OnInit, AfterViewInit {
     chips: boolean;
     filteredOptions: Observable<any[]>;
     input: FormControl = new FormControl();
@@ -22,7 +23,8 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     @Input() displayFn = val => {
         return val ? val.name : '';
     };
-
+    @Input() keepOpen: boolean;
+    @ViewChild(MatAutocompleteTrigger) inputAutocomplete: MatAutocompleteTrigger;
     filter = (value: any): string[] => {
         if (!value || typeof value !== 'string') {
             return this.settings.options;
@@ -31,24 +33,28 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         const filterValue = ' ' + value.toLowerCase();
         return this.filterFn(this.settings.options, filterValue);
     };
+
     constructor(differs: KeyValueDiffers) {
         super(differs);
         window.addEventListener('click', () => this.setInputSelectedValue());
     }
 
     onSettingsChange(settings) {
-       // const change = this.differ.diff(this.settings);
+        // const change = this.differ.diff(this.settings);
         //if (change && JSON.stringify(change.previousValue) !== JSON.stringify(change.currentValue)) {
-            this.settings.options.forEach(option => {
-                option._query = this.paths.reduce((query, path) => query + ' ' + (option[path] || ''), '');
-            });
-            this.setInputSelectedValue();
-       // }
+        this.settings.options.forEach(option => {
+            option._query = this.paths.reduce((query, path) => query + ' ' + (option[path] || ''), '');
+        });
+        this.setInputSelectedValue();
+        // }
     }
 
     setInputSelectedValue() {
         if (!this.settings.isMultiple) {
             this.input.setValue(this.settings.selected);
+            if (this.keepOpen) {
+                setTimeout(() => this.inputAutocomplete.openPanel(), 1);
+            }
         }
     }
 
@@ -57,6 +63,9 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
             document.getElementById('input').blur();
         }
         super.optionSelected(selected);
+        if (this.keepOpen) {
+            setTimeout(() => this.inputAutocomplete.openPanel(), 1);
+        }
     }
 
     ngOnInit(): void {
@@ -71,6 +80,13 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
             .querySelectorAll('p-autocomplete .mat-form-field-flex')[0]
             .addEventListener('click', ev => this.clear(ev));
     }
+
+    ngAfterViewInit() {
+        if (this.keepOpen) {
+            this.inputAutocomplete.openPanel();
+        }
+    }
+
     clear(ev) {
         this.input.setValue('');
         ev.stopPropagation();
