@@ -18,7 +18,7 @@ import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocom
     templateUrl: './macro.component.html',
     styleUrls: ['./macro.component.scss'],
 })
-export class MacroComponent implements OnInit {
+export class MacroComponent {
     constructor(
         private api: MacroController,
         public i18nService: I18nService,
