@@ -3,7 +3,6 @@ import { Category, Series, DataRequest, SeriesGroup, UserSettings } from 'shared
 import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
 import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
-import { ITreeOptions } from 'angular-tree-component';
 import { I18nService } from '../shared/services/i18n.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { keyBy, first, last } from 'lodash';
@@ -38,7 +37,6 @@ export class MacroComponent {
         });
     }
     categories: Category[];
-    selectedCategories: Category[] = [];
     currentTemplate: SeriesGroup;
     // selectedSerias: Series[] = [];
     serias: Series[];
@@ -57,7 +55,6 @@ export class MacroComponent {
     columns: ColumnDef[] = [
         { field: 'select', title: ' ', width: '70px', isSortable: false },
         { field: 'name', title: 'שם הסידרה' },
-        //{ field: 'catalogPath', title: 'קטלוג' },
         { field: '_id', title: 'מספר הסדרה' },
         { field: 'hebTypeName', title: 'סוג' },
         { field: 'unitEnName', title: 'יחידות' },

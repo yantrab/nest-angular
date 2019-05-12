@@ -197,3 +197,45 @@ echo "export const macroConf = {
 " > config.ts
 
 ##Depoly
+adduser yaniv
+usermod -aG sudo yaniv
+apt update
+apt install ufw
+ufw allow OpenSSH
+ufw enable
+ufw status
+ssh yaniv@your_server_ip
+sudo apt update
+sudo apt install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo ufw status
+systemctl status nginx
+
+sudo apt install curl
+curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install nodejs
+sudo apt install git
+git config --global user.name "yantrab"
+git config --global user.email "yantrab@gmail.com"
+git clone https://github.com/yantrab/nest-angular.git
+cd nest-angular
+npm i
+
+sudo npm install pm2@latest -g
+cd server
+pm2 start npm -- start
+sudo nano /etc/nginx/sites-available/default
+
+server {
+...
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+...
+}
