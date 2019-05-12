@@ -1,23 +1,25 @@
 <div class="container" *ngIf="dic" ngClass="{{ direction == 'rtl' ? 'ltr' : 'rtl' }}" fxLayout="row"
      fxLayoutAlign="stretch">
-  <span fxHide.lt-md class="en-he" (click)="changeDirection()">{{
-    dic.sitePage.systems.Eng_Heb
-    }}</span>
+  <span fxHide.lt-md
+        class="en-he" (click)="changeDirection()">{{dic.sitePage.systems.Eng_Heb}}</span>
 
   <main fxFlex fxLayout="column">
-    <div fxFlex fxFlexOffset="2" class="site-logo" >
+    <div fxFlex="74px"  fxLayoutAlign="end end">
       <!-- fxFlexOffset="2" -->
-      <img src="assets/img/praedicta-logo-temp.png" />
+      <div style="width: 40%">
+        <img class="site-logo" src="assets/img/praedicta-logo-temp.png" />
+      </div>
     </div>
 
-    <div fxFlex="60" fxFlexOffset.sm="40" fxLayoutAlign="end center " fxLayoutGap="12%" fxLayoutAlign.sm="start ">
+    <div fxFlex fxFlexOffset.sm="40" fxLayoutAlign="end center " fxLayoutGap="12%" fxLayoutAlign.sm="start ">
       <!-- fxFlexOffset="20" -->
       <div class="left" fxFlex="70" fxLayout="column"  fxFlexOffset="20" fxFlexOffset.sm="8" >
         <div class="wrapper-line">
           <span class="line" ></span>
           <span class="line"></span>
         </div>
-        <span fxFlex class="title">{{ dic.sitePage.main.WhoWeare.title }}</span>
+        <pre> <span class="title" fxFlex >{{ dic.sitePage.main.WhoWeare.title }}</span></pre>
+
         <p fxFlex>{{ dic.sitePage.main.WhoWeare.content }} </p>
         <a fxFlex href="">{{ dic.sitePage.More }} </a>
       </div>

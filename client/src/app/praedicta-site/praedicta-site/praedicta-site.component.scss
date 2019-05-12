@@ -88,7 +88,8 @@ $font-family: Poppins;
   // overflow: hidden;
   //position: relative;
   //TODO chane vh
-  height: 100%;
+  //height: 100%;
+  height: 100vh;
 
   &.rtl {
     direction: rtl;
@@ -152,9 +153,13 @@ $font-family: Poppins;
     //   ),
     //  }
     /*#endregion @media screen radial-gradient*/
+    .logo{
+      height: 74px;
+    }
+
 
     .site-logo{
-      margin-left:70%;
+      // margin-left:70%;
       width: 134px;
       height: 14px;
       object-fit: contain;
