@@ -6,13 +6,16 @@
                 <div fxFill fxLayout="column" fxLayoutAlign="center center">
                     <div fxFlex="300px">
                         <h2>TEMPLATES</h2>
-                        <p-autocomplete (selectedChange)="filterSelected($event)" [settings]="seriesGroupsSettings"
-                            [filterFn]="filterFn"></p-autocomplete>
+                        <p-autocomplete
+                            (selectedChange)="filterSelected($event)"
+                            [settings]="seriesGroupsSettings"
+                            [filterFn]="filterFn"
+                        ></p-autocomplete>
                     </div>
                     <div fxFlex>
                         <div fxLayout="column">
                             <span *ngFor="let serie of currentTemplate.series">
-                                <button mat-mini-fab (change)="onSelectSerias(false, serie)">
+                                <button mat-mini-fab (click)="onSelectSerias(false, serie)">
                                     <mat-icon>clear</mat-icon>
                                 </button>
                                 {{ serie.title }}
@@ -22,8 +25,12 @@
                     <div fxFlex="100px">
                         <form [formGroup]="dateForm">
                             <mat-form-field>
-                                <input matInput placeholder="Choose a date" [satDatepicker]="picker4"
-                                    formControlName="date" />
+                                <input
+                                    matInput
+                                    placeholder="Choose a date"
+                                    [satDatepicker]="picker4"
+                                    formControlName="date"
+                                />
 
                                 <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year"> </sat-datepicker>
                                 <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>
@@ -38,16 +45,24 @@
             </mat-grid-tile>
             <mat-grid-tile colspan="1" fxLayout="column" fxLayoutAlign="center center">
                 <div style="height:100%;width:100%;overflow: auto;">
-                   <p-tree [data]="categories" (select)="onSelectCategory($event)"></p-tree>
+                    <p-tree [data]="categories" (select)="onSelectCategory($event)"></p-tree>
                 </div>
             </mat-grid-tile>
 
             <mat-grid-tile colspan="3">
                 <div fxLayout="column" fxFlex style="height:100%;width:100%;">
-                    <mat-virtual-table fxFlex [rows]="serias" [filterPlaceholder]="'חיפוש'" [paginator]="true"
-                        [columnsDef]="columns">
+                    <mat-virtual-table
+                        fxFlex
+                        [rows]="serias"
+                        [filterPlaceholder]="'חיפוש'"
+                        [paginator]="true"
+                        [columnsDef]="columns"
+                    >
                         <ng-template pCellDef column="select" let-row="row">
-                            <mat-checkbox (change)="onSelectSerias($event.checked, row)"></mat-checkbox>
+                            <mat-checkbox
+                                (change)="onSelectSerias($event.checked, row)"
+                                [checked]="selectedSerias[row._id]"
+                            ></mat-checkbox>
                         </ng-template>
 
                         <ng-template pCellDef column="startDate" let-row="row">
