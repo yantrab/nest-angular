@@ -1,7 +1,95 @@
+$small-screen :375px;
+$medium-screen :768px;
+$large-screen :1439px;
+
+$font-family: Poppins;
+
+@mixin letter($font-size,$letter-spacing,$line-height:normal,$font-weight:normal ) {
+  font-family: Poppins;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  color: #feffdf;
+}
+
+@mixin circle($radius, $top: 0,$left: 0,$bottom: 0, $right: 0) {
+  &::after{
+    content: "";
+    border: 50px solid #feffdf;
+    height: $radius;
+    width: $radius;
+    position: absolute;
+    opacity: 0.05;
+    border-radius: 50%;
+    top: $top;
+    left: $left;
+    right: $right;
+    bottom: $bottom;
+  }
+}
+
+@mixin unfer-line($width,$height,$top,$left) {
+  &::before{
+    content: '';
+    position: absolute;
+    width: $width;
+    opacity: 0.5;
+    border-bottom: solid $height #b6cfe7;
+    top: $top;
+    left: $left;
+  }
+
+}
+
+@mixin envelope($color) {
+  width:28px;
+  height:23px;
+  border:2px solid $color;
+  position:relative;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius: 4px;
+  margin: 0 auto;
+  padding: 5px;
+  &::before,&::after{
+    border-bottom:2px solid $color;
+    position:absolute;
+    display:block;
+    content:"";
+  }
+  &::before{
+    top:0;
+    left: 0;
+    width: 16px;
+    height: 5px;
+    -webkit-transform:rotate(35deg);
+    -moz-transform:rotate(35deg);
+    -ms-transform:rotate(35deg);
+    -o-transform:rotate(35deg);
+    transform:rotate(35deg);
+  }
+  &::after{
+    top:0;
+    left: 8px;
+    width: 16px;
+    height: 5px;
+    -webkit-transform:rotate(-35deg);
+    -moz-transform:rotate(-35deg);
+    -ms-transform:rotate(-35deg);
+    -o-transform:rotate(-35deg);
+    transform:rotate(-35deg);
+  }
+}
+
 .container {
-  position: relative;
-  height: 100vh;
-  
+  // overflow: hidden;
+  //position: relative;
+  //TODO chane vh
+  height: 100%;
+
   &.rtl {
     direction: rtl;
     .en-he {
@@ -15,7 +103,6 @@
       right: 0;
     }
   }
-
   .en-he {
     position: absolute;
     top: 0;
@@ -23,177 +110,204 @@
   }
 
   main {
-    min-width: 50rem;
-    background: radial-gradient(
-        circle at 97% 50%,
-        transparent 6em,
-        rgba(255, 255, 255, 0.04) 0,
-        rgba(255, 255, 255, 0.04) 9em,
-        transparent 0
-      ),
-      radial-gradient(
-        circle at 27% 30%,
-        transparent 9em,
-        rgba(255, 255, 255, 0.04) 0,
-        rgba(255, 255, 255, 0.04) 12em,
-        transparent 0
-      ),
-      radial-gradient(
-        circle at 70% 100%,
-        transparent 8em,
-        rgba(255, 255, 255, 0.04) 0,
-        rgba(255, 255, 255, 0.04) 11em,
-        transparent 0
-      ),
-      linear-gradient(to bottom, #6b76ff, #465bdf);
+    background: linear-gradient(to bottom, #6b76ff, #465bdf);
+    /*#region radial-gradient*/
+    //   radial-gradient(
+    //     circle at 97% 50%,
+    //     transparent 6em,
+    //     rgba(255, 255, 255, 0.04) 0,
+    //     rgba(255, 255, 255, 0.04) 9em,
+    //     transparent 0
+    //   ),
+    //   radial-gradient(
+    //     circle at 27% 30%,
+    //     transparent 9em,
+    //     rgba(255, 255, 255, 0.04) 0,
+    //     rgba(255, 255, 255, 0.04) 12em,
+    //     transparent 0
+    //   ),
+    //   radial-gradient(
+    //     circle at 70% 100%,
+    //     transparent 8em,
+    //     rgba(255, 255, 255, 0.04) 0,
+    //     rgba(255, 255, 255, 0.04) 11em,
+    //     transparent 0
+    //   ),
 
-      @media screen and (max-width: 1299px) {
-        background: radial-gradient(
-      
-        circle at 27% 30%,
-        transparent 9em,
-        rgba(255, 255, 255, 0.04) 0,
-        rgba(255, 255, 255, 0.04) 12em,
-        transparent 0
-      ),
-      radial-gradient(
-        circle at 70% 100%,
-        transparent 8em,
-        rgba(255, 255, 255, 0.04) 0,
-        rgba(255, 255, 255, 0.04) 11em,
-        transparent 0
-      ),
-      linear-gradient(to bottom, #6b76ff, #465bdf);
-      }
-    p,
-    a {
-      line-height: 1.75;
-      letter-spacing: 0.6px;
-      color: #feffdf;
-      padding-left: 4em;
-    }
-    a {
-      text-decoration-color: #b6cfe7;
-    }
-.arrow{  
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid #f00;
-  
-}
-    .title {
-      width: 212px;
-      font-family: Poppins;
-      font-size: 50px;
-      font-weight: bold;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: normal;
-      letter-spacing: 2.3px;
-      color: #feffdf;
-      display: flow-root;
-      display: block;
-    }
+    //   @media screen and (max-width: $medium-screen) {
+    //     background: radial-gradient(
 
-    .opacity {
-      background-image: linear-gradient(to right, #feffdf, rgba(254, 255, 223, 0));
-      font-family: Poppins;
-      display: inherit;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    //     circle at 27% 30%,
+    //     transparent 9em,
+    //     rgba(255, 255, 255, 0.04) 0,
+    //     rgba(255, 255, 255, 0.04) 12em,
+    //     transparent 0
+    //   ),
+    //   radial-gradient(
+    //     circle at 70% 100%,
+    //     transparent 8em,
+    //     rgba(255, 255, 255, 0.04) 0,
+    //     rgba(255, 255, 255, 0.04) 11em,
+    //     transparent 0
+    //   ),
+    //  }
+    /*#endregion @media screen radial-gradient*/
 
     .site-logo{
+      margin-left:70%;
       width: 134px;
-  height: 14px;
-  object-fit: contain;
+      height: 14px;
+      object-fit: contain;
+    }
+
+    // //TODO logo 
+    // .logo{
+    //   display: flex;
+
+    //   @each $line in (1 7px,2 15px, 3 10px) {
+    //       div:nth-child(#{nth($line, 1)}) {
+    //           @include line(#{nth($line, 2)}, 3px , #b6cfe7 ,$rotate: 90);
+    //       }
+    //     }
+    //   }
+
+    .left{
+      .wrapper-line{
+        display: flex;
+        margin-bottom: 25px;
+        .line{
+          cursor: pointer;
+          width: 35px;
+          opacity: 0.5;
+          border-bottom: solid 4px #b6cfe7;
+          margin-right: 20px;
+          &:hover{
+            border-bottom: solid 4px #4d99e0;
+          }
+
+        }
+      }
+
+      p,a{
+        @include letter(16px, 0.6px,1.75);
+        padding-left: 4em;
+      }
+
+      a{
+        position: relative;
+        text-decoration: none;
+        @include unfer-line(41px,2px,24px,60px);
+      }
+
+      span{
+        &.title {
+          position: relative;
+          width: 212px;
+          @include circle(327px,$top:-170px ,$left:-132px);
+          @include letter(50px,1.6px,$font-weight:bold);
+
+        }
+      }
+
+    }
+
+    .right{
+
+      p,a {
+        @include letter(14px,-0.5px, 2);
+        padding-left: 4em;
+      }
+
+      span{
+        &.title {
+          position: relative;
+          width: 150px;
+          @include letter(35px,1.6px,1.37, bold);
+          @include circle(200px,$top:-104px ,$left:87px);
+        }
+      }
+
+      p{
+        &.opacity{
+          background-image: linear-gradient(to right, #feffdf, rgba(254, 255, 223, 0));
+          display: inherit;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+
+      a{
+        position: relative;
+        text-decoration: none;
+        @include unfer-line(25px,2px,24px,55px);
+      }
+    }
+
+    .bottom{
+
+      a{
+        position: relative;
+        text-decoration: none;
+        @include circle(250px,$top:-96px ,$left: -134px);
+        @include letter(14px,0.5px,2);
+        @include unfer-line(76px,2px,24px,0px);
+
+      }
+
+
+      .arrow {
+        position: relative;
+        border: solid #5bb2d9;
+        border-width: 0 0.1em 0.1em 0;
+        padding: 5px;
+        transform: rotate(45deg);
+
+        &::before{
+          position: absolute;;
+          content: "";
+          transform: rotate(134deg);
+          height: 15px;
+          top: -4px;
+          right: 6px;
+          border-left :0.1em solid #5bb2d9;
+        }
+      }
+
     }
   }
 
-  .wrapper {
+  .systems {
     > div {
       border-style: solid;
       border-width: 1px;
     }
     span {
-      font-family: Poppins;
-      font-size: 20px;
-      letter-spacing: 0.7px;
+      @include letter(20px, 0.7px);
       text-align: center;
       color: #54678c;
       padding: 0.4em 4em;
-
-      @media screen and (max-width: 1299px) {
+      @media screen and (max-width: $medium-screen) {
         padding: 0.4em 1em;
       }
     }
-    .circle{
+
+    .envelope-icon{
+      position: absolute;
       background: #ff9578;
       width: 4em;
       height: 4em;
       border-radius: 50%;
-    }
-    .Envelope{
-      width:10px;
-      height:5px;
-      border:2px solid #feffdf;
-      position:relative;
-      -webkit-border-radius:10px;
-      -moz-border-radius:10px;
-      border-radius:4px;
-      overflow:hidden;
-      margin: 0 auto;
-      padding:5px;
-    
-     }
-     
-     .Envelope:before{
-      border-bottom:2px solid #feffdf;
-      position:absolute;
-      display:block;
-      content:"";
-      top:63px;
-      left:-30px;
-      width:250px;
-      height:5px;
-      -webkit-transform:rotate(35deg);
-      -moz-transform:rotate(35deg);
-      -ms-transform:rotate(35deg);
-      -o-transform:rotate(35deg);
-      transform:rotate(35deg);
-     }
-     
-     .Envelope:after{
-      border-bottom:2px solid #feffdf;
-      position:absolute;
-      display:block;
-      content:"";
-      top:63px;
-      right:-30px;
-      width:250px;
-      height:5px;
-      -webkit-transform:rotate(-35deg);
-      -moz-transform:rotate(-35deg);
-      -ms-transform:rotate(-35deg);
-      -o-transform:rotate(-35deg);
-      transform:rotate(-35deg);
-     }​
-     span {
-      font-family: Poppins;
-      font-size: 20px;
-      letter-spacing: 0.7px;
-      text-align: center;
-      color: #54678c;
-      padding: 0.4em 4em;
+      //TODO add
+      bottom: 5%;
+      .envelope{
+        @include envelope(#ffffff)
+      }
 
-    
+
     }
-    
-    
+
   }
-    
-}
 
+
+}

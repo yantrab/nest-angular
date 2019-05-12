@@ -27,8 +27,16 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 @include angular-material-theme($candy-app-theme);
 
 body {
+  height: 100vh;
+  padding: 0;
   margin: 0;
+
 }
+
+* {
+  box-sizing: border-box;
+}
+
 
 .center {
   position: absolute;

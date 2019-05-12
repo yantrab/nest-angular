@@ -1,50 +1,64 @@
-<div *ngIf="dic" ngClass="{{ direction == 'rtl' ? 'ltr' : 'rtl' }}" class="container" fxLayout="row"
-  fxLayoutAlign="stretch">
+<div class="container" *ngIf="dic" ngClass="{{ direction == 'rtl' ? 'ltr' : 'rtl' }}" fxLayout="row"
+     fxLayoutAlign="stretch">
   <span fxHide.lt-md class="en-he" (click)="changeDirection()">{{
     dic.sitePage.systems.Eng_Heb
-  }}</span>
+    }}</span>
+
   <main fxFlex fxLayout="column">
-    <div class="site-logo" fxFlexOffset="2">
-      <img src="assets/img/praedicta-logo-temp.png" fxFlexOffset="500%" />
+    <div fxFlex fxFlexOffset="2" class="site-logo" >
+      <!-- fxFlexOffset="2" -->
+      <img src="assets/img/praedicta-logo-temp.png" />
     </div>
-    <div fxFlexOffset="15%" fxLayoutAlign="end center " fxLayoutGap="12%"  fxLayoutAlign.md="enter center">
-      <div fxLayout="column" fxFlex="359px" class="left‏">
-        <span class="title">{{ dic.sitePage.main.WhoWeare.title }}</span>
-        <p>{{ dic.sitePage.main.WhoWeare.content }} </p>
-        <a href="">{{ dic.sitePage.More }} </a>
+
+    <div fxFlex="60" fxFlexOffset.sm="40" fxLayoutAlign="end center " fxLayoutGap="12%" fxLayoutAlign.sm="start ">
+      <!-- fxFlexOffset="20" -->
+      <div class="left" fxFlex="70" fxLayout="column"  fxFlexOffset="20" fxFlexOffset.sm="8" >
+        <div class="wrapper-line">
+          <span class="line" ></span>
+          <span class="line"></span>
+        </div>
+        <span fxFlex class="title">{{ dic.sitePage.main.WhoWeare.title }}</span>
+        <p fxFlex>{{ dic.sitePage.main.WhoWeare.content }} </p>
+        <a fxFlex href="">{{ dic.sitePage.More }} </a>
       </div>
-      <div fxLayout="column" fxFlex="260px" fxLayoutGap="10px" fxHide.md>
+      <div class="right" fxLayout="column" fxFlex="30" fxLayoutGap="10px" fxHide.lt-md>
+
         <span class="title">{{ dic.sitePage.main.Ourvision.title }}</span>
         <p class="opacity">{{ dic.sitePage.main.Ourvision.content }} </p>
         <a href="">{{ dic.sitePage.More }} </a>
       </div>
     </div>
-    <div fxFlexOffset="4">
-      <a href="" fxFlexOffset="60">{{ dic.sitePage.Our_clients }} </a>
-      <span class="arrow"></span>
+
+    <div fxFlex="15" class="bottom" fxFlexOffset.sm="34" >
+      <!-- fxFlexOffset="8" -->
+      <div fxLayout="column" fxFlexOffset="72" fxFlexOffset.sm="58" fxLayoutAlign="center center">
+        <a href="">{{ dic.sitePage.Our_clients }} </a>
+        <i  fxFlexOffset="20" class="arrow"></i>
+      </div>
     </div>
 
   </main>
 
-  <div class="wrapper" fxFlex="480px" fxFlex.md="192px" fxLayout="row wrap" fxLayout.md="column" fxHide.lt-md
-    fxLayoutAlign="start stretch">
-    <div fxFlex="50%" fxFlex.md fxLayoutAlign="end center" fxLayout="column" fxFlexOrder.md="1">
+  <div class="systems" fxFlex="480px" fxFlex.sm="192px" fxLayout="row wrap" fxLayout.sm="column" fxHide.xs
+       fxLayoutAlign="start stretch">
+    <div fxFlex="50" fxFlex.sm fxLayoutAlign="end center" fxLayout="column" fxFlexOrder.sm="1">
       <span>{{ dic.sitePage.systems.Bonds }}</span>
     </div>
-    <div fxFlex="50%" fxFlex.md="20%" fxLayoutAlign="end center" fxLayoutAlign.md="center center" fxLayout="column"
-      fxFlexOrder.md="3">
+    <div fxFlex="50" fxFlex.sm="10" fxLayoutAlign="end center" fxLayoutAlign.sm="center center" fxLayout="column"
+         fxFlexOrder.sm="3">
       <span>
         {{ dic.sitePage.systems.Other_solution }}
       </span>
     </div>
-    <div fxFlex="50%" fxFlex.md="20%" fxLayoutAlign="start center" fxLayoutAlign.md="center center" fxLayout="column"
-      fxFlexOrder.md="2">
+    <div fxFlex="50" fxFlex.sm="10" fxLayoutAlign="start center" fxLayoutAlign.sm="center center" fxLayout="column"
+         fxFlexOrder.sm="2">
       <span>{{ dic.sitePage.systems.Holdings }} </span>
     </div>
-    <div fxFlex="50%" fxFlex.md fxLayoutAlign="start center" fxLayout="column" fxFlexOrder.md="4">
+    <div fxFlex="50" fxFlex.sm fxLayoutAlign="start center" fxLayout="column" fxFlexOrder.sm="4">
       <span>{{ dic.sitePage.systems.Contact_us }}</span>
-      <div class="circle" fxLayoutAlign="center center" >
-           <img src="assets/img/outline-email.png" />
+      <div  class="envelope-icon" fxLayoutAlign="center center" >
+        <!-- fxFlexOffset="140" -->
+        <i class="envelope"></i>
       </div>
     </div>
   </div>
