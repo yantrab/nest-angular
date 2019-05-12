@@ -211,7 +211,7 @@ $font-family: Poppins;
         &.title {
           position: relative;
           width: 212px;
-          @include circle(327px,$top:-170px ,$left:-132px);
+          @include circle(327px,$top:-137px ,$left:-132px);
           @include letter(50px,1.6px,$font-weight:bold);
 
         }
@@ -231,7 +231,7 @@ $font-family: Poppins;
           position: relative;
           width: 150px;
           @include letter(35px,1.6px,1.37, bold);
-          @include circle(200px,$top:-104px ,$left:87px);
+          @include circle(200px,$top:-82px ,$left:87px);
         }
       }
 
@@ -268,15 +268,20 @@ $font-family: Poppins;
         position: relative;
         border: solid #5bb2d9;
         border-width: 0 0.1em 0.1em 0;
-        padding: 5px;
+        padding: 0px;
         transform: rotate(45deg);
+        top: -41px;
+        height: 16px;
+        width: 16px;
+        right: -21px;
+
 
         &::before{
           position: absolute;;
           content: "";
           transform: rotate(134deg);
-          height: 15px;
-          top: -4px;
+          height: 16px;
+          top: 0px;
           right: 6px;
           border-left :0.1em solid #5bb2d9;
         }
