@@ -14,6 +14,7 @@ To use ssl with localhost, open cmd one level above the root and run:
 ```sh
 choco install mkcert
 mkcert localhost
+mkcert -install
 ```
 ### debug server
 ```sh
