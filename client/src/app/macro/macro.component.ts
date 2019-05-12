@@ -130,7 +130,9 @@ export class MacroComponent {
                 sheets.push(excelData);
                 names.push(s._id);
             });
-            this.xslService.export(sheets, names, 'macro.xlsx');
+            if (sheets.length) {
+                this.xslService.export(sheets, names, 'macro.xlsx');
+            }
         });
     }
 
