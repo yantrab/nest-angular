@@ -4,14 +4,14 @@
         class="en-he" (click)="changeDirection()">{{dic.sitePage.systems.Eng_Heb}}</span>
 
   <main fxFlex fxLayout="column">
-    <div fxFlex="8.22"  fxLayoutAlign="end end">
-      <div style="width: 40%">
-        <img class="site-logo" src="assets/img/praedicta-logo-temp.png" />
+    <div fxFlex="31" fxFlex.sm="20"  fxLayoutAlign="end end" >
+      <div class="logo"  >
+        <img  src="assets/img/praedicta-logo-temp.png" />
       </div>
     </div>
 
-    <div fxFlex=78 fxFlexOffset.sm="40" fxLayoutAlign="end center " fxLayoutGap="12%" fxLayoutAlign.sm="start ">
-      <!-- fxFlexOffset="20" -->
+    <div fxFlex=78 fxLayoutAlign="end center " fxLayoutGap="12%" fxLayoutAlign.sm="start ">
+
       <div class="left" fxFlex="77" fxLayout="column"  fxFlexOffset="20" fxFlexOffset.sm="8" >
         <div class="wrapper-line" fxHide.lg>
           <span class="line" ></span>
@@ -20,18 +20,22 @@
         <pre> <span class="title" fxFlex >{{ dic.sitePage.main.WhoWeare.title }}</span></pre>
 
           <pre><p fxFlex>{{ dic.sitePage.main.WhoWeare.content }} </p></pre>
+        <div style="width:15%">
         <a fxFlex href="">{{ dic.sitePage.More }} </a>
+        </div>
       </div>
-      <div class="right" fxLayout="column" fxFlex="23" fxLayoutGap="10px" fxHide.lt-md>
+      <div class="right" fxLayout="column" fxFlex="27" fxLayoutGap="10px" fxHide.lt-md>
 
          <pre><span class="title">{{ dic.sitePage.main.Ourvision.title }}</span></pre>
          <pre><p class="opacity">{{ dic.sitePage.main.Ourvision.content }} </p></pre>
-        <a href="">{{ dic.sitePage.More }} </a>
+        <div style="width:15%">
+        <a fxFlex href="">{{ dic.sitePage.More }} </a>
+        </div>
       </div>
     </div>
 
-    <div fxFlex="22" class="bottom" fxFlexOffset.sm="34"  fxLayoutAlign="end end"><!-- fxFlexOffset="8" -->
-      <div  fxLayout="column" fxFlexOffset.sm="58" style="width:40%" fxLayoutAlign="center center">
+    <div fxFlex="10" class="bottom"  fxLayoutAlign="end center" >
+      <div  fxLayout="column" style="width:50%"   fxLayoutAlign="center center">
               <a href="" >{{ dic.sitePage.Our_clients }} </a>
               <i  class="arrow"></i>
       </div>
