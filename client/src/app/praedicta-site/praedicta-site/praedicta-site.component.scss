@@ -88,8 +88,9 @@ $font-family: Poppins;
 }
 
 .container {
-  // overflow: hidden;
-  //position: relative;
+  * {
+    box-sizing: border-box;
+  }
   //TODO chane vh
   //height: 100%;
   height: 100vh;
@@ -157,16 +158,12 @@ $font-family: Poppins;
     //  }
     /*#endregion @media screen radial-gradient*/
     .logo{
-      height: 74px;
+    width: 40%;
+     height:80%;
     }
 
 
-    .site-logo{
-      // margin-left:70%;
-      width: 134px;
-      height: 14px;
-      object-fit: contain;
-    }
+
 
     // //TODO logo 
     // .logo{
@@ -214,6 +211,7 @@ $font-family: Poppins;
           @include circle(327px,$top:-137px ,$left:-132px);
           @include letter(50px,1.6px,$font-weight:bold);
 
+
         }
       }
 
@@ -257,6 +255,7 @@ $font-family: Poppins;
       a{
         position: relative;
         text-decoration: none;
+        padding-bottom: 2%;
         @include circle(250px,$top:-96px ,$left: -134px);
         @include letter(14px,0.5px,2);
         @include unfer-line(76px,2px,24px,0px);
@@ -265,7 +264,7 @@ $font-family: Poppins;
 
 
       .arrow {
-        position: relative;
+
         border: solid #5bb2d9;
         border-width: 0 0.1em 0.1em 0;
         padding: 0px;
@@ -277,7 +276,7 @@ $font-family: Poppins;
 
 
         &::before{
-          position: absolute;;
+          position: absolute;
           content: "";
           transform: rotate(134deg);
           height: 16px;
@@ -292,8 +291,7 @@ $font-family: Poppins;
 
   .systems {
     > div {
-      border-style: solid;
-      border-width: 1px;
+      border:1px solid #8080801c ;
     }
     span {
       @include letter(20px, 0.7px);

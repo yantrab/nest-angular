@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core';
-//import { IntercomConfComponent } from './intercom-conf/intercom-conf.component';
-import { RouterModule } from '@angular/router';
-import { ComponentsModule } from '../shared/components/components.module';
-import { TadorController } from 'src/api/tador.controller';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {ComponentsModule} from '../shared/components/components.module';
+import {TadorController} from 'src/api/tador.controller';
+import {IntercomConfComponent} from "./intercom-conf/intercom-conf.component";
+
 @NgModule({
-    // declarations: [IntercomConfComponent],
+    declarations: [IntercomConfComponent],
     imports: [
         ComponentsModule,
         RouterModule.forChild([
             {
                 path: '',
-               // component: IntercomConfComponent,
+                component: IntercomConfComponent,
                 // children: [
                 //   { path: '', redirectTo: 'dumy' },
                 //   { path: 'poly', component: PolyComponent },
@@ -19,6 +20,7 @@ import { TadorController } from 'src/api/tador.controller';
             },
         ]),
     ],
-    providers: [TadorController, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }],
+    providers: [TadorController, {provide: 'baseUrlI18n', useValue: '../../assets/i18n/login'}],
 })
-export class IntercomConfModule {}
+export class IntercomConfModule {
+}
