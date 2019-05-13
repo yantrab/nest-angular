@@ -136,7 +136,7 @@ export class MacroService {
     }
 
     async getData(req: DataRequest): Promise<Data[]> {
-        const path = '$$' + pathBySelector((d: DataItem) => d.timeStamp);
+        const path = '$$item.timeStamp'// + pathBySelector((d: DataItem) => d.timeStamp);
         return this.dataRepo.collection
             .aggregate([
                 { $match: { _id: { $in: req.seriasIds } } },

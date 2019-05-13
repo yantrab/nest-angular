@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Category, Series, DataRequest, SeriesGroup } from 'shared/models/macro.model';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { Category, Series, DataRequest, SeriesGroup, UserSettings } from 'shared/models/macro.model';
 import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
 import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
@@ -12,19 +12,40 @@ import { AutocompleteFilter } from 'shared';
 export const NEW = ' (Create new) ';
 import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocomplete.component';
 
-
 @Component({
     selector: 'p-macro',
     templateUrl: './macro.component.html',
     styleUrls: ['./macro.component.scss'],
 })
-export class MacroComponent implements OnInit {
+export class MacroComponent {
+    constructor(
+        private api: MacroController,
+        public i18nService: I18nService,
+        fb: FormBuilder,
+        private xslService: XLSXService,
+    ) {
+        this.api.getInitialData().then(data => {
+            this.categories = data.categories;
+            this.allSerias = this.serias = data.serias;
+            this.userSettings = data.userSettings;
+            this.seriesGroupsSettings.options = this.userSettings.userTemplates;
+            this.currentTemplate = this.userSettings.userTemplates[0];
+            this.seriesGroupsSettings.selected = this.currentTemplate;
+        });
+        this.dateForm = fb.group({
+            date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
+        });
+    }
     categories: Category[];
     currentTemplate: SeriesGroup;
-    series: Series[];
-    allSeries: Series[];
+    // selectedSerias: Series[] = [];
+    serias: Series[];
+    allSerias: Series[];
+    userSettings: UserSettings;
     id;
     dateForm: FormGroup;
+
+    // User Templates
     seriesGroupsSettings: AutocompleteFilter = new AutocompleteFilter({
         options: [],
         placeholder: 'Select or create new.',
@@ -46,6 +67,7 @@ export class MacroComponent implements OnInit {
         routerLinks: [],
         menuItems: [],
     };
+    selectedSerias = {};
 
     filterFn = (options: any[], query: string) => {
         query = query.trim();
@@ -55,37 +77,24 @@ export class MacroComponent implements OnInit {
         return filterFn(options, query);
     };
 
-    constructor(
-        private api: MacroController,
-        public i18nService: I18nService,
-        fb: FormBuilder,
-        private xslService: XLSXService,
-    ) {
-        this.api.getInitialData().then(data => {
-            this.categories = data.categories;
-            this.allSeries = this.series = data.serias;
-            this.seriesGroupsSettings.options = data.userSettings.userTemplates;
-            this.seriesGroupsSettings.selected = this.currentTemplate = data.userSettings.userTemplates[0];
-        });
-        this.dateForm = fb.group({
-            date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
-        });
+    @HostListener('window:beforeunload', ['$event']) unloadHandler(event: Event) {
+        this.api.saveUserSettings(this.userSettings);
     }
-    ngOnInit() {}
 
     onSelectCategory(category?: Category) {
         if (category) {
-            this.series = this.allSeries.filter(s => s._id.startsWith(category._id));
+            this.serias = this.allSerias.filter(s => s._id.startsWith(category._id));
         } else {
-            this.series = this.allSeries;
+            this.serias = this.allSerias;
         }
     }
-
-    onSelectSeries(checked: boolean, series: Series) {
-        if (checked) {
+    onSelectSerias(cheked: boolean, series: Series) {
+        if (cheked) {
             this.currentTemplate.series.push(series);
+            this.selectedSerias[series._id] = true;
         } else {
-            this.currentTemplate.series = this.currentTemplate.series.filter(s => s._id === series._id);
+            this.currentTemplate.series = this.currentTemplate.series.filter(s => s._id !== series._id);
+            this.selectedSerias[series._id] = false;
         }
     }
 
@@ -121,7 +130,9 @@ export class MacroComponent implements OnInit {
                 sheets.push(excelData);
                 names.push(s._id);
             });
-            this.xslService.export(sheets, names, 'macro.xlsx');
+            if (sheets.length) {
+                this.xslService.export(sheets, names, 'macro.xlsx');
+            }
         });
     }
 

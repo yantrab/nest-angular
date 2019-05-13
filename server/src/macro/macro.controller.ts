@@ -30,6 +30,6 @@ export class MacroController {
 
     @Post('saveUserSettings')
     saveUserSettings(@Body() userSettings: UserSettings) {
-        return this.service.saveUserSettings(userSettings);
+         this.service.saveUserSettings(userSettings);
     }
 }
