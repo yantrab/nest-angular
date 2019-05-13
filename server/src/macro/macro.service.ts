@@ -17,11 +17,11 @@ export class MacroService {
         this.categoryRepo = this.repositoryFactory.getRepository<Category>(Category, 'DBMacro');
         this.seriesRepo = this.repositoryFactory.getRepository<Series>(Series, 'DBMacro');
         this.dataRepo = this.repositoryFactory.getRepository<Data>(Data, 'DBMacro');
-        this.userSettingsRepo = this.repositoryFactory.getRepository<UserSettings>(UserSettings, 'userSettings');
+        this.userSettingsRepo = this.repositoryFactory.getRepository<UserSettings>(UserSettings, 'DBMacro');
     }
 
     async update() {
-        await Promise.all([this.updateData(), this.updateCategoriesAndSerias()]);
+        await Promise.all([this.updateData(), this.updateCategoriesAndSeries()]);
     }
 
     private async updateData() {
@@ -61,7 +61,7 @@ export class MacroService {
             }
         });
     }
-    private async updateCategoriesAndSerias() {
+    private async updateCategoriesAndSeries() {
         const getChildren = (categories, category) => {
             const children = categories.filter(
                 c => c._id.length === category._id.length + 1 && c._id.slice(0, category._id.length) === category._id,
@@ -86,7 +86,7 @@ export class MacroService {
                 await this.categoryRepo.collection.deleteMany({});
                 await this.categoryRepo.saveOrUpdateMany(categories);
 
-                const serias: Series[] = (await pool.request().query(`
+                const series: Series[] = (await pool.request().query(`
                 SELECT prPasp.pasp_id AS _id,
                 prPasp.name_hebrew AS name,
                 prType.name_hebrew AS hebTypeName,
@@ -100,7 +100,7 @@ export class MacroService {
                 LEFT OUTER JOIN tblUnit ON prPasp.unit_id = tblUnit.UNIT_ID
 	            where left(pasp_id,3) = (SELECT catg_id FROM prCatg WHERE catg_id = left(pasp_id,3))
             `)).recordset;
-                serias.forEach(s => {
+                series.forEach(s => {
                     s.catalogPath = '';
                     s.endDate = +s.endDate;
                     s.startDate = +s.startDate;
@@ -115,7 +115,7 @@ export class MacroService {
                     }
                 });
                 await this.seriesRepo.collection.deleteMany({});
-                await this.seriesRepo.saveOrUpdateMany(serias);
+                await this.seriesRepo.saveOrUpdateMany(series);
 
                 resolve(true);
             } catch (err) {
@@ -136,10 +136,10 @@ export class MacroService {
     }
 
     async getData(req: DataRequest): Promise<Data[]> {
-        const path = '$$item.timeStamp'// + pathBySelector((d: DataItem) => d.timeStamp);
+        const path = '$$' + pathBySelector((item: DataItem) => item.timeStamp);
         return this.dataRepo.collection
             .aggregate([
-                { $match: { _id: { $in: req.seriasIds } } },
+                { $match: { _id: { $in: req.seriesIds } } },
                 {
                     $project: {
                         data: {
@@ -160,7 +160,7 @@ export class MacroService {
     async getUserSettings(id: string): Promise<UserSettings> {
         return (
             (await this.userSettingsRepo.findOne({ _id: id })) ||
-            new UserSettings({ _id: id, userTemplates: [{ series: [], name: 'טמפלט', _id : '0' }] })
+            new UserSettings({ _id: id, userTemplates: [{ seriesIds: [], name: 'טמפלט', _id: '0' }] })
         );
     }
 

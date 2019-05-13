@@ -14,11 +14,11 @@
                     </div>
                     <div fxFlex>
                         <div fxLayout="column">
-                            <span *ngFor="let serie of currentTemplate.series">
-                                <button mat-mini-fab (click)="onSelectSerias(false, serie)">
+                            <span *ngFor="let id of currentTemplate.seriesIds">
+                                <button mat-mini-fab (click)="onSelectSeries(false, seriesDic[id])">
                                     <mat-icon>clear</mat-icon>
                                 </button>
-                                {{ serie.title }}
+                                {{ seriesDic[id].title }}
                             </span>
                         </div>
                     </div>
@@ -53,15 +53,15 @@
                 <div fxLayout="column" fxFlex style="height:100%;width:100%;">
                     <mat-virtual-table
                         fxFlex
-                        [rows]="serias"
+                        [rows]="series"
                         [filterPlaceholder]="'חיפוש'"
                         [paginator]="true"
                         [columnsDef]="columns"
                     >
                         <ng-template pCellDef column="select" let-row="row">
                             <mat-checkbox
-                                (change)="onSelectSerias($event.checked, row)"
-                                [checked]="selectedSerias[row._id]"
+                                (change)="onSelectSeries($event.checked, row)"
+                                [checked]="selectedSeries[row._id]"
                             ></mat-checkbox>
                         </ng-template>
 

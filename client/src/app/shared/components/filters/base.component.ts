@@ -1,11 +1,16 @@
 import { Input, Output, EventEmitter, KeyValueDiffers, DoCheck, OnChanges, KeyValueDiffer } from '@angular/core';
 import { Filter } from 'shared';
+import {cloneDeep} from 'lodash';
+
 export class BaseFilterComponent {
+
     constructor(private _differs: KeyValueDiffers) {}
     private _differ: KeyValueDiffer<any, any>;
     _settings: Filter;
     @Input() set settings(settings: Filter) {
-        this._settings = settings;
+        this._settings = cloneDeep(settings);
+        // clone
+        //this._settings.options = this._settings.options.map(option => Object.assign({}, new Option(...option)));
         if (!this._differ && settings) {
             this._differ = this._differs.find(settings).create();
         }
@@ -32,7 +37,7 @@ export class BaseFilterComponent {
         } else {
             this.settings.selected = val;
         }
-
+        delete this.settings.selected._query;
         this.selectedChange.emit(this.settings.selected);
     }
 

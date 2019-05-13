@@ -1,4 +1,4 @@
-import { IsString, IsOptional } from 'class-validator';
+import { IsString, IsOptional, IsBoolean } from 'class-validator';
 
 export abstract class Entity {
     @IsOptional()
@@ -9,6 +9,7 @@ export abstract class Entity {
     @IsString()
     name?: string;
 
+    @IsBoolean() 
     get isNew() {
         return !this._id;
     }

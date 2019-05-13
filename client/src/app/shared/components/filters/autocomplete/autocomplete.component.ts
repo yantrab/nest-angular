@@ -3,7 +3,7 @@ import {BaseFilterComponent} from '../base.component';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {MatAutocompleteTrigger} from "@angular/material";
+import {MatAutocompleteTrigger} from '@angular/material';
 
 export const filterFn = (options: any[], query: string) =>
     options.filter(option => option._query.toLowerCase().includes(query));
@@ -14,17 +14,23 @@ export const filterFn = (options: any[], query: string) =>
     styleUrls: ['./autocomplete.component.scss'],
 })
 export class AutocompleteComponent extends BaseFilterComponent implements OnInit, AfterViewInit {
+
+    constructor(differs: KeyValueDiffers) {
+        super(differs);
+        window.addEventListener('click', () => this.setInputSelectedValue());
+    }
     chips: boolean;
     filteredOptions: Observable<any[]>;
     input: FormControl = new FormControl();
     @Input() filterFn = filterFn;
     @Input() appearance = 'outline';
     @Input() paths: string[] = ['name', '_id'];
+
+    @Input() keepOpen: boolean;
+    @ViewChild(MatAutocompleteTrigger) inputAutocomplete: MatAutocompleteTrigger;
     @Input() displayFn = val => {
         return val ? val.name : '';
     };
-    @Input() keepOpen: boolean;
-    @ViewChild(MatAutocompleteTrigger) inputAutocomplete: MatAutocompleteTrigger;
     filter = (value: any): string[] => {
         if (!value || typeof value !== 'string') {
             return this.settings.options;
@@ -34,14 +40,9 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         return this.filterFn(this.settings.options, filterValue);
     };
 
-    constructor(differs: KeyValueDiffers) {
-        super(differs);
-        window.addEventListener('click', () => this.setInputSelectedValue());
-    }
-
     onSettingsChange(settings) {
         // const change = this.differ.diff(this.settings);
-        //if (change && JSON.stringify(change.previousValue) !== JSON.stringify(change.currentValue)) {
+        // if (change && JSON.stringify(change.previousValue) !== JSON.stringify(change.currentValue)) {
         this.settings.options.forEach(option => {
             option._query = this.paths.reduce((query, path) => query + ' ' + (option[path] || ''), '');
         });

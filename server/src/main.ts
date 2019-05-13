@@ -3,16 +3,17 @@ import { AppModule } from './app.module';
 import { TadorModule } from './tador/tador.module';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { ValidationPipe } from './pipes/validation.pipe';
-import { join } from 'path';
 import { readFileSync } from 'fs';
 import { AuthorizeInterceptor } from 'middlewares/authorize.middleware';
 import { AuthModule } from 'auth/auth.module';
 import { UserService } from 'services/user.service';
+import { join } from 'path';
+const clientPath = join(__dirname, '../../client/dist');
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
-         AppModule,
+        AppModule,
         //TadorModule,
-        //new FastifyAdapter());
+       //new FastifyAdapter());
         new FastifyAdapter({
             http2: true,
             https: {
@@ -25,7 +26,7 @@ async function bootstrap() {
 
     // enable cors for static angular site.
     const corsOptions = {
-        origin: 'https://localhost:4200',
+        origin: ['https://localhost:3000','https://localhost:4200', 'https://praedicta-2b6a3.firebaseapp.com', 'https://arkadiy-8'],
         optionsSuccessStatus: 200,
         credentials: true,
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -47,6 +48,7 @@ async function bootstrap() {
 
     // app.useGlobalInterceptors(new AuthorizeInterceptor(app.select(AuthModule).get(UserService)));
 
-    await app.listen(3000);
+    app.useStaticAssets({ root: clientPath });
+    await app.listen(3000,'0.0.0.0');
 }
 bootstrap();
