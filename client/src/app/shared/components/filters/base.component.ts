@@ -2,15 +2,15 @@ import { Input, Output, EventEmitter, KeyValueDiffers, DoCheck, OnChanges, KeyVa
 import { Filter } from 'shared';
 import {cloneDeep} from 'lodash';
 
-export class BaseFilterComponent {
+export class BaseFilterComponent implements  DoCheck{
 
     constructor(private _differs: KeyValueDiffers) {}
     private _differ: KeyValueDiffer<any, any>;
     _settings: Filter;
     @Input() set settings(settings: Filter) {
-        this._settings = cloneDeep(settings);
+        this._settings = settings;
         // clone
-        //this._settings.options = this._settings.options.map(option => Object.assign({}, new Option(...option)));
+        // this._settings.options = this._settings.options.map(option => Object.assign({}, new Option(...option)));
         if (!this._differ && settings) {
             this._differ = this._differs.find(settings).create();
         }

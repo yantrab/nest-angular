@@ -7,6 +7,7 @@
                     <div fxFlex="300px">
                         <h2>TEMPLATES</h2>
                         <p-autocomplete
+                                *ngIf="seriesGroupsSettings"
                             (selectedChange)="filterSelected($event)"
                             [settings]="seriesGroupsSettings"
                             [filterFn]="filterFn"

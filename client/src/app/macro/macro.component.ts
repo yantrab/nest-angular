@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Category, Series, DataRequest, SeriesGroup, UserSettings } from 'shared/models/macro.model';
 import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
@@ -35,6 +35,8 @@ export class MacroComponent {
             this.seriesGroupsSettings.options = this.userSettings.userTemplates;
             this.currentTemplate = this.userSettings.userTemplates[0];
             this.seriesGroupsSettings.selected = this.currentTemplate;
+            this.currentTemplate.seriesIds.forEach(id => this.selectedSeries[id] = true);
+
         });
         this.dateForm = fb.group({
             date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
@@ -42,11 +44,9 @@ export class MacroComponent {
     }
     categories: Category[];
     currentTemplate: SeriesGroup;
-    // selectedSeries: Series[] = [];
     series: Series[];
     allSeries: Series[];
-    // tslint:disable-next-line:variable-name
-    seriesDic : {[_id: string]: Series; };
+    seriesDic: {[_id: string]: Series; };
     userSettings: UserSettings;
     id;
     dateForm: FormGroup;
@@ -83,8 +83,8 @@ export class MacroComponent {
         return filterFn(options, query);
     };
 
-    @HostListener('window:beforeunload', ['$event']) unloadHandler(event: Event) {
-        this.api.saveUserSettings(this.userSettings);
+    @HostListener('window:beforeunload', ['$event']) unloadHandler() {
+        this.api.saveUserSettings(this.userSettings).then();
     }
 
     onSelectCategory(category?: Category) {
@@ -94,8 +94,8 @@ export class MacroComponent {
             this.series = this.allSeries;
         }
     }
-    onSelectSeries(cheked: boolean, series: Series) {
-        if (cheked) {
+    onSelectSeries(checked: boolean, series: Series) {
+        if (checked) {
             this.currentTemplate.seriesIds.push(series._id);
             this.selectedSeries[series._id] = true;
         } else {
@@ -150,5 +150,8 @@ export class MacroComponent {
             seriesGroup.name = seriesGroup.name.replace(NEW, '');
             this.seriesGroupsSettings.options.push(seriesGroup);
         }
+        this.currentTemplate = seriesGroup;
+        this.selectedSeries = {};
+        this.currentTemplate.seriesIds.forEach(id => this.selectedSeries[id] = true);
     }
 }

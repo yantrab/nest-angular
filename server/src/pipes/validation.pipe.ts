@@ -52,7 +52,6 @@ export class ValidationPipe implements PipeTransform<any> {
       return value;
     }
     const entity = new metadata.metatype(value);
-    delete entity.isNew;
     const errors = await validate(entity, this.validatorOptions);
     if (errors.length > 0) {
       throw this.exceptionFactory(errors as any);

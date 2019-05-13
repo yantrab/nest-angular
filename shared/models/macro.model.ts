@@ -69,14 +69,14 @@ export class SeriesGroup extends Entity {
 export class UserSettings extends Entity {
     @ValidateNested({ each: true })
     userTemplates: SeriesGroup[];
-    // constructor(data?) {
-    //     super(data);
-    //     if (data) {
-    //         if (data.userTemplates) {
-    //             this.userTemplates = data.userTemplates.map(t => new SeriesGroup(t));
-    //         }
-    //     }
-    // }
+    constructor(data?) {
+        super(data);
+        if (data) {
+            if (data.userTemplates) {
+                this.userTemplates = data.userTemplates.map(t => new SeriesGroup(t));
+            }
+        }
+    }
 }
 
 export class InitialData {

@@ -41,8 +41,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     };
 
     onSettingsChange(settings) {
-        // const change = this.differ.diff(this.settings);
-        // if (change && JSON.stringify(change.previousValue) !== JSON.stringify(change.currentValue)) {
+        // this.settings.options =  this.settings.options.map(o => Object.assign({}, o));
         this.settings.options.forEach(option => {
             option._query = this.paths.reduce((query, path) => query + ' ' + (option[path] || ''), '');
         });
