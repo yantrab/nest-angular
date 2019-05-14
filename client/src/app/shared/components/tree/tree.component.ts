@@ -23,6 +23,7 @@ export class TreeComponent {
     hasChild = (_: number, node: Node) => !!node.children && node.children.length > 0;
 
     updateNode(node, selected) {
+        node.selected = selected;
         if (selected) {
             this.selectedNode = node;
         } else {
@@ -37,7 +38,7 @@ export class TreeComponent {
 
     nodeSelected(node) {
         this.updateNode(node, !node.selected);
-        this.select.emit(this.selectedNode);
+        this.select.emit(node.selected ? this.selectedNode : undefined);
         // this.select.emit({ selected: node.selected, value: node });
     }
 }

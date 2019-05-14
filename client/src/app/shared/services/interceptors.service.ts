@@ -14,6 +14,7 @@ export class InterceptorsService implements HttpInterceptor {
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
         const proxyReq = req.clone({ url: `https://localhost:3000/${req.url}` });
+        // const proxyReq = req.clone({ url: `https://arkadiy-8:3000/${req.url}` });
         return next.handle(proxyReq);
     }
 }

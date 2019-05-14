@@ -1,0 +1,37 @@
+<div [dir]="i18nService.dir">
+    <p-topbar [model]="topbarModel"></p-topbar>
+    <div class="content" fxLayout="row" *ngIf="panels">
+        <p-autocomplete [keepOpen]="true" (selectedChange)="selectedPanel = $event"
+                        [settings]="autocompleteSettings"></p-autocomplete>
+        <mat-tab-group #tabGroup mat-stretch-tabs fxFlex="100">
+            <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <input [value]="selectedPanel._id" disabled matInput placeholder="טלפון">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="שם" [(ngModel)]="selectedPanel.name">
+                    </mat-form-field>
+                    <p>
+                        <mat-form-field class="example-full-width">
+                            <textarea matInput placeholder="Address">{{selectedPanel.address}}</textarea>
+                        </mat-form-field>
+                    </p>
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="סוג" disabled [(ngModel)]="selectedPanel.type">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="גירסה" [(ngModel)]="selectedPanel.version">
+                    </mat-form-field>
+                </div>
+            </mat-tab>
+            <mat-tab label="contacts">
+                <div *ngIf="tabGroup.selectedIndex === 1">
+                </div>
+            </mat-tab>
+            <mat-tab label="settings"> Content 3</mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

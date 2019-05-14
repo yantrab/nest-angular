@@ -18,7 +18,7 @@ export class MacroController {
     async getInitialData(@ReqUser() user: User): Promise<InitialData> {
         return {
             categories: await this.service.getCategories(),
-            serias: await this.service.getSeries(),
+            series: await this.service.getSeries(),
             userSettings: await this.service.getUserSettings(user._id),
         };
     }

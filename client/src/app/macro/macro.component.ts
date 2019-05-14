@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Category, Series, DataRequest, SeriesGroup, UserSettings } from 'shared/models/macro.model';
 import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
@@ -26,11 +26,17 @@ export class MacroComponent {
     ) {
         this.api.getInitialData().then(data => {
             this.categories = data.categories;
-            this.allSerias = this.serias = data.serias;
+            this.allSeries = this.series = data.series;
+            this.seriesDic =  this.allSeries.reduce((map, series) => {
+                map[series._id] = series;
+                return map;
+            }, {});
             this.userSettings = data.userSettings;
             this.seriesGroupsSettings.options = this.userSettings.userTemplates;
             this.currentTemplate = this.userSettings.userTemplates[0];
             this.seriesGroupsSettings.selected = this.currentTemplate;
+            this.currentTemplate.seriesIds.forEach(id => this.selectedSeries[id] = true);
+
         });
         this.dateForm = fb.group({
             date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
@@ -38,9 +44,9 @@ export class MacroComponent {
     }
     categories: Category[];
     currentTemplate: SeriesGroup;
-    // selectedSerias: Series[] = [];
-    serias: Series[];
-    allSerias: Series[];
+    series: Series[];
+    allSeries: Series[];
+    seriesDic: {[_id: string]: Series; };
     userSettings: UserSettings;
     id;
     dateForm: FormGroup;
@@ -67,7 +73,7 @@ export class MacroComponent {
         routerLinks: [],
         menuItems: [],
     };
-    selectedSerias = {};
+    selectedSeries = {};
 
     filterFn = (options: any[], query: string) => {
         query = query.trim();
@@ -77,30 +83,30 @@ export class MacroComponent {
         return filterFn(options, query);
     };
 
-    @HostListener('window:beforeunload', ['$event']) unloadHandler(event: Event) {
-        this.api.saveUserSettings(this.userSettings);
+    @HostListener('window:beforeunload', ['$event']) unloadHandler() {
+        this.api.saveUserSettings(this.userSettings).then();
     }
 
     onSelectCategory(category?: Category) {
         if (category) {
-            this.serias = this.allSerias.filter(s => s._id.startsWith(category._id));
+            this.series = this.allSeries.filter(s => s._id.startsWith(category._id));
         } else {
-            this.serias = this.allSerias;
+            this.series = this.allSeries;
         }
     }
-    onSelectSerias(cheked: boolean, series: Series) {
-        if (cheked) {
-            this.currentTemplate.series.push(series);
-            this.selectedSerias[series._id] = true;
+    onSelectSeries(checked: boolean, series: Series) {
+        if (checked) {
+            this.currentTemplate.seriesIds.push(series._id);
+            this.selectedSeries[series._id] = true;
         } else {
-            this.currentTemplate.series = this.currentTemplate.series.filter(s => s._id !== series._id);
-            this.selectedSerias[series._id] = false;
+            this.currentTemplate.seriesIds = this.currentTemplate.seriesIds.filter(s => s !== series._id);
+            this.selectedSeries[series._id] = false;
         }
     }
 
     download() {
         const formData: DataRequest = {
-            seriasIds: this.currentTemplate.series.map(k => k._id),
+            seriesIds: this.currentTemplate.seriesIds,
             from: +this.dateForm.value.date.begin,
             to: +this.dateForm.value.date.end,
         };
@@ -109,21 +115,22 @@ export class MacroComponent {
             const dic = keyBy(result, r => r._id);
             const sheets = [];
             const names: string[] = [];
-            this.currentTemplate.series.forEach(s => {
+            this.currentTemplate.seriesIds.forEach(sID => {
                 const excelData: any = {};
-                if (!dic[s._id] || !dic[s._id].data || !dic[s._id].data.length) {
+                if (!dic[sID] || !dic[sID].data || !dic[sID].data.length) {
                     return;
                 }
-                const sData = dic[s._id].data;
+                const s = this.allSeries.find((s => s._id === sID));
+                const sData = dic[sID].data;
                 excelData.rows = sData.map(d => ({
                     תאריך: transform(d.timeStamp),
                     ערך: d.value,
                 }));
                 excelData.description = {};
-                excelData.description['סדרה:'] = s._id;
+                excelData.description['סדרה:'] = s;
                 excelData.description['שם הסדרה'] = s.name;
                 excelData.description['סוג נתונים:'] = s.hebTypeName;
-                excelData.description['מקור:'] = s.sourceEnName;
+                // excelData.description['מקור:'] = s.sourceEnName;
                 excelData.description['יחידות:'] = s.unitEnName;
                 excelData.description['תאריך ראשון:'] = transform(first(sData).timeStamp);
                 excelData.description['תאריך אחרון:'] = transform(last(sData).timeStamp);
@@ -139,9 +146,12 @@ export class MacroComponent {
     filterSelected(seriesGroup: SeriesGroup) {
         if (seriesGroup.isNew) {
             seriesGroup._id = this.seriesGroupsSettings.options.length.toString();
-            seriesGroup.series = [];
+            seriesGroup.seriesIds = [];
             seriesGroup.name = seriesGroup.name.replace(NEW, '');
             this.seriesGroupsSettings.options.push(seriesGroup);
         }
+        this.currentTemplate = seriesGroup;
+        this.selectedSeries = {};
+        this.currentTemplate.seriesIds.forEach(id => this.selectedSeries[id] = true);
     }
 }

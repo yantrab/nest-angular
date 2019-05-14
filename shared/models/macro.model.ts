@@ -1,5 +1,5 @@
 import { Entity } from './Entity';
-import { IsString, ValidateNested, IsNumber } from 'class-validator';
+import { IsString, ValidateNested, IsNumber, IsArray } from 'class-validator';
 export class Category extends Entity {
     @IsString()
     NameEnglish: string;
@@ -36,7 +36,7 @@ export class Series extends Entity {
 
 export class DataRequest {
     @IsString({ each: true })
-    seriasIds: string[];
+    seriesIds: string[];
     @IsNumber()
     from: number;
     @IsNumber()
@@ -48,7 +48,7 @@ export class DataRequest {
         if (data.to) {
             this.to = data.to;
         }
-        this.seriasIds = data.seriasIds;
+        this.seriesIds = data.seriesIds;
     }
 }
 export class DataItem {
@@ -63,8 +63,8 @@ export class Data extends Entity {
     data: DataItem[];
 }
 export class SeriesGroup extends Entity {
-    @ValidateNested({ each: true })
-    series: Series[];
+    @IsString({ each: true })
+    seriesIds: string[];
 }
 export class UserSettings extends Entity {
     @ValidateNested({ each: true })
@@ -83,7 +83,7 @@ export class InitialData {
     @ValidateNested({ each: true })
     categories: Category[];
     @ValidateNested({ each: true })
-    serias: Series[];
+    series: Series[];
     @ValidateNested()
     userSettings: UserSettings;
     constructor(data?) {
@@ -91,8 +91,8 @@ export class InitialData {
             if (data.categories) {
                 this.categories = data.categories.map(c => new Category(c));
             }
-            if (data.serias) {
-                this.serias = data.serias.map(c => new Series(c));
+            if (data.series) {
+                this.series = data.series.map(c => new Series(c));
             }
             if (data.userSettings) {
                 this.userSettings = new UserSettings(data.userSettings);

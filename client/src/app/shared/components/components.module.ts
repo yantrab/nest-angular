@@ -43,7 +43,7 @@ const exportsM = [
     ...components,
 ];
 
-class CustomMatPaginatorIntl extends MatPaginatorIntl {
+export  class CustomMatPaginatorIntl extends MatPaginatorIntl {
     base = new MatPaginatorIntl();
 
     set nextPageLabel(val) {
