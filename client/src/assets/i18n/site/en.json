@@ -5,24 +5,22 @@
             "Holdings": "Holdings",
             "Contact_us": "Contact us",
             "Other_solution": "Other solution",
-            "Eng_Heb":"eng/עברית",
-            "Contacts":"Contacts"
-
+            "Eng_Heb": "eng/עברית",
+            "Contacts": "Contacts"
         },
         "main": {
             "WhoWeare": {
                 "title": "Who  We are?",
-                "content":"Praedicta is one of the leading\n companies in Israel in the field of\n financial and economic information\n services, which provides its customers\n with smart information solutions adapted\n to the specific needs. Through a skilled\n team and advanced methods, we\n perform analyzes, analyze information\n and translate it into a final solution, as an\n innovative user interface or as a\n customer-tailored product.",
-                "content_xs":"Praedicta is one of the leading companies\n in Israel in the field of financial and\n economic information services, which\n  provides its customers with smart\n  information solutions adapted to the\n  specific needs. Through a skilled team\n  and advanced methods, we perform\n  analyzes, analyze information and\n  translate it into a final solution, as an\n  innovative user interface or as a\n  customer-tailored product.",
+                "content": "Praedicta is one of the leading\n companies in Israel in the field of\n financial and economic information\n services, which provides its customers\n with smart information solutions adapted\n to the specific needs. Through a skilled\n team and advanced methods, we\n perform analyzes, analyze information\n and translate it into a final solution, as an\n innovative user interface or as a\n customer-tailored product.",
+                "content_xs": "Praedicta is one of the leading companies\n in Israel in the field of financial and\n economic information services, which\n  provides its customers with smart\n  information solutions adapted to the\n  specific needs. Through a skilled team\n  and advanced methods, we perform\n  analyzes, analyze information and\n  translate it into a final solution, as an\n  innovative user interface or as a\n  customer-tailored product."
             },
             "Ourvision": {
                 "title": "Our vision",
-                "content":"Praedicta is one of the leading\n companies in Israel in the field\n of financial and economic\n information services, which\n provides its customers with\n smart information solutions\n adapted to the specific needs.",
-
+                "content": "Praedicta is one of the leading\n companies in Israel in the field\n of financial and economic\n information services, which\n provides its customers with\n smart information solutions\n adapted to the specific needs."
             }
         },
         "More": "More",
-        "Our_clients": "Our clients",     
-        "Menu":"Menu"
+        "Our_clients": "Our clients",
+        "Menu": "Menu"
     }
 }

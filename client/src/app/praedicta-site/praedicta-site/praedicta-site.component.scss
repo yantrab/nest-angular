@@ -1,11 +1,8 @@
 
 @import url(https://fonts.googleapis.com/css?family=Poppins);
-
-
 $small-screen :375px;
 $medium-screen :768px;
 $large-screen :1439px;
-
 $font-family: Poppins;
 
 @mixin letter($font-size,$letter-spacing,$line-height:normal,$font-weight:normal ) {
@@ -95,19 +92,6 @@ $font-family: Poppins;
   //height: 100%;
   height: 100vh;
 
-  &.rtl {
-    direction: rtl;
-    .en-he {
-      left: 0;
-    }
-  }
-
-  &.ltr {
-    direction: ltr;
-    .en-he {
-      right: 0;
-    }
-  }
   .en-he {
     position: absolute;
     top: 0;
@@ -116,48 +100,6 @@ $font-family: Poppins;
 
   main {
     background: linear-gradient(to bottom, #6b76ff, #465bdf);
-    /*#region radial-gradient*/
-    //   radial-gradient(
-    //     circle at 97% 50%,
-    //     transparent 6em,
-    //     rgba(255, 255, 255, 0.04) 0,
-    //     rgba(255, 255, 255, 0.04) 9em,
-    //     transparent 0
-    //   ),
-    //   radial-gradient(
-    //     circle at 27% 30%,
-    //     transparent 9em,
-    //     rgba(255, 255, 255, 0.04) 0,
-    //     rgba(255, 255, 255, 0.04) 12em,
-    //     transparent 0
-    //   ),
-    //   radial-gradient(
-    //     circle at 70% 100%,
-    //     transparent 8em,
-    //     rgba(255, 255, 255, 0.04) 0,
-    //     rgba(255, 255, 255, 0.04) 11em,
-    //     transparent 0
-    //   ),
-
-    //   @media screen and (max-width: $medium-screen) {
-    //     background: radial-gradient(
-
-    //     circle at 27% 30%,
-    //     transparent 9em,
-    //     rgba(255, 255, 255, 0.04) 0,
-    //     rgba(255, 255, 255, 0.04) 12em,
-    //     transparent 0
-    //   ),
-    //   radial-gradient(
-    //     circle at 70% 100%,
-    //     transparent 8em,
-    //     rgba(255, 255, 255, 0.04) 0,
-    //     rgba(255, 255, 255, 0.04) 11em,
-    //     transparent 0
-    //   ),
-    //  }
-    /*#endregion @media screen radial-gradient*/
-
     nav {
       display: flex ;
       cursor: pointer;
@@ -367,7 +309,7 @@ $font-family: Poppins;
           content: "";
           transform: rotate(134deg);
           height: 16px;
-          top: 0px;
+          top: 0;
           right: 6px;
           border-left :0.1em solid #5bb2d9;
         }
@@ -439,8 +381,3 @@ $font-family: Poppins;
 //    }
 //  }
 //}
-
-
-[dir="rtl"] div{
-  background-color: #70a1ff;
-}
