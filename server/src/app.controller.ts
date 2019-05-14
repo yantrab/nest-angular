@@ -1,6 +1,6 @@
 import { Controller, Get, Res } from '@nestjs/common';
 import { join } from 'path';
-const clientPath = join(__dirname, '../../client/dist');
+// const clientPath = join(__dirname, '../../client/dist');
 @Controller("")
 export class AppController {
     @Get('macro')

@@ -6,6 +6,7 @@ import { Category, Series, Data, DataRequest, DataItem, UserSettings } from 'sha
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import { pathBySelector } from 'shared/utils';
 import { categoriesQuery } from './queries';
+import { chunk } from 'lodash';
 @Injectable()
 export class MacroService {
     private readonly logger = new Logger('DataService');
@@ -36,22 +37,41 @@ export class MacroService {
                 const ids = (await pool
                     .request()
                     .query('select distinct pasp_id as id from [dbMacro].[dbo].[prData]')).recordset.map(row => row.id);
+                // const chunks = chunk<string>(ids, 100);
+                //for (const c of chunks) {
+                // const query = `
+                // SELECT pasp_id as id, report_date  as d, data_value as v
+                // FROM [dbMacro].[dbo].[prData]
+                // WHERE pasp_id in ('${c.join("','")}')
+                // `;
+
+                // const dbData = (await pool.request().query(query)).recordset;
+                // const toSave: Data[] = [];
+                // for (const id of c) {
+                //     const data = dbData.filter(d => d.id === id).map(d => ({ timeStamp: +d.d, value: d.v }));
+                //     toSave.push({ _id: id, data } as Data);
+                // }
+                // await this.dataRepo.saveOrUpdateMany(toSave);
+
                 await Promise.all(
                     ids.map(async id => {
                         const query = `
-                        SELECT pasp_id as id, report_date  as d, data_value as v
-                        FROM [dbMacro].[dbo].[prData]
-                        WHERE pasp_id = '${id}'
-                        `;
+                            SELECT pasp_id as id, report_date  as d, data_value as v
+                            FROM [dbMacro].[dbo].[prData]
+                            WHERE pasp_id = '${id}'
+                            `;
                         const dbData = (await pool.request().query(query)).recordset;
                         const data: Array<{ timeStamp: number; value: number }> = [];
                         dbData.forEach(d => {
                             data.push({ timeStamp: +d.d, value: d.v });
                         });
-                        await this.dataRepo.saveOrUpdateOne({ _id: id, data });
+                        this.dataRepo.saveOrUpdateOne({ _id: id, data });
+                        //  this.logger.log(id);
                     }),
                 );
-
+                // this.logger.log('1');
+                // }
+                this.logger.log('finish data');
                 resolve(true);
             } catch (err) {
                 reject(err);

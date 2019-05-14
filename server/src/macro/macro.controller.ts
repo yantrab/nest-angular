@@ -12,7 +12,7 @@ export class MacroController {
     static app = App.macro;
     
     constructor(private service: MacroService) {
-          // this.service.update();
+          this.service.update();
     }
     @Get()
     async getInitialData(@ReqUser() user: User): Promise<InitialData> {
