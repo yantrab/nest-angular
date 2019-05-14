@@ -1,3 +1,4 @@
+
 @import url(https://fonts.googleapis.com/css?family=Poppins);
 
 
@@ -55,7 +56,6 @@ $font-family: Poppins;
   -webkit-border-radius:10px;
   -moz-border-radius:10px;
   border-radius: 4px;
-  margin: 0 auto;
   padding: 5px;
   &::before,&::after{
     border-bottom:2px solid $color;
@@ -157,15 +157,44 @@ $font-family: Poppins;
     //   ),
     //  }
     /*#endregion @media screen radial-gradient*/
-    .logo{
-    width: 40%;
-     height:80%;
+
+    nav {
+      display: flex ;
+      cursor: pointer;
+      width: 100px;
+      height: 31%;
+      span{
+        @include letter(16px, 0.6px,1.75);
+      }
+      .menu {
+        width: 30%;
+        @each $line in (1 37%,2 59%, 3 30%) {
+          div:nth-child(#{nth($line, 1)}) {
+            width: nth($line,2);
+            height: 2px;
+            border-radius: 1px;
+            background-color: #feffdf;
+            margin: 3px;                         }
+        }
+      }
     }
 
+    .logo{
+      width: 31%;
+      height:54%;
+      @media  (max-width: $small-screen)  {
+        width: 83%;
+        .predaecta{
+          width: 134px;
+          height: 14px;
+        }
+      }
+    }
+    pre{
+      margin: 0;
+    }
 
-
-
-    // //TODO logo 
+    // //TODO logo
     // .logo{
     //   display: flex;
 
@@ -177,6 +206,10 @@ $font-family: Poppins;
     //   }
 
     .left{
+      @media  (max-width: $small-screen) {
+        height: 125%;
+      }
+
       .wrapper-line{
         display: flex;
         margin-bottom: 25px;
@@ -195,13 +228,22 @@ $font-family: Poppins;
 
       p,a{
         @include letter(16px, 0.6px,1.75);
-        padding-left: 4em;
+        padding:0 3em;
+        @media (max-width: $small-screen) {
+          @include letter(12px, 0.4px,2.08);
+        }
       }
 
       a{
         position: relative;
         text-decoration: none;
         @include unfer-line(41px,2px,24px,60px);
+        @media (max-width: $small-screen) {
+          @include unfer-line(26px,2px,26px,36px);
+        }
+        @media (max-width: $medium-screen) {
+          @include unfer-line(31px,2px,26px,48px);
+        }
       }
 
       span{
@@ -209,7 +251,13 @@ $font-family: Poppins;
           position: relative;
           width: 212px;
           @include circle(327px,$top:-137px ,$left:-132px);
+          @media (max-width: $small-screen) {
+            @include circle(327px,$top:-204px ,$left:-177px);
+          }
           @include letter(50px,1.6px,$font-weight:bold);
+          @media (max-width: $small-screen) {
+            @include letter(35px, 2.3px,$font-weight:bold);
+          }
 
 
         }
@@ -230,6 +278,9 @@ $font-family: Poppins;
           width: 150px;
           @include letter(35px,1.6px,1.37, bold);
           @include circle(200px,$top:-82px ,$left:87px);
+          [dir="rtl"] #table {
+            @include circle(200px,$top:-82px ,$left:87px);
+          }
         }
       }
 
@@ -251,15 +302,51 @@ $font-family: Poppins;
     }
 
     .bottom{
-
+      .wrap_bottom{
+        width: 50%;
+        @media(max-width: $medium-screen) {
+          width:62%;
+        }
+        @media(max-width:$small-screen) {
+          width:97%;
+        }
+      }
       a{
         position: relative;
         text-decoration: none;
         padding-bottom: 2%;
-        @include circle(250px,$top:-96px ,$left: -134px);
+        //@include circle(250px,$top:-96px ,$left: -134px;
         @include letter(14px,0.5px,2);
         @include unfer-line(76px,2px,24px,0px);
+        &::after{
+          content: "";
+          position: absolute;
+          width: 220px;
+          height: 110px;
+          border-top-left-radius: 220px;
+          border-top-right-radius: 220px;
+          border: 40px solid #feffdf;
+          border-bottom: 0;
+          opacity: 0.05;
+          top: -67px;
+          left: -116px;
 
+          @media(max-width:$small-screen) {
+
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 90px;
+            border-top-left-radius: 180px;
+            border-top-right-radius: 180px;
+            border: 30px solid #feffdf;
+            border-bottom: 0;
+            opacity: 0.05;
+            top: -60px;
+            left: -86px;
+
+          }
+        }
       }
 
 
@@ -300,7 +387,9 @@ $font-family: Poppins;
       padding: 0.4em 4em;
       @media screen and (max-width: $medium-screen) {
         padding: 0.4em 1em;
+
       }
+
     }
 
     .envelope-icon{
@@ -309,16 +398,49 @@ $font-family: Poppins;
       width: 4em;
       height: 4em;
       border-radius: 50%;
-      //TODO add
       bottom: 5%;
-      .envelope{
-        @include envelope(#ffffff)
+      @media  (max-width: $medium-screen){
+
       }
-
-
+      .envelope{
+        @include envelope(#ffffff);
+      }
     }
 
+
+    .envelope{
+      @media (max-width: $medium-screen) {
+        @include envelope(#000000);
+        margin-top: 0.4em;
+        &+span{
+          padding: 0 1em;
+        }
+      }         }
   }
 
 
+}
+//[dir="rtl"] #table {
+//  mat-header-row {
+//    &:hover {
+//      mat-header-cell {
+//        border-left: 0.5px dashed;
+//      }
+//    }
+//  }
+//}
+//
+//[dir="ltr"] #table {
+//  mat-header-row {
+//    &:hover {
+//      mat-header-cell {
+//        border-right: 0.5px dashed;
+//      }
+//    }
+//  }
+//}
+
+
+[dir="rtl"] div{
+  background-color: #70a1ff;
 }

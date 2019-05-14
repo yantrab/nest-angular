@@ -24,7 +24,8 @@ export class PraedictaSiteComponent implements OnInit {
   }
   changeDirection() {
 // tslint:disable-next-line: triple-equals
-    this.direction = this.direction == 'ltr' ? 'rtl' : 'ltr';
+    this.i18nService.language = 'en';
+    this.direction = this.direction === 'ltr' ? 'rtl' : 'ltr';
   }
 
 }

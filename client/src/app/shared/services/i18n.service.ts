@@ -12,7 +12,7 @@ export class I18nService {
     get language() {
         return this._language;
     }
-    set language(value) {
+    set language(value : 'en' | 'he') {
         this._language = value;
         this.dir = value === 'he' ? 'rtl' : 'ltr';
         fetch(this.baseUrl + '/' + value + '.json').then(async res => {
