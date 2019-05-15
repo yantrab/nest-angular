@@ -1,9 +1,9 @@
 import { IsString, IsOptional } from 'class-validator';
 
 export abstract class Entity {
+    // tslint:disable-next-line: variable-name
     @IsOptional()
     @IsString()
-    // tslint:disable-next-line: variable-name
     _id?: string;
     @IsOptional()
     @IsString()

@@ -1,0 +1,22 @@
+#admin {
+    $topbar-hight: 70px;
+
+    p-topbar {
+        height: $topbar-hight;
+    }
+    .content {
+        height: calc(100vh - #{$topbar-hight});
+        background-color: #f1f2f6;
+    }
+    .edit {
+        display: none;
+    }
+    .mat-row {
+        color: #000;
+        :hover {
+            .edit {
+                display: block;
+            }
+        }
+    }
+}

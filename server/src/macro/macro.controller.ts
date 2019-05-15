@@ -4,15 +4,15 @@ import { MacroService } from './macro.service';
 import { AuthorizeInterceptor } from 'middlewares/authorize.middleware';
 import { App, User } from 'shared';
 import { ReqUser } from '../decorators/user.decorator';
-import { ControllerRole } from 'auth/roles.decorator';
-//@ControllerRole(App.macro)
+// import { ControllerRole } from 'auth/roles.decorator';
+// @ControllerRole(App.macro)
 @UseInterceptors(AuthorizeInterceptor)
 @Controller('rest/macro')
 export class MacroController {
     static app = App.macro;
-    
+
     constructor(private service: MacroService) {
-          this.service.update();
+        // this.service.update();
     }
     @Get()
     async getInitialData(@ReqUser() user: User): Promise<InitialData> {
@@ -30,6 +30,6 @@ export class MacroController {
 
     @Post('saveUserSettings')
     saveUserSettings(@Body() userSettings: UserSettings) {
-         this.service.saveUserSettings(userSettings);
+        this.service.saveUserSettings(userSettings).then();
     }
 }

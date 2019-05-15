@@ -7,7 +7,7 @@
                     <div fxFlex="300px">
                         <h2>TEMPLATES</h2>
                         <p-autocomplete
-                                *ngIf="seriesGroupsSettings"
+                            *ngIf="seriesGroupsSettings"
                             (selectedChange)="filterSelected($event)"
                             [settings]="seriesGroupsSettings"
                             [filterFn]="filterFn"
@@ -26,12 +26,7 @@
                     <div fxFlex="100px">
                         <form [formGroup]="dateForm">
                             <mat-form-field>
-                                <input
-                                    matInput
-                                    placeholder="Choose a date"
-                                    [satDatepicker]="picker4"
-                                    formControlName="date"
-                                />
+                                <input matInput placeholder="Choose a date" [satDatepicker]="picker4" formControlName="date" />
 
                                 <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year"> </sat-datepicker>
                                 <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>

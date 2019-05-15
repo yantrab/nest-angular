@@ -1,0 +1,14 @@
+<div id="admin" dir="rtl">
+    <p-topbar [model]="topbarModel"></p-topbar>
+    <div class="content" *ngIf="users">
+        <mat-virtual-table fxFlex [rows]="users" [filterPlaceholder]="'חיפוש'" [paginator]="true" [columnsDef]="columns">
+            <ng-template pCellDef column="edit" let-row="row">
+                <mat-icon class="edit" (click)="openEditUserDialog(row._id)">edit</mat-icon>
+            </ng-template>
+            <ng-template pCellDef column="_id" let-row="row">
+                <b>{{ row._id }}</b>
+            </ng-template>
+            <ng-template pCellDef column="name" let-row="row">{{ row.fullName }} </ng-template>
+        </mat-virtual-table>
+    </div>
+</div>
