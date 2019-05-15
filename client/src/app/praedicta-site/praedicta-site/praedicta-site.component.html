@@ -1,4 +1,4 @@
-<div class="container" *ngIf="dic" [ngClass]="i18nService.dir"  [dir]="i18nService.dir"  fxLayout="row"
+<div class="container" *ngIf="dic" ngClass="{{ direction == 'rtl' ? 'ltr' : 'rtl' }}" fxLayout="row"
      fxLayoutAlign="stretch">
   <span fxHide.lt-md
         class="en-he" (click)="changeDirection()">{{dic.sitePage.systems.Eng_Heb}}</span>
@@ -16,8 +16,10 @@
                     </div>
                 </nav>
             </div>
+
         </div>
         <div fxFlex fxLayout="column" >
+
             <div fxFlex  fxLayoutAlign.sm="center" fxLayoutAlign="end">
                 <div fxFlex="85" fxFlex.xs="91" fxLayoutAlign="space-between center">
                     <div fxFlex="50%" class="left" fxLayout="column"  >
@@ -42,6 +44,7 @@
                     </div>
                 </div>
             </div>
+
             <div fxFlex="14" class="bottom"  fxLayoutAlign="end center" >
             <div class="wrap_bottom"  fxLayout="column"  fxLayoutAlign="center center">
                 <a href="" >{{ dic.sitePage.Our_clients }} </a>
@@ -49,6 +52,7 @@
             </div>
         </div>
         </div>
+
     </main>
 
     <div class="systems" fxFlex="33.3" fxFlex.sm="25" fxLayout="row wrap" fxLayout.sm="column" fxHide.xs

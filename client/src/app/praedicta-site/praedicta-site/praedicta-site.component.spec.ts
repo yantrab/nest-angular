@@ -8,7 +8,7 @@ describe('PraedictaSiteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PraedictaSiteComponent ]
+      declarations: [ PraedictaSiteComponent ],
     })
     .compileComponents();
   }));

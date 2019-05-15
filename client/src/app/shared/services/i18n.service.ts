@@ -7,6 +7,7 @@ export class I18nService {
         this.language = 'he';
     }
     dic = new ReplaySubject();
+    // tslint:disable-next-line:variable-name
     private _language: 'en' | 'he';
     dir: 'rtl' | 'ltr' = 'rtl';
     get language() {
