@@ -2,32 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.idea/dictionaries/yaniv.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.idea/server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/.prettierrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/macro/macro.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/macro/macro.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/macro/macro.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/macro/macro.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/starter.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/starter.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/admin/admin.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/admin/admin.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/admin/admin.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/macro/macro.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/macro/macro.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/Entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/Entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/guard.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,18 +19,20 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shared/models/user.model.ts">
+        <entry file="file://$PROJECT_DIR$/shared/guard.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#96#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="80">
+              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>roles &amp;&amp;</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,10 +45,11 @@
         <option value="$PROJECT_DIR$/shared/models/Entity.ts" />
         <option value="$PROJECT_DIR$/shared/models/user.model.ts" />
         <option value="$PROJECT_DIR$/client/src/app/admin/admin/edit-user/edit-user.component.ts" />
+        <option value="$PROJECT_DIR$/shared/guard.ts" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1912" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -114,7 +95,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\yantr\Desktop\nest\nest-angular\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="ts.external.directory.path" value="C:\Users\arkadiy\Desktop\nest-angular\nest-angular\node_modules\typescript\lib" />
   </component>
   <component name="RunDashboard">
@@ -142,6 +123,7 @@
       <workItem from="1557604914705" duration="289000" />
       <workItem from="1557627266897" duration="1991000" />
       <workItem from="1557921597990" duration="1504000" />
+      <workItem from="1557985667983" duration="1097000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -154,7 +136,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3784000" />
+    <option name="totallyTimeSpent" value="4881000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -237,11 +219,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/models/user.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        <state relative-caret-position="340">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
           <folding>
             <element signature="e#0#96#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/guard.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>
