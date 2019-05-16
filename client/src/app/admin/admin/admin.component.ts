@@ -1,9 +1,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
 import { AdminController } from '../../../api/admin.controller';
-import { User } from 'shared/models';
+import { App, Permission, User } from 'shared/models';
 import { ColumnDef } from 'mat-virtual-table';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { EditUserComponent } from './edit-user/edit-user.component';
 
 @Component({
@@ -25,19 +25,40 @@ export class AdminComponent {
         { field: 'details', title: 'פרטים נוספים' },
     ];
 
-    constructor(private api: AdminController, private dialog: MatDialog) {
+    constructor(private api: AdminController, private dialog: MatDialog, private snackBar: MatSnackBar) {
         this.api.users().then(users => (this.users = users));
     }
 
     openEditUserDialog(id?: string): void {
         const dialogRef = this.dialog.open(EditUserComponent, {
             width: '80%',
-            //  height: '80%',
             maxWidth: '540px',
-            data: id ? this.users.find(user => user._id === id) : new User(),
+            data: id
+                ? { ...this.users.find(user => user._id === id) }
+                : new User({ roles: [{ app: window.location.pathname.split('/')[2] as App, permission: Permission.user }] }),
             direction: 'rtl',
         });
 
-        dialogRef.afterClosed().subscribe(result => {});
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                const relevant = this.users.find(user => user._id === result._id);
+                if (!relevant) {
+                    this.users = this.users.concat([new User(result)]);
+                } else {
+                    Object.keys(result).forEach(key => (relevant[key] = result[key]));
+                }
+                this.api.saveUser(result).then(saveResult => {
+                    if (!saveResult.ok) {
+                        // tslint:disable-next-line:no-console
+                        console.error('not saved!');
+                        return;
+                    }
+
+                    this.snackBar.open('נשמר', 'בטל', {
+                        duration: 2000,
+                    });
+                });
+            }
+        });
     }
 }

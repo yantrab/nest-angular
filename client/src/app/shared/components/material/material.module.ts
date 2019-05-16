@@ -17,6 +17,7 @@ import {
     MatChipsModule,
     MatProgressBarModule,
     MatSortModule,
+    MatSnackBarModule,
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
@@ -41,6 +42,7 @@ const modules = [
     MatSortModule,
     SatDatepickerModule,
     SatNativeDateModule,
+    MatSnackBarModule,
 ];
 @NgModule({
     imports: modules,

@@ -1,9 +1,9 @@
-import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested, IsNotEmpty } from 'class-validator';
+import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested } from 'class-validator';
 import { Entity } from './Entity';
 export enum App {
-    admin,
-    mf,
-    macro,
+    admin = 'admin',
+    mf='mf',
+    macro='macro',
 }
 
 export enum Permission {
@@ -22,8 +22,8 @@ export class Role {
 }
 
 export class User extends Entity {
-    @IsString()
-    company: string;
+    @IsOptional() @IsString()  @Length(5, 10)  password: string;
+    @IsString() company: string;
     @IsString() phone: string;
     @IsEmail() email: string;
     @IsOptional() @IsString() details?: string;
@@ -39,17 +39,6 @@ export class User extends Entity {
             this.roles = user.roles.map(role => new Role(role));
         }
     }
-}
-
-export class AddUserDTO extends User {
-    @IsString()
-    @IsEmail()
-    // tslint:disable-next-line: variable-name
-    _id: string;
-
-    @IsString()
-    @Length(5, 10)
-    password: string;
 }
 
 export class LoginRequest {

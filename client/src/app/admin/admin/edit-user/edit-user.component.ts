@@ -13,20 +13,21 @@ export class EditUserComponent {
     form: FormGroup;
     constructor(
         public dialogRef: MatDialogRef<EditUserComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: User,
+        @Inject(MAT_DIALOG_DATA) public user: User,
         private dynaFB: DynaFormBuilder,
     ) {
-        this.dynaFB.buildFormFromClass(User).then(form => (this.form = form));
+        this.dynaFB.buildFormFromClass(User, user).then(form => (this.form = form));
     }
 
     save(e) {
         // On case that there is no changes in form
         validateAllFields(this.form);
-        // if (this.form.valid) {
-        //     this.authService.login(this.form.value).then(() => {
-        //         this.router.navigate(['/' + window.location.pathname.replace('login/', ''), {}]);
-        //     });
-        // }
+        if (this.form.valid) {
+            this.dialogRef.close(this.form.value);
+        }
         e.preventDefault();
+    }
+    cancel() {
+        this.dialogRef.close();
     }
 }

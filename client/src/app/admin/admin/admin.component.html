@@ -1,7 +1,7 @@
 <div id="admin" dir="rtl">
     <p-topbar [model]="topbarModel"></p-topbar>
     <div class="content" *ngIf="users" fxLayout="column">
-        <button (click)="openEditUserDialog()" mat-raised-button color="primary">חדש</button>
+        <button style="width: 100px;" (click)="openEditUserDialog()" mat-raised-button color="primary">חדש</button>
         <mat-virtual-table fxFlex [rows]="users" [filterPlaceholder]="'חיפוש'" [paginator]="true" [columnsDef]="columns">
             <ng-template pCellDef column="edit" let-row="row">
                 <mat-icon class="edit" (click)="openEditUserDialog(row._id)">edit</mat-icon>
