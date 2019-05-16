@@ -399,13 +399,7 @@ $font-family: Poppins;
     &[dir='rtl'] .left {
         span {
             &.title {
-                @include circle(
-                    217%,
-                    70% !important,
-                    $top: -157px !important,
-                    $left: -134px,
-                    $right: -119px !important
-                );
+                @include circle(217%, 70% !important, $top: -157px !important, $left: -134px, $right: -119px !important);
                 @include letter(50px, 1.6px, $font-weight: bold, $font-family: Rubik !important);
             }
         }
@@ -446,7 +440,7 @@ $font-family: Poppins;
 .our-clients {
     transform: translateY(100%);
     transition-duration: 235ms;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 50%;

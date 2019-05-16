@@ -64,9 +64,7 @@
         fxLayoutAlign="start stretch"
     >
         <div fxFlex="50" fxFlex.sm fxLayoutAlign="end center" fxLayout="column" fxFlexOrder.sm="1">
-            <span fxHide.gt-sm fxHide.lt-sm class="en-he" (click)="changeDirection()">{{
-                dic.sitePage.systems.Eng_Heb
-            }}</span>
+            <span fxHide.gt-sm fxHide.lt-sm class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.Eng_Heb }}</span>
             <span>{{ dic.sitePage.systems.Bonds }}</span>
         </div>
         <div
@@ -107,6 +105,6 @@
     </div>
 </div>
 
-<!--<div class="our-clients" [ngClass]="{ open: isHide == false }">-->
-<!--    <span (click)="isHide = true">X</span>-->
-<!--</div>-->
+<div class="our-clients" [ngClass]="{ open: isHide == false }">
+    <span (click)="isHide = true">X</span>
+</div>
