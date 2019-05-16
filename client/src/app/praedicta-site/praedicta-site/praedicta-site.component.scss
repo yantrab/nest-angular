@@ -1,383 +1,458 @@
+//@keyframes slidein {
+//    from {
+//        height: 0%;
+//    }
+//    to {
+//        height: 50%;
+//    }
+//}
+//
+//@keyframes slideout {
+//    from {
+//        height: 50%;
+//    }
+//    to {
+//        height: 0%;
+//    }
+//}
+//
+//@keyframes slideup {
+//    from {
+//        top: 0;
+//    }
+//    to {
+//        top: -200px;
+//    }
+//}
 
 @import url(https://fonts.googleapis.com/css?family=Poppins);
-$small-screen :375px;
-$medium-screen :768px;
-$large-screen :1439px;
+@import url(https://fonts.googleapis.com/css?family=Rubik);
+
+$small-screen: 375px;
+$medium-screen: 768px;
+$large-screen: 1439px;
 $font-family: Poppins;
 
-@mixin letter($font-size,$letter-spacing,$line-height:normal,$font-weight:normal ) {
-  font-family: Poppins;
-  font-size: $font-size;
-  font-weight: $font-weight;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: $line-height;
-  letter-spacing: $letter-spacing;
-  color: #feffdf;
+@mixin letter($font-size, $letter-spacing, $line-height: normal, $font-weight: normal, $font-family: Poppins) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+    color: #feffdf;
 }
 
-@mixin circle($radius, $top: 0,$left: 0,$bottom: 0, $right: 0) {
-  &::after{
-    content: "";
-    border: 50px solid #feffdf;
-    height: $radius;
-    width: $radius;
-    position: absolute;
-    opacity: 0.05;
-    border-radius: 50%;
-    top: $top;
-    left: $left;
-    right: $right;
-    bottom: $bottom;
-  }
+@mixin circle($weight, $height, $top: 0, $left: 0, $bottom: 0, $right: 0) {
+    &::after {
+        content: '';
+        border: 50px solid #feffdf;
+        height: $weight;
+        width: $height;
+        position: absolute;
+        opacity: 0.05;
+        border-radius: 50%;
+        top: $top;
+        left: $left;
+        right: $right;
+        bottom: $bottom;
+    }
 }
 
-@mixin unfer-line($width,$height,$top,$left) {
-  &::before{
-    content: '';
-    position: absolute;
-    width: $width;
-    opacity: 0.5;
-    border-bottom: solid $height #b6cfe7;
-    top: $top;
-    left: $left;
-  }
-
+@mixin unfer-line($width, $height, $top, $left) {
+    &::before {
+        content: '';
+        position: absolute;
+        width: $width;
+        opacity: 0.5;
+        border-bottom: solid $height #b6cfe7;
+        top: $top;
+        left: $left;
+    }
 }
 
 @mixin envelope($color) {
-  width:28px;
-  height:23px;
-  border:2px solid $color;
-  position:relative;
-  -webkit-border-radius:10px;
-  -moz-border-radius:10px;
-  border-radius: 4px;
-  padding: 5px;
-  &::before,&::after{
-    border-bottom:2px solid $color;
-    position:absolute;
-    display:block;
-    content:"";
-  }
-  &::before{
-    top:0;
-    left: 0;
-    width: 16px;
-    height: 5px;
-    -webkit-transform:rotate(35deg);
-    -moz-transform:rotate(35deg);
-    -ms-transform:rotate(35deg);
-    -o-transform:rotate(35deg);
-    transform:rotate(35deg);
-  }
-  &::after{
-    top:0;
-    left: 8px;
-    width: 16px;
-    height: 5px;
-    -webkit-transform:rotate(-35deg);
-    -moz-transform:rotate(-35deg);
-    -ms-transform:rotate(-35deg);
-    -o-transform:rotate(-35deg);
-    transform:rotate(-35deg);
-  }
+    width: 28px;
+    height: 23px;
+    border: 2px solid $color;
+    position: relative;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 4px;
+    padding: 5px;
+    &::before,
+    &::after {
+        border-bottom: 2px solid $color;
+        position: absolute;
+        display: block;
+        content: '';
+    }
+    &::before {
+        top: 0;
+        left: 0;
+        width: 16px;
+        height: 5px;
+        -webkit-transform: rotate(35deg);
+        -moz-transform: rotate(35deg);
+        -ms-transform: rotate(35deg);
+        -o-transform: rotate(35deg);
+        transform: rotate(35deg);
+    }
+    &::after {
+        top: 0;
+        left: 8px;
+        width: 16px;
+        height: 5px;
+        -webkit-transform: rotate(-35deg);
+        -moz-transform: rotate(-35deg);
+        -ms-transform: rotate(-35deg);
+        -o-transform: rotate(-35deg);
+        transform: rotate(-35deg);
+    }
 }
 
 .container {
-  * {
-    box-sizing: border-box;
-  }
-  //TODO chane vh
-  //height: 100%;
-  height: 100vh;
+    height: 100vh;
+    position: relative;
 
-  .en-he {
-    position: absolute;
-    top: 0;
-    padding: 3em 5.5em;
-  }
-
-  main {
-    background: linear-gradient(to bottom, #6b76ff, #465bdf);
-    nav {
-      display: flex ;
-      cursor: pointer;
-      width: 100px;
-      height: 31%;
-      span{
-        @include letter(16px, 0.6px,1.75);
-      }
-      .menu {
-        width: 30%;
-        @each $line in (1 37%,2 59%, 3 30%) {
-          div:nth-child(#{nth($line, 1)}) {
-            width: nth($line,2);
-            height: 2px;
-            border-radius: 1px;
-            background-color: #feffdf;
-            margin: 3px;                         }
-        }
-      }
+    &.slide-up {
+        transform: translateY(-35);
+        transition-duration: 235ms;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 50%;
     }
 
-    .logo{
-      width: 31%;
-      height:54%;
-      @media  (max-width: $small-screen)  {
-        width: 83%;
-        .predaecta{
-          width: 134px;
-          height: 14px;
-        }
-      }
-    }
-    pre{
-      margin: 0;
+    * {
+        box-sizing: border-box;
     }
 
-    // //TODO logo
-    // .logo{
-    //   display: flex;
-
-    //   @each $line in (1 7px,2 15px, 3 10px) {
-    //       div:nth-child(#{nth($line, 1)}) {
-    //           @include line(#{nth($line, 2)}, 3px , #b6cfe7 ,$rotate: 90);
-    //       }
-    //     }
-    //   }
-
-    .left{
-      @media  (max-width: $small-screen) {
-        height: 125%;
-      }
-
-      .wrapper-line{
-        display: flex;
-        margin-bottom: 25px;
-        .line{
-          cursor: pointer;
-          width: 35px;
-          opacity: 0.5;
-          border-bottom: solid 4px #b6cfe7;
-          margin-right: 20px;
-          &:hover{
-            border-bottom: solid 4px #4d99e0;
-          }
-
-        }
-      }
-
-      p,a{
-        @include letter(16px, 0.6px,1.75);
-        padding:0 3em;
-        @media (max-width: $small-screen) {
-          @include letter(12px, 0.4px,2.08);
-        }
-      }
-
-      a{
-        position: relative;
-        text-decoration: none;
-        @include unfer-line(41px,2px,24px,60px);
-        @media (max-width: $small-screen) {
-          @include unfer-line(26px,2px,26px,36px);
-        }
-        @media (max-width: $medium-screen) {
-          @include unfer-line(31px,2px,26px,48px);
-        }
-      }
-
-      span{
-        &.title {
-          position: relative;
-          width: 212px;
-          @include circle(327px,$top:-137px ,$left:-132px);
-          @media (max-width: $small-screen) {
-            @include circle(327px,$top:-204px ,$left:-177px);
-          }
-          @include letter(50px,1.6px,$font-weight:bold);
-          @media (max-width: $small-screen) {
-            @include letter(35px, 2.3px,$font-weight:bold);
-          }
-
-
-        }
-      }
-
+    .en-he {
+        position: absolute;
+        top: 0;
+        padding: 3em 5.5em;
     }
 
-    .right{
+    main {
+        background: linear-gradient(to bottom, #6b76ff, #465bdf);
 
-      p,a {
-        @include letter(14px,-0.5px, 2);
-        padding-left: 4em;
-      }
+        nav {
+            display: flex;
+            cursor: pointer;
+            width: 100px;
+            height: 31%;
 
-      span{
-        &.title {
-          position: relative;
-          width: 150px;
-          @include letter(35px,1.6px,1.37, bold);
-          @include circle(200px,$top:-82px ,$left:87px);
-          [dir="rtl"] #table {
-            @include circle(200px,$top:-82px ,$left:87px);
-          }
+            span {
+                @include letter(16px, 0.6px, 1.75);
+            }
+
+            .menu {
+                width: 30%;
+                @each $line in (1 37%, 2 59%, 3 30%) {
+                    div:nth-child(#{nth($line, 1)}) {
+                        width: nth($line, 2);
+                        height: 2px;
+                        border-radius: 1px;
+                        background-color: #feffdf;
+                        margin: 3px;
+                    }
+                }
+            }
         }
-      }
 
-      p{
-        &.opacity{
-          background-image: linear-gradient(to right, #feffdf, rgba(254, 255, 223, 0));
-          display: inherit;
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
+        .logo {
+            width: 31%;
+            height: 54%;
+            @media (max-width: $small-screen) {
+                width: 83%;
+                .predaecta {
+                    width: 134px;
+                    height: 14px;
+                }
+            }
         }
-      }
 
-      a{
-        position: relative;
-        text-decoration: none;
-        @include unfer-line(25px,2px,24px,55px);
-      }
-    }
-
-    .bottom{
-      .wrap_bottom{
-        width: 50%;
-        @media(max-width: $medium-screen) {
-          width:62%;
+        pre {
+            margin: 0;
         }
-        @media(max-width:$small-screen) {
-          width:97%;
+
+        // //TODO logo
+        // .logo{
+        //   display: flex;
+
+        //   @each $line in (1 7px,2 15px, 3 10px) {
+        //       div:nth-child(#{nth($line, 1)}) {
+        //           @include line(#{nth($line, 2)}, 3px , #b6cfe7 ,$rotate: 90);
+        //       }
+        //     }
+        //   }
+
+        .left {
+            @media (max-width: $small-screen) {
+                height: 125%;
+            }
+
+            .wrapper-line {
+                display: flex;
+                margin-bottom: 25px;
+
+                .line {
+                    cursor: pointer;
+                    width: 35px;
+                    opacity: 0.5;
+                    border-bottom: solid 4px #b6cfe7;
+                    margin-right: 20px;
+
+                    &:hover {
+                        border-bottom: solid 4px #4d99e0;
+                    }
+                }
+            }
+
+            p,
+            a {
+                @include letter(16px, 0.6px, 1.75);
+                padding: 0 3em;
+                @media (max-width: $small-screen) {
+                    @include letter(12px, 0.4px, 2.08);
+                }
+            }
+
+            a {
+                position: relative;
+                text-decoration: none;
+                @include unfer-line(41px, 2px, 24px, 60px);
+                @media (max-width: $small-screen) {
+                    @include unfer-line(26px, 2px, 26px, 36px);
+                }
+                @media (max-width: $medium-screen) {
+                    @include unfer-line(31px, 2px, 26px, 48px);
+                }
+            }
+
+            span {
+                &.title {
+                    position: relative;
+                    width: 212px;
+                    @include circle(217%, 81%, $top: -137px, $left: -132px);
+                    @media (max-width: $small-screen) {
+                        @include circle(327px, 81%, $top: -204px, $left: -177px);
+                    }
+                    @include letter(50px, 1.6px, $font-weight: bold);
+                    @media (max-width: $small-screen) {
+                        @include letter(35px, 2.3px, $font-weight: bold);
+                    }
+                }
+            }
         }
-      }
-      a{
-        position: relative;
-        text-decoration: none;
-        padding-bottom: 2%;
-        //@include circle(250px,$top:-96px ,$left: -134px;
-        @include letter(14px,0.5px,2);
-        @include unfer-line(76px,2px,24px,0px);
-        &::after{
-          content: "";
-          position: absolute;
-          width: 220px;
-          height: 110px;
-          border-top-left-radius: 220px;
-          border-top-right-radius: 220px;
-          border: 40px solid #feffdf;
-          border-bottom: 0;
-          opacity: 0.05;
-          top: -67px;
-          left: -116px;
 
-          @media(max-width:$small-screen) {
+        .right {
+            p,
+            a {
+                @include letter(14px, -0.5px, 2);
+                padding-left: 4em;
+            }
 
-            content: "";
+            span {
+                &.title {
+                    position: relative;
+                    width: 150px;
+                    @include letter(35px, 1.6px, 1.37, bold);
+                    @include circle(200px, 200px, $top: -82px, $left: 87px);
+                }
+            }
+
+            p {
+                &.opacity {
+                    background-image: linear-gradient(to right, #feffdf, rgba(254, 255, 223, 0));
+                    display: inherit;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+
+            a {
+                position: relative;
+                text-decoration: none;
+                @include unfer-line(25px, 2px, 24px, 55px);
+            }
+        }
+
+        .bottom {
             position: absolute;
-            width: 180px;
-            height: 90px;
-            border-top-left-radius: 180px;
-            border-top-right-radius: 180px;
-            border: 30px solid #feffdf;
-            border-bottom: 0;
-            opacity: 0.05;
-            top: -60px;
-            left: -86px;
+            bottom: -82px;
+            width: 105%;
+            .wrap_bottom {
+                width: 50%;
+                @media (max-width: $medium-screen) {
+                    width: 62%;
+                }
+                @media (max-width: $small-screen) {
+                    width: 97%;
+                }
+            }
 
-          }
+            a {
+                position: relative;
+                text-decoration: none;
+                padding-bottom: 2%;
+                //@include circle(250px,$top:-96px ,$left: -134px;
+                @include letter(14px, 0.5px, 2);
+                @include unfer-line(76px, 2px, 24px, 0px);
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 220px;
+                    height: 110px;
+                    border-top-left-radius: 220px;
+                    border-top-right-radius: 220px;
+                    border: 40px solid #feffdf;
+                    border-bottom: 0;
+                    opacity: 0.05;
+                    top: -67px;
+                    left: -116px;
+
+                    @media (max-width: $small-screen) {
+                        content: '';
+                        position: absolute;
+                        width: 180px;
+                        height: 90px;
+                        border-top-left-radius: 180px;
+                        border-top-right-radius: 180px;
+                        border: 30px solid #feffdf;
+                        border-bottom: 0;
+                        opacity: 0.05;
+                        top: -60px;
+                        left: -86px;
+                    }
+                }
+            }
+
+            .arrow {
+                border: solid #5bb2d9;
+                border-width: 0 0.1em 0.1em 0;
+                padding: 0px;
+                transform: rotate(45deg);
+                top: -41px;
+                height: 16px;
+                width: 16px;
+                right: -21px;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    transform: rotate(134deg);
+                    height: 16px;
+                    top: 0;
+                    right: 6px;
+                    border-left: 0.1em solid #5bb2d9;
+                }
+            }
         }
-      }
+    }
 
-
-      .arrow {
-
-        border: solid #5bb2d9;
-        border-width: 0 0.1em 0.1em 0;
-        padding: 0px;
-        transform: rotate(45deg);
-        top: -41px;
-        height: 16px;
-        width: 16px;
-        right: -21px;
-
-
-        &::before{
-          position: absolute;
-          content: "";
-          transform: rotate(134deg);
-          height: 16px;
-          top: 0;
-          right: 6px;
-          border-left :0.1em solid #5bb2d9;
+    .systems {
+        > div {
+            border: 1px solid #8080801c;
         }
-      }
 
-    }
-  }
-
-  .systems {
-    > div {
-      border:1px solid #8080801c ;
-    }
-    span {
-      @include letter(20px, 0.7px);
-      text-align: center;
-      color: #54678c;
-      padding: 0.4em 4em;
-      @media screen and (max-width: $medium-screen) {
-        padding: 0.4em 1em;
-
-      }
-
-    }
-
-    .envelope-icon{
-      position: absolute;
-      background: #ff9578;
-      width: 4em;
-      height: 4em;
-      border-radius: 50%;
-      bottom: 5%;
-      @media  (max-width: $medium-screen){
-
-      }
-      .envelope{
-        @include envelope(#ffffff);
-      }
-    }
-
-
-    .envelope{
-      @media (max-width: $medium-screen) {
-        @include envelope(#000000);
-        margin-top: 0.4em;
-        &+span{
-          padding: 0 1em;
+        span {
+            @include letter(20px, 0.7px);
+            text-align: center;
+            color: #54678c;
+            padding: 0.4em 4em;
+            @media screen and (max-width: $medium-screen) {
+                padding: 0.4em 1em;
+            }
         }
-      }         }
-  }
 
+        .envelope-icon {
+            position: absolute;
+            background: #ff9578;
+            width: 4em;
+            height: 4em;
+            border-radius: 50%;
+            bottom: 5%;
+            @media (max-width: $medium-screen) {
+            }
 
+            .envelope {
+                @include envelope(#ffffff);
+            }
+        }
+
+        .envelope {
+            @media (max-width: $medium-screen) {
+                @include envelope(#000000);
+                margin-top: 0.4em;
+                & + span {
+                    padding: 0 1em;
+                }
+            }
+        }
+    }
+
+    &[dir='rtl'] .left {
+        span {
+            &.title {
+                @include circle(
+                    217%,
+                    70% !important,
+                    $top: -157px !important,
+                    $left: -134px,
+                    $right: -119px !important
+                );
+                @include letter(50px, 1.6px, $font-weight: bold, $font-family: Rubik !important);
+            }
+        }
+        p {
+            @include letter(16px, 0.6px, 1.75, $font-family: Rubik !important);
+
+            @media (max-width: $small-screen) {
+                @include letter(12px, 0.4px, 2.08, $font-family: Rubik !important);
+            }
+        }
+        a {
+            display: none;
+        }
+    }
+
+    &[dir='rtl'] .right {
+        width: 275px !important ;
+        span {
+            &.title {
+                @include letter(35px, 1.6px, 1.37, bold, $font-family: Rubik !important);
+                @include circle(200px, 200px, $top: -127px, $left: 87px, $right: 94px!important);
+            }
+        }
+        p {
+            @include letter(14px, -0.5px, 2, $font-family: Rubik !important);
+            padding-right: 4em !important;
+            padding-left: 0em !important;
+            &.opacity {
+                background-image: linear-gradient(to left, #feffdf, rgba(254, 255, 223, 0)) !important;
+            }
+        }
+        a {
+            display: none;
+        }
+    }
 }
-//[dir="rtl"] #table {
-//  mat-header-row {
-//    &:hover {
-//      mat-header-cell {
-//        border-left: 0.5px dashed;
-//      }
-//    }
-//  }
-//}
-//
-//[dir="ltr"] #table {
-//  mat-header-row {
-//    &:hover {
-//      mat-header-cell {
-//        border-right: 0.5px dashed;
-//      }
-//    }
-//  }
-//}
+
+.our-clients {
+    transform: translateY(100%);
+    transition-duration: 235ms;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: violet;
+    &.open {
+        transform: translateY(0);
+        transition-duration: 235ms;
+    }
+}

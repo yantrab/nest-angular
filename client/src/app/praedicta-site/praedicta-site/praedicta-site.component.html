@@ -1,86 +1,112 @@
-<div class="container" *ngIf="dic" ngClass="{{ direction == 'rtl' ? 'ltr' : 'rtl' }}" fxLayout="row"
-     fxLayoutAlign="stretch">
-  <span fxHide.lt-md
-        class="en-he" (click)="changeDirection()">{{dic.sitePage.systems.Eng_Heb}}</span>
-
+<div
+    class="container"
+    [ngClass]="{ 'slide-up': isHide == false }"
+    *ngIf="dic"
+    [dir]="i18nService.dir"
+    fxLayout="row"
+    fxLayoutAlign="stretch"
+>
     <main fxFlex fxLayout="column">
-        <div fxFlex="22" fxFlex.sm="15"  fxLayoutAlign.xs="center"   fxLayoutAlign="end center" >
-            <div class="logo" fxLayout.xs fxLayoutAlign.xs="space-between center" >
-                <img class="predaecta"  src="assets/img/praedicta-logo-temp.png" />
-                <nav  fxLayoutAlign="end" fxHide.gt-xs>
-                    <span>{{ dic.sitePage.Menu}}</span>
-                    <div class="menu"  fxLayout="column" fxLayoutAlign="end end">
+        <div fxFlex="22" fxFlex.sm="15" fxLayoutAlign.xs="center" fxLayoutAlign="end center">
+            <div class="logo" fxLayout.xs fxLayoutAlign.xs="space-between center">
+                <img class="predaecta" src="assets/img/praedicta-logo-temp.png" />
+                <nav fxLayoutAlign="end" fxHide.gt-xs>
+                    <span>{{ dic.sitePage.Menu }}</span>
+                    <div class="menu" fxLayout="column" fxLayoutAlign="end end">
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
                 </nav>
             </div>
-
         </div>
-        <div fxFlex fxLayout="column" >
 
-            <div fxFlex  fxLayoutAlign.sm="center" fxLayoutAlign="end">
-                <div fxFlex="85" fxFlex.xs="91" fxLayoutAlign="space-between center">
-                    <div fxFlex="50%" class="left" fxLayout="column"  >
-                        <div class="wrapper-line" fxHide.lg>
-                            <span class="line" ></span>
-                            <span class="line"></span>
-                        </div>
-                        <pre> <span class="title" fxFlex >{{ dic.sitePage.main.WhoWeare.title }}</span></pre>
-                        <pre><p fxFlex fxHide.xs>{{ dic.sitePage.main.WhoWeare.content }} </p></pre>
-                        <pre><p fxFlex fxHide.sm fxHide.md fxHide.lg >{{ dic.sitePage.main.WhoWeare.content_xs}} </p></pre>
-                        <div style="width:15%">
-                            <a fxFlex href="">{{ dic.sitePage.More }} </a>
-                        </div>
+        <div fxFlex="63" fxLayoutAlign.sm="center" fxLayoutAlign="end">
+            <div fxFlex="85" fxFlex.xs="91" fxLayoutAlign="space-between center">
+                <div fxFlex="50%" class="left" fxLayout="column">
+                    <div class="wrapper-line" fxHide.lg>
+                        <span class="line"></span>
+                        <span class="line"></span>
                     </div>
-                    <div class="right" fxLayout="column"  fxHide.lt-md>
-
-                        <pre><span class="title">{{ dic.sitePage.main.Ourvision.title }}</span></pre>
-                        <pre><p class="opacity">{{ dic.sitePage.main.Ourvision.content }} </p></pre>
-                        <div style="width:15%">
-                            <a fxFlex href="">{{ dic.sitePage.More }} </a>
-                        </div>
+                    <pre> <span class="title" fxFlex >{{ dic.sitePage.main.WhoWeare.title }}</span></pre>
+                    <pre><p fxFlex fxHide.xs>{{ dic.sitePage.main.WhoWeare.content }} </p></pre>
+                    <pre><p fxFlex fxHide.sm fxHide.md fxHide.lg >{{ dic.sitePage.main.WhoWeare.content_xs}} </p></pre>
+                    <div style="width:15%">
+                        <a fxFlex href="">{{ dic.sitePage.More }} </a>
+                    </div>
+                </div>
+                <div class="right" fxLayout="column" fxHide.lt-md>
+                    <pre><span class="title">{{ dic.sitePage.main.Ourvision.title }}</span></pre>
+                    <pre><p class="opacity">{{ dic.sitePage.main.Ourvision.content }} </p></pre>
+                    <div style="width:15%">
+                        <a fxFlex href="">{{ dic.sitePage.More }} </a>
                     </div>
                 </div>
             </div>
-
-            <div fxFlex="14" class="bottom"  fxLayoutAlign="end center" >
-            <div class="wrap_bottom"  fxLayout="column"  fxLayoutAlign="center center">
-                <a href="" >{{ dic.sitePage.Our_clients }} </a>
-                <i  class="arrow"></i>
+        </div>
+        <div style="position: relative">
+            <div class="bottom" fxLayoutAlign="end center">
+                <div class="wrap_bottom" fxLayout="column" fxLayoutAlign="center center">
+                    <a href="" (click)="isHide = false">{{ dic.sitePage.Our_clients }} </a>
+                    <i class="arrow"></i>
+                </div>
             </div>
         </div>
-        </div>
-
     </main>
 
-    <div class="systems" fxFlex="33.3" fxFlex.sm="25" fxLayout="row wrap" fxLayout.sm="column" fxHide.xs
-         fxLayoutAlign="start stretch">
+    <div
+        class="systems"
+        fxFlex="33.3"
+        fxFlex.sm="25"
+        fxLayout="row wrap"
+        fxLayout.sm="column"
+        fxHide.xs
+        fxLayoutAlign="start stretch"
+    >
         <div fxFlex="50" fxFlex.sm fxLayoutAlign="end center" fxLayout="column" fxFlexOrder.sm="1">
+            <span fxHide.gt-sm fxHide.lt-sm class="en-he" (click)="changeDirection()">{{
+                dic.sitePage.systems.Eng_Heb
+            }}</span>
             <span>{{ dic.sitePage.systems.Bonds }}</span>
         </div>
-        <div fxFlex="50" fxFlex.sm="10" fxLayoutAlign="end center" fxLayoutAlign.sm="center center" fxLayout="column"
-             fxFlexOrder.sm="3">
-      <span>
-        {{ dic.sitePage.systems.Other_solution }}
-      </span>
+        <div
+            fxFlex="50"
+            fxFlex.sm="10"
+            fxLayoutAlign="end center"
+            fxLayoutAlign.sm="center center"
+            fxLayout="column"
+            fxFlexOrder.sm="3"
+        >
+            <span fxHide.lt-md class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.Eng_Heb }}</span>
+            <span>
+                {{ dic.sitePage.systems.Other_solution }}
+            </span>
         </div>
-        <div fxFlex="50" fxFlex.sm="10" fxLayoutAlign="start center" fxLayoutAlign.sm="center center" fxLayout="column"
-             fxFlexOrder.sm="2">
+        <div
+            fxFlex="50"
+            fxFlex.sm="10"
+            fxLayoutAlign="start center"
+            fxLayoutAlign.sm="center center"
+            fxLayout="column"
+            fxFlexOrder.sm="2"
+        >
             <span>{{ dic.sitePage.systems.Holdings }} </span>
         </div>
         <div fxFlex="50" fxFlex.sm fxLayoutAlign="start center" fxLayout="column" fxFlexOrder.sm="4">
             <div fxHide.lg style="height:75%">
                 <span>{{ dic.sitePage.systems.Contacts }}</span>
             </div>
-            <div fxLayout >
+            <div fxLayout>
                 <i class="envelope"></i>
                 <span>{{ dic.sitePage.systems.Contact_us }} </span>
             </div>
-            <div fxHide.lt-md class="envelope-icon" fxLayoutAlign="center center" >
+            <div fxHide.lt-md class="envelope-icon" fxLayoutAlign="center center">
                 <i class="envelope"></i>
             </div>
         </div>
     </div>
 </div>
+
+<!--<div class="our-clients" [ngClass]="{ open: isHide == false }">-->
+<!--    <span (click)="isHide = true">X</span>-->
+<!--</div>-->
