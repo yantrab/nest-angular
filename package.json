@@ -42,7 +42,7 @@
   "dependencies": {
     "class-validator": "^0.9.1",
     "lodash": "^4.17.11",
-    "nest-client-generator": "^0.1.5",
+    "nest-client-generator": "^0.1.6",
     "nosql-normalizer": "^1.0.6",
     "tsconfig-paths": "^3.8.0"
   }

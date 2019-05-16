@@ -27,7 +27,7 @@ export class MacroComponent {
         this.api.getInitialData().then(data => {
             this.categories = data.categories;
             this.allSeries = this.series = data.series;
-            this.seriesDic =  this.allSeries.reduce((map, series) => {
+            this.seriesDic = this.allSeries.reduce((map, series) => {
                 map[series._id] = series;
                 return map;
             }, {});
@@ -35,8 +35,7 @@ export class MacroComponent {
             this.seriesGroupsSettings.options = this.userSettings.userTemplates;
             this.currentTemplate = this.userSettings.userTemplates[0];
             this.seriesGroupsSettings.selected = this.currentTemplate;
-            this.currentTemplate.seriesIds.forEach(id => this.selectedSeries[id] = true);
-
+            this.currentTemplate.seriesIds.forEach(id => (this.selectedSeries[id] = true));
         });
         this.dateForm = fb.group({
             date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
@@ -46,7 +45,7 @@ export class MacroComponent {
     currentTemplate: SeriesGroup;
     series: Series[];
     allSeries: Series[];
-    seriesDic: {[_id: string]: Series; };
+    seriesDic: { [_id: string]: Series };
     userSettings: UserSettings;
     id;
     dateForm: FormGroup;
@@ -81,7 +80,7 @@ export class MacroComponent {
             return [new SeriesGroup({ name: query + NEW })].concat(filterFn(options, query));
         }
         return filterFn(options, query);
-    };
+    }
 
     @HostListener('window:beforeunload', ['$event']) unloadHandler() {
         this.api.saveUserSettings(this.userSettings).then();
@@ -120,7 +119,7 @@ export class MacroComponent {
                 if (!dic[sID] || !dic[sID].data || !dic[sID].data.length) {
                     return;
                 }
-                const s = this.allSeries.find((s => s._id === sID));
+                const s = this.allSeries.find(s => s._id === sID);
                 const sData = dic[sID].data;
                 excelData.rows = sData.map(d => ({
                     תאריך: transform(d.timeStamp),
@@ -152,6 +151,6 @@ export class MacroComponent {
         }
         this.currentTemplate = seriesGroup;
         this.selectedSeries = {};
-        this.currentTemplate.seriesIds.forEach(id => this.selectedSeries[id] = true);
+        this.currentTemplate.seriesIds.forEach(id => (this.selectedSeries[id] = true));
     }
 }
