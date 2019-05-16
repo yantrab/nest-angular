@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/admin/admin/edit-user/edit-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/admin/admin/edit-user/edit-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/praedicta-site.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/praedicta-site/praedicta-site.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/macro/macro.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/macro/macro.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/user.model.ts" afterDir="false" />
-    </list>
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
