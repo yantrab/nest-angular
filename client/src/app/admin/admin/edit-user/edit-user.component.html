@@ -1,8 +1,9 @@
-<div fxFlex fxLayout="column" fx>
-    <form autocomplete="off">
+<form autocomplete="off">
+    <div style="height: 100%;" fxLayout="column">
         <div fxLayout="row">
-            <p-text-box [form]="form.controls['_id']" name="_id" placeholder="מייל"></p-text-box>
+            <p-text-box [form]="form.controls['email']" name="email" placeholder="מייל"></p-text-box>
         </div>
         <button (click)="save($event)" mat-raised-button color="primary">שמור</button>
-    </form>
-</div>
+
+    </div>
+</form>

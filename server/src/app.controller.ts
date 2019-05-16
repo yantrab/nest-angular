@@ -6,4 +6,9 @@ export class AppController {
     async root(@Res() res) {
         res.sendFile('index.html');
     }
+
+    @Get('test')
+    async test() {
+        return {};
+    }
 }

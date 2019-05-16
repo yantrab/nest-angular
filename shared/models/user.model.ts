@@ -24,19 +24,17 @@ export class Role {
 export class User extends Entity {
     @IsString() company: string;
     @IsString() phone: string;
-    @IsString() details: string;
-
+    @IsEmail() email: string;
+    @IsOptional() @IsString() details?: string;
     @IsOptional() @IsString() fName?: string;
     @IsOptional() @IsString() lName?: string;
-    get fullName() {
+    get name() {
         return this.fName + ' ' + this.lName;
     }
-
     @ValidateNested({ each: true }) roles: Role[];
-
     constructor(user: Partial<User>) {
         super(user);
-        if (user.roles) {
+        if (user && user.roles) {
             this.roles = user.roles.map(role => new Role(role));
         }
     }
