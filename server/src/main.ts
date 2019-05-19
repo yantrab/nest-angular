@@ -3,10 +3,10 @@ import { AppModule } from './app.module';
 import { TadorModule } from './tador/tador.module';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { ValidationPipe } from './pipes/validation.pipe';
-import { readFileSync } from 'fs';
-import { AuthorizeInterceptor } from 'middlewares/authorize.middleware';
-import { AuthModule } from 'auth/auth.module';
-import { UserService } from 'services/user.service';
+//import { readFileSync } from 'fs';
+//import { AuthorizeInterceptor } from 'middlewares/authorize.middleware';
+//import { AuthModule } from 'auth/auth.module';
+//import { UserService } from 'services/user.service';
 import { join } from 'path';
 const clientPath = join(__dirname, '../../client/dist');
 async function bootstrap() {

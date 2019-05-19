@@ -7,7 +7,8 @@ import { MacroModule } from './macro/macro.module';
 import { TadorModule } from './tador/tador.module';
 import { AppController } from 'app.controller';
 @Module({
-    imports: [MFModule, 
+    imports: [
+        //MFModule, 
        // MacroModule, 
         //AdminModule,
          TadorModule, 
