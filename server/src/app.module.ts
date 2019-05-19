@@ -9,7 +9,10 @@ import { AppController } from 'app.controller';
 @Module({
     imports: [MFModule, 
        // MacroModule, 
-        AdminModule, TadorModule, MongoRepoModule.forRoot('mongodb://localhost:27017')],
+        //AdminModule,
+         TadorModule, 
+         //MongoRepoModule.forRoot('mongodb://localhost:27017')
+        ],
     controllers: [AppController],
 })
 export class AppModule {
