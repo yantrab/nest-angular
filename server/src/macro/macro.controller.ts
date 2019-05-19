@@ -10,13 +10,13 @@ import { ReqUser } from '../decorators/user.decorator';
 @Controller('rest/macro')
 export class MacroController {
     static app = App.macro;
-    constructor(private service: MacroService) { }
+    constructor(private service: MacroService) {}
     @Get()
     async getInitialData(@ReqUser() user: User): Promise<InitialData> {
         return {
             categories: await this.service.getCategories(),
             series: await this.service.getSeries(),
-            userSettings: await this.service.getUserSettings(user._id),
+            userSettings: await this.service.getUserSettings(user.id),
         };
     }
 

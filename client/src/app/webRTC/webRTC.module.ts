@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { WebRTCComponent } from './webRTC.component';
 import { RouterModule } from '@angular/router';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: '', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:3000/', options: {} };
 
 @NgModule({
     declarations: [WebRTCComponent],

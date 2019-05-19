@@ -34,14 +34,14 @@ export class AdminComponent {
             width: '80%',
             maxWidth: '540px',
             data: id
-                ? { ...this.users.find(user => user._id === id) }
+                ? { ...this.users.find(user => user.id === id) }
                 : new User({ roles: [{ app: window.location.pathname.split('/')[2] as App, permission: Permission.user }] }),
             direction: 'rtl',
         });
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                const relevant = this.users.find(user => user._id === result._id);
+                const relevant = this.users.find(user => user.id === result.id);
                 if (!relevant) {
                     this.users = this.users.concat([new User(result)]);
                 } else {

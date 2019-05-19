@@ -2,18 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="735cf557-6029-4ed1-918b-61a46423a02a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/app/admin/admin/admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/admin/admin/admin.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/app/admin/admin/admin.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/admin/admin/admin.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/app/admin/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/admin/admin/admin.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/app/admin/admin/edit-user/edit-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/admin/admin/edit-user/edit-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/app/admin/admin/edit-user/edit-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/admin/admin/edit-user/edit-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/app/shared/components/material/material.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/shared/components/material/material.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/app/macro/macro.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/macro/macro.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/app/webRTC/webRTC.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/webRTC/webRTC.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/admin/admin.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/admin.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/macro/macro.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/macro/macro.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/macro/macro.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/macro/macro.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/macro/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/macro/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mf/mf.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/mf/mf.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shared/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shared/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tador/tador.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tador/tador.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shared/models/Entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shared/models/Entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shared/models/macro.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shared/models/macro.model.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,13 +32,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/services/user.service.ts">
+        <entry file="file://$PROJECT_DIR$/src/macro/macro.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#64#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1329">
+              <caret line="81" column="13" lean-forward="true" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -47,6 +49,8 @@
       <find>userdto</find>
       <find>saveUser</find>
       <find>IsNotEmpty</find>
+      <find>_id</find>
+      <find>update</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -58,15 +62,16 @@
         <option value="$PROJECT_DIR$/src/admin/admin.module.ts" />
         <option value="$PROJECT_DIR$/src/app.controller.ts" />
         <option value="$PROJECT_DIR$/src/app.module.ts" />
-        <option value="$PROJECT_DIR$/src/macro/macro.controller.ts" />
         <option value="$PROJECT_DIR$/src/admin/admin.controller.ts" />
         <option value="$PROJECT_DIR$/../shared/models/user.model.ts" />
         <option value="$PROJECT_DIR$/src/pipes/validation.pipe.ts" />
         <option value="$PROJECT_DIR$/src/services/user.service.ts" />
+        <option value="$PROJECT_DIR$/src/macro/macro.controller.ts" />
+        <option value="$PROJECT_DIR$/src/macro/macro.service.ts" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1912" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -94,65 +99,25 @@
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="@types" type="462c0819:PsiDirectoryNode" />
+              <item name="mongo-nest" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="@types" type="462c0819:PsiDirectoryNode" />
-              <item name="mongodb" type="462c0819:PsiDirectoryNode" />
+              <item name="mongo-nest" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="macro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pipes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="tsconfig$paths" type="20ee2d1f:SyntheticLibraryElementNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="tsconfig$paths" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="tsconfig$paths" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -206,30 +171,31 @@
       <workItem from="1557985668828" duration="4530000" />
       <workItem from="1558007266407" duration="28000" />
       <workItem from="1558018447168" duration="2997000" />
+      <workItem from="1558250192865" duration="738000" />
+      <workItem from="1558278777278" duration="1682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16577000" />
+    <option name="totallyTimeSpent" value="18997000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8531915" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.9033189" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.1468085" side_tool="true" visible="true" weight="0.25" />
+      <window_info id="npm" order="2" sideWeight="0.096681096" side_tool="true" visible="true" weight="0.25" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960325" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.16683622" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.5218718" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.26666668" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="TypeScript" order="9" weight="0.32960325" />
+      <window_info anchor="bottom" id="TypeScript" order="9" weight="0.32910052" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32964823" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -266,14 +232,18 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/admin/admin.controller.ts</url>
           <line>14</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pipes/validation.pipe.ts</url>
           <line>50</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/macro/macro.service.ts</url>
+          <line>25</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -390,23 +360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/macro/macro.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/admin/admin.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../shared/models/mf.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -418,11 +371,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        <state relative-caret-position="-24">
+          <caret line="49" column="47" lean-forward="true" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/admin/admin.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongo-nest/dist/repo.factory.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/macro/macro.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/macro/macro.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1329">
+          <caret line="81" column="13" lean-forward="true" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
         </state>
       </provider>
     </entry>

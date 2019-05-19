@@ -24,6 +24,7 @@ const routes: Routes = [
     { path: 'admin/:site', loadChildren: 'src/app/admin/admin.module#AdminModule' },
     { path: 'intercom-admin', loadChildren: 'src/app/intercom-conf/intercom-conf.module#IntercomConfModule' },
     { path: 'intercom', loadChildren: 'src/app/intercom/intercom.module#IntercomModule' },
+    { path: 'webrtc', loadChildren: 'src/app/webRTC/webRTC.module#App2Module' },
     {
         path: 'macro',
         loadChildren: 'src/app/macro/macro.module#MacroModule',

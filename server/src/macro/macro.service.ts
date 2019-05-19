@@ -19,6 +19,7 @@ export class MacroService {
         this.seriesRepo = this.repositoryFactory.getRepository<Series>(Series, 'DBMacro');
         this.dataRepo = this.repositoryFactory.getRepository<Data>(Data, 'DBMacro');
         this.userSettingsRepo = this.repositoryFactory.getRepository<UserSettings>(UserSettings, 'DBMacro');
+       //  this.update().then();
     }
 
     async update() {
@@ -38,7 +39,7 @@ export class MacroService {
                     .request()
                     .query('select distinct pasp_id as id from [dbMacro].[dbo].[prData]')).recordset.map(row => row.id);
                 // const chunks = chunk<string>(ids, 100);
-                //for (const c of chunks) {
+                // for (const c of chunks) {
                 // const query = `
                 // SELECT pasp_id as id, report_date  as d, data_value as v
                 // FROM [dbMacro].[dbo].[prData]
@@ -65,7 +66,7 @@ export class MacroService {
                         dbData.forEach(d => {
                             data.push({ timeStamp: +d.d, value: d.v });
                         });
-                        this.dataRepo.saveOrUpdateOne({ _id: id, data });
+                        this.dataRepo.saveOrUpdateOne({ sId: id, data });
                         //  this.logger.log(id);
                     }),
                 );
@@ -84,7 +85,7 @@ export class MacroService {
     private async updateCategoriesAndSeries() {
         const getChildren = (categories, category) => {
             const children = categories.filter(
-                c => c._id.length === category._id.length + 1 && c._id.slice(0, category._id.length) === category._id,
+                c => c.cId.length === category.cId.length + 1 && c.cId.slice(0, category.cId.length) === category.cId,
             );
             if (!children.length) {
                 return undefined;
@@ -98,7 +99,7 @@ export class MacroService {
             try {
                 await pool.connect();
                 const categoriesDB: Category[] = (await pool.request().query(categoriesQuery)).recordset;
-                const categories = [...categoriesDB.filter(category => category._id.length === 1)];
+                const categories = [...categoriesDB.filter(category => category.cId.length === 1)];
 
                 categories.forEach(category => {
                     category.children = getChildren(categoriesDB, category);
@@ -107,7 +108,7 @@ export class MacroService {
                 await this.categoryRepo.saveOrUpdateMany(categories);
 
                 const series: Series[] = (await pool.request().query(`
-                SELECT prPasp.pasp_id AS _id,
+                SELECT prPasp.pasp_id AS sId,
                 prPasp.name_hebrew AS name,
                 prType.name_hebrew AS hebTypeName,
                 prPasp.first_trading_date AS startDate,
@@ -115,8 +116,8 @@ export class MacroService {
                 tblUnit.UNIT_NAME AS unitEnName,
                 prPasp.date_update as lastUpdate,
                 tblSource.SOURCE_NAME AS Source
-                FROM prPasp LEFT OUTER JOIN prType ON prPasp.type_id = prType.type_id 
-				LEFT OUTER JOIN tblSource ON prPasp.source_id = tblSource.SOURCE_ID 
+                FROM prPasp LEFT OUTER JOIN prType ON prPasp.type_id = prType.type_id
+				LEFT OUTER JOIN tblSource ON prPasp.source_id = tblSource.SOURCE_ID
                 LEFT OUTER JOIN tblUnit ON prPasp.unit_id = tblUnit.UNIT_ID
 	            where left(pasp_id,3) = (SELECT catg_id FROM prCatg WHERE catg_id = left(pasp_id,3))
             `)).recordset;
@@ -126,8 +127,8 @@ export class MacroService {
                     s.startDate = +s.startDate;
                     s.lastUpdate = +s.lastUpdate;
                     for (let i = 1; i <= 3; i++) {
-                        const subId = s._id.slice(0, i);
-                        s.catalogPath += categoriesDB.find(c => c._id === subId).name;
+                        const subId = s.sId.slice(0, i);
+                        s.catalogPath += categoriesDB.find(c => c.cId === subId).name;
 
                         if (i !== 3) {
                             s.catalogPath += ' | ';
@@ -159,7 +160,7 @@ export class MacroService {
         const path = '$$' + pathBySelector((item: DataItem) => item.timeStamp);
         return this.dataRepo.collection
             .aggregate([
-                { $match: { _id: { $in: req.seriesIds } } },
+                { $match: { sId: { $in: req.seriesIds } } },
                 {
                     $project: {
                         data: {
@@ -180,7 +181,7 @@ export class MacroService {
     async getUserSettings(id: string): Promise<UserSettings> {
         return (
             (await this.userSettingsRepo.findOne({ _id: id })) ||
-            new UserSettings({ _id: id, userTemplates: [{ seriesIds: [], name: 'טמפלט', _id: '0' }] })
+            new UserSettings({ _id: id, userTemplates: [{ seriesIds: [], name: 'טמפלט' }] })
         );
     }
 
