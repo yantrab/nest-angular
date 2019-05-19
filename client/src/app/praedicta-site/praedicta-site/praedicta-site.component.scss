@@ -1,37 +1,22 @@
-//@keyframes slidein {
-//    from {
-//        height: 0%;
-//    }
-//    to {
-//        height: 50%;
-//    }
-//}
-//
-//@keyframes slideout {
-//    from {
-//        height: 50%;
-//    }
-//    to {
-//        height: 0%;
-//    }
-//}
-//
-//@keyframes slideup {
-//    from {
-//        top: 0;
-//    }
-//    to {
-//        top: -200px;
-//    }
-//}
-
 @import url(https://fonts.googleapis.com/css?family=Poppins);
 @import url(https://fonts.googleapis.com/css?family=Rubik);
 
-$small-screen: 375px;
+//TODO הגדלתי ב 1 רק ככה זה עושה מה שבמדיה??????
+$small-screen: 376px;
 $medium-screen: 768px;
 $large-screen: 1439px;
 $font-family: Poppins;
+
+@mixin radial-gradient($weight, $height, $start: 8em, $end: 11em) {
+    background: radial-gradient(
+            circle at $weight $height,
+            transparent $start,
+            rgba(255, 255, 255, 0.04) 0,
+            rgba(255, 255, 255, 0.04) $end,
+            transparent 0
+        ),
+        linear-gradient(to bottom, #6b76ff, #465bdf);
+}
 
 @mixin letter($font-size, $letter-spacing, $line-height: normal, $font-weight: normal, $font-family: Poppins) {
     font-family: $font-family;
@@ -47,7 +32,7 @@ $font-family: Poppins;
 @mixin circle($weight, $height, $top: 0, $left: 0, $bottom: 0, $right: 0) {
     &::after {
         content: '';
-        border: 50px solid #feffdf;
+        border: 50px solid #ffffff;
         height: $weight;
         width: $height;
         position: absolute;
@@ -117,12 +102,12 @@ $font-family: Poppins;
     position: relative;
 
     &.slide-up {
-        transform: translateY(-35);
+        transform: translateY(-35%);
         transition-duration: 235ms;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 50%;
+        // position: absolute;
+        // top: 0;
+        // width: 100%;
+        // height: 50%;
     }
 
     * {
@@ -130,13 +115,53 @@ $font-family: Poppins;
     }
 
     .en-he {
+        cursor: pointer;
         position: absolute;
         top: 0;
-        padding: 3em 5.5em;
+        padding: 3em 0;
     }
 
     main {
-        background: linear-gradient(to bottom, #6b76ff, #465bdf);
+        @include radial-gradient(75%, 100%, 8em, 11em);
+        @media (max-width: $medium-screen) {
+            @include radial-gradient(63%, 100%, 8em, 11em);
+        }
+        @media (max-width: $small-screen) {
+            @include radial-gradient(50%, 100%, 6em, 8em);
+        }
+        // background:
+        // radial-gradient(
+        //   circle at 97% 40%,
+        //   transparent 6em,
+        //   rgba(255, 255, 255, 0.04) 0,
+        //   rgba(255, 255, 255, 0.04) 9em,
+        //   transparent 0
+        // ),
+        // radial-gradient(
+        //   circle at 24% 34%,
+        //   transparent 10em,
+        //   rgba(255, 255, 255, 0.04) 0,
+        //   rgba(255, 255, 255, 0.04) 13em,
+        //   transparent 0
+        // ),
+        // radial-gradient(
+        //   circle at 75% 100%,
+        //   transparent 8em,
+        //   rgba(255, 255, 255, 0.04) 0,
+        //   rgba(255, 255, 255, 0.04) 11em,
+        //   transparent 0
+        // ),
+
+        //     linear-gradient(to bottom, #6b76ff, #465bdf);
+        //     @media (max-width: $medium-screen) {
+        //    background:   radial-gradient(
+        //     circle at 63% 100%,
+        //     transparent 8em,
+        //     rgba(255, 255, 255, 0.04) 0,
+        //     rgba(255, 255, 255, 0.04) 11em,
+        //     transparent 0
+        //   ),
+        //       linear-gradient(to bottom, #6b76ff, #465bdf);}
 
         nav {
             display: flex;
@@ -201,12 +226,13 @@ $font-family: Poppins;
                 .line {
                     cursor: pointer;
                     width: 35px;
-                    opacity: 0.5;
-                    border-bottom: solid 4px #b6cfe7;
+                    opacity: 0.25;
+                    border-bottom: solid 4px #feffdf;
                     margin-right: 20px;
-
+                    z-index: 1;
                     &:hover {
-                        border-bottom: solid 4px #4d99e0;
+                        opacity: 0.75;
+                        border-bottom: solid 4px #feffdf;
                     }
                 }
             }
@@ -236,9 +262,9 @@ $font-family: Poppins;
                 &.title {
                     position: relative;
                     width: 212px;
-                    @include circle(217%, 81%, $top: -137px, $left: -132px);
+                    @include circle(327px, 327px, $top: -137px, $left: -132px);
                     @media (max-width: $small-screen) {
-                        @include circle(327px, 81%, $top: -204px, $left: -177px);
+                        @include circle(327px, 327px, $top: -204px, $left: -177px);
                     }
                     @include letter(50px, 1.6px, $font-weight: bold);
                     @media (max-width: $small-screen) {
@@ -282,13 +308,10 @@ $font-family: Poppins;
         }
 
         .bottom {
-            position: absolute;
-            bottom: -82px;
-            width: 105%;
             .wrap_bottom {
                 width: 50%;
                 @media (max-width: $medium-screen) {
-                    width: 62%;
+                    width: 72%;
                 }
                 @media (max-width: $small-screen) {
                     width: 97%;
@@ -299,37 +322,37 @@ $font-family: Poppins;
                 position: relative;
                 text-decoration: none;
                 padding-bottom: 2%;
-                //@include circle(250px,$top:-96px ,$left: -134px;
+                // @include circle(250px , 200px,$top:-96px ,$left: -134px);
                 @include letter(14px, 0.5px, 2);
                 @include unfer-line(76px, 2px, 24px, 0px);
 
-                &::after {
-                    content: '';
-                    position: absolute;
-                    width: 220px;
-                    height: 110px;
-                    border-top-left-radius: 220px;
-                    border-top-right-radius: 220px;
-                    border: 40px solid #feffdf;
-                    border-bottom: 0;
-                    opacity: 0.05;
-                    top: -67px;
-                    left: -116px;
+                // &::after {
+                //     content: '';
+                //     position: absolute;
+                //     width: 220px;
+                //     height: 110px;
+                //     border-top-left-radius: 220px;
+                //     border-top-right-radius: 220px;
+                //     border: 40px solid #feffdf;
+                //     border-bottom: 0;
+                //     opacity: 0.05;
+                //     top: -67px;
+                //     left: -116px;
 
-                    @media (max-width: $small-screen) {
-                        content: '';
-                        position: absolute;
-                        width: 180px;
-                        height: 90px;
-                        border-top-left-radius: 180px;
-                        border-top-right-radius: 180px;
-                        border: 30px solid #feffdf;
-                        border-bottom: 0;
-                        opacity: 0.05;
-                        top: -60px;
-                        left: -86px;
-                    }
-                }
+                //     @media (max-width: $small-screen) {
+                //         content: '';
+                //         position: absolute;
+                //         width: 180px;
+                //         height: 90px;
+                //         border-top-left-radius: 180px;
+                //         border-top-right-radius: 180px;
+                //         border: 30px solid #feffdf;
+                //         border-bottom: 0;
+                //         opacity: 0.05;
+                //         top: -60px;
+                //         left: -86px;
+                //     }
+                // }
             }
 
             .arrow {
@@ -364,7 +387,7 @@ $font-family: Poppins;
             @include letter(20px, 0.7px);
             text-align: center;
             color: #54678c;
-            padding: 0.4em 4em;
+            padding: 0.4em 3em;
             @media screen and (max-width: $medium-screen) {
                 padding: 0.4em 1em;
             }
@@ -399,7 +422,11 @@ $font-family: Poppins;
     &[dir='rtl'] .left {
         span {
             &.title {
-                @include circle(217%, 70% !important, $top: -157px !important, $left: -134px, $right: -119px !important);
+                @include circle(327px, 327px !important, $top: -157px !important, $left: -134px, $right: -119px !important);
+                @media (max-width: $small-screen) {
+                    @include circle(327px, 327px !important, $top: -227px !important, $right: -188px !important);
+                }
+
                 @include letter(50px, 1.6px, $font-weight: bold, $font-family: Rubik !important);
             }
         }
@@ -436,7 +463,17 @@ $font-family: Poppins;
         }
     }
 }
-
+[dir='rtl'].container {
+    main {
+        @include radial-gradient(25%, 100%);
+        @media (max-width: $medium-screen) {
+            @include radial-gradient(37%, 100%, 8em, 11em);
+        }
+        @media (max-width: $small-screen) {
+            @include radial-gradient(50%, 100%, 6em, 8em);
+        }
+    }
+}
 .our-clients {
     transform: translateY(100%);
     transition-duration: 235ms;

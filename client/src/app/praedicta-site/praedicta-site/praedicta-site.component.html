@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div fxFlex="63" fxLayoutAlign.sm="center" fxLayoutAlign="end">
+        <div fxFlex fxFlex.xs="61" fxLayoutAlign.sm="center" fxLayoutAlign="end">
             <div fxFlex="85" fxFlex.xs="91" fxLayoutAlign="space-between center">
                 <div fxFlex="50%" class="left" fxLayout="column">
                     <div class="wrapper-line" fxHide.lg>
@@ -44,12 +44,11 @@
                 </div>
             </div>
         </div>
-        <div style="position: relative">
-            <div class="bottom" fxLayoutAlign="end center">
-                <div class="wrap_bottom" fxLayout="column" fxLayoutAlign="center center">
-                    <a href="" (click)="isHide = false">{{ dic.sitePage.Our_clients }} </a>
-                    <i class="arrow"></i>
-                </div>
+
+        <div fxFlex="7em" fxFlex.xs="17%" class="bottom" fxLayoutAlign="end center">
+            <div class="wrap_bottom" fxLayout="column" fxLayoutAlign="center center">
+                <a href="" (click)="isHide = false">{{ dic.sitePage.Our_clients }} </a>
+                <i class="arrow"></i>
             </div>
         </div>
     </main>
