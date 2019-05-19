@@ -1,34 +1,51 @@
 <div [dir]="i18nService.dir">
     <p-topbar [model]="topbarModel"></p-topbar>
-    <div class="content" fxLayout="row" *ngIf="panels">
+    <div class="content" fxLayout="row" *ngIf="selectedPanel">
         <p-autocomplete [keepOpen]="true" (selectedChange)="selectedPanel = $event"
                         [settings]="autocompleteSettings"></p-autocomplete>
         <mat-tab-group #tabGroup mat-stretch-tabs fxFlex="100">
             <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
                 <div>
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field>
                         <input [value]="selectedPanel._id" disabled matInput placeholder="טלפון">
                     </mat-form-field>
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field>
                         <input matInput placeholder="שם" [(ngModel)]="selectedPanel.name">
                     </mat-form-field>
                     <p>
-                        <mat-form-field class="example-full-width">
-                            <textarea matInput placeholder="Address">{{selectedPanel.address}}</textarea>
+                        <mat-form-field>
+                            <input matInput placeholder="Address">{{selectedPanel.address}}>
                         </mat-form-field>
                     </p>
 
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field>
                         <input matInput placeholder="סוג" disabled [(ngModel)]="selectedPanel.type">
                     </mat-form-field>
 
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field>
                         <input matInput placeholder="גירסה" [(ngModel)]="selectedPanel.version">
                     </mat-form-field>
                 </div>
             </mat-tab>
             <mat-tab label="contacts">
-                <div *ngIf="tabGroup.selectedIndex === 1">
+                <div style="height:100%;width:100%;">
+                    <!--                    *ngIf="tabGroup.selectedIndex === 1"-->
+                    <mat-virtual-table
+                            fxFlex
+                            [rows]="selectedPanel.contacts"
+                            [filterPlaceholder]="'חיפוש'"
+                            [paginator]="false"
+                            [columnsDef]="contactColumn"
+                    >
+                        <ng-template pCellDef column="_id" let-row="row">
+                            {{row._id}}
+                        </ng-template>
+                        <ng-template *ngFor="let feild of selectedPanel.contacts[0].feilds"
+                                     pCellDef [column]="feild.property" let-row="row">
+                            {{row._id}}
+                        </ng-template>
+
+                    </mat-virtual-table>
                 </div>
             </mat-tab>
             <mat-tab label="settings"> Content 3</mat-tab>
