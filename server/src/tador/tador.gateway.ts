@@ -1,5 +1,5 @@
 import { SubscribeMessage, WebSocketGateway, WebSocketServer, WsResponse } from '@nestjs/websockets';
-@WebSocketGateway()
+@WebSocketGateway(12345)
 export class TadorGateway {
     @WebSocketServer() server;
     @SubscribeMessage('testNumber')

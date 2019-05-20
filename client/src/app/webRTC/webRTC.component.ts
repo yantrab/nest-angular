@@ -21,9 +21,9 @@ export class WebRTCComponent {
             this.socket.on('testNumber', data => {
                 console.log(data);
             });
-            this.socket.emit('testNumber', 'test 3', result =>{
+            this.socket.emit('testNumber', 'test 123456', result => {
                 console.log(result);
             });
-        },1000);
+        }, 1000);
     }
 }

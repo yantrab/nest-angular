@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="735cf557-6029-4ed1-918b-61a46423a02a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/app/admin/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/admin/admin/admin.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/app/macro/macro.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/macro/macro.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/app/webRTC/webRTC.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/webRTC/webRTC.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/admin.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/admin.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/macro/macro.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/macro/macro.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/macro/macro.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/macro/macro.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/macro/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/macro/queries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mf/mf.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/mf/mf.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tador/tador.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tador/tador.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shared/models/Entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shared/models/Entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shared/models/macro.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shared/models/macro.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/app/webRTC/webRTC.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/webRTC/webRTC.module.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
