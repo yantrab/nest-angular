@@ -1,15 +1,12 @@
-import { Controller, Get, Param, Post, Body } from '@nestjs/common';
-import { App, User, Permission } from 'shared/models';
+import { Controller, Get, Param, Post, Body, Req } from '@nestjs/common';
+import { App, User, Permission, Role } from 'shared/models';
 import { UserService } from '../services/user.service';
-import { genSalt, hash, compare } from 'bcrypt';
-const cryptPassword = async password => {
-    const salt = await genSalt(10);
-    return hash(password, salt);
-};
+import { cryptPassword, getRandomToken } from '../utils';
+import { MailerService } from '../services/mailer.service';
 
 @Controller('rest/admin')
 export class AdminController {
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private mailer: MailerService) {
         this.userService.userRepo.collection.countDocuments().then(async usersCount => {
             if (usersCount) {
                 return;
@@ -22,16 +19,38 @@ export class AdminController {
                 roles: [{ app: App.admin, permission: Permission.user }],
             });
             user.password = await cryptPassword('123456');
-            this.saveUser(user).then();
+            this.addUser(user).then();
         });
     }
     @Get('users/:app')
     async users(@Param('app') app: App): Promise<User[]> {
-        return this.userService.getUsers({});
+        return this.userService.getUsers({ 'roles.app': app } as any);
     }
 
-    @Post('saveUser')
-    async saveUser(@Body() user: User): Promise<{ ok: number}> {
-        return this.userService.saveUser(user) as any;
+    @Post('addUser')
+    async addUser(@Body() user: User, @Req() req?): Promise<{ ok: number }> {
+        const existUser = await this.userService.userRepo.findOne({ email: user.email });
+        let newRole: Role;
+        if (existUser) {
+            newRole = user.roles.find(r => !existUser.roles.find(rr => rr === r));
+            existUser.roles.push(newRole);
+        }
+        const result = (await this.userService.saveUser(existUser || user)) as any;
+        const token = await getRandomToken();
+        if (req && (newRole || !existUser)) {
+            this.mailer.send({
+                from: '"Praedicta holdings management" <app@praedicta.com>',
+                to: user.email,
+                subject: 'הרשאות למערכות פרדיקטה',
+                html: `<div dir="rtl">
+                            <h1>שלום</h1>
+                            <h2>יש לך הרשאות עבור מערכת ${req.headers.referer.split('/')[4]}</h2>
+                            <a href="${req.headers.referer.replace('admin/', 'login/')}?token=${token}>
+                                 היכנס
+                            </a>
+                       </div>`,
+            });
+        }
+        return result;
     }
 }

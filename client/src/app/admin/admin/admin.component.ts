@@ -5,6 +5,7 @@ import { App, Permission, User } from 'shared/models';
 import { ColumnDef } from 'mat-virtual-table';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { last } from 'lodash';
 
 @Component({
     selector: 'p-admin',
@@ -15,6 +16,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 export class AdminComponent {
     topbarModel: ITopBarModel = { logoutTitle: 'logout', routerLinks: [], menuItems: [] };
     users: User[];
+    app: App;
     columns: ColumnDef[] = [
         { field: 'edit', title: ' ', width: '70px', isSortable: false },
         { field: 'email', title: 'מייל' },
@@ -26,7 +28,8 @@ export class AdminComponent {
     ];
 
     constructor(private api: AdminController, private dialog: MatDialog, private snackBar: MatSnackBar) {
-        this.api.users().then(users => (this.users = users));
+        this.app = last(window.location.pathname.split('/')) as App;
+        this.api.users(this.app).then(users => (this.users = users));
     }
 
     openEditUserDialog(id?: string): void {
@@ -35,19 +38,19 @@ export class AdminComponent {
             maxWidth: '540px',
             data: id
                 ? { ...this.users.find(user => user.id === id) }
-                : new User({ roles: [{ app: window.location.pathname.split('/')[2] as App, permission: Permission.user }] }),
+                : new User({ roles: [{ app: this.app, permission: Permission.user }] }),
             direction: 'rtl',
         });
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                const relevant = this.users.find(user => user.id === result.id);
+                const relevant = this.users.find(user => user._id === result._id);
                 if (!relevant) {
                     this.users = this.users.concat([new User(result)]);
                 } else {
                     Object.keys(result).forEach(key => (relevant[key] = result[key]));
                 }
-                this.api.saveUser(result).then(saveResult => {
+                this.api.addUser(result).then(saveResult => {
                     if (!saveResult.ok) {
                         // tslint:disable-next-line:no-console
                         console.error('not saved!');
