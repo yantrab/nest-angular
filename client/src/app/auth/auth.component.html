@@ -1,15 +1,43 @@
-<div id="login-page" [dir]='i18nService.dir'>
+<div id="login-page" [dir]="i18nService.dir">
     <div class="login-main center">
-        <a *ngIf="i18nService.language == 'en'" (click)="i18nService.language='he'">he</a>
-        <a *ngIf="i18nService.language == 'he'" (click)="i18nService.language='en'">en</a>
+        <a *ngIf="i18nService.language == 'en'" (click)="i18nService.language = 'he'">he</a>
+        <a *ngIf="i18nService.language == 'he'" (click)="i18nService.language = 'en'">en</a>
         <div class="login-logo">
-            <img src="praedicta-logo.png" alt=""/>
+            <img src="praedicta-logo.png" alt="" />
         </div>
-        <form autocomplete="off" *ngIf="form && dic">
-            <p-text-box [form]="form.controls['email']" name='email' [placeholder]='dic.loginPage.email'></p-text-box>
-            <p-text-box [form]="form.controls['password']" name='password'
-                        [placeholder]='dic.loginPage.password'></p-text-box>
-            <button (click)="login($event)" mat-raised-button color="primary">{{dic.loginPage.login}}</button>
+        <form autocomplete="off" *ngIf="form && dic && this.state === 'login'">
+            <p-text-box [form]="form.controls['email']" name="email" [placeholder]="dic.loginPage.email"></p-text-box>
+            <p-text-box [form]="form.controls['password']" name="password" [placeholder]="dic.loginPage.password"></p-text-box>
+            <button (click)="login($event)" mat-raised-button color="primary">{{ dic.loginPage.login }}</button>
+        </form>
+
+        <form autocomplete="off" *ngIf="signinFrom && dic && this.state === 'signin'" [formGroup]="signinFrom">
+            <p-text-box [form]="signinFrom.controls['email']" name="email" [placeholder]="dic.loginPage.email"></p-text-box>
+            <p-text-box
+                [form]="signinFrom.controls['password']"
+                name="password"
+                [placeholder]="dic.loginPage.password"
+            ></p-text-box>
+            <!--            <mat-form-field appearance="outline">-->
+            <!--                <input type="password" matInput placeholder="password" [errorStateMatcher]="matcher" formControlName="password" />-->
+            <!--                <mat-error *ngIf="signinFrom.controls['password'].errors">-->
+            <!--                    {{ signinFrom.controls['password'].errors[0] }}-->
+            <!--                </mat-error>-->
+            <!--            </mat-form-field>-->
+            <!--            <mat-form-field appearance="outline">-->
+            <!--                <input-->
+            <!--                    type="password"-->
+            <!--                    matInput-->
+            <!--                    placeholder="rePassword"-->
+            <!--                    [errorStateMatcher]="matcher"-->
+            <!--                    formControlName="rePassword"-->
+            <!--                />-->
+            <!--                <mat-error *ngIf="signinFrom.controls['rePassword'].errors">-->
+            <!--                    {{ signinFrom.controls['rePassword'].errors[0] }}-->
+            <!--                </mat-error>-->
+            <!--            </mat-form-field>-->
+
+            <button (click)="signin($event)" mat-raised-button color="primary">{{ dic.loginPage.signin }}</button>
         </form>
     </div>
 </div>

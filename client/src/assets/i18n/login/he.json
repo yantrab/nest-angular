@@ -1,10 +1,12 @@
 {
     "loginPage": {
         "login": "כניסה",
+        "signin": "שמור",
         "email": "אמייל",
-        "password": "ססמה"
+        "password": "ססמה",
+        "rePassword": "הקש ססמה שנית"
     },
-    "validation":{
-        "required":"required"
+    "validation": {
+        "required": "required"
     }
 }

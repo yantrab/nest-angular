@@ -1,10 +1,12 @@
 {
     "loginPage": {
         "login": "login",
+        "signin": "signin",
         "email": "email",
-        "password": "password"
+        "password": "password",
+        "rePassword": "rePassword"
     },
-    "validation":{
-        "required":"required"
+    "validation": {
+        "required": "required"
     }
 }
