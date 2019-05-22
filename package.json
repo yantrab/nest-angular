@@ -20,7 +20,7 @@
         "start-dev": "set NODE_ENV=dev&&npm run build-client-prod&&npm run start-server",
         "test": "ts-node ./test/index",
         "git": "git reset --hard HEAD&&git pull",
-        "deploy-dev": "npm run git&&npm i&&sudo rm -rf  '/client/src/api'&&npm run start-dev",
+        "deploy-dev": "npm run git&&npm i&&npm run start-dev",
         "build:client:cordova": "cd client&& npm run build:cordova",
         "gen-uml": "tsuml --glob ./shared/**/*.ts",
         "lint": "tslint -p .",

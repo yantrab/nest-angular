@@ -5,15 +5,15 @@ import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify
 import { ValidationPipe } from './pipes/validation.pipe';
 import { readFileSync } from 'fs';
 
-//import { AuthorizeInterceptor } from 'middlewares/authorize.middleware';
-//import { AuthModule } from 'auth/auth.module';
-//import { UserService } from 'services/user.service';
+// import { AuthorizeInterceptor } from 'middlewares/authorize.middleware';
+// import { AuthModule } from 'auth/auth.module';
+// import { UserService } from 'services/user.service';
 import { join } from 'path';
 const clientPath = join(__dirname, '../../client/dist');
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
         AppModule,
-        //new FastifyAdapter());
+        // new FastifyAdapter());
         new FastifyAdapter({
             http2: true,
             https: {
@@ -31,6 +31,7 @@ async function bootstrap() {
             'https://localhost:4200',
             'https://praedicta-2b6a3.firebaseapp.com',
             'https://arkadiy-8',
+            'https://192.168.200.201',
         ],
         optionsSuccessStatus: 200,
         credentials: true,
