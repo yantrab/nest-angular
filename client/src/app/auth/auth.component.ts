@@ -40,7 +40,7 @@ export class AuthComponent {
         validateAllFields(this.form);
         if (this.form.valid) {
             this.authService.login(this.form.value).then(() => {
-                this.router.navigate(['/' + window.location.pathname.replace('login/', ''), {}]);
+                this.router.navigate(['/' + window.location.pathname.replace('login/', ''), {}]).then();
             });
         }
         e.preventDefault();
