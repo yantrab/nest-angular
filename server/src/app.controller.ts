@@ -6,6 +6,18 @@ export class AppController {
     async root(@Res() res) {
         res.sendFile('index.html');
     }
+    @Get('praedicta')
+    async praedicta(@Res() res) {
+        res.sendFile('index.html');
+    }
+    @Get('login')
+    async login(@Res() res) {
+        res.sendFile('index.html');
+    }
+    @Get('admin')
+    async admin(@Res() res) {
+        res.sendFile('index.html');
+    }
 
     @Get('test')
     async test() {

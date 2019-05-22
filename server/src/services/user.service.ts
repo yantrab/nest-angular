@@ -1,11 +1,11 @@
 import { Injectable, ForbiddenException } from '@nestjs/common';
-import {User, App, hasPermission, Permission, signinRequest} from 'shared';
+import { User, App, hasPermission, Permission, signinRequest } from 'shared';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import { genSalt, hash, compare } from 'bcrypt';
 import * as NodeCache from 'node-cache';
 import { randomBytes } from 'crypto';
 import { ObjectId } from 'bson';
-import {cryptPassword} from '../utils';
+import { cryptPassword } from '../utils';
 
 // const generateToken = (): Promise<string> =>
 //     new Promise(resolve => randomBytes(48, (err, buffer) => resolve(buffer.toString('hex'))));
@@ -50,7 +50,7 @@ export class UserService {
             return undefined;
         }
 
-        setTimeout(() => this.cache.set(foundUser._id, foundUser));
+        setTimeout(() => this.cache.set(foundUser._id.toString(), foundUser));
         return foundUser;
     }
 
@@ -66,9 +66,15 @@ export class UserService {
     }
     async changePassword(user: signinRequest) {
         const cacheToken = this.cache[user.email];
-        if (!cacheToken  || cacheToken != user.token) { throw  new ForbiddenException(); }
-        const password =  await cryptPassword(user.password);
-        await this.userRepo.collection.updateOne({email: user.email}, {password});
+        if (!cacheToken || cacheToken != user.token) {
+            //  throw new ForbiddenException();
+        }
+        const password = await cryptPassword(user.password);
+        try {
+            const a = await this.userRepo.collection.updateOne({ email: user.email }, { $set: { password } });
+        } catch (e) {
+            console.log(e);
+        }
         return {};
     }
 }

@@ -23,6 +23,11 @@ export class EditUserComponent {
         // On case that there is no changes in form
         validateAllFields(this.form);
         if (this.form.valid) {
+            for (const key in this.form.value) {
+                if (this.form.value[key] == null) {
+                    delete this.form.value[key];
+                }
+            }
             this.dialogRef.close(this.form.value);
         }
         e.preventDefault();

@@ -19,7 +19,8 @@ export class MacroService {
         this.seriesRepo = this.repositoryFactory.getRepository<Series>(Series, 'DBMacro');
         this.dataRepo = this.repositoryFactory.getRepository<Data>(Data, 'DBMacro');
         this.userSettingsRepo = this.repositoryFactory.getRepository<UserSettings>(UserSettings, 'DBMacro');
-       //  this.update().then();
+        //  this.update().then();
+        // this.updateData().then();
     }
 
     async update() {
@@ -158,24 +159,23 @@ export class MacroService {
 
     async getData(req: DataRequest): Promise<Data[]> {
         const path = '$$' + pathBySelector((item: DataItem) => item.timeStamp);
-        return this.dataRepo.collection
-            .aggregate([
-                { $match: { sId: { $in: req.seriesIds } } },
-                {
-                    $project: {
-                        data: {
-                            $filter: {
-                                input: '$data',
-                                as: 'item',
-                                cond: {
-                                    $and: [{ $gte: [path, req.from] }, { $lte: [path, req.to] }],
-                                },
-                            },
-                        },
-                    },
-                },
-            ])
-            .toArray() as Promise<Data[]>;
+        const asdf = this.dataRepo.collection.aggregate([
+            { $match: { sId: { $in: req.seriesIds } } },
+            // {
+            //     $project: {
+            //         data: {
+            //             $filter: {
+            //                 input: '$data',
+            //                 as: 'item',
+            //                 cond: {
+            //                     $and: [{ $gte: [path, req.from] }, { $lte: [path, req.to] }],
+            //                 },
+            //             },
+            //         },
+            //     },
+            // },
+        ]);
+        return asdf.toArray() as Promise<Data[]>;
     }
 
     async getUserSettings(id: string): Promise<UserSettings> {
