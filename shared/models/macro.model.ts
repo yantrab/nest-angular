@@ -1,10 +1,9 @@
 import { Entity } from './Entity';
 import { IsString, ValidateNested, IsNumber, IsArray } from 'class-validator';
 export class Category extends Entity {
-    @IsString()
-    NameEnglish: string;
-    @ValidateNested({ each: true })
-    children: Category[] = [];
+    @IsString() NameEnglish: string;
+    @ValidateNested({ each: true }) children: Category[] = [];
+    @IsString() cId:string;
     constructor(data?: Partial<Category>) {
         super(data);
         if (data && data.children) {
@@ -14,23 +13,16 @@ export class Category extends Entity {
 }
 
 export class Series extends Entity {
-    @IsString()
-    hebTypeName: string;
-    @IsNumber()
-    startDate: number;
-    @IsNumber()
-    endDate: number;
-    @IsNumber()
-    lastUpdate: number;
-    @IsString()
-    sourceEnName: string;
-    @IsString()
-    unitEnName: string;
-    @IsString()
-    catalogPath: string;
-
+    @IsString() hebTypeName: string;
+    @IsNumber() startDate: number;
+    @IsNumber() endDate: number;
+    @IsNumber() lastUpdate: number;
+    @IsString() sourceEnName: string;
+    @IsString() unitEnName: string;
+    @IsString() catalogPath: string;
+    @IsString() sId: string;
     get title() {
-        return this.name + ', ' + this._id;
+        return this.name + ', ' + this.sId;
     }
 }
 
@@ -61,6 +53,8 @@ export class DataItem {
 export class Data extends Entity {
     @ValidateNested()
     data: DataItem[];
+
+    @IsString() sId:string;
 }
 export class SeriesGroup extends Entity {
     @IsString({ each: true })

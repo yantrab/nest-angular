@@ -1,6 +1,6 @@
 export const categoriesQuery = `
 use dbMacro
-SELECT catg_id AS _id,
+SELECT catg_id AS cId,
 name_hebrew AS name,
 name_english AS NameEnglish,
 CASE LEN(catg_id)

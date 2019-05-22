@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="server" type="NodeJSConfigurationType" activateToolWindowBeforeRun="false" node-parameters="--require ts-node/register --require tsconfig-paths/register" path-to-js-file="./src/main.ts" working-dir="$PROJECT_DIR$">
+    <method v="2" />
+  </configuration>
+</component>

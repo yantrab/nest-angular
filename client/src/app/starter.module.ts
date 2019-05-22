@@ -21,9 +21,11 @@ const routes: Routes = [
     { path: 'mf', loadChildren: 'src/app/mf/mf.module#MFModule', canActivate: [Guard], data: { app: App.mf } },
     { path: 'praedicta', loadChildren: 'src/app/praedicta-site/praedicta-site.module#PraedictaSiteModule' },
     { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },
+    { path: 'login/:site/:token', loadChildren: 'src/app/auth/auth.module#AuthModule' },
     { path: 'admin/:site', loadChildren: 'src/app/admin/admin.module#AdminModule' },
     { path: 'intercom-admin', loadChildren: 'src/app/intercom-conf/intercom-conf.module#IntercomConfModule' },
     { path: 'intercom', loadChildren: 'src/app/intercom/intercom.module#IntercomModule' },
+    { path: 'webrtc', loadChildren: 'src/app/webRTC/webRTC.module#App2Module' },
     {
         path: 'macro',
         loadChildren: 'src/app/macro/macro.module#MacroModule',
@@ -35,12 +37,7 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        RouterModule.forRoot(routes, { useHash: isCordovaApp }),
-        HttpClientModule,
-    ],
+    imports: [BrowserModule, BrowserAnimationsModule, RouterModule.forRoot(routes, { useHash: isCordovaApp }), HttpClientModule],
     bootstrap: [AppComponent],
     providers: [
         Guard,

@@ -18,17 +18,12 @@ import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocom
     styleUrls: ['./macro.component.scss'],
 })
 export class MacroComponent {
-    constructor(
-        private api: MacroController,
-        public i18nService: I18nService,
-        fb: FormBuilder,
-        private xslService: XLSXService,
-    ) {
+    constructor(private api: MacroController, public i18nService: I18nService, fb: FormBuilder, private xslService: XLSXService) {
         this.api.getInitialData().then(data => {
             this.categories = data.categories;
             this.allSeries = this.series = data.series;
             this.seriesDic = this.allSeries.reduce((map, series) => {
-                map[series._id] = series;
+                map[series.sId] = series;
                 return map;
             }, {});
             this.userSettings = data.userSettings;
@@ -88,18 +83,18 @@ export class MacroComponent {
 
     onSelectCategory(category?: Category) {
         if (category) {
-            this.series = this.allSeries.filter(s => s._id.startsWith(category._id));
+            this.series = this.allSeries.filter(s => s.sId.startsWith(category.cId));
         } else {
             this.series = this.allSeries;
         }
     }
     onSelectSeries(checked: boolean, series: Series) {
         if (checked) {
-            this.currentTemplate.seriesIds.push(series._id);
-            this.selectedSeries[series._id] = true;
+            this.currentTemplate.seriesIds.push(series.sId);
+            this.selectedSeries[series.sId] = true;
         } else {
-            this.currentTemplate.seriesIds = this.currentTemplate.seriesIds.filter(s => s !== series._id);
-            this.selectedSeries[series._id] = false;
+            this.currentTemplate.seriesIds = this.currentTemplate.seriesIds.filter(s => s !== series.sId);
+            this.selectedSeries[series.sId] = false;
         }
     }
 
@@ -111,7 +106,7 @@ export class MacroComponent {
         };
         const transform = date => new DatePipe('en').transform(date, 'dd.MM.yyyy');
         this.api.getData(formData).then(result => {
-            const dic = keyBy(result, r => r._id);
+            const dic = keyBy(result, r => r.sId);
             const sheets = [];
             const names: string[] = [];
             this.currentTemplate.seriesIds.forEach(sID => {
@@ -119,7 +114,7 @@ export class MacroComponent {
                 if (!dic[sID] || !dic[sID].data || !dic[sID].data.length) {
                     return;
                 }
-                const s = this.allSeries.find(s => s._id === sID);
+                const s = this.allSeries.find(s => s.sId === sID);
                 const sData = dic[sID].data;
                 excelData.rows = sData.map(d => ({
                     תאריך: transform(d.timeStamp),
@@ -134,7 +129,7 @@ export class MacroComponent {
                 excelData.description['תאריך ראשון:'] = transform(first(sData).timeStamp);
                 excelData.description['תאריך אחרון:'] = transform(last(sData).timeStamp);
                 sheets.push(excelData);
-                names.push(s._id);
+                names.push(s.sId);
             });
             if (sheets.length) {
                 this.xslService.export(sheets, names, 'macro.xlsx');
@@ -144,7 +139,7 @@ export class MacroComponent {
 
     filterSelected(seriesGroup: SeriesGroup) {
         if (seriesGroup.isNew) {
-            seriesGroup._id = this.seriesGroupsSettings.options.length.toString();
+            // seriesGroup.id = this.seriesGroupsSettings.options.length.toString();
             seriesGroup.seriesIds = [];
             seriesGroup.name = seriesGroup.name.replace(NEW, '');
             this.seriesGroupsSettings.options.push(seriesGroup);
