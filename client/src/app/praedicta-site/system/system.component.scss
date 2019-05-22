@@ -1,0 +1,5 @@
+@import '../site.component';
+
+span {
+    @include letter(20px, 0.7px, $font-family: Rubik);
+}

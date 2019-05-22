@@ -1,5 +1,5 @@
 import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested} from 'class-validator';
-import {EqualTo} from '../customValidation/equalTo'
+//import {EqualTo} from '../customValidation/equalTo'
 import { Entity } from './Entity';
 export enum App {
     admin = 'admin',

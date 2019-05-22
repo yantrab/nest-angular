@@ -1,0 +1,64 @@
+<div class="container" gdRows="repeat(2, [row] 1fr)" gdColumns="repeat(6, [col] 1fr)" *ngIf="dic" [dir]="i18nService.dir">
+    <div fxLayoutAlign="center end ">
+        <span class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.eng_Heb }}</span>
+        <div class="envelope-icon" fxLayoutAlign="center center">
+            <i class="envelope"></i>
+        </div>
+    </div>
+    <main
+        gdRows="repeat(20, [row] 1fr)"
+        gdColumns="repeat(20, [col] 1fr)"
+        [gdColumn]="settings.main.col"
+        [gdRow]="settings.main.row"
+        [style.background-image]="settings[currentSystem].background"
+    >
+        <div
+            fxLayoutAlign="center "
+            [gdColumn]="settings[currentSystem].content.col"
+            [gdRow]="settings[currentSystem].content.row"
+            [style.padding]="settings[currentSystem].padding"
+        >
+            <p-content [model]="dic.systemPage[currentSystem]" [style.width]="settings[currentSystem].width"></p-content>
+        </div>
+    </main>
+    <p-system
+        fxLayoutAlign="center end "
+        [fxHide]="currentSystem === 'bonds'"
+        [systemName]="'bonds'"
+        [gdColumn]="settings[currentSystem].bondsCol"
+        [gdRow]="settings[currentSystem].bondsRow"
+        (click)="currentSystem = 'bonds'"
+    ></p-system>
+    <p-system
+        fxLayoutAlign="center end "
+        [fxHide]="currentSystem === 'holdings'"
+        [systemName]="'holdings'"
+        [gdColumn]="settings[currentSystem].holdingsCol"
+        [gdRow]="settings[currentSystem].holdingsRow"
+        (click)="currentSystem = 'holdings'"
+    ></p-system>
+
+    <p-system
+        fxLayoutAlign="center end "
+        [fxHide]="currentSystem === 'otherSolution'"
+        [systemName]="'otherSolution'"
+        [gdColumn]="settings[currentSystem].Other_solutionCol"
+        [gdRow]="settings[currentSystem].Other_solutionRow"
+        (click)="currentSystem = 'otherSolution'"
+    ></p-system>
+    <p-system
+        fxLayoutAlign="center end "
+        [fxHide]="currentSystem === 'contact_us'"
+        [systemName]="'contact_us'"
+        [gdColumn]="settings[currentSystem].Contact_usCol"
+        [gdRow]="settings[currentSystem].Contact_usRow"
+        (click)="currentSystem = 'contact_us'"
+    ></p-system>
+    <p-system
+        fxLayoutAlign="center end "
+        [systemName]="'about_Us'"
+        [gdColumn]="settings[currentSystem].About_UsCol"
+        [gdRow]="settings[currentSystem].About_UsRow"
+        (click)="currentSystem = 'about_Us'"
+    ></p-system>
+</div>
