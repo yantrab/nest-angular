@@ -21,6 +21,6 @@ export class TadorGateway {
         })
         .join('');
         Logger.log('seq:' + data + ':' + result);
-        client.emit('testNumber', result);
+        client.emit('seq', result);
     }
 }
