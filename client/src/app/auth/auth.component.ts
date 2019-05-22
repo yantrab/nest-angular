@@ -50,6 +50,7 @@ export class AuthComponent {
         // On case that there is no changes in form
         validateAllFields(this.signinFrom);
         if (this.signinFrom.valid) {
+            //
             this.authService.signin(this.signinFrom.value).then(() => {
                 this.router.navigate(['/' + window.location.pathname.replace('signin/', 'login/'), {}]);
             });
