@@ -13,16 +13,16 @@ const clientPath = join(__dirname, '../../client/dist');
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
         AppModule,
-        // new FastifyAdapter());
-        new FastifyAdapter({
-            http2: true,
-            https: {
-                allowHTTP1: true, // fallback support for HTTP1
-                cert: readFileSync(join(__dirname, '../../../localhost.pem')),
-                key: readFileSync(join(__dirname, '../../../localhost-key.pem')),
-            },
-        }),
-    );
+        new FastifyAdapter());
+        // new FastifyAdapter({
+        //     http2: true,
+        //     https: {
+        //         allowHTTP1: true, // fallback support for HTTP1
+        //         cert: readFileSync(join(__dirname, '../../../localhost.pem')),
+        //         key: readFileSync(join(__dirname, '../../../localhost-key.pem')),
+        //     },
+        // }),
+        //);
 
     // enable cors for static angular site.
     const corsOptions = {
