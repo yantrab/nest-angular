@@ -2,7 +2,7 @@
 
 # nest-angular-starter
 This is a repo for a starter appliation for a Single Page MEAN Stack application
-includes nest js + fastify + http2 + angular 7 + angular material + client api generator.
+includes nest js + fastify + http2 + angular 8 + angular material + client api generator.
 
 ### Installation 
 ```sh
