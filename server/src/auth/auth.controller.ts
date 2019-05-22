@@ -1,5 +1,5 @@
 import { Controller, Post, Get, Body, Req, UseInterceptors } from '@nestjs/common';
-import { LoginRequest, User } from 'shared';
+import { LoginRequest, User, signinRequest } from 'shared';
 import { UserService } from 'services/user.service';
 import { LoginInterceptor, GetUserAuthenticatedInterceptor } from '../middlewares/login.middleware';
 import { ReqUser } from 'decorators/user.decorator';
@@ -13,6 +13,12 @@ export class AuthController {
     async login(@Body() user: LoginRequest): Promise<User> {
         return this.authService.validateUser(user.email, user.password);
     }
+
+    @Post('signin')
+    async signin(@Body() user: signinRequest): Promise<any> {
+        return this.authService.changePassword(user);
+    }
+
     @UseInterceptors(GetUserAuthenticatedInterceptor)
     @Get('getUserAuthenticated')
     async getUserAuthenticated(@ReqUser() user: User): Promise<User> {

@@ -3,7 +3,6 @@ import { App, User, Permission, Role } from 'shared/models';
 import { UserService } from '../services/user.service';
 import { cryptPassword, getRandomToken } from '../utils';
 import { MailerService } from '../services/mailer.service';
-
 @Controller('rest/admin')
 export class AdminController {
     constructor(private userService: UserService, private mailer: MailerService) {
@@ -36,8 +35,9 @@ export class AdminController {
             existUser.roles.push(newRole);
         }
         const result = (await this.userService.saveUser(existUser || user)) as any;
-        const token = await getRandomToken();
         if (req && (newRole || !existUser)) {
+            const token = await getRandomToken();
+            this.userService.saveUserToekn(user.email, token);
             this.mailer.send({
                 from: '"Praedicta holdings management" <app@praedicta.com>',
                 to: user.email,
@@ -45,7 +45,7 @@ export class AdminController {
                 html: `<div dir="rtl">
                             <h1>שלום</h1>
                             <h2>יש לך הרשאות עבור מערכת ${req.headers.referer.split('/')[4]}</h2>
-                            <a href="${req.headers.referer.replace('admin/', 'login/')}?token=${token}>
+                            <a href="${req.headers.referer.replace('admin/', 'signin/')}/${token}">
                                  היכנס
                             </a>
                        </div>`,

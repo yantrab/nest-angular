@@ -1,4 +1,5 @@
-import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested } from 'class-validator';
+import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested} from 'class-validator';
+import {EqualTo} from '../customValidation/equalTo'
 import { Entity } from './Entity';
 export enum App {
     admin = 'admin',
@@ -54,20 +55,27 @@ export class LoginRequest {
     }
 }
 
-// export class o {
-//     email: string;
-//     num: number;
-// }
+export class signinRequest {
+    @IsString()
+    @IsEmail()
+    email: string;
 
-// enum Color { Red, Green, Blue }
-// export class LoginRequest {
-//     email: string;
-//     num: number;
-//     numArray:number[];
-//     color: Color;
-//     bool: boolean;
-//     data: Date;
-//     obj:o;
-//     objArr:o[]
-//     optional?:string;
-// }
+    @IsString()
+    token: string;
+
+    @IsString()
+    @Length(5, 10)
+    password: string;
+
+    // @IsString()
+    // @Length(5, 10)
+    // @EqualTo('password', {
+    //     message: "סיסמה לא זהה"
+    // })
+     rePassword: string;
+
+    constructor(login?: Partial<LoginRequest>) {
+        Object.assign(this, login);
+    }
+}
+

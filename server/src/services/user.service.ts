@@ -1,10 +1,11 @@
 import { Injectable, ForbiddenException } from '@nestjs/common';
-import { User, App, hasPermission, Permission } from 'shared';
+import {User, App, hasPermission, Permission, signinRequest} from 'shared';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import { genSalt, hash, compare } from 'bcrypt';
 import * as NodeCache from 'node-cache';
 import { randomBytes } from 'crypto';
 import { ObjectId } from 'bson';
+import {cryptPassword} from '../utils';
 
 // const generateToken = (): Promise<string> =>
 //     new Promise(resolve => randomBytes(48, (err, buffer) => resolve(buffer.toString('hex'))));
@@ -17,7 +18,7 @@ const comparePassword = (plainPass, hashword) => {
 export class UserService {
     userRepo: Repository<User>;
     // remove object after 10 minute
-    private cache = new NodeCache({ stdTTL: 60 * 10 });
+    private cache = new NodeCache({ stdTTL: 60 * 60 * 12 });
 
     constructor(private repositoryFactory: RepositoryFactory) {
         this.userRepo = this.repositoryFactory.getRepository<User>(User, 'users');
@@ -58,5 +59,16 @@ export class UserService {
             .find<User>(query)
             .project({ password: 0 })
             .toArray();
+    }
+
+    saveUserToekn(email: string, token: string) {
+        this.cache.set(email, token);
+    }
+    async changePassword(user: signinRequest) {
+        const cacheToken = this.cache[user.email];
+        if (!cacheToken  || cacheToken != user.token) { throw  new ForbiddenException(); }
+        const password =  await cryptPassword(user.password);
+        await this.userRepo.collection.updateOne({email: user.email}, {password});
+        return {};
     }
 }
