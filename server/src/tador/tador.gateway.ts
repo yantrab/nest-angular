@@ -7,7 +7,7 @@ export class TadorGateway {
     testNumber(client, data) {
         const result = data.replace('test', '').trim();
         Logger.log('testNumber:' + data + ':' + result);
-        client.emit(result);
+        client.emit('testNumber', result);
     }
 
     @SubscribeMessage('seq')
@@ -21,6 +21,6 @@ export class TadorGateway {
         })
         .join('');
         Logger.log('seq:' + data + ':' + result);
-        client.emit(result);
+        client.emit('testNumber', result);
     }
 }
