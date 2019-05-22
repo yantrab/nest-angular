@@ -11,7 +11,7 @@
             <div class="logo" fxLayout.xs fxLayoutAlign.xs="space-between center">
                 <img class="predaecta" src="assets/img/praedicta-logo-temp.png" />
                 <nav fxLayoutAlign="end" fxHide.gt-xs>
-                    <span>{{ dic.sitePage.Menu }}</span>
+                    <span>{{ dic.Menu }}</span>
                     <div class="menu" fxLayout="column" fxLayoutAlign="end end">
                         <div></div>
                         <div></div>
@@ -32,14 +32,14 @@
                     <pre><p fxFlex fxHide.xs>{{ dic.sitePage.main.WhoWeare.content }} </p></pre>
                     <pre><p fxFlex fxHide.sm fxHide.md fxHide.lg >{{ dic.sitePage.main.WhoWeare.content_xs}} </p></pre>
                     <div style="width:15%">
-                        <a fxFlex href="">{{ dic.sitePage.More }} </a>
+                        <a fxFlex href="">{{ dic.More }} </a>
                     </div>
                 </div>
                 <div class="right" fxLayout="column" fxHide.lt-md>
                     <pre><span class="title">{{ dic.sitePage.main.Ourvision.title }}</span></pre>
                     <pre><p class="opacity">{{ dic.sitePage.main.Ourvision.content }} </p></pre>
                     <div style="width:15%">
-                        <a fxFlex href="">{{ dic.sitePage.More }} </a>
+                        <a fxFlex href="">{{ dic.More }} </a>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
 
         <div fxFlex="7em" fxFlex.xs="17%" class="bottom" fxLayoutAlign="end center">
             <div class="wrap_bottom" fxLayout="column" fxLayoutAlign="center center">
-                <a href="" (click)="isHide = false">{{ dic.sitePage.Our_clients }} </a>
+                <a href="" (click)="isHide = false">{{ dic.Our_clients }} </a>
                 <i class="arrow"></i>
             </div>
         </div>
@@ -62,9 +62,9 @@
         fxHide.xs
         fxLayoutAlign="start stretch"
     >
-        <div fxFlex="50" fxFlex.sm fxLayoutAlign="end center" fxLayout="column" fxFlexOrder.sm="1">
-            <span fxHide.gt-sm fxHide.lt-sm class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.Eng_Heb }}</span>
-            <span>{{ dic.sitePage.systems.Bonds }}</span>
+        <div fxFlex="50" fxFlex.sm fxLayoutAlign="end center" fxLayout="column" fxFlexOrder.sm="1" (click)="navigate('bonds')">
+            <span fxHide.gt-sm fxHide.lt-sm class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.eng_Heb }}</span>
+            <span>{{ dic.sitePage.systems.bonds }}</span>
         </div>
         <div
             fxFlex="50"
@@ -74,9 +74,9 @@
             fxLayout="column"
             fxFlexOrder.sm="3"
         >
-            <span fxHide.lt-md class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.Eng_Heb }}</span>
+            <span fxHide.lt-md class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.eng_Heb }}</span>
             <span>
-                {{ dic.sitePage.systems.Other_solution }}
+                {{ dic.sitePage.systems.otherSolution }}
             </span>
         </div>
         <div
@@ -86,16 +86,17 @@
             fxLayoutAlign.sm="center center"
             fxLayout="column"
             fxFlexOrder.sm="2"
+            (click)="navigate('holdings')"
         >
-            <span>{{ dic.sitePage.systems.Holdings }} </span>
+            <span>{{ dic.sitePage.systems.holdings }} </span>
         </div>
         <div fxFlex="50" fxFlex.sm fxLayoutAlign="start center" fxLayout="column" fxFlexOrder.sm="4">
             <div fxHide.lg style="height:75%">
-                <span>{{ dic.sitePage.systems.Contacts }}</span>
+                <span>{{ dic.sitePage.systems.contacts }}</span>
             </div>
             <div fxLayout>
                 <i class="envelope"></i>
-                <span>{{ dic.sitePage.systems.Contact_us }} </span>
+                <span>{{ dic.sitePage.systems.contact_us }} </span>
             </div>
             <div fxHide.lt-md class="envelope-icon" fxLayoutAlign="center center">
                 <i class="envelope"></i>

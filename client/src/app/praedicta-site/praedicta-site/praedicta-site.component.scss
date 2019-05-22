@@ -1,12 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins);
-@import url(https://fonts.googleapis.com/css?family=Rubik);
-
-//TODO הגדלתי ב 1 רק ככה זה עושה מה שבמדיה??????
-$small-screen: 376px;
-$medium-screen: 768px;
-$large-screen: 1439px;
-$font-family: Poppins;
-
+@import '../site.component';
 @mixin radial-gradient($weight, $height, $start: 8em, $end: 11em) {
     background: radial-gradient(
             circle at $weight $height,
@@ -42,6 +34,7 @@ $font-family: Poppins;
         left: $left;
         right: $right;
         bottom: $bottom;
+        overflow: hidden;
     }
 }
 
@@ -65,7 +58,7 @@ $font-family: Poppins;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 4px;
-    padding: 5px;
+
     &::before,
     &::after {
         border-bottom: 2px solid $color;
@@ -112,13 +105,6 @@ $font-family: Poppins;
 
     * {
         box-sizing: border-box;
-    }
-
-    .en-he {
-        cursor: pointer;
-        position: absolute;
-        top: 0;
-        padding: 3em 0;
     }
 
     main {
@@ -422,6 +408,7 @@ $font-family: Poppins;
     &[dir='rtl'] .left {
         span {
             &.title {
+                overflow: visible;
                 @include circle(327px, 327px !important, $top: -157px !important, $left: -134px, $right: -119px !important);
                 @media (max-width: $small-screen) {
                     @include circle(327px, 327px !important, $top: -227px !important, $right: -188px !important);
