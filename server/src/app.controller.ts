@@ -19,6 +19,11 @@ export class AppController {
         res.sendFile('index.html');
     }
 
+    @Get('admin/macro')
+    async adminMacro(@Res() res) {
+        res.sendFile('index.html');
+    }
+
     @Get('test')
     async test() {
         return {};
