@@ -1,6 +1,6 @@
 import { createServer } from 'net';
 const port = 3000;
-const host = '127.0.0.1';
+const host = '0.0.0.0';
 
 const server = createServer();
 server.listen(port, host, () => {
