@@ -17,7 +17,6 @@ server.on('connection', sock => {
         switch (action) {
             case 1: {
                 result = data.replace('test', '').trim();
-                sock.write(result);
                 break;
             }
             case 2: {

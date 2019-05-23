@@ -5,8 +5,8 @@ const host = '128.199.41.162';
 
 client.connect(port, host, function() {
     console.log('Connected');
-    client.write('1test 123456789');
-    // client.write('2123456');
+    // client.write('1test 123456789');
+    client.write('2123456');
 });
 
 client.on('data', function(data) {
