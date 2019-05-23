@@ -13,16 +13,16 @@ const clientPath = join(__dirname, '../../client/dist');
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
         AppModule,
-        new FastifyAdapter());
-        // new FastifyAdapter({
-        //     http2: true,
-        //     https: {
-        //         allowHTTP1: true, // fallback support for HTTP1
-        //         cert: readFileSync(join(__dirname, '../../../localhost.pem')),
-        //         key: readFileSync(join(__dirname, '../../../localhost-key.pem')),
-        //     },
-        // }),
-        //);
+        // new FastifyAdapter());
+        new FastifyAdapter({
+            http2: true,
+            https: {
+                allowHTTP1: true, // fallback support for HTTP1
+                cert: readFileSync(join(__dirname, '../../../localhost.pem')),
+                key: readFileSync(join(__dirname, '../../../localhost-key.pem')),
+            },
+        }),
+        );
 
     // enable cors for static angular site.
     const corsOptions = {
@@ -55,7 +55,11 @@ async function bootstrap() {
     app.register(require('fastify-cookie'));
 
     // validate types and extra
-    app.useGlobalPipes(new ValidationPipe({ forbidUnknownValues: true }));
+    app.useGlobalPipes(new ValidationPipe({
+        whitelist: true, // i supose this creates a white list with properties
+            forbidNonWhitelisted: true, // i supose this restrict by white list criteria
+            forbidUnknownValues: true, // i dont know why exists
+    }));
 
     // app.useGlobalInterceptors(new AuthorizeInterceptor(app.select(AuthModule).get(UserService)));
 

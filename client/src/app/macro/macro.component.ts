@@ -5,12 +5,11 @@ import { MacroController } from 'src/api/macro.controller';
 import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
 import { I18nService } from '../shared/services/i18n.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { keyBy, first, last } from 'lodash';
+import { keyBy, first, last, groupBy } from 'lodash';
 import { DatePipe } from '@angular/common';
 import { XLSXService } from '../shared/services/xlsx.service';
 import { AutocompleteFilter } from 'shared';
 export const NEW = ' (Create new) ';
-import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocomplete.component';
 
 @Component({
     selector: 'p-macro',
@@ -69,14 +68,6 @@ export class MacroComponent {
     };
     selectedSeries = {};
 
-    filterFn = (options: any[], query: string) => {
-        query = query.trim();
-        if (query && !this.seriesGroupsSettings.options.find(f => f.name === query)) {
-            return [new SeriesGroup({ name: query + NEW })].concat(filterFn(options, query));
-        }
-        return filterFn(options, query);
-    }
-
     @HostListener('window:beforeunload', ['$event']) unloadHandler() {
         this.api.saveUserSettings(this.userSettings).then();
     }
@@ -106,30 +97,29 @@ export class MacroComponent {
         };
         const transform = date => new DatePipe('en').transform(date, 'dd.MM.yyyy');
         this.api.getData(formData).then(result => {
-            const dic = keyBy(result, r => r.sId);
+            const types = ['יומי', 'שבועי', 'חודשי', 'רבעוני', 'שנתי'];
             const sheets = [];
             const names: string[] = [];
-            this.currentTemplate.seriesIds.forEach(sID => {
-                const excelData: any = {};
-                if (!dic[sID] || !dic[sID].data || !dic[sID].data.length) {
+            const groupByUnitType = groupBy(result, s => this.seriesDic[s.sId].hebTypeName);
+            types.forEach(type => {
+                const serias = groupByUnitType[type];
+                if (!serias) {
                     return;
                 }
-                const s = this.allSeries.find(s => s.sId === sID);
-                const sData = dic[sID].data;
-                excelData.rows = sData.map(d => ({
-                    תאריך: transform(d.timeStamp),
-                    ערך: d.value,
-                }));
-                excelData.description = {};
-                excelData.description['סדרה:'] = s;
-                excelData.description['שם הסדרה'] = s.name;
-                excelData.description['סוג נתונים:'] = s.hebTypeName;
-                // excelData.description['מקור:'] = s.sourceEnName;
-                excelData.description['יחידות:'] = s.unitEnName;
-                excelData.description['תאריך ראשון:'] = transform(first(sData).timeStamp);
-                excelData.description['תאריך אחרון:'] = transform(last(sData).timeStamp);
+                const all = {};
+                serias.forEach(s => {
+                    s.data.forEach(d => {
+                        if (!all[d.timeStamp]) {
+                            all[d.timeStamp] = {};
+                            serias.forEach(s => (all[d.timeStamp][s.sId] = ''));
+                        }
+                        all[d.timeStamp][s.sId] = d.value;
+                    });
+                });
+                const excelData: any = {};
+                excelData.rows = Object.keys(all).map(d => Object.assign({}, { תאריך: new Date(+d) }, all[d]));
                 sheets.push(excelData);
-                names.push(s.sId);
+                names.push(type);
             });
             if (sheets.length) {
                 this.xslService.export(sheets, names, 'macro.xlsx');
@@ -138,7 +128,7 @@ export class MacroComponent {
     }
 
     filterSelected(seriesGroup: SeriesGroup) {
-        if (seriesGroup.isNew) {
+        if (!seriesGroup.seriesIds) {
             // seriesGroup.id = this.seriesGroupsSettings.options.length.toString();
             seriesGroup.seriesIds = [];
             seriesGroup.name = seriesGroup.name.replace(NEW, '');

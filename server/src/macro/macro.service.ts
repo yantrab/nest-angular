@@ -83,6 +83,7 @@ export class MacroService {
             }
         });
     }
+
     private async updateCategoriesAndSeries() {
         const getChildren = (categories, category) => {
             const children = categories.filter(
@@ -94,7 +95,6 @@ export class MacroService {
             children.forEach(child => (child.children = getChildren(categories, child)));
             return children;
         };
-
         return new Promise(async (resolve, reject) => {
             const pool = new sql.ConnectionPool(macroConf.db);
             try {

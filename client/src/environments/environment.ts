@@ -5,6 +5,7 @@
 export const environment = {
     production: false,
     inBrowser: true,
+    apiUrl: 'https://localhost:3000',
 };
 
 /*

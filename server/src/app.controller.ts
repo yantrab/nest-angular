@@ -10,6 +10,11 @@ export class AppController {
     async praedicta(@Res() res) {
         res.sendFile('index.html');
     }
+
+    @Get('signin/*')
+    async signin(@Res() res) {
+        res.sendFile('index.html');
+    }
     @Get('login')
     async login(@Res() res) {
         res.sendFile('index.html');

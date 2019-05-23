@@ -6,7 +6,7 @@ export class XLSXData {
     description?: {};
     title?: string;
 }
-type AOA = Array<Array<any>>;
+type AOA = any[][];
 @Injectable()
 export class XLSXService {
     constructor() {}
@@ -33,15 +33,15 @@ export class XLSXService {
                     colsWidth[i] = { wpx: 70 };
                     return;
                 }
-                const items = data.rows.map(r => r[key].toString());
+                const items = data.rows.map(r => r[key] ?  r[key].toString()  : '');
                 items.push(key);
                 const maxStrLength = items.reduce((a, b) =>
-                    a.length > b.length ? a : b
+                    a.length > b.length ? a : b,
                 ).length;
                 colsWidth[i] = { wch: maxStrLength + 1 };
             });
 
-            const aoa: AOA = new Array<Array<any>>(); // = _.keys(data.rows[0]).concat(['','','','','','',])
+            const aoa: AOA = new Array<any[]>(); // = _.keys(data.rows[0]).concat(['','','','','','',])
             const merges = [];
             if (data.title) {
                 aoa.push([data.title]);
@@ -51,7 +51,7 @@ export class XLSXService {
             aoa.push(
                 Object.keys(data.rows[0])
                     .map(key => key)
-                    .concat(['', '', '', '', '', ''])
+                    .concat(['', '', '', '', '', '']),
             );
             data.rows.forEach((v, i) => {
                 aoa.push(
@@ -62,7 +62,7 @@ export class XLSXService {
                         '',
                         '',
                         '',
-                    ])
+                    ]),
                 );
             });
             if (data.description) {

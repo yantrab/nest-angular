@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { UserFilter, AutocompleteFilter, Fund } from 'shared';
-import { filterFn } from 'src/app/shared/components/filters/autocomplete/autocomplete.component';
 import { MfService, NEW } from '../mf.service';
 import { ColumnDef } from 'mat-virtual-table';
 @Component({
@@ -23,32 +22,19 @@ export class PolyComponent {
             this.userFiltersSettings = Object.assign(
                 {},
                 this.userFiltersSettings,
-                { options: [...userFilters] }
+                { options: [...userFilters] },
             );
             this.mfService.selectedFilter.subscribe(selected => {
                 this.userFiltersSettings = Object.assign(
                     {},
                     this.userFiltersSettings,
-                    { selected }
+                    { selected },
                 );
             });
         });
         this.mfService.funds.subscribe(funds => {
             this.funds = funds;
         });
-    }
-
-    filterFn = (options: any[], query: string) => {
-        query = query.trim();
-        if (
-            query &&
-            !this.userFiltersSettings.options.find(f => f.name === query)
-        ) {
-            return [{ name: query + NEW } as UserFilter].concat(
-                filterFn(options, query)
-            );
-        }
-        return filterFn(options, query);
     }
 
     filterSelected(userFilter: UserFilter) {

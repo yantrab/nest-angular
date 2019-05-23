@@ -7,6 +7,6 @@ import { ITopBarModel } from './topbar.interface';
     styleUrls: ['./topbar.component.scss'],
 })
 export class TopbarComponent {
-    @Input()
-    model: ITopBarModel;
+    @Input() model: ITopBarModel;
+    @Input() inProgress;
 }
