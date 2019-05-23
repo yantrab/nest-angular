@@ -13,7 +13,8 @@ export class InterceptorsService implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        const proxyReq = req.clone({ url: `https://localhost:3000/${req.url}` });
+        const proxyReq = req.clone({ url: `http://128.199.41.162:3000/${req.url}` });
+        // const proxyReq = req.clone({ url: `https://localhost:3000/${req.url}` });
         // const proxyReq = req.clone({ url: `https://arkadiy-8:3000/${req.url}` });
         return next.handle(proxyReq);
     }

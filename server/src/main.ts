@@ -13,16 +13,16 @@ const clientPath = join(__dirname, '../../client/dist');
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
         AppModule,
-        // new FastifyAdapter());
-        new FastifyAdapter({
-            http2: true,
-            https: {
-                allowHTTP1: true, // fallback support for HTTP1
-                cert: readFileSync(join(__dirname, '../../../localhost.pem')),
-                key: readFileSync(join(__dirname, '../../../localhost-key.pem')),
-            },
-        }),
-    );
+        new FastifyAdapter());
+        // new FastifyAdapter({
+        //     http2: true,
+        //     https: {
+        //         allowHTTP1: true, // fallback support for HTTP1
+        //         cert: readFileSync(join(__dirname, '../../../localhost.pem')),
+        //         key: readFileSync(join(__dirname, '../../../localhost-key.pem')),
+        //     },
+        // }),
+        //);
 
     // enable cors for static angular site.
     const corsOptions = {
@@ -32,6 +32,11 @@ async function bootstrap() {
             'https://praedicta-2b6a3.firebaseapp.com',
             'https://arkadiy-8',
             'https://192.168.200.201',
+            'http://localhost:3000',
+            'http://localhost:4200',
+            'http://praedicta-2b6a3.firebaseapp.com',
+            'http://arkadiy-8',
+            'http://192.168.200.201',
         ],
         optionsSuccessStatus: 200,
         credentials: true,
