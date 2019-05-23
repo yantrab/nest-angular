@@ -4,6 +4,7 @@
     <list default="true" id="735cf557-6029-4ed1-918b-61a46423a02a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../client/src/app/admin/admin/edit-user/edit-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/admin/admin/edit-user/edit-user.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/auth/auth.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/app/webRTC/webRTC.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/app/webRTC/webRTC.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/macro/macro.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/macro/macro.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.service.ts" afterDir="false" />
@@ -255,16 +256,15 @@
       <workItem from="1558250192865" duration="738000" />
       <workItem from="1558278777278" duration="3710000" />
       <workItem from="1558353855716" duration="6650000" />
-      <workItem from="1558503500859" duration="15370000" />
+      <workItem from="1558503500859" duration="15969000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43045000" />
+    <option name="totallyTimeSpent" value="43644000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8388106" visible="true" weight="0.19125395" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
