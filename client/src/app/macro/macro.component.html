@@ -1,5 +1,5 @@
 <div [dir]="i18nService.dir">
-    <p-topbar [model]="topbarModel"></p-topbar>
+    <p-topbar [model]="topbarModel" [inProgress]="!currentTemplate"></p-topbar>
     <div class="content" *ngIf="currentTemplate">
         <mat-grid-list gutterSize="10px" cols="5" rowHeight="fit">
             <mat-grid-tile colspan="1">
@@ -10,7 +10,7 @@
                             *ngIf="seriesGroupsSettings"
                             (selectedChange)="filterSelected($event)"
                             [settings]="seriesGroupsSettings"
-                            [filterFn]="filterFn"
+                            [freeText]="true"
                         ></p-autocomplete>
                     </div>
                     <div fxFlex>
@@ -27,7 +27,6 @@
                         <form [formGroup]="dateForm">
                             <mat-form-field>
                                 <input matInput placeholder="Choose a date" [satDatepicker]="picker4" formControlName="date" />
-
                                 <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year"> </sat-datepicker>
                                 <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>
                             </mat-form-field>
@@ -57,7 +56,7 @@
                         <ng-template pCellDef column="select" let-row="row">
                             <mat-checkbox
                                 (change)="onSelectSeries($event.checked, row)"
-                                [checked]="selectedSeries[row._id]"
+                                [checked]="selectedSeries[row.sId]"
                             ></mat-checkbox>
                         </ng-template>
 

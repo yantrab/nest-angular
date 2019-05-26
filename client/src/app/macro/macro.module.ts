@@ -15,6 +15,6 @@ import { MacroComponent } from './macro.component';
             },
         ]),
     ],
-    providers: [MacroController,  { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }],
+    providers: [MacroController, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }],
 })
 export class MacroModule {}
