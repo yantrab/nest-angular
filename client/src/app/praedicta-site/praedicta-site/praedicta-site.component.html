@@ -9,7 +9,7 @@
     <main fxFlex fxLayout="column">
         <div fxFlex="22" fxFlex.sm="15" fxLayoutAlign.xs="center" fxLayoutAlign="end center">
             <div class="logo" fxLayout.xs fxLayoutAlign.xs="space-between center">
-                <img class="predaecta" src="assets/img/praedicta-logo-temp.png" />
+                <img class="praedicta" src="assets/img/praedicta-logo-temp.png" />
                 <nav fxLayoutAlign="end" fxHide.gt-xs>
                     <span>{{ dic.Menu }}</span>
                     <div class="menu" fxLayout="column" fxLayoutAlign="end end">
@@ -105,6 +105,22 @@
     </div>
 </div>
 
-<div class="our-clients" [ngClass]="{ open: isHide == false }">
+<div fxLayout="column" fxLayoutAlign="center center" Layout class="our-clients" [ngClass]="{ open: isHide == false }">
     <span (click)="isHide = true">X</span>
+    <span class="Our_clients">{{ dic.Our_clients }} </span>
+    <div>
+        <img src="assets/img/client/logo-entropy.png" />
+        <img src="assets/img/client/logo-ayzenberg.png" />
+        <img src="assets/img/client/logo-migdal.png" />
+        <img src="assets/img/client/logo-poalim.png" />
+        <img src="assets/img/client/logo-alumot.png" />
+        <img src="assets/img/client/logo-union.png" />
+        <img src="assets/img/client/logo-ubank.png" />
+        <img src="assets/img/client/logo-midroog.png" />
+        <img src="assets/img/client/logo-more.png" />
+        <img src="assets/img/client/logo-discont.png" />
+        <img src="assets/img/client/logo-dun&bradstreet.png" />
+        <img src="assets/img/client/logo-mizrachi.png" />
+        <img src="assets/img/client/logo-israel.png" />
+    </div>
 </div>

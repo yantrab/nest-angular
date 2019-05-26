@@ -4,6 +4,9 @@
         <div class="envelope-icon" fxLayoutAlign="center center">
             <i class="envelope"></i>
         </div>
+        <div fxLayoutAlign="center center">
+            <img gdArea="" class="praedicta" src="assets/img/praedicta-logo-temp.png" />
+        </div>
     </div>
     <main
         gdRows="repeat(20, [row] 1fr)"
@@ -18,7 +21,11 @@
             [gdRow]="settings[currentSystem].content.row"
             [style.padding]="settings[currentSystem].padding"
         >
-            <p-content [model]="dic.systemPage[currentSystem]" [style.width]="settings[currentSystem].width"></p-content>
+            <p-content
+                [currentSystem]="currentSystem"
+                [model]="dic.systemPage[currentSystem]"
+                [style.width]="settings[currentSystem].width"
+            ></p-content>
         </div>
     </main>
     <p-system
@@ -28,6 +35,7 @@
         [gdColumn]="settings[currentSystem].bondsCol"
         [gdRow]="settings[currentSystem].bondsRow"
         (click)="currentSystem = 'bonds'"
+        (click)="navigate('bonds')"
     ></p-system>
     <p-system
         fxLayoutAlign="center end "
@@ -36,15 +44,17 @@
         [gdColumn]="settings[currentSystem].holdingsCol"
         [gdRow]="settings[currentSystem].holdingsRow"
         (click)="currentSystem = 'holdings'"
+        (click)="navigate('holdings')"
     ></p-system>
 
     <p-system
         fxLayoutAlign="center end "
         [fxHide]="currentSystem === 'otherSolution'"
         [systemName]="'otherSolution'"
-        [gdColumn]="settings[currentSystem].Other_solutionCol"
-        [gdRow]="settings[currentSystem].Other_solutionRow"
+        [gdColumn]="settings[currentSystem].otherSolutionCol"
+        [gdRow]="settings[currentSystem].otherSolutionRow"
         (click)="currentSystem = 'otherSolution'"
+        (click)="navigate('otherSolution')"
     ></p-system>
     <p-system
         fxLayoutAlign="center end "
