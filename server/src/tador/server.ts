@@ -1,7 +1,7 @@
 import { createServer } from 'net';
 const port = 3000;
 const host = '0.0.0.0';
-
+let temp = '';
 const server = createServer();
 server.listen(port, host, () => {
     console.log('TCP Server is running on port ' + port + '.');
@@ -31,6 +31,33 @@ server.on('connection', sock => {
                     })
                     .join('');
 
+                break;
+            }
+
+            case 3: {
+                result = '';
+                for (let i = 1; i <= +data; i++) {
+                    for (let j = 0; j < 512; j++) {
+                        result += ('0' + i).slice(-2);
+                    }
+                }
+                break;
+            }
+            case 4: {
+                result = data;
+                temp += result;
+                break;
+            }
+            case 5: {
+                if (data === '00000') {
+                    temp = '';
+                    result = 'reset';
+                } else {
+                    result = temp.slice(0, +data);
+                    for (let i = result.length; i < +data; i++) {
+                        result += '-';
+                    }
+                }
                 break;
             }
 
