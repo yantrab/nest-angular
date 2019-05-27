@@ -23,10 +23,13 @@ export abstract class Filter extends Poly {
         throw new Error('not implemented');
     }
     createOptions(items) {
-        this.options = uniqBy(items.map(item => ({
-            _id: get(item, this.optionIdPath),
-            name: get(item, this.optionNamePath),
-        })), '_id');
+        this.options = uniqBy(
+            items.map(item => ({
+                _id: get(item, this.optionIdPath),
+                name: get(item, this.optionNamePath),
+            })),
+            '_id',
+        );
     }
 }
 
@@ -68,7 +71,7 @@ export class UserFilter extends Entity {
     @IsBoolean()
     isDefualt?: boolean;
 
-    constructor(props: UserFilter) {
+    constructor(props: Partial<UserFilter>) {
         super(props);
         this.filterGroups = props.filterGroups.map(g => new FilterGroup(g));
     }

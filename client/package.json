@@ -20,7 +20,7 @@
         "e2e": "ng e2e",
         "flogin": "firebase login",
         "fdeploy": "firebase deploy",
-        "deploy": "npm run build:prod && npm run fdeploy"
+        "deploy-dev": "npm run build:dev && npm run fdeploy"
     },
     "private": true,
     "dependencies": {
