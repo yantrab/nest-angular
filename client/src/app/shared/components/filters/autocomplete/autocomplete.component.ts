@@ -88,7 +88,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
 
     ngAfterViewInit() {
         if (this.keepOpen) {
-            this.inputAutocomplete.openPanel();
+            setTimeout(() =>this.inputAutocomplete.openPanel(), 1)
         }
     }
 

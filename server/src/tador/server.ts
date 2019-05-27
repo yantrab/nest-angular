@@ -14,7 +14,7 @@ server.on('connection', sock => {
         const action = +msgString[0];
         const data = msgString.slice(1);
         console.log('data:' + data);
-        let result;
+        let result = '';
         console.log('action:' + action);
         switch (action) {
             case 1: {
@@ -59,6 +59,14 @@ server.on('connection', sock => {
                     for (let i = result.length; i < +data; i++) {
                         result += '-';
                     }
+                }
+                break;
+            }
+            case 6: {
+                const start = +data.slice(0, 3);
+                const end = +data.slice(-3);
+                for (let i = start; i <= end; i++) {
+                    result += String.fromCharCode(i);
                 }
                 break;
             }

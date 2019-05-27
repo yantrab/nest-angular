@@ -2,10 +2,11 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {ComponentsModule} from '../shared/components/components.module';
 import {TadorController} from 'src/api/tador.controller';
-import {IntercomConfComponent} from "./intercom-conf/intercom-conf.component";
+import { IntercomConfComponent} from './intercom-conf/intercom-conf.component';
+import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
 
 @NgModule({
-    declarations: [IntercomConfComponent],
+    declarations: [IntercomConfComponent, ContactsComponent],
     imports: [
         ComponentsModule,
         RouterModule.forChild([
