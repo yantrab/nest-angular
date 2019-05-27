@@ -6,6 +6,11 @@ export class AppController {
     async root(@Res() res) {
         res.sendFile('index.html');
     }
+
+    @Get('mf')
+    async mf(@Res() res) {
+        res.sendFile('index.html');
+    }
     @Get('praedicta')
     async praedicta(@Res() res) {
         res.sendFile('index.html');

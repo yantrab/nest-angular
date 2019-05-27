@@ -12,6 +12,6 @@ import { AppController } from 'app.controller';
 })
 export class AppModule {
     configure(consumer: MiddlewareConsumer): void {
-        consumer.apply(CompressionMiddleware).forRoutes('*');
+        consumer.apply(CompressionMiddleware).forRoutes('*rest*');
     }
 }
