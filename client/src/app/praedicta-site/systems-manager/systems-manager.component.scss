@@ -5,10 +5,21 @@
 
     p-system {
         background-color: white;
+        :hover {
+        }
     }
     .praedicta {
         position: absolute;
         top: 5%;
         left: 50%;
     }
+}
+.aaa {
+    width: 719px;
+    height: 206px;
+    opacity: 0.04;
+    fill: #70a1ff;
+}
+.z {
+    z-index: 999;
 }

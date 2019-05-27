@@ -18,7 +18,7 @@ export class SystemsManagerComponent implements OnInit {
                 col: '5/14',
                 row: '5',
             },
-
+            hoverbackground: '#f8eeeb',
             background: 'linear-gradient(to bottom, #2c8385, #006a6c)',
             holdingsCol: '5',
             holdingsRow: '2',

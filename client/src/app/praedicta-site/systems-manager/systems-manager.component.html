@@ -1,10 +1,19 @@
 <div class="container" gdRows="repeat(2, [row] 1fr)" gdColumns="repeat(6, [col] 1fr)" *ngIf="dic" [dir]="i18nService.dir">
-    <div fxLayoutAlign="center end ">
+    <div gdArea="1/3" class="z">
+        <span clsss="aaa">B</span>
+        <span clsss="aaa">o</span>
+        <span clsss="aaa">n</span>
+        <span clsss="aaa">d</span>
+        <span clsss="aaa">s</span>
+    </div>
+    <div gdArea="1/6" fxLayoutAlign="center end ">
         <span class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.eng_Heb }}</span>
         <div class="envelope-icon" fxLayoutAlign="center center">
             <i class="envelope"></i>
         </div>
-        <div fxLayoutAlign="center center">
+    </div>
+    <div gdArea="2/6" fxLayoutAlign="center center">
+        <div>
             <img gdArea="" class="praedicta" src="assets/img/praedicta-logo-temp.png" />
         </div>
     </div>
@@ -36,6 +45,7 @@
         [gdRow]="settings[currentSystem].bondsRow"
         (click)="currentSystem = 'bonds'"
         (click)="navigate('bonds')"
+        (hover)="(settings[currentSystem].hoverbackground)"
     ></p-system>
     <p-system
         fxLayoutAlign="center end "

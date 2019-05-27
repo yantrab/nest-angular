@@ -14,8 +14,8 @@ export class ContentComponent implements OnInit {
     constructor(public i18nService: I18nService) {
         this.settings = {
             holdings: { padding: '0 0 0 9em' },
-            bonds: { padding: '0 0 0 3em' },
-            otherSolution: { padding: '0 0 0 3em' },
+            bonds: { padding: '0 0 0 6em' },
+            otherSolution: { padding: '0 0 0 6em' },
         };
     }
 
