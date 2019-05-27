@@ -49,7 +49,6 @@ const modules = [
 ];
 
 export class MyDateAdapter extends MomentDateAdapter {
-    private datePipe = new DatePipe(this.locale);
     format(date, displayFormat: string): string {
         return date.format('DD/MM/YYYY');
     }

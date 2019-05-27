@@ -6,7 +6,13 @@ const host = '128.199.41.162';
 client.connect(port, host, function() {
     console.log('Connected');
     // client.write('1test 123456789');
-    client.write('2123456');
+    // client.write('2123456');
+    // client.write('305');
+    setTimeout(() => client.write('412'), 1000);
+    // setTimeout(() => client.write('434'), 1000);
+    // setTimeout(() => client.write('510'), 1000);
+    //  setTimeout(() => client.write('533'), 1000);
+    // setTimeout(() => client.write('5100'), 1000);
 });
 
 client.on('data', function(data) {
