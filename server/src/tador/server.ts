@@ -13,7 +13,9 @@ server.on('connection', sock => {
         console.log('DATA ' + sock.remoteAddress + ': ' + msgString);
         const action = +msgString[0];
         const data = msgString.slice(1);
+        console.log('data:' + data);
         let result;
+        console.log('action:' + action);
         switch (action) {
             case 1: {
                 result = data.replace('test', '').trim();
