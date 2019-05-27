@@ -9,7 +9,10 @@
                     [freeText]="true"
                 ></p-autocomplete>
                 <mat-slide-toggle>advanced view</mat-slide-toggle>
-                <p-filters></p-filters>
+                <p-filters
+                    (selectedChange)="mfService.filterChanged()"
+                    [groups]="userFiltersSettings.selected?.filterGroups"
+                ></p-filters>
             </div>
         </mat-grid-tile>
 
@@ -17,8 +20,9 @@
             <mat-tab-group #tabGroup mat-stretch-tabs fxFlex="100">
                 <mat-tab label="Grid"> Content 1 </mat-tab>
                 <mat-tab label="Table">
-                    <mat-virtual-table *ngIf="funds && tabGroup.selectedIndex === 1" [rows]="funds" [columnsDef]="fundColumns">
-                    </mat-virtual-table>
+                    <ng-template matTabContent>
+                        <mat-virtual-table [paginator]="true" [rows]="funds" [columnsDef]="fundColumns"> </mat-virtual-table>
+                    </ng-template>
                 </mat-tab>
                 <mat-tab label="Charts"> Content 3 </mat-tab>
             </mat-tab-group>

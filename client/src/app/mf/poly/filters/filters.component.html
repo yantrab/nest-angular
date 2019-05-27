@@ -1,18 +1,14 @@
 <mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-checkbox (click)="$event.stopPropagation()"> Personal data </mat-checkbox>
-    </mat-expansion-panel-header>
+    <mat-expansion-panel *ngFor="let group of groups">
+        <mat-expansion-panel-header>
+            <mat-checkbox (click)="$event.stopPropagation()"> {{ group.name }} </mat-checkbox>
+        </mat-expansion-panel-header>
 
-    <mat-form-field>
-      <input matInput placeholder="First name">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Age">
-    </mat-form-field>
-  </mat-expansion-panel>
-  <!-- <mat-expansion-panel (opened)="panelOpenState = true"
+        <ng-container *ngFor="let filter of group.filters">
+            <p-filter (selectedChange)="selectedChange.emit()" [filter]="filter"> </p-filter>
+        </ng-container>
+    </mat-expansion-panel>
+    <!-- <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>

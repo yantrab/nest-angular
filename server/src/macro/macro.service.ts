@@ -6,7 +6,6 @@ import { Category, Series, Data, DataRequest, DataItem, UserSettings } from 'sha
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import { pathBySelector } from 'shared/utils';
 import { categoriesQuery } from './queries';
-import { chunk } from 'lodash';
 @Injectable()
 export class MacroService {
     private readonly logger = new Logger('DataService');

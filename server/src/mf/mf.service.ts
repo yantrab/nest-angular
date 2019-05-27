@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MFSettings, UserSettings, UserFilter } from 'shared';
+import { MFSettings, UserSettings, UserFilter, FilterGroup } from 'shared';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 @Injectable()
 export class MFService {
@@ -8,12 +8,29 @@ export class MFService {
     constructor(private repositoryFactory: RepositoryFactory) {
         this.mfSettingsRepo = this.repositoryFactory.getRepository<MFSettings>(MFSettings, 'DBMF');
         this.mfUserSettingsRepo = this.repositoryFactory.getRepository<UserSettings>(UserSettings, 'DBMF');
-        this.mfSettingsRepo.saveOrUpdateOne({
-            defaultUserFilter: new UserFilter({
-                filterGroups: [],
-                name: 'Default',
-                isDefualt: true,
-            }),
+        this.mfSettingsRepo.findOne().then(data => {
+            if (!data) {
+                this.mfSettingsRepo.saveOrUpdateOne({
+                    defaultUserFilter: new UserFilter({
+                        filterGroups: [
+                            {
+                                name: 'General',
+                                filters: [
+                                    {
+                                        kind: 'AutocompleteFilter',
+                                        optionIdPath: 'trusteeID',
+                                        optionNamePath: 'trusteeName',
+                                        placeholder: 'trustee',
+                                    },
+                                ],
+                            } as FilterGroup,
+                        ],
+                        name: 'Default',
+                        isDefualt: true,
+                    }),
+                    tableSettings: { columns: ['id', 'name', 'symbol'] },
+                });
+            }
         });
 
         //   this.mfUserSettingsRepo.saveOrUpdateOne({

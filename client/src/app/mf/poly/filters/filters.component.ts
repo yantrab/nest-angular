@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FilterGroup } from 'shared/models';
 
 @Component({
     selector: 'p-filters',
@@ -7,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
     constructor() {}
-
+    @Output() selectedChange = new EventEmitter();
+    @Input() groups: FilterGroup[];
     ngOnInit() {}
-    update(e) {
-        e.stopPropagation();
-    }
 }

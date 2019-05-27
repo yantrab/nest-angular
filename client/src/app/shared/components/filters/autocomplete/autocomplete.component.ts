@@ -26,7 +26,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
             return result;
         }
         return [{ name: query + NEW } as UserFilter].concat(result);
-    }
+    };
 
     @Input() appearance = 'outline';
     @Input() paths: string[] = ['name', '_id'];
@@ -35,7 +35,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     @ViewChild(MatAutocompleteTrigger) inputAutocomplete: MatAutocompleteTrigger;
     @Input() displayFn = val => {
         return val ? val.name : '';
-    }
+    };
 
     private queries = [];
     private filter = (value: any): string[] => {
@@ -44,7 +44,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         }
         const filterValue = ' ' + value.toLowerCase();
         return this.filterFn(filterValue);
-    }
+    };
 
     onSettingsChange(settings) {
         this.settings.options.forEach(option => {

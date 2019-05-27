@@ -16,7 +16,7 @@ export class PolyComponent {
         selected: {},
     });
     funds;
-    fundColumns: ColumnDef[] = [{ field: '_id', title: 'מספר קופה' }];
+    fundColumns: ColumnDef[]; // = [{ field: '_id', title: 'מספר קופה' }];
     constructor(private mfService: MfService) {
         this.mfService.userFilters.subscribe(userFilters => {
             this.userFiltersSettings = Object.assign(
@@ -35,9 +35,13 @@ export class PolyComponent {
         this.mfService.funds.subscribe(funds => {
             this.funds = funds;
         });
+        this.mfService.settings.subscribe(s => {
+            this.fundColumns = s.tableSettings.columns.map(c => ({ field: c, title: c }));
+        });
     }
 
-    filterSelected(userFilter: UserFilter) {
+filterSelected(userFilter: UserFilter) {
         this.mfService.setSelectedUserFilter(userFilter);
     }
 }
+
