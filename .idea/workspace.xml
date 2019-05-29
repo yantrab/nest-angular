@@ -1,46 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="mf">
-      <change afterPath="$PROJECT_DIR$/client/src/assets/i18n/mf/en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/i18n/mf/he.json" afterDir="false" />
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/dumy/dumy.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/mf.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/mf.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/mf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/mf.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/mf.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/mf.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/mf.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/mf.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/poly/filters/filters.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/poly/filters/filters.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/poly/filters/filters.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/poly/filters/filters.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/poly/poly.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/poly/poly.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/poly/poly.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/poly/poly.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/components.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/components.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/base.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/base.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/filter-group/filter-group.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/filter-group/filter-group.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/filter-group/filter-group.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/filter-group/filter-group.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/filter/filter.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/filter/filter.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/nav-menu/menu.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/nav-menu/menu.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/generator/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/mf/mf.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/mf/mf.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/mf/mf.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/mf/mf.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/filter.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/filter.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/mf.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/mf.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utils.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -56,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="25" column="85" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
+            <state relative-caret-position="225">
+              <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
               <folding>
                 <element signature="e#0#61#0" expanded="true" />
               </folding>
@@ -370,7 +332,7 @@
       <workItem from="1558274437240" duration="1806000" />
       <workItem from="1558937196340" duration="35916000" />
       <workItem from="1559054498935" duration="12761000" />
-      <workItem from="1559117526247" duration="2386000" />
+      <workItem from="1559117526247" duration="3016000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -414,14 +376,22 @@
       <option name="project" value="LOCAL" />
       <updated>1558964631393</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="mf">
+      <created>1559124086194</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1559124086194</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59096000" />
+    <option name="totallyTimeSpent" value="59726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8764045" visible="true" weight="0.1975764" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -869,8 +839,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="25" column="85" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
+        <state relative-caret-position="225">
+          <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
           <folding>
             <element signature="e#0#61#0" expanded="true" />
           </folding>
