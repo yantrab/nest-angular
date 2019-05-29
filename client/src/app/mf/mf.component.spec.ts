@@ -4,7 +4,7 @@ import { MFComponent } from './mf.component';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../shared/components/components.module';
 import { RouterModule } from '@angular/router';
-import { PolyComponent } from './poly/poly.component';
+import { FindFundComponent } from './findFund/findFund.component';
 import { DumyComponent } from './dumy/dumy.component';
 
 describe('MFComponent', () => {
@@ -13,13 +13,13 @@ describe('MFComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [MFComponent, PolyComponent, DumyComponent],
+            declarations: [MFComponent, FindFundComponent, DumyComponent],
             imports: [
                 CommonModule,
                 ComponentsModule,
                 RouterModule.forRoot([
-                    { path: '', redirectTo: 'poly', pathMatch: 'full' },
-                    { path: 'poly', component: PolyComponent },
+                    { path: '', redirectTo: 'findFund', pathMatch: 'full' },
+                    { path: 'findFund', component: FindFundComponent },
                     { path: 'dumy', component: DumyComponent },
                 ]),
             ],

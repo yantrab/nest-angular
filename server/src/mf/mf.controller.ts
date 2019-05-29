@@ -25,6 +25,7 @@ export class MFController {
 
         if (!userSettings.tableSettings) {
             userSettings.tableSettings = mfSettings.tableSettings;
+            userSettings.gridSettings = mfSettings.gridSettings;
         }
 
         return {

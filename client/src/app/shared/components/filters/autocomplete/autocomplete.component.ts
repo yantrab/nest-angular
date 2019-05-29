@@ -3,7 +3,7 @@ import { BaseFilterComponent } from '../base.component';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { MatAutocompleteTrigger } from '@angular/material';
+import { MatAutocompleteTrigger, MatInput } from '@angular/material';
 import { NEW } from '../../../../mf/mf.service';
 import { UserFilter } from 'shared/models';
 
@@ -26,16 +26,17 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
             return result;
         }
         return [{ name: query + NEW } as UserFilter].concat(result);
-    };
+    }
 
     @Input() appearance = 'outline';
     @Input() paths: string[] = ['name', '_id'];
     @Input() freeText: boolean;
     @Input() keepOpen: boolean;
     @ViewChild(MatAutocompleteTrigger) inputAutocomplete: MatAutocompleteTrigger;
+    @ViewChild(MatInput) matInput;
     @Input() displayFn = val => {
         return val ? val.name : '';
-    };
+    }
 
     private queries = [];
     private filter = (value: any): string[] => {
@@ -44,7 +45,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         }
         const filterValue = ' ' + value.toLowerCase();
         return this.filterFn(filterValue);
-    };
+    }
 
     onSettingsChange(settings) {
         this.settings.options.forEach(option => {
@@ -66,12 +67,14 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     }
 
     optionSelected(selected) {
-        if (!this.settings.isMultiple) {
-            document.getElementById('input').blur();
-        }
+        // if (!this.settings.isMultiple) {
+        //     document.getElementById('input').blur();
+        // }
         super.optionSelected(selected);
-        if (this.keepOpen) {
+        if (this.keepOpen || this.settings.isMultiple) {
             setTimeout(() => this.inputAutocomplete.openPanel(), 1);
+        } else {
+            this.matInput._elementRef.nativeElement.blur();
         }
     }
 
@@ -88,7 +91,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
 
     ngAfterViewInit() {
         if (this.keepOpen) {
-            setTimeout(() =>this.inputAutocomplete.openPanel(), 1)
+            setTimeout(() => this.inputAutocomplete.openPanel(), 1);
         }
     }
 

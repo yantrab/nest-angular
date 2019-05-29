@@ -6,6 +6,7 @@ export class UserSettings extends Entity {
     @ValidateNested({ each: true })
     userFilters: UserFilter[];
     tableSettings: { columns: string[] };
+    gridSettings: { groupBy: string };
     constructor(data?: Partial<UserSettings>) {
         super(data);
         if (data) {
@@ -30,5 +31,6 @@ export class InitialData {
 export class MFSettings extends Entity {
     @ValidateNested()
     defaultUserFilter: UserFilter;
+    gridSettings;
     tableSettings: { columns: string[] };
 }

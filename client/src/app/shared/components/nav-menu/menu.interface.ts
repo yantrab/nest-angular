@@ -1,5 +1,5 @@
 export interface IMenuItem {
-    icon: string;
+    icon?: string;
     title: string;
     action: () => void;
 }

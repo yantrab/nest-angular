@@ -24,6 +24,16 @@ export class MFService {
                                     },
                                 ],
                             } as FilterGroup,
+                            {
+                                name: 'Yeilds',
+                                filters: [
+                                    {
+                                        kind: 'QuantityFilter',
+                                        optionIdPath: 'dailyYield',
+                                        placeholder: 'daily',
+                                    },
+                                ],
+                            } as FilterGroup,
                         ],
                         name: 'Default',
                         isDefualt: true,

@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MFComponent } from './mf.component';
 import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '../shared/components/components.module';
-import { PolyComponent } from './poly/poly.component';
-import { DumyComponent } from './dumy/dumy.component';
+import { FindFundComponent } from './findFund/findFund.component';
+import { SimulationComponent } from './simulation/simulation.component';
 import { MFController } from 'src/api/mf.controller';
-import { FiltersComponent } from './poly/filters/filters.component';
+import { FiltersComponent } from './findFund/filters/filters.component';
 import { MfService } from './mf.service';
 @NgModule({
-    declarations: [MFComponent, PolyComponent, DumyComponent, FiltersComponent],
+    declarations: [MFComponent, FindFundComponent, SimulationComponent, FiltersComponent],
     imports: [
         CommonModule,
         ComponentsModule,
@@ -18,13 +18,13 @@ import { MfService } from './mf.service';
                 path: '',
                 component: MFComponent,
                 children: [
-                    { path: '', redirectTo: 'dumy' },
-                    { path: 'poly', component: PolyComponent },
-                    { path: 'dumy', component: DumyComponent },
+                    { path: '', redirectTo: 'find' },
+                    { path: 'find', component: FindFundComponent },
+                    { path: 'simulation', component: SimulationComponent },
                 ],
             },
         ]),
     ],
-    providers: [MFController, MfService],
+    providers: [MFController, MfService, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/mf' }],
 })
 export class MFModule {}
