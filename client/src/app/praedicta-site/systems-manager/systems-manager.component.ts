@@ -88,6 +88,7 @@ export class SystemsManagerComponent implements OnInit {
     //     .split('/')
     //     .reverse()[0]
     //     .toLowerCase();
+
     constructor(public i18nService: I18nService, private router: Router) {
         this.i18nService.dic.subscribe(result => {
             this.dic = result as any;
