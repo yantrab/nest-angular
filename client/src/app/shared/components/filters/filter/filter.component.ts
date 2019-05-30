@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Filter, QuantityFilter } from 'shared';
 import { CheckboxFilter, DropdownFilter, AutocompleteFilter } from 'shared/models/filter.model';
-import { QuantityFilterComponent } from '../quantity-filter/quantity-filter.component';
+// import { QuantityFilterComponent } from '../quantity-filter/quantity-filter.component';
 @Component({
     selector: 'p-filter',
     template: `

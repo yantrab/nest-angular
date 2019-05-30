@@ -16,6 +16,7 @@ export class ContentComponent implements OnInit {
             holdings: { padding: '0 0 0 9em' },
             bonds: { padding: '0 0 0 6em' },
             otherSolution: { padding: '0 0 0 6em' },
+            contactUs: { padding: '0 0 0 12em' },
         };
     }
 

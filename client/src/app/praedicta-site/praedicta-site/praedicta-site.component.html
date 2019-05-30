@@ -30,7 +30,7 @@
                     </div>
                     <pre> <span class="title" fxFlex >{{ dic.sitePage.main.WhoWeare.title }}</span></pre>
                     <pre><p fxFlex fxHide.xs>{{ dic.sitePage.main.WhoWeare.content }} </p></pre>
-                    <pre><p fxFlex fxHide.sm fxHide.md fxHide.lg >{{ dic.sitePage.main.WhoWeare.content_xs}} </p></pre>
+                    <pre><p fxFlex fxHide.gt-sm fxHide.lt-md fxHide.lt-lg >{{ dic.sitePage.main.WhoWeare.content_xs}} </p></pre>
                     <div style="width:15%">
                         <a fxFlex href="">{{ dic.More }} </a>
                     </div>
@@ -73,6 +73,7 @@
             fxLayoutAlign.sm="center center"
             fxLayout="column"
             fxFlexOrder.sm="3"
+            (click)="navigate('otherSolution')"
         >
             <span fxHide.lt-md class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.eng_Heb }}</span>
             <span>
@@ -94,9 +95,9 @@
             <div fxHide.lg style="height:75%">
                 <span>{{ dic.sitePage.systems.contacts }}</span>
             </div>
-            <div fxLayout>
+            <div fxLayout (click)="navigate('holdings')">
                 <i class="envelope"></i>
-                <span>{{ dic.sitePage.systems.contact_us }} </span>
+                <span>{{ dic.sitePage.systems.contactUs }} </span>
             </div>
             <div fxHide.lt-md class="envelope-icon" fxLayoutAlign="center center">
                 <i class="envelope"></i>

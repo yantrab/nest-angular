@@ -1,22 +1,11 @@
 <div class="container" gdRows="repeat(2, [row] 1fr)" gdColumns="repeat(6, [col] 1fr)" *ngIf="dic" [dir]="i18nService.dir">
-    <div gdArea="1/3" class="z">
-        <span clsss="aaa">B</span>
-        <span clsss="aaa">o</span>
-        <span clsss="aaa">n</span>
-        <span clsss="aaa">d</span>
-        <span clsss="aaa">s</span>
-    </div>
     <div gdArea="1/6" fxLayoutAlign="center end ">
         <span class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.eng_Heb }}</span>
         <div class="envelope-icon" fxLayoutAlign="center center">
             <i class="envelope"></i>
         </div>
     </div>
-    <div gdArea="2/6" fxLayoutAlign="center center">
-        <div>
-            <img gdArea="" class="praedicta" src="assets/img/praedicta-logo-temp.png" />
-        </div>
-    </div>
+
     <main
         gdRows="repeat(20, [row] 1fr)"
         gdColumns="repeat(20, [col] 1fr)"
@@ -24,6 +13,99 @@
         [gdRow]="settings.main.row"
         [style.background-image]="settings[currentSystem].background"
     >
+        <svg
+            *ngIf="currentSystem === 'otherSolution'"
+            width="100%"
+            height="80%
+           "
+            gdArea=" 6 / 1 / 11 / 20"
+            style="z-index:999"
+            gdGridAlign="center"
+        >
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M9,0 L9,6 L0,3 z" fill="#b6cfe7" />
+                </marker>
+            </defs>
+
+            <line
+                [attr.x1]="i18nService.language == 'he' ? '25%' : '75%'"
+                y1="50"
+                [attr.x2]="i18nService.language == 'he' ? '40%' : '60%'"
+                y2="50"
+                stroke="#b6cfe7"
+                stroke-width="2"
+                marker-start="url(#arrow)"
+            />
+            <line
+                [attr.x1]="i18nService.language == 'he' ? '10%' : '90%'"
+                y1="100"
+                [attr.x2]="i18nService.language == 'he' ? '40%' : '60%'"
+                y2="100"
+                stroke="#b6cfe7"
+                stroke-width="2"
+                marker-start="url(#arrow)"
+            />
+            <line
+                [attr.x1]="i18nService.language == 'he' ? '30%' : '68%'"
+                y1="150"
+                [attr.x2]="i18nService.language == 'he' ? '40%' : '60%'"
+                y2="150"
+                stroke="#b6cfe7"
+                stroke-width="2"
+                marker-start="url(#arrow)"
+            />
+            <line
+                [attr.x1]="i18nService.language == 'he' ? '60%' : '43%'"
+                y1="50%"
+                [attr.x2]="i18nService.language == 'he' ? '60%' : '43%'"
+                y2="30%"
+                stroke="#b6cfe7"
+                stroke-width="2"
+                marker-start="url(#arrow)"
+            />
+            <line
+                [attr.x1]="i18nService.language == 'he' ? '25%' : '80%'"
+                y1="650"
+                [attr.x2]="i18nService.language == 'he' ? '75%' : '25%'"
+                y2="650"
+                stroke="#b6cfe7"
+                stroke-width="2"
+                marker-start="url(#arrow)"
+            />
+        </svg>
+        <svg
+            gdColumn="3/5"
+            gdGridAlign="center"
+            class="praedicta"
+            xmlns="http://www.w3.org/2000/svg"
+            width="136"
+            height="16"
+            viewBox="0 0 136 16"
+        >
+            <defs>
+                <linearGradient id="linear-gradient">
+                    <stop offset="0%" style="stop-color:#feffdf" />
+                    <stop offset="50%" style="stop-color:#feffdf" />
+                    <stop offset="50%" style="stop-color:#6b76ff" />
+                    <stop offset="100%" style="stop-color:#6b76ff" />
+                </linearGradient>
+            </defs>
+            <g [style.fill]="settings[currentSystem].logo" fill-rule="evenodd">
+                <path
+                    d="M70.275 1v13.54H67V1h3.275zm50 7v6.54H117V8h3.275zm7-7v13.54H124V1h3.275zm7 4v9.54H131V5h3.275zM79.082 1c1.724 0 3.15.453 4.28 1.36 1.13.906 1.861 2.132 2.193 3.677H82.09a3.18 3.18 0 0 0-1.178-1.475c-.53-.357-1.159-.536-1.886-.536-.958 0-1.73.351-2.318 1.053-.587.703-.88 1.641-.88 2.816 0 1.174.293 2.11.88 2.805.588.696 1.36 1.044 2.318 1.044.727 0 1.356-.179 1.886-.536.53-.358.923-.843 1.178-1.456h3.466c-.332 1.533-1.063 2.755-2.192 3.668-1.13.913-2.557 1.37-4.28 1.37-1.316 0-2.472-.291-3.467-.872a5.915 5.915 0 0 1-2.308-2.442c-.543-1.047-.814-2.24-.814-3.581 0-1.341.271-2.535.814-3.582a5.915 5.915 0 0 1 2.308-2.442C76.61 1.291 77.767 1 79.082 1zm18.711.134V3.74h-3.677v10.935h-3.294V3.74h-3.639V1.134h10.61zm10.438 11.07h-5.075l-.843 2.47h-3.447l4.96-13.444h3.773l4.96 13.444h-3.485l-.843-2.47zm-.842-2.49l-1.686-4.98L104 9.715h3.39zM4.275 9.925v4.75H1V1.134h5.305c1.609 0 2.835.398 3.677 1.196.843.798 1.264 1.874 1.264 3.227 0 .843-.188 1.593-.565 2.25-.376.658-.935 1.175-1.676 1.552-.74.376-1.64.565-2.7.565h-2.03zM5.941 7.3c1.315 0 1.973-.581 1.973-1.743 0-1.187-.658-1.781-1.973-1.781H4.275v3.524h1.666zm14.536 7.373l-2.93-5.113H16.8v5.113h-3.275V1.134h5.593c1.072 0 1.979.185 2.72.555.74.37 1.295.878 1.665 1.523.37.645.556 1.382.556 2.212 0 .983-.271 1.82-.814 2.509-.543.69-1.331 1.162-2.365 1.417l3.217 5.324h-3.62zM16.8 7.32h2.03c.652 0 1.13-.144 1.437-.43.306-.288.46-.713.46-1.274 0-.537-.157-.958-.47-1.264-.313-.307-.788-.46-1.427-.46H16.8V7.32zm17.965 4.884h-5.076l-.842 2.47h-3.448L30.36 1.23h3.774l4.96 13.444h-3.486l-.842-2.47zm-.843-2.49l-1.685-4.98-1.705 4.98h3.39zm10.38-5.975v2.834h4.578v2.47h-4.578v3.008h5.152v2.623h-8.427V1.134h8.427V3.74h-5.152zm19.86 4.137c0 1.327-.283 2.505-.851 3.533-.569 1.028-1.386 1.829-2.452 2.404-1.066.574-2.32.861-3.763.861h-5.114V1.134h5.114c1.455 0 2.713.281 3.773.843a5.879 5.879 0 0 1 2.442 2.375c.568 1.021.852 2.196.852 3.524zm-7.354 3.868c1.277 0 2.27-.338 2.979-1.015.708-.677 1.063-1.628 1.063-2.853 0-1.226-.355-2.177-1.063-2.854-.709-.677-1.702-1.015-2.979-1.015h-1.55v7.737h1.55z"
+                />
+            </g>
+        </svg>
+
+        <p-image currentSystem="bonds" *ngIf="currentSystem === 'bonds'" [gdArea]="settings[currentSystem].image"></p-image>
+        <p-image currentSystem="holdings" *ngIf="currentSystem === 'holdings'" [gdArea]="settings[currentSystem].image"></p-image>
+        <p-image
+            currentSystem="contactUs"
+            *ngIf="currentSystem === 'contactUs'"
+            [gdArea]="settings[currentSystem].image"
+        ></p-image>
+
         <div
             fxLayoutAlign="center "
             [gdColumn]="settings[currentSystem].content.col"
@@ -43,18 +125,18 @@
         [systemName]="'bonds'"
         [gdColumn]="settings[currentSystem].bondsCol"
         [gdRow]="settings[currentSystem].bondsRow"
-        (click)="currentSystem = 'bonds'"
         (click)="navigate('bonds')"
         (hover)="(settings[currentSystem].hoverbackground)"
     ></p-system>
     <p-system
-        fxLayoutAlign="center end "
+        fxLayout="column"
+        [fxLayoutAlign]="isHover == true ? 'center center' : 'start center'"
         [fxHide]="currentSystem === 'holdings'"
         [systemName]="'holdings'"
         [gdColumn]="settings[currentSystem].holdingsCol"
         [gdRow]="settings[currentSystem].holdingsRow"
-        (click)="currentSystem = 'holdings'"
         (click)="navigate('holdings')"
+        [ngStyle]="{ 'background-color': isHover == true ? '#f8eeeb' : 'white' }"
     ></p-system>
 
     <p-system
@@ -63,22 +145,22 @@
         [systemName]="'otherSolution'"
         [gdColumn]="settings[currentSystem].otherSolutionCol"
         [gdRow]="settings[currentSystem].otherSolutionRow"
-        (click)="currentSystem = 'otherSolution'"
         (click)="navigate('otherSolution')"
     ></p-system>
     <p-system
-        fxLayoutAlign="center end "
-        [fxHide]="currentSystem === 'contact_us'"
-        [systemName]="'contact_us'"
+        fxLayout="column"
+        fxLayoutAlign="start center"
+        [fxHide]="currentSystem === 'contactUs'"
+        [systemName]="'contactUs'"
         [gdColumn]="settings[currentSystem].Contact_usCol"
         [gdRow]="settings[currentSystem].Contact_usRow"
-        (click)="currentSystem = 'contact_us'"
+        (click)="navigate('contactUs')"
     ></p-system>
     <p-system
         fxLayoutAlign="center end "
-        [systemName]="'about_Us'"
+        [systemName]="'aboutUs'"
         [gdColumn]="settings[currentSystem].About_UsCol"
         [gdRow]="settings[currentSystem].About_UsRow"
-        (click)="currentSystem = 'about_Us'"
+        (click)="navigate('')"
     ></p-system>
 </div>
