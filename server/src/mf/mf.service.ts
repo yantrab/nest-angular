@@ -5,6 +5,7 @@ import { Repository, RepositoryFactory } from 'mongo-nest';
 export class MFService {
     private mfSettingsRepo: Repository<MFSettings>;
     private mfUserSettingsRepo: Repository<UserSettings>;
+
     constructor(private repositoryFactory: RepositoryFactory) {
         this.mfSettingsRepo = this.repositoryFactory.getRepository<MFSettings>(MFSettings, 'DBMF');
         this.mfUserSettingsRepo = this.repositoryFactory.getRepository<UserSettings>(UserSettings, 'DBMF');
