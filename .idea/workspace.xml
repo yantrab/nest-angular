@@ -96,10 +96,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="240" />
+    <option name="y" value="128" />
+    <option name="width" value="1440" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -196,7 +196,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\yantr\Desktop\nest\nest-angular\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="ts.external.directory.path" value="C:\Users\arkadiy\Desktop\nest-angular\nest-angular\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\yantr\Desktop\nest\nest-angular\node_modules\typescript\lib" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

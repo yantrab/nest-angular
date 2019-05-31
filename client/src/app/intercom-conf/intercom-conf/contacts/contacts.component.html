@@ -1,0 +1,17 @@
+<div style="height:100%;width:100%;">
+  <mat-virtual-table
+          fxFlex
+          [rows]="contacts"
+          [filterPlaceholder]="'חיפוש'"
+          [paginator]="false"
+          [columnsDef]="contactColumns"
+  >
+    <ng-container *ngFor="let field of contacts[0].fields">
+      <ng-template pCellDef [column]="field.property" let-row="row">
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="getField(field.property,row.fields).value">
+        </mat-form-field>
+      </ng-template>
+    </ng-container>
+  </mat-virtual-table>
+</div>
