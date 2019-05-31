@@ -1,3 +1,7 @@
-<div>
+<div style="padding:2em 0 " *ngIf="isHover === false" (mouseover)="isHover = true">
+    <pre><span>{{ dic.sitePage.systems[systemName] }}</span> </pre>
+</div>
+<div *ngIf="isHover === true" (mouseout)="isHover = false">
     <span>{{ dic.sitePage.systems[systemName] }}</span>
+    <pre><span class="hover">{{ dic.systemPage[systemName].contentHover }}</span></pre>
 </div>

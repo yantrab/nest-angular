@@ -1,0 +1,54 @@
+<div id="findFund" *ngIf="userFiltersSettings && dic">
+    <mat-grid-list gutterSize="10px" cols="4" rowHeight="fit">
+        <mat-grid-tile colspan="1" [style.background]="'#ffffff'" fxLayout="column" fxLayoutAlign="start center">
+            <div style="height: 100%;padding: 20px;" fxLayout="column" fxFlex="100" fxLayoutAlign="start center">
+                <h2>{{ dic.filters.title }}</h2>
+                <p-autocomplete
+                    (selectedChange)="filterSelected($event)"
+                    [settings]="userFiltersSettings"
+                    [freeText]="true"
+                ></p-autocomplete>
+                <mat-slide-toggle>{{ dic.filters.switch }}</mat-slide-toggle>
+                <div class="scrollable-y" style="width: 100%">
+                    <p-filters
+                        (selectedChange)="mfService.filterChanged()"
+                        [groups]="userFiltersSettings.selected?.filterGroups"
+                    ></p-filters>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="3">
+            <mat-tab-group #tabGroup mat-stretch-tabs fxFlex="100">
+                <mat-tab [label]="dic.tabs.grid">
+                    <ng-template matTabContent>
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between">
+                            <div
+                                *ngFor="let group of gridGroups"
+                                fxLayout="column"
+                                fxLayoutAlign="center center"
+                                class="card"
+                                [class.hasfunds]="group.count > 0"
+                            >
+                                <span>
+                                    {{ group.name }}
+                                </span>
+                                <span>
+                                    {{ group.count }}
+                                </span>
+                            </div>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab [label]="dic.tabs.table">
+                    <ng-template matTabContent>
+                        <mat-virtual-table [paginator]="true" [rows]="funds" [columnsDef]="fundColumns"> </mat-virtual-table>
+                    </ng-template>
+                </mat-tab>
+                <!--                <mat-tab label="Charts"> Content 3 </mat-tab>-->
+            </mat-tab-group>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<!-- Visual Studio Code is unable to watch for file changes in this large workspace. Please follow the instructions link to resolve this issue. -->

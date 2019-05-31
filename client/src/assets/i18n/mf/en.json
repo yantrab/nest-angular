@@ -1,0 +1,16 @@
+{
+    "topbar": {
+        "link1": "FIND A FUND",
+        "link2": "SIMULATION"
+    },
+    "findfund": {
+        "filters": {
+            "title": "edit filters",
+            "switch": "advanced view"
+        },
+        "tabs": {
+            "grid": "grid",
+            "table": "table"
+        }
+    }
+}

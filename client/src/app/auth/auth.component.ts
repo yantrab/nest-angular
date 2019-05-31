@@ -7,7 +7,6 @@ import { DynaFormBuilder, validateAllFields } from 'ng-dyna-form';
 import { I18nService } from '../shared/services/i18n.service';
 import { I18nRootObject } from 'src/api/i18n/login.i18n';
 import { MyErrorStateMatcher } from './MyErrorStateMatcher';
-import { forEachComment } from 'tslint';
 @Component({
     selector: 'app-auth',
     templateUrl: './auth.component.html',

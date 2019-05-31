@@ -1,8 +1,5 @@
 @import '../site.component';
 
-pre {
-    margin: 0;
-}
 .bonds {
     span {
         &.title {
@@ -39,13 +36,24 @@ pre {
         @include letter(14px, 0.5px, 2, $font-family: Rubik, $color: #b6cfe7);
     }
 }
-
-path {
-    fill: transparent;
+.contactUs {
+    span {
+        &.title {
+            @include letter(50px, 2.3px, 1, $font-weight: bold, $font-family: Rubik, $color: #feffdf);
+        }
+    }
+    p {
+        padding: 0 3em;
+        margin: 0;
+        @include letter(16px, 0.6px, 1.75, $font-family: Rubik, $color: #feffdf);
+    }
 }
-
-text {
-    font-size: 132px;
-    opacity: 0.04;
-    fill: #feffdf;
-}
+//path {
+//    fill: transparent;
+//}
+//
+//text {
+//    font-size: 132px;
+//    opacity: 0.04;
+//    fill: #feffdf;
+//}

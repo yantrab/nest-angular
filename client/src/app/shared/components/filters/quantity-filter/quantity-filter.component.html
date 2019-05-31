@@ -1,0 +1,10 @@
+<span>{{ settings.placeholder }}</span>
+<dx-range-selector [value]="settings.selected" (onValueChanged)="optionSelected($event.value)" [dataSource]="settings.options">
+    <dxo-scale>
+        <dxo-label [visible]="false"> </dxo-label>
+    </dxo-scale>
+    <dxo-chart>
+        <dxi-series type="spline" argumentField="x" valueField="y"></dxi-series>
+    </dxo-chart>
+    <dxo-size [height]="50"></dxo-size>
+</dx-range-selector>

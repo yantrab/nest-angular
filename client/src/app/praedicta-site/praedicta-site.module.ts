@@ -7,6 +7,7 @@ import { I18nService } from '../shared/services/i18n.service';
 import { SystemComponent } from './system/system.component';
 import { SystemsManagerComponent } from './systems-manager/systems-manager.component';
 import { ContentComponent } from './content/content.component';
+import { ImageComponent } from './image/image.component';
 @Component({
     selector: 'p-site',
     template: '<router-outlet></router-outlet>',
@@ -15,7 +16,7 @@ import { ContentComponent } from './content/content.component';
 export class SiteComponent {}
 
 @NgModule({
-    declarations: [SiteComponent, PraedictaSiteComponent, SystemComponent, SystemsManagerComponent, ContentComponent],
+    declarations: [SiteComponent, PraedictaSiteComponent, SystemComponent, SystemsManagerComponent, ContentComponent, ImageComponent],
     providers: [I18nService, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/site' }],
     imports: [
         CommonModule,

@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
     selector: 'p-dumy',
     template: 'dumy works!',
 })
-export class DumyComponent {}
+export class SimulationComponent {}

@@ -1,5 +1,10 @@
 @import '../site.component';
-
+:host {
+    width: 100%;
+}
 span {
     @include letter(20px, 0.7px, $font-family: Rubik);
+}
+.hover {
+    @include letter(14px, 0.5px, 1.86, $font-family: Rubik);
 }

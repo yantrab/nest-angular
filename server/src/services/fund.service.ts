@@ -7,19 +7,31 @@ import * as sql from 'mssql';
 @Injectable()
 export class FundService {
     private fundRepo: Repository<Fund>;
+    private funds;
     constructor(private repositoryFactory: RepositoryFactory) {
         this.fundRepo = this.repositoryFactory.getRepository<Fund>(Fund, 'DBFunds');
-        // this.fundRepo.saveOrUpdateMany(require('./funds.json'));
+        this.update();
     }
 
     async getFunds(query?: Partial<Fund>): Promise<any[]> {
+        return this.funds;
+        // return this.fundRepo.findMany(query || {});
+    }
+
+    async update() {
         const pool = new sql.ConnectionPool(mfConf.db);
         try {
             await pool.connect();
-            return (await pool.request().query('select * FROM [dbo].[vwMetaData]')).recordset;
+            this.funds = (await pool.request().query('select * FROM [dbo].[vwMetaData]')).recordset;
+            this.funds.forEach(f => {
+                Object.keys(f).forEach(key => {
+                    if (f[key] === null) {
+                        delete f[key];
+                    }
+                });
+            });
         } catch (e) {
             console.log(e);
         }
-        // return this.fundRepo.findMany(query || {});
     }
 }

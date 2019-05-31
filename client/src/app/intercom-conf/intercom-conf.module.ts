@@ -1,12 +1,15 @@
-import {NgModule} from '@angular/core';
-import {RouterModule} from '@angular/router';
-import {ComponentsModule} from '../shared/components/components.module';
-import {TadorController} from 'src/api/tador.controller';
-import { IntercomConfComponent} from './intercom-conf/intercom-conf.component';
-import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { ComponentsModule } from '../shared/components/components.module';
+import { TadorController } from 'src/api/tador.controller';
+import { IntercomConfComponent } from './intercom-conf/intercom-conf.component';
+// import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
 
 @NgModule({
-    declarations: [IntercomConfComponent, ContactsComponent],
+    declarations: [
+        IntercomConfComponent,
+        // ContactsComponent
+    ],
     imports: [
         ComponentsModule,
         RouterModule.forChild([
@@ -15,13 +18,12 @@ import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
                 component: IntercomConfComponent,
                 // children: [
                 //   { path: '', redirectTo: 'dumy' },
-                //   { path: 'poly', component: PolyComponent },
+                //   { path: 'findFund', component: FindFundComponent },
                 //   { path: 'dumy', component: DumyComponent },
                 // ]
             },
         ]),
     ],
-    providers: [TadorController, {provide: 'baseUrlI18n', useValue: '../../assets/i18n/login'}],
+    providers: [TadorController, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }],
 })
-export class IntercomConfModule {
-}
+export class IntercomConfModule {}

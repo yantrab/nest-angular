@@ -7,18 +7,13 @@
             <button class="logout" mat-stroked-button>{{ model?.logoutTitle }}</button>
         </div>
         <div fxFlex fxLayoutAlign="center center">
-            <a
-                *ngFor="let link of model?.routerLinks"
-                class="tab"
-                mat-flat-button
-                [routerLink]="link.link"
-                routerLinkActive="active"
-                >{{ link.title }}</a
-            >
+            <a *ngFor="let link of routerLinks" class="tab" mat-flat-button [routerLink]="link.link" routerLinkActive="active">{{
+                link.title
+            }}</a>
         </div>
         <div fxFlex="200px">
             <img class="logo" [src]="model.logo || 'favicon.ico'" />
         </div>
     </div>
-    <mat-progress-bar fxFlex="2%" mode="query" *ngIf="inProgress"></mat-progress-bar>
+    <mat-progress-bar fxFlex="2.5%" mode="query" *ngIf="inProgress"></mat-progress-bar>
 </div>

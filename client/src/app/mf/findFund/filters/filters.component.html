@@ -1,0 +1,53 @@
+<mat-accordion>
+    <mat-expansion-panel
+        *ngFor="let group of groups; let panelOpenState = false"
+        (closed)="panelOpenState = false"
+        (opened)="panelOpenState = true"
+    >
+        <mat-expansion-panel-header [class.mat-expansion-panel-header-close]="!panelOpenState">
+            <div fxLayout="column">
+                <mat-checkbox
+                    (change)="selectedChange.emit()"
+                    [(ngModel)]="group.isActive"
+                    class="groupTitle"
+                    (click)="$event.stopPropagation()"
+                >
+                    <b>{{ group.name }}</b>
+                </mat-checkbox>
+                <div style="margin: 20px;" *ngIf="!panelOpenState" fxLayout="column">
+                    <mat-checkbox
+                        *ngFor="let filter of group.filters"
+                        (change)="selectedChange.emit()"
+                        [(ngModel)]="filter.isActive"
+                        (click)="$event.stopPropagation()"
+                    >
+                        {{ filter.placeholder }}
+                    </mat-checkbox>
+                </div>
+            </div>
+        </mat-expansion-panel-header>
+
+        <div style="margin: 20px;" *ngFor="let filter of group.filters" fxLayout="row">
+            <mat-checkbox
+                fxFlex="20px"
+                [(ngModel)]="filter.isActive"
+                (change)="selectedChange.emit()"
+                (click)="$event.stopPropagation()"
+            >
+            </mat-checkbox>
+            <p-filter fxFlex (selectedChange)="selectedChange.emit()" [filter]="filter"> </p-filter>
+        </div>
+    </mat-expansion-panel>
+    <!-- <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Self aware panel
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am 
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel> -->
+</mat-accordion>

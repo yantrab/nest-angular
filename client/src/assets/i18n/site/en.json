@@ -3,12 +3,12 @@
         "systems": {
             "bonds": "Bonds",
             "holdings": "Holdings",
-            "contact_us": "Contact us",
-            "otherSolution": "Other solution",
+            "contactUs": "Contact us",
+            "otherSolution": "  Other\nsolution",
             "eng_Heb": "eng/עברית",
             "eng_Heb2": "ENG/HEB",
             "contacts": "Contacts",
-            "about_Us": "About Us"
+            "aboutUs": "About Us"
         },
         "main": {
             "WhoWeare": {
@@ -29,13 +29,18 @@
         },
         "holdings": {
             "title": "Holdings",
-            "content": "Praedicta's Holdings System enables its users to\n receive a wide variety of information and data\n on this market helping the user find, understand\n and analyze various aspects of this market.\n Bonds hold 10 years of historical data and offers\n daily data on trading results, yields, adjusted\n rates, volumes and cycles, market value and."
+            "content": "Praedicta's Holdings System enables its users to\n receive a wide variety of information and data\n on this market helping the user find, understand\n and analyze various aspects of this market.\n Bonds hold 10 years of historical data and offers\n daily data on trading results, yields, adjusted\n rates, volumes and cycles, market value and.",
+            "contentHover": "Praedicta's Holdings\nSystem enables its\nusers to receive a\nwide variety of\ninformation and data\non this market …"
         },
         "otherSolution": {
             "title": "Other\n solution",
             "content": "Praedicta is one of the leading companies in Israel\n in the field of financial and economic information\n services, which provides its customers with smart\n information solutions adapted to the specific\n needs. ",
             "content2": "Praedicta is one of the leading companies in Israel in the field of financial and\n economic information services, which provides its customers with smart information\n solutions adapted to the specific needs.",
             "content3": "Through a skilled team and advanced methods, we perform analyzes, analyze\n information and translate it into a final solution, as an innovative user interface or as\n a customer-tailored product."
+        },
+        "contactUs": {
+            "title": "Contact us",
+            "content": "Am ve Olamo Str., Jerusalem 91340,\nP.O.Box 34030 8\n\nTel. +972-2-6528490, \nFax. +972-2-6528493"
         }
     },
     "More": "more",

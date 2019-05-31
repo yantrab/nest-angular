@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class SystemsManagerComponent implements OnInit {
     dic: I18nRootObject;
-    currentSystem: 'bonds' | 'holdings' | 'otherSolution' | 'contact_us' | 'about_Us';
+    isHover: boolean = false;
+    currentSystem: 'bonds' | 'holdings' | 'otherSolution' | 'contactUs' | 'aboutUs';
     settings = {
         main: { col: '1/7', row: '1/3', background: 'background-image: linear-gradient(to top, #67375b, #884977)' },
         bonds: Object.assign({
@@ -18,6 +19,8 @@ export class SystemsManagerComponent implements OnInit {
                 col: '5/14',
                 row: '5',
             },
+            image: '21 / 1 / 21 / 6',
+            logo: '#ffffe0',
             hoverbackground: '#f8eeeb',
             background: 'linear-gradient(to bottom, #2c8385, #006a6c)',
             holdingsCol: '5',
@@ -34,7 +37,8 @@ export class SystemsManagerComponent implements OnInit {
                 col: '12/14',
                 row: '6',
             },
-
+            image: '21 / 5 / 21 / 14',
+            logo: '#f5e1db',
             background: 'linear-gradient(to top, #67375b, #884977)',
             bondsCol: '2',
             bondsRow: '1',
@@ -50,6 +54,7 @@ export class SystemsManagerComponent implements OnInit {
                 col: '10/14',
                 row: '7',
             },
+            logo: ' #b6cfe7',
             background: ' linear-gradient(to bottom, #bd5656, #83435f)',
             bondsCol: '2',
             bondsRow: '1',
@@ -60,7 +65,13 @@ export class SystemsManagerComponent implements OnInit {
             About_UsCol: '1/2',
             About_UsRow: '1',
         },
-        contact_us: {
+        contactUs: {
+            content: {
+                col: '16/16',
+                row: '7',
+            },
+            image: '11 / 5 / 20 / 20',
+            logo: 'url(#linear-gradient)',
             background: ' linear-gradient(to bottom, #6b76ff, #465bdf)',
             bondsCol: '2',
             bondsRow: '1',
@@ -77,6 +88,7 @@ export class SystemsManagerComponent implements OnInit {
     //     .split('/')
     //     .reverse()[0]
     //     .toLowerCase();
+
     constructor(public i18nService: I18nService, private router: Router) {
         this.i18nService.dic.subscribe(result => {
             this.dic = result as any;
