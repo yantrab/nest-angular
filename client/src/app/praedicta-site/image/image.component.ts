@@ -17,6 +17,7 @@ export class ImageComponent implements OnInit {
         });
     }
     ngOnInit() {
+        debugger;
         this.imageUrl = `assets/img/systems/${this.currentSystem}.PNG`;
     }
 }
