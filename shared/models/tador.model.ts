@@ -1,24 +1,36 @@
 import { Entity } from './Entity';
 import { IsNumber, IsString, ValidateNested } from 'class-validator';
 
-export class ContactField {
+export class ContactField extends Entity {
     @IsString()
     property: string;
     @IsString()
     title: string;
     @IsNumber()
     length: number;
-    @IsString()
-    value?: string;
+    defualt?: any = '';
 }
 
-export class Contact {
+export class Contacts extends Entity {
     @IsNumber()
-    id: number;
-    @IsNumber()
-    startIndex: number;
+    index: number;
     @ValidateNested({ each: true })
-    fields: ContactField[];
+    contactFields: ContactField[];
+    @IsNumber()
+    count: number;
+    list?: any[];
+    constructor(contacts: Partial<Contacts>) {
+        super(contacts);
+        this.contactFields = this.contactFields.map(f => new ContactField(f))
+        if (!this.list) {
+            this.list = new Array(this.count).fill(1).map((_, i) => {
+                return  this.contactFields.reduce((item, field) => {
+                    item[field.property] = field.defualt;
+                    return item;
+                }, {id: i + 1});
+            });
+        }
+    }
 }
 
 export class Panel extends Entity {
@@ -27,11 +39,18 @@ export class Panel extends Entity {
     @IsNumber()
     version: number;
     @ValidateNested({ each: true })
-    contacts: Contact[];
+    contacts: Contacts;
     settings;
     @IsString()
     userId: string;
     address;
+    constructor(panel: Partial<Panel>) {
+        super(panel);
+        this.contacts = new Contacts(panel.contacts);
+    }
+    dump(){
+
+    }
 }
 
 export class PanelStructore extends Entity {}

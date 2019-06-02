@@ -1,16 +1,21 @@
 <div style="height:100%;width:100%;">
   <mat-virtual-table
           fxFlex
-          [rows]="contacts"
+          [rows]="contacts.list"
           [filterPlaceholder]="'חיפוש'"
           [paginator]="false"
           [columnsDef]="contactColumns"
   >
-    <ng-container *ngFor="let field of contacts[0].fields">
-      <ng-template pCellDef [column]="field.property" let-row="row">
-        <mat-form-field class="example-full-width">
-          <input matInput [(ngModel)]="getField(field.property,row.fields).value">
+    <ng-container *ngFor="let field of contacts.contactFields">
+      <ng-template pCellDef [column]="field.property" let-row="row" let-inEdit="false">
+        <div style="height: 50px; width: 100%" (click)="inEdit=true" >
+        <div style="height: 50px; width: 100%"   *ngIf="!inEdit">
+          {{row[field.property]}}
+        </div>
+        <mat-form-field *ngIf="inEdit" >
+          <input #ref (blur)="inEdit=false"  matInput [(ngModel)]="row[field.property]">
         </mat-form-field>
+        </div>
       </ng-template>
     </ng-container>
   </mat-virtual-table>

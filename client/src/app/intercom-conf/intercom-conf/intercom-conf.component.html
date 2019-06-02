@@ -1,10 +1,10 @@
 <div [dir]="i18nService.dir">
     <p-topbar [model]="topbarModel" [inProgress]="!selectedPanel"></p-topbar>
     <div class="content" fxLayout="row" *ngIf="selectedPanel">
-        <p-autocomplete
+        <p-autocomplete fxFlex="120px"
                 (selectedChange)="selectedPanel = $event" [keepOpen]="true"
                         [settings]="autocompleteSettings"></p-autocomplete>
-        <mat-tab-group #tabGroup mat-stretch-tabs fxFlex="100">
+        <mat-tab-group fxFlex #tabGroup mat-stretch-tabs fxFlex="100">
             <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
                 <div>
                     <mat-form-field>

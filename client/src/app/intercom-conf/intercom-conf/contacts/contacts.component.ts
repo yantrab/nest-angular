@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Contact, ContactField } from 'shared/models/tador.model';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Contacts, ContactField } from 'shared/models/tador.model';
 import { ColumnDef } from 'mat-virtual-table';
 
 @Component({
@@ -8,19 +8,20 @@ import { ColumnDef } from 'mat-virtual-table';
   styleUrls: ['./contacts.component.scss'],
 })
 export class ContactsComponent implements OnInit {
-  @Input() contacts: Contact[];
+  @Input() contacts: Contacts;
+  @ViewChild('ref') set refField(ref){
+    if (!ref) return;
+    ref.nativeElement.focus()
+  }
+
   contactColumns: ColumnDef[] = [
-    {field: '_id', title: '', isSortable: false},
+    {field: 'id', title: '', isSortable: false},
   ];
-  constructor() { }
 
   ngOnInit() {
-    this.contactColumns.push(...this.contacts[0].fields.map(f => ({
+    this.contactColumns.push(...this.contacts.contactFields.map(f => ({
       field: f.property,
       title: f.title,
     })));
-  }
-  getField(prop, fields: ContactField[]){
-   return fields.find(f => f.property === prop)
   }
 }

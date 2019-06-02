@@ -3,12 +3,12 @@ import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '../shared/components/components.module';
 import { TadorController } from 'src/api/tador.controller';
 import { IntercomConfComponent } from './intercom-conf/intercom-conf.component';
-// import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
+import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
 
 @NgModule({
     declarations: [
         IntercomConfComponent,
-        // ContactsComponent
+        ContactsComponent
     ],
     imports: [
         ComponentsModule,
@@ -16,11 +16,6 @@ import { IntercomConfComponent } from './intercom-conf/intercom-conf.component';
             {
                 path: '',
                 component: IntercomConfComponent,
-                // children: [
-                //   { path: '', redirectTo: 'dumy' },
-                //   { path: 'findFund', component: FindFundComponent },
-                //   { path: 'dumy', component: DumyComponent },
-                // ]
             },
         ]),
     ],
