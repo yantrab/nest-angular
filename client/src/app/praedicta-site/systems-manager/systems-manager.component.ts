@@ -19,6 +19,7 @@ export class SystemsManagerComponent implements OnInit {
                 col: '5/14',
                 row: '5',
             },
+            align: 'center end',
             image: '21 / 1 / 21 / 6',
             logo: '#ffffe0',
             hoverbackground: '#f8eeeb',
@@ -27,16 +28,17 @@ export class SystemsManagerComponent implements OnInit {
             holdingsRow: '2',
             otherSolutionCol: '6',
             otherSolutionRow: '1',
-            Contact_usCol: '6',
-            Contact_usRow: '2',
-            About_UsCol: '1/2',
-            About_UsRow: '1',
+            contactUsCol: '6',
+            contactUsRow: '2',
+            aboutUsCol: '1/2',
+            aboutUsRow: '1',
         }),
         holdings: {
             content: {
                 col: '12/14',
                 row: '6',
             },
+            align: 'center end',
             image: '21 / 5 / 21 / 14',
             logo: '#f5e1db',
             background: 'linear-gradient(to top, #67375b, #884977)',
@@ -44,32 +46,34 @@ export class SystemsManagerComponent implements OnInit {
             bondsRow: '1',
             otherSolutionCol: '6',
             otherSolutionRow: '1',
-            Contact_usCol: '6',
-            Contact_usRow: '2',
-            About_UsCol: '1/2',
-            About_UsRow: '1',
+            contactUsCol: '6',
+            CcontactUsRow: '2',
+            aboutUsCol: '1/2',
+            aboutUsRow: '1',
         },
         otherSolution: {
             content: {
                 col: '10/14',
                 row: '7',
             },
+            align: 'center end',
             logo: ' #b6cfe7',
             background: ' linear-gradient(to bottom, #bd5656, #83435f)',
             bondsCol: '2',
             bondsRow: '1',
             holdingsCol: '1',
             holdingsRow: '2',
-            Contact_usCol: '6',
-            Contact_usRow: '2',
-            About_UsCol: '1/2',
-            About_UsRow: '1',
+            contactUsCol: '6',
+            contactUsRow: '2',
+            aboutUsCol: '1/2',
+            aboutUsRow: '1',
         },
         contactUs: {
             content: {
                 col: '16/16',
                 row: '7',
             },
+            align: ' ' ,
             image: '11 / 5 / 20 / 20',
             logo: 'url(#linear-gradient)',
             background: ' linear-gradient(to bottom, #6b76ff, #465bdf)',
@@ -79,10 +83,14 @@ export class SystemsManagerComponent implements OnInit {
             holdingsRow: '2',
             otherSolutionCol: '3',
             otherSolutionRow: '1',
-            About_UsCol: '1/2',
-            About_UsRow: '1',
+            aboutUsCol: '1/2',
+            aboutUsRow: '1',
+        },
+        aboutUs: {
+            align: 'center end',
         },
     };
+    systemsList;
 
     // currentSystem = window.location.pathname
     //     .split('/')
@@ -95,6 +103,13 @@ export class SystemsManagerComponent implements OnInit {
         });
         this.currentSystem = window.location.pathname.split('/').reverse()[0] as any;
         const general = { Contact_usCol: '6', Contact_usRow: '2', About_UsCol: '1/2', About_UsRow: '1' };
+        this.systemsList = [
+            { name: 'bonds' },
+            { name: 'holdings' },
+            { name: 'otherSolution' },
+            { name: 'contactUs' },
+            { name: 'aboutUs' },
+        ];
     }
 
     ngOnInit() {}

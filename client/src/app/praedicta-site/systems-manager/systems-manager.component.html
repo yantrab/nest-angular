@@ -97,6 +97,7 @@
                 />
             </g>
         </svg>
+        <!--        <p-image [currentSystem]="currentSystem" [gdArea]="settings[currentSystem].image"></p-image>-->
 
         <p-image currentSystem="bonds" *ngIf="currentSystem === 'bonds'" [gdArea]="settings[currentSystem].image"></p-image>
         <p-image currentSystem="holdings" *ngIf="currentSystem === 'holdings'" [gdArea]="settings[currentSystem].image"></p-image>
@@ -119,7 +120,21 @@
             ></p-content>
         </div>
     </main>
-    <p-system
+
+    <p-system *ngFor="let system of systemsList"
+    style="z-index: 999"
+  
+    [fxLayoutAlign]="settings[currentSystem].align"
+    [fxHide]="currentSystem === system.name"
+    [systemName]="system.name"
+    [gdColumn]="settings[currentSystem][system.name + 'Col']"
+    [gdRow]="settings[currentSystem][system.name + 'Row']"
+    (click)="navigate(system.name)"
+    (hover)="(settings[currentSystem].hoverbackground)"
+    ></p-system>
+
+    <!-- <p-system
+        style="z-index: 999"
         fxLayoutAlign="center end "
         [fxHide]="currentSystem === 'bonds'"
         [systemName]="'bonds'"
@@ -129,6 +144,7 @@
         (hover)="(settings[currentSystem].hoverbackground)"
     ></p-system>
     <p-system
+        style="z-index: 999"
         fxLayout="column"
         [fxLayoutAlign]="isHover == true ? 'center center' : 'start center'"
         [fxHide]="currentSystem === 'holdings'"
@@ -148,19 +164,21 @@
         (click)="navigate('otherSolution')"
     ></p-system>
     <p-system
+        style="z-index: 999"
         fxLayout="column"
         fxLayoutAlign="start center"
         [fxHide]="currentSystem === 'contactUs'"
         [systemName]="'contactUs'"
-        [gdColumn]="settings[currentSystem].Contact_usCol"
-        [gdRow]="settings[currentSystem].Contact_usRow"
+        [gdColumn]="settings[currentSystem].contactUsCol"
+        [gdRow]="settings[currentSystem].CcontactUsRow"
         (click)="navigate('contactUs')"
     ></p-system>
     <p-system
+        style="z-index: 999"
         fxLayoutAlign="center end "
         [systemName]="'aboutUs'"
-        [gdColumn]="settings[currentSystem].About_UsCol"
-        [gdRow]="settings[currentSystem].About_UsRow"
+        [gdColumn]="settings[currentSystem].aboutUsCol"
+        [gdRow]="settings[currentSystem].aboutUsRow"
         (click)="navigate('')"
-    ></p-system>
+    ></p-system> -->
 </div>
