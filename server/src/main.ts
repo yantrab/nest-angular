@@ -16,15 +16,15 @@ async function bootstrap() {
 
         // new FastifyAdapter());
         process.env.NODE_ENV === 'prudaction'
-            ? new FastifyAdapter()
-            : new FastifyAdapter({
+            ? new FastifyAdapter({
                   http2: true,
                   https: {
                       allowHTTP1: true, // fallback support for HTTP1
                       cert: readFileSync(join(__dirname, '../../../localhost.pem')),
                       key: readFileSync(join(__dirname, '../../../localhost-key.pem')),
                   },
-              }),
+              })
+            : new FastifyAdapter(),
     );
 
     // enable cors for static angular site.
