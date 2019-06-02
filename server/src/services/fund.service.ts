@@ -22,7 +22,13 @@ export class FundService {
         const pool = new sql.ConnectionPool(mfConf.db);
         try {
             await pool.connect();
-            this.funds = (await pool.request().query('select * FROM [dbo].[vwMetaData]')).recordset;
+            this.funds = (await pool.request().query(
+                `
+                    SELECT *
+                    FROM [dbMutualFund].[dbo].[vwMetaData] a
+                    JOIN [dbMutualFund].[dbo].[vwK303] b on a.id = b.FundID
+                `,
+            )).recordset;
             this.funds.forEach(f => {
                 Object.keys(f).forEach(key => {
                     if (f[key] === null) {
@@ -31,7 +37,7 @@ export class FundService {
                 });
             });
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
     }
 }

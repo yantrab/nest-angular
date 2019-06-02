@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MFSettings, UserSettings, UserFilter, FilterGroup } from 'shared';
+import { MFSettings, UserSettings, UserFilter, FilterGroup, DropdownFilter, QuantityFilter } from 'shared';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 @Injectable()
 export class MFService {
@@ -9,7 +9,42 @@ export class MFService {
     constructor(private repositoryFactory: RepositoryFactory) {
         this.mfSettingsRepo = this.repositoryFactory.getRepository<MFSettings>(MFSettings, 'DBMF');
         this.mfUserSettingsRepo = this.repositoryFactory.getRepository<UserSettings>(UserSettings, 'DBMF');
+        const exp = [
+            'expNorthAmerica',
+            'expNorthAmericaNone',
+            'expSouthAmerica',
+            'expSouthAmericaNone',
+            'expAfrica',
+            'expAfricaNone',
+            'expEurope',
+            'expEuropeNone',
+            'expAsia',
+            'expAsiaNone',
+            'expIsrael',
+            'expAustralia',
+            'expGlobal',
+            'expGlobalNone',
+            'expUSD',
+            'expEuro',
+            'expOtherCurrencies',
+            'expCurrency',
+        ];
         this.mfSettingsRepo.findOne().then(data => {
+            data.defaultUserFilter.filterGroups.push(
+                new FilterGroup({
+                    name: 'K300',
+                    filters: [
+                        new DropdownFilter({
+                            placeholder: 'חשיפות',
+                            options: exp.map(e => ({_id: e, name: e, filter: new QuantityFilter({
+                                    placeholder: e,
+                                    optionIdPath: e,
+                                })})),
+                        }),
+                    ],
+                }),
+            );
+
             if (!data) {
                 this.mfSettingsRepo.saveOrUpdateOne({
                     defaultUserFilter: new UserFilter({

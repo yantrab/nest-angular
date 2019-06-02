@@ -20,6 +20,7 @@ import { TreeComponent } from './tree/tree.component';
 import { MatPaginatorIntl } from '@angular/material';
 import { QuantityFilterComponent } from './filters/quantity-filter/quantity-filter.component';
 import { DxRangeSelectorModule } from 'devextreme-angular';
+import { SpecialFilterComponent } from './filters/special-filter/special-filter.component';
 const components = [
     DropdownComponent,
     CheckboxComponent,
@@ -30,6 +31,7 @@ const components = [
     NavMenuComponent,
     AutocompleteComponent,
     TreeComponent,
+    SpecialFilterComponent,
 ];
 
 const exportsM = [

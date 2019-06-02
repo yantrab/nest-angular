@@ -1,0 +1,2 @@
+<p-autocomplete [settings]="settings" (selectedChange)="onSelect($event)"></p-autocomplete>
+<p-filter fxFlex (selectedChange)="selectedChange.emit()" [filter]="settings"> </p-filter>

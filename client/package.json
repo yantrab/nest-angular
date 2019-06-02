@@ -3,8 +3,8 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start:ssl": "ng serve --ssl --ssl-key ../../localhost-key.pem  --ssl-cert ../../localhost.pem --open",
-        "start": "ng serve --open",
+        "start:ssl": "ng serve  -c dev --ssl --ssl-key ../../localhost-key.pem  --ssl-cert ../../localhost.pem --open",
+        "start": "ng serve --open   -c dev",
         "build": "ng build --watch",
         "build:prod": "ng build --prod",
         "build:dev": "ng build  --prod --configuration=dev",

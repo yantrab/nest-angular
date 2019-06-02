@@ -58,9 +58,9 @@
                                     "with": "src/environments/environment.dev.ts"
                                 }
                             ],
-                            "optimization": true,
+                            "optimization": false,
                             "outputHashing": "all",
-                            "sourceMap": false,
+                            "sourceMap": true,
                             "extractCss": true,
                             "namedChunks": false,
                             "aot": true,
@@ -85,6 +85,9 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "Angify:build:production"
+                        },
+                        "dev": {
+                            "browserTarget": "Angify:build:dev"
                         }
                     }
                 },
