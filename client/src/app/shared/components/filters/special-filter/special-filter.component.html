@@ -1,2 +1,2 @@
-<p-autocomplete [settings]="settings" (selectedChange)="onSelect($event)"></p-autocomplete>
-<p-filter fxFlex (selectedChange)="selectedChange.emit()" [filter]="settings"> </p-filter>
+<p-autocomplete [settings]="autoSettings" (selectedChange)="onSelect($event)"></p-autocomplete>
+<p-filter *ngFor="let filter of settings.selected" (selectedChange)="filterChange(filter)" [filter]="filter"> </p-filter>

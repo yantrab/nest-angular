@@ -177,10 +177,10 @@ export class MacroService {
         return asdf.toArray() as Promise<Data[]>;
     }
 
-    async getUserSettings(id: string): Promise<UserSettings> {
+    async getUserSettings(email: string): Promise<UserSettings> {
         return (
-            (await this.userSettingsRepo.findOne({ _id: id })) ||
-            new UserSettings({ _id: id, userTemplates: [{ seriesIds: [], name: 'טמפלט' }] })
+            (await this.userSettingsRepo.findOne({ email })) ||
+            new UserSettings({ email, userTemplates: [{ seriesIds: [], name: 'טמפלט' }] })
         );
     }
 

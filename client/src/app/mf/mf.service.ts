@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { HostListener, Injectable } from '@angular/core';
 import { MFController } from 'src/api/mf.controller';
 import { ReplaySubject } from 'rxjs';
 import { UserFilter, UserSettings, Fund, Filter } from 'shared';
@@ -27,7 +27,9 @@ export class MfService {
             this.selectedFilter.next(this.selectedUserFilter);
         });
     }
-
+    unloadHandler() {
+        return this.api.saveUserSettings(this.userSetting);
+    }
     setSelectedUserFilter(userFilter: UserFilter) {
         if (!userFilter.isNew) {
             userFilter.filterGroups = this.userSetting.userFilters.find(f => f.isDefualt).filterGroups;
@@ -44,12 +46,23 @@ export class MfService {
         const columns = this.userSetting.tableSettings.columns;
         this.selectedUserFilter.filterGroups.forEach(f =>
             f.filters.forEach(filter => {
+                if (filter.kind === 'SpecialFilter') {
+                    filter.options.forEach(option => {
+                        if (!option.filter.options) {
+                            option.filter.createOptions(this.allFunds);
+                        }
+                    });
+                }
+
                 if (!filter.options) {
                     filter.createOptions(this.allFunds);
                 }
+
                 if (filter.isActive && filter.selected) {
                     filteredFunds = filter.doFilter(filteredFunds);
-                    columns.push(filter.optionNamePath || filter.optionIdPath);
+                    if (filter.optionNamePath || filter.optionIdPath) {
+                        columns.push(filter.optionNamePath || filter.optionIdPath);
+                    }
                 }
             }),
         );
@@ -59,5 +72,6 @@ export class MfService {
             groupBy: this.userSetting.gridSettings.groupBy,
             allGroups: uniq(this.allFunds.map(a => get(a, this.userSetting.gridSettings.groupBy))),
         });
+        this.api.saveUserSettings(this.userSetting);
     }
 }

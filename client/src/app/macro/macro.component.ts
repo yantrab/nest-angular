@@ -68,10 +68,6 @@ export class MacroComponent {
     };
     selectedSeries = {};
 
-    @HostListener('window:beforeunload', ['$event']) unloadHandler() {
-        this.api.saveUserSettings(this.userSettings).then();
-    }
-
     onSelectCategory(category?: Category) {
         if (category) {
             this.series = this.allSeries.filter(s => s.sId.startsWith(category.cId));
@@ -87,6 +83,7 @@ export class MacroComponent {
             this.currentTemplate.seriesIds = this.currentTemplate.seriesIds.filter(s => s !== series.sId);
             this.selectedSeries[series.sId] = false;
         }
+        this.api.saveUserSettings(this.userSettings).then();
     }
 
     download() {

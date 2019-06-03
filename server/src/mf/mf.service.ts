@@ -30,20 +30,25 @@ export class MFService {
             'expCurrency',
         ];
         this.mfSettingsRepo.findOne().then(data => {
-            data.defaultUserFilter.filterGroups.push(
-                new FilterGroup({
-                    name: 'K300',
-                    filters: [
-                        new DropdownFilter({
-                            placeholder: 'חשיפות',
-                            options: exp.map(e => ({_id: e, name: e, filter: new QuantityFilter({
-                                    placeholder: e,
-                                    optionIdPath: e,
-                                })})),
-                        }),
-                    ],
-                }),
-            );
+            //     data.defaultUserFilter.filterGroups.push(
+            //         new FilterGroup({
+            //             name: 'K300',
+            //             filters: [
+            //                 new DropdownFilter({
+            //                     placeholder: 'חשיפות',
+            //                     options: exp.map(e => ({
+            //                         _id: e,
+            //                         name: e,
+            //                         filter: new QuantityFilter({
+            //                             placeholder: e,
+            //                             optionIdPath: e,
+            //                         }),
+            //                     })),
+            //                 }),
+            //             ],
+            //         }),
+            //     );
+            //     this.mfSettingsRepo.saveOrUpdateOne(data);
 
             if (!data) {
                 this.mfSettingsRepo.saveOrUpdateOne({
@@ -93,11 +98,15 @@ export class MFService {
         //   });
     }
 
-    async getUserSettings(id: string): Promise<UserSettings> {
-        return this.mfUserSettingsRepo.findOne({ _id: id });
+    async getUserSettings(email: string): Promise<UserSettings> {
+        return this.mfUserSettingsRepo.findOne({ email });
     }
 
     async getSettings(): Promise<MFSettings> {
         return this.mfSettingsRepo.findOne({});
+    }
+
+    async saveUserSettings(userSettings: UserSettings) {
+        return this.mfUserSettingsRepo.saveOrUpdateOne(userSettings);
     }
 }
