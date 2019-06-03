@@ -11,6 +11,31 @@ export class ContactField extends Entity {
     defualt?: any = '';
 }
 
+export enum FieldType {
+    text,
+    list,
+}
+export class SettingField extends Entity {
+    @IsNumber()
+    length: number;
+
+    @IsNumber()
+    index: number;
+    @ValidateNested()
+    type: FieldType;
+
+    options?: Function;
+    value: any;
+    default?: any = '';
+
+    constructor(props) {
+        super(props);
+        if (!this.value) {
+            this.value = props.default;
+        }
+    }
+}
+
 export class Contacts extends Entity {
     @IsNumber()
     index: number;
@@ -21,13 +46,16 @@ export class Contacts extends Entity {
     list?: any[];
     constructor(contacts: Partial<Contacts>) {
         super(contacts);
-        this.contactFields = this.contactFields.map(f => new ContactField(f))
+        this.contactFields = this.contactFields.map(f => new ContactField(f));
         if (!this.list) {
             this.list = new Array(this.count).fill(1).map((_, i) => {
-                return  this.contactFields.reduce((item, field) => {
-                    item[field.property] = field.defualt;
-                    return item;
-                }, {id: i + 1});
+                return this.contactFields.reduce(
+                    (item, field) => {
+                        item[field.property] = field.defualt;
+                        return item;
+                    },
+                    { id: i + 1 },
+                );
             });
         }
     }
@@ -40,7 +68,8 @@ export class Panel extends Entity {
     version: number;
     @ValidateNested({ each: true })
     contacts: Contacts;
-    settings;
+    @ValidateNested()
+    settings: Array<{ name: string; fields: SettingField[] }>;
     @IsString()
     userId: string;
     address;
@@ -48,9 +77,7 @@ export class Panel extends Entity {
         super(panel);
         this.contacts = new Contacts(panel.contacts);
     }
-    dump(){
-
-    }
+    dump() {}
 }
 
 export class PanelStructore extends Entity {}
