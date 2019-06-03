@@ -1,30 +1,31 @@
 <div [dir]="i18nService.dir">
     <p-topbar [model]="topbarModel" [inProgress]="!selectedPanel"></p-topbar>
     <div class="content" fxLayout="row" *ngIf="selectedPanel">
-        <p-autocomplete fxFlex="120px"
-                (selectedChange)="selectedPanel = $event" [keepOpen]="true"
-                        [settings]="autocompleteSettings"></p-autocomplete>
+        <p-autocomplete
+            fxFlex="120px"
+            (selectedChange)="selectedPanel = $event"
+            [keepOpen]="true"
+            [settings]="autocompleteSettings"
+        ></p-autocomplete>
         <mat-tab-group fxFlex #tabGroup mat-stretch-tabs fxFlex="100">
             <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
                 <div>
                     <mat-form-field>
-                        <input [value]="selectedPanel._id" disabled matInput placeholder="טלפון">
+                        <input [value]="selectedPanel._id" disabled matInput placeholder="טלפון" />
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput placeholder="שם" [(ngModel)]="selectedPanel.name">
+                        <input matInput placeholder="שם" [(ngModel)]="selectedPanel.name" />
                     </mat-form-field>
                     <p>
-                        <mat-form-field>
-                            <input matInput placeholder="Address">{{selectedPanel.address}}>
-                        </mat-form-field>
+                        <mat-form-field> <input matInput placeholder="Address" />{{ selectedPanel.address }}> </mat-form-field>
                     </p>
 
                     <mat-form-field>
-                        <input matInput placeholder="סוג" disabled [(ngModel)]="selectedPanel.type">
+                        <input matInput placeholder="סוג" disabled [(ngModel)]="selectedPanel.type" />
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input matInput placeholder="גירסה" [(ngModel)]="selectedPanel.version">
+                        <input matInput placeholder="גירסה" [(ngModel)]="selectedPanel.version" />
                     </mat-form-field>
                 </div>
             </mat-tab>
@@ -33,7 +34,30 @@
                     <p-contacts [contacts]="selectedPanel.contacts"></p-contacts>
                 </ng-template>
             </mat-tab>
-            <mat-tab label="settings"> Content 3</mat-tab>
+            <mat-tab label="settings">
+                <mat-expansion-panel
+                    *ngFor="let group of selectedPanel.settings; let panelOpenState = false"
+                    (closed)="panelOpenState = false"
+                    (opened)="panelOpenState = true"
+                >
+                    <mat-expansion-panel-header>
+                        {{ group.name }}
+                    </mat-expansion-panel-header>
+                    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                        <ng-container *ngFor="let field of group.fields">
+                            <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.text">
+                                <input matInput [placeholder]="field.name" [(ngModel)]="field.value" />
+                            </mat-form-field>
+                            <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.list">
+                                <mat-label>{{ field.name }}</mat-label>
+                                <select [(ngModel)]="field.value" matNativeControl>
+                                    <option *ngFor="let option of field.options()" [value]="option">{{ option }}</option>
+                                </select>
+                            </mat-form-field>
+                        </ng-container>
+                    </div>
+                </mat-expansion-panel>
+            </mat-tab>
         </mat-tab-group>
     </div>
 </div>
