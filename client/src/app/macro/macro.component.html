@@ -38,41 +38,31 @@
                     </div>
                 </div>
             </mat-grid-tile>
-            <mat-grid-tile colspan="1" fxLayout="column" fxLayoutAlign="center center">
-                <div style="height:100%;width:100%;overflow: auto;">
-                    <p-tree [data]="categories" (select)="onSelectCategory($event)"></p-tree>
-                </div>
-            </mat-grid-tile>
 
             <mat-grid-tile colspan="3">
                 <div fxLayout="column" fxFlex style="height:100%;width:100%;">
-                    <mat-virtual-table
-                        fxFlex
-                        [rows]="series"
-                        [filterPlaceholder]="'חיפוש'"
-                        [paginator]="true"
-                        [columnsDef]="columns"
-                    >
-                        <ng-template pCellDef column="select" let-row="row">
-                            <mat-checkbox
-                                (change)="onSelectSeries($event.checked, row)"
-                                [checked]="selectedSeries[row.sId]"
-                            ></mat-checkbox>
-                        </ng-template>
-
-                        <ng-template pCellDef column="startDate" let-row="row">
-                            {{ row.startDate | date: 'dd.MM.yyyy' }}
-                        </ng-template>
-                        <ng-template pCellDef column="endDate" let-row="row">
-                            {{ row.endDate | date: 'dd.MM.yyyy' }}
-                        </ng-template>
-                        <ng-template pCellDef column="lastUpdate" let-row="row">
-                            {{ row.lastUpdate | date: 'dd.MM.yyyy' }}
-                        </ng-template>
-                        <ng-template pCellDef column="name" let-row="row">
-                            <b>{{ row.name }}</b>
-                        </ng-template>
-                    </mat-virtual-table>
+                    <mat-form-field fxFlex="40px">
+                        <input id="input" matInput [placeholder]="'חיפוש'" [formControl]="input" />
+                    </mat-form-field>
+                    <mat-accordion [multi]="true" fxFlex>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>קטגוריות </mat-expansion-panel-header>
+                            <div style="height: 400px;">
+                                <p-tree [data]="categories" (select)="onSelectCategory($event)"></p-tree>
+                            </div>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel style="height: 100%;" [expanded]="true">
+                            <cdk-virtual-scroll-viewport style="height: 100%;" itemSize="40">
+                                <div style="height: 40px;" *cdkVirtualFor="let option of filteredOptions | async">
+                                    <mat-checkbox
+                                        (change)="onSelectSeries($event.checked, option)"
+                                        [checked]="selectedSeries[option.sId]"
+                                    ></mat-checkbox>
+                                    {{ option.sId + ', ' + option.name }}
+                                </div>
+                            </cdk-virtual-scroll-viewport>
+                        </mat-expansion-panel>
+                    </mat-accordion>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>

@@ -29,7 +29,7 @@ export class MFController {
             userSettings.tableSettings = mfSettings.tableSettings;
             userSettings.gridSettings = mfSettings.gridSettings;
         }
-
+        // await this.mfService.saveUserSettings(userSettings);
         return {
             funds: await this.fundService.getFunds(),
             userSetting: userSettings,
