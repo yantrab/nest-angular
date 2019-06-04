@@ -3,7 +3,7 @@ import { IsString, ValidateNested, IsNumber, IsArray } from 'class-validator';
 export class Category extends Entity {
     @IsString() NameEnglish: string;
     @ValidateNested({ each: true }) children: Category[] = [];
-    @IsString() cId:string;
+    @IsString() cId: string;
     constructor(data?: Partial<Category>) {
         super(data);
         if (data && data.children) {
@@ -54,13 +54,14 @@ export class Data extends Entity {
     @ValidateNested()
     data: DataItem[];
 
-    @IsString() sId:string;
+    @IsString() sId: string;
 }
 export class SeriesGroup extends Entity {
     @IsString({ each: true })
     seriesIds: string[];
 }
 export class UserSettings extends Entity {
+    @IsString() email: string;
     @ValidateNested({ each: true })
     userTemplates: SeriesGroup[];
     constructor(data?) {

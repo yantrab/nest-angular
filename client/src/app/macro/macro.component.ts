@@ -4,11 +4,13 @@ import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
 import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
 import { I18nService } from '../shared/services/i18n.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { keyBy, first, last, groupBy } from 'lodash';
 import { DatePipe } from '@angular/common';
 import { XLSXService } from '../shared/services/xlsx.service';
 import { AutocompleteFilter } from 'shared';
+import { map, startWith } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 export const NEW = ' (Create new) ';
 
 @Component({
@@ -17,6 +19,17 @@ export const NEW = ' (Create new) ';
     styleUrls: ['./macro.component.scss'],
 })
 export class MacroComponent {
+    input: FormControl = new FormControl();
+    filteredOptions: Observable<Series[]>;
+    private queries = [];
+    private filter = (value: any): Series[] => {
+        if (!value || typeof value !== 'string') {
+            return this.series;
+        }
+        const query = ' ' + value.toLowerCase();
+        return this.queries.filter(q => q.q.includes(query)).map(q => q.option);
+    }
+
     constructor(private api: MacroController, public i18nService: I18nService, fb: FormBuilder, private xslService: XLSXService) {
         this.api.getInitialData().then(data => {
             this.categories = data.categories;
@@ -30,7 +43,22 @@ export class MacroComponent {
             this.currentTemplate = this.userSettings.userTemplates[0];
             this.seriesGroupsSettings.selected = this.currentTemplate;
             this.currentTemplate.seriesIds.forEach(id => (this.selectedSeries[id] = true));
+
+            this.allSeries.forEach(option => {
+                this.queries.push({
+                    q: ['sId', 'name', 'startDate', 'endDate']
+                        .reduce((query, path) => query + ' ' + (option[path] || ''), '')
+                        .toLowerCase(),
+                    option,
+                });
+            });
         });
+
+        this.filteredOptions = this.input.valueChanges.pipe(
+            startWith<string | any>(''),
+            map(name => (name ? this.filter(name) : this.series)),
+        );
+
         this.dateForm = fb.group({
             date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
         });
@@ -68,16 +96,13 @@ export class MacroComponent {
     };
     selectedSeries = {};
 
-    @HostListener('window:beforeunload', ['$event']) unloadHandler() {
-        this.api.saveUserSettings(this.userSettings).then();
-    }
-
     onSelectCategory(category?: Category) {
         if (category) {
             this.series = this.allSeries.filter(s => s.sId.startsWith(category.cId));
         } else {
             this.series = this.allSeries;
         }
+        this.input.setValue('');
     }
     onSelectSeries(checked: boolean, series: Series) {
         if (checked) {
@@ -87,6 +112,7 @@ export class MacroComponent {
             this.currentTemplate.seriesIds = this.currentTemplate.seriesIds.filter(s => s !== series.sId);
             this.selectedSeries[series.sId] = false;
         }
+        this.api.saveUserSettings(this.userSettings).then();
     }
 
     download() {

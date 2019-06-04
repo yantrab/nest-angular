@@ -16,7 +16,7 @@ export class MacroController {
         return {
             categories: await this.service.getCategories(),
             series: await this.service.getSeries(),
-            userSettings: await this.service.getUserSettings(user.id),
+            userSettings: await this.service.getUserSettings(user.email),
         };
     }
 
@@ -27,6 +27,6 @@ export class MacroController {
 
     @Post('saveUserSettings')
     saveUserSettings(@Body() userSettings: UserSettings) {
-        this.service.saveUserSettings(userSettings).then();
+        return this.service.saveUserSettings(userSettings);
     }
 }

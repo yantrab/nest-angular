@@ -1,16 +1,45 @@
 import { UserFilter } from './filter.model';
 import { Entity } from './Entity';
-import { ValidateNested } from 'class-validator';
+import { ValidateNested, IsString } from 'class-validator';
 // import { Fund } from './fund.model';
+
+export class TableSettings {
+    @IsString({ each: true })
+    columns: string[];
+    constructor(data) {
+        if (data) {
+            Object.assign(this, data);
+        }
+    }
+}
+
+export class GridSettings {
+    @IsString()
+    groupBy: string;
+    constructor(data) {
+        if (data) {
+            Object.assign(this, data);
+        }
+    }
+}
+
 export class UserSettings extends Entity {
-    @ValidateNested({ each: true })
-    userFilters: UserFilter[];
-    tableSettings: { columns: string[] };
-    gridSettings: { groupBy: string };
+    @ValidateNested({ each: true }) userFilters: UserFilter[];
+    @ValidateNested() tableSettings: TableSettings;
+    @ValidateNested() gridSettings: GridSettings;
+    @IsString() email: string;
     constructor(data?: Partial<UserSettings>) {
         super(data);
         if (data) {
-            this.userFilters = data.userFilters.map(userFilter => new UserFilter(userFilter));
+            if (data.userFilters) {
+                this.userFilters = data.userFilters.map(userFilter => new UserFilter(userFilter));
+            }
+            if (data.tableSettings) {
+                this.tableSettings = new TableSettings(data.tableSettings);
+            }
+            if (data.gridSettings) {
+                this.gridSettings = new GridSettings(data.gridSettings);
+            }
         }
     }
 }

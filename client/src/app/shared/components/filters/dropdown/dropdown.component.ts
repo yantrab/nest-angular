@@ -6,14 +6,12 @@ import { BaseFilterComponent } from '../base.component';
     template: `
         <mat-form-field *ngIf="settings">
             <mat-select
+                (selectionChange)="optionSelected($event.value)"
                 [value]="settings.selected"
                 [compareWith]="compareFn"
                 [placeholder]="settings.placeholder"
             >
-                <mat-option
-                    *ngFor="let option of settings.options"
-                    [value]="option"
-                >
+                <mat-option *ngFor="let option of settings.options" [value]="option">
                     {{ option.name }}
                 </mat-option>
             </mat-select>

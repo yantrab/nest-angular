@@ -1,19 +1,22 @@
 import { Poly, Entity } from './Entity';
 import { get, uniqBy } from 'lodash';
-import { IsOptional, IsBoolean, IsString, ValidateNested } from 'class-validator';
+import { IsOptional, IsBoolean, IsString, ValidateNested, IsArray } from 'class-validator';
 import * as Filters from './filter.model';
 import { getDistribution } from '../utils';
 
 export abstract class Filter extends Poly {
+    @IsArray()
     options: any[];
-    optionNamePath: string;
-    optionIdPath: string;
+
+    @IsOptional() selected?: any;
+
+    @IsOptional() @IsString() optionNamePath?: string;
+    @IsOptional() @IsString() optionIdPath?: string;
 
     @IsBoolean()
     @IsOptional()
     isMultiple?: boolean;
     @IsOptional() @IsBoolean() isActive?: boolean;
-    selected?: any;
     @IsOptional()
     @IsString()
     placeholder?: string;
@@ -64,6 +67,18 @@ export class AutocompleteFilter extends Filter {
     }
 }
 
+export class SpecialFilter extends Filter {
+    doFilter(items: any[]): any[] {
+        let result = items;
+        this.selected.forEach(filter => {
+            if (filter.isActive && filter.selected) {
+                result = filter.doFilter(result);
+            }
+        });
+        return result;
+    }
+}
+
 export class FilterGroup extends Entity {
     @ValidateNested({ each: true })
     filters: Filter[];
@@ -77,7 +92,15 @@ export class FilterGroup extends Entity {
     }
     constructor(filterGroup: Partial<FilterGroup>) {
         super(filterGroup);
-        this.filters = filterGroup.filters.map(filter => new Filters[filter.kind](filter));
+        this.filters = filterGroup.filters.map(filter => {
+            const f: Filter = new Filters[filter.kind](filter);
+            if (f.kind === 'SpecialFilter') {
+                f.options.forEach(op => {
+                    op.filter = new Filters[op.filter.kind](op.filter);
+                });
+            }
+            return f;
+        });
     }
 }
 

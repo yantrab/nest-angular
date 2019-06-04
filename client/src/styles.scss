@@ -74,4 +74,10 @@ mat-grid-list {
 //   }
 // }
 
+.mat-expansion-panel-content {
+    height: 100%;
+}
+.mat-expansion-panel-body {
+    height: 100%;
+}
 @import '~saturn-datepicker/bundle.css';

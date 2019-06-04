@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { UserFilter, AutocompleteFilter } from 'shared';
 import { MfService } from '../mf.service';
 import { ColumnDef } from 'mat-virtual-table';
@@ -37,7 +37,13 @@ export class FindFundComponent {
             this.gridGroups = funds.allGroups.map(g => ({ name: g, count: groups[g] ? groups[g].length : 0 }));
         });
     }
-
+    // @HostListener('window:beforeunload', ['$event']) async unloadHandler() {
+    //     window.alert(
+    //         'WARNING: You have unsaved changes. Press Cancel to go back and save these changes, or OK to lose these changes.',
+    //     );
+    //     // const x = this.mfService.unloadHandler();
+    //     return 'gfdsdfgfdsfg';
+    // }
     filterSelected(userFilter: UserFilter) {
         this.mfService.setSelectedUserFilter(userFilter);
     }
