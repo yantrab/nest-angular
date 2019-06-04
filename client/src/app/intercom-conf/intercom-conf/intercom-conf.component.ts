@@ -119,6 +119,232 @@ export class IntercomConfComponent {
                                     }),
                                 ],
                             },
+                            {
+                                name: 'times',
+                                fields: [
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'DelayT',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'DoorT',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'DelayT',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'DelayT2',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'DoorT2',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'IlluminationT',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'RingT',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'CameraT',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'ProxyT',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'FDooR',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'DetAnN',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'NameAnN',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'FloorAnN',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'NameLisT',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'SelNamE',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'SelCleaR',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'SpeachT',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'BussyRinG',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '00',
+                                        type: FieldType.list,
+                                        name: 'ConfirM',
+                                        options: () =>
+                                            Array.from(Array(100).keys()).map(a => {
+                                                return ('0' + a.toString()).slice(-2);
+                                            }),
+                                    }),
+                                ],
+                            },
+                            {
+                                name: 'answerY_N',
+                                fields: [
+                                    new SettingField({
+                                        index: 10,
+                                        length: 10,
+                                        default: '123456',
+                                        type: FieldType.text,
+                                        name: 'masterCode',
+                                    }),
+                                ],
+                            },
                         ],
                         userId: '',
                     }),
