@@ -14,6 +14,7 @@ export class ContactField extends Entity {
 export enum FieldType {
     text,
     list,
+    yesNo,
 }
 export class SettingField extends Entity {
     @IsNumber()

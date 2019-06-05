@@ -336,14 +336,117 @@ export class IntercomConfComponent {
                             {
                                 name: 'answerY_N',
                                 fields: [
-                                    new SettingField({
-                                        index: 10,
-                                        length: 10,
-                                        default: '123456',
-                                        type: FieldType.text,
-                                        name: 'masterCode',
-                                    }),
-                                ],
+                                    'ApartmentS',
+                                    'DetectorBL',
+                                    'Proxy1R1',
+                                    'Proxy1R2',
+                                    'Proxy2R1',
+                                    'Proxy2R2',
+                                    'ProxyNpiN',
+                                    'AtoZ',
+                                    'ExternalPxY',
+                                    'ElevetorCnT',
+                                    'UsingRTC',
+                                    'DispTelVaL',
+                                    'BuzOnRlZ',
+                                    'NoApNoOf',
+                                    'DirectDial',
+                                    'FullMenu',
+                                ].map(
+                                    name =>
+                                        new SettingField({
+                                            index: 10,
+                                            length: 1,
+                                            default: '0',
+                                            type: FieldType.yesNo,
+                                            name,
+                                        }),
+                                ),
+                            },
+                            {
+                                name: 'telephone behave',
+                                fields: [
+                                    'BusyTone1',
+                                    'BusyTone2',
+                                    'BusyLvL',
+                                    'BusyFreQ',
+                                    'LowRingFreq',
+                                    'HighRingFreq',
+                                    'BreakBtweenRingS',
+                                    'RingsToMovE',
+                                    'BussyBeforeHanG',
+                                ]
+                                    .map(
+                                        name =>
+                                            new SettingField({
+                                                index: 10,
+                                                length: 1,
+                                                default: 0,
+                                                type: FieldType.list,
+                                                options: () =>
+                                                    Array.from(Array(100).keys()).map(a => {
+                                                        return ('0' + a.toString()).slice(-2);
+                                                    }),
+                                                name,
+                                            }),
+                                    )
+                                    .concat([
+                                        new SettingField({
+                                            index: 10,
+                                            length: 1,
+                                            default: 0,
+                                            type: FieldType.list,
+                                            options: () => Array.from(Array(7).keys()).map(n => n.toString()),
+                                            name: 'peach level',
+                                        }),
+                                        new SettingField({
+                                            index: 10,
+                                            length: 1,
+                                            default: 0,
+                                            type: FieldType.list,
+                                            options: () => Array.from(Array(100).keys()).map(n => n.toString()),
+                                            name: 'ringing number',
+                                        }),
+                                        new SettingField({
+                                            index: 10,
+                                            length: 1,
+                                            default: 0,
+                                            type: FieldType.list,
+                                            options: () => ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-'],
+                                            name: 'tone code 1',
+                                        }),
+                                        new SettingField({
+                                            index: 10,
+                                            length: 1,
+                                            default: 0,
+                                            type: FieldType.list,
+                                            options: () => ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-'],
+                                            name: 'tone code 2',
+                                        }),
+                                        new SettingField({
+                                            index: 10,
+                                            length: 1,
+                                            default: 0,
+                                            type: FieldType.list,
+                                            options: () => ['0', '1', '2', '3', '4', '5', '6', '7', '-'],
+                                            name: 'Confirm By Tone',
+                                        }),
+                                    ]),
+                            },
+                            {
+                                name: 'floord to apartments',
+                                fields: Array.from(Array(30).keys()).map(
+                                    i =>
+                                        new SettingField({
+                                            index: 10,
+                                            length: 1,
+                                            default: 0,
+                                            type: FieldType.list,
+                                            options: () =>
+                                                Array.from(Array(250).keys()).map(n => ('00' + n.toString()).slice(-3)),
+                                            name: 'floorValue ' + i,
+                                        }),
+                                ),
                             },
                         ],
                         userId: '',
