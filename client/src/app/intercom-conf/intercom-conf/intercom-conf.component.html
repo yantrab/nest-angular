@@ -35,11 +35,12 @@
                 </ng-template>
             </mat-tab>
             <mat-tab label="settings">
+                <ng-template matTabContent>
                 <mat-accordion fxFlex>
                     <mat-expansion-panel
-                        *ngFor="let group of selectedPanel.settings; let panelOpenState = false"
-                        (closed)="panelOpenState = false"
-                        (opened)="panelOpenState = true"
+                            *ngFor="let group of selectedPanel.settings; let panelOpenState = false"
+                            (closed)="panelOpenState = false"
+                            (opened)="panelOpenState = true"
                     >
                         <mat-expansion-panel-header>
                             {{ group.name }}
@@ -60,8 +61,8 @@
                                     <div fxFlex="110px">
                                         NO
                                         <mat-slide-toggle
-                                            (change)="field.value = $event.checked ? '1' : '0'"
-                                            [checked]="field.value === '1'"
+                                                (change)="field.value = $event.checked ? '1' : '0'"
+                                                [checked]="field.value === '1'"
                                         >
                                         </mat-slide-toggle>
                                         YES
@@ -71,6 +72,7 @@
                         </div>
                     </mat-expansion-panel>
                 </mat-accordion>
+                </ng-template>
             </mat-tab>
         </mat-tab-group>
     </div>

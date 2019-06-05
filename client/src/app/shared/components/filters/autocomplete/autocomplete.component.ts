@@ -15,7 +15,10 @@ import { UserFilter } from 'shared/models';
 export class AutocompleteComponent extends BaseFilterComponent implements OnInit, AfterViewInit {
     constructor(differs: KeyValueDiffers) {
         super(differs);
-        window.addEventListener('click', () => this.setInputSelectedValue());
+        const handler = () => {
+            setTimeout(() => this.inputAutocomplete.openPanel());
+        };
+        window.addEventListener('click', e => this.inputAutocomplete.openPanel());
     }
     chips: boolean;
     filteredOptions: Observable<any[]>;
@@ -26,7 +29,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
             return result;
         }
         return [{ name: query + NEW } as UserFilter].concat(result);
-    }
+    };
 
     @Input() appearance = 'outline';
     @Input() paths: string[] = ['name', '_id'];
@@ -36,7 +39,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     @ViewChild(MatInput) matInput;
     @Input() displayFn = val => {
         return val ? val.name : '';
-    }
+    };
 
     private queries = [];
     private filter = (value: any): string[] => {
@@ -45,7 +48,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         }
         const filterValue = ' ' + value.toLowerCase();
         return this.filterFn(filterValue);
-    }
+    };
 
     onSettingsChange(settings) {
         this.settings.options.forEach(option => {
@@ -67,9 +70,6 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     }
 
     optionSelected(selected) {
-        // if (!this.settings.isMultiple) {
-        //     document.getElementById('input').blur();
-        // }
         super.optionSelected(selected);
         if (this.keepOpen || this.settings.isMultiple) {
             setTimeout(() => this.inputAutocomplete.openPanel(), 1);
@@ -86,7 +86,14 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
             startWith<string | any>(''),
             map(name => (name ? this.filter(name) : this.settings.options.slice())),
         );
-        document.querySelectorAll('p-autocomplete .mat-form-field-flex')[0].addEventListener('click', ev => this.clear(ev));
+        document.querySelectorAll('p-autocomplete .mat-form-field-flex')[0].addEventListener('click', ev => {
+            this.clear(ev);
+            const handler = () => {
+                this.setInputSelectedValue();
+                window.removeEventListener('click', handler);
+            };
+            window.addEventListener('click', handler);
+        });
     }
 
     ngAfterViewInit() {

@@ -28,7 +28,7 @@ export class MacroComponent {
         }
         const query = ' ' + value.toLowerCase();
         return this.queries.filter(q => q.q.includes(query)).map(q => q.option);
-    }
+    };
 
     constructor(private api: MacroController, public i18nService: I18nService, fb: FormBuilder, private xslService: XLSXService) {
         this.api.getInitialData().then(data => {
