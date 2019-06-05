@@ -27,6 +27,7 @@ export class IntercomConfComponent {
             .map(
                 (_, i) =>
                     new Panel({
+                        _id: i.toString(),
                         address: '1600 Amphitheatre Pkwy',
                         name: 'פאנל ' + i,
                         type: 'MP',

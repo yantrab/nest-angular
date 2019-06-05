@@ -35,28 +35,30 @@
                 </ng-template>
             </mat-tab>
             <mat-tab label="settings">
-                <mat-expansion-panel
-                    *ngFor="let group of selectedPanel.settings; let panelOpenState = false"
-                    (closed)="panelOpenState = false"
-                    (opened)="panelOpenState = true"
-                >
-                    <mat-expansion-panel-header>
-                        {{ group.name }}
-                    </mat-expansion-panel-header>
-                    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-                        <ng-container *ngFor="let field of group.fields">
-                            <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.text">
-                                <input matInput [placeholder]="field.name" [(ngModel)]="field.value" />
-                            </mat-form-field>
-                            <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.list">
-                                <mat-label>{{ field.name }}</mat-label>
-                                <select [(ngModel)]="field.value" matNativeControl>
-                                    <option *ngFor="let option of field.options()" [value]="option">{{ option }}</option>
-                                </select>
-                            </mat-form-field>
-                        </ng-container>
-                    </div>
-                </mat-expansion-panel>
+                <ng-template matTabContent>
+                    <mat-expansion-panel
+                        *ngFor="let group of selectedPanel.settings; let panelOpenState = false"
+                        (closed)="panelOpenState = false"
+                        (opened)="panelOpenState = true"
+                    >
+                        <mat-expansion-panel-header>
+                            {{ group.name }}
+                        </mat-expansion-panel-header>
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                            <ng-container *ngFor="let field of group.fields">
+                                <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.text">
+                                    <input matInput [placeholder]="field.name" [(ngModel)]="field.value" />
+                                </mat-form-field>
+                                <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.list">
+                                    <mat-label>{{ field.name }}</mat-label>
+                                    <select [(ngModel)]="field.value" matNativeControl>
+                                        <option *ngFor="let option of field.options()" [value]="option">{{ option }}</option>
+                                    </select>
+                                </mat-form-field>
+                            </ng-container>
+                        </div>
+                    </mat-expansion-panel>
+                </ng-template>
             </mat-tab>
         </mat-tab-group>
     </div>

@@ -18,7 +18,11 @@
         [class.maxHight]="keepOpen"
         (optionSelected)="optionSelected($event.option.value)"
     >
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [class.selected]="keepOpen && settings.selected && settings.selected._id === option._id"
+            [value]="option"
+        >
             {{ option.name }}
         </mat-option>
     </mat-autocomplete>
