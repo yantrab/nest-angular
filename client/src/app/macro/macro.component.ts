@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { Category, Series, DataRequest, SeriesGroup, UserSettings } from 'shared/models/macro.model';
 import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
@@ -17,6 +17,7 @@ export const NEW = ' (Create new) ';
     selector: 'p-macro',
     templateUrl: './macro.component.html',
     styleUrls: ['./macro.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class MacroComponent {
     input: FormControl = new FormControl();

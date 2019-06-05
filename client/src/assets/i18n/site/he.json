@@ -42,7 +42,8 @@
         "contactUs": {
             "title": "ליצירת \n     קשר",
             "content": "Am ve Olamo Str., Jerusalem 91340,\nP.O.Box 34030 8\n\nTel. +972-2-6528490, \nFax. +972-2-6528493"
-        }
+        },
+        "aboutUs": "אודותינו"
     },
     "More": "יותר",
     "Our_clients": "הלקוחות שלנו",

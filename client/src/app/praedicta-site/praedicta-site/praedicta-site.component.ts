@@ -19,6 +19,7 @@ export class PraedictaSiteComponent implements OnInit {
     }
     ngOnInit() {}
     navigate(to: string) {
+        debugger;
         this.router.navigate([window.location.pathname + '/' + to, {}]).then();
     }
 

@@ -1,9 +1,52 @@
-$topbar-hight: 70px;
+@mixin letter($font-size, $letter-spacing, $line-height: normal, $font-weight: normal, $font-family: Poppins, $color: #feffdf) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+    color: $color;
+}
 
+$topbar-hight: 70px;
+body {
+    background-color: #fafafa;
+}
 p-topbar {
     height: $topbar-hight;
 }
 .content {
-    height: calc(100vh - #{$topbar-hight});
-    background-color: #f1f2f6;
+    height: calc(70vh - #{$topbar-hight});
+    background-color: #eeeeee;
+}
+.templates {
+    right: 68px !important;
+    width: calc(((30% - 8px) * 1) + 0px) !important;
+    top: 55px !important;
+    height: calc(((140% - 0px) * 1) + 0px) !important;
+}
+.button {
+    margin: 17px !important;
+    min-width: 130px !important;
+    line-height: 60px !important;
+    padding: 0 !important;
+    border-radius: 0px !important;
+    top: 4px !important;
+    border: 1px solid !important;
+}
+.wrapperbutton {
+    width: 90%;
+    height: 20%;
+    border-top: 1px solid;
+    text-align: center;
+}
+.macro {
+    @include letter(33px, 0.8px, $font-weight: bold, $color: #2c2c2c);
+}
+.textBut {
+    @include letter(20px, 0.5px, $color: #000000);
+}
+cdk-virtual-scroll-content-wrapper {
+    top: 30px !important;
 }

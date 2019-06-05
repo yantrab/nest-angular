@@ -1,7 +1,11 @@
-<div style="padding:2em 0 " *ngIf="isHover === false" (mouseover)="isHover = true">
-    <pre><span>{{ dic.sitePage.systems[systemName] }}</span> </pre>
-</div>
-<div *ngIf="isHover === true" (mouseout)="isHover = false">
-    <span>{{ dic.sitePage.systems[systemName] }}</span>
-    <pre><span class="hover">{{ dic.systemPage[systemName].contentHover }}</span></pre>
+<div class="container" *ngIf="dic.systemPage[systemName]">
+    <div class="notHover" style="width: 100%;height: 100%">
+        <pre><span [ngClass]="systemName === ('holdings'||'contactUs') ? 'up' :'under'">{{ dic.sitePage.systems[systemName] }}</span> </pre>
+    </div>
+    <div class="hover" fxLayout="column" fxLayoutAlign="center center" style="background: #fafafa;width: 100%;height: 100%">
+        <div>
+            <span fxLayoutAlign="start">{{ dic.sitePage.systems[systemName] }}</span>
+            <pre><span fxLayoutAlign="start" class="textHover">{{ dic.systemPage[systemName].contentHover }}</span></pre>
+        </div>
+    </div>
 </div>

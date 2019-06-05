@@ -57,7 +57,7 @@
             />
             <line
                 [attr.x1]="i18nService.language == 'he' ? '60%' : '43%'"
-                y1="50%"
+                y1="45%"
                 [attr.x2]="i18nService.language == 'he' ? '60%' : '43%'"
                 y2="30%"
                 stroke="#b6cfe7"
@@ -66,9 +66,9 @@
             />
             <line
                 [attr.x1]="i18nService.language == 'he' ? '25%' : '80%'"
-                y1="650"
+                y1="92%"
                 [attr.x2]="i18nService.language == 'he' ? '75%' : '25%'"
-                y2="650"
+                y2="92%"
                 stroke="#b6cfe7"
                 stroke-width="2"
                 marker-start="url(#arrow)"
@@ -97,15 +97,21 @@
                 />
             </g>
         </svg>
-        <!--        <p-image [currentSystem]="currentSystem" [gdArea]="settings[currentSystem].image"></p-image>-->
+        <p-image [currentSystem]="currentSystem" [gdArea]="settings[currentSystem].image"></p-image>
 
-        <p-image currentSystem="bonds" *ngIf="currentSystem === 'bonds'" [gdArea]="settings[currentSystem].image"></p-image>
-        <p-image currentSystem="holdings" *ngIf="currentSystem === 'holdings'" [gdArea]="settings[currentSystem].image"></p-image>
-        <p-image
-            currentSystem="contactUs"
-            *ngIf="currentSystem === 'contactUs'"
-            [gdArea]="settings[currentSystem].image"
-        ></p-image>
+        <!--        <p-image currentSystem="bonds" *ngIf="currentSystem === 'bonds'" [gdArea]="settings[currentSystem].image"></p-image>-->
+        <!--        <p-image currentSystem="holdings" *ngIf="currentSystem === 'holdings'" [gdArea]="settings[currentSystem].image"></p-image>-->
+        <!--        <p-image-->
+        <!--            currentSystem="otherSolution"-->
+        <!--            *ngIf="currentSystem === 'otherSolution'"-->
+        <!--            [gdArea]="settings[currentSystem].image"-->
+        <!--        ></p-image>-->
+
+        <!--        <p-image-->
+        <!--            currentSystem="contactUs"-->
+        <!--            *ngIf="currentSystem === 'contactUs'"-->
+        <!--            [gdArea]="settings[currentSystem].image"-->
+        <!--        ></p-image>-->
 
         <div
             fxLayoutAlign="center "
@@ -120,20 +126,7 @@
             ></p-content>
         </div>
     </main>
-
-    <p-system *ngFor="let system of systemsList"
-    style="z-index: 999"
-  
-    [fxLayoutAlign]="settings[currentSystem].align"
-    [fxHide]="currentSystem === system.name"
-    [systemName]="system.name"
-    [gdColumn]="settings[currentSystem][system.name + 'Col']"
-    [gdRow]="settings[currentSystem][system.name + 'Row']"
-    (click)="navigate(system.name)"
-    (hover)="(settings[currentSystem].hoverbackground)"
-    ></p-system>
-
-    <!-- <p-system
+    <p-system
         style="z-index: 999"
         fxLayoutAlign="center end "
         [fxHide]="currentSystem === 'bonds'"
@@ -141,18 +134,16 @@
         [gdColumn]="settings[currentSystem].bondsCol"
         [gdRow]="settings[currentSystem].bondsRow"
         (click)="navigate('bonds')"
-        (hover)="(settings[currentSystem].hoverbackground)"
     ></p-system>
     <p-system
         style="z-index: 999"
-        fxLayout="column"
         [fxLayoutAlign]="isHover == true ? 'center center' : 'start center'"
         [fxHide]="currentSystem === 'holdings'"
         [systemName]="'holdings'"
         [gdColumn]="settings[currentSystem].holdingsCol"
         [gdRow]="settings[currentSystem].holdingsRow"
+        (click)="currentSystem = 'holdings'"
         (click)="navigate('holdings')"
-        [ngStyle]="{ 'background-color': isHover == true ? '#f8eeeb' : 'white' }"
     ></p-system>
 
     <p-system
@@ -180,5 +171,5 @@
         [gdColumn]="settings[currentSystem].aboutUsCol"
         [gdRow]="settings[currentSystem].aboutUsRow"
         (click)="navigate('')"
-    ></p-system> -->
+    ></p-system>
 </div>

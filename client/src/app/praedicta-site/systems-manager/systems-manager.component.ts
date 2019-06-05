@@ -19,7 +19,7 @@ export class SystemsManagerComponent implements OnInit {
                 col: '5/14',
                 row: '5',
             },
-            align: 'center end',
+
             image: '21 / 1 / 21 / 6',
             logo: '#ffffe0',
             hoverbackground: '#f8eeeb',
@@ -38,7 +38,7 @@ export class SystemsManagerComponent implements OnInit {
                 col: '12/14',
                 row: '6',
             },
-            align: 'center end',
+
             image: '21 / 5 / 21 / 14',
             logo: '#f5e1db',
             background: 'linear-gradient(to top, #67375b, #884977)',
@@ -56,7 +56,7 @@ export class SystemsManagerComponent implements OnInit {
                 col: '10/14',
                 row: '7',
             },
-            align: 'center end',
+            image: '9 / 5 / 21 / 14',
             logo: ' #b6cfe7',
             background: ' linear-gradient(to bottom, #bd5656, #83435f)',
             bondsCol: '2',
@@ -73,7 +73,7 @@ export class SystemsManagerComponent implements OnInit {
                 col: '16/16',
                 row: '7',
             },
-            align: ' ' ,
+
             image: '11 / 5 / 20 / 20',
             logo: 'url(#linear-gradient)',
             background: ' linear-gradient(to bottom, #6b76ff, #465bdf)',
@@ -86,9 +86,7 @@ export class SystemsManagerComponent implements OnInit {
             aboutUsCol: '1/2',
             aboutUsRow: '1',
         },
-        aboutUs: {
-            align: 'center end',
-        },
+        aboutUs: {},
     };
     systemsList;
 

@@ -11,7 +11,16 @@ export class SystemComponent implements OnInit {
     dic: I18nRootObject;
     // currentSystem: string;
     @Input() systemName: string = '';
-    @Input() isHover: boolean = false;
+
+    _ishover = false;
+    get isHover() {
+        return this._ishover;
+    }
+
+    set isHover(val) {
+        console.log(val);
+        this._ishover = val;
+    }
 
     // @Output() changeSystem = new EventEmitter();
 

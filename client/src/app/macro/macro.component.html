@@ -1,11 +1,10 @@
 <div [dir]="i18nService.dir">
-    <p-topbar [model]="topbarModel" [inProgress]="!currentTemplate"></p-topbar>
+    <!--    <p-topbar [model]="topbarModel" [inProgress]="!currentTemplate"></p-topbar>-->
     <div class="content" *ngIf="currentTemplate">
-        <mat-grid-list gutterSize="10px" cols="5" rowHeight="fit">
-            <mat-grid-tile colspan="1">
-                <div fxFill fxLayout="column" fxLayoutAlign="center center">
+        <mat-grid-list gutterSize="10px" cols="3" rowHeight="fit">
+            <mat-grid-tile colspan="1" class="templates">
+                <div fxFill fxLayout="column" fxLayoutAlign="center center" style="background: white">
                     <div fxFlex="300px">
-                        <h2>TEMPLATES</h2>
                         <p-autocomplete
                             *ngIf="seriesGroupsSettings"
                             (selectedChange)="filterSelected($event)"
@@ -23,46 +22,84 @@
                             </span>
                         </div>
                     </div>
-                    <div fxFlex="100px">
-                        <form [formGroup]="dateForm">
-                            <mat-form-field>
-                                <input matInput placeholder="Choose a date" [satDatepicker]="picker4" formControlName="date" />
-                                <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year"> </sat-datepicker>
-                                <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>
-                            </mat-form-field>
+                    <div class="wrapperbutton">
+                        <button class="button" (click)="download()" mat-button>
+                            <div fxLayout="column" fxLayoutAlign="center center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path
+                                        fill="#212121"
+                                        fill-rule="evenodd"
+                                        d="M2 2h20v20H2V2zm2 2v4h4V4H4zm0 6v4h4v-4H4zm0 6v4h4v-4H4zm6-12v4h4V4h-4zm0 6v4h4v-4h-4zm0 6v4h4v-4h-4zm6-12v4h4V4h-4zm0 6v4h4v-4h-4zm0 6v4h4v-4h-4z"
+                                    />
+                                </svg>
 
-                            <button (click)="download()" mat-button>
-                                הורד
-                            </button>
-                        </form>
+                                <span> View Table</span>
+                            </div>
+                        </button>
+                        <button class="button" (click)="download()" mat-button>
+                            <div fxLayout="column" fxLayoutAlign="center center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path
+                                        fill="#212121"
+                                        fill-rule="nonzero"
+                                        d="M11.5 3l-10 2v14l10 2V3zm2 2v2h2v2h-2v2h2v2h-2v2h2v2h-2v2h7a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-7zm4 2h2v2h-2V7zM3.676 8.297h1.777l.924 2.215c.075.18.131.39.19.629h.025c.033-.143.1-.362.201-.647l1.03-2.197h1.62l-1.935 3.67L9.5 15.703H7.771L6.658 13.29a2.053 2.053 0 0 1-.133-.494H6.51a5.91 5.91 0 0 1-.15.514l-1.124 2.394H3.5l2.06-3.707-1.884-3.7zM17.5 11h2v2h-2v-2zm0 4h2v2h-2v-2z"
+                                    />
+                                </svg>
+                                <span> Download .xls</span>
+                            </div>
+                        </button>
                     </div>
+                    <!--                    <div fxFlex="100px">-->
+                    <!--                        <form [formGroup]="dateForm">-->
+                    <!--                            <mat-form-field>-->
+                    <!--                                <input matInput placeholder="Choose a date" [satDatepicker]="picker4" formControlName="date" />-->
+                    <!--                                <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year"> </sat-datepicker>-->
+                    <!--                                <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>-->
+                    <!--                            </mat-form-field>-->
+
+                    <!--                            <button (click)="download()" mat-button>-->
+                    <!--                                הורד-->
+                    <!--                            </button>-->
+                    <!--                        </form>-->
+                    <!--                    </div>-->
                 </div>
             </mat-grid-tile>
+            <!--            <mat-grid-tile colspan="1" fxLayout="column" fxLayoutAlign="center center">-->
+            <!--                <div style="height:100%;width:100%;overflow: auto;">-->
+            <!--                    <p-tree [data]="categories" (select)="onSelectCategory($event)"></p-tree>-->
+            <!--                </div>-->
+            <!--            </mat-grid-tile>-->
 
-            <mat-grid-tile colspan="3">
-                <div fxLayout="column" fxFlex style="height:100%;width:100%;">
-                    <mat-form-field fxFlex="40px">
-                        <input id="input" matInput [placeholder]="'חיפוש'" [formControl]="input" />
-                    </mat-form-field>
-                    <mat-accordion [multi]="true" fxFlex>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>קטגוריות </mat-expansion-panel-header>
-                            <div style="height: 400px;">
-                                <p-tree [data]="categories" (select)="onSelectCategory($event)"></p-tree>
-                            </div>
-                        </mat-expansion-panel>
-                        <mat-expansion-panel style="height: 100%;" [expanded]="true">
-                            <cdk-virtual-scroll-viewport style="height: 100%;" itemSize="40">
-                                <div style="height: 40px;" *cdkVirtualFor="let option of filteredOptions | async">
-                                    <mat-checkbox
-                                        (change)="onSelectSeries($event.checked, option)"
-                                        [checked]="selectedSeries[option.sId]"
-                                    ></mat-checkbox>
-                                    {{ option.sId + ', ' + option.name }}
-                                </div>
-                            </cdk-virtual-scroll-viewport>
-                        </mat-expansion-panel>
-                    </mat-accordion>
+            <mat-grid-tile colspan="2">
+                <div fxLayout="column" fxFlex style="height:100%;width:100%;padding: 60px">
+                    <span class="macro">Macro</span>
+                    <mat-virtual-table
+                        fxFlex
+                        [rows]="series"
+                        [filterPlaceholder]="'חיפוש'"
+                        [paginator]="true"
+                        [columnsDef]="columns"
+                    >
+                        <ng-template pCellDef column="select" let-row="row">
+                            <mat-checkbox
+                                (change)="onSelectSeries($event.checked, row)"
+                                [checked]="selectedSeries[row.sId]"
+                            ></mat-checkbox>
+                        </ng-template>
+
+                        <ng-template pCellDef column="startDate" let-row="row">
+                            {{ row.startDate | date: 'dd.MM.yyyy' }}
+                        </ng-template>
+                        <ng-template pCellDef column="endDate" let-row="row">
+                            {{ row.endDate | date: 'dd.MM.yyyy' }}
+                        </ng-template>
+                        <ng-template pCellDef column="lastUpdate" let-row="row">
+                            {{ row.lastUpdate | date: 'dd.MM.yyyy' }}
+                        </ng-template>
+                        <ng-template pCellDef column="name" let-row="row">
+                            <b>{{ row.name }}</b>
+                        </ng-template>
+                    </mat-virtual-table>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>

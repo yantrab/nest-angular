@@ -1,4 +1,4 @@
-@mixin letter($font-size, $letter-spacing, $line-height: normal, $font-weight: normal, $font-family: Poppins) {
+@mixin letter($font-size, $letter-spacing, $line-height: normal, $font-weight: normal, $font-family: Poppins, $color: #feffdf) {
     font-family: $font-family;
     font-size: $font-size;
     font-weight: $font-weight;
@@ -6,5 +6,5 @@
     font-stretch: normal;
     line-height: $line-height;
     letter-spacing: $letter-spacing;
-    color: #feffdf;
+    color: $color;
 }

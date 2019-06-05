@@ -10,14 +10,15 @@ import { I18nRootObject } from '../../../api/i18n/site.i18n';
 export class ImageComponent implements OnInit {
     dic: I18nRootObject;
     imageUrl: string;
-    @Input() currentSystem: string;
+    isOtherSolution = false;
+    @Input() set currentSystem(system) {
+        this.isOtherSolution = system === 'otherSolution';
+        this.imageUrl = `assets/img/systems/` + system + '.PNG';
+    }
     constructor(public i18nService: I18nService) {
         this.i18nService.dic.subscribe(result => {
             this.dic = result as any;
         });
     }
-    ngOnInit() {
-        debugger;
-        this.imageUrl = `assets/img/systems/${this.currentSystem}.PNG`;
-    }
+    ngOnInit() {}
 }

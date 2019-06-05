@@ -1,5 +1,5 @@
-<img style="position: absolute" style="bottom: 0" [src]="imageUrl" />
-<div *ngIf="currentSystem === 'otherSolution'">
-    <span *ngIf="currentSystem === 'otherSolution'">{{ dic.systemPage.otherSolution.content2 }}</span>
-    <span> {{ dic.systemPage.otherSolution.content3 }}</span>
+<img *ngIf="!isOtherSolution" style="position: absolute" style="bottom: 0" [src]="imageUrl" />
+<div style="width: 100%" gdRows="repeat(20, [row] 1fr)" gdColumns="repeat(20, [col] 1fr)" *ngIf="isOtherSolution">
+    <pre gdArea=" 1 / 3 / 20 / 20"><span  *ngIf="isOtherSolution">{{ dic.systemPage.otherSolution.content2 }}</span></pre>
+    <pre gdArea=" 11 / 3 / 20 / 20"><span > {{ dic.systemPage.otherSolution.content3 }}</span></pre>
 </div>
