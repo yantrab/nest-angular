@@ -15,6 +15,7 @@ export enum FieldType {
     text,
     list,
     yesNo,
+    timer,
 }
 export class SettingField extends Entity {
     @IsNumber()

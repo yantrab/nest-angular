@@ -23,6 +23,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgModule } from '@angular/core';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 const modules = [
     MatProgressBarModule,
     MatGridListModule,
@@ -46,6 +47,7 @@ const modules = [
     SatNativeDateModule,
     MatSnackBarModule,
     ScrollingModule,
+    NgxMaterialTimepickerModule,
 ];
 
 export class MyDateAdapter extends MomentDateAdapter {

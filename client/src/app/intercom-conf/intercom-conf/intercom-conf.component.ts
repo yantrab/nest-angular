@@ -449,6 +449,19 @@ export class IntercomConfComponent {
                                         }),
                                 ),
                             },
+                            {
+                                name: 'timers',
+                                fields: ['dialer 1', 'dialer 2', 'relay 1', 'relay 2'].map(
+                                    name =>
+                                        new SettingField({
+                                            index: 10,
+                                            length: 10,
+                                            default: '123456',
+                                            type: FieldType.timer,
+                                            name,
+                                        }),
+                                ),
+                            },
                         ],
                         userId: '',
                     }),
