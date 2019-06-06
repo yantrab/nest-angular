@@ -16,7 +16,7 @@ export class SpecialFilterComponent extends BaseFilterComponent implements OnIni
             this.settings.selected = [];
         }
         this.settings.isActive = true;
-        this.settings.selected.push(...[option.filter]);
+        this.settings.selected.unshift(...[option.filter]);
     }
     filterChange(filter) {
         filter.isActive = true;
@@ -25,5 +25,11 @@ export class SpecialFilterComponent extends BaseFilterComponent implements OnIni
 
     ngOnInit(): void {
         this.autoSettings = new AutocompleteFilter({ options: this.settings.options });
+        if (this.settings.selected) {
+            this.settings.selected = this.settings.selected.filter(s => s.settings.selected && s.settings.isActive);
+            if (!this.settings.selected.length) {
+                this.settings.selected = undefined;
+            }
+        }
     }
 }

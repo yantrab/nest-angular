@@ -105,6 +105,9 @@ export class FilterGroup extends Entity {
                 f.options.forEach(op => {
                     op.filter = new Filters[op.filter.kind](op.filter);
                 });
+                if (f.selected) {
+                    f.selected = f.selected.map(op => new Filters[op.kind](op));
+                }
             }
             return f;
         });

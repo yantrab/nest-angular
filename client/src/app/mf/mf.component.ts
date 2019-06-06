@@ -20,7 +20,7 @@ export class MFComponent {
     dic: I18nRootObject;
     topbarModel: ITopBarModel = {
         logoutTitle: 'logout',
-        routerLinks: [{ link: 'findFund', title: 'linkToPoly' }, { link: 'dumy', title: 'linkToDumy' }],
+        routerLinks: [{ link: 'find', title: 'findFund' }, { link: 'simulation', title: 'simulation' }],
         menuItems: [],
     };
 }
