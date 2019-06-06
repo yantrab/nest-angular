@@ -15,10 +15,6 @@ import { UserFilter } from 'shared/models';
 export class AutocompleteComponent extends BaseFilterComponent implements OnInit, AfterViewInit {
     constructor(differs: KeyValueDiffers) {
         super(differs);
-        const handler = () => {
-            setTimeout(() => this.inputAutocomplete.openPanel());
-        };
-        window.addEventListener('click', e => this.inputAutocomplete.openPanel());
     }
     chips: boolean;
     filteredOptions: Observable<any[]>;
@@ -63,16 +59,13 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     setInputSelectedValue() {
         if (!this.settings.isMultiple) {
             this.input.setValue(this.settings.selected);
-            if (this.keepOpen) {
-                setTimeout(() => this.inputAutocomplete.openPanel(), 1);
-            }
         }
     }
 
     optionSelected(selected) {
         super.optionSelected(selected);
         if (this.keepOpen || this.settings.isMultiple) {
-            setTimeout(() => this.inputAutocomplete.openPanel(), 1);
+            // this.inputAutocomplete.openPanel();
         } else {
             this.matInput._elementRef.nativeElement.blur();
         }
@@ -98,7 +91,11 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
 
     ngAfterViewInit() {
         if (this.keepOpen) {
-            setTimeout(() => this.inputAutocomplete.openPanel(), 1);
+            setTimeout(() => this.inputAutocomplete.openPanel());
+
+            if (this.keepOpen) {
+                window.addEventListener('click', () => this.inputAutocomplete.openPanel());
+            }
         }
     }
 

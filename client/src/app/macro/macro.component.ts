@@ -1,15 +1,16 @@
-import { Component, HostListener, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Category, Series, DataRequest, SeriesGroup, UserSettings } from 'shared/models/macro.model';
 import { ColumnDef } from 'mat-virtual-table';
 import { MacroController } from 'src/api/macro.controller';
 import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
 import { I18nService } from '../shared/services/i18n.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { keyBy, first, last, groupBy } from 'lodash';
+import { groupBy, max } from 'lodash';
 import { DatePipe } from '@angular/common';
 import { XLSXService } from '../shared/services/xlsx.service';
 import { AutocompleteFilter } from 'shared';
 import { map, startWith } from 'rxjs/operators';
+import { addYears, format } from 'date-fns';
 import { Observable } from 'rxjs';
 export const NEW = ' (Create new) ';
 
@@ -53,16 +54,16 @@ export class MacroComponent {
                     option,
                 });
             });
+            const maxDate = max(this.allSeries.map(s => s.endDate));
+            this.dateForm = fb.group({
+                date: [{ begin: new Date(addYears(maxDate, -5)), end: new Date(maxDate) }],
+            });
         });
 
         this.filteredOptions = this.input.valueChanges.pipe(
             startWith<string | any>(''),
             map(name => (name ? this.filter(name) : this.series)),
         );
-
-        this.dateForm = fb.group({
-            date: [{ begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25) }],
-        });
     }
     categories: Category[];
     currentTemplate: SeriesGroup;
@@ -122,7 +123,6 @@ export class MacroComponent {
             from: +this.dateForm.value.date.begin,
             to: +this.dateForm.value.date.end,
         };
-        const transform = date => new DatePipe('en').transform(date, 'dd.MM.yyyy');
         this.api.getData(formData).then(result => {
             const types = ['יומי', 'שבועי', 'חודשי', 'רבעוני', 'שנתי'];
             const sheets = [];
@@ -136,11 +136,12 @@ export class MacroComponent {
                 const all = {};
                 serias.forEach(s => {
                     s.data.forEach(d => {
+                        const name = this.seriesDic[s.sId].name;
                         if (!all[d.timeStamp]) {
                             all[d.timeStamp] = {};
-                            serias.forEach(s => (all[d.timeStamp][s.sId] = ''));
+                            serias.forEach(s => (all[d.timeStamp][s.sId + ' - ' + name] = ''));
                         }
-                        all[d.timeStamp][s.sId] = d.value;
+                        all[d.timeStamp][s.sId + ' - ' + name] = d.value;
                     });
                 });
                 const excelData: any = {};
@@ -149,7 +150,10 @@ export class MacroComponent {
                 names.push(type);
             });
             if (sheets.length) {
-                this.xslService.export(sheets, names, 'macro.xlsx');
+                sheets.unshift({ rows: this.currentTemplate.seriesIds.map(id => this.seriesDic[id]) });
+                names.unshift('פרטי הסדרות');
+
+                this.xslService.export(sheets, names, 'macro_' + format(new Date(), 'DD.MM.YYYY') + '.xlsx');
             }
         });
     }

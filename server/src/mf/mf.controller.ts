@@ -3,11 +3,11 @@ import { App, User } from 'shared';
 import { FundService } from 'services/fund.service';
 import { MFService } from './mf.service';
 import { UserSettings } from 'shared/models/mf.model';
-// import { ControllerRole } from 'auth/roles.decorator';
 import { NormelizeInterceptor } from '../middlewares/normelize.middleware';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 import { InitialData } from 'shared/models/mf.model';
 import { ReqUser } from '../decorators/user.decorator';
+import { InsertOneWriteOpResult } from 'mongodb';
 
 // @ControllerRole(App.mf)
 // @UseInterceptors(new NormelizeInterceptor())
@@ -29,7 +29,8 @@ export class MFController {
             userSettings.tableSettings = mfSettings.tableSettings;
             userSettings.gridSettings = mfSettings.gridSettings;
         }
-        // await this.mfService.saveUserSettings(userSettings);
+        const a = (await this.mfService.saveUserSettings(userSettings)) as InsertOneWriteOpResult;
+        userSettings._id = a.insertedId;
         return {
             funds: await this.fundService.getFunds(),
             userSetting: userSettings,

@@ -43,7 +43,7 @@ export class MfService {
     }
     filterChanged() {
         let filteredFunds = this.allFunds;
-        const columns = this.userSetting.tableSettings.columns;
+        const columns = [...this.userSetting.tableSettings.columns];
         this.selectedUserFilter.filterGroups.forEach(f =>
             f.filters.forEach(filter => {
                 if (filter.kind === 'SpecialFilter') {

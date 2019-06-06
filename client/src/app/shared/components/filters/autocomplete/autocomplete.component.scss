@@ -1,8 +1,7 @@
 :host {
     width: 100%;
 }
-mat-form-field {
-    width: 150% !important;
-    top: 60px !important;
-    left: 40px !important;
+
+.selected {
+    background: rgba(0, 0, 0, 0.04) !important;
 }

@@ -107,6 +107,12 @@ export class MFService {
     }
 
     async saveUserSettings(userSettings: UserSettings) {
-        return this.mfUserSettingsRepo.saveOrUpdateOne(userSettings);
+        if (userSettings.isNew) {
+            return this.mfUserSettingsRepo.collection.insertOne(userSettings);
+        }
+        return this.mfUserSettingsRepo.collection.updateOne(
+            { email: userSettings.email },
+            {$set: { userFilters: userSettings.userFilters} },
+        );
     }
 }
