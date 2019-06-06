@@ -1,8 +1,7 @@
-import { Component, HostListener, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { UserFilter, AutocompleteFilter } from 'shared';
 import { MfService } from '../mf.service';
 import { ColumnDef } from 'mat-virtual-table';
-import { groupBy, get } from 'lodash';
 import { I18nService } from '../../shared/services/i18n.service';
 import { I18nFindfund } from '../../../api/i18n/mf.i18n';
 
@@ -20,8 +19,10 @@ export class FindFundComponent {
     });
     dic: I18nFindfund;
     funds;
+    specialView = false;
     gridGroups;
-    fundColumns: ColumnDef[]; // = [{ field: '_id', title: 'מספר קופה' }];
+    specialGridGroups;
+    fundColumns: ColumnDef[];
     constructor(private mfService: MfService, public i18nService: I18nService) {
         this.i18nService.dic.subscribe(result => (this.dic = (result as any).findfund));
         this.mfService.userFilters.subscribe(userFilters => {
@@ -33,17 +34,15 @@ export class FindFundComponent {
         this.mfService.funds.subscribe(funds => {
             this.funds = funds.items;
             this.fundColumns = funds.columns.map(c => ({ field: c, title: c }));
-            const groups = groupBy(this.funds, f => get(f, funds.groupBy));
-            this.gridGroups = funds.allGroups.map(g => ({ name: g, count: groups[g] ? groups[g].length : 0 }));
+            this.gridGroups = funds.groups;
+            this.specialGridGroups = funds.groups.filter(g => g.count);
+            // this.specialGridGroups.forEach(g => (g.children = g.children.filter(c => c.count)));
         });
     }
-    // @HostListener('window:beforeunload', ['$event']) async unloadHandler() {
-    //     window.alert(
-    //         'WARNING: You have unsaved changes. Press Cancel to go back and save these changes, or OK to lose these changes.',
-    //     );
-    //     // const x = this.mfService.unloadHandler();
-    //     return 'gfdsdfgfdsfg';
-    // }
+
+    hasItems(group) {
+        return !!group.count;
+    }
     filterSelected(userFilter: UserFilter) {
         this.mfService.setSelectedUserFilter(userFilter);
     }

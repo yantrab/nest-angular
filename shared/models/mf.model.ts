@@ -16,6 +16,8 @@ export class TableSettings {
 export class GridSettings {
     @IsString()
     groupBy: string;
+    @IsString()
+    secondaryGroupBy: string;
     constructor(data) {
         if (data) {
             Object.assign(this, data);

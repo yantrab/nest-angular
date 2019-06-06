@@ -8,7 +8,7 @@
                     [settings]="userFiltersSettings"
                     [freeText]="true"
                 ></p-autocomplete>
-                <mat-slide-toggle>{{ dic.filters.switch }}</mat-slide-toggle>
+                <mat-slide-toggle [(ngModel)]="specialView">{{ dic.filters.switch }}</mat-slide-toggle>
                 <div class="scrollable-y" style="width: 100%">
                     <p-filters
                         (selectedChange)="mfService.filterChanged()"
@@ -23,20 +23,56 @@
                 <mat-tab [label]="dic.tabs.grid">
                     <ng-template matTabContent>
                         <div fxLayout="row wrap" fxLayoutAlign="space-between">
-                            <div
-                                *ngFor="let group of gridGroups"
-                                fxLayout="column"
-                                fxLayoutAlign="center center"
-                                class="card"
-                                [class.hasfunds]="group.count > 0"
+                            <ng-container *ngIf="!specialView">
+                                <div
+                                    *ngFor="let group of gridGroups"
+                                    fxLayout="column"
+                                    fxLayoutAlign="center center"
+                                    class="card"
+                                    [class.hasfunds]="group.count > 0"
+                                >
+                                    <span>
+                                        {{ group.name }}
+                                    </span>
+                                    <span>
+                                        {{ group.count }}
+                                    </span>
+                                </div></ng-container
                             >
-                                <span>
-                                    {{ group.name }}
-                                </span>
-                                <span>
-                                    {{ group.count }}
-                                </span>
-                            </div>
+                            <ng-container *ngIf="specialView">
+                                <div
+                                    fxFlex="240px"
+                                    *ngFor="let group of specialGridGroups"
+                                    fxLayout="column"
+                                    fxLayoutAlign="space-between space-between"
+                                    class="card"
+                                >
+                                    <div fxLayout="row" fxFlex="25px" fxLayoutAlign="start center">
+                                        <mat-icon>add_circle_outline</mat-icon>
+                                        <span>
+                                            {{ group.name }}
+                                        </span>
+                                    </div>
+
+                                    <div fxLayout="row wrap" fxFlex fxLayoutAlign="space-between space-between">
+                                        <div
+                                            fxFlex="100px"
+                                            *ngFor="let secondaryGroup of group.children.filter(hasItems)"
+                                            class="special"
+                                            [class.hasfunds]="group.count > 0"
+                                            fxLayout="row"
+                                            fxLayoutAlign="space-between center"
+                                        >
+                                            <span>
+                                                {{ secondaryGroup.name.slice(-10) }}
+                                            </span>
+                                            <span>
+                                                {{ secondaryGroup.count }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
                         </div>
                     </ng-template>
                 </mat-tab>
@@ -45,10 +81,7 @@
                         <mat-virtual-table [paginator]="true" [rows]="funds" [columnsDef]="fundColumns"> </mat-virtual-table>
                     </ng-template>
                 </mat-tab>
-                <!--                <mat-tab label="Charts"> Content 3 </mat-tab>-->
             </mat-tab-group>
         </mat-grid-tile>
     </mat-grid-list>
 </div>
-
-<!-- Visual Studio Code is unable to watch for file changes in this large workspace. Please follow the instructions link to resolve this issue. -->

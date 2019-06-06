@@ -11,6 +11,10 @@ export class AppController {
     async mf(@Res() res) {
         res.sendFile('index.html');
     }
+    @Get('mf/find')
+    async mffind(@Res() res) {
+        res.sendFile('index.html');
+    }
     @Get('praedicta')
     async praedicta(@Res() res) {
         res.sendFile('index.html');

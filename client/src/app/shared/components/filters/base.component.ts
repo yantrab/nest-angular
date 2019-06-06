@@ -1,6 +1,5 @@
 import { Input, Output, EventEmitter, KeyValueDiffers, DoCheck, OnChanges, KeyValueDiffer } from '@angular/core';
 import { Filter } from 'shared';
-import { cloneDeep } from 'lodash';
 
 export class BaseFilterComponent implements DoCheck {
     constructor(private _differs: KeyValueDiffers) {}
@@ -43,6 +42,9 @@ export class BaseFilterComponent implements DoCheck {
 
     optionDeSelected(val) {
         this.settings.selected = this.settings.selected.filter(s => s._id !== val._id);
+        if (this.settings.isMultiple && !this.settings.selected.length) {
+            this.settings.selected = undefined;
+        }
         this.selectedChange.emit(this.settings.selected);
     }
 }

@@ -29,8 +29,10 @@ export class MFController {
             userSettings.tableSettings = mfSettings.tableSettings;
             userSettings.gridSettings = mfSettings.gridSettings;
         }
+        if (!userSettings._id) {
         const a = (await this.mfService.saveUserSettings(userSettings)) as InsertOneWriteOpResult;
         userSettings._id = a.insertedId;
+        }
         return {
             funds: await this.fundService.getFunds(),
             userSetting: userSettings,

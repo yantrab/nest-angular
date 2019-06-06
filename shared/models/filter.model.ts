@@ -1,5 +1,5 @@
 import { Poly, Entity } from './Entity';
-import { get, uniqBy } from 'lodash';
+import { get, uniqBy, uniq } from 'lodash';
 import { IsOptional, IsBoolean, IsString, ValidateNested, IsArray } from 'class-validator';
 import * as Filters from './filter.model';
 import { getDistribution } from '../utils';
@@ -40,7 +40,14 @@ export abstract class Filter extends Poly {
 
 export class CheckboxFilter extends Filter {
     doFilter(items: any[]): any[] {
-        return items;
+        return items.filter(item => this.selected.find(s => s._id === get(item, this.optionIdPath)));
+    }
+
+    createOptions(items) {
+        this.options = uniqBy(
+            items.map(item => ({ _id: get(item, this.optionIdPath), name: get(item, this.optionIdPath) })),
+            '_id',
+        );
     }
 }
 export class DropdownFilter extends Filter {
