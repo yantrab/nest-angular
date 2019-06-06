@@ -5,7 +5,8 @@ import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
 
 import { ContactField, Contacts, FieldType, Panel, SettingField } from 'shared/models/tador.model';
 import { AutocompleteFilter } from 'shared/models';
-
+import { MaxEEprom } from './conf';
+console.log('MaxEEprom:' + MaxEEprom);
 @Component({
     selector: 'p-intercom-conf',
     templateUrl: './intercom-conf.component.html',
@@ -37,12 +38,12 @@ export class IntercomConfComponent {
                             count: 250,
                             contactFields: [
                                 new ContactField({ property: 'name1', title: 'שם 1', length: 10 }),
-                                new ContactField({ property: 'phone1', title: 'טלפון 1', length: 10 }),
-                                new ContactField({ property: 'phone2', title: 'טלפון 2', length: 10 }),
-                                new ContactField({ property: 'phone3', title: 'טלפון 3', length: 10 }),
-                                new ContactField({ property: 'phone4', title: 'טלפון 4', length: 10 }),
-                                new ContactField({ property: 'phone5', title: 'טלפון 5', length: 10 }),
-                                new ContactField({ property: 'phone6', title: 'טלפון 6', length: 10 }),
+                                new ContactField({ property: 'Tel1Num', title: 'טלפון 1', length: 10 }),
+                                new ContactField({ property: 'Tel2Num', title: 'טלפון 2', length: 10 }),
+                                new ContactField({ property: 'Tel3Num', title: 'טלפון 3', length: 10 }),
+                                new ContactField({ property: 'Tel4Num', title: 'טלפון 4', length: 10 }),
+                                new ContactField({ property: 'Tel5Num', title: 'טלפון 5', length: 10 }),
+                                new ContactField({ property: 'Tel6Num', title: 'טלפון 6', length: 10 }),
                                 new ContactField({ property: 'code', title: 'קוד', length: 10 }),
                                 new ContactField({ property: 'reff', title: 'reff', length: 10 }),
                                 new ContactField({ property: 'apartment', title: 'apartment', length: 10 }),

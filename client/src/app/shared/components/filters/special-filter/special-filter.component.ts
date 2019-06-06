@@ -26,7 +26,7 @@ export class SpecialFilterComponent extends BaseFilterComponent implements OnIni
     ngOnInit(): void {
         this.autoSettings = new AutocompleteFilter({ options: this.settings.options });
         if (this.settings.selected) {
-            this.settings.selected = this.settings.selected.filter(s => s.settings.selected && s.settings.isActive);
+            this.settings.selected = this.settings.selected.filter(s => s.selected && s.isActive);
             if (!this.settings.selected.length) {
                 this.settings.selected = undefined;
             }
