@@ -45,73 +45,80 @@
                             <mat-expansion-panel-header>
                                 {{ group.name }}
                             </mat-expansion-panel-header>
-                            <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-                                <ng-container *ngFor="let field of group.fields">
-                                    <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.text">
-                                        <input matInput [placeholder]="field.name" [(ngModel)]="field.value" />
-                                    </mat-form-field>
-                                    <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.list">
-                                        <mat-label>{{ field.name }}</mat-label>
-                                        <select [(ngModel)]="field.value" matNativeControl>
-                                            <option *ngFor="let option of field.options()" [value]="option">{{ option }}</option>
-                                        </select>
-                                    </mat-form-field>
-                                    <div style="margin: 20px;" *ngIf="field.type === FieldType.yesNo">
-                                        <div fxFlex="200px">{{ field.name }} :</div>
-                                        <div fxFlex="110px">
-                                            NO
-                                            <mat-slide-toggle
-                                                (change)="field.value = $event.checked ? '1' : '0'"
-                                                [checked]="field.value === '1'"
-                                            >
-                                            </mat-slide-toggle>
-                                            YES
-                                        </div>
-                                    </div>
-
-                                    <div style="margin: 20px;" *ngIf="field.type === FieldType.timer">
-                                        <fieldset>
-                                            <legend>{{ field.name }}</legend>
-                                            <div fxLayout="row">
-                                                <div fxLayout="column">
-                                                    <mat-checkbox
-                                                        *ngFor="
-                                                            let op of ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-                                                            let day = index
-                                                        "
-                                                        [checked]="field.value[day]"
-                                                        >{{ op }}</mat-checkbox
-                                                    >
-                                                </div>
-                                                <div fxLayout="column">
-                                                    <mat-form-field style="margin: 10px;width: 100px">
-                                                        <input
-                                                            matInput
-                                                            [(ngModel)]="field.value[from]"
-                                                            placeholder="from"
-                                                            [ngxTimepicker]="from"
-                                                            [format]="24"
-                                                            readonly
-                                                        />
-                                                        <ngx-material-timepicker [dir]="'ltr'" #from></ngx-material-timepicker>
-                                                    </mat-form-field>
-                                                    <mat-form-field style="margin: 10px; width: 100px">
-                                                        <input
-                                                            matInput
-                                                            [(ngModel)]="field.value[to]"
-                                                            placeholder="to"
-                                                            [ngxTimepicker]="to"
-                                                            [format]="24"
-                                                            readonly
-                                                        />
-                                                        <ngx-material-timepicker [dir]="'ltr'" #to></ngx-material-timepicker>
-                                                    </mat-form-field>
-                                                </div>
+                            <ng-template matExpansionPanelContent>
+                                <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                                    <ng-container *ngFor="let field of group.fields">
+                                        <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.text">
+                                            <input matInput [placeholder]="field.name" [(ngModel)]="field.value" />
+                                        </mat-form-field>
+                                        <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.list">
+                                            <mat-label>{{ field.name }}</mat-label>
+                                            <select [(ngModel)]="field.value" matNativeControl>
+                                                <option *ngFor="let option of field.options()" [value]="option">{{
+                                                    option
+                                                }}</option>
+                                            </select>
+                                        </mat-form-field>
+                                        <div style="margin: 20px;" *ngIf="field.type === FieldType.yesNo">
+                                            <div fxFlex="200px">{{ field.name }} :</div>
+                                            <div fxFlex="110px">
+                                                NO
+                                                <mat-slide-toggle
+                                                    (change)="field.value = $event.checked ? '1' : '0'"
+                                                    [checked]="field.value === '1'"
+                                                >
+                                                </mat-slide-toggle>
+                                                YES
                                             </div>
-                                        </fieldset>
-                                    </div>
-                                </ng-container>
-                            </div>
+                                        </div>
+
+                                        <div style="margin: 20px;" *ngIf="field.type === FieldType.timer">
+                                            <fieldset>
+                                                <legend>{{ field.name }}</legend>
+                                                <div fxLayout="row">
+                                                    <div fxLayout="column">
+                                                        <mat-checkbox
+                                                            *ngFor="
+                                                                let op of ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                                                                let day = index
+                                                            "
+                                                            [checked]="field.value[day]"
+                                                            >{{ op }}</mat-checkbox
+                                                        >
+                                                    </div>
+                                                    <div fxLayout="column">
+                                                        <mat-form-field style="margin: 10px;width: 100px">
+                                                            <input
+                                                                matInput
+                                                                [(ngModel)]="field.value[from]"
+                                                                placeholder="from"
+                                                                [ngxTimepicker]="from"
+                                                                [format]="24"
+                                                                readonly
+                                                            />
+                                                            <ngx-material-timepicker
+                                                                [dir]="'ltr'"
+                                                                #from
+                                                            ></ngx-material-timepicker>
+                                                        </mat-form-field>
+                                                        <mat-form-field style="margin: 10px; width: 100px">
+                                                            <input
+                                                                matInput
+                                                                [(ngModel)]="field.value[to]"
+                                                                placeholder="to"
+                                                                [ngxTimepicker]="to"
+                                                                [format]="24"
+                                                                readonly
+                                                            />
+                                                            <ngx-material-timepicker [dir]="'ltr'" #to></ngx-material-timepicker>
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </ng-template>
                         </mat-expansion-panel>
                     </mat-accordion>
                 </ng-template>

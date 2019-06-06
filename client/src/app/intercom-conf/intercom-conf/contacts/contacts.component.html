@@ -1,22 +1,22 @@
 <div style="height:100%;width:100%;">
-  <mat-virtual-table
-          fxFlex
-          [rows]="contacts.list"
-          [filterPlaceholder]="'חיפוש'"
-          [paginator]="false"
-          [columnsDef]="contactColumns"
-  >
-    <ng-container *ngFor="let field of contacts.contactFields">
-      <ng-template pCellDef [column]="field.property" let-row="row" let-inEdit="false">
-        <div style="height: 50px; width: 100%" (click)="inEdit=true" >
-        <div style="height: 50px; width: 100%"   *ngIf="!inEdit">
-          {{row[field.property]}}
-        </div>
-        <mat-form-field *ngIf="inEdit" >
-          <input #ref (blur)="inEdit=false"  matInput [(ngModel)]="row[field.property]">
-        </mat-form-field>
-        </div>
-      </ng-template>
-    </ng-container>
-  </mat-virtual-table>
+    <mat-virtual-table
+        fxFlex
+        [rows]="contacts.list"
+        [filterPlaceholder]="'חיפוש'"
+        [paginator]="false"
+        [columnsDef]="contactColumns"
+    >
+        <ng-container *ngFor="let field of contacts.contactFields">
+            <ng-template pCellDef [column]="field.property" let-row="row" let-inEdit="false">
+                <div style="height: 50px; width: 100%" (click)="inEdit = true">
+                    <div style="height: 50px; width: 100%;line-height: 50px;" *ngIf="!inEdit">
+                        {{ row[field.property] }}
+                    </div>
+                    <mat-form-field *ngIf="inEdit">
+                        <input #ref (blur)="inEdit = false" matInput [(ngModel)]="row[field.property]" />
+                    </mat-form-field>
+                </div>
+            </ng-template>
+        </ng-container>
+    </mat-virtual-table>
 </div>
