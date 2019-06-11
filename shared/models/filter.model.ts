@@ -50,6 +50,15 @@ export class CheckboxFilter extends Filter {
         );
     }
 }
+export class ComboboxFilter extends Filter {}
+export class DateRangeComboFilter extends Filter {
+    doFilter(items: any[]): any[] {
+        return items.filter(item => {
+            const date = +new Date(get(item, this.optionIdPath));
+            return +new Date() - this.selected._id - date >= 0;
+        });
+    }
+}
 export class DropdownFilter extends Filter {
     doFilter(items: any[]): any[] {
         return items;

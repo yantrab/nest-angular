@@ -17,7 +17,7 @@ const isCordovaApp = Object(window).cordova != null;
 export class AppComponent {}
 
 const routes: Routes = [
-    { path: '', redirectTo: 'macro', pathMatch: 'full' },
+    { path: '', redirectTo: 'mf/simulation', pathMatch: 'full' },
     { path: 'mf', loadChildren: 'src/app/mf/mf.module#MFModule', canActivate: [Guard], data: { app: App.mf } },
     { path: 'praedicta', loadChildren: 'src/app/praedicta-site/praedicta-site.module#PraedictaSiteModule' },
     { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },

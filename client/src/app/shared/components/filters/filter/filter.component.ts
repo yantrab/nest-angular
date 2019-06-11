@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Filter, QuantityFilter, SpecialFilter } from 'shared';
+import { DateRangeComboFilter, Filter, QuantityFilter, SpecialFilter } from 'shared';
 import { CheckboxFilter, DropdownFilter, AutocompleteFilter } from 'shared/models/filter.model';
 // import { QuantityFilterComponent } from '../quantity-filter/quantity-filter.component';
 @Component({
@@ -30,6 +30,11 @@ import { CheckboxFilter, DropdownFilter, AutocompleteFilter } from 'shared/model
             *ngIf="filter.kind == filterTypes.specialFilterComponent"
             [settings]="filter"
         ></p-special-filter>
+        <p-combobox
+            (selectedChange)="selectedChange.emit()"
+            *ngIf="filter.kind == filterTypes.DateRangeComboFilter"
+            [settings]="filter"
+        ></p-combobox>
     `,
 })
 export class FilterComponent {
@@ -42,5 +47,6 @@ export class FilterComponent {
         autocompleteFilter: AutocompleteFilter.name,
         quantityFilterComponent: QuantityFilter.name,
         specialFilterComponent: SpecialFilter.name,
+        DateRangeComboFilter: DateRangeComboFilter.name,
     };
 }

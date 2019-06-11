@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'p-dumy',
-    template: 'simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!simulation!\n'.repeat(
-        1000,
-    ),
+  selector: 'p-simulation',
+  templateUrl: './simulation.component.html',
+  styleUrls: ['./simulation.component.scss']
 })
-export class SimulationComponent {}
+export class SimulationComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

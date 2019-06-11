@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DynaFormModule } from 'ng-dyna-form';
-// import { TextBoxComponent } from './text-box/text-box.component';
 import { MaterialModule } from './material/material.module';
 import { CommonModule } from '@angular/common';
 import { DropdownComponent } from './filters/dropdown/dropdown.component';
@@ -21,6 +20,7 @@ import { MatPaginatorIntl } from '@angular/material';
 import { QuantityFilterComponent } from './filters/quantity-filter/quantity-filter.component';
 import { DxRangeSelectorModule } from 'devextreme-angular';
 import { SpecialFilterComponent } from './filters/special-filter/special-filter.component';
+import { ComboboxComponent } from './filters/combobox/combobox.component';
 const components = [
     DropdownComponent,
     CheckboxComponent,
@@ -32,6 +32,7 @@ const components = [
     AutocompleteComponent,
     TreeComponent,
     SpecialFilterComponent,
+    ComboboxComponent,
 ];
 
 const exportsM = [
@@ -79,7 +80,7 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
         // If the start index exceeds the list length, do not try and fix the end index to the end.
         const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
         return startIndex + 1 + ' - ' + endIndex + ' מתוך ' + length;
-    }
+    };
 }
 
 @NgModule({

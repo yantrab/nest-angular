@@ -1,0 +1,34 @@
+<mat-horizontal-stepper
+    #stepper
+    labelPosition="bottom"
+    id="simulation"
+    fxLayout="column"
+    fxFlex="90%"
+    fxLayoutAlign="center centrt"
+    [class]="'selectedIndex' + stepper.selectedIndex + ' mat-stepper-label-position-bottom'"
+>
+    <mat-step>
+        <ng-template matStepLabel>Remove Funds that are not participating the Ranking</ng-template>
+        <div fxFlex fxFill>
+            <div fxFlex="390px" [style.background]="'#ffffff'">fdsa</div>
+            <div fxFlex="16px"></div>
+            <div fxFlex [style.background]="'#ffffff'">dsfdsa</div>
+        </div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>step 2</ng-template>
+        <div fxFlex fxFill></div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Define Groups for customized Ranking</ng-template>
+        <div fxFlex fxFill></div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Define weights for Ranking</ng-template>
+        <div fxFlex fxFill></div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Calculate New Customized Ranking</ng-template>
+        <div fxFlex fxFill></div>
+    </mat-step>
+</mat-horizontal-stepper>

@@ -30,25 +30,25 @@ export class MFService {
             'expCurrency',
         ];
         this.mfSettingsRepo.findOne().then(data => {
-            //     data.defaultUserFilter.filterGroups.push(
-            //         new FilterGroup({
-            //             name: 'K300',
-            //             filters: [
-            //                 new DropdownFilter({
-            //                     placeholder: 'חשיפות',
-            //                     options: exp.map(e => ({
-            //                         _id: e,
-            //                         name: e,
-            //                         filter: new QuantityFilter({
-            //                             placeholder: e,
-            //                             optionIdPath: e,
-            //                         }),
-            //                     })),
-            //                 }),
-            //             ],
-            //         }),
-            //     );
-            //     this.mfSettingsRepo.saveOrUpdateOne(data);
+            // data.defaultUserFilter.filterGroups.push(
+            //     new FilterGroup({
+            //         name: 'K300',
+            //         filters: [
+            //             new DropdownFilter({
+            //                 placeholder: 'חשיפות',
+            //                 options: exp.map(e => ({
+            //                     _id: e,
+            //                     name: e,
+            //                     filter: new QuantityFilter({
+            //                         placeholder: e,
+            //                         optionIdPath: e,
+            //                     }),
+            //                 })),
+            //             }),
+            //         ],
+            //     }),
+            // );
+            // this.mfSettingsRepo.saveOrUpdateOne(data);
 
             if (!data) {
                 this.mfSettingsRepo.saveOrUpdateOne({
@@ -75,11 +75,40 @@ export class MFService {
                                     },
                                 ],
                             } as FilterGroup,
+                            {
+                                name: 'period',
+                                filters: [
+                                    {
+                                        kind: 'DateRangeComboFilter',
+                                        optionIdPath: 'policyChangeDate',
+                                        placeholder: 'שינוי מדינייות',
+                                        options: [3, 6, 12].map(m => ({ _id: m * 1000 * 60 * 60 * 24 * 30, name: m + ' month' })),
+                                    },
+                                ],
+                            } as FilterGroup,
+                            new FilterGroup({
+                                name: 'K300',
+                                filters: [
+                                    new DropdownFilter({
+                                        placeholder: 'חשיפות',
+                                        options: exp.map(e => ({
+                                            _id: e,
+                                            name: e,
+                                            filter: new QuantityFilter({
+                                                placeholder: e,
+                                                optionIdPath: e,
+                                            }),
+                                        })),
+                                    }),
+                                ],
+                            }),
                         ],
+
                         name: 'Default',
                         isDefualt: true,
                     }),
                     tableSettings: { columns: ['id', 'name', 'symbol'] },
+                    gridSettings: { groupBy: 'primeClassification', secondaryGroupBy: 'mainClassification' },
                 });
             }
         });
@@ -112,7 +141,7 @@ export class MFService {
         }
         return this.mfUserSettingsRepo.collection.updateOne(
             { email: userSettings.email },
-            {$set: { userFilters: userSettings.userFilters} },
+            { $set: { userFilters: userSettings.userFilters } },
         );
     }
 }
