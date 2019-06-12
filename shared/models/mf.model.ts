@@ -1,4 +1,4 @@
-import { UserFilter } from './filter.model';
+import { DateRangeComboFilter, Filter, UserFilter } from './filter.model';
 import { Entity } from './Entity';
 import { ValidateNested, IsString } from 'class-validator';
 // import { Fund } from './fund.model';
@@ -24,11 +24,23 @@ export class GridSettings {
         }
     }
 }
+export class SimulationSettings {
+    excludeFilter: Filter;
+    constructor(data: Partial<SimulationSettings>) {
+        if (data) {
+            Object.assign(this, data);
+            if (data.excludeFilter) {
+                this.excludeFilter = new DateRangeComboFilter(data.excludeFilter);
+            }
+        }
+    }
+}
 
 export class UserSettings extends Entity {
     @ValidateNested({ each: true }) userFilters: UserFilter[];
     @ValidateNested() tableSettings: TableSettings;
     @ValidateNested() gridSettings: GridSettings;
+    @ValidateNested() simlulationSettings: SimulationSettings;
     @IsString() email: string;
     constructor(data?: Partial<UserSettings>) {
         super(data);
@@ -41,6 +53,9 @@ export class UserSettings extends Entity {
             }
             if (data.gridSettings) {
                 this.gridSettings = new GridSettings(data.gridSettings);
+            }
+            if (data.simlulationSettings) {
+                this.simlulationSettings = new SimulationSettings(data.simlulationSettings);
             }
         }
     }
@@ -63,5 +78,6 @@ export class MFSettings extends Entity {
     @ValidateNested()
     defaultUserFilter: UserFilter;
     gridSettings;
+    simlulationSettings: SimulationSettings;
     tableSettings: { columns: string[] };
 }

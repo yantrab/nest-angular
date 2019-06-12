@@ -1,4 +1,5 @@
 <mat-horizontal-stepper
+    *ngIf="model"
     #stepper
     labelPosition="bottom"
     id="simulation"
@@ -9,10 +10,42 @@
 >
     <mat-step>
         <ng-template matStepLabel>Remove Funds that are not participating the Ranking</ng-template>
-        <div fxFlex fxFill>
-            <div fxFlex="390px" [style.background]="'#ffffff'">fdsa</div>
+        <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start start">
+            <div
+                fxFlex="390px"
+                fxLayoutGap="10px"
+                style="height: 50%"
+                fxLayout="column"
+                fxLayoutAlign="start center"
+                [style.background]="'#ffffff'"
+            >
+                <p-filter
+                    [filter]="model.simlulationSettings.excludeFilter"
+                    (selectedChange)="mfService.filterSimulationChanged()"
+                ></p-filter>
+                <mat-divider style="width: 100%;"></mat-divider>
+                <button mat-raised-button color="primary">NEXT</button>
+                <span>
+                    Total exlude:<span dir="ltr">{{ model.totalExclude }}</span>
+                </span>
+            </div>
             <div fxFlex="16px"></div>
-            <div fxFlex [style.background]="'#ffffff'">dsfdsa</div>
+            <div style="padding: 10px;" fxFlex [style.background]="'#ffffff'" fxLayout="row wrap" fxLayoutAlign="space-between">
+                <div
+                    *ngFor="let group of model.gridGroups"
+                    fxLayout="column"
+                    fxLayoutAlign="center center"
+                    class="card"
+                    [class.hasfunds]="group.count > 0"
+                >
+                    <span>
+                        {{ group.name }}
+                    </span>
+                    <span dir="ltr" *ngIf="group.count < 0">
+                        {{ group.count }}
+                    </span>
+                </div>
+            </div>
         </div>
     </mat-step>
     <mat-step>

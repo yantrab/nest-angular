@@ -1,9 +1,22 @@
-$topbar-hight:70px;
-
-p-topbar{
+$topbar-hight: 70px;
+::ng-deep {
+    .card {
+        min-width: 240px;
+        min-height: 100px;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        background-color: #ffffff;
+        &.hasfunds {
+            background-color: rgba(30, 144, 255, 0.3) !important;
+            border: solid 1px #1e90ff;
+        }
+    }
+}
+p-topbar {
     height: $topbar-hight;
 }
-.content{
-    height:calc(100vh - #{$topbar-hight});
+.content {
+    height: calc(100vh - #{$topbar-hight});
     background-color: #f1f2f6;
 }
