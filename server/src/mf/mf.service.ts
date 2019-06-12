@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MFSettings, UserSettings, UserFilter, FilterGroup, DropdownFilter, QuantityFilter } from 'shared';
+import { MFSettings, UserSettings, UserFilter, FilterGroup, DropdownFilter, QuantityFilter, DateRangeComboFilter } from 'shared';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 @Injectable()
 export class MFService {
@@ -30,26 +30,6 @@ export class MFService {
             'expCurrency',
         ];
         this.mfSettingsRepo.findOne().then(data => {
-            // data.defaultUserFilter.filterGroups.push(
-            //     new FilterGroup({
-            //         name: 'K300',
-            //         filters: [
-            //             new DropdownFilter({
-            //                 placeholder: 'חשיפות',
-            //                 options: exp.map(e => ({
-            //                     _id: e,
-            //                     name: e,
-            //                     filter: new QuantityFilter({
-            //                         placeholder: e,
-            //                         optionIdPath: e,
-            //                     }),
-            //                 })),
-            //             }),
-            //         ],
-            //     }),
-            // );
-            // this.mfSettingsRepo.saveOrUpdateOne(data);
-
             if (!data) {
                 this.mfSettingsRepo.saveOrUpdateOne({
                     defaultUserFilter: new UserFilter({
@@ -109,6 +89,13 @@ export class MFService {
                     }),
                     tableSettings: { columns: ['id', 'name', 'symbol'] },
                     gridSettings: { groupBy: 'primeClassification', secondaryGroupBy: 'mainClassification' },
+                    simlulationSettings: {
+                        excludeFilter: new DateRangeComboFilter({
+                            optionIdPath: 'policyChangeDate',
+                            placeholder: 'שינוי מדינייות',
+                            options: [3, 6, 12].map(m => ({ _id: m * 1000 * 60 * 60 * 24 * 30, name: m + ' month' })),
+                        }),
+                    },
                 });
             }
         });

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MFController } from 'src/api/mf.controller';
 import { ReplaySubject } from 'rxjs';
-import { UserFilter, UserSettings } from 'shared';
+import { SimulationSettings, UserFilter, UserSettings } from 'shared';
 import { uniq, get, groupBy, orderBy } from 'lodash';
 
 export const NEW = ' (Create new) ';
@@ -12,11 +12,18 @@ export class MfService {
     readonly selectedFilter: ReplaySubject<UserFilter> = new ReplaySubject();
     readonly userFilters: ReplaySubject<UserFilter[]> = new ReplaySubject();
     readonly funds: ReplaySubject<any> = new ReplaySubject();
+    readonly simulationFund: ReplaySubject<any> = new ReplaySubject();
+
     readonly settings: ReplaySubject<UserSettings> = new ReplaySubject();
     private userSetting: UserSettings;
     private allFunds: any[];
     private selectedUserFilter: UserFilter;
     private gridGroups: Array<{ children: Array<{ name: string; count: any }>; name: string; count: number }>;
+    private simulationData: {
+        gridGroupsSimulation: Array<{ name: string; count?: number }>;
+        settings: SimulationSettings;
+    };
+    // private gridGroupsSimulation: Array<{ name: string; count?: number }>;
     constructor(private api: MFController) {
         this.api.getInitialData().then(initialData => {
             this.allFunds = initialData.funds;
@@ -35,7 +42,13 @@ export class MfService {
                 f => f.children.length,
                 'desc',
             );
+            this.simulationData = {
+                gridGroupsSimulation: Object.keys(groups).map(g => ({ name: g })),
+                settings: initialData.userSetting.simlulationSettings,
+            };
+
             this.filterChanged();
+            this.filterSimulationChanged();
             this.settings.next(this.userSetting);
             this.userFilters.next(this.userSetting.userFilters);
             this.selectedFilter.next(this.selectedUserFilter);
@@ -54,6 +67,22 @@ export class MfService {
         }
 
         this.selectedFilter.next(userFilter);
+    }
+    filterSimulationChanged() {
+        let filteredFunds = this.allFunds;
+        if (this.simulationData.settings.excludeFilter.selected) {
+            filteredFunds = this.simulationData.settings.excludeFilter.doFilter(filteredFunds);
+        }
+        const excludeFunds = this.allFunds.filter(f => !filteredFunds.find(ff => ff.id === f.id));
+        const groups = groupBy(excludeFunds, f => get(f, this.userSetting.gridSettings.groupBy));
+        this.simulationData.gridGroupsSimulation.forEach(mainGroup => {
+            mainGroup.count = groups[mainGroup.name] ? -groups[mainGroup.name].length : 0;
+        });
+        this.simulationFund.next({
+            groups: this.simulationData.gridGroupsSimulation,
+            settings: this.simulationData.settings,
+            totalExclude: excludeFunds.length,
+        });
     }
     filterChanged() {
         let filteredFunds = this.allFunds;
