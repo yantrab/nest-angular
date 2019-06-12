@@ -8,8 +8,8 @@
     "paths": {
         "shared": ["../shared"],
         "shared/*": ["../shared/*"]
+    },
+    "angularCompilerOptions": {
+        "enableIvy": true
     }
-    //    "angularCompilerOptions": {
-    //        "enableIvy": true
-    //    }
 }

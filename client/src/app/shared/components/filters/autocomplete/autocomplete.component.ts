@@ -31,8 +31,8 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     @Input() paths: string[] = ['name', '_id'];
     @Input() freeText: boolean;
     @Input() keepOpen: boolean;
-    @ViewChild(MatAutocompleteTrigger) inputAutocomplete: MatAutocompleteTrigger;
-    @ViewChild(MatInput) matInput;
+    @ViewChild(MatAutocompleteTrigger, null) inputAutocomplete: MatAutocompleteTrigger;
+    @ViewChild(MatInput, null) matInput;
     @Input() displayFn = val => {
         return val ? val.name : '';
     };

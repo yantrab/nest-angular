@@ -1,14 +1,13 @@
-import { Entity } from './Entity';
-import { IsNumber, IsString, ValidateNested } from 'class-validator';
+import { Entity } from '../Entity';
+import { IsNumber, IsString, ValidateNested, IsEnum } from 'class-validator';
 
 export class ContactField extends Entity {
     @IsString()
     property: string;
     @IsString()
     title: string;
-    @IsNumber()
+    index: number;
     length: number;
-    defualt?: any = '';
 }
 
 export enum FieldType {
@@ -19,18 +18,19 @@ export enum FieldType {
 }
 export class SettingField extends Entity {
     @IsNumber()
-    length: number;
+    length?: number;
 
     @IsNumber()
-    index: number;
-    @ValidateNested()
+    index?: number;
+
+    @IsEnum(FieldType)
     type: FieldType;
 
     options?: Function;
     value: any;
     default?: any = '';
 
-    constructor(props) {
+    constructor(props: Partial<SettingField>) {
         super(props);
         if (!this.value) {
             this.value = props.default;
@@ -53,7 +53,7 @@ export class Contacts extends Entity {
             this.list = new Array(this.count).fill(1).map((_, i) => {
                 return this.contactFields.reduce(
                     (item, field) => {
-                        item[field.property] = field.defualt;
+                        // item[field.property] = field.defualt;
                         return item;
                     },
                     { id: i + 1 },
@@ -64,6 +64,7 @@ export class Contacts extends Entity {
 }
 
 export class Panel extends Entity {
+    MaxEEprom: number;
     @IsString()
     type: string;
     @IsNumber()
@@ -71,7 +72,7 @@ export class Panel extends Entity {
     @ValidateNested({ each: true })
     contacts: Contacts;
     @ValidateNested()
-    settings: Array<{ name: string; fields: SettingField[] }>;
+    settings: Array<{ name: string; fields: SettingField[]; index?: number; length?: number }>;
     @IsString()
     userId: string;
     address;
@@ -79,7 +80,35 @@ export class Panel extends Entity {
         super(panel);
         this.contacts = new Contacts(panel.contacts);
     }
-    dump() {}
+    dump() {
+        const arr = new Array(this.MaxEEprom).fill(' ');
+        this.contacts.contactFields.forEach(field => {
+            const fieldLength = field.length;
+            const index = field.index;
+            const all = this.contacts.list
+                .map(c => ((c[field.property] || '') + ' '.repeat(fieldLength)).slice(0, fieldLength))
+                .join('');
+            all.split('').forEach((c, i) => {
+                    arr[index + i] = c;
+            });
+        });
+
+        this.settings.forEach(s => {
+            s.fields.forEach((f, i) => {
+                if (!f.value) return;
+                const value: string =
+                    f.type == FieldType.timer
+                        ? f.value.day + f.value.from.replace(':', '') + f.value.to.replace(':', '')
+                        : f.value.toString();
+
+                const jInit = f.index || s.index + i * s.length;
+                for (let j = 0; j < (f.length || s.length); j++) {
+                    arr[jInit + j] = value[j] || '';
+                }
+            });
+        });
+        return arr.join('');
+    }
 }
 
 export class PanelStructore extends Entity {}

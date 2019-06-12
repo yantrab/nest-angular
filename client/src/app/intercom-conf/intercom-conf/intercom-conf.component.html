@@ -27,6 +27,10 @@
                     <mat-form-field>
                         <input matInput placeholder="גירסה" [(ngModel)]="selectedPanel.version" />
                     </mat-form-field>
+
+                    <div>
+                        <button mat-button (click)="dump()">dump!</button>
+                    </div>
                 </div>
             </mat-tab>
             <mat-tab label="contacts">
@@ -82,7 +86,7 @@
                                                                 let op of ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                                                                 let day = index
                                                             "
-                                                            [checked]="field.value[day]"
+                                                            [checked]="field.value['day'][day]"
                                                             >{{ op }}</mat-checkbox
                                                         >
                                                     </div>
@@ -90,7 +94,7 @@
                                                         <mat-form-field style="margin: 10px;width: 100px">
                                                             <input
                                                                 matInput
-                                                                [(ngModel)]="field.value[from]"
+                                                                [(ngModel)]="field.value['from']"
                                                                 placeholder="from"
                                                                 [ngxTimepicker]="from"
                                                                 [format]="24"
@@ -104,7 +108,7 @@
                                                         <mat-form-field style="margin: 10px; width: 100px">
                                                             <input
                                                                 matInput
-                                                                [(ngModel)]="field.value[to]"
+                                                                [(ngModel)]="field.value['to']"
                                                                 placeholder="to"
                                                                 [ngxTimepicker]="to"
                                                                 [format]="24"
