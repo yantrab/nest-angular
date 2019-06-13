@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MFController } from 'src/api/mf.controller';
 import { ReplaySubject } from 'rxjs';
-import { SimulationSettings, UserFilter, UserSettings } from 'shared';
+import { CheckboxFilter, ComboboxFilter, Filter, SimulationRankType, SimulationSettings, UserFilter, UserSettings } from 'shared';
 import { uniq, get, groupBy, orderBy } from 'lodash';
 
 export const NEW = ' (Create new) ';
@@ -22,6 +22,7 @@ export class MfService {
     private simulationData: {
         gridGroupsSimulation: Array<{ name: string; count?: number }>;
         settings: SimulationSettings;
+        typeRankFilter: Filter;
     };
     // private gridGroupsSimulation: Array<{ name: string; count?: number }>;
     constructor(private api: MFController) {
@@ -45,6 +46,9 @@ export class MfService {
             this.simulationData = {
                 gridGroupsSimulation: Object.keys(groups).map(g => ({ name: g })),
                 settings: initialData.userSetting.simlulationSettings,
+                typeRankFilter: new ComboboxFilter({
+                    options: Object.keys(SimulationRankType).map(key => ({ _id: key, name: key })),
+                }),
             };
 
             this.filterChanged();
@@ -82,6 +86,7 @@ export class MfService {
             groups: this.simulationData.gridGroupsSimulation,
             settings: this.simulationData.settings,
             totalExclude: excludeFunds.length,
+            typeRankFilter: this.simulationData.typeRankFilter,
         });
     }
     filterChanged() {

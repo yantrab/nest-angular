@@ -3,6 +3,12 @@ import { Entity } from './Entity';
 import { ValidateNested, IsString } from 'class-validator';
 // import { Fund } from './fund.model';
 
+export enum SimulationRankType {
+    unified = 'unified',
+    group = 'group',
+    subGroup = 'subGroup',
+    freely = 'freely',
+}
 export class TableSettings {
     @IsString({ each: true })
     columns: string[];
@@ -26,6 +32,7 @@ export class GridSettings {
 }
 export class SimulationSettings {
     excludeFilter: Filter;
+    customizeParameters: { groupName: string; parameters: { name: string; path: string; isActive?: boolean }[] }[];
     constructor(data: Partial<SimulationSettings>) {
         if (data) {
             Object.assign(this, data);

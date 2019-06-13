@@ -1,0 +1,16 @@
+<div style="padding: 10px;" fxFlex [style.background]="'#ffffff'" fxLayout="row wrap" fxLayoutAlign="space-between">
+    <div
+        *ngFor="let group of groups"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        class="card"
+        [class.hasfunds]="group.count > 0"
+    >
+        <span>
+            {{ group.name }}
+        </span>
+        <span dir="ltr" *ngIf="group.count < 0">
+            {{ group.count }}
+        </span>
+    </div>
+</div>

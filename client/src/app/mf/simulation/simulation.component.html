@@ -30,31 +30,46 @@
                 </span>
             </div>
             <div fxFlex="16px"></div>
-            <div style="padding: 10px;" fxFlex [style.background]="'#ffffff'" fxLayout="row wrap" fxLayoutAlign="space-between">
-                <div
-                    *ngFor="let group of model.gridGroups"
-                    fxLayout="column"
-                    fxLayoutAlign="center center"
-                    class="card"
-                    [class.hasfunds]="group.count > 0"
-                >
-                    <span>
-                        {{ group.name }}
-                    </span>
-                    <span dir="ltr" *ngIf="group.count < 0">
-                        {{ group.count }}
-                    </span>
+            <p-simple-grid [groups]="model.gridGroups"></p-simple-grid>
+        </div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>step 2</ng-template>
+        <div fxLayout="column" fxFlex style="background-color:#ffffff;  color: #2f3542;height: 60%;">
+            <div fxFlex="80px" style="line-height: 80px;" fxLayoutAlign="center centrt"><span>Customize parameters</span></div>
+            <div
+                fxLayout="row"
+                fxFlex="250px"
+                fxLayoutAlign="space-between centrt"
+                style="padding-left: 100px;padding-right: 100px"
+            >
+                <div fxLayout="column" fxFlex="250px" *ngFor="let group of model.simlulationSettings.customizeParameters">
+                    <div fxFlex="80px" style="height: 80px;line-height: 80px;" fxLayoutAlign="center centrt">
+                        <span>{{ group.groupName }}</span>
+                    </div>
+                    <div fxFlex fxLayout="column" style="overflow: auto">
+                        <div *ngFor="let parameter of group.parameters" fxLayout="row">
+                            <mat-checkbox [(ngModel)]="parameter.isActive">{{ parameter.name }}</mat-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div fxFlex>
+                <mat-divider style="width: 100%;"></mat-divider>
+                <div fxLayoutAlign="center centrt">
+                    <button mat-raised-button color="basic" style="width: 184px;">
+                        Restore default settings
+                    </button>
+                    <button mat-raised-button color="primary">
+                        save
+                    </button>
                 </div>
             </div>
         </div>
     </mat-step>
     <mat-step>
-        <ng-template matStepLabel>step 2</ng-template>
-        <div fxFlex fxFill></div>
-    </mat-step>
-    <mat-step>
         <ng-template matStepLabel>Define Groups for customized Ranking</ng-template>
-        <div fxFlex fxFill></div>
+        <p-customize-ranking [model]="model"></p-customize-ranking>
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Define weights for Ranking</ng-template>

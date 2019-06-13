@@ -95,6 +95,12 @@ export class MFService {
                             placeholder: 'שינוי מדינייות',
                             options: [3, 6, 12].map(m => ({ _id: m * 1000 * 60 * 60 * 24 * 30, name: m + ' month' })),
                         }),
+                        customizeParameters: [
+                            { groupName: 'exp', parameters: exp.map(e => ({ name: e, path: e })) },
+                            { groupName: 'yields', parameters: [{ name: 'dailyYield', path: 'dailyYield' }] },
+                            { groupName: 'Quality', parameters: [{ name: 'dailyYield', path: 'dailyYield' }] },
+                            { groupName: 'Management', parameters: [{ name: 'dailyYield', path: 'dailyYield' }] },
+                        ],
                     },
                 });
             }

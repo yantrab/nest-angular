@@ -1,0 +1,11 @@
+<p-select-rank-type
+    [groups]="model.gridGroups"
+    [typeRankFilter]="model.typeRankFilter"
+    (next)="state = State.selectType"
+    *ngIf="state == State.selectType"
+>
+</p-select-rank-type>
+<ng-container *ngIf="state === State.editRanks">
+    <p-freely *ngIf="rankType == SimulationRankType.freely"></p-freely>
+    <p-by-color *ngIf="rankType == SimulationRankType.subGroup"></p-by-color>
+</ng-container>

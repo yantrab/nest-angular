@@ -18,16 +18,8 @@ export class AppComponent {}
 
 const routes: Routes = [
     { path: '', redirectTo: 'mf/simulation', pathMatch: 'full' },
-    {
-        path: 'mf',
-        loadChildren: () => import('src/app/mf/mf.module').then(m => m.MFModule),
-        canActivate: [Guard],
-        data: { app: App.mf },
-    },
-    {
-        path: 'praedicta',
-        loadChildren: () => import('src/app/praedicta-site/praedicta-site.module').then(m => m.PraedictaSiteModule),
-    },
+    { path: 'mf', loadChildren: 'src/app/mf/mf.module#MFModule', canActivate: [Guard], data: { app: App.mf } },
+    { path: 'praedicta', loadChildren: 'src/app/praedicta-site/praedicta-site.module#PraedictaSiteModule' },
     { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },
     { path: 'signin/:site/:token', loadChildren: 'src/app/auth/auth.module#AuthModule' },
     { path: 'admin/:site', loadChildren: 'src/app/admin/admin.module#AdminModule' },

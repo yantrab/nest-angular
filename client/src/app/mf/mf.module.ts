@@ -8,8 +8,13 @@ import { SimulationComponent } from './simulation/simulation.component';
 import { MFController } from 'src/api/mf.controller';
 import { FiltersComponent } from './findFund/filters/filters.component';
 import { MfService } from './mf.service';
+import { CustomizeRankingComponent } from './simulation/customize-ranking/customize-ranking.component';
+import { SelectRankTypeComponent } from './simulation/customize-ranking/select-rank-type/select-rank-type.component';
+import { FreelyComponent } from './simulation/customize-ranking/freely/freely.component';
+import { ByColorComponent } from './simulation/customize-ranking/by-color/by-color.component';
+import { SimpleGridComponent } from './simple-grid/simple-grid.component';
 @NgModule({
-    declarations: [MFComponent, FindFundComponent, SimulationComponent, FiltersComponent],
+    declarations: [MFComponent, FindFundComponent, SimulationComponent, FiltersComponent, CustomizeRankingComponent, SelectRankTypeComponent, FreelyComponent, ByColorComponent, SimpleGridComponent],
     imports: [
         CommonModule,
         ComponentsModule,

@@ -1,0 +1,17 @@
+<div fxFlex fxFill fxLayout="row" fxLayoutAlign="start start">
+    <div
+        fxFlex="390px"
+        fxLayoutGap="10px"
+        style="height: 50%"
+        fxLayout="column"
+        fxLayoutAlign="start center"
+        [style.background]="'#ffffff'"
+    >
+        <span style="line-height: 80px;height: 80px;">Choose your type of ranking </span>
+        <p-filter [filter]="typeRankFilter"></p-filter>
+        <mat-divider style="width: 100%;"></mat-divider>
+        <button mat-raised-button color="primary" (click)="next.emit()">NEXT</button>
+    </div>
+    <div fxFlex="16px"></div>
+    <p-simple-grid [groups]="groups"></p-simple-grid>
+</div>
