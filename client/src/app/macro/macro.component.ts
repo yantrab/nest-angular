@@ -21,6 +21,7 @@ export const NEW = ' (Create new) ';
     encapsulation: ViewEncapsulation.None,
 })
 export class MacroComponent {
+    isOpen = false;
     input: FormControl = new FormControl();
     filteredOptions: Observable<Series[]>;
     private queries = [];

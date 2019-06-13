@@ -9,22 +9,17 @@
     color: $color;
 }
 
-$topbar-hight: 70px;
 body {
     background-color: #fafafa;
 }
-p-topbar {
-    height: $topbar-hight;
-}
 .content {
-    height: calc(70vh - #{$topbar-hight});
-    background-color: #eeeeee;
+    height: 100vh;
 }
 .templates {
     right: 68px !important;
-    width: calc(((30% - 8px) * 1) + 0px) !important;
+    width: calc(((415px - 8px) * 1) + 0px) !important;
     top: 55px !important;
-    height: calc(((140% - 0px) * 1) + 0px) !important;
+    height: calc(((86% - 0px) * 1) + 0px) !important;
 }
 .button {
     margin: 17px !important;
@@ -48,4 +43,40 @@ p-topbar {
 }
 cdk-virtual-scroll-content-wrapper {
     top: 30px !important;
+}
+.results {
+    height: 100%;
+    background: #fafafa;
+    text-align: end;
+    padding: 70px;
+}
+.categories {
+    width: 56%;
+    top: 50px;
+    position: absolute;
+    left: 66px;
+}
+.wrapperCategories {
+    transition-duration: 235ms;
+    width: 100%;
+    height: 28%;
+    background: #eeeeee;
+
+    &.open {
+        height: 70%;
+    }
+}
+.mat-tree {
+    background: rgba(216, 216, 216, 0.27) !important;
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    background: #ffc400 !important;
+}
+
+.mat-expansion-panel {
+    margin-top: 3em !important;
+}
+
+.mat-form-field-flex {
+    top: 50px !important;
 }

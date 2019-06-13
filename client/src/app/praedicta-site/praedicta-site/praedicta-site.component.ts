@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { I18nService } from 'src/app/shared/services/i18n.service';
 import { I18nRootObject } from 'src/api/i18n/site.i18n';
 import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
+import { DynaFormBuilder } from 'ng-dyna-form';
+import { LeadRequest } from 'shared/models/site.model';
 
 @Component({
     selector: 'p-praedicta-site',
@@ -10,16 +13,18 @@ import { Router } from '@angular/router';
 })
 export class PraedictaSiteComponent implements OnInit {
     direction = 'rtl';
+    form: FormGroup;
     dic: I18nRootObject;
     isHide: boolean = true;
-    constructor(public i18nService: I18nService, private router: Router) {
+    isContuct: boolean = false;
+    constructor(public i18nService: I18nService, private router: Router, private dynaFB: DynaFormBuilder) {
         this.i18nService.dic.subscribe(result => {
             this.dic = result as any;
         });
+        this.dynaFB.buildFormFromClass(LeadRequest).then(form => (this.form = form));
     }
     ngOnInit() {}
     navigate(to: string) {
-        debugger;
         this.router.navigate([window.location.pathname + '/' + to, {}]).then();
     }
 

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SystemsManagerComponent implements OnInit {
     dic: I18nRootObject;
+    @Input() isContuct: boolean;
     isHover: boolean = false;
     currentSystem: 'bonds' | 'holdings' | 'otherSolution' | 'contactUs' | 'aboutUs';
     settings = {

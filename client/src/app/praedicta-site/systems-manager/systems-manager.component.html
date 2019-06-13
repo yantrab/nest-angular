@@ -1,7 +1,7 @@
 <div class="container" gdRows="repeat(2, [row] 1fr)" gdColumns="repeat(6, [col] 1fr)" *ngIf="dic" [dir]="i18nService.dir">
     <div gdArea="1/6" fxLayoutAlign="center end ">
         <span class="en-he" (click)="changeDirection()">{{ dic.sitePage.systems.eng_Heb }}</span>
-        <div class="envelope-icon" fxLayoutAlign="center center">
+        <div style="z-index: 9999" (click)="isContuct = true" class="envelope-icon" fxLayoutAlign="center center">
             <i class="envelope"></i>
         </div>
     </div>
@@ -173,3 +173,4 @@
         (click)="navigate('')"
     ></p-system>
 </div>
+<p-contuct *ngIf="isContuct" (onClose)="isContuct = false"> </p-contuct>

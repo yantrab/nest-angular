@@ -76,5 +76,6 @@ $font-family: Poppins;
     position: absolute;
     top: 0;
     padding: 3em 3em;
+    z-index: 999;
     @include letter(14px, 0.5px, 2);
 }

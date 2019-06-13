@@ -99,14 +99,14 @@
                 <i class="envelope"></i>
                 <span>{{ dic.sitePage.systems.contactUs }} </span>
             </div>
-            <div fxHide.lt-md class="envelope-icon" fxLayoutAlign="center center">
+            <div fxHide.lt-md class="envelope-icon" (click)="isContuct = true" fxLayoutAlign="center center">
                 <i class="envelope"></i>
             </div>
         </div>
     </div>
 </div>
 
-<div fxLayout="column" fxLayoutAlign="center center" Layout class="our-clients" [ngClass]="{ open: isHide == false }">
+<div fxLayout="column" fxLayoutAlign="center center" Layout class="our-clients open" *ngIf="!isHide">
     <span fxFlex="21" (click)="isHide = true">X</span>
     <span fxFlex="22" class="Our_clients">{{ dic.Our_clients }} </span>
     <div gdRows="repeat(1, [row] 1fr)" gdColumns="repeat(7, [col] 1fr)">
@@ -127,3 +127,5 @@
         <img gdArea="1/35/1/40" src="assets/img/client/logo-israel.png" />
     </div>
 </div>
+
+<p-contuct *ngIf="isContuct" (onClose)="isContuct = false"> </p-contuct>

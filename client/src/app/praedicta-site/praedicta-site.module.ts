@@ -8,6 +8,9 @@ import { SystemComponent } from './system/system.component';
 import { SystemsManagerComponent } from './systems-manager/systems-manager.component';
 import { ContentComponent } from './content/content.component';
 import { ImageComponent } from './image/image.component';
+import { ComponentsModule } from '../shared/components/components.module';
+import { DynaFormModule } from 'ng-dyna-form';
+import { ContuctComponent } from './contuct/contuct.component';
 @Component({
     selector: 'p-site',
     template: '<router-outlet></router-outlet>',
@@ -16,9 +19,13 @@ import { ImageComponent } from './image/image.component';
 export class SiteComponent {}
 
 @NgModule({
-    declarations: [SiteComponent, PraedictaSiteComponent, SystemComponent, SystemsManagerComponent, ContentComponent, ImageComponent],
+    declarations: [SiteComponent, PraedictaSiteComponent, SystemComponent, SystemsManagerComponent, ContentComponent, ImageComponent, ContuctComponent],
     providers: [I18nService, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/site' }],
     imports: [
+ 
+        ComponentsModule,
+    
+        DynaFormModule,
         CommonModule,
         FlexLayoutModule,
         RouterModule.forChild([
