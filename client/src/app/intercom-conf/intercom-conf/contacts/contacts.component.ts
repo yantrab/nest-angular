@@ -10,9 +10,10 @@ import { ColumnDef } from 'mat-virtual-table';
 export class ContactsComponent implements OnInit {
     @Input() contacts: Contacts;
     @ViewChild('ref', null) set refField(ref) {
-        if (!ref) return;
-        setTimeout(() => ref.nativeElement.focus())
-        
+        if (!ref) {
+            return;
+        }
+        setTimeout(() => ref.nativeElement.focus());
     }
 
     contactColumns: ColumnDef[] = [{ field: 'id', title: '', isSortable: false }];
