@@ -28,11 +28,11 @@ body {
     padding: 0 !important;
     border-radius: 0px !important;
     top: 4px !important;
-    border: 1px solid !important;
+    border: 1px solid #eeeeee !important;
 }
 .wrapperbutton {
     height: 20%;
-    border-top: 1px solid;
+    border-top: 1px solid #eeeeee;
     text-align: center;
 }
 .macro {
@@ -51,10 +51,10 @@ cdk-virtual-scroll-content-wrapper {
     padding: 70px;
 }
 .categories {
-    width: 56%;
-    top: 50px;
+    width: 53.7%;
+    top: 7%;
     position: absolute;
-    left: 66px;
+    left: 9%;
 }
 .wrapperCategories {
     transition-duration: 235ms;
@@ -63,7 +63,12 @@ cdk-virtual-scroll-content-wrapper {
     background: #eeeeee;
 
     &.open {
-        height: 70%;
+        height: 75%;
+
+        .mat-expansion-panel-header {
+            border: none;
+            background: rgba(216, 216, 216, 0.27) !important;
+        }
     }
 }
 .mat-tree {
@@ -74,9 +79,27 @@ cdk-virtual-scroll-content-wrapper {
 }
 
 .mat-expansion-panel {
-    margin-top: 3em !important;
+    margin-top: 2.5em !important;
+    background: none;
+    box-shadow: none !important;
 }
 
 .mat-form-field-flex {
     top: 50px !important;
+}
+.mat-expansion-panel-header {
+    border: 1px solid #d8d8d8;
+}
+.mat-expansion-panel-body {
+    padding: 0px !important;
+}
+mat-tree {
+    .selected {
+        background-color: rgba(255, 220, 0, 0.1) !important;
+    }
+}
+.aaa {
+    .selected {
+        background-color: rgba(255, 220, 0, 0.1) !important;
+    }
 }
