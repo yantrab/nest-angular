@@ -98,8 +98,7 @@ mat-tree {
         background-color: rgba(255, 220, 0, 0.1) !important;
     }
 }
-.aaa {
-    .selected {
-        background-color: rgba(255, 220, 0, 0.1) !important;
-    }
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #ffc400 !important;
 }
