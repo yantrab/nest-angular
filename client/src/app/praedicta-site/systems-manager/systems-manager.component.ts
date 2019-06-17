@@ -36,7 +36,7 @@ export class SystemsManagerComponent implements OnInit {
         }),
         holdings: {
             content: {
-                col: '12/14',
+                col: '11/14',
                 row: '6',
             },
 

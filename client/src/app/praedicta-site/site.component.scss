@@ -79,3 +79,7 @@ $font-family: Poppins;
     z-index: 999;
     @include letter(14px, 0.5px, 2);
 }
+div {
+    z-index: 999;
+    border: 1px solid #222222;
+}

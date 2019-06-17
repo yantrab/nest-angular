@@ -476,3 +476,6 @@
         @include letter(35px, 1.6px, 1.37, $font-weight: bold, $font-family: Rubik, $color: #54678c);
     }
 }
+div {
+    border: 1px solid #222222;
+}
