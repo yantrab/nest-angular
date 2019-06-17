@@ -13,7 +13,7 @@ export class ImageComponent implements OnInit {
     isOtherSolution = false;
     @Input() set currentSystem(system) {
         this.isOtherSolution = system === 'otherSolution';
-        this.imageUrl = `assets/img/systems/` + system + '.PNG';
+        this.imageUrl = `assets/img/systems/` + system + '.png';
     }
     constructor(public i18nService: I18nService) {
         this.i18nService.dic.subscribe(result => {

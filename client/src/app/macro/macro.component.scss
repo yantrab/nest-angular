@@ -16,7 +16,6 @@ body {
     height: 100vh;
 }
 .templates {
-    right: 68px !important;
     width: calc(((415px - 8px) * 1) + 0px) !important;
     top: 55px !important;
     height: calc(((86% - 0px) * 1) + 0px) !important;
@@ -34,6 +33,7 @@ body {
     height: 20%;
     border-top: 1px solid #eeeeee;
     text-align: center;
+    z-index: 9999999999999;
 }
 .macro {
     @include letter(33px, 0.8px, $font-weight: bold, $color: #2c2c2c);
@@ -54,7 +54,6 @@ cdk-virtual-scroll-content-wrapper {
     width: 53.7%;
     top: 7%;
     position: absolute;
-    left: 9%;
 }
 .wrapperCategories {
     transition-duration: 235ms;
@@ -101,4 +100,12 @@ mat-tree {
 
 .mat-checkbox-checked.mat-accent .mat-checkbox-background {
     background-color: #ffc400 !important;
+}
+.en-he {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    padding: 3em 3em;
+    z-index: 999;
+    @include letter(14px, 0.5px, 2, $color: blue);
 }

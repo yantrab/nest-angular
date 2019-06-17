@@ -117,7 +117,9 @@ export class MacroComponent {
         }
         this.api.saveUserSettings(this.userSettings).then();
     }
-
+    changeDirection() {
+        this.i18nService.language = this.i18nService.language == 'he' ? 'en' : 'he';
+    }
     download() {
         const formData: DataRequest = {
             seriesIds: this.currentTemplate.seriesIds,
