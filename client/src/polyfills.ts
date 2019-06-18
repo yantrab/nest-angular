@@ -60,6 +60,6 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
-
+import 'hammerjs';
 import 'webrtc-adapter';
 (window as any).global = window;

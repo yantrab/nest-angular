@@ -11,6 +11,7 @@ import { BaseFilterComponent } from '../base.component';
                 *ngFor="let option of settings.options"
                 [checked]="checkedList[option._id] && settings.isActive"
                 (change)="change($event.checked, option)"
+                color="primary"
                 >{{ option.name }}</mat-checkbox
             >
         </div>

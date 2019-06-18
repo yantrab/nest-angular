@@ -13,8 +13,11 @@ import { SelectRankTypeComponent } from './simulation/customize-ranking/select-r
 import { FreelyComponent } from './simulation/customize-ranking/freely/freely.component';
 import { ByColorComponent } from './simulation/customize-ranking/by-color/by-color.component';
 import { SimpleGridComponent } from './simple-grid/simple-grid.component';
+import { FundCardComponent } from './simple-grid/fund-card/fund-card.component';
+import { CustomizeTemplateComponent } from './simulation/customize-ranking/customize-template/customize-template.component';
+import { DefineWeightsByGroupColorsComponent } from './simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component';
 @NgModule({
-    declarations: [MFComponent, FindFundComponent, SimulationComponent, FiltersComponent, CustomizeRankingComponent, SelectRankTypeComponent, FreelyComponent, ByColorComponent, SimpleGridComponent],
+    declarations: [MFComponent, FindFundComponent, SimulationComponent, FiltersComponent, CustomizeRankingComponent, SelectRankTypeComponent, FreelyComponent, ByColorComponent, SimpleGridComponent, FundCardComponent, CustomizeTemplateComponent, DefineWeightsByGroupColorsComponent],
     imports: [
         CommonModule,
         ComponentsModule,

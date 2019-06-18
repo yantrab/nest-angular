@@ -1,10 +1,11 @@
 <div fxLayout="column">
     <span>{{ settings.placeholder }}</span>
     <mat-radio-group (change)="change($event.value)" fxLayout="column">
-        <mat-radio-button [value]="undefined" [checked]="!settings.selected">
+        <mat-radio-button color="primary" [value]="undefined" [checked]="!settings.selected">
             none
         </mat-radio-button>
         <mat-radio-button
+            color="primary"
             *ngFor="let option of settings.options"
             [checked]="!!settings.selected && option._id === settings.selected._id"
             [value]="option"

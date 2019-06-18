@@ -1,10 +1,10 @@
 import { Poly, Entity } from './Entity';
-import { get, uniqBy, uniq } from 'lodash';
+import { get, uniqBy } from 'lodash';
 import { IsOptional, IsBoolean, IsString, ValidateNested, IsArray } from 'class-validator';
 import * as Filters from './filter.model';
 import { getDistribution } from '../utils';
 
-export abstract class Filter extends Poly {
+export class Filter extends Poly {
     @IsArray()
     options: any[];
 
@@ -22,6 +22,7 @@ export abstract class Filter extends Poly {
     placeholder?: string;
     constructor(filter?: Partial<Filter>) {
         super(filter);
+        if (filter && filter.kind && this.constructor.name === 'Filter') return new Filters[filter.kind](filter);
     }
     doFilter(items: any[]): any[] {
         return items;
@@ -84,6 +85,19 @@ export class AutocompleteFilter extends Filter {
 }
 
 export class SpecialFilter extends Filter {
+    constructor(filter: Partial<SpecialFilter>) {
+        super(filter);
+        if (!filter) {
+            return;
+        }
+        filter.options.forEach(op => {
+            op.filter = new Filter(op.filter);
+        });
+        if (filter.selected) {
+            filter.selected = filter.selected.map(op => new Filter(op));
+        }
+    }
+
     doFilter(items: any[]): any[] {
         let result = items;
         this.selected.forEach(filter => {
@@ -108,18 +122,7 @@ export class FilterGroup extends Entity {
     }
     constructor(filterGroup: Partial<FilterGroup>) {
         super(filterGroup);
-        this.filters = filterGroup.filters.map(filter => {
-            const f: Filter = new Filters[filter.kind](filter);
-            if (f.kind === 'SpecialFilter') {
-                f.options.forEach(op => {
-                    op.filter = new Filters[op.filter.kind](op.filter);
-                });
-                if (f.selected) {
-                    f.selected = f.selected.map(op => new Filters[op.kind](op));
-                }
-            }
-            return f;
-        });
+        this.filters = filterGroup.filters.map(filter => new Filter(filter));
     }
 }
 

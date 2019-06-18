@@ -6,7 +6,6 @@ import { ITopBarModel } from '../shared/components/topbar/topbar.interface';
 import { I18nService } from '../shared/services/i18n.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { groupBy, max } from 'lodash';
-import { DatePipe } from '@angular/common';
 import { XLSXService } from '../shared/services/xlsx.service';
 import { AutocompleteFilter } from 'shared';
 import { map, startWith } from 'rxjs/operators';

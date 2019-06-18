@@ -45,7 +45,7 @@
             >
                 <div fxLayout="column" fxFlex="250px" *ngFor="let group of model.simlulationSettings.customizeParameters">
                     <div fxFlex="80px" style="height: 80px;line-height: 80px;" fxLayoutAlign="center centrt">
-                        <span>{{ group.groupName }}</span>
+                        <span>{{ group.name }}</span>
                     </div>
                     <div fxFlex fxLayout="column" style="overflow: auto">
                         <div *ngFor="let parameter of group.parameters" fxLayout="row">
@@ -69,11 +69,11 @@
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Define Groups for customized Ranking</ng-template>
-        <p-customize-ranking [model]="model"></p-customize-ranking>
+        <p-customize-ranking [state]="State.selectType" [model]="model"></p-customize-ranking>
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Define weights for Ranking</ng-template>
-        <div fxFlex fxFill></div>
+        <p-customize-ranking [state]="State.defineWeight" [model]="model"></p-customize-ranking>
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Calculate New Customized Ranking</ng-template>

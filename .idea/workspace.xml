@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.ts" line="43" mnemonic="1" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="tador">
+      <change afterPath="$PROJECT_DIR$/client/src/app/mf/simulation/models.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/macro/macro.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/macro/macro.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/findFund/filters/filters.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/findFund/filters/filters.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/mf.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/mf.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/mf.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/select-rank-type/select-rank-type.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/select-rank-type/select-rank-type.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/checkbox/checkbox.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/checkbox/checkbox.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/combobox/combobox.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/combobox/combobox.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/material/material.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/material/material.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/shared/services/i18n.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/services/i18n.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/starter.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/starter.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/material/mat-horizontal-stepper.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/material/mat-horizontal-stepper.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/polyfills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/generator/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/generator/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/mf/mf.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/mf/mf.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/pipes/validation.pipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/pipes/validation.pipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/Entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/Entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/filter.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/filter.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/mf.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/mf.model.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,15 +48,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="nest-angular" />
+  </component>
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts">
+        <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            <state relative-caret-position="500">
+              <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
               <folding>
-                <element signature="e#0#61#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -34,42 +69,45 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ofset</find>
-      <find>comm</find>
-      <find>family</find>
-      <find>relay</find>
-      <find>Relay</find>
-      <find>Ca</find>
-      <find>doot</find>
-      <find>Name</find>
-      <find>Sel</find>
-      <find>yes</find>
-      <find>Bus</find>
-      <find>floorValue</find>
-      <find>re</find>
-      <find>timer</find>
-      <find>y_n</find>
-      <find>time</find>
-      <find>timecy</find>
-      <find>utPut</find>
-      <find>OutPut</find>
-      <find>newn</find>
-      <find>t</find>
-      <find>bu</find>
-      <find>level</find>
-      <find>ringing</find>
-      <find>RingingNum</find>
-      <find>ToneCodes</find>
-      <find>Confirm</find>
-      <find>FloorValue</find>
-      <find>timers</find>
-      <find>SetReadTimer</find>
+      <find>/mf/mf.mo</find>
+      <find>7</find>
+      <find>7.</find>
+      <find>p-text</find>
+      <find>devkit</find>
+      <find>core</find>
+      <find>7.3.9</find>
+      <find>webpack-dev</find>
+      <find>exp</find>
+      <find>*ngFor</find>
+      <find>over</find>
+      <find>let parameter; in: group.pa</find>
+      <find>simpleGrid</find>
+      <find>simulationData</find>
+      <find>typeRankFilter</find>
+      <find>ComboboxFilter</find>
+      <find>mat-checkbox</find>
+      <find>mat-icon</find>
+      <find>Choose your type of ranking</find>
+      <find>p-select-rank-type</find>
+      <find>nfIf</find>
+      <find>groupName</find>
+      <find>customizeParameters</find>
+      <find>config</find>
+      <find>SpecialFilter</find>
+      <find>I18nService</find>
+      <find>Updated upstream</find>
+      <find>DumyComponent</find>
+      <find>hammerjs</find>
+      <find>BrowserAnimationsModule</find>
     </findStrings>
     <replaceStrings>
-      <replace>default</replace>
-      <replace>type: FieldType.list</replace>
-      <replace>export const</replace>
+      <replace>options: new Array</replace>
+      <replace>const</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\arkadiy\Desktop\nest-angular\nest-angular\client</dir>
+      <dir>C:\Users\arkadiy\Desktop\nest-angular\nest-angular</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,59 +115,69 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/shared/models/macro.model.ts" />
-        <option value="$PROJECT_DIR$/shared/models/user.model.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/admin/admin/edit-user/edit-user.component.ts" />
-        <option value="$PROJECT_DIR$/shared/guard.ts" />
-        <option value="$PROJECT_DIR$/server/node_modules/mongo-nest/lib/repo.ts" />
-        <option value="$PROJECT_DIR$/server/node_modules/mongo-nest/lib/entity.ts" />
-        <option value="$PROJECT_DIR$/shared/models/Entity.ts" />
-        <option value="$PROJECT_DIR$/server/src/macro/macro.service.ts" />
-        <option value="$PROJECT_DIR$/server/src/services/fund.service.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/mf/poly/poly.component.ts" />
-        <option value="$PROJECT_DIR$/server/src/mf/mf.controller.ts" />
-        <option value="$PROJECT_DIR$/shared/models/mf.model.ts" />
-        <option value="$PROJECT_DIR$/server/src/mf/mf.service.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/mf/mf.service.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/filter/filter.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/mf/poly/filters/filters.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/mf/poly/poly.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/mf/poly/filters/filters.component.html" />
-        <option value="$PROJECT_DIR$/shared/models/filter.model.ts" />
-        <option value="$PROJECT_DIR$/server/src/app.controller.ts" />
-        <option value="$PROJECT_DIR$/server/src/app.module.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/server.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/client.ts" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/admin/admin/edit-user/edit-user.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.scss" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/select-rank-type/select-rank-type.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/mf.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simple-grid/fund-card/fund-card.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.scss" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/select-rank-type/select-rank-type.component.html" />
+        <option value="$PROJECT_DIR$/client/src/assets/styles/material/mat-horizontal-stepper.scss" />
+        <option value="$PROJECT_DIR$/client/src/styles.scss" />
+        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/checkbox/checkbox.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/combobox/combobox.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/findFund/filters/filters.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simple-grid/fund-card/fund-card.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simple-grid/fund-card/fund-card.component.scss" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.scss" />
+        <option value="$PROJECT_DIR$/client/tsconfig.json" />
+        <option value="$PROJECT_DIR$/client/src/tsconfig.app.json" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-template/customize-template.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-template/customize-template.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/models.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.ts" />
+        <option value="$PROJECT_DIR$/server/src/pipes/validation.pipe.ts" />
+        <option value="$PROJECT_DIR$/generator/index.ts" />
+        <option value="$PROJECT_DIR$/generator/config.ts" />
+        <option value="$PROJECT_DIR$/server/src/mf/mf.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/macro/macro.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/shared/services/i18n.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/macro/macro.component.html" />
+        <option value="$PROJECT_DIR$/shared/models/Entity.ts" />
+        <option value="$PROJECT_DIR$/shared/models/filter.model.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/filter/filter.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/mf.component.spec.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-template/customize-template.component.scss" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.html" />
         <option value="$PROJECT_DIR$/client/package.json" />
-        <option value="$PROJECT_DIR$/.prettierrc.json" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.scss" />
-        <option value="$PROJECT_DIR$/shared/models/tador.model.ts" />
         <option value="$PROJECT_DIR$/client/src/app/shared/components/material/material.module.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" />
-        <option value="$PROJECT_DIR$/tslint.json" />
-        <option value="$PROJECT_DIR$/shared/models/tador/tador.model.ts" />
-        <option value="$PROJECT_DIR$/shared/models/tador/conf.ts" />
-        <option value="$PROJECT_DIR$/server/tsconfig.json" />
-        <option value="$PROJECT_DIR$/server/src/tador/tador.controller.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/mf.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/polyfills.ts" />
+        <option value="$PROJECT_DIR$/client/src/main.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/starter.module.ts" />
+        <option value="$PROJECT_DIR$/shared/models/mf.model.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.scss" />
+        <option value="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="125" />
-    <option name="width" value="1440" />
-    <option name="height" value="775" />
+    <option name="x" value="2009" />
+    <option name="y" value="-16" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -167,7 +215,7 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
+              <item name="macro" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
@@ -175,33 +223,71 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
-              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
+              <item name="mf" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
               <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="mf" type="462c0819:PsiDirectoryNode" />
+              <item name="simulation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
               <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="mf" type="462c0819:PsiDirectoryNode" />
+              <item name="simulation" type="462c0819:PsiDirectoryNode" />
+              <item name="customize-ranking" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
               <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tador" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="mf" type="462c0819:PsiDirectoryNode" />
+              <item name="simulation" type="462c0819:PsiDirectoryNode" />
+              <item name="customize-ranking" type="462c0819:PsiDirectoryNode" />
+              <item name="by-color" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="mf" type="462c0819:PsiDirectoryNode" />
+              <item name="simulation" type="462c0819:PsiDirectoryNode" />
+              <item name="customize-ranking" type="462c0819:PsiDirectoryNode" />
+              <item name="by-color" type="462c0819:PsiDirectoryNode" />
+              <item name="define-weights-by-group-colors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="mf" type="462c0819:PsiDirectoryNode" />
+              <item name="simulation" type="462c0819:PsiDirectoryNode" />
+              <item name="customize-ranking" type="462c0819:PsiDirectoryNode" />
+              <item name="customize-template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -211,10 +297,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="js.linters.configure.manually.selectedtslint" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/assets/i18n" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -222,12 +308,15 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\yantr\Desktop\nest\nest-angular\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\Users\arkadiy\Desktop\nest-angular\nest-angular\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\yantr\Desktop\nest\nest-angular\shared\models\tador" />
+      <recent name="C:\Users\arkadiy\Desktop\nest-angular\nest-angular\client\src\app\shared\components\filters" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\arkadiy\Desktop\nest-angular\nest-angular\client\src\assets\i18n" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -242,22 +331,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.gen-client">
-    <configuration name="deploy-dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="deploy-prod" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/client/package.json" />
       <command value="run" />
       <scripts>
-        <script value="deploy-dev" />
+        <script value="deploy-prod" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="fdeploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/client/package.json" />
       <command value="run" />
       <scripts>
-        <script value="deploy" />
+        <script value="fdeploy" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -295,13 +384,16 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.gen-client" />
-        <item itemvalue="npm.deploy-dev" />
-        <item itemvalue="npm.start (1)" />
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.deploy" />
+        <item itemvalue="npm.gen-client" />
+        <item itemvalue="npm.deploy-prod" />
+        <item itemvalue="npm.fdeploy" />
+        <item itemvalue="npm.start (1)" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -320,13 +412,17 @@
       <workItem from="1558007266452" duration="30000" />
       <workItem from="1558063992836" duration="563000" />
       <workItem from="1558274437240" duration="1806000" />
-      <workItem from="1558937196340" duration="19081000" />
-      <workItem from="1559288000190" duration="1718000" />
-      <workItem from="1559289752800" duration="12280000" />
-      <workItem from="1559528471072" duration="451000" />
-      <workItem from="1559528957902" duration="17915000" />
-      <workItem from="1559892021268" duration="9373000" />
-      <workItem from="1560824228656" duration="1542000" />
+      <workItem from="1558937196340" duration="35916000" />
+      <workItem from="1559054498935" duration="12761000" />
+      <workItem from="1559117526247" duration="15939000" />
+      <workItem from="1559461065025" duration="4065000" />
+      <workItem from="1559492056131" duration="9985000" />
+      <workItem from="1559547161347" duration="324000" />
+      <workItem from="1559547658533" duration="18578000" />
+      <workItem from="1559644907023" duration="72733000" />
+      <workItem from="1560332468997" duration="33919000" />
+      <workItem from="1560668519555" duration="7216000" />
+      <workItem from="1560680875029" duration="33074000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -356,96 +452,203 @@
       <option name="project" value="LOCAL" />
       <updated>1558963612067</updated>
     </task>
-    <task id="LOCAL-00005" summary="tador">
-      <created>1559288242455</created>
+    <task id="LOCAL-00005" summary="mf">
+      <created>1558964042913</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1559288242455</updated>
+      <updated>1558964042913</updated>
     </task>
-    <task id="LOCAL-00006" summary="tador">
-      <created>1559288261785</created>
+    <task id="LOCAL-00006" summary="mf">
+      <created>1558964631393</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1559288261785</updated>
+      <updated>1558964631393</updated>
     </task>
-    <task id="LOCAL-00007" summary="tador">
-      <created>1559451772766</created>
+    <task id="LOCAL-00007" summary="mf">
+      <created>1559124086194</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1559451772766</updated>
+      <updated>1559124086194</updated>
     </task>
-    <task id="LOCAL-00008" summary="tador">
-      <created>1559537399591</created>
+    <task id="LOCAL-00008" summary="mf">
+      <created>1559140498228</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1559537399591</updated>
+      <updated>1559140498228</updated>
     </task>
-    <task id="LOCAL-00009" summary="tador">
-      <created>1559662893020</created>
+    <task id="LOCAL-00009" summary="mf">
+      <created>1559199293493</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1559662893020</updated>
+      <updated>1559199293493</updated>
     </task>
-    <task id="LOCAL-00010" summary="auto complete keep open style">
-      <created>1559710945504</created>
+    <task id="LOCAL-00010" summary="mf">
+      <created>1559461125622</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1559710945504</updated>
+      <updated>1559461125622</updated>
     </task>
-    <task id="LOCAL-00011" summary="timer tador">
-      <created>1559786429418</created>
+    <task id="LOCAL-00011" summary="mf">
+      <created>1559461289233</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1559786429419</updated>
+      <updated>1559461289233</updated>
     </task>
-    <task id="LOCAL-00012" summary="text alighn tador">
-      <created>1559787992759</created>
+    <task id="LOCAL-00012" summary="mf">
+      <created>1559461418205</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1559787992759</updated>
+      <updated>1559461418205</updated>
     </task>
-    <task id="LOCAL-00013" summary="text alighn tador">
-      <created>1560824364242</created>
+    <task id="LOCAL-00013" summary="mf">
+      <created>1559461529158</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1560824364242</updated>
+      <updated>1559461529158</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="mf">
+      <created>1559462457162</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1559462457162</updated>
+    </task>
+    <task id="LOCAL-00015" summary="mf">
+      <created>1559466054806</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1559466054806</updated>
+    </task>
+    <task id="LOCAL-00016" summary="mf">
+      <created>1559565998140</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1559565998140</updated>
+    </task>
+    <task id="LOCAL-00017" summary="macro">
+      <created>1559646887402</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1559646887402</updated>
+    </task>
+    <task id="LOCAL-00018" summary="mf">
+      <created>1559713931056</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1559713931056</updated>
+    </task>
+    <task id="LOCAL-00019" summary="mf">
+      <created>1559714106164</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1559714106164</updated>
+    </task>
+    <task id="LOCAL-00020" summary="mf">
+      <created>1559802413553</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1559802413553</updated>
+    </task>
+    <task id="LOCAL-00021" summary="mf">
+      <created>1559827707794</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1559827707794</updated>
+    </task>
+    <task id="LOCAL-00022" summary="mf">
+      <created>1559829225365</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1559829225365</updated>
+    </task>
+    <task id="LOCAL-00023" summary="tador">
+      <created>1559840935933</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1559840935933</updated>
+    </task>
+    <task id="LOCAL-00024" summary="mf">
+      <created>1560269194185</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1560269194185</updated>
+    </task>
+    <task id="LOCAL-00025" summary="mf">
+      <created>1560352033776</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1560352033777</updated>
+    </task>
+    <task id="LOCAL-00026" summary="update angular">
+      <created>1560408948609</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1560408948609</updated>
+    </task>
+    <task id="LOCAL-00027" summary="mf">
+      <created>1560424180719</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1560424180719</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70779000" />
+    <option name="totallyTimeSpent" value="252543000" />
+  </component>
+  <component name="TodoView" selected-index="3">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7725041" visible="true" weight="0.25390625" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.22749591" side_tool="true" visible="true" weight="0.25390625" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.84994" visible="true" weight="0.30874604" />
+      <window_info id="Structure" order="1" sideWeight="0.15006003" side_tool="true" visible="true" weight="0.30874604" />
+      <window_info id="npm" order="2" sideWeight="0.068085104" side_tool="true" weight="0.23076923" />
+      <window_info id="Favorites" order="3" sideWeight="0.38751626" side_tool="true" weight="0.18018967" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32991013" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21566111" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.57127994" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49947312" weight="0.32887974" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4604847" weight="0.1438849" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7281349" weight="0.16649537" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49789253" weight="0.20246659" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="TypeScript" order="9" weight="0.25288832" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32477534" />
-      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49736565" weight="0.3299075" />
+      <window_info anchor="bottom" id="TypeScript" order="9" sideWeight="0.4926238" weight="0.24871531" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.53951526" side_tool="true" visible="true" weight="0.1438849" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4915701" weight="0.08427544" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -455,369 +658,502 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mf" />
-    <MESSAGE value="auto complete keep open style" />
-    <MESSAGE value="timer tador" />
-    <MESSAGE value="text alighn tador" />
+    <MESSAGE value="macro" />
     <MESSAGE value="tador" />
-    <option name="LAST_COMMIT_MESSAGE" value="tador" />
+    <MESSAGE value="update angular" />
+    <MESSAGE value="mf" />
+    <option name="LAST_COMMIT_MESSAGE" value="mf" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/app/shared/components/filters/base.component.ts</url>
+          <line>29</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/class-validator/validation/Validator.js</url>
+          <line>99</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/api/mf.controller.ts</url>
+          <line>19</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/app/shared/components/components.module.ts</url>
+          <line>49</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>mock://C:/Users/arkadiy/Desktop/nest-angular/nest-angular/src/validation/Validator.ts</url>
+          <line>33</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>mock://C:/Users/arkadiy/Desktop/nest-angular/nest-angular/src/validation/ValidationExecutor.ts</url>
+          <line>104</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>mock://C:/Users/arkadiy/Desktop/nest-angular/nest-angular/src/validation/ValidationExecutor.ts</url>
+          <line>105</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>mock://C:/Users/arkadiy/Desktop/nest-angular/nest-angular/src/validation/ValidationExecutor.ts</url>
+          <line>79</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/app/macro/macro.module.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/tsconfig.app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+        <state relative-caret-position="400">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/node_modules/rxjs/src/internal/Subject.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="60" column="2" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/services/fund.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="26" column="17" lean-forward="true" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/mf/mf.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-            <element signature="e#294#369#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.gateway.ts">
-      <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#0#101#0" expanded="true" />
+            <element signature="e#0#83#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/dist/1.8dc221c9d324c8da92df.js" />
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/mf.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/@types/node/net.d.ts" />
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/poly/poly.component.ts" />
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/mf.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/filter/filter.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/select-rank-type/select-rank-type.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/poly/filters/filters.component.ts" />
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/poly/filters/filters.component.html" />
-    <entry file="file://$PROJECT_DIR$/client/src/environments/environment.dev.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/poly/poly.component.html" />
-    <entry file="file://$PROJECT_DIR$/shared/models/mf.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="11" column="80" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="80" />
+          <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
           <folding>
-            <element signature="e#0#44#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#p-customize-template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-divider#0;n#div#0;n#p-customize-template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/mf/mf.service.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/app.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/server.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/client.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="13" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/macro.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="44" column="1" lean-forward="true" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/node_modules/typescript/lib/lib.dom.iterable.d.ts" />
-    <entry file="file://$PROJECT_DIR$/.prettierrc.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/angular.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" selection-start-line="13" selection-start-column="13" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/firebase.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-732" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/node_modules/ng-dyna-form/lib/text-box/text-box.component.d.ts" />
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/findFund/filters/filters.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/dropdown/dropdown.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/base.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#100#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/material/material.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#448#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ng-template#0;n#ng-container#0;n#mat-virtual-table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#ng-template#0;n#ng-container#0;n#mat-virtual-table#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-          <folding>
-            <element signature="n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#mat-form-field#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-form-field#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-form-field#0;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-form-field#1;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tslint.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/tador.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/conf.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/tslint.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/filter.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1640">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/Entity.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/admin/admin.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-380">
+        <state>
           <folding>
             <element signature="e#0#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        <state relative-caret-position="625">
+          <caret line="25" selection-start-line="25" selection-end-line="26" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/node_modules/@nestjs/common/interfaces/features/pipe-transform.interface.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/class-validator/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/class-validator/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-362" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/class-validator/validation/Validator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/config.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1925">
+          <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/pipes/validation.pipe.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/class-validator/validation/ValidationExecutor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/mf.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="96" column="37" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/components.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/services/user.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/mf/mf.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="96" column="25" lean-forward="true" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/macro/macro.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="34" column="73" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
           <folding>
             <element signature="e#0#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/svg11/svg-shape.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/Entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/filter/filter.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="61" lean-forward="true" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/services/i18n.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/models.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/filter.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="49" selection-start-line="49" selection-end-line="53" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#mat-step#0;n#mat-horizontal-stepper#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-divider#0;n#div#0;n#div#0;n#mat-step#0;n#mat-horizontal-stepper#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#mat-step#1;n#mat-horizontal-stepper#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#mat-step#1;n#mat-horizontal-stepper#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#mat-step#1;n#mat-horizontal-stepper#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#mat-step#1;n#mat-horizontal-stepper#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#mat-step#1;n#mat-horizontal-stepper#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-divider#0;n#div#2;n#div#0;n#mat-step#1;n#mat-horizontal-stepper#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#2;n#div#0;n#mat-step#1;n#mat-horizontal-stepper#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/mf.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-template/customize-template.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-template/customize-template.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#ng-container#0;n#p-customize-template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#ng-container#0;n#p-customize-template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#p-customize-template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-template/customize-template.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/macro/macro.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2275">
+          <caret line="91" column="1" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/macro/macro.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="143" column="27" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
+          <folding>
+            <element signature="e#34#11878#0" />
+            <element signature="e#120#140#0" expanded="true" />
+            <element signature="e#422#453#0" expanded="true" />
+            <element signature="e#1137#1175#0" expanded="true" />
+            <element signature="e#4528#4571#0" expanded="true" />
+            <element signature="e#4572#4597#0" expanded="true" />
+            <element signature="e#4667#4698#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/material/material.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="52" column="20" lean-forward="true" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#533#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/mf.component.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/mf.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="2" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/polyfills.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="20" />
+          <folding>
+            <element signature="e#2839#2857#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/starter.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/main.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/mf.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="e#0#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,5 +1,6 @@
 /* tslint:disable:variable-name */
 import { IsString, IsOptional, IsMongoId } from 'class-validator';
+
 export abstract class Entity {
     // tslint:disable-next-line: variable-name
     // tslint:disable-next-line: no-property-without-decorator
@@ -28,11 +29,8 @@ export abstract class Poly extends Entity {
     @IsOptional()
     @IsString()
     kind?: string;
-    constructor(data?) {
+    protected constructor(data?) {
         super(data);
-        if (Object.getPrototypeOf(Object.getPrototypeOf(this)) === Poly.prototype) {
-            throw new Error('Poly subclasses cannot be instantiated, they must be abstract');
-        }
         this.kind = this.constructor.name;
     }
 }

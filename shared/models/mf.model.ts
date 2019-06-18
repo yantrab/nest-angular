@@ -30,9 +30,23 @@ export class GridSettings {
         }
     }
 }
+export class CustomizeParameter {
+    name: string;
+    path: string;
+    isActive?: boolean;
+    percent?: number;
+}
+
+export class CustomizeParameterGroup {
+    name: string;
+    percent?: number;
+    parameters: CustomizeParameter[];
+    width?: string;
+}
+
 export class SimulationSettings {
     excludeFilter: Filter;
-    customizeParameters: { groupName: string; parameters: { name: string; path: string; isActive?: boolean }[] }[];
+    customizeParameters: CustomizeParameterGroup[];
     constructor(data: Partial<SimulationSettings>) {
         if (data) {
             Object.assign(this, data);

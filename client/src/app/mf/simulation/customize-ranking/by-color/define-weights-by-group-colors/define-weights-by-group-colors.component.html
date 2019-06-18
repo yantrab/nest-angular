@@ -1,0 +1,30 @@
+<div #container fxLayout="row" fxFill>
+    <div
+        [class]="'group ' + groups.color"
+        *ngFor="let group of groups.parameterGroups; let i = index"
+        [class.selected]="selectedGroup.name === group.name"
+        fxLayout="row"
+        [fxFlex]="group.width || group.percent + '%'"
+        (click)="selectedGroup = group"
+    >
+        <div fxFlex fxLayout="column">
+            <span fxFlex="50px">{{ group.name }}</span>
+            <div fxFlex fxFlexFill fxLayout="column" style="overflow: auto;width: 100%">
+                <div *ngFor="let parameter of group.parameters" fxLayout="row">
+                    <mat-checkbox [(ngModel)]="parameter.isActive">{{ parameter.name }}</mat-checkbox>
+                </div>
+            </div>
+            <div
+                fxFlex="50px"
+                fxLayoutAlign="center center"
+                fxLayout="row"
+                #headercell
+                (mousemove)="mousemove($event, i)"
+                (mousedown)="resizeTable($event, i)"
+            >
+                <div></div>
+                <div class="thumb"></div>
+            </div>
+        </div>
+    </div>
+</div>
