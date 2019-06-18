@@ -4,7 +4,7 @@ import { I18nService } from 'src/app/shared/services/i18n.service';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
 import { saveAs } from 'file-saver';
 import { ContactField, Contacts, FieldType, Panel, SettingField } from 'shared/models/tador/tador.model';
-import { AutocompleteFilter } from 'shared/models';
+import { AutocompleteFilter } from 'shared/models/filter.model';
 
 @Component({
     selector: 'p-intercom-conf',

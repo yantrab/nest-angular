@@ -1,27 +1,20 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es6",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "resolveJsonModule": true,
-    
-    "baseUrl": "./src",
-    "paths": {
-      "shared": [
-        "../../shared"
-      ],
-    "shared/*": [
-      "../../shared/*"
-    ]
-    }
-  },
-  "files": ["./src/main.ts"],
-  "exclude": [
-    "node_modules"
-  ]
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es6",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "resolveJsonModule": true,
+
+        "baseUrl": "./src",
+        "paths": {
+            "shared": ["../../shared"],
+            "shared/*": ["../../shared/*"]
+        }
+    },
+    "exclude": ["node_modules"]
 }
