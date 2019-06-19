@@ -75,7 +75,7 @@ export class SystemsManagerComponent implements OnInit {
                 row: '7',
             },
 
-            image: '11 / 5 / 20 / 20',
+            image: '9 / 5 / 20 / 20',
             logo: 'url(#linear-gradient)',
             background: ' linear-gradient(to bottom, #6b76ff, #465bdf)',
             bondsCol: '2',

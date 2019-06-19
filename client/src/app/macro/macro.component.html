@@ -32,33 +32,32 @@
                             <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year"> </sat-datepicker>
                             <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>
                         </mat-form-field>
-                        <div class="wrapperbutton">
-                            <button class="button" (click)="download()" mat-button>
-                                <div fxLayout="column" fxLayoutAlign="center center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                        <path
-                                            fill="#212121"
-                                            fill-rule="evenodd"
-                                            d="M2 2h20v20H2V2zm2 2v4h4V4H4zm0 6v4h4v-4H4zm0 6v4h4v-4H4zm6-12v4h4V4h-4zm0 6v4h4v-4h-4zm0 6v4h4v-4h-4zm6-12v4h4V4h-4zm0 6v4h4v-4h-4zm0 6v4h4v-4h-4z"
-                                        />
-                                    </svg>
+                        <div class="wrapperbutton"></div>
+                        <button class="button" (click)="download()" mat-button>
+                            <div fxLayout="column" fxLayoutAlign="center center">
+                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                    <path
+                                        fill="#212121"
+                                        fill-rule="evenodd"
+                                        d="M2 2h20v20H2V2zm2 2v4h4V4H4zm0 6v4h4v-4H4zm0 6v4h4v-4H4zm6-12v4h4V4h-4zm0 6v4h4v-4h-4zm0 6v4h4v-4h-4zm6-12v4h4V4h-4zm0 6v4h4v-4h-4zm0 6v4h4v-4h-4z"
+                                    />
+                                </svg>
 
-                                    <span> View Table</span>
-                                </div>
-                            </button>
-                            <button class="button" (click)="download()" mat-button>
-                                <div fxLayout="column" fxLayoutAlign="center center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                        <path
-                                            fill="#212121"
-                                            fill-rule="nonzero"
-                                            d="M11.5 3l-10 2v14l10 2V3zm2 2v2h2v2h-2v2h2v2h-2v2h2v2h-2v2h7a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-7zm4 2h2v2h-2V7zM3.676 8.297h1.777l.924 2.215c.075.18.131.39.19.629h.025c.033-.143.1-.362.201-.647l1.03-2.197h1.62l-1.935 3.67L9.5 15.703H7.771L6.658 13.29a2.053 2.053 0 0 1-.133-.494H6.51a5.91 5.91 0 0 1-.15.514l-1.124 2.394H3.5l2.06-3.707-1.884-3.7zM17.5 11h2v2h-2v-2zm0 4h2v2h-2v-2z"
-                                        />
-                                    </svg>
-                                    <span> Download .xls</span>
-                                </div>
-                            </button>
-                        </div>
+                                <span> View Table</span>
+                            </div>
+                        </button>
+                        <button class="button" (click)="download()" mat-button>
+                            <div fxLayout="column" fxLayoutAlign="center center">
+                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                    <path
+                                        fill="#212121"
+                                        fill-rule="nonzero"
+                                        d="M11.5 3l-10 2v14l10 2V3zm2 2v2h2v2h-2v2h2v2h-2v2h2v2h-2v2h7a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-7zm4 2h2v2h-2V7zM3.676 8.297h1.777l.924 2.215c.075.18.131.39.19.629h.025c.033-.143.1-.362.201-.647l1.03-2.197h1.62l-1.935 3.67L9.5 15.703H7.771L6.658 13.29a2.053 2.053 0 0 1-.133-.494H6.51a5.91 5.91 0 0 1-.15.514l-1.124 2.394H3.5l2.06-3.707-1.884-3.7zM17.5 11h2v2h-2v-2zm0 4h2v2h-2v-2z"
+                                    />
+                                </svg>
+                                <span> Download .xls</span>
+                            </div>
+                        </button>
                     </form>
                 </div>
             </mat-grid-tile>
@@ -70,13 +69,7 @@
                 <div class="categories">
                     <div fxLayout="column" style="height:100%;width:70%;padding: 60px" style="display: contents">
                         <div fxFlex="93.6%" fxLayoutAlign="end end" style="width: 104%;height: 29%">
-                            <svg
-                                style="padding-bottom: 1.5em"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="245"
-                                height="16"
-                                viewBox="0 0 245 16"
-                            >
+                            <svg style="padding-bottom: 1.5em" width="245" height="16" viewBox="0 0 245 16">
                                 <g fill="#212121" fill-rule="evenodd">
                                     <path
                                         d="M120.223 8.238V15H117V8.238h3.223zM127.11 1v14h-3.222V1h3.222zM134 5.136V15h-3.223V5.136H134zM70.307 1v13.747H67V1h3.307zm8.892 0c1.74 0 3.18.46 4.322 1.38 1.14.92 1.879 2.165 2.214 3.734h-3.5a3.226 3.226 0 0 0-1.19-1.497c-.534-.363-1.17-.545-1.904-.545-.967 0-1.747.357-2.34 1.07-.593.713-.89 1.665-.89 2.858s.297 2.142.89 2.849c.593.706 1.373 1.06 2.34 1.06.735 0 1.37-.182 1.905-.545a3.24 3.24 0 0 0 1.189-1.478h3.5c-.335 1.556-1.073 2.797-2.214 3.724S80.939 15 79.199 15c-1.328 0-2.495-.295-3.5-.885a5.991 5.991 0 0 1-2.33-2.479c-.548-1.063-.822-2.275-.822-3.636 0-1.361.274-2.573.822-3.636a5.991 5.991 0 0 1 2.33-2.48c1.005-.59 2.172-.884 3.5-.884zm18.892.136v2.645h-3.713v11.102h-3.326V3.781h-3.674V1.136h10.713zm10.539 11.239h-5.124l-.851 2.508h-3.481l5.008-13.65h3.81L113 14.883h-3.52l-.85-2.508zm-.851-2.528l-1.702-5.055-1.72 5.055h3.422zM4.267 10.09V15H1V1h5.291c1.605 0 2.828.413 3.668 1.238.84.825 1.26 1.937 1.26 3.336 0 .872-.187 1.647-.563 2.327-.375.68-.933 1.215-1.671 1.604-.739.39-1.637.584-2.694.584H4.267zm1.661-2.714c1.312 0 1.968-.6 1.968-1.802 0-1.227-.656-1.841-1.968-1.841H4.267v3.643h1.661zM20.428 15l-2.923-5.287h-.745V15h-3.267V1h5.578c1.07 0 1.974.191 2.713.574.738.383 1.292.908 1.661 1.575.37.666.554 1.429.554 2.287 0 1.016-.27 1.88-.811 2.594-.542.713-1.328 1.201-2.36 1.465L24.038 15h-3.61zM16.76 7.396h2.024c.65 0 1.127-.148 1.433-.446.306-.297.459-.735.459-1.316 0-.555-.156-.99-.468-1.307-.312-.317-.787-.476-1.424-.476H16.76v3.545zm17.918 5.05h-5.062L28.775 15h-3.438l4.947-13.901h3.763L38.995 15h-3.477l-.84-2.554zm-.84-2.575l-1.682-5.148-1.7 5.148h3.381zM44.19 3.693v2.93h4.565v2.555h-4.565v3.11h5.138V15h-8.405V1h8.405v2.693h-5.138zM64 7.97c0 1.373-.283 2.591-.85 3.654a6.062 6.062 0 0 1-2.445 2.485c-1.064.594-2.315.891-3.754.891h-5.1V1h5.1c1.452 0 2.706.29 3.763.871a5.967 5.967 0 0 1 2.436 2.456c.567 1.056.85 2.27.85 3.643zm-7.335 4c1.273 0 2.263-.35 2.97-1.05.707-.699 1.06-1.682 1.06-2.95 0-1.267-.353-2.25-1.06-2.95-.707-.7-1.697-1.05-2.97-1.05h-1.548v8h1.548z"
@@ -89,18 +82,26 @@
                                 </g>
                             </svg>
                         </div>
-                        <mat-form-field fxFlex="40px" fxLayout="column">
-                            <div fxFlex="100%" fxLayout="row">
-                                <input id="input" matInput [placeholder]="'חיפוש'" [formControl]="input" />
-                                <i class="material-icons" style="color:#bfbfbf">
-                                    search
-                                </i>
-                            </div>
-                        </mat-form-field>
+                        <div fxFlex style="height: 40px;width:106%;">
+                            <mat-form-field fxFlex style="text-align: end">
+                                <div fxFlex="100%" fxLayout="row">
+                                    <i fxLayoutAlign=" end" class="material-icons" style="color:#bfbfbf">
+                                        close
+                                    </i>
+                                    <input id="input" matInput [placeholder]="'חיפוש'" [formControl]="input" />
+                                </div>
+                            </mat-form-field>
+
+                            <i fxLayoutAlign="start end" class="material-icons" style="color:#bfbfbf;padding: 0 0.5em;">
+                                search
+                            </i>
+                        </div>
                         <mat-accordion [multi]="true" fxFlex>
                             <mat-expansion-panel>
-                                <mat-expansion-panel-header (click)="isOpen = !isOpen">קטגוריות </mat-expansion-panel-header>
-                                <div style="height: 400px;">
+                                <mat-expansion-panel-header fxLayoutAlign="center center  " (click)="isOpen = !isOpen"
+                                    ><span style="width: 100%" fxLayoutAlign="center center">קטגוריות</span>
+                                </mat-expansion-panel-header>
+                                <div style="height: 400px;overflow: scroll;">
                                     <p-tree [data]="categories" (select)="onSelectCategory($event)"></p-tree>
                                 </div>
                             </mat-expansion-panel>
@@ -128,107 +129,3 @@
         </div>
     </div>
 </div>
-
-<!--<div [dir]="i18nService.dir">-->
-<!--    &lt;!&ndash;    <p-topbar [model]="topbarModel" [inProgress]="!currentTemplate"></p-topbar>&ndash;&gt;-->
-<!--    <div class="content" *ngIf="currentTemplate">-->
-<!--        <mat-grid-list gutterSize="10px" cols="3" rowHeight="fit">-->
-<!--            <mat-grid-tile colspan="1" class="templates">-->
-<!--                <div fxFill fxLayout="column" fxLayoutAlign="center center" style="background: white">-->
-<!--                    <div fxFlex="300px">-->
-<!--                        <p-autocomplete-->
-<!--                            *ngIf="seriesGroupsSettings"-->
-<!--                            (selectedChange)="filterSelected($event)"-->
-<!--                            [settings]="seriesGroupsSettings"-->
-<!--                            [freeText]="true"-->
-<!--                        ></p-autocomplete>-->
-<!--                    </div>-->
-<!--                    <div fxFlex>-->
-<!--                        <div fxLayout="column">-->
-<!--                            <span *ngFor="let id of currentTemplate.seriesIds">-->
-<!--                                <button mat-mini-fab (click)="onSelectSeries(false, seriesDic[id])">-->
-<!--                                    <mat-icon>clear</mat-icon>-->
-<!--                                </button>-->
-<!--                                {{ seriesDic[id].title }}-->
-<!--                            </span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                    <form [formGroup]="dateForm" style="height: 30%">-->
-<!--                        <mat-form-field>-->
-<!--                            <input matInput placeholder="Choose a date" [satDatepicker]="picker4" formControlName="date" />-->
-<!--                            <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year"> </sat-datepicker>-->
-<!--                            <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>-->
-<!--                        </mat-form-field>-->
-<!--                        <div class="wrapperbutton">-->
-<!--                            <button class="button" (click)="download()" mat-button>-->
-<!--                                <div fxLayout="column" fxLayoutAlign="center center">-->
-<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">-->
-<!--                                        <path-->
-<!--                                            fill="#212121"-->
-<!--                                            fill-rule="evenodd"-->
-<!--                                            d="M2 2h20v20H2V2zm2 2v4h4V4H4zm0 6v4h4v-4H4zm0 6v4h4v-4H4zm6-12v4h4V4h-4zm0 6v4h4v-4h-4zm0 6v4h4v-4h-4zm6-12v4h4V4h-4zm0 6v4h4v-4h-4zm0 6v4h4v-4h-4z"-->
-<!--                                        />-->
-<!--                                    </svg>-->
-
-<!--                                    <span> View Table</span>-->
-<!--                                </div>-->
-<!--                            </button>-->
-<!--                            <button class="button" (click)="download()" mat-button>-->
-<!--                                <div fxLayout="column" fxLayoutAlign="center center">-->
-<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">-->
-<!--                                        <path-->
-<!--                                            fill="#212121"-->
-<!--                                            fill-rule="nonzero"-->
-<!--                                            d="M11.5 3l-10 2v14l10 2V3zm2 2v2h2v2h-2v2h2v2h-2v2h2v2h-2v2h7a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-7zm4 2h2v2h-2V7zM3.676 8.297h1.777l.924 2.215c.075.18.131.39.19.629h.025c.033-.143.1-.362.201-.647l1.03-2.197h1.62l-1.935 3.67L9.5 15.703H7.771L6.658 13.29a2.053 2.053 0 0 1-.133-.494H6.51a5.91 5.91 0 0 1-.15.514l-1.124 2.394H3.5l2.06-3.707-1.884-3.7zM17.5 11h2v2h-2v-2zm0 4h2v2h-2v-2z"-->
-<!--                                        />-->
-<!--                                    </svg>-->
-<!--                                    <span> Download .xls</span>-->
-<!--                                </div>-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--            </mat-grid-tile>-->
-
-<!--            <mat-grid-tile colspan="2">-->
-<!--                <div fxLayout="column" fxFlex style="height:100%;width:100%;padding: 60px">-->
-<!--                    <span class="macro">Macro</span>-->
-<!--                    <mat-form-field fxFlex="40px">-->
-<!--                        <input id="input" matInput [placeholder]="'חיפוש'" [formControl]="input" />-->
-<!--                    </mat-form-field>-->
-<!--                    <mat-accordion [multi]="true" fxFlex>-->
-<!--                        <mat-expansion-panel>-->
-<!--                            <mat-expansion-panel-header>קטגוריות </mat-expansion-panel-header>-->
-<!--                            <div style="height: 400px;">-->
-<!--                                <p-tree [data]="categories" (select)="onSelectCategory($event)"></p-tree>-->
-<!--                            </div>-->
-<!--                        </mat-expansion-panel>-->
-<!--                        &lt;!&ndash;                        <mat-expansion-panel style="height: 100%;" [expanded]="true">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                            <cdk-virtual-scroll-viewport style="height: 100%;" itemSize="40">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                                <div style="height: 40px;" *cdkVirtualFor="let option of filteredOptions | async">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                                    <mat-checkbox&ndash;&gt;-->
-<!--                        &lt;!&ndash;                                        (change)="onSelectSeries($event.checked, option)"&ndash;&gt;-->
-<!--                        &lt;!&ndash;                                        [checked]="selectedSeries[option.sId]"&ndash;&gt;-->
-<!--                        &lt;!&ndash;                                    ></mat-checkbox>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                                    {{ option.sId + ', ' + option.name }}&ndash;&gt;-->
-<!--                        &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                            </cdk-virtual-scroll-viewport>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                        </mat-expansion-panel>&ndash;&gt;-->
-<!--                    </mat-accordion>-->
-<!--                </div>-->
-<!--            </mat-grid-tile>-->
-<!--        </mat-grid-list>-->
-<!--        <mat-expansion-panel class="results" style="height: 100%;" [expanded]="true">-->
-<!--            <cdk-virtual-scroll-viewport style="height: 100%;" itemSize="40">-->
-<!--                <div style="height: 40px;" *cdkVirtualFor="let option of filteredOptions | async">-->
-<!--                    <mat-checkbox-->
-<!--                        (change)="onSelectSeries($event.checked, option)"-->
-<!--                        [checked]="selectedSeries[option.sId]"-->
-<!--                    ></mat-checkbox>-->
-<!--                    {{ option.sId + ', ' + option.name }}-->
-<!--                </div>-->
-<!--            </cdk-virtual-scroll-viewport>-->
-<!--        </mat-expansion-panel>-->
-<!--    </div>-->
-<!--</div>-->
