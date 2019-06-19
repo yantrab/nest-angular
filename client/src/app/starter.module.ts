@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { Guard } from './guard';
@@ -9,6 +9,7 @@ import { AuthService } from './auth/auth.service';
 import { InterceptorsService } from './shared/services/interceptors.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIService } from 'src/api/http.service';
+import { GestureConfig } from '@angular/material';
 const isCordovaApp = Object(window).cordova != null;
 @Component({
     selector: 'p-root',
@@ -48,6 +49,7 @@ const routes: Routes = [
             useClass: InterceptorsService,
             multi: true,
         },
+        { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
     ],
 })
 export class AppModule {}

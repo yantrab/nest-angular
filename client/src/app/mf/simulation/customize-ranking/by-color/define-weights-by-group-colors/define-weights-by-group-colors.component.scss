@@ -1,0 +1,50 @@
+:host {
+    width: 100%;
+    height: 100%;
+    .group {
+        min-width: 0px;
+        &.pink {
+            background-color: rgba(255, 107, 129, 0.02);
+
+            &.selected {
+                background-color: rgba(255, 107, 129, 0.05);
+            }
+        }
+        &.accent {
+            background-color: rgba(255, 165, 2, 0.02);
+
+            &.selected {
+                background-color: rgba(255, 165, 2, 0.05);
+            }
+        }
+        &.primary-bold {
+            background-color: rgba(83, 82, 237, 0.02);
+
+            &.selected {
+                background-color: rgba(83, 82, 237, 0.05);
+            }
+        }
+        &.primary {
+            background-color: rgba(30, 144, 255, 0.02);
+
+            &.selected {
+                background-color: rgba(30, 144, 255, 0.05);
+            }
+        }
+    }
+
+    [dir='ltr'].thumb {
+        margin-right: -10px;
+    }
+    [dir='rtl'].thumb {
+        margin-left: -10px;
+    }
+
+    .thumb {
+        border-radius: 50%;
+        cursor: col-resize;
+        border: 3px solid rgba(0, 0, 0, 0.26);
+        width: 14px;
+        height: 14px;
+    }
+}

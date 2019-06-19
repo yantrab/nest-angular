@@ -1,5 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { MFSettings, UserSettings, UserFilter, FilterGroup, DropdownFilter, QuantityFilter, DateRangeComboFilter } from 'shared';
+import {
+    MFSettings,
+    UserSettings,
+    UserFilter,
+    FilterGroup,
+    DropdownFilter,
+    QuantityFilter,
+    DateRangeComboFilter,
+    SpecialFilter,
+} from 'shared';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 @Injectable()
 export class MFService {
@@ -29,6 +38,15 @@ export class MFService {
             'expOtherCurrencies',
             'expCurrency',
         ];
+        const durations = [
+            'durationGovNis',
+            'durationGovCpi',
+            'durationGovCurr',
+            'durationCorpNis',
+            'durationCorpCpi',
+            'durationCorpCurr',
+        ];
+        const yileds = ['dailyYield', 'monthlyYield', 'quarterlyYield', 'yearlyYield', 'threeYearsYield', 'fiveYearsYield'];
         this.mfSettingsRepo.findOne().then(data => {
             if (!data) {
                 this.mfSettingsRepo.saveOrUpdateOne({
@@ -69,7 +87,7 @@ export class MFService {
                             new FilterGroup({
                                 name: 'K300',
                                 filters: [
-                                    new DropdownFilter({
+                                    new SpecialFilter({
                                         placeholder: 'חשיפות',
                                         options: exp.map(e => ({
                                             _id: e,
@@ -96,10 +114,10 @@ export class MFService {
                             options: [3, 6, 12].map(m => ({ _id: m * 1000 * 60 * 60 * 24 * 30, name: m + ' month' })),
                         }),
                         customizeParameters: [
-                            { groupName: 'exp', parameters: exp.map(e => ({ name: e, path: e })) },
-                            { groupName: 'yields', parameters: [{ name: 'dailyYield', path: 'dailyYield' }] },
-                            { groupName: 'Quality', parameters: [{ name: 'dailyYield', path: 'dailyYield' }] },
-                            { groupName: 'Management', parameters: [{ name: 'dailyYield', path: 'dailyYield' }] },
+                            { name: 'exp', parameters: exp.map(e => ({ name: e, path: e })) },
+                            { name: 'yields', parameters: yileds.map(e => ({ name: e, path: e })) },
+                            { name: 'durations', parameters: durations.map(e => ({ name: e, path: e })) },
+                            { name: 'Management', parameters: [{ name: 'dailyYield', path: 'dailyYield' }] },
                         ],
                     },
                 });

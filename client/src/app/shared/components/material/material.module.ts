@@ -19,7 +19,9 @@ import {
     MatSortModule,
     MatSnackBarModule,
     MatStepperModule,
-    MatRadioModule, MatDividerModule,
+    MatRadioModule,
+    MatDividerModule,
+    MatSliderModule,
 } from '@angular/material';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgModule } from '@angular/core';
@@ -50,8 +52,10 @@ const modules = [
     MatSnackBarModule,
     ScrollingModule,
     NgxMaterialTimepickerModule,
-    MatStepperModule, MatRadioModule,
+    MatStepperModule,
+    MatRadioModule,
     MatDividerModule,
+    MatSliderModule,
 ];
 
 export class MyDateAdapter extends MomentDateAdapter {

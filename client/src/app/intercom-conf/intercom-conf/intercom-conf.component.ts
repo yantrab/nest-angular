@@ -4,7 +4,7 @@ import { I18nService } from 'src/app/shared/services/i18n.service';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
 import { saveAs } from 'file-saver';
 import { ContactField, Contacts, FieldType, Panel, SettingField } from 'shared/models/tador/tador.model';
-import { AutocompleteFilter } from 'shared/models';
+import { AutocompleteFilter } from 'shared/models/filter.model';
 
 @Component({
     selector: 'p-intercom-conf',
@@ -21,7 +21,10 @@ export class IntercomConfComponent {
         menuItems: [],
     };
 
-    constructor(private api: TadorController, public i18nService: I18nService) {
+    constructor(
+        // private api: TadorController,
+        public i18nService: I18nService,
+    ) {
         this.panels = Array(10)
             .fill(0)
             .map(
@@ -102,7 +105,7 @@ export class IntercomConfComponent {
                                         value: '0',
                                     }),
                                     new SettingField({
-                                        options: () => new Array(250).fill(0).map((_, j) => j),
+                                        options: () => new Array(250).fill(0).map((__, j) => j),
                                         type: FieldType.list,
                                         name: 'Relay1MeM',
                                         index: 62201,
@@ -110,7 +113,7 @@ export class IntercomConfComponent {
                                         value: 250,
                                     }),
                                     new SettingField({
-                                        options: () => new Array(250).fill(0).map((_, j) => j),
+                                        options: () => new Array(250).fill(0).map((__, j) => j),
                                         type: FieldType.list,
                                         name: 'Relay2MeM',
                                         index: 62201,
@@ -146,7 +149,7 @@ export class IntercomConfComponent {
                                     name =>
                                         new SettingField({
                                             type: FieldType.list,
-                                            name: name,
+                                            name,
                                             value: '00',
                                             options: () =>
                                                 Array.from(Array(100).keys()).map(a => {
@@ -257,12 +260,12 @@ export class IntercomConfComponent {
                                 length: 3,
                                 index: 35363,
                                 fields: Array.from(Array(30).keys()).map(
-                                    i =>
+                                    j =>
                                         new SettingField({
                                             type: FieldType.list,
                                             options: () =>
                                                 Array.from(Array(250).keys()).map(n => ('00' + n.toString()).slice(-3)),
-                                            name: 'floorValue' + i,
+                                            name: 'floorValue' + j,
                                         }),
                                 ),
                             },
@@ -288,7 +291,7 @@ export class IntercomConfComponent {
     }
 
     dump() {
-        var blob = new Blob([this.selectedPanel.dump()], { type: 'text/plain;charset=utf-8' });
+        const blob = new Blob([this.selectedPanel.dump()], { type: 'text/plain;charset=utf-8' });
         saveAs(blob, 'dump.txt');
         // console.log(this.selectedPanel.dump());
     }

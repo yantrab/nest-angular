@@ -1,5 +1,5 @@
 import { Controller, Get, Param, Post, Body, Req } from '@nestjs/common';
-import { App, User, Permission, Role } from 'shared/models';
+import { App, User, Permission, Role } from 'shared/models/user.model';
 import { UserService } from '../services/user.service';
 import { cryptPassword, getRandomToken } from '../utils';
 import { MailerService } from '../services/mailer.service';
@@ -27,7 +27,7 @@ export class AdminController {
     }
 
     @Post('addUser')
-    async addUser(@Body() user: User, @Req() req?): Promise<{ ok: number }> {
+    async addUser(@Body() user: User, @Req() req?) {
         const existUser = await this.userService.userRepo.findOne({ email: user.email });
         let newRole: Role;
         if (existUser) {

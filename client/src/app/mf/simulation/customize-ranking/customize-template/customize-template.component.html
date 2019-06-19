@@ -1,0 +1,20 @@
+<div fxFlex fxFill fxLayout="row" fxLayoutAlign="start start">
+    <div
+        fxFlex="390px"
+        fxLayoutGap="10px"
+        style="height: 400px"
+        fxLayout="column"
+        fxLayoutAlign="start center"
+        [style.background]="'#ffffff'"
+    >
+        <div>
+            <button *ngIf="back" (click)="back.emit()" mat-mini-fab>
+                <mat-icon class="mat-icon-rtl-mirror">chevron_left</mat-icon>
+            </button>
+            <span style="height: 80px;line-height: 80px">{{ title }}</span>
+        </div>
+        <ng-content select="[id=button]"></ng-content>
+    </div>
+    <div fxFlex="16px"></div>
+    <ng-content select="[id=grid]"></ng-content>
+</div>

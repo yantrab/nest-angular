@@ -1,6 +1,5 @@
 export const clientPath = './client/src/api/';
 export const serverPath = './server/src';
-export const modelsPath = './shared/models';
 export const decorators = {
     Get: `
     return new Promise((resolve) => {

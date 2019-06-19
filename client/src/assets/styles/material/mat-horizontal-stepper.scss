@@ -49,32 +49,3 @@
         }
     }
 }
-
-//.selectedIndex1 {
-//    ::ng-deep .mat-stepper-horizontal-line:nth-child(2) {
-//        border-top-width: 4px !important;
-//        border-top-color: #3f51b5 !important;
-//    }
-//}
-//.selectedIndex2 {
-//    @extend .selectedIndex1;
-//    ::ng-deep .mat-stepper-horizontal-line:nth-child(4) {
-//        border-top-width: 4px !important;
-//        border-top-color: #3f51b5 !important;
-//    }
-//}
-//.selectedIndex3 {
-//    @extend .selectedIndex2;
-//    ::ng-deep .mat-stepper-horizontal-line:nth-child(6) {
-//        border-top-width: 4px !important;
-//        border-top-color: #3f51b5 !important;
-//    }
-//}
-//
-//.selectedIndex4 {
-//    @extend .selectedIndex3;
-//    ::ng-deep .mat-stepper-horizontal-line:nth-child(8) {
-//        border-top-width: 4px !important;
-//        border-top-color: #3f51b5 !important;
-//    }
-//}

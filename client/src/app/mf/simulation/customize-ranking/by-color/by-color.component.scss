@@ -1,0 +1,15 @@
+.mat-primary-bold {
+    background-color: #5352ed;
+}
+.mat-pink {
+    background-color: #ff6b81;
+}
+
+.mat-fab {
+    height: 46px;
+    width: 46px;
+    &.selected {
+        height: 60px;
+        width: 60px;
+    }
+}
