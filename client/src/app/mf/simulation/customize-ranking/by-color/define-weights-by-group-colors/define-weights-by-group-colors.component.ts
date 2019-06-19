@@ -14,16 +14,6 @@ export class DefineWeightsByGroupColorsComponent {
     ngOnInit() {
         this.selectedGroup = this.groups.parameterGroups[0];
     }
-    ngAfterViewInit() {
-        const totalWidth = this.container.nativeElement.clienWidth;
-        setTimeout(
-            () =>
-                this.groups.parameterGroups.forEach(g => {
-                    g.width = (totalWidth * g.percent) / 100 + 'px';
-                }),
-            100,
-        );
-    }
 
     private getTargetX(e) {
         const rect = e.currentTarget.getBoundingClientRect();
