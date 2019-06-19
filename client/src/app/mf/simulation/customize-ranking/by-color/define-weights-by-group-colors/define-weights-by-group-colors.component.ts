@@ -33,12 +33,12 @@ export class DefineWeightsByGroupColorsComponent {
     @ViewChildren('headercell') set headerCells(cells) {
         this._headerCells = cells.toArray();
     }
-
+    isResizeActive = false;
     @ViewChild('container', null) container: ElementRef;
     resizeTable(event, i) {
         const cells = this._headerCells;
         const elNextIndex = i + 1;
-        if (this.inMove || !cells[elNextIndex]) {
+        if (this.inMove || !cells[elNextIndex] || !this.isResizeActive) {
             return;
         }
         this.inMove = true;
@@ -49,8 +49,13 @@ export class DefineWeightsByGroupColorsComponent {
         const elNextStartWidth = cells[elNextIndex].nativeElement.clientWidth;
         const moveFn = (ev: any) => {
             const offset = (ev.pageX - startX) * dir;
-            this.groups.parameterGroups[i].width = elStartWidth + offset + 'px';
-            this.groups.parameterGroups[elNextIndex].width = elNextStartWidth - offset + 'px';
+            if (elStartWidth + offset < 0 || elNextStartWidth - offset < 0) {
+                return;
+            }
+            this.groups.parameterGroups[i].percent = ((elStartWidth + offset) / this.container.nativeElement.clientWidth) * 100;
+
+            this.groups.parameterGroups[elNextIndex].percent =
+                ((elNextStartWidth - offset) / this.container.nativeElement.clientWidth) * 100;
         };
         const upFn = () => {
             document.removeEventListener('mousemove', moveFn);
@@ -65,7 +70,7 @@ export class DefineWeightsByGroupColorsComponent {
         if (this.inMove) {
             return;
         }
-        ev.target.style.cursor = 'pointer';
+        this.isResizeActive = false;
         const el = ev.currentTarget;
         const elWidth = el.clientWidth;
         let x = this.getTargetX(ev);
@@ -73,7 +78,7 @@ export class DefineWeightsByGroupColorsComponent {
             x = elWidth - x;
         }
         if (elWidth - x < 10) {
-            ev.target.style.cursor = 'col-resize';
+            this.isResizeActive = true;
         }
     }
 
@@ -82,4 +87,8 @@ export class DefineWeightsByGroupColorsComponent {
     //     this.groups.parameterGroups[i].percent = value;
     //     this.groups.parameterGroups[i + 1].percent += prev - value;
     // }
+    resetPercent(group: CustomizeParameterGroup) {
+        const percent = 100 / group.activeParameters.length;
+        group.activeParameters.forEach(p => (p.percent = percent));
+    }
 }
