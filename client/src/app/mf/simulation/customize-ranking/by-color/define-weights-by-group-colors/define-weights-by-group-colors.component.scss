@@ -33,16 +33,16 @@
         }
     }
 
-    [dir='ltr'].thumb {
+    [dir='ltr'] .thumb {
         margin-right: -10px;
     }
-    [dir='rtl'].thumb {
+    [dir='rtl'] .thumb {
         margin-left: -10px;
     }
 
     .thumb {
         border-radius: 50%;
-        cursor: col-resize;
+        margin-right: -7px;
         border: 3px solid rgba(0, 0, 0, 0.26);
         width: 14px;
         height: 14px;

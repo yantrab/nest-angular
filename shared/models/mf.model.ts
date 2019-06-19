@@ -41,7 +41,10 @@ export class CustomizeParameterGroup {
     name: string;
     percent?: number;
     parameters: CustomizeParameter[];
-    width?: string;
+
+    get activeParameters() {
+        return this.parameters.filter(p => p.isActive);
+    }
 }
 
 export class SimulationSettings {
@@ -53,6 +56,7 @@ export class SimulationSettings {
             if (data.excludeFilter) {
                 this.excludeFilter = new DateRangeComboFilter(data.excludeFilter);
             }
+            this.customizeParameters = data.customizeParameters.map(c => Object.assign(new CustomizeParameterGroup(), c));
         }
     }
 }

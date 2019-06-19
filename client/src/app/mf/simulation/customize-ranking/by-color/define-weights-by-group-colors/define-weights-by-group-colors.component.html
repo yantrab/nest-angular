@@ -4,14 +4,20 @@
         *ngFor="let group of groups.parameterGroups; let i = index"
         [class.selected]="selectedGroup.name === group.name"
         fxLayout="row"
-        [fxFlex]="group.width || group.percent + '%'"
-        (click)="selectedGroup = group"
+        [fxFlex]="group.percent + '%'"
     >
-        <div fxFlex fxLayout="column">
-            <span fxFlex="50px">{{ group.name }}</span>
-            <div fxFlex fxFlexFill fxLayout="column" style="overflow: auto;width: 100%">
+        <div fxFlex fxFill fxLayout="column">
+            <div fxLayout="row" fxLayoutAlign="space-between">
+                <span fxFlex="50px">{{ group.name }}</span>
+                <span>{{ group.percent | number: '.2' }}%</span>
+            </div>
+            <div (click)="selectedGroup = group" fxFlex fxFlexFill fxLayout="column" style="overflow: auto;width: 100%">
                 <div *ngFor="let parameter of group.parameters" fxLayout="row">
-                    <mat-checkbox [(ngModel)]="parameter.isActive">{{ parameter.name }}</mat-checkbox>
+                    <mat-checkbox
+                        (change)="parameter.isActive = $event.checked; resetPercent(group)"
+                        [value]="parameter.isActive"
+                        >{{ parameter.name }}</mat-checkbox
+                    >
                 </div>
             </div>
             <div
@@ -22,8 +28,23 @@
                 (mousemove)="mousemove($event, i)"
                 (mousedown)="resizeTable($event, i)"
             >
-                <div></div>
-                <div class="thumb"></div>
+                <div fxFlex>
+                    <div *ngFor="let p of group.activeParameters" [fxFlex]="(p.percent || 10) + '%'">
+                        <div fxFlex></div>
+                        <div
+                            fxFlex="14px"
+                            *ngIf="i < groups.parameterGroups.length - 1"
+                            class="thumb"
+                            [style.cursor]="inMove ? 'grabbing' : 'grab'"
+                        ></div>
+                    </div>
+                </div>
+                <div
+                    fxFlex="14px"
+                    *ngIf="i < groups.parameterGroups.length - 1"
+                    class="thumb"
+                    [style.cursor]="inMove ? 'grabbing' : 'grab'"
+                ></div>
             </div>
         </div>
     </div>
