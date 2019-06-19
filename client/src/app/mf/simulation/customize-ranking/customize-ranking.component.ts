@@ -17,7 +17,5 @@ export class CustomizeRankingComponent {
         this.state = State.editRanks;
     }
 
-    ngOnInit() {
-        console.log('sdf');
-    }
+    ngOnInit() {}
 }

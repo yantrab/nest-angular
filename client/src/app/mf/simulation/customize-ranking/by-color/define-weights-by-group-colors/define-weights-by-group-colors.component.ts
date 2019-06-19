@@ -1,6 +1,8 @@
 import { Component, ElementRef, Input, ViewChild, ViewChildren } from '@angular/core';
-import { CustomizeParameterGroup } from 'shared/models';
+import { CustomizeParameter, CustomizeParameterGroup } from 'shared/models';
 import { I18nService } from 'src/app/shared/services/i18n.service';
+import { sum } from 'lodash';
+
 @Component({
     selector: 'p-define-weights-by-group-colors',
     templateUrl: './define-weights-by-group-colors.component.html',
@@ -20,8 +22,12 @@ export class DefineWeightsByGroupColorsComponent {
         return e.clientX - rect.left;
     }
     _headerCells: ElementRef[];
+    totalWidth: number;
     @ViewChildren('headercell') set headerCells(cells) {
         this._headerCells = cells.toArray();
+        setTimeout(() => {
+            this.totalWidth = sum(this._headerCells.map(c => c.nativeElement.clientWidth));
+        });
     }
     isResizeActive = false;
     @ViewChild('container', null) container: ElementRef;
@@ -42,10 +48,12 @@ export class DefineWeightsByGroupColorsComponent {
             if (elStartWidth + offset < 0 || elNextStartWidth - offset < 0) {
                 return;
             }
-            this.groups.parameterGroups[i].percent = ((elStartWidth + offset) / this.container.nativeElement.clientWidth) * 100;
+            this.groups.parameterGroups[i].percent = ((elStartWidth + offset) / this.totalWidth) * 100;
 
-            this.groups.parameterGroups[elNextIndex].percent =
-                ((elNextStartWidth - offset) / this.container.nativeElement.clientWidth) * 100;
+            this.groups.parameterGroups[elNextIndex].percent = ((elNextStartWidth - offset) / this.totalWidth) * 100;
+
+            // this.resetPercent(this.groups.parameterGroups[i]);
+            // this.resetPercent(this.groups.parameterGroups[elNextIndex]);
         };
         const upFn = () => {
             document.removeEventListener('mousemove', moveFn);
@@ -72,13 +80,26 @@ export class DefineWeightsByGroupColorsComponent {
         }
     }
 
-    // slideChange(value: number, i: number) {
-    //     const prev = this.groups.parameterGroups[i].percent;
-    //     this.groups.parameterGroups[i].percent = value;
-    //     this.groups.parameterGroups[i + 1].percent += prev - value;
-    // }
     resetPercent(group: CustomizeParameterGroup) {
         const percent = 100 / group.activeParameters.length;
         group.activeParameters.forEach(p => (p.percent = percent));
+    }
+
+    getPercentFromTotal(group: CustomizeParameterGroup, parameter: CustomizeParameter) {
+        return (parameter.percent * group.percent) / 100;
+    }
+
+    hexToRgbA(hex, opacity = 1) {
+        let c;
+        if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+            c = hex.substring(1).split('');
+            if (c.length === 3) {
+                c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+            }
+            c = '0x' + c.join('');
+            // tslint:disable-next-line:no-bitwise
+            return 'rgba(' + [(c >> 16) & 255, (c >> 8) & 255, c & 255].join(',') + ',' + opacity + ')';
+        }
+        throw new Error('Bad Hex');
     }
 }

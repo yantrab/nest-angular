@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 
 @Component({
     selector: 'p-customize-template',
@@ -6,6 +6,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     styleUrls: ['./customize-template.component.scss'],
 })
 export class CustomizeTemplateComponent {
-    @Input() title: string;
+    @Input() tTitle: string;
     @Input() back: EventEmitter<undefined>;
 }
