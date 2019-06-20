@@ -33,6 +33,7 @@ export class SystemsManagerComponent implements OnInit {
             contactUsRow: '2',
             aboutUsCol: '1/2',
             aboutUsRow: '1',
+            //
         }),
         holdings: {
             content: {
