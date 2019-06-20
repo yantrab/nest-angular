@@ -1,85 +1,49 @@
-import { createServer } from 'net';
-const port = 3000;
+import { createServer, Socket } from 'net';
+
+enum ActionType {
+    register,
+    getStatus,
+    readAll,
+    writeAll,
+    read,
+    write,
+}
+
+interface Action {
+    type: ActionType;
+    panelId: string;
+    data: any;
+}
+
+const port = 4000;
 const host = '0.0.0.0';
 let temp = '';
 const server = createServer();
-server.listen(port, host, () => {
-    console.log('TCP Server is running on port ' + port + '.');
-});
-server.on('connection', sock => {
-    console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
-    sock.on('data', msg => {
-        const msgString = msg.toString('utf8');
-        console.log('DATA ' + sock.remoteAddress + ': ' + msgString);
-        const action = +msgString[0];
-        const data = msgString.slice(1);
-        console.log('data:' + data);
-        let result = '';
-        console.log('action:' + action);
-        switch (action) {
-            case 1: {
-                result = data.replace('test', '').trim();
-                break;
-            }
-            case 2: {
-                result = data
-                    .split('')
-                    .map(n => {
-                        let num = +n + 1;
-                        if (num === 10) {
-                            num = 0;
-                        }
-                        return num;
-                    })
-                    .join('');
 
-                break;
-            }
+export class TadorPanelSocketManager {
+    constructor() {
+        server.listen(port, host, () => {
+            console.log('TCP Server is running on port ' + port + '.');
+        });
 
-            case 3: {
-                result = '';
-                for (let i = 1; i <= +data; i++) {
-                    for (let j = 0; j < 512; j++) {
-                        result += ('0' + i).slice(-2);
-                    }
+        server.on('connection', sock => {
+            console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
+            sock.on('data', msg => {
+                const action: Action = JSON.parse(msg.toString('utf8'));
+                console.log('DATA ' + sock.remoteAddress + ': ' + action);
+                let result = '';
+                switch (action.type) {
+                    case ActionType.register:
+                        return this.register(action, sock);
                 }
-                break;
-            }
-            case 4: {
-                result = data;
-                temp += result;
-                break;
-            }
-            case 5: {
-                if (data === '00000') {
-                    temp = '';
-                    result = 'reset';
-                } else {
-                    result = temp.slice(0, +data);
-                    for (let i = result.length; i < +data; i++) {
-                        result += '-';
-                    }
-                }
-                break;
-            }
-            case 6: {
-                const start = +data.slice(0, 3);
-                const end = +data.slice(-3);
-                for (let i = start; i <= end; i++) {
-                    result += String.fromCharCode(i);
-                }
-                break;
-            }
+                sock.write(result);
+            });
 
-            default:
-                break;
-        }
+            sock.on('close', data => {
+                console.log('CLOSED: ' + sock.remoteAddress + ' ' + sock.remotePort);
+            });
+        });
+    }
 
-        console.log(data + ':' + result);
-        sock.write(result);
-    });
-
-    sock.on('close', data => {
-        console.log('CLOSED: ' + sock.remoteAddress + ' ' + sock.remotePort);
-    });
-});
+    private register(action: Action, sock: Socket) {}
+}

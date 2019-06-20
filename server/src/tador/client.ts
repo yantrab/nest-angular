@@ -1,7 +1,7 @@
 import { Socket } from 'net';
 const client = new Socket();
-const port = 3000;
-const host = '128.199.41.162';
+const port = 4000;
+const host = 'localhost';
 
 client.connect(port, host, function() {
     console.log('Connected');
