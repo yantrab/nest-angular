@@ -8,6 +8,10 @@
     letter-spacing: $letter-spacing;
     color: $color;
 }
+@mixin icon($padding: 0 0.5em, $color: #bfbfbf) {
+    padding: $padding;
+    color: $color;
+}
 
 body {
     background-color: #fafafa;
@@ -39,13 +43,12 @@ body {
                 height: 40px;
                 width: 106%;
                 i {
-                    color: #bfbfbf;
-                    padding: 0 0.5em;
+                    @include icon();
                 }
                 mat-form-field {
                     text-align: end;
                     i {
-                        color: #bfbfbf;
+                        @include icon(0);
                     }
                 }
             }
@@ -70,14 +73,14 @@ body {
     top: 55px !important;
     height: calc(((86% - 0px) * 1) + 0px) !important;
     background: white;
+    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.06);
     p-autocomplete {
         width: 80%;
         height: 20%;
     }
     span {
         i {
-            color: #bfbfbf;
-            padding: 0 0.5em;
+            @include icon();
         }
     }
     .button {
@@ -119,6 +122,7 @@ cdk-virtual-scroll-content-wrapper {
 
 .mat-form-field-flex {
     top: 50px !important;
+    height: 56px !important;
 }
 .mat-expansion-panel-header {
     border: 1px solid #d8d8d8;

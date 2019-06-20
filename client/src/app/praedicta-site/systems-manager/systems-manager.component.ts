@@ -20,7 +20,7 @@ export class SystemsManagerComponent implements OnInit {
                 col: '5/14',
                 row: '5',
             },
-
+            backgroundText: ' 5 / 8 / 12 / 20',
             image: '21 / 1 / 21 / 6',
             logo: '#ffffe0',
             hoverbackground: '#f8eeeb',
@@ -36,10 +36,10 @@ export class SystemsManagerComponent implements OnInit {
         }),
         holdings: {
             content: {
-                col: '11/14',
+                col: '12/14',
                 row: '6',
             },
-
+            backgroundText: '7 / 6 / 14 / 8',
             image: '21 / 5 / 21 / 14',
             logo: '#f5e1db',
             background: 'linear-gradient(to top, #67375b, #884977)',
@@ -75,7 +75,7 @@ export class SystemsManagerComponent implements OnInit {
                 row: '7',
             },
 
-            image: '9 / 5 / 20 / 20',
+            image: '11 / 5 / 20 / 20',
             logo: 'url(#linear-gradient)',
             background: ' linear-gradient(to bottom, #6b76ff, #465bdf)',
             bondsCol: '2',

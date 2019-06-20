@@ -11,6 +11,7 @@ export class SystemComponent implements OnInit {
     dic: I18nRootObject;
     // currentSystem: string;
     @Input() systemName: string = '';
+    @Input() currentSystem: string = '';
 
     _ishover = false;
     get isHover() {
