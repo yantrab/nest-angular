@@ -21,6 +21,7 @@ import { QuantityFilterComponent } from './filters/quantity-filter/quantity-filt
 import { DxRangeSelectorModule } from 'devextreme-angular';
 import { SpecialFilterComponent } from './filters/special-filter/special-filter.component';
 import { ComboboxComponent } from './filters/combobox/combobox.component';
+import { MultiSliderRangeSelectorComponent } from './multi-slider-range-selector/multi-slider-range-selector.component';
 const components = [
     DropdownComponent,
     CheckboxComponent,
@@ -33,6 +34,7 @@ const components = [
     TreeComponent,
     SpecialFilterComponent,
     ComboboxComponent,
+    MultiSliderRangeSelectorComponent,
 ];
 
 const exportsM = [

@@ -69,7 +69,8 @@
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Define Groups for customized Ranking</ng-template>
-        <p-customize-ranking [state]="State.selectType" [model]="model"></p-customize-ranking>
+        <p-select-rank-type [groups]="model.gridGroups" [typeRankFilter]="model.typeRankFilter"> </p-select-rank-type>
+        <!--        <p-customize-ranking [state]="State.selectType" [model]="model"></p-customize-ranking>-->
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Define weights for Ranking</ng-template>

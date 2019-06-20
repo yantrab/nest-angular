@@ -1,36 +1,17 @@
 :host {
     width: 100%;
     height: 100%;
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+
+        border-top: 13px solid #ffa502;
+    }
+
     .group {
         min-width: 0px;
-        &.pink {
-            background-color: rgba(255, 107, 129, 0.02);
-
-            &.selected {
-                background-color: rgba(255, 107, 129, 0.05);
-            }
-        }
-        &.accent {
-            background-color: rgba(255, 165, 2, 0.02);
-
-            &.selected {
-                background-color: rgba(255, 165, 2, 0.05);
-            }
-        }
-        &.primary-bold {
-            background-color: rgba(83, 82, 237, 0.02);
-
-            &.selected {
-                background-color: rgba(83, 82, 237, 0.05);
-            }
-        }
-        &.primary {
-            background-color: rgba(30, 144, 255, 0.02);
-
-            &.selected {
-                background-color: rgba(30, 144, 255, 0.05);
-            }
-        }
     }
 
     [dir='ltr'] .thumb {

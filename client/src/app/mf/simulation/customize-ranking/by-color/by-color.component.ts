@@ -25,7 +25,7 @@ export class ByColorComponent {
             g.parameters.forEach(p => (p.percent = 100 / g.parameters.length));
         });
 
-        this.colorGroups = ['pink', 'accent', 'primary-bold', 'primary'].map(color => ({
+        this.colorGroups = ['#ff6b81', '#ff9800', '#5352ed', '#448aff'].map(color => ({
             color,
             parameterGroups: cloneDeep(this.parameterGroups),
         }));

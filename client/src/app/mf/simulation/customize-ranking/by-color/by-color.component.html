@@ -1,4 +1,4 @@
-<p-customize-template title="Customized Ranking" [back]="back">
+<p-customize-template tTitle="Customized Ranking" [back]="back">
     <ng-container id="button">
         <span>Define sub-categories by colors:</span>
         <div color="primary" fxLayout="row wrap" style="height: 300px;" fxLayoutAlign="space-between">
@@ -7,7 +7,7 @@
                     <button
                         [class.selected]="selectedColorGroup.color === group.color"
                         mat-fab
-                        [color]="group.color"
+                        [style.background-color]="group.color"
                         (click)="selectedColorGroup = group"
                     >
                         <mat-icon *ngIf="selectedColorGroup.color === group.color">edit</mat-icon>
