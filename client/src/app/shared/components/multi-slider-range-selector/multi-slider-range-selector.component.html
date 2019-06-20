@@ -1,0 +1,18 @@
+<div fxLayout="row">
+    <div
+        *ngFor="let p of group; let i = index"
+        [fxFlex]="p.percent + '%'"
+        #headercell
+        (mousemove)="mousemove($event, i)"
+        (mousedown)="resizeTable($event, i)"
+    >
+        <div fxFlex></div>
+        <div
+            fxFlex="14px"
+            *ngIf="i < group.length - 1"
+            [style.border-color]="color"
+            class="thumb"
+            [style.cursor]="inMove ? 'grabbing' : 'grab'"
+        ></div>
+    </div>
+</div>
