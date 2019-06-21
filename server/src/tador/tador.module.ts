@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TadorController } from './tador.controller';
-import { TadorGateway } from './tador.gateway';
+import { TadorService } from './tador.service';
 @Module({
-  providers:[TadorGateway],
-  controllers: [TadorController],
+    providers: [TadorService],
+    controllers: [TadorController],
 })
 export class TadorModule {}

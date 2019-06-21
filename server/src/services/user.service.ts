@@ -17,7 +17,7 @@ const comparePassword = (plainPass, hashword) => {
 @Injectable()
 export class UserService {
     userRepo: Repository<User>;
-    // remove object after 10 minute
+
     private cache = new NodeCache({ stdTTL: 60 * 60 * 12 });
 
     constructor(private repositoryFactory: RepositoryFactory) {

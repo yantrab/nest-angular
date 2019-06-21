@@ -1,10 +1,7 @@
 export const clientPath = './client/src/api/';
 export const serverPath = './server/src';
 export const decorators = {
-    Get: `
-    return new Promise((resolve) => {
-      this.api.get('{url}')
-      .subscribe((data: any) => {resolve});
+    Get: `return new Promise((resolve) => {this.api.get('{url}').subscribe((data: any) => {resolve});
 });
 `,
     Post: `
