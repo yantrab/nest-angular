@@ -24,7 +24,12 @@ const routes: Routes = [
     { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },
     { path: 'signin/:site/:token', loadChildren: 'src/app/auth/auth.module#AuthModule' },
     { path: 'admin/:site', loadChildren: 'src/app/admin/admin.module#AdminModule' },
-    { path: 'intercom-admin', loadChildren: 'src/app/intercom-conf/intercom-conf.module#IntercomConfModule' },
+    {
+        path: 'intercom-admin',
+        loadChildren: 'src/app/intercom-conf/intercom-conf.module#IntercomConfModule',
+        canActivate: [Guard],
+        data: { app: App.tador },
+    },
     { path: 'intercom', loadChildren: 'src/app/intercom/intercom.module#IntercomModule' },
     { path: 'webrtc', loadChildren: 'src/app/webRTC/webRTC.module#App2Module' },
     {

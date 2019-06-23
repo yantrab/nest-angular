@@ -71,6 +71,8 @@ export class Contacts extends Entity {
 
 export class Panel extends Entity {
     @IsNumber()
+    phoneNumber: number;
+    @IsNumber()
     maxEEprom: number;
     @IsString()
     type: string;
@@ -88,7 +90,7 @@ export class Panel extends Entity {
         this.contacts = new Contacts(panel.contacts);
     }
     dump() {
-        const arr = new Array(this.MaxEEprom).fill(' ');
+        const arr = new Array(this.maxEEprom).fill(' ');
         this.contacts.contactFields.forEach(field => {
             const fieldLength = field.length;
             const index = field.index;
@@ -119,8 +121,9 @@ export class Panel extends Entity {
 }
 
 export class NPPanel extends Panel {
-    constructor(panel: { name: string; address: string }) {
+    constructor(panel: { name: string; address: string; userId: string }) {
         super({
+            userId: panel.userId,
             maxEEprom: 62203,
             address: panel.address,
             name: panel.name,
@@ -372,7 +375,6 @@ export class NPPanel extends Panel {
                     ),
                 },
             ],
-            userId: '',
         });
     }
 }

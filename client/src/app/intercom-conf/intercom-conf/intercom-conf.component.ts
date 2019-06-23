@@ -21,15 +21,12 @@ export class IntercomConfComponent {
         menuItems: [],
     };
 
-    constructor(
-        // private api: TadorController,
-        public i18nService: I18nService,
-    ) {
-        this.panels = Array(10)
-            .fill(0)
-            .map((_, i) => new NPPanel({ address: 'חולון 24', name: 'בניין ' + i }));
-        this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
-        this.selectedPanel = this.panels[0];
+    constructor(private api: TadorController, public i18nService: I18nService) {
+        this.api.initialData().then(data => {
+            this.panels = data;
+            this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
+            this.selectedPanel = this.panels[0];
+        });
     }
 
     dump() {

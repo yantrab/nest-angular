@@ -1,10 +1,11 @@
-import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested} from 'class-validator';
+import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested } from 'class-validator';
 //import {EqualTo} from '../customValidation/equalTo'
 import { Entity } from './Entity';
 export enum App {
     admin = 'admin',
-    mf='mf',
-    macro='macro',
+    mf = 'mf',
+    macro = 'macro',
+    tador = 'tador',
 }
 
 export enum Permission {
@@ -23,7 +24,7 @@ export class Role {
 }
 
 export class User extends Entity {
-    @IsOptional() @IsString()  @Length(5, 10)  password: string;
+    @IsOptional() @IsString() @Length(5, 10) password: string;
     @IsString() company: string;
     @IsString() phone: string;
     @IsEmail() email: string;
@@ -72,10 +73,9 @@ export class signinRequest {
     // @EqualTo('password', {
     //     message: "סיסמה לא זהה"
     // })
-     rePassword: string;
+    rePassword: string;
 
     constructor(login?: Partial<LoginRequest>) {
         Object.assign(this, login);
     }
 }
-
