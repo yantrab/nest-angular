@@ -2,7 +2,7 @@ import { Controller, Get, UseInterceptors } from '@nestjs/common';
 import { TadorService } from './tador.service';
 import { ReqUser } from '../decorators/user.decorator';
 import { User } from 'shared/models';
-import { Panel } from 'shared/models/tador/tador.model';
+import { Panel } from 'shared/models/tador/panels';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 
 @UseInterceptors(AuthorizeInterceptor)
