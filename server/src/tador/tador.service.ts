@@ -38,7 +38,15 @@ export class TadorService {
             }
             const panels = Array(10)
                 .fill(0)
-                .map((_, i) => new MPPanel({ address: 'חולון 24', name: 'בניין ' + i, userId: '5d0b0e0c7b7e3c08d4a8bd04' }));
+                .map(
+                    (_, i) =>
+                        new MPPanel({
+                            phoneNumber: '234234234234',
+                            address: 'חולון 24',
+                            name: 'בניין ' + i,
+                            userId: '5d0b0e0c7b7e3c08d4a8bd04',
+                        }),
+                );
             this.panelRepo.saveOrUpdateMany(panels);
         });
         this.startListen();
@@ -95,8 +103,9 @@ export class TadorService {
         sock.write(saveResult.result.ok.toString());
     }
 
-    private readAll(action: Action, sock: Socket) {
-        return undefined;
+    private async readAll(action: Action, sock: Socket) {
+        const panel = await this.panelRepo.findOne({ phoneNumber: action.panelId });
+        sock.write(panel.dump());
     }
 
     private read(action: Action, sock: Socket) {

@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Contacts, ContactField } from 'shared/models/tador/tador.model';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Contacts } from 'shared/models/tador/panels';
 import { ColumnDef } from 'mat-virtual-table';
 
 @Component({

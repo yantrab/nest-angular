@@ -92,9 +92,7 @@ export class Panel extends Entity {
         this.contacts.contactFields.forEach(field => {
             const fieldLength = field.length;
             const index = field.index;
-            const all = this.contacts.list
-                .map(c => ((c[field.property] || '') + ' '.repeat(fieldLength)).slice(0, fieldLength))
-                .join('');
+            const all = this.contacts.list.map(c => (c[field.property] || ' ').slice(0, fieldLength + 1)).join('');
             all.split('').forEach((c, i) => {
                 arr[index + i] = c;
             });
@@ -110,10 +108,39 @@ export class Panel extends Entity {
 
                 const jInit = f.index || s.index + i * s.length;
                 for (let j = 0; j < (f.length || s.length); j++) {
-                    arr[jInit + j] = value[j] || '';
+                    arr[jInit + j] = value[j] || ' ';
                 }
             });
         });
         return arr.join('');
+    }
+    reDump(dump: string) {
+        this.contacts.contactFields.forEach(field => {
+            const fieldLength = field.length;
+            const index = field.index;
+            this.contacts.list.forEach((item, i) => {
+                const start = index + i * fieldLength;
+                const end = start + fieldLength;
+                item[field.property] = dump.slice(start, end + 1);
+            });
+        });
+
+        this.settings.forEach(s => {
+            s.fields.forEach((f, i) => {
+                let value = '';
+                const jInit = f.index || s.index + i * s.length;
+                for (let j = 0; j < (f.length || s.length); j++) {
+                    value += dump[jInit + j];
+                }
+                f.value =
+                    f.type != FieldType.timer
+                        ? value
+                        : {
+                              day: value.slice(0, 8),
+                              from: value.slice(8, 10) + ':' + value.slice(10, 12),
+                              to: value.slice(12, 14) + ':' + value.slice(14, 16),
+                          };
+            });
+        });
     }
 }

@@ -31,6 +31,10 @@
                     <div>
                         <button mat-button (click)="dump()">dump!</button>
                     </div>
+                    <div>
+                        <label for="file">reDump</label>
+                        <input type="file" id="file" (change)="handleFileInput($event.target)" />
+                    </div>
                 </div>
             </mat-tab>
             <mat-tab label="contacts">
