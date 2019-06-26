@@ -4,18 +4,7 @@ import * as Panels from 'shared/models/tador/panels';
 import { createServer, Socket } from 'net';
 import { MPPanel, Panel } from 'shared/models/tador/panels';
 import { UserService } from '../services/user.service';
-enum ActionType {
-    register,
-    readAll,
-    writeAll,
-    read,
-    write,
-    status,
-}
-
-enum PanelType {
-    MP = 'MP',
-}
+import { ActionType, PanelType } from 'shared/models/tador/enum';
 
 interface Action {
     type: ActionType;
@@ -51,6 +40,27 @@ export class TadorService {
         });
         this.startListen();
     }
+    statuses = {};
+
+    addStatus(panel: Panel, type: ActionType) {
+        if (!this.statuses[panel.phoneNumber]) {
+            this.statuses[panel.phoneNumber] = [];
+        }
+        switch (type) {
+            case ActionType.read: {
+                // sent changes only.
+                break;
+            }
+            case ActionType.readAll: {
+                this.statuses[panel.phoneNumber].push({ type: ActionType.readAll });
+                break;
+            }
+            case ActionType.writeAll: {
+                this.statuses[panel.phoneNumber].push({ type: ActionType.writeAll });
+                break;
+            }
+        }
+    }
 
     startListen() {
         const port = 4000;
@@ -71,15 +81,15 @@ export class TadorService {
                     case ActionType.register:
                         return this.register(action, sock);
                     case ActionType.readAll:
-                        return this.readAll(action, sock);
+                        return this.read(action, sock, 16);
                     case ActionType.read:
-                        return this.read(action, sock);
+                        return this.read(action, sock, 1);
                     case ActionType.write:
-                        return this.write(action, sock);
+                        return this.write(action, sock, 1);
                     case ActionType.writeAll:
-                        return this.writeAll(action, sock);
+                        return this.write(action, sock, 16);
                     case ActionType.status:
-                        return this.status(action, sock);
+                        return this.getStatus(action, sock);
                 }
                 sock.write(result);
             });
@@ -103,24 +113,30 @@ export class TadorService {
         sock.write(saveResult.result.ok.toString());
     }
 
-    private async readAll(action: Action, sock: Socket) {
+    private async read(action: Action, sock: Socket, multiply = 1) {
         const panel = await this.panelRepo.findOne({ phoneNumber: action.panelId });
-        sock.write(panel.dump());
+        const start = action.data.start * multiply;
+        const length = action.data.length * multiply;
+        sock.write(panel.dump().slice(start * multiply, start + length * multiply));
+    }
+    private async write(action: Action, sock: Socket, multiply = 1) {
+        const panel = await this.panelRepo.findOne({ phoneNumber: action.panelId });
+        const dump = panel.dump().split('');
+        const start = action.data.start * multiply;
+        const length = action.data.length * multiply;
+        for (let i = start; i < start + length; i++) {
+            dump[i] = action.data.data[i - length];
+        }
+        panel.reDump(dump.join(''));
+        const saveResult = await this.panelRepo.saveOrUpdateOne(panel);
+        sock.write(saveResult.result.ok.toString());
     }
 
-    private read(action: Action, sock: Socket) {
-        return undefined;
-    }
-
-    private write(action: Action, sock: Socket) {
-        return undefined;
-    }
-
-    private writeAll(action: Action, sock: Socket) {
-        return undefined;
-    }
-
-    private status(action: Action, sock: Socket) {
-        return undefined;
+    private getStatus(action: Action, sock: Socket) {
+        const panelStatus = this.statuses[action.panelId];
+        if (!panelStatus || !panelStatus.length) {
+            return sock.write(0);
+        }
+        return sock.write(panelStatus.pop());
     }
 }
