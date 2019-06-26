@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="tador">
-      <change afterPath="$PROJECT_DIR$/shared/models/tador/enum.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,10 +17,14 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/src/tador/tador.controller.ts">
+        <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+            <state relative-caret-position="33">
+              <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+                <element signature="n#!!block;n#constructor#0;n#TadorService#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,8 +125,8 @@
         <option value="$PROJECT_DIR$/shared/models/tador/tador.model.ts" />
         <option value="$PROJECT_DIR$/server/src/tador/server.ts" />
         <option value="$PROJECT_DIR$/shared/models/tador/enum.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
         <option value="$PROJECT_DIR$/server/src/tador/tador.controller.ts" />
+        <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
       </list>
     </option>
   </component>
@@ -310,7 +312,7 @@
       <workItem from="1559528957902" duration="17915000" />
       <workItem from="1559892021268" duration="9373000" />
       <workItem from="1560824228656" duration="2029000" />
-      <workItem from="1560908606819" duration="22631000" />
+      <workItem from="1560908606819" duration="23282000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -431,11 +433,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561267246333</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="tador">
+      <created>1561525295791</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1561525295791</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93897000" />
+    <option name="totallyTimeSpent" value="94548000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -887,21 +896,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="100">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding>
-            <element signature="e#0#44#0" expanded="true" />
-            <element signature="n#!!block;n#constructor#0;n#TadorService#0" />
+            <element signature="e#0#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.controller.ts">
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        <state relative-caret-position="33">
+          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+            <element signature="n#!!block;n#constructor#0;n#TadorService#0" />
+          </folding>
         </state>
       </provider>
     </entry>
