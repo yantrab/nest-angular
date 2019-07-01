@@ -8,6 +8,7 @@ export class MPPanel extends Panel {
                 ? panel
                 : {
                       userId: panel.userId,
+                      panelId: panel.panelId,
                       maxEEprom: 62203,
                       address: panel.address,
                       name: panel.name,

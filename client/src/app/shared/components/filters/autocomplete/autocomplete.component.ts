@@ -4,7 +4,6 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatAutocompleteTrigger, MatInput } from '@angular/material';
-import { NEW } from '../../../../mf/mf.service';
 import { UserFilter } from 'shared/models';
 
 @Component({
@@ -24,12 +23,13 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         if (result.length || !this.freeText) {
             return result;
         }
-        return [{ name: query + NEW } as UserFilter].concat(result);
+        return [{ name: query + this.freeTextAddNewTitle } as UserFilter].concat(result);
     };
 
     @Input() appearance = 'outline';
     @Input() paths: string[] = ['name', '_id'];
     @Input() freeText: boolean;
+    @Input() freeTextAddNewTitle = 'Create New';
     @Input() keepOpen: boolean;
     @ViewChild(MatAutocompleteTrigger, null) inputAutocomplete: MatAutocompleteTrigger;
     @ViewChild(MatInput, null) matInput;

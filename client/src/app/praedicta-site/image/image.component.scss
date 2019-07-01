@@ -1,7 +1,0 @@
-@import '../site.component';
-span {
-    @include letter(16px, 0.6px, 1.75, $color: #b6cfe7);
-}
-img {
-    width: 70%;
-}

@@ -1,9 +1,0 @@
-<p-customize-template>
-    <div id="button">
-        <span style="line-height: 80px;height: 80px;">Choose your type of ranking </span>
-        <p-filter [filter]="typeRankFilter"></p-filter>
-        <mat-divider style="width: 100%;"></mat-divider>
-        <button mat-raised-button color="primary" (click)="next.emit()">NEXT</button>
-    </div>
-    <p-simple-grid id="grid" [groups]="groups"></p-simple-grid>
-</p-customize-template>

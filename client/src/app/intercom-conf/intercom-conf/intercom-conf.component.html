@@ -7,130 +7,144 @@
             [keepOpen]="true"
             [settings]="autocompleteSettings"
         ></p-autocomplete>
-        <mat-tab-group fxFlex #tabGroup mat-stretch-tabs fxFlex="100">
-            <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
-                <div>
-                    <mat-form-field>
-                        <input [value]="selectedPanel.phoneNumber" disabled matInput placeholder="טלפון" />
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input matInput placeholder="שם" [(ngModel)]="selectedPanel.name" />
-                    </mat-form-field>
-                    <p>
-                        <mat-form-field> <input matInput placeholder="Address" />{{ selectedPanel.address }}> </mat-form-field>
-                    </p>
-
-                    <mat-form-field>
-                        <input matInput placeholder="סוג" disabled [(ngModel)]="selectedPanel.type" />
-                    </mat-form-field>
-
-                    <mat-form-field>
-                        <input matInput placeholder="גירסה" [(ngModel)]="selectedPanel.version" />
-                    </mat-form-field>
-
+        <div fxFlex fxLayout="column">
+            <mat-tab-group fxFlex #tabGroup mat-stretch-tabs>
+                <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
                     <div>
-                        <button mat-button (click)="dump()">dump!</button>
-                    </div>
-                    <div>
-                        <label for="file">reDump</label>
-                        <input type="file" id="file" (change)="handleFileInput($event.target)" />
-                    </div>
-                </div>
-            </mat-tab>
-            <mat-tab label="contacts">
-                <ng-template matTabContent>
-                    <p-contacts [contacts]="selectedPanel.contacts"></p-contacts>
-                </ng-template>
-            </mat-tab>
-            <mat-tab label="settings">
-                <ng-template matTabContent>
-                    <mat-accordion fxFlex>
-                        <mat-expansion-panel
-                            *ngFor="let group of selectedPanel.settings; let panelOpenState = false"
-                            (closed)="panelOpenState = false"
-                            (opened)="panelOpenState = true"
-                        >
-                            <mat-expansion-panel-header>
-                                {{ group.name }}
-                            </mat-expansion-panel-header>
-                            <ng-template matExpansionPanelContent>
-                                <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-                                    <ng-container *ngFor="let field of group.fields">
-                                        <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.text">
-                                            <input matInput [placeholder]="field.name" [(ngModel)]="field.value" />
-                                        </mat-form-field>
-                                        <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.list">
-                                            <mat-label>{{ field.name }}</mat-label>
-                                            <select [(ngModel)]="field.value" matNativeControl>
-                                                <option *ngFor="let option of field.options()" [value]="option">{{
-                                                    option
-                                                }}</option>
-                                            </select>
-                                        </mat-form-field>
-                                        <div style="margin: 20px;" *ngIf="field.type === FieldType.yesNo">
-                                            <div fxFlex="200px">{{ field.name }} :</div>
-                                            <div fxFlex="110px">
-                                                NO
-                                                <mat-slide-toggle
-                                                    (change)="field.value = $event.checked ? '1' : '0'"
-                                                    [checked]="field.value === '1'"
-                                                >
-                                                </mat-slide-toggle>
-                                                YES
-                                            </div>
-                                        </div>
+                        <mat-form-field>
+                            <input [value]="selectedPanel.phoneNumber" disabled matInput placeholder="טלפון" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="שם" [(ngModel)]="selectedPanel.name" />
+                        </mat-form-field>
+                        <p>
+                            <mat-form-field>
+                                <input matInput placeholder="Address" />{{ selectedPanel.address }}>
+                            </mat-form-field>
+                        </p>
 
-                                        <div style="margin: 20px;" *ngIf="field.type === FieldType.timer">
-                                            <fieldset>
-                                                <legend>{{ field.name }}</legend>
-                                                <div fxLayout="row">
-                                                    <div fxLayout="column">
-                                                        <mat-checkbox
-                                                            *ngFor="
-                                                                let op of ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-                                                                let day = index
-                                                            "
-                                                            [checked]="field.value['day'][day]"
-                                                            >{{ op }}</mat-checkbox
-                                                        >
-                                                    </div>
-                                                    <div fxLayout="column">
-                                                        <mat-form-field style="margin: 10px;width: 100px">
-                                                            <input
-                                                                matInput
-                                                                [(ngModel)]="field.value['from']"
-                                                                placeholder="from"
-                                                                [ngxTimepicker]="from"
-                                                                [format]="24"
-                                                                readonly
-                                                            />
-                                                            <ngx-material-timepicker
-                                                                [dir]="'ltr'"
-                                                                #from
-                                                            ></ngx-material-timepicker>
-                                                        </mat-form-field>
-                                                        <mat-form-field style="margin: 10px; width: 100px">
-                                                            <input
-                                                                matInput
-                                                                [(ngModel)]="field.value['to']"
-                                                                placeholder="to"
-                                                                [ngxTimepicker]="to"
-                                                                [format]="24"
-                                                                readonly
-                                                            />
-                                                            <ngx-material-timepicker [dir]="'ltr'" #to></ngx-material-timepicker>
-                                                        </mat-form-field>
-                                                    </div>
+                        <mat-form-field>
+                            <input matInput placeholder="סוג" disabled [(ngModel)]="selectedPanel.type" />
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="גירסה" [(ngModel)]="selectedPanel.version" />
+                        </mat-form-field>
+
+                        <div>
+                            <button mat-button (click)="dump()">dump!</button>
+                        </div>
+                        <div>
+                            <label for="file">reDump</label>
+                            <input type="file" id="file" (change)="handleFileInput($event.target)" />
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="contacts">
+                    <ng-template matTabContent>
+                        <p-contacts [contacts]="selectedPanel.contacts"></p-contacts>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="settings">
+                    <ng-template matTabContent>
+                        <mat-accordion fxFlex>
+                            <mat-expansion-panel
+                                *ngFor="let group of selectedPanel.settings; let panelOpenState = false"
+                                (closed)="panelOpenState = false"
+                                (opened)="panelOpenState = true"
+                            >
+                                <mat-expansion-panel-header>
+                                    {{ group.name }}
+                                </mat-expansion-panel-header>
+                                <ng-template matExpansionPanelContent>
+                                    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                                        <ng-container *ngFor="let field of group.fields">
+                                            <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.text">
+                                                <input matInput [placeholder]="field.name" [(ngModel)]="field.value" />
+                                            </mat-form-field>
+                                            <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.list">
+                                                <mat-label>{{ field.name }}</mat-label>
+                                                <select [(ngModel)]="field.value" matNativeControl>
+                                                    <option *ngFor="let option of field.options()" [value]="option">{{
+                                                        option
+                                                    }}</option>
+                                                </select>
+                                            </mat-form-field>
+                                            <div style="margin: 20px;" *ngIf="field.type === FieldType.yesNo">
+                                                <div fxFlex="200px">{{ field.name }} :</div>
+                                                <div fxFlex="110px">
+                                                    NO
+                                                    <mat-slide-toggle
+                                                        (change)="field.value = $event.checked ? '1' : '0'"
+                                                        [checked]="field.value === '1'"
+                                                    >
+                                                    </mat-slide-toggle>
+                                                    YES
                                                 </div>
-                                            </fieldset>
-                                        </div>
-                                    </ng-container>
-                                </div>
-                            </ng-template>
-                        </mat-expansion-panel>
-                    </mat-accordion>
-                </ng-template>
-            </mat-tab>
-        </mat-tab-group>
+                                            </div>
+
+                                            <div style="margin: 20px;" *ngIf="field.type === FieldType.timer">
+                                                <fieldset>
+                                                    <legend>{{ field.name }}</legend>
+                                                    <div fxLayout="row">
+                                                        <div fxLayout="column">
+                                                            <mat-checkbox
+                                                                *ngFor="
+                                                                    let op of ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                                                                    let day = index
+                                                                "
+                                                                [checked]="field.value['day'][day]"
+                                                                >{{ op }}</mat-checkbox
+                                                            >
+                                                        </div>
+                                                        <div fxLayout="column">
+                                                            <mat-form-field style="margin: 10px;width: 100px">
+                                                                <input
+                                                                    matInput
+                                                                    [(ngModel)]="field.value['from']"
+                                                                    placeholder="from"
+                                                                    [ngxTimepicker]="from"
+                                                                    [format]="24"
+                                                                    readonly
+                                                                />
+                                                                <ngx-material-timepicker
+                                                                    [dir]="'ltr'"
+                                                                    #from
+                                                                ></ngx-material-timepicker>
+                                                            </mat-form-field>
+                                                            <mat-form-field style="margin: 10px; width: 100px">
+                                                                <input
+                                                                    matInput
+                                                                    [(ngModel)]="field.value['to']"
+                                                                    placeholder="to"
+                                                                    [ngxTimepicker]="to"
+                                                                    [format]="24"
+                                                                    readonly
+                                                                />
+                                                                <ngx-material-timepicker
+                                                                    [dir]="'ltr'"
+                                                                    #to
+                                                                ></ngx-material-timepicker>
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </ng-template>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+            <div fxLayout="row" fxFlex="100px">
+                <button mat-button>שמור</button>
+                <button mat-button>בטל</button>
+                <button mat-button>שלח הכל</button>
+                <button mat-button>שלח שינויים</button>
+                <button mat-button>קבל הכל</button>
+            </div>
+        </div>
     </div>
 </div>

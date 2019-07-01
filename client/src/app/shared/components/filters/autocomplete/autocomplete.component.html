@@ -10,8 +10,7 @@
         </mat-chip>
     </mat-chip-list>
 
-    <input id="input" matInput [placeholder]="settings?.placeholder" [matAutocomplete]="auto" [formControl]="input" />
-
+    <input id="input" matInput [placeholder]="placeholder" [matAutocomplete]="auto" [formControl]="input" />
     <mat-autocomplete
         #auto="matAutocomplete"
         [displayWith]="displayFn"
