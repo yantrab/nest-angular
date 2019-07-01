@@ -1,96 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="tador">
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/macro/macro.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/macro/macro.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/macro/macro.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/macro/macro.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/macro/macro.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/findFund/filters/filters.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/findFund/filters/filters.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/findFund/filters/filters.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/findFund/filters/filters.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/mf.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/mf.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/mf.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/mf.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simple-grid/fund-card/fund-card.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simple-grid/fund-card/fund-card.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simple-grid/fund-card/fund-card.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simple-grid/fund-card/fund-card.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simple-grid/simple-grid.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/by-color.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/by-color/define-weights-by-group-colors/define-weights-by-group-colors.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-ranking.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-template/customize-template.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-template/customize-template.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-template/customize-template.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/customize-template/customize-template.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/freely/freely.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/freely/freely.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/freely/freely.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/freely/freely.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/select-rank-type/select-rank-type.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/select-rank-type/select-rank-type.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/select-rank-type/select-rank-type.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/customize-ranking/select-rank-type/select-rank-type.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/models.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/mf/simulation/simulation.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/content/content.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/content/content.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/content/content.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/content/content.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/contuct/contuct.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/contuct/contuct.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/contuct/contuct.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/contuct/contuct.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/image/image.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/image/image.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/image/image.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/image/image.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/praedicta-site.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/praedicta-site/praedicta-site.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/praedicta-site/praedicta-site.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/praedicta-site/praedicta-site.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/praedicta-site/praedicta-site.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/site.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/system/system.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/system/system.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/system/system.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/system/system.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/systems-manager/systems-manager.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/systems-manager/systems-manager.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/systems-manager/systems-manager.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/praedicta-site/systems-manager/systems-manager.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/starter.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/starter.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -104,13 +18,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/app/starter.module.ts">
+        <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="286">
+              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -119,7 +30,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>floorValue</find>
       <find>re</find>
       <find>timer</find>
       <find>y_n</find>
@@ -149,6 +59,7 @@
       <find>panelDumpRepo</find>
       <find>tador.model</find>
       <find>/mf.service'</find>
+      <find>.mat-tab-body-content {</find>
     </findStrings>
     <replaceStrings>
       <replace>default</replace>
@@ -163,7 +74,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/shared/models/Entity.ts" />
         <option value="$PROJECT_DIR$/server/src/macro/macro.service.ts" />
         <option value="$PROJECT_DIR$/server/src/services/fund.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/mf/poly/poly.component.ts" />
@@ -209,11 +119,12 @@
         <option value="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" />
         <option value="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" />
         <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" />
         <option value="$PROJECT_DIR$/client/src/api/tador.controller.ts" />
         <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/starter.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" />
       </list>
     </option>
   </component>
@@ -452,7 +363,7 @@
       <workItem from="1559892021268" duration="9373000" />
       <workItem from="1560824228656" duration="2029000" />
       <workItem from="1560908606819" duration="23931000" />
-      <workItem from="1561936763069" duration="5667000" />
+      <workItem from="1561936763069" duration="10009000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -587,23 +498,30 @@
       <option name="project" value="LOCAL" />
       <updated>1561578598882</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="tador">
+      <created>1561949299498</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1561949299498</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100864000" />
+    <option name="totallyTimeSpent" value="105206000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7865749" visible="true" weight="0.2265625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7865749" visible="true" weight="0.2265625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.21342513" side_tool="true" visible="true" weight="0.2265625" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991013" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25417203" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25417203" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.25930682" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -632,13 +550,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="tador" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/conf.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -969,40 +880,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom/intercom.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="145" column="42" selection-start-line="145" selection-start-column="42" selection-end-line="145" selection-end-column="42" />
-          <folding>
-            <element signature="n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#mat-form-field#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-form-field#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-form-field#0;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-form-field#1;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/api/tador.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="n#style#0;n#mat-form-field#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1023,6 +904,42 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="n#style#0;n#mat-form-field#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom/intercom.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="132" column="44" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
+          <folding>
+            <element signature="n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#mat-form-field#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-form-field#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-form-field#0;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-form-field#1;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
         </state>
       </provider>
     </entry>
