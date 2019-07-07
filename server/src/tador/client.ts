@@ -16,13 +16,15 @@ interface RegisterData {
 const client = new Socket();
 const port = 4000;
 const host = 'localhost';
-const registerAction: Action = {
-    type: ActionType.register,
-    data: { panelType: PanelType.MP, userMail: 'admin@admin.com' } as RegisterData,
-    panelId: '1234',
-};
 client.connect(port, host, function() {
     console.log('Connected');
+    // send : {"type":1,"data":{"panelType":"MP","userMail":"admin@admin.com"},"panelId":"1234"}
+    // return :1
+    const registerAction: Action = {
+        type: ActionType.register,
+        data: { type: PanelType.MP, userMail: 'admin@admin.com' },
+        panelId: '1234',
+    };
     client.write(JSON.stringify(registerAction));
     // setTimeout(() => client.write('434'), 1000);
     // setTimeout(() => client.write('510'), 1000);

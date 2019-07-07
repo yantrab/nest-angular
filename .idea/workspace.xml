@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/client.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/src/tador/client.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+            <state relative-caret-position="233">
+              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -79,7 +80,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server/src/mf/mf.controller.ts" />
         <option value="$PROJECT_DIR$/shared/models/mf.model.ts" />
         <option value="$PROJECT_DIR$/server/src/mf/mf.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/mf/mf.service.ts" />
@@ -129,6 +129,7 @@
         <option value="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" />
         <option value="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" />
         <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
+        <option value="$PROJECT_DIR$/server/package.json" />
         <option value="$PROJECT_DIR$/server/src/tador/client.ts" />
       </list>
     </option>
@@ -245,7 +246,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.start-tador-client">
     <configuration name="deploy-dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/client/package.json" />
       <command value="run" />
@@ -266,21 +267,21 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="start (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/client/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="start-server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="start-server" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start-tador-client" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start-tador-client" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -298,11 +299,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start-tador-client" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.gen-client" />
         <item itemvalue="npm.start-server" />
         <item itemvalue="npm.deploy-dev" />
-        <item itemvalue="npm.start (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -332,7 +333,7 @@
       <workItem from="1560824228656" duration="2029000" />
       <workItem from="1560908606819" duration="23931000" />
       <workItem from="1561936763069" duration="23030000" />
-      <workItem from="1562298592926" duration="4927000" />
+      <workItem from="1562298592926" duration="6195000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -488,24 +489,31 @@
       <option name="project" value="LOCAL" />
       <updated>1562472239104</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="tador">
+      <created>1562472901913</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1562472901913</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123154000" />
+    <option name="totallyTimeSpent" value="124422000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7839851" visible="true" weight="0.2265625" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7848537" visible="true" weight="0.2265625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.21601489" side_tool="true" visible="true" weight="0.2265625" />
+      <window_info id="npm" order="2" sideWeight="0.2151463" side_tool="true" visible="true" weight="0.2265625" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.49037227" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.25417203" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3106547" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25417203" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3106547" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -563,7 +571,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/src/macro/macro.controller.ts" />
     <entry file="file://$PROJECT_DIR$/server/src/tador/tador.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -904,10 +911,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="82" selection-start-line="9" selection-start-column="82" selection-end-line="9" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="121" column="41" lean-forward="true" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
+        <state relative-caret-position="178">
+          <caret line="141" column="5" lean-forward="true" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
@@ -916,8 +930,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/tador/client.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        <state relative-caret-position="233">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
