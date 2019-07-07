@@ -3,7 +3,7 @@
     <div class="content" fxLayout="row" *ngIf="selectedPanel">
         <p-autocomplete
             fxFlex="120px"
-            (selectedChange)="selectedPanel = $event"
+            (selectedChange)="setSelectedPanel($event)"
             [keepOpen]="true"
             [settings]="autocompleteSettings"
         ></p-autocomplete>
@@ -12,15 +12,16 @@
                 <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
                     <div>
                         <mat-form-field>
-                            <input [value]="selectedPanel.phoneNumber" disabled matInput placeholder="טלפון" />
+                            <input [value]="selectedPanel.panelId" disabled matInput placeholder="מזהה" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input [value]="selectedPanel.phoneNumber" matInput placeholder="טלפון" />
                         </mat-form-field>
                         <mat-form-field>
                             <input matInput placeholder="שם" [(ngModel)]="selectedPanel.name" />
                         </mat-form-field>
                         <p>
-                            <mat-form-field>
-                                <input matInput placeholder="Address" />{{ selectedPanel.address }}>
-                            </mat-form-field>
+                            <mat-form-field> <input matInput placeholder="Address" />{{ selectedPanel.address }} </mat-form-field>
                         </p>
 
                         <mat-form-field>
@@ -131,11 +132,11 @@
                 </mat-tab>
             </mat-tab-group>
             <div fxLayout="row" fxFlex="70px">
-                <button mat-button>שמור</button>
-                <button mat-button>בטל</button>
-                <button mat-button>שלח הכל</button>
-                <button mat-button>שלח שינויים</button>
-                <button mat-button>קבל הכל</button>
+                <button (click)="save()" mat-button>שמור</button>
+                <button (click)="cancel()" mat-button>בטל</button>
+                <button (click)="sentAll()" mat-button>שלח הכל</button>
+                <button (click)="sentChanges()" mat-button>שלח שינויים</button>
+                <button (click)="getAll()" mat-button>קבל הכל</button>
                 <button mat-button (click)="dump()">הורד</button>
                 <div class="upload-btn-wrapper">
                     <button mat-button>העלה</button>

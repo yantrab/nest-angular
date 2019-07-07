@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import * as Panels from 'shared/models/tador/panels';
-import { createServer, Socket } from 'net';
 import { MPPanel, Panel } from 'shared/models/tador/panels';
+import { createServer, Socket } from 'net';
 import { UserService } from '../services/user.service';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
+import { FieldType } from 'shared/models/tador/panels';
 
 class PanelDump extends Entity {
     dump: string;
@@ -38,6 +39,8 @@ export class TadorService {
                         new MPPanel({
                             panelId: '234234234234',
                             address: 'חולון 24',
+                            actionType: ActionType.idle,
+                            phoneNumber: '05522525252525',
                             name: 'בניין ' + i,
                             userId: '5d0b0e0c7b7e3c08d4a8bd04',
                         }),
@@ -56,13 +59,37 @@ export class TadorService {
             case ActionType.read: {
                 const oldDump = (await this.panelDumpRepo.findOne({ _id: panel.panelId })).dump;
                 const newDump = panel.dump();
-                for (let i = 0; i < panel.maxEEprom / 16; i += 16) {
-                    if (oldDump.slice(i, i + 16 + 1) != newDump.slice(i, i + 16 + 1)) {
-                        this.statuses[panel.panelId].push(
-                            ('00' + ActionType.read).slice(-3) + ('000000' + i).slice(-6) + ('000000' + 16).slice(-6),
-                        );
+                panel.contacts.contactFields.forEach(field => {
+                    const fieldLength = field.length;
+                    const index = field.index;
+                    for (let i = 0; i < panel.contacts.count; i++) {
+                        const start = index + fieldLength * i;
+                        const oldValue = oldDump.slice(start, start + fieldLength + 1);
+                        const newValue = newDump.slice(start, start + fieldLength + 1);
+                        if (oldValue != newValue) {
+                            this.statuses[panel.panelId].push({ action: ActionType.read, index: start, data: newValue });
+                        }
                     }
-                }
+                });
+
+                panel.settings.forEach(s => {
+                    if (s.index) {
+                        const newValue = newDump.slice(s.index, s.length + 1);
+                        const oldValue = oldDump.slice(s.index, s.length + 1);
+                        if (newValue != oldValue) {
+                            this.statuses[panel.panelId].push({ action: ActionType.read, index: s.index, data: newValue });
+                        }
+                        return;
+                    }
+
+                    s.fields.forEach((f, i) => {
+                        const newValue = newDump.slice(f.index, f.length + 1);
+                        const oldValue = oldDump.slice(f.index, f.length + 1);
+                        if (newValue != oldValue) {
+                            this.statuses[panel.panelId].push({ action: ActionType.read, index: s.index, data: newValue });
+                        }
+                    });
+                });
                 break;
             }
             case ActionType.readAll: {

@@ -3,8 +3,6 @@ import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested } from 'c
 import { Entity } from './Entity';
 export enum App {
     admin = 'admin',
-    mf = 'mf',
-    macro = 'macro',
     tador = 'tador',
 }
 
@@ -27,7 +25,9 @@ export class User extends Entity {
     @IsOptional() @IsString() @Length(5, 10) password: string;
     @IsString() company: string;
     @IsString() phone: string;
-    @IsEmail() email: string;
+    @IsString()
+    @IsEmail()
+    email: string;
     @IsOptional() @IsString() details?: string;
     @IsOptional() @IsString() fName?: string;
     @IsOptional() @IsString() lName?: string;
@@ -73,6 +73,7 @@ export class signinRequest {
     // @EqualTo('password', {
     //     message: "סיסמה לא זהה"
     // })
+    @IsString()
     rePassword: string;
 
     constructor(login?: Partial<LoginRequest>) {

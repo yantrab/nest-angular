@@ -1,4 +1,4 @@
-import { Controller, Get, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseInterceptors } from '@nestjs/common';
 import { TadorService } from './tador.service';
 import { ReqUser } from '../decorators/user.decorator';
 import { User } from 'shared/models';
@@ -16,13 +16,13 @@ export class TadorController {
         return this.service.panelRepo.findMany({ userId: user.id });
     }
 
-    @Get('savePanel')
-    async savePanel(panel: Panel): Promise<any> {
+    @Post('savePanel')
+    async savePanel(@Body() panel: Panel): Promise<any> {
         return this.service.panelRepo.saveOrUpdateOne(panel);
     }
 
-    @Get('status')
-    async status(panel: Panel, type: ActionType): Promise<any> {
-        return this.service.addStatus(panel, type);
+    @Post('status')
+    async status(@Body() panel: Panel): Promise<any> {
+        return this.service.addStatus(panel, panel.actionType);
     }
 }

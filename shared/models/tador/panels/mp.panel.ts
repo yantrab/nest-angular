@@ -1,4 +1,4 @@
-import { ContactField, Contacts, FieldType, SettingField } from './base.panel';
+import { ContactField, Contacts, FieldType, SettingField, Settings } from './base.panel';
 import { Panel } from './base.panel';
 
 export class MPPanel extends Panel {
@@ -31,7 +31,7 @@ export class MPPanel extends Panel {
                           ],
                       }),
                       settings: [
-                          {
+                          new Settings({
                               name: 'general',
                               fields: [
                                   new SettingField({
@@ -100,8 +100,8 @@ export class MPPanel extends Panel {
                                       value: 250,
                                   }),
                               ],
-                          },
-                          {
+                          }),
+                          new Settings({
                               name: 'TimeCycle',
                               index: 11301,
                               length: 2,
@@ -136,8 +136,8 @@ export class MPPanel extends Panel {
                                               }),
                                       }),
                               ),
-                          },
-                          {
+                          }),
+                          new Settings({
                               name: 'AnswerY_N',
                               length: 1,
                               index: 35347,
@@ -165,8 +165,8 @@ export class MPPanel extends Panel {
                                           name,
                                       }),
                               ),
-                          },
-                          {
+                          }),
+                          new Settings({
                               name: 'BusySogTone',
                               index: 58884,
                               length: 2,
@@ -191,8 +191,8 @@ export class MPPanel extends Panel {
                                           name,
                                       }),
                               ),
-                          },
-                          {
+                          }),
+                          new Settings({
                               name: 'rings',
                               fields: [
                                   new SettingField({
@@ -233,8 +233,8 @@ export class MPPanel extends Panel {
                                       length: 1,
                                   }),
                               ],
-                          },
-                          {
+                          }),
+                          new Settings({
                               name: 'FloorValue',
                               length: 3,
                               index: 35363,
@@ -246,8 +246,8 @@ export class MPPanel extends Panel {
                                           name: 'floorValue' + j,
                                       }),
                               ),
-                          },
-                          {
+                          }),
+                          new Settings({
                               name: 'SetReadTimer',
                               length: 16,
                               index: 58910,
@@ -259,7 +259,7 @@ export class MPPanel extends Panel {
                                           value: { day: '0000000', from: '12:00', to: '13:00' },
                                       }),
                               ),
-                          },
+                          }),
                       ],
                   },
         );

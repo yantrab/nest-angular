@@ -1,6 +1,5 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { TadorModule } from './tador/tador.module';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { ValidationPipe } from './pipes/validation.pipe';
 import { readFileSync } from 'fs';
@@ -13,8 +12,6 @@ const clientPath = join(__dirname, '../../client/dist');
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
         AppModule,
-
-        // new FastifyAdapter());
         process.env.NODE_ENV === 'prudaction'
             ? new FastifyAdapter({
                   http2: true,
@@ -60,9 +57,9 @@ async function bootstrap() {
     // validate types and extra
     app.useGlobalPipes(
         new ValidationPipe({
-            whitelist: true, // i supose this creates a white list with properties
-            forbidNonWhitelisted: true, // i supose this restrict by white list criteria
-            forbidUnknownValues: true, // i dont know why exists
+            whitelist: true,
+            forbidNonWhitelisted: true,
+            forbidUnknownValues: true,
         }),
     );
 

@@ -1,5 +1,5 @@
 import { generateClientApi } from 'nest-client-generator';
-import { generateClientInterfaces } from 'nest-client-generator';
+// import { generateClientInterfaces } from 'nest-client-generator';
 const clientPath = './client/src/api/';
 const serverPath = './server/src';
 const decorators = {
@@ -50,7 +50,4 @@ export class APIService {
 `;
 
 generateClientApi({ clientPath, decorators, httpServiceTemplate, serverPath });
-
-generateClientInterfaces('client/src/assets/i18n/login', 'client/src/api/i18n/login.i18n.ts');
-generateClientInterfaces('client/src/assets/i18n/site', 'client/src/api/i18n/site.i18n.ts');
-generateClientInterfaces('client/src/assets/i18n/mf', 'client/src/api/i18n/mf.i18n.ts');
+//generateClientInterfaces('client/src/assets/i18n/mf', 'client/src/api/i18n/mf.i18n.ts');

@@ -1,14 +1,19 @@
 import { Entity } from '../../Entity';
-import { IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { IsArray, IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { ActionType } from '../enum';
+
 export class ContactField extends Entity {
     @IsString()
     property: string;
+    @IsOptional()
     @IsString()
-    title: string;
+    title?: string;
+    @IsOptional()
     @IsNumber()
-    index: number;
+    index?: number;
+    @IsOptional()
     @IsNumber()
-    length: number;
+    length?: number;
 }
 
 export enum FieldType {
@@ -32,24 +37,36 @@ export class SettingField extends Entity {
     @IsOptional()
     @ValidateNested()
     options?: Function;
-    value: any;
-    default?: any = '';
 
-    constructor(props: Partial<SettingField>) {
-        super(props);
-        if (!this.value) {
-            this.value = props.default;
-        }
+    @IsOptional()
+    value?: any;
+}
+export class Settings extends Entity {
+    @IsString()
+    name: string;
+    @ValidateNested({ each: true })
+    fields: SettingField[];
+    @IsOptional()
+    @IsNumber()
+    index?: number;
+    @IsOptional()
+    @IsNumber()
+    length?: number;
+    constructor(settings: Partial<Settings>) {
+        super(settings);
+        this.fields = this.fields.map(f => new SettingField(f));
     }
 }
-
 export class Contacts extends Entity {
+    @IsOptional()
     @IsNumber()
-    index: number;
+    index?: number;
     @ValidateNested({ each: true })
     contactFields: ContactField[];
     @IsNumber()
     count: number;
+
+    @IsArray()
     list?: any[];
     constructor(contacts: Partial<Contacts>) {
         super(contacts);
@@ -68,6 +85,8 @@ export class Contacts extends Entity {
     }
 }
 export class Panel extends Entity {
+    @IsEnum(ActionType)
+    actionType: ActionType = ActionType.idle;
     @IsString()
     phoneNumber: string;
     @IsString()
@@ -78,16 +97,18 @@ export class Panel extends Entity {
     type: string;
     @IsNumber()
     version: number;
-    @ValidateNested({ each: true })
-    contacts: Contacts;
     @ValidateNested()
-    settings: Array<{ name: string; fields: SettingField[]; index?: number; length?: number }>;
+    contacts: Contacts;
+    @ValidateNested({ each: true })
+    settings: Settings[];
     @IsString()
     userId: string;
-    address;
+    @IsString()
+    address: string;
     constructor(panel: Partial<Panel>) {
         super(panel);
         this.contacts = new Contacts(panel.contacts);
+        this.settings = panel.settings.map(s => new Settings(s));
     }
     dump() {
         const arr = new Array(this.maxEEprom).fill(' ');

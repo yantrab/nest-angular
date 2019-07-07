@@ -1,4 +1,5 @@
 export enum ActionType {
+    idle,
     register,
     readAll,
     writeAll,
