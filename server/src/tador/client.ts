@@ -1,12 +1,5 @@
 import { Socket } from 'net';
-enum ActionType {
-    register,
-    readAll,
-    writeAll,
-    read,
-    write,
-    status,
-}
+import { ActionType } from 'shared/models/tador/enum';
 
 interface Action {
     type: ActionType;
@@ -23,17 +16,14 @@ interface RegisterData {
 const client = new Socket();
 const port = 4000;
 const host = 'localhost';
-const action: Action = {
+const registerAction: Action = {
     type: ActionType.register,
     data: { panelType: PanelType.MP, userMail: 'admin@admin.com' } as RegisterData,
-    panelId: '0558858104',
+    panelId: '1234',
 };
 client.connect(port, host, function() {
     console.log('Connected');
-    // client.write('1test 123456789');
-    // client.write('2123456');
-    // client.write('305');
-    client.write(JSON.stringify(action));
+    client.write(JSON.stringify(registerAction));
     // setTimeout(() => client.write('434'), 1000);
     // setTimeout(() => client.write('510'), 1000);
     //  setTimeout(() => client.write('533'), 1000);
