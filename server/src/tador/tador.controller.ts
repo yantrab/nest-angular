@@ -13,7 +13,7 @@ export class TadorController {
 
     @Get('initialData')
     async initialData(@ReqUser() user: User): Promise<Panel[]> {
-        return this.service.panelRepo.findMany({ userId: user.id });
+        return this.service.panelRepo.findMany({ userId: user.email });
     }
 
     @Post('savePanel')

@@ -6,7 +6,6 @@ import { createServer, Socket } from 'net';
 import { UserService } from '../services/user.service';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
-import { FieldType } from 'shared/models/tador/panels';
 
 class PanelDump extends Entity {
     dump: string;
@@ -14,12 +13,12 @@ class PanelDump extends Entity {
 
 interface Action {
     type: ActionType;
-    panelId: string;
+    pId: string;
     data: any;
 }
-interface RegisterData {
-    panelType: PanelType;
-    userMail: string;
+
+export interface RegisterAction extends Action {
+    data: { type: PanelType; uId: string };
 }
 
 @Injectable()
@@ -28,25 +27,6 @@ export class TadorService {
     panelDumpRepo: Repository<PanelDump>;
     constructor(private repositoryFactory: RepositoryFactory, private userService: UserService) {
         this.panelRepo = this.repositoryFactory.getRepository<Panel>(Panel, 'tador');
-        this.panelRepo.findMany().then(result => {
-            if (result.length) {
-                return;
-            }
-            const panels = Array(10)
-                .fill(0)
-                .map(
-                    (_, i) =>
-                        new MPPanel({
-                            panelId: '234234234234',
-                            address: 'חולון 24',
-                            actionType: ActionType.idle,
-                            phoneNumber: '05522525252525',
-                            name: 'בניין ' + i,
-                            userId: '5d0b0e0c7b7e3c08d4a8bd04',
-                        }),
-                );
-            this.panelRepo.saveOrUpdateMany(panels);
-        });
         this.startListen();
     }
     statuses = {};
@@ -141,28 +121,28 @@ export class TadorService {
         });
     }
 
-    private async register(action: Action, sock: Socket) {
-        const data = action.data as RegisterData;
-        const user = await this.userService.userRepo.findOne({ email: data.userMail });
-        const panel = new Panels[data.panelType + 'Panel']({
+    private async register(action: RegisterAction, sock: Socket) {
+        const data = action.data;
+        const user = await this.userService.userRepo.findOne({ email: data.uId });
+        const panel = new Panels[data.type + 'Panel']({
             name: '',
             address: '',
-            userId: user.id,
-            panelId: action.panelId,
+            userId: user.email,
+            panelId: action.pId,
         });
         const saveResult = await this.panelRepo.collection.insertOne(panel);
         sock.write(saveResult.result.ok.toString());
     }
 
     private async read(action: Action, sock: Socket, multiply = 1) {
-        const panel = await this.panelRepo.findOne({ panelId: action.panelId });
+        const panel = await this.panelRepo.findOne({ panelId: action.pId });
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
         sock.write(panel.dump().slice(start * multiply, start + length * multiply));
         this.saveDump(panel);
     }
     private async write(action: Action, sock: Socket, multiply = 1) {
-        const panel = await this.panelRepo.findOne({ panelId: action.panelId });
+        const panel = await this.panelRepo.findOne({ panelId: action.pId });
         const dump = panel.dump().split('');
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
@@ -176,7 +156,7 @@ export class TadorService {
     }
 
     private getStatus(action: Action, sock: Socket) {
-        const panelStatus = this.statuses[action.panelId];
+        const panelStatus = this.statuses[action.pId];
         if (!panelStatus || !panelStatus.length) {
             return sock.write(0);
         }

@@ -28,7 +28,7 @@ export class IntercomConfComponent {
     private _differ: KeyValueDiffer<Panel, any>;
     constructor(private api: TadorController, public i18nService: I18nService, private _differs: KeyValueDiffers) {
         this.api.initialData().then(data => {
-            this.panels = data.map(panel => merge(new Panels[panel.type + 'Panel'](), panel));
+            this.panels = data.map(panel => merge(panel, new Panels[panel.type + 'Panel']()));
             this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
             this.setSelectedPanel(this.panels[0]);
         });
@@ -58,7 +58,6 @@ export class IntercomConfComponent {
 
     save() {
         const changes = this._differ.diff(this.selectedPanel);
-        console.log(changes);
         this.api.savePanel(this.selectedPanel).then(result => {});
     }
 
