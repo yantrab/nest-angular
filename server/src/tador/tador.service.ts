@@ -95,24 +95,26 @@ export class TadorService {
         server.on('connection', sock => {
             console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
             sock.on('data', msg => {
-                const action: Action = JSON.parse(msg.toString('utf8'));
-                console.log('DATA ' + sock.remoteAddress + ': ' + action);
-                let result = '';
-                switch (action.type) {
-                    case ActionType.register:
-                        return this.register(action, sock);
-                    case ActionType.readAll:
-                        return this.read(action, sock, 16);
-                    case ActionType.read:
-                        return this.read(action, sock, 1);
-                    case ActionType.write:
-                        return this.write(action, sock, 1);
-                    case ActionType.writeAll:
-                        return this.write(action, sock, 16);
-                    case ActionType.status:
-                        return this.getStatus(action, sock);
+                try {
+                    const action: Action = JSON.parse(msg.toString('utf8'));
+                    console.log('DATA ' + sock.remoteAddress + ': ' + action);
+                    switch (action.type) {
+                        case ActionType.register:
+                            return this.register(action, sock);
+                        case ActionType.readAll:
+                            return this.read(action, sock, 16);
+                        case ActionType.read:
+                            return this.read(action, sock, 1);
+                        case ActionType.write:
+                            return this.write(action, sock, 1);
+                        case ActionType.writeAll:
+                            return this.write(action, sock, 16);
+                        case ActionType.status:
+                            return this.getStatus(action, sock);
+                    }
+                } catch (e) {
+                    console.log(e);
                 }
-                sock.write(result);
             });
 
             sock.on('close', () => {
@@ -135,14 +137,16 @@ export class TadorService {
     }
 
     private async read(action: Action, sock: Socket, multiply = 1) {
-        const panel = await this.panelRepo.findOne({ panelId: action.pId });
+        let panel = await this.panelRepo.findOne({ panelId: action.pId });
+        panel = new Panels[panel.type + 'Panel'](panel);
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
         sock.write(panel.dump().slice(start * multiply, start + length * multiply));
         this.saveDump(panel);
     }
     private async write(action: Action, sock: Socket, multiply = 1) {
-        const panel = await this.panelRepo.findOne({ panelId: action.pId });
+        let panel = await this.panelRepo.findOne({ panelId: action.pId });
+        panel = new Panels[panel.type + 'Panel'](panel);
         const dump = panel.dump().split('');
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
@@ -158,9 +162,9 @@ export class TadorService {
     private getStatus(action: Action, sock: Socket) {
         const panelStatus = this.statuses[action.pId];
         if (!panelStatus || !panelStatus.length) {
-            return sock.write(0);
+            return sock.write('0');
         }
-        return sock.write(panelStatus.pop());
+        return sock.write(panelStatus.pop().toString());
     }
 
     private saveDump(panel: Panel) {

@@ -66,17 +66,17 @@ export class IntercomConfComponent {
     }
 
     sentAll() {
-        this.selectedPanel.actionType = ActionType.writeAll;
+        this.selectedPanel.actionType = ActionType.readAll;
         this.api.status(this.selectedPanel);
     }
 
     sentChanges() {
-        this.selectedPanel.actionType = ActionType.write;
+        this.selectedPanel.actionType = ActionType.read;
         this.api.status(this.selectedPanel);
     }
 
     getAll() {
-        this.selectedPanel.actionType = ActionType.readAll;
+        this.selectedPanel.actionType = ActionType.writeAll;
         this.api.status(this.selectedPanel);
     }
 }

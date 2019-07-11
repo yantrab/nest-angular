@@ -86,7 +86,7 @@ export class Contacts extends Entity {
 }
 export class Panel extends Entity {
     @IsEnum(ActionType)
-    actionType: ActionType = ActionType.idle;
+    actionType: ActionType;
     @IsOptional()
     @IsString()
     phoneNumber?: string;
