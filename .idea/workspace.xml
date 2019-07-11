@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,12 +22,18 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts">
+        <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="278">
+              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
               <folding>
-                <element signature="e#0#94#0" expanded="true" />
+                <element signature="n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#style#0;n#mat-form-field#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#mat-form-field#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#mat-form-field#0;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#mat-form-field#1;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,18 +43,14 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>panelDumpRepo</find>
-      <find>tador.model</find>
       <find>/mf.service'</find>
       <find>.mat-tab-body-content {</find>
       <find>nest-</find>
       <find>generateClientApi</find>
-      <find>selectedPanel</find>
       <find>selectedPanel =</find>
       <find>selected</find>
       <find>api</find>
       <find>macro</find>
-      <find>phoneNumber</find>
       <find>address</find>
       <find>index</find>
       <find>fields</find>
@@ -68,6 +69,10 @@
       <find>p</find>
       <find>list</find>
       <find>Relay1MeM</find>
+      <find>phoneNumber</find>
+      <find>._differs.find(this.selectedPanel).cr</find>
+      <find>selectedPanel</find>
+      <find>diff</find>
     </findStrings>
     <replaceStrings>
       <replace>default</replace>
@@ -128,14 +133,14 @@
         <option value="$PROJECT_DIR$/client/src/api/app.controller.ts" />
         <option value="$PROJECT_DIR$/shared/models/user.model.ts" />
         <option value="$PROJECT_DIR$/server/src/main.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" />
-        <option value="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" />
         <option value="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" />
         <option value="$PROJECT_DIR$/server/package.json" />
         <option value="$PROJECT_DIR$/server/src/tador/tador.controller.ts" />
         <option value="$PROJECT_DIR$/server/src/tador/client.ts" />
         <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
+        <option value="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" />
       </list>
     </option>
   </component>
@@ -346,8 +351,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start-tador-client" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.start-tador-client" />
         <item itemvalue="npm.gen-client" />
         <item itemvalue="npm.start-server" />
         <item itemvalue="npm.deploy-dev" />
@@ -380,7 +385,7 @@
       <workItem from="1560824228656" duration="2029000" />
       <workItem from="1560908606819" duration="23931000" />
       <workItem from="1561936763069" duration="23030000" />
-      <workItem from="1562298592926" duration="10946000" />
+      <workItem from="1562298592926" duration="12917000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -550,11 +555,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562474495355</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="tador">
+      <created>1562733904350</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1562733904350</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129173000" />
+    <option name="totallyTimeSpent" value="131144000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -569,14 +581,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7856226" visible="true" weight="0.13151042" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7856226" visible="true" weight="0.24609375" />
       <window_info id="Structure" order="1" sideWeight="0.2143774" side_tool="true" weight="0.2265625" />
       <window_info id="npm" order="2" sideWeight="0.2164751" side_tool="true" weight="0.2265625" />
       <window_info id="Favorites" order="3" sideWeight="0.21526718" side_tool="true" weight="0.2265625" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.15917844" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25417203" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3106547" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.54428756" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25417203" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4338896" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32991013" />
@@ -716,9 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/admin/admin.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -804,22 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="75" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="75" />
-          <folding>
-            <element signature="n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#mat-form-field#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-form-field#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-form-field#0;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-form-field#1;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/api/http.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -901,16 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/models/tador/enum.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -969,19 +952,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="347" column="27" selection-start-line="347" selection-start-column="27" selection-end-line="347" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="90" column="16" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="86" column="40" selection-start-line="86" selection-start-column="38" selection-end-line="86" selection-end-column="40" />
+        <state relative-caret-position="118">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="206">
+          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
           <folding>
             <element signature="e#0#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding>
+            <element signature="n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#mat-form-field#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-form-field#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-form-field#0;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-form-field#1;n#div#1;n#div#0;n#fieldset#0;n#div#1;n#ng-container#0;n#div#0;n#ng-template#0;n#mat-expansion-panel#0;n#mat-accordion#0;n#ng-template#0;n#mat-tab#2;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

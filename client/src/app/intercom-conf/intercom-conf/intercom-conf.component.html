@@ -21,7 +21,9 @@
                             <input matInput placeholder="שם" [(ngModel)]="selectedPanel.name" />
                         </mat-form-field>
                         <p>
-                            <mat-form-field> <input matInput placeholder="Address" />{{ selectedPanel.address }} </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="Address" [(ngModel)]="selectedPanel.address"
+                            /></mat-form-field>
                         </p>
 
                         <mat-form-field>
