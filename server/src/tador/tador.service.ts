@@ -27,6 +27,7 @@ export class TadorService {
     panelDumpRepo: Repository<PanelDump>;
     constructor(private repositoryFactory: RepositoryFactory, private userService: UserService) {
         this.panelRepo = this.repositoryFactory.getRepository<Panel>(Panel, 'tador');
+        this.panelDumpRepo = this.repositoryFactory.getRepository<PanelDump>(PanelDump, 'tador');
         this.startListen();
     }
     statuses = {};
@@ -88,15 +89,29 @@ export class TadorService {
         const host = '0.0.0.0';
         const server = createServer();
 
-        server.listen(port, host, () => {
-            console.log('TCP Server is running on port ' + port + '.');
+        const listen = () => {
+            server.listen(port, host, () => {
+                console.log('TCP Server is running on port ' + port + '.');
+            });
+        };
+        const close = () => {
+            server.close();
+        };
+
+        listen();
+        server.on('error', err => {
+            console.log(err);
+            close();
+            listen();
         });
 
         server.on('connection', sock => {
             console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
+            setTimeout(() => sock.end(), 3000);
             sock.on('data', msg => {
                 try {
-                    const action: Action = JSON.parse(msg.toString('utf8'));
+                    const msgString = msg.toString('utf8');
+                    const action: Action = JSON.parse(msgString);
                     console.log('DATA ' + sock.remoteAddress + ': ' + action);
                     switch (action.type) {
                         case ActionType.register:
@@ -126,6 +141,11 @@ export class TadorService {
     private async register(action: RegisterAction, sock: Socket) {
         const data = action.data;
         const user = await this.userService.userRepo.findOne({ email: data.uId });
+        const userPanel = await this.panelRepo.findOne({ panelId: action.pId });
+        if (userPanel) {
+            sock.write('0');
+            return;
+        }
         const panel = new Panels[data.type + 'Panel']({
             name: '',
             address: '',
@@ -141,7 +161,9 @@ export class TadorService {
         panel = new Panels[panel.type + 'Panel'](panel);
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
-        sock.write(panel.dump().slice(start * multiply, start + length * multiply));
+        const panelDump = panel.dump();
+        const aaa = panelDump.indexOf('יני');
+        sock.write(panel.dump().slice(start, start + length));
         this.saveDump(panel);
     }
     private async write(action: Action, sock: Socket, multiply = 1) {
@@ -149,9 +171,9 @@ export class TadorService {
         panel = new Panels[panel.type + 'Panel'](panel);
         const dump = panel.dump().split('');
         const start = action.data.start * multiply;
-        const length = action.data.length * multiply;
+        const length = action.data.data.length;
         for (let i = start; i < start + length; i++) {
-            dump[i] = action.data.data[i - length];
+            dump[i] = action.data.data[i - start];
         }
         panel.reDump(dump.join(''));
         const saveResult = await this.panelRepo.saveOrUpdateOne(panel);
@@ -168,6 +190,6 @@ export class TadorService {
     }
 
     private saveDump(panel: Panel) {
-        this.panelDumpRepo.saveOrUpdateOne({ _id: panel.panelId, dump: panel.dump() });
+        this.panelDumpRepo.saveOrUpdateOne({ _id: panel._id, dump: panel.dump() });
     }
 }

@@ -6,7 +6,7 @@ import { saveAs } from 'file-saver';
 import * as Panels from 'shared/models/tador/panels';
 import { ContactField, FieldType, Panel } from 'shared/models/tador/panels';
 import { AutocompleteFilter } from 'shared/models/filter.model';
-import { merge, cloneDeep } from 'lodash';
+import { merge, cloneDeep, assign } from 'lodash';
 import { ActionType } from 'shared/models/tador/enum';
 
 // import * as conf from 'shared/models/tador/conf';
@@ -27,7 +27,7 @@ export class IntercomConfComponent {
     };
     constructor(private api: TadorController, public i18nService: I18nService) {
         this.api.initialData().then(data => {
-            this.panels = data.map(panel => merge(panel, new Panels[panel.type + 'Panel']()));
+            this.panels = data.map(panel => assign(new Panels[panel.type + 'Panel'](), panel));
             this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
             this.setSelectedPanel(this.panels[0]);
         });
