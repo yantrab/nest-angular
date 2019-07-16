@@ -161,8 +161,6 @@ export class TadorService {
         panel = new Panels[panel.type + 'Panel'](panel);
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
-        const panelDump = panel.dump();
-        const aaa = panelDump.indexOf('יני');
         sock.write(panel.dump().slice(start, start + length));
         this.saveDump(panel);
     }

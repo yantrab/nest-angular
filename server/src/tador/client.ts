@@ -34,7 +34,7 @@ const test = async () => {
     const registerAction: RegisterAction = {
         type: ActionType.register,
         data: { type: PanelType.MP, uId: 'admin@admin.com' },
-        pId: '12341',
+        pId: '1234',
     };
     const registerActionString = JSON.stringify(registerAction);
     await write(registerActionString);

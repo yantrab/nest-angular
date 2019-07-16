@@ -9,8 +9,8 @@ import { AutocompleteFilter } from 'shared/models/filter.model';
 import { merge, cloneDeep, assign } from 'lodash';
 import { ActionType } from 'shared/models/tador/enum';
 
-// import * as conf from 'shared/models/tador/conf';
-// Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
+import * as conf from 'shared/models/tador/conf';
+Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
     templateUrl: './intercom-conf.component.html',
