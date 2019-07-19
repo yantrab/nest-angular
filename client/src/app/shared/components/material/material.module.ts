@@ -24,10 +24,19 @@ import {
     MatSliderModule,
 } from '@angular/material';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { NgModule } from '@angular/core';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
+import { Injectable, NgModule } from '@angular/core';
+import {
+    DateAdapter,
+    MAT_DATE_FORMATS,
+    MAT_DATE_LOCALE,
+    NativeDateAdapter,
+    SatDatepickerModule,
+    SatNativeDateModule,
+} from 'saturn-datepicker';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { format } from 'date-fns';
+import { Platform } from '@angular/cdk/platform';
 const modules = [
     MatProgressBarModule,
     MatGridListModule,
@@ -58,19 +67,19 @@ const modules = [
     MatSliderModule,
 ];
 
-export class MyDateAdapter extends MomentDateAdapter {
-    format(date, displayFormat: string): string {
-        return date.format('DD/MM/YYYY');
+@Injectable()
+export class MyDateAdapter extends NativeDateAdapter {
+    constructor(matDateLocale: string) {
+        super(matDateLocale, new Platform());
+    }
+    format(date: Date, displayFormat: any): string {
+        return format(date, 'DD/MM/YYYY');
     }
 }
 
 @NgModule({
     imports: modules,
     exports: modules,
-    declarations: [],
-    providers: [
-        { provide: DateAdapter, useClass: MyDateAdapter, deps: [MAT_DATE_LOCALE] },
-        { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
-    ],
+    providers: [{ provide: DateAdapter, useClass: MyDateAdapter, deps: [MAT_DATE_LOCALE] }],
 })
 export class MaterialModule {}

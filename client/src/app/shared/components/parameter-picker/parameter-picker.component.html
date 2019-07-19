@@ -1,0 +1,17 @@
+<div fxLayout="column" fxFlex style="background-color:#ffffff;  color: #2f3542;height: 60%;">
+    <div fxFlex="80px" style="line-height: 80px;" fxLayoutAlign="center centrt"><span>Customize parameters</span></div>
+    <div fxLayout="row" fxFlex="250px" fxLayoutAlign="space-between centrt" style="padding-left: 1%;padding-right: 1%">
+        <div fxLayout="column" fxFlex="200px" *ngFor="let group of groups">
+            <div fxFlex="80px" style="height: 80px;line-height: 80px;" fxLayoutAlign="center centrt">
+                <span>{{ dic[group.name] || group.name }}</span>
+            </div>
+            <div fxFlex fxLayout="column" style="overflow: auto">
+                <div *ngFor="let parameter of group[childrenPatameterName]" fxLayout="row">
+                    <mat-checkbox [(ngModel)]="parameter[bindingParamterName]">{{
+                        dic[parameter[parameterTitleName]] || parameter[parameterTitleName]
+                    }}</mat-checkbox>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,7 +17,10 @@ export class AuthComponent {
     form: FormGroup;
     signinFrom: FormGroup;
     dic: I18nRootObject;
+    hover: boolean = false;
     state: 'login' | 'signin';
+    currentSystem: 'macro' | 'mf';
+    settings;
     constructor(
         private router: Router,
         private route: ActivatedRoute,
@@ -25,13 +28,24 @@ export class AuthComponent {
         private authService: AuthService,
         public i18nService: I18nService,
     ) {
+        this.settings = {
+            macro: {
+                background: '#eeeeee',
+                button: '#ffc400',
+                backgroundHover: 'rgba(255, 220, 0, 0.6)',
+            },
+            mf: {
+                button: '#1e90ff',
+                backgroundHover: 'rgb(127, 203, 247)',
+            },
+        };
         this.i18nService.dic.subscribe(result => (this.dic = result as any));
 
         this.dynaFB.buildFormFromClass(LoginRequest).then(form => (this.form = form));
         this.dynaFB
             .buildFormFromClass(signinRequest, { token: this.route.snapshot.params.token })
             .then(form => (this.signinFrom = form));
-
+        this.currentSystem = window.location.pathname.split('/')[2] as any;
         this.state = window.location.pathname.split('/')[1] as any;
     }
 
@@ -40,7 +54,7 @@ export class AuthComponent {
         validateAllFields(this.form);
         if (this.form.valid) {
             this.authService.login(this.form.value).then(() => {
-                this.router.navigate(['/' + window.location.pathname.replace('login/', ''), {}]).then();
+                this.router.navigate([this.route.snapshot.params.site]).then();
             });
         }
         e.preventDefault();
@@ -52,7 +66,7 @@ export class AuthComponent {
         if (this.signinFrom.valid) {
             //
             this.authService.signin(this.signinFrom.value).then(() => {
-                this.router.navigate(['/' + window.location.pathname.replace('signin/', 'login/'), {}]);
+                this.router.navigate([this.route.snapshot.params.site]);
             });
         }
         e.preventDefault();

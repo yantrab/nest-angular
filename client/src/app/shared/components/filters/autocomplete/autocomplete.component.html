@@ -22,7 +22,12 @@
             [class.selected]="keepOpen && settings.selected && settings.selected._id === option._id"
             [value]="option"
         >
-            {{ option.name }}</mat-option
-        >
+            <div fxLayout="row" fxFlex>
+                <span fxFlex> {{ option.name }}</span>
+                <div fxFlex="20px" [title]="removeTitle">
+                    <mat-icon fxFlexstyle="cursor: pointer;" (click)="remove(option)">clear</mat-icon>
+                </div>
+            </div>
+        </mat-option>
     </mat-autocomplete>
 </mat-form-field>

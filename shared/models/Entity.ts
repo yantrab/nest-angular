@@ -1,12 +1,11 @@
 /* tslint:disable:variable-name */
-import { IsString, IsOptional, IsMongoId } from 'class-validator';
+import { IsString, IsOptional } from 'class-validator';
 
 export abstract class Entity {
     // tslint:disable-next-line: variable-name
     // tslint:disable-next-line: no-property-without-decorator
     @IsOptional()
-    @IsMongoId()
-    _id?;
+    _id?: any;
     @IsOptional()
     @IsString()
     name?: string;

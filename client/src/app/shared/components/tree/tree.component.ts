@@ -20,8 +20,11 @@ export class TreeComponent {
     @Output() select = new EventEmitter();
     dataSource = new MatTreeNestedDataSource<Node>();
 
+    @Input() itemSize = '40px';
     hasChild = (_: number, node: Node) => !!node.children && node.children.length > 0;
 
+    @Input() iconMore = 'expand_more';
+    @Input() iconless = 'chevron_right';
     updateNode(node, selected) {
         node.selected = selected;
         if (selected) {

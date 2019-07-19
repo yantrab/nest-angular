@@ -12,10 +12,7 @@ export class ComboboxComponent extends BaseFilterComponent {
     }
 
     change(option) {
-        if (option) {
-            this.optionSelected(option);
-        } else {
-            this.selectedChange.emit();
-        }
+        this.optionSelected(option);
+        this.selectedChange.emit();
     }
 }

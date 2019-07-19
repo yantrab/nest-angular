@@ -26,6 +26,9 @@ export class XLSXService {
         const wb: XLSX.WorkBook = XLSX.utils.book_new();
         wb.Workbook = { Views: sheetNames.map(s => ({ RTL: true })) };
         sheetsData.forEach((data, i) => {
+            if (!data.rows[0]) {
+                return;
+            }
             // Auto Fit Column Widths
             const colsWidth = [];
             Object.keys(data.rows[0]).forEach((key, i) => {
@@ -33,11 +36,9 @@ export class XLSXService {
                     colsWidth[i] = { wpx: 70 };
                     return;
                 }
-                const items = data.rows.map(r => r[key] ?  r[key].toString()  : '');
+                const items = data.rows.map(r => (r[key] ? r[key].toString() : ''));
                 items.push(key);
-                const maxStrLength = items.reduce((a, b) =>
-                    a.length > b.length ? a : b,
-                ).length;
+                const maxStrLength = items.reduce((a, b) => (a.length > b.length ? a : b)).length;
                 colsWidth[i] = { wch: maxStrLength + 1 };
             });
 
@@ -54,16 +55,7 @@ export class XLSXService {
                     .concat(['', '', '', '', '', '']),
             );
             data.rows.forEach((v, i) => {
-                aoa.push(
-                    Object.values<any>(data.rows[i]).concat([
-                        '',
-                        '',
-                        '',
-                        '',
-                        '',
-                        '',
-                    ]),
-                );
+                aoa.push(Object.values<any>(data.rows[i]).concat(['', '', '', '', '', '']));
             });
             if (data.description) {
                 Object.keys(data.description).forEach((key, i) => {

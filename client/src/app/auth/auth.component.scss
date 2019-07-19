@@ -29,7 +29,7 @@
         }
         button {
             text-transform: uppercase;
-            background: #1e90ff;
+            //background: #1e90ff;
             width: 100%;
             border: 1;
             padding: 4px;
@@ -40,13 +40,14 @@
             border-color: #1e90ff;
             
         }
-        button:hover,
-        .form button:active,
-        .form button:focus {
-            background: rgb(127, 203, 247);
-        }
-
-     
- 
+        //button:hover,
+        //.form button:active,
+        //.form button:focus {
+        //    background: rgb(127, 203, 247)!important;
+        //}
     }
+
+
 }
+
+

@@ -1,7 +1,16 @@
-import { Input, Output, EventEmitter, KeyValueDiffers, DoCheck, OnChanges, KeyValueDiffer } from '@angular/core';
+import { Input, Output, EventEmitter, KeyValueDiffers, DoCheck, OnInit, KeyValueDiffer } from '@angular/core';
 import { Filter } from 'shared';
 
-export class BaseFilterComponent implements DoCheck {
+export class BaseFilterComponent implements DoCheck, OnInit {
+    @Input() dic = {};
+    @Input() dataSource;
+    get options() {
+        return this.settings.options || this.settings.getOptions(this.dataSource);
+    }
+    get placeholder() {
+        return this.settings.placeholder || this.dic[this.settings.optionIdPath] || this.settings.optionIdPath;
+    }
+
     constructor(private _differs: KeyValueDiffers) {}
     private _differ: KeyValueDiffer<any, any>;
     _settings: Filter;
@@ -46,5 +55,10 @@ export class BaseFilterComponent implements DoCheck {
             this.settings.selected = undefined;
         }
         this.selectedChange.emit(this.settings.selected);
+    }
+
+    ngOnInit(): void {
+        this.dic = this.dic || {};
+        // this.options = ;
     }
 }

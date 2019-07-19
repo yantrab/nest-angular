@@ -11,7 +11,7 @@
         "start:dev": "nodemon",
         "start:debug": "nodemon --config nodemon-debug.json",
         "prestart:prod": "rimraf dist && npm run build",
-        "start:prod": "node ./dist/nest-angular/server/src/main.js",
+        "start:prod": "node -r tsconfig-paths/register  ./dist/nest-angular/server/src/main.js",
         "lint": "tslint -p tsconfig.json -c tslint.json --fix",
         "test": "jest",
         "test:watch": "jest --watch",

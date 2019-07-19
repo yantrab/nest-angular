@@ -1,2 +1,3 @@
-<p-autocomplete [settings]="autoSettings" (selectedChange)="onSelect($event)"></p-autocomplete>
-<p-filter *ngFor="let filter of settings.selected" (selectedChange)="filterChange(filter)" [filter]="filter"> </p-filter>
+<p-autocomplete [dic]="dic" [settings]="autoSettings" (selectedChange)="onSelect($event)"></p-autocomplete>
+<p-filter [dic]="dic" *ngFor="let filter of settings.selected" (selectedChange)="filterChange(filter)" [filter]="filter">
+</p-filter>

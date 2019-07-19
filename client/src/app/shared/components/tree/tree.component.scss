@@ -2,6 +2,11 @@ mat-tree {
     .selected {
         background-color: bisque;
     }
+    .text {
+        width: 100%;
+        height: 100%;
+    }
+
     ul,
     li {
         margin-top: 0;

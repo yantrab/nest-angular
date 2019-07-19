@@ -5,7 +5,7 @@ import { BaseFilterComponent } from '../base.component';
     selector: 'p-checkbox',
     template: `
         <div fxLayout="column">
-            <span>{{ settings.placeholder }}</span>
+            <span>{{ placeholder }}</span>
             <mat-checkbox
                 fxFlex="30px"
                 *ngFor="let option of settings.options"

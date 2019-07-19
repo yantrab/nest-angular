@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, Input, KeyValueDiffers, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, KeyValueDiffers, OnInit, Output, ViewChild } from '@angular/core';
 import { BaseFilterComponent } from '../base.component';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatAutocompleteTrigger, MatInput } from '@angular/material';
 import { UserFilter } from 'shared/models';
+import { get } from 'lodash';
 
 @Component({
     selector: 'p-autocomplete',
@@ -19,7 +20,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     filteredOptions: Observable<any[]>;
     input: FormControl = new FormControl();
     @Input() filterFn = query => {
-        const result = this.queries.filter(q => q.q.includes(query)).map(q => q.option);
+        const result = this.queries.filter(q => q.queries.includes(query.trim())).map(q => q.option);
         if (result.length || !this.freeText) {
             return result;
         }
@@ -28,7 +29,11 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
 
     @Input() appearance = 'outline';
     @Input() paths: string[] = ['name', '_id'];
+    @Input() idPath = 'id';
     @Input() freeText: boolean;
+    @Input() removeTitle = 'remove';
+    @Input() canRemove: boolean;
+    @Output() onRemove = new EventEmitter();
     @Input() freeTextAddNewTitle = 'Create New';
     @Input() keepOpen: boolean;
     @ViewChild(MatAutocompleteTrigger, null) inputAutocomplete: MatAutocompleteTrigger;
@@ -40,14 +45,14 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     private queries = [];
     private filter = (value: any): string[] => {
         if (!value || typeof value !== 'string') {
-            return this.settings.options;
+            return this.options;
         }
         const filterValue = ' ' + value.toLowerCase();
         return this.filterFn(filterValue);
     };
 
     onSettingsChange(settings) {
-        this.settings.options.forEach(option => {
+        this.options.forEach(option => {
             this.queries.push({
                 q: this.paths.reduce((query, path) => query + ' ' + (option[path] || ''), '').toLowerCase(),
                 option,
@@ -77,7 +82,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         }
         this.filteredOptions = this.input.valueChanges.pipe(
             startWith<string | any>(''),
-            map(name => (name ? this.filter(name) : this.settings.options.slice())),
+            map(name => (name ? this.filter(name) : this.options.slice())),
         );
         document.querySelectorAll('p-autocomplete .mat-form-field-flex')[0].addEventListener('click', ev => {
             this.clear(ev);
@@ -102,5 +107,10 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     clear(ev) {
         this.input.setValue('');
         ev.stopPropagation();
+    }
+
+    remove(option: any) {
+        this.settings.options = this.settings.options.filter(o => get(o, this.idPath) !== get(option, this.idPath));
+        this.onRemove.emit(option);
     }
 }

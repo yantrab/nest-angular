@@ -10,6 +10,6 @@ import { EditUserComponent } from './admin/edit-user/edit-user.component';
     declarations: [AdminComponent, EditUserComponent],
     entryComponents: [AdminComponent, EditUserComponent],
     imports: [CommonModule, ComponentsModule, RouterModule.forChild([{ path: '', component: AdminComponent }])],
-    providers: [AdminController],
+    providers: [AdminController, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }],
 })
 export class AdminModule {}

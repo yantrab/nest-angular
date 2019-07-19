@@ -9,7 +9,7 @@ import { BaseFilterComponent } from '../base.component';
                 (selectionChange)="optionSelected($event.value)"
                 [value]="settings.selected"
                 [compareWith]="compareFn"
-                [placeholder]="settings.placeholder"
+                [placeholder]="placeholder"
             >
                 <mat-option *ngFor="let option of settings.options" [value]="option">
                     {{ option.name }}

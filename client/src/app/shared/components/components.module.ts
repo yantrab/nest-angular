@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DynaFormModule } from 'ng-dyna-form';
 import { MaterialModule } from './material/material.module';
@@ -21,7 +21,9 @@ import { QuantityFilterComponent } from './filters/quantity-filter/quantity-filt
 import { DxRangeSelectorModule } from 'devextreme-angular';
 import { SpecialFilterComponent } from './filters/special-filter/special-filter.component';
 import { ComboboxComponent } from './filters/combobox/combobox.component';
+import { ParameterPickerComponent } from './parameter-picker/parameter-picker.component';
 import { MultiSliderRangeSelectorComponent } from './multi-slider-range-selector/multi-slider-range-selector.component';
+import { DialogService } from '../services/dialog.service';
 const components = [
     DropdownComponent,
     CheckboxComponent,
@@ -35,6 +37,7 @@ const components = [
     SpecialFilterComponent,
     ComboboxComponent,
     MultiSliderRangeSelectorComponent,
+    ParameterPickerComponent,
 ];
 
 const exportsM = [
@@ -48,7 +51,7 @@ const exportsM = [
     DxRangeSelectorModule,
     ...components,
 ];
-
+@Injectable()
 export class CustomMatPaginatorIntl extends MatPaginatorIntl {
     base = new MatPaginatorIntl();
 
@@ -99,6 +102,7 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
     ],
     declarations: components,
     exports: exportsM,
-    providers: [I18nService, XLSXService, { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }],
+    providers: [I18nService, XLSXService, { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }, DialogService],
+    entryComponents: [ParameterPickerComponent],
 })
 export class ComponentsModule {}

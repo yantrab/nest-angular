@@ -5,36 +5,37 @@ import * as Filters from './filter.model';
 import { getDistribution } from '../utils';
 
 export class Filter extends Poly {
-    @IsArray()
-    options: any[];
+    @IsOptional() options?: any[];
 
     @IsOptional() selected?: any;
 
     @IsOptional() @IsString() optionNamePath?: string;
     @IsOptional() @IsString() optionIdPath?: string;
 
-    @IsBoolean()
-    @IsOptional()
-    isMultiple?: boolean;
+    @IsBoolean() @IsOptional() isMultiple?: boolean;
     @IsOptional() @IsBoolean() isActive?: boolean;
-    @IsOptional()
-    @IsString()
-    placeholder?: string;
+    @IsOptional() @IsBoolean() show?: boolean;
+    @IsOptional() @IsString() placeholder?: string;
+    @IsString() @IsOptional() format?: string;
     constructor(filter?: Partial<Filter>) {
         super(filter);
+        this.show = this.show === undefined ? true : this.show;
         if (filter && filter.kind && this.constructor.name === 'Filter') return new Filters[filter.kind](filter);
     }
     doFilter(items: any[]): any[] {
         return items;
         // throw new Error('not implemented');
     }
-    createOptions(items) {
-        this.options = uniqBy(
-            items.map(item => ({
-                _id: get(item, this.optionIdPath),
-                name: get(item, this.optionNamePath),
-            })),
-            '_id',
+    getOptions(items) {
+        return (
+            this.options ||
+            uniqBy(
+                items.map(item => ({
+                    _id: get(item, this.optionIdPath),
+                    name: get(item, this.optionNamePath || this.optionIdPath),
+                })),
+                '_id',
+            )
         );
     }
 }
@@ -44,14 +45,25 @@ export class CheckboxFilter extends Filter {
         return items.filter(item => this.selected.find(s => s._id === get(item, this.optionIdPath)));
     }
 
-    createOptions(items) {
-        this.options = uniqBy(
-            items.map(item => ({ _id: get(item, this.optionIdPath), name: get(item, this.optionIdPath) })),
-            '_id',
+    getOptions(items) {
+        return (
+            this.options ||
+            uniqBy(items.map(item => ({ _id: get(item, this.optionIdPath), name: get(item, this.optionIdPath) })), '_id')
         );
     }
 }
-export class ComboboxFilter extends Filter {}
+export class ComboboxFilter extends Filter {
+    doFilter(items: any[]): any[] {
+        return items.filter(item => this.selected._id === get(item, this.optionIdPath));
+    }
+
+    createOptions(items) {
+        return (
+            this.options ||
+            uniqBy(items.map(item => ({ _id: get(item, this.optionIdPath), name: get(item, this.optionIdPath) })), '_id')
+        );
+    }
+}
 export class DateRangeComboFilter extends Filter {
     doFilter(items: any[]): any[] {
         return items.filter(item => {
@@ -74,7 +86,7 @@ export class QuantityFilter extends Filter {
     }
 
     createOptions(items) {
-        this.options = getDistribution(items.map(item => get(item, this.optionIdPath)));
+        return this.options || getDistribution(items.map(item => get(item, this.optionIdPath)));
     }
 }
 export class AutocompleteFilter extends Filter {
@@ -90,11 +102,11 @@ export class SpecialFilter extends Filter {
         if (!filter) {
             return;
         }
-        filter.options.forEach(op => {
+        this.options.forEach(op => {
             op.filter = new Filter(op.filter);
         });
-        if (filter.selected) {
-            filter.selected = filter.selected.map(op => new Filter(op));
+        if (this.selected) {
+            this.selected = filter.selected.map(op => new Filter(op));
         }
     }
 
@@ -114,11 +126,24 @@ export class FilterGroup extends Entity {
     filters: Filter[];
     @IsString()
     name: string;
+
+    @IsString()
+    @IsOptional()
+    format?: string;
+
     set isActive(value) {
         this.filters.filter(f => f.selected).forEach(f => (f.isActive = value));
     }
     get isActive() {
-        return this.filters.some(f => f.isActive);
+        return this.filters.some(f => f.isActive && f.selected);
+    }
+
+    get OnlyFilterWithSelected() {
+        return this.filters.filter(f => f.selected && f.show);
+    }
+
+    get filtersToShow() {
+        return this.filters.filter(f => f.show);
     }
     constructor(filterGroup: Partial<FilterGroup>) {
         super(filterGroup);
