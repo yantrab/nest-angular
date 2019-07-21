@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="update components">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/i18n/mf/en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/i18n/mf/he.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/i18n/site/en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/i18n/site/he.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/generator/index.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,10 +24,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/src/app.controller.ts">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+            <state relative-caret-position="80">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -84,7 +88,6 @@
         <option value="$PROJECT_DIR$/client/src/app/mf/poly/poly.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/mf/poly/filters/filters.component.html" />
         <option value="$PROJECT_DIR$/shared/models/filter.model.ts" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.ts" />
         <option value="$PROJECT_DIR$/client/package.json" />
@@ -110,7 +113,6 @@
         <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/starter.module.ts" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" />
-        <option value="$PROJECT_DIR$/generator/index.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/shared/models/tador/enum.ts" />
         <option value="$PROJECT_DIR$/shared/models/index.ts" />
@@ -130,6 +132,8 @@
         <option value="$PROJECT_DIR$/server/src/main.ts" />
         <option value="$PROJECT_DIR$/server/package.json" />
         <option value="$PROJECT_DIR$/server/src/app.controller.ts" />
+        <option value="$PROJECT_DIR$/generator/index.ts" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -172,25 +176,20 @@
               <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
               <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
               <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -319,7 +318,7 @@
       <workItem from="1561936763069" duration="23030000" />
       <workItem from="1562298592926" duration="27698000" />
       <workItem from="1563160042064" duration="8048000" />
-      <workItem from="1563511358071" duration="9254000" />
+      <workItem from="1563511358071" duration="9836000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -538,11 +537,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563679435290</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="update components">
+      <created>1563750995142</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1563750995142</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163227000" />
+    <option name="totallyTimeSpent" value="163809000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -563,7 +569,7 @@
       <window_info id="Favorites" order="3" sideWeight="0.21526718" side_tool="true" weight="0.2265625" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.54428756" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.42490372" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42490372" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40308088" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -626,15 +632,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/src/admin/admin.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/node_modules/@angular/core/core.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -896,13 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/services/mailer.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1003,8 +993,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/app.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        <state relative-caret-position="360">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="52" column="83" selection-start-line="52" selection-start-column="83" selection-end-line="52" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
