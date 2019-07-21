@@ -3,7 +3,6 @@ import { App, User, Permission, Role } from 'shared/models/user.model';
 import { UserService } from '../services/user.service';
 import { cryptPassword, getRandomToken } from '../utils';
 import { MailerService } from '../services/mailer.service';
-import { exec } from 'child_process';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 @Controller('rest/admin')
 @UseInterceptors(AuthorizeInterceptor)
