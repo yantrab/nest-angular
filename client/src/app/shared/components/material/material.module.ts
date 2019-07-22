@@ -69,7 +69,7 @@ const modules = [
 
 @Injectable()
 export class MyDateAdapter extends NativeDateAdapter {
-    constructor(matDateLocale: string) {
+    constructor(matDateLocale?: string) {
         super(matDateLocale, new Platform());
     }
     format(date: Date, displayFormat: any): string {
