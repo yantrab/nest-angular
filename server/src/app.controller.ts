@@ -22,7 +22,7 @@ export class AppController {
     }
 
     @Get('admin/:system')
-    async adminMacro(@Res() res) {
+    async admin(@Res() res) {
         res.sendFile('index.html');
     }
 }

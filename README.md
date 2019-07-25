@@ -237,9 +237,6 @@ apt install ufw
 ufw allow OpenSSH
 ufw enable
 ufw status
-cp -r ~/.ssh /home/yaniv
-chown -R yaniv:yaniv /home/yaniv/.ssh
-
 ssh yaniv@your_server_ip
 sudo apt update
 sudo apt install nginx
@@ -280,3 +277,8 @@ proxy_cache_bypass \$http_upgrade;
 }
 
 sudo systemctl reload nginx
+
+iptables -A INPUT -s 128.199.41.162 -p tcp --destination-port 27017 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -d 128.199.41.162 -p tcp --source-port 27017 -m state --state ESTABLISHED -j ACCEPT
+iptables -A INPUT -s 192.168.200.119 -p tcp --destination-port 27017 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -d 192.168.200.119 -p tcp --source-port 27017 -m state --state ESTABLISHED -j ACCEPT

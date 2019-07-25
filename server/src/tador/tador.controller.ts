@@ -12,7 +12,7 @@ export class TadorController {
     constructor(private service: TadorService) {}
 
     @Get('initialData')
-    async foo(@ReqUser() user: User) {
+    async initialData(@ReqUser() user: User) {
         //Promise<Array<{ panel: Panel; dump: string }>> {
         const panels = await this.service.panelRepo.findMany({ userId: user.email });
         return panels.map(p => {

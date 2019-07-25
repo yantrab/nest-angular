@@ -21,30 +21,34 @@ import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
 @Injectable()
 export class APIService {
-  constructor(private httpClient: HttpClient, private router: Router) { }
-  handleError(error) {
-    let errorMessage = '';
-    if (error.status === 403) {
-      return this.router.navigate(['/login' + window.location.pathname, {}]);
+    constructor(private httpClient: HttpClient, private router: Router) {}
+    handleError(error) {
+        let errorMessage = '';
+        if (error.status === 403) {
+            return this.router.navigate(['/login' + window.location.pathname, {}]);
+        }
+        if (error.error instanceof ErrorEvent) {
+            // client-side error
+            errorMessage = 'Error:' + error.error.message;
+        } else {
+            // server-side error
+            errorMessage = 'Error Code:' + error.status + 'Message:' + error.message;
+        }
+        return throwError(errorMessage);
     }
-    if (error.error instanceof ErrorEvent) {
-      // client-side error
-      errorMessage = 'Error:' + error.error.message;
-    } else {
-      // server-side error
-      errorMessage = 'Error Code:' + error.status + 'Message:' + error.message;
-    }
-    return throwError(errorMessage);
-  }
 
-  get(url) {
-    return this.httpClient.get(url, { withCredentials: true })
-      .pipe(catchError(this.handleError), map(result => denormalize(result)));
-  }
-  post(url, body) {
-    return this.httpClient.post(url, body, { withCredentials: true })
-      .pipe(catchError((err) => this.handleError(err)), map(result => denormalize(result)));
-  }
+    get(url) {
+        return this.httpClient.get(url, { withCredentials: true }).pipe(
+            catchError(err => this.handleError(err)),
+            map(result => denormalize(result)),
+        );
+    }
+    post(url, body) {
+        return this.httpClient.post(url, body, { withCredentials: true }).pipe(
+            catchError(err => this.handleError(err)),
+            map(result => denormalize(result)),
+        );
+    }
 }
 
 `;
