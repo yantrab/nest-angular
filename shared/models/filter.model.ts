@@ -1,6 +1,6 @@
 import { Poly, Entity } from './Entity';
 import { get, uniqBy } from 'lodash';
-import { IsOptional, IsBoolean, IsString, ValidateNested, IsArray } from 'class-validator';
+import { IsOptional, IsBoolean, IsString, ValidateNested } from 'class-validator';
 import * as Filters from './filter.model';
 import { getDistribution } from '../utils';
 

@@ -12,8 +12,15 @@ export class TadorController {
     constructor(private service: TadorService) {}
 
     @Get('initialData')
-    async initialData(@ReqUser() user: User): Promise<Panel[]> {
-        return this.service.panelRepo.findMany({ userId: user.email });
+    async foo(@ReqUser() user: User) {
+        //Promise<Array<{ panel: Panel; dump: string }>> {
+        const panels = await this.service.panelRepo.findMany({ userId: user.email });
+        return panels.map(p => {
+            const result = { panel: p, dump: new Panel(p).dump() };
+            delete result.panel.settings;
+            delete result.panel.contacts;
+            return result;
+        });
     }
 
     @Post('savePanel')

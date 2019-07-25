@@ -1,6 +1,7 @@
 import { Entity } from '../../Entity';
 import { IsArray, IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { ActionType } from '../enum';
+import * as panels from './panels';
 
 export class ContactField extends Entity {
     @IsString()
@@ -85,8 +86,9 @@ export class Contacts extends Entity {
     }
 }
 export class Panel extends Entity {
+    @IsOptional()
     @IsEnum(ActionType)
-    actionType: ActionType;
+    actionType?: ActionType;
     @IsOptional()
     @IsString()
     phoneNumber?: string;
@@ -106,10 +108,12 @@ export class Panel extends Entity {
     userId: string;
     @IsString()
     address: string;
-    constructor(panel: Partial<Panel>) {
+    constructor(panel?: Partial<Panel>) {
         super(panel);
         this.contacts = new Contacts(panel.contacts);
         this.settings = panel.settings.map(s => new Settings(s));
+
+        // if (this.constructor.name === 'Panel') return new panels[panel.type](panel);
     }
     dump() {
         const arr = new Array(this.maxEEprom).fill(' ');

@@ -1,31 +1,40 @@
 <img title="Langauge" src="https://badge.langauge.io/yantrab/nest-angular" />
 
 # nest-angular-starter
+
 This is a repo for a starter appliation for a Single Page MEAN Stack application
 includes nest js + fastify + http2 + angular 7 + angular material + client api generator.
 
-### Installation 
+### Installation
+
 ```sh
 git clone https://github.com/yantrab/nest-angular.git
 cd .\nest-angular
 npm i
 ```
+
 To use ssl with localhost, open cmd one level above the root and run:
+
 ```sh
 choco install mkcert
 mkcert localhost
 mkcert -install
 ```
+
 ### debug server
+
 ```sh
 npm run debug-server
 ```
+
 ### build client
+
 ```sh
 npm run build-client
 ```
 
 ### Run both server&client
+
 ```sh
 npm run dev
 ```
@@ -33,7 +42,9 @@ npm run dev
 Hit F5 and select the process
 
 ## client api generator
+
 #### server controller:
+
 ```typescript
 @Controller('rest/auth')
 export class AuthController {
@@ -42,29 +53,37 @@ export class AuthController {
         return req.user;
     }
     @Get('getUserAuthenticated')
-    async getUserAuthenticated(@Req() req):Promise<{user:User}>{
-        return {user:req.user};
+    async getUserAuthenticated(@Req() req): Promise<{ user: User }> {
+        return { user: req.user };
     }
 }
 ```
-#### run 
+
+#### run
+
 ```sh
 npm run gen-client
 ```
+
 #### result:
+
 ```typescript
 @Injectable()
 export class AuthController {
     async login(user: LoginRequest): Promise<User> {
-        return new Promise((resolve) => this.api.post('rest/auth/login',user).subscribe((data:any) => resolve(plainToClass(User,<User>data))))
+        return new Promise(resolve =>
+            this.api.post('rest/auth/login', user).subscribe((data: any) => resolve(plainToClass(User, <User>data))),
+        );
     }
     async getUserAuthenticated(): Promise<{ user: User }> {
-        return new Promise((resolve) => this.api.get('rest/auth/getUserAuthenticated').subscribe((data:any) => resolve(data)))
+        return new Promise(resolve => this.api.get('rest/auth/getUserAuthenticated').subscribe((data: any) => resolve(data)));
     }
     constructor(private readonly api: APIService) {}
 }
 ```
+
 ## Cordova
+
 ```
 cd client
 npm run cordova:init
@@ -73,23 +92,32 @@ npm run cordova:run:browser
 ```
 
 ## class-transformer
+
 #### User class
+
 ```typescript
-export class User extends Entity{
+export class User extends Entity {
     fName: string;
     lName: string;
-    roles:Role[];
-    get fullName() { return this.fName + ' ' + this.lName }
+    roles: Role[];
+    get fullName() {
+        return this.fName + ' ' + this.lName;
+    }
 }
 ```
+
 #### By using [class-tranformer](https://github.com/typestack/class-transformer) (auto generate), you can do:
+
 ```typescript
 this.authService.login(this.form.value).then(user => {
-    console.log(user.fullName)
-})
+    console.log(user.fullName);
+});
 ```
+
 ## Shared validation using [class-validator](https://github.com/typestack/class-validator)
+
 #### decorate the class with validations:
+
 ```typescript
 export class LoginRequest {
     @IsEmail()
@@ -102,8 +130,11 @@ export class LoginRequest {
 ```
 
 #### server validation
+
 just use [validation pipe](https://docs.nestjs.com/techniques/validation)
+
 #### client validation
+
 ```typescript
   constructor(private dynaFB: DynaFormBuilder) {
     this.dynaFB.buildFormFromClass(LoginRequest).then(form => this.form = form);
@@ -111,14 +142,15 @@ just use [validation pipe](https://docs.nestjs.com/techniques/validation)
 ```
 
 ## polymorphism
-By inheritance from Poly class  you can do the next thing:
+
+By inheritance from Poly class you can do the next thing:
 
 ```typescript
  // Class decleration
  export abstract class Filter extends Poly {}
  export class CheckboxFilter extends Filter{}
  export class DropdownFilter extends Filter{}
- 
+
  @Component({
   selector: 'mf-root',
   template: `
@@ -141,23 +173,23 @@ export classMFComponent {
 }
 ```
 
-
 ## Future
+
 -- Client generator with full types.
 
 -- Auto transform result to real object
 
 -- Share models between server & client
 
-
 recomended vscode extensions
+
 1. Angular Language Service
 2. angular2-inline
 3. SCSS Formatter
 4. TSLint
 
-
 ## First deploy
+
 sudo apt-get update
 sudo apt-get install git
 sudo apt-get install nodejs
@@ -179,21 +211,21 @@ echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 sudo service mongod start
 
 echo "export const macroConf = {
-    db: {
-        user: '?',
-        password: '?',
-        server: '?',
-        database: '?',
-        debug: false,
-        max: 500,
-        min: 0,
-        idle: 5000,
-        acquire: 20000,
-        evict: 30000,
-        handleDisconnects: true,
-        connectionTimeout: 300000,
-        requestTimeout: 300000,
-    }
+db: {
+user: '?',
+password: '?',
+server: '?',
+database: '?',
+debug: false,
+max: 500,
+min: 0,
+idle: 5000,
+acquire: 20000,
+evict: 30000,
+handleDisconnects: true,
+connectionTimeout: 300000,
+requestTimeout: 300000,
+}
 };
 " > config.ts
 
@@ -205,6 +237,9 @@ apt install ufw
 ufw allow OpenSSH
 ufw enable
 ufw status
+cp -r ~/.ssh /home/yaniv
+chown -R yaniv:yaniv /home/yaniv/.ssh
+
 ssh yaniv@your_server_ip
 sudo apt update
 sudo apt install nginx
@@ -223,6 +258,9 @@ git clone https://github.com/yantrab/nest-angular.git
 cd nest-angular
 npm i
 
+// copy dist from windows
+scp -r dist yaniv@128.199.41.162:/home/yaniv/tador/nest-angular/client
+
 sudo npm install pm2@latest -g
 cd server
 pm2 start npm -- start
@@ -230,15 +268,15 @@ sudo nano /etc/nginx/sites-available/default
 
 server {
 ...
-    location / {
-        proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
+location / {
+proxy_pass http://localhost:3000;
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
         proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-    }
+proxy_cache_bypass \$http_upgrade;
+}
 ...
 }
 
- sudo systemctl reload nginx
+sudo systemctl reload nginx

@@ -9,8 +9,8 @@ import { AutocompleteFilter } from 'shared/models/filter.model';
 import { merge, cloneDeep, assign } from 'lodash';
 import { ActionType } from 'shared/models/tador/enum';
 
-import * as conf from 'shared/models/tador/conf';
-Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
+// import * as conf from 'shared/models/tador/conf';
+// Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
     templateUrl: './intercom-conf.component.html',
@@ -27,7 +27,7 @@ export class IntercomConfComponent {
     };
     constructor(private api: TadorController, public i18nService: I18nService) {
         this.api.initialData().then(data => {
-            this.panels = data.map(panel => assign(new Panels[panel.type + 'Panel'](), panel));
+            this.panels = data.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
             this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
             this.setSelectedPanel(this.panels[0]);
         });

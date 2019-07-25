@@ -1,4 +1,5 @@
 {
+    "extends": ["tslint-eslint-rules"],
     "defaultSeverity": "error",
     "jsRules": {
         "no-unused-expression": true
@@ -14,9 +15,10 @@
         "member-ordering": [false],
         "interface-name": [false],
         "arrow-parens": false,
-        "Semicolon": false,
+        "semi": "never",
         "object-literal-sort-keys": false,
-        "max-classes-per-file": false
+        "max-classes-per-file": false,
+        "type-literal-delimiter": false
     },
     "rulesDirectory": []
 }

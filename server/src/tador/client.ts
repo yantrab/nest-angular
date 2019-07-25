@@ -4,7 +4,7 @@ import { RegisterAction } from './tador.service';
 
 const client = new Socket();
 const port = 4000;
-const host = 'localhost';
+const host = '128.199.41.162';
 client.setMaxListeners(100);
 const write = (str: string) => {
     return new Promise((resolve, reject) => {
