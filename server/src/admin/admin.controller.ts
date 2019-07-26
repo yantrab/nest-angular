@@ -46,9 +46,9 @@ export class AdminController {
             const token = await getRandomToken();
             this.userService.saveUserToekn(user.email, token);
             this.mailer.send({
-                from: '"Praedicta holdings management" <info@praedicta.com>',
+                from: '"Tador management" <server@tador.com>',
                 to: user.email,
-                subject: 'הרשאות למערכות פרדיקטה',
+                subject: 'הרשאות למערכות תדאור',
                 html: `<div dir="rtl">
                             <h1>שלום</h1>
                             <h2>יש לך הרשאות עבור מערכת ${req.headers.referer.split('/')[4]}</h2>
