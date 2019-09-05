@@ -34,32 +34,32 @@ const test = async () => {
     const registerAction: RegisterAction = {
         type: ActionType.register,
         data: { type: PanelType.MP, uId: 'admin@admin.com' },
-        pId: '1234',
+        pId: '12345',
     };
     const registerActionString = JSON.stringify(registerAction);
     await write(registerActionString);
     //  ---------------------------------
 
     //  ----------- STATUS ------------
-    const statusAction = { type: ActionType.status, pId: '1234' };
+    const statusAction = { type: ActionType.status, pId: '12345' };
     const statusActionString = JSON.stringify(statusAction);
     await write(statusActionString);
     //  ---------------------------------
 
     //  ----------- WRITE ------------
-    const writeAction = { type: ActionType.write, pId: '1234', data: { start: 2551, data: 'יניב טרבלסי' } };
+    const writeAction = { type: ActionType.write, pId: '12345', data: { start: 2551, data: 'יניב טרבלסי' } };
     const writeString = JSON.stringify(writeAction);
     await write(writeString);
     //  ---------------------------------
 
     //  ----------- GET CHANGES ------------
-    const getAction = { type: ActionType.read, pId: '1234', data: { start: 2551, length: 100 } };
+    const getAction = { type: ActionType.read, pId: '12345', data: { start: 2551, length: 100 } };
     const getString = JSON.stringify(getAction);
     await write(getString);
     //  ---------------------------------
 
     //  ----------- GET ALL ------------
-    const getAllAction = { type: ActionType.readAll, pId: '1234', data: { start: 318, length: 10 } };
+    const getAllAction = { type: ActionType.readAll, pId: '12345', data: { start: 318, length: 10 } };
     const getAllString = JSON.stringify(getAllAction);
     await write(getAllString);
     //  ---------------------------------
