@@ -2,7 +2,7 @@ import { ContactField, Contacts, FieldType, SettingField, Settings } from './bas
 import { Panel } from './base.panel';
 
 export class MPPanel extends Panel {
-    constructor(panel: Panel, dump: string) {
+    constructor(panel: Panel, dump?: string) {
         super(
             Object.assign(panel, {
                 maxEEprom: 62203,
@@ -256,7 +256,6 @@ export class MPPanel extends Panel {
                 ],
             }),
         );
-
-        this.reDump(dump);
+        if (dump) this.reDump(dump);
     }
 }
