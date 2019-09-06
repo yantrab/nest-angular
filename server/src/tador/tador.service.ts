@@ -31,7 +31,7 @@ class StatusActionResult {
     }
 
     toString() {
-        return ('00' + this.action).slice(0, 2) + ('0'.repeat(10) + this.index) + this.data;
+        return ('00' + this.action).slice(-2) + ('0'.repeat(10) + this.index).slice(-10) + this.data;
     }
 }
 

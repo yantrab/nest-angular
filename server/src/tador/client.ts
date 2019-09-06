@@ -32,14 +32,13 @@ const test = async () => {
     //  ----------- REGISTER ------------
     const registerAction = { type: ActionType.register, data: { type: PanelType.MP, uId: 'admin@admin.com' } };
     const registerActionString = JSON.stringify(registerAction);
-    pId = await write(registerActionString);
+    // pId = await write(registerActionString);
     // 5d7203b7bef6e8300c296796
     //  ---------------------------------
-
     //  ----------- STATUS ------------
     const statusAction = { type: ActionType.status, pId };
     const statusActionString = JSON.stringify(statusAction);
-    await write(statusActionString);
+    for (let i = 0; i < 10; i++) await write(statusActionString);
     //  ---------------------------------
 
     //  ----------- WRITE ------------
