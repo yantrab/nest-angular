@@ -1,7 +1,6 @@
 import { Entity } from '../../Entity';
 import { IsArray, IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { ActionType } from '../enum';
-import * as panels from './panels';
 
 export class ContactField extends Entity {
     @IsString()
@@ -92,8 +91,7 @@ export class Panel extends Entity {
     @IsOptional()
     @IsString()
     phoneNumber?: string;
-    @IsString()
-    panelId: string;
+
     @IsNumber()
     maxEEprom: number;
     @IsString()

@@ -32,7 +32,7 @@
         "fastify-cors": "^2.1.2",
         "fastify-static": "^2.4.0",
         "module-alias": "^2.2.0",
-        "mongo-nest": "^0.2.2",
+        "mongo-nest": "^1.0.0",
         "mongodb": "^3.1.13",
         "mongodb-backup": "^1.6.9",
         "mongodb-restore": "^1.6.2",

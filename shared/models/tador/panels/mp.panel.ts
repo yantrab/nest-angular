@@ -7,6 +7,7 @@ export class MPPanel extends Panel {
             Object.assign(panel, {
                 maxEEprom: 62203,
                 type: 'MP',
+                name: panel.name,
                 version: 1.1,
                 contacts: new Contacts({
                     count: 250,
