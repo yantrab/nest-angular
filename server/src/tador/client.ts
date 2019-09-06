@@ -3,7 +3,7 @@ import { ActionType, PanelType } from 'shared/models/tador/enum';
 
 const client = new Socket();
 const port = 4000;
-const host = 'localhost'; //'128.199.41.162';
+const host = '128.199.41.162';
 client.setMaxListeners(100);
 const write = (str: string) => {
     return new Promise((resolve, reject) => {
@@ -27,13 +27,13 @@ client.on('data', function(data) {
 client.on('close', function() {
     console.log('Connection closed');
 });
-let pId: any = '5d7203b7bef6e8300c296796';
+let pId: any = '5d7219d024cba11c06c38e1d';
 const test = async () => {
     //  ----------- REGISTER ------------
     const registerAction = { type: ActionType.register, data: { type: PanelType.MP, uId: 'admin@admin.com' } };
     const registerActionString = JSON.stringify(registerAction);
-    // pId = await write(registerActionString);
-    // 5d7203b7bef6e8300c296796
+    pId = await write(registerActionString);
+    // 5d7219d024cba11c06c38e1d
     //  ---------------------------------
     //  ----------- STATUS ------------
     const statusAction = { type: ActionType.status, pId };
