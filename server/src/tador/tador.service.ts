@@ -133,7 +133,7 @@ export class TadorService {
 
         server.on('connection', sock => {
             console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
-            setTimeout(() => sock.end(), 3000);
+            setTimeout(() => sock.end(), 1000 * 60);
             sock.on('data', msg => {
                 try {
                     const msgString = msg.toString('utf8');
