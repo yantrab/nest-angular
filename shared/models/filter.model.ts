@@ -1,39 +1,44 @@
-import { Poly, Entity } from './Entity';
+import { Entity } from './Entity';
 import { get, uniqBy } from 'lodash';
 import { IsOptional, IsBoolean, IsString, ValidateNested } from 'class-validator';
 import * as Filters from './filter.model';
 import { getDistribution } from '../utils';
 
-export class Filter extends Poly {
+export abstract class Filter {
+    @IsOptional() @IsString() kind?: string;
     @IsOptional() options?: any[];
-
     @IsOptional() selected?: any;
-
     @IsOptional() @IsString() optionNamePath?: string;
     @IsOptional() @IsString() optionIdPath?: string;
-
     @IsBoolean() @IsOptional() isMultiple?: boolean;
     @IsOptional() @IsBoolean() isActive?: boolean;
-    @IsOptional() @IsBoolean() show?: boolean;
+    @IsOptional() @IsBoolean() show?: boolean = true;
     @IsOptional() @IsString() placeholder?: string;
     @IsString() @IsOptional() format?: string;
+
     constructor(filter?: Partial<Filter>) {
-        super(filter);
-        this.show = this.show === undefined ? true : this.show;
-        if (filter && filter.kind && this.constructor.name === 'Filter') return new Filters[filter.kind](filter);
+        Object.assign(this, filter);
+        this.kind = this.constructor.name;
     }
+
     doFilter(items: any[]): any[] {
-        return items;
-        // throw new Error('not implemented');
+        throw new Error('not implemented');
     }
+
+    hasOptions(items) {
+        return !!((this.options && this.options.length) || items.some(item => get(item, this.optionIdPath)));
+    }
+
     getOptions(items) {
         return (
             this.options ||
             uniqBy(
-                items.map(item => ({
-                    _id: get(item, this.optionIdPath),
-                    name: get(item, this.optionNamePath || this.optionIdPath),
-                })),
+                items
+                    .map(item => ({
+                        _id: get(item, this.optionIdPath),
+                        name: get(item, this.optionNamePath || this.optionIdPath),
+                    }))
+                    .filter(o => o._id != undefined),
                 '_id',
             )
         );
@@ -41,6 +46,10 @@ export class Filter extends Poly {
 }
 
 export class CheckboxFilter extends Filter {
+    constructor(filter) {
+        super(filter);
+        this.isMultiple = true;
+    }
     doFilter(items: any[]): any[] {
         return items.filter(item => this.selected.find(s => s._id === get(item, this.optionIdPath)));
     }
@@ -48,7 +57,12 @@ export class CheckboxFilter extends Filter {
     getOptions(items) {
         return (
             this.options ||
-            uniqBy(items.map(item => ({ _id: get(item, this.optionIdPath), name: get(item, this.optionIdPath) })), '_id')
+            uniqBy(
+                items
+                    .map(item => ({ _id: get(item, this.optionIdPath), name: get(item, this.optionIdPath) }))
+                    .filter(o => o._id != undefined),
+                '_id',
+            )
         );
     }
 }
@@ -57,24 +71,24 @@ export class ComboboxFilter extends Filter {
         return items.filter(item => this.selected._id === get(item, this.optionIdPath));
     }
 
-    createOptions(items) {
+    getOptions(items) {
         return (
             this.options ||
-            uniqBy(items.map(item => ({ _id: get(item, this.optionIdPath), name: get(item, this.optionIdPath) })), '_id')
+            uniqBy(
+                items
+                    .map(item => ({ _id: get(item, this.optionIdPath), name: get(item, this.optionIdPath) }))
+                    .filter(o => o._id != undefined),
+                '_id',
+            )
         );
     }
 }
 export class DateRangeComboFilter extends Filter {
     doFilter(items: any[]): any[] {
         return items.filter(item => {
-            const date = +new Date(get(item, this.optionIdPath));
+            const date = get(item, this.optionIdPath);
             return +new Date() - this.selected._id - date >= 0;
         });
-    }
-}
-export class DropdownFilter extends Filter {
-    doFilter(items: any[]): any[] {
-        return items;
     }
 }
 export class QuantityFilter extends Filter {
@@ -85,8 +99,10 @@ export class QuantityFilter extends Filter {
         });
     }
 
-    createOptions(items) {
-        return this.options || getDistribution(items.map(item => get(item, this.optionIdPath)));
+    getOptions(items) {
+        const result = getDistribution(items.map(item => get(item, this.optionIdPath)));
+        if (!result[0].x) return [];
+        return result;
     }
 }
 export class AutocompleteFilter extends Filter {
@@ -95,7 +111,7 @@ export class AutocompleteFilter extends Filter {
         return items.filter(item => ids.includes(get(item, this.optionIdPath)));
     }
 }
-
+export class DropdownFilter extends AutocompleteFilter {}
 export class SpecialFilter extends Filter {
     constructor(filter: Partial<SpecialFilter>) {
         super(filter);
@@ -103,10 +119,10 @@ export class SpecialFilter extends Filter {
             return;
         }
         this.options.forEach(op => {
-            op.filter = new Filter(op.filter);
+            op.filter = new Filters[op.filter.kind](op.filter);
         });
         if (this.selected) {
-            this.selected = filter.selected.map(op => new Filter(op));
+            this.selected = filter.selected.map(op => new Filters[op.kind](op));
         }
     }
 
@@ -147,7 +163,29 @@ export class FilterGroup extends Entity {
     }
     constructor(filterGroup: Partial<FilterGroup>) {
         super(filterGroup);
-        this.filters = filterGroup.filters.map(filter => new Filter(filter));
+        this.filters = filterGroup.filters.map(filter => new Filters[filter.kind](filter));
+    }
+}
+
+export class GridGroupChild extends Entity {
+    @IsString()
+    name: string;
+    @IsOptional()
+    @IsBoolean()
+    isActive: boolean;
+}
+
+export class GridGroup extends Entity {
+    @ValidateNested({ each: true })
+    children: Array<GridGroupChild>;
+    @IsString()
+    name: string;
+    @IsOptional()
+    @IsBoolean()
+    isActive: boolean;
+    constructor(group) {
+        super(group);
+        this.children = group.children.map(g => new GridGroupChild(g));
     }
 }
 
@@ -156,11 +194,16 @@ export class UserFilter extends Entity {
     filterGroups: FilterGroup[];
 
     @IsOptional()
+    @ValidateNested({ each: true })
+    gridGroups?: GridGroup[];
+
+    @IsOptional()
     @IsBoolean()
     isDefualt?: boolean;
 
     constructor(props: Partial<UserFilter>) {
         super(props);
         this.filterGroups = props.filterGroups.map(g => new FilterGroup(g));
+        if (props.gridGroups) this.gridGroups = props.gridGroups.map(g => new GridGroup(g));
     }
 }

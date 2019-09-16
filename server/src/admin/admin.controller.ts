@@ -3,6 +3,7 @@ import { App, User, Permission, Role } from 'shared/models/user.model';
 import { UserService } from '../services/user.service';
 import { cryptPassword, getRandomToken } from '../utils';
 import { MailerService } from '../services/mailer.service';
+import { exec } from 'child_process';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 @Controller('rest/admin')
 @UseInterceptors(AuthorizeInterceptor)
@@ -46,9 +47,9 @@ export class AdminController {
             const token = await getRandomToken();
             this.userService.saveUserToekn(user.email, token);
             this.mailer.send({
-                from: '"Tador management" <server@tador.com>',
+                from: '"Praedicta holdings management" <info@praedicta.com>',
                 to: user.email,
-                subject: 'הרשאות למערכות תדאור',
+                subject: 'הרשאות למערכות פרדיקטה',
                 html: `<div dir="rtl">
                             <h1>שלום</h1>
                             <h2>יש לך הרשאות עבור מערכת ${req.headers.referer.split('/')[4]}</h2>

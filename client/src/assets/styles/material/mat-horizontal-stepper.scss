@@ -8,6 +8,7 @@
 }
 ::ng-deep .mat-horizontal-stepper-header-container {
     width: 70%;
+    height: 96px;
     align-self: center;
 }
 
@@ -16,13 +17,12 @@
 }
 
 ::ng-deep .mat-stepper-horizontal-line {
-    border-top-width: 1px !important;
-    width: 100%;
+    border-top-width: 4px !important;
+    width: 70%;
     top: 10px !important;
 }
 
 ::ng-deep .mat-horizontal-stepper-header {
-    height: 72px !important;
     padding: 0 10px !important;
     .mat-stepper-horizontal-line {
         top: 10px !important;
@@ -42,10 +42,10 @@
 }
 @for $i from 1 through 10 {
     .selectedIndex#{$i} {
-        @extend .selectedIndex#{$i - 1};
+        @extend .selectedIndex#{$i - 1} !optional;
         ::ng-deep .mat-stepper-horizontal-line:nth-child(#{$i * 2}) {
             border-top-width: 4px !important;
-            border-top-color: #3f51b5 !important;
+            border-top-color: #1e90ff !important;
         }
     }
 }

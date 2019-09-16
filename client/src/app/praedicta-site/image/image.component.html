@@ -1,0 +1,7 @@
+<div style="width: 70%" fxFlex>
+    <img *ngIf="!isOtherSolution" [src]="imageUrl" />
+</div>
+<div style="width: 83%" gdRows="repeat(20, [row] 1fr)" gdColumns="repeat(20, [col] 1fr)" *ngIf="isOtherSolution">
+    <pre gdArea=" 4 / 2 / 20 / 20"><span  *ngIf="isOtherSolution">{{ dic.systemPage.otherSolution.content2 }}</span></pre>
+    <pre gdArea=" 13 / 2/ 20 / 20"><span > {{ dic.systemPage.otherSolution.content3 }}</span></pre>
+</div>

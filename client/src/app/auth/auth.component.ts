@@ -53,8 +53,12 @@ export class AuthComponent {
         // On case that there is no changes in form
         validateAllFields(this.form);
         if (this.form.valid) {
-            this.authService.login(this.form.value).then(() => {
-                this.router.navigate([this.route.snapshot.params.site]).then();
+            this.authService.login(this.form.value).then(res => {
+                if (res.status) {
+                    this.router.navigate([this.route.snapshot.params.site]).then();
+                } else {
+                    this.form.controls.password.setErrors({ 0: this.dic.validation.loginFailedMsg });
+                }
             });
         }
         e.preventDefault();
@@ -66,7 +70,7 @@ export class AuthComponent {
         if (this.signinFrom.valid) {
             //
             this.authService.signin(this.signinFrom.value).then(() => {
-                this.router.navigate([this.route.snapshot.params.site]);
+                this.router.navigate([this.route.snapshot.params.site]).then();
             });
         }
         e.preventDefault();

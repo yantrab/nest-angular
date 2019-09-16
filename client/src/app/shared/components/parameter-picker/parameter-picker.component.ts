@@ -14,11 +14,16 @@ export class ParameterPickerComponent {
             this.childrenPatameterName = data.childrenPatameterName || this.childrenPatameterName;
             this.parameterTitleName = data.parameterTitleName || this.parameterTitleName;
             this.dic = data.dic;
+            this.isSmall = data.isSmall;
+            this.title = data.title;
         }
     }
+
+    @Input() title: string;
     @Input() groups: any[];
     @Input() dic: any[];
     @Input() childrenPatameterName: string = 'parameters';
     @Input() bindingParamterName: string = 'isActive';
     @Input() parameterTitleName: string = 'name';
+    @Input() isSmall: boolean = false;
 }

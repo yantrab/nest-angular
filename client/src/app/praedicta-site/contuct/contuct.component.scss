@@ -1,0 +1,31 @@
+@import '../site.component';
+.contuct {
+    transform: translateY(0);
+    transition-duration: 10000ms;
+    position: fixed;
+    top: 0;
+    width: 480px;
+    height: 100%;
+    background: white;
+    z-index: 99999;
+    &.open {
+        transform: translateY(100%);
+        transition-duration: 235ms;
+    }
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    width: 71% !important;
+}
+
+.contuct_us {
+    @include letter(35px, 1.6px, $font-weight: bold, $font-family: Rubik, $color: #22385a);
+}
+.x {
+    @include letter(20px, 1.6px, $font-weight: bold, $font-family: Rubik, $color: #22385a);
+    cursor: pointer;
+}
+textarea {
+    width: 100%;
+    height: 100px;
+}

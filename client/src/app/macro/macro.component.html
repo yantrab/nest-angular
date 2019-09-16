@@ -1,0 +1,108 @@
+<span class="en-he" (click)="changeDirection()">eng_Heb</span>
+<div class="container" [class.open]="isOpen" [dir]="i18nService.dir" *ngIf="categories" fxFlex>
+    <div fxLayout="column" fxFlex class="categories">
+        <svg-icon src="assets/img/svgs/logo.svg" class="svgMacro"></svg-icon>
+        <div fxFlex="7">
+            <div fxLayoutAlign="start center" fxFlex="3">
+                <mat-icon class="icon mat-icon-rtl-mirror">search</mat-icon>
+            </div>
+            <mat-form-field fxFlex>
+                <div fxFlex="100%" fxLayout="row">
+                    <input id="input" matInput [placeholder]="'חיפוש'" [formControl]="input" />
+                    <mat-icon class="icon" matSuffix>close</mat-icon>
+                </div>
+            </mat-form-field>
+        </div>
+
+        <mat-accordion fxLayoutAlign="end end" fxLayout="column" fxFlex [multi]="true">
+            <mat-expansion-panel [hideToggle]="true">
+                <mat-expansion-panel-header expandedHeight="48px" fxLayoutAlign="center center" (click)="isOpen = !isOpen">
+                    <span fxFlex="100%" fxLayoutAlign="center center">
+                        קטגוריות
+                        <mat-icon class="mat-icon-rtl-mirror">{{ isOpen ? 'arrow_drop_up' : 'arrow_drop_down' }} </mat-icon>
+                    </span>
+                </mat-expansion-panel-header>
+                <div class="wrapperPtree">
+                    <p-tree
+                        iconless="arrow_right"
+                        iconMore="arrow_drop_down"
+                        [data]="categories"
+                        (select)="onSelectCategory($event)"
+                    ></p-tree>
+                </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="results" fxFlex="100%" [expanded]="true">
+                <cdk-virtual-scroll-viewport fxFlex="100%" itemSize="40">
+                    <div
+                        fxLayout="row"
+                        fxLayoutAlign=" center"
+                        *cdkVirtualFor="let option of filteredOptions | async; let i = index"
+                        [style.height]="stopFlagIndex === i ? '80px' : '40px'"
+                    >
+                        <div fxLayout="column">
+                            <span fxFlex="40px" *ngIf="stopFlagIndex === i"> סדרות שאינן מתעדכנות</span>
+                            <div fxFlex="40px" fxLayout="row" fxLayoutAlign="center">
+                                <div fxFlex="50px" fxLayoutAlign="center">
+                                    <mat-checkbox
+                                        (change)="onSelectSeries($event.checked, option)"
+                                        [checked]="selectedSeries[option.sId]"
+                                    ></mat-checkbox>
+                                </div>
+                                <span fxFlex>{{ option.sId + ', ' + option.name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </cdk-virtual-scroll-viewport>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div fxFlex="40px"></div>
+    <div class="templates" fxFlex="407px" fxLayout="column" fxLayoutAlign="center start">
+        <p-autocomplete
+            fxFlex="110px"
+            *ngIf="seriesGroupsSettings"
+            [canRemove]="true"
+            idPath="name"
+            (selectedChange)="filterSelected($event)"
+            [settings]="seriesGroupsSettings"
+            [freeText]="true"
+            removeTitle="מחיקת התבנית"
+            (onRemove)="onRemoveOption($event)"
+            [freeTextAddNewTitle]="NEW"
+        ></p-autocomplete>
+        <div fxFlex style="width: 100%;overflow: auto;" fxFlexAlign="center" fxLayout="column">
+            <div *ngFor="let id of currentTemplate.seriesIds" fxLayoutAlign=" center" fxFlex="40px">
+                <span [title]="seriesDic[id].title" class="points" fxFlex>
+                    {{ seriesDic[id].title }}
+                </span>
+                <div fxFlex="50px" fxLayoutAlign="end">
+                    <mat-icon class="icon" (click)="onSelectSeries(false, seriesDic[id])" class="icon">close</mat-icon>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="dateForm" style="width: 100%;" fxLayout="column" fxFlex="240px" fxLayoutAlign="space-evenly">
+            <mat-form-field fxFlex="70px">
+                <input matInput placeholder="בחרו טווח תאריכים" [satDatepicker]="picker4" formControlName="date" />
+                <sat-datepicker #picker4 [rangeMode]="true" orderPeriodLabel="year"> </sat-datepicker>
+                <sat-datepicker-toggle matSuffix [for]="picker4"></sat-datepicker-toggle>
+            </mat-form-field>
+            <mat-divider fxFlex="10px"></mat-divider>
+            <div fxFlex="130px" fxLayout="row" fxLayoutAlign="space-evenly">
+                <button class="button" (click)="download()" mat-button>
+                    <div fxLayout="column" fxLayoutAlign="center center">
+                        <svg-icon src="assets/img/svgs/xml.svg"></svg-icon>
+                        <span class="textBut"> Download .xls</span>
+                    </div>
+                </button>
+                <button disabled class="button" (click)="download()" mat-button>
+                    <div fxLayout="column" fxLayoutAlign="center center">
+                        <svg-icon src="assets/img/svgs/table.svg"></svg-icon>
+                        <span class="textBut"> View Table</span>
+                    </div>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

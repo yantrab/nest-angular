@@ -1,0 +1,180 @@
+@import '../mf.component.scss';
+
+$padding-top: 0px;
+
+#findFund {
+    padding: 0 5.6% 0% 5.6%;
+    height: calc(96% - #{$padding-top * 2} - 40px);
+    .wrapFilters {
+        height: 100%;
+        .filtersTitle {
+            padding: 0 6.4% 0% 6.4%;
+
+            font-size: 12px;
+            font-weight: 700;
+            background: #ffffff;
+            span {
+                line-height: 70px;
+            }
+
+            .mat-tab-label {
+                @include letterMf($height: 36px);
+                padding: 0 !important;
+                margin: 0px !important;
+                border-bottom: 2px solid #dfe4ea;
+
+                &:focus {
+                    border-bottom: 2px solid #1e90ff;
+                }
+            }
+        }
+
+        .wrapAutocomplete {
+            background: rgb(255, 255, 255);
+            width: 100%;
+            position: relative;
+            padding: 13px 20px 0;
+            height: 9%;
+        }
+
+        .scrollable-y {
+            overflow-y: auto;
+            width: 100%;
+        }
+    }
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+        background: rgba(30, 144, 255, 0.3) !important;
+    }
+
+    .mat-expansion-panel-header:hover {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 45px, #f8f8fa 0%);
+    }
+    .mat-form-field {
+        @include letterMf($font-size: 13px, $letter-spacing: 0.08, $font-weight: normal, $color: #21242c);
+    }
+
+    .table {
+        .mat-tab-body-wrapper {
+            padding: 16px 10px 0;
+        }
+    }
+    .mat-ink-bar {
+        height: 0 !important;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+        color: #1e90ff !important;
+    }
+    .mat-cell,
+    .mat-footer-cell {
+        font-size: 13px;
+    }
+    .mat-expansion-indicator {
+        align-self: flex-start;
+        height: 37px;
+        margin-top: 5px;
+    }
+    .mat-expansion-indicator::after {
+        vertical-align: bottom !important;
+    }
+    .maxHaight {
+        height: 95% !important;
+    }
+
+    .mat-checkbox-inner-container {
+        width: 20px !important;
+        height: 20px !important;
+        // margin-bottom: 0px !important;
+        // margin: 8px 10px 0px 10px !important;
+        border: solid 1px #ced6e0 !important;
+    }
+    .mat-checkbox-frame {
+        border-style: none !important;
+    }
+    .mat-checkbox-checkmark-path {
+        stroke: black !important;
+    }
+    .mat-checkbox-layout {
+        margin: 8px 8px 3px;
+    }
+    .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+        background: none !important;
+    }
+    .wrapTabs {
+        .mat-tab-label {
+            @include letterMf($height: 54px);
+            padding: 0 !important;
+            margin: 0 8px !important;
+            box-shadow: 0 10px 20px 0 rgba(206, 214, 224, 0.25);
+            border: solid 1px #dfe4ea;
+        }
+        .mat-tab-label-active {
+            background-color: #ffffff !important;
+            opacity: 1 !important;
+        }
+    }
+    .mat-tab-nav-bar,
+    .mat-tab-header {
+        border-bottom: 0 !important;
+        width: 100% !important;
+    }
+
+    .specialView {
+        .mat-tab-nav-bar,
+        .mat-tab-header {
+            width: 1069px !important;
+        }
+    }
+    .noSpecialView {
+        .mat-tab-nav-bar,
+        .mat-tab-header {
+            width: 98.6% !important;
+        }
+    }
+
+    .mat-tab-body-wrapper {
+        padding: 0px 10px 0;
+        height: 100%;
+
+        mat-tab-body {
+            height: 100%;
+        }
+    }
+    .special {
+        height: 58px;
+        min-height: 50px;
+        padding: 10px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+        opacity: 1;
+        background-color: #ffffff;
+        &.hasfunds {
+            opacity: 0.5;
+            border: solid 1px #1e90ff;
+            background-color: #bcdeff;
+            cursor: pointer;
+        }
+        &.active {
+            opacity: 1;
+            box-shadow: 0 4px 10px 0 rgba(30, 144, 255, 0.1);
+            border: solid 1px #1e90ff;
+            background-color: #bcdeff;
+            cursor: pointer;
+        }
+    }
+
+    .mat-cell {
+        unicode-bidi: plaintext;
+    }
+    .mat-dialog-container {
+        #table .mat-table {
+            margin-top: 10px;
+        }
+    }
+}
+.mat-stroked-button {
+    width: 100px;
+    border-radius: 2px;
+    border: solid 1px #ced6e0;
+}

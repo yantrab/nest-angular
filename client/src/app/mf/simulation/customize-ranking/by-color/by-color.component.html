@@ -1,0 +1,55 @@
+<p-customize-template tTitle="Customized Ranking" (back)="back()">
+    <ng-container id="button">
+        <span [style.color]="'#a4b0be'">Define sub-categories by colors:</span>
+        <div fxLayout="row wrap" fxFlexAlign="center" style="height: 180px;width: 230px" fxLayoutAlign="center center">
+            <div *ngFor="let group of colorGroups" style="height: 90px;width: 90px;" fxLayoutAlign="center center">
+                <button
+                    [class.selected]="selectedColorGroup.color === group.color"
+                    mat-fab
+                    [style.background-color]="group.color"
+                    (click)="selectedColorGroup = group"
+                >
+                    <mat-icon *ngIf="selectedColorGroup.color === group.color">edit</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <button
+            mat-button
+            color="primary"
+            style="width: 146px;height: 42px; border-radius: 2px; border: solid 1px #1e90ff;margin-top:25%;"
+            [ngStyle]="{ 'margin-bottom': state !== State.defineWeight ? '13%' : '50%' }"
+        >
+            SHOW ALL
+        </button>
+
+        <button
+            style="width: 146px;height: 42px;margin-bottom: 3.6%;"
+            mat-raised-button
+            color="primary"
+            (click)="state !== State.defineWeight ? (state = State.defineWeight) : next.emit()"
+        >
+            save
+        </button>
+    </ng-container>
+    <div
+        id="grid"
+        style="padding: 10px"
+        fxFill
+        fxFlex
+        [style.background]="'#ffffff'"
+        fxLayout="row wrap"
+        fxLayoutAlign="space-between"
+    >
+        <ng-container *ngIf="state === State.editRanks">
+            <p-fund-card
+                (click)="group.color = selectedColorGroup.color"
+                *ngFor="let group of groups"
+                [group]="group"
+            ></p-fund-card>
+        </ng-container>
+        <ng-container *ngIf="state === State.defineWeight">
+            <p-define-weights-by-group-colors [groups]="selectedColorGroup"></p-define-weights-by-group-colors>
+        </ng-container>
+    </div>
+</p-customize-template>

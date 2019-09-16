@@ -1,0 +1,16 @@
+<div
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    class="card"
+    [style.background-color]="group.color + 70"
+    [style.border-color]="group.color"
+    [class.hasfunds]="group.count > 0"
+>
+    <div class="card-inside" fxFlex fxLayoutAlign="start center">
+        <mat-icon class="icon">add_circle_outline</mat-icon>
+        <span> {{ group.name }} </span>
+    </div>
+    <span dir="ltr" *ngIf="group.count < 0">
+        {{ group.count }}
+    </span>
+</div>

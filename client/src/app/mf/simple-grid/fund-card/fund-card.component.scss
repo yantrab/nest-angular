@@ -1,0 +1,27 @@
+.card {
+    border: solid 1px #dfe4ea;
+    background-color: #f1f2f6;
+    .card-inside{
+        width: 70%;
+        .icon{
+            padding: 5px;
+        }
+    }
+}
+
+.pink {
+    background-color: rgba(255, 107, 129, 0.3);
+    border: solid 1px #ff6b81;
+}
+.accent {
+    border: solid 1px #ffa502;
+    background-color: rgba(255, 165, 2, 0.3);
+}
+.primary-bold {
+    border: solid 1px #5352ed;
+    background-color: rgba(83, 82, 237, 0.3);
+}
+.primary {
+    border: solid 1px #1e90ff;
+    background-color: rgba(30, 144, 255, 0.3);
+}

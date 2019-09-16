@@ -19,8 +19,9 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     chips: boolean;
     filteredOptions: Observable<any[]>;
     input: FormControl = new FormControl();
+
     @Input() filterFn = query => {
-        const result = this.queries.filter(q => q.queries.includes(query.trim())).map(q => q.option);
+        const result = this.queries.filter(q => q.q.includes(query.trim())).map(q => q.option);
         if (result.length || !this.freeText) {
             return result;
         }
@@ -29,7 +30,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
 
     @Input() appearance = 'outline';
     @Input() paths: string[] = ['name', '_id'];
-    @Input() idPath = 'id';
+    @Input() idPath = '_id';
     @Input() freeText: boolean;
     @Input() removeTitle = 'remove';
     @Input() canRemove: boolean;
@@ -52,6 +53,10 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     };
 
     onSettingsChange(settings) {
+        this.queries = [];
+        if (this.canRemove) {
+            this.options = this.settings.options;
+        }
         this.options.forEach(option => {
             this.queries.push({
                 q: this.paths.reduce((query, path) => query + ' ' + (option[path] || ''), '').toLowerCase(),
@@ -68,15 +73,28 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     }
 
     optionSelected(selected) {
-        super.optionSelected(selected);
+        if (
+            !this.settings.isMultiple ||
+            !this.settings.selected ||
+            !this.settings.selected.find(o => get(o, this.idPath) === get(selected, this.idPath))
+        ) {
+            super.optionSelected(selected);
+        }
         if (this.keepOpen || this.settings.isMultiple) {
-            // this.inputAutocomplete.openPanel();
+            setTimeout(() => {
+                this.inputAutocomplete.openPanel();
+                this.matInput._elementRef.nativeElement.focus();
+            });
         } else {
             this.matInput._elementRef.nativeElement.blur();
         }
+        setTimeout(() => {
+            // this.input.setValue('');
+        }, 100);
     }
 
     ngOnInit(): void {
+        super.ngOnInit();
         if (this.chips === undefined) {
             this.chips = this.settings.isMultiple;
         }
@@ -109,8 +127,14 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         ev.stopPropagation();
     }
 
-    remove(option: any) {
+    remove(option: any, ev) {
         this.settings.options = this.settings.options.filter(o => get(o, this.idPath) !== get(option, this.idPath));
         this.onRemove.emit(option);
+        // ev.stopPropagation();
+        // ev.preventDefault();
+    }
+
+    setInputFocus() {
+        setTimeout(() => this.matInput._elementRef.nativeElement.focus());
     }
 }

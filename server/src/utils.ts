@@ -1,8 +1,4 @@
-import { promisify } from 'util';
-import { writeFile as wf } from 'fs';
-export const writeFile = promisify(wf);
-export * from '../../shared/utils';
-import { genSalt, hash } from 'bcrypt';
+import { genSalt, hash } from 'bcryptjs';
 import { randomBytes } from 'crypto';
 export const cryptPassword = async password => {
     const salt = await genSalt(10);
@@ -11,5 +7,5 @@ export const cryptPassword = async password => {
 
 export const getRandomToken = async () => {
     const buffer = await randomBytes(48);
-    return buffer.toString('hex');
+    return buffer.toString();
 };

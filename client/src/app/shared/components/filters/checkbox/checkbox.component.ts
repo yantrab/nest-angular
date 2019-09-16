@@ -8,7 +8,7 @@ import { BaseFilterComponent } from '../base.component';
             <span>{{ placeholder }}</span>
             <mat-checkbox
                 fxFlex="30px"
-                *ngFor="let option of settings.options"
+                *ngFor="let option of options"
                 [checked]="checkedList[option._id] && settings.isActive"
                 (change)="change($event.checked, option)"
                 color="primary"

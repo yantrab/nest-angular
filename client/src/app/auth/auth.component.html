@@ -3,9 +3,23 @@
         <div class="login-logo">
             <img src="praedicta-logo.png" alt="" />
         </div>
-        <form autocomplete="off" *ngIf="form && dic && this.state === 'login'">
-            <p-text-box [form]="form.controls['email']" name="email" [placeholder]="dic.loginPage.email"></p-text-box>
-            <p-text-box [form]="form.controls['password']" name="password" [placeholder]="dic.loginPage.password"></p-text-box>
+        <form autocomplete="off" *ngIf="form && dic && this.state === 'login'" (keydown.enter)="login($event)">
+            <div style="width: 100%;height: 110px" fxLayoutAlign="center">
+                <svg-icon src="assets/img/svgs/logoLogin.svg"></svg-icon>
+            </div>
+
+            <p-text-box
+                style="padding: 0"
+                [form]="form.controls['email']"
+                name="email"
+                [placeholder]="dic.loginPage.email"
+            ></p-text-box>
+            <p-text-box
+                type="password"
+                [form]="form.controls['password']"
+                name="password"
+                [placeholder]="dic.loginPage.password"
+            ></p-text-box>
             <button
                 (onfocus)="hover = true"
                 (mouseenter)="hover = true"
@@ -22,14 +36,21 @@
             </button>
         </form>
 
-        <form autocomplete="off" *ngIf="signinFrom && dic && this.state === 'signin'" [formGroup]="signinFrom">
+        <form
+            autocomplete="off"
+            *ngIf="signinFrom && dic && this.state === 'signin'"
+            [formGroup]="signinFrom"
+            (keydown.enter)="signin($event)"
+        >
             <p-text-box [form]="signinFrom.controls['email']" name="email" [placeholder]="dic.loginPage.email"></p-text-box>
             <p-text-box
+                type="password"
                 [form]="signinFrom.controls['password']"
                 name="password"
                 [placeholder]="dic.loginPage.password"
             ></p-text-box>
             <p-text-box
+                type="password"
                 [form]="signinFrom.controls['rePassword']"
                 name="rePassword"
                 [placeholder]="dic.loginPage.rePassword"

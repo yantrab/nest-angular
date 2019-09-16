@@ -52,7 +52,7 @@ import { CheckboxFilter, DropdownFilter, AutocompleteFilter } from 'shared/model
 })
 export class FilterComponent {
     @Input() filter: Filter;
-    @Input() dic;
+    @Input() dic = { placeholder: {}, titles: {} };
     @Output() selectedChange = new EventEmitter();
     @Input() dataSource;
     filterTypes = {

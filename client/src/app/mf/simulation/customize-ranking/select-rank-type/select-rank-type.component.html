@@ -1,0 +1,13 @@
+<p-customize-template>
+    <div id="button" style="width:100%;height: 100%" fxLayout="column" fxLayoutAlign="space-evenly center">
+        <div fxFlex style="width:70%;">
+            <span style="line-height: 80px;height: 80px;">Choose your type of ranking </span>
+            <p-filter [filter]="typeRankFilter"></p-filter>
+        </div>
+        <mat-divider fxFlex="10px" style="width: 100%;"></mat-divider>
+        <div fxFlex="100px">
+            <button mat-raised-button color="primary" (click)="next.emit()">NEXT</button>
+        </div>
+    </div>
+    <p-simple-grid id="grid" fxLayout="row wrap" fxLayoutAlign="space-between start" [groups]="groups"></p-simple-grid>
+</p-customize-template>

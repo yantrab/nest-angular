@@ -1,0 +1,63 @@
+@import '../site.component';
+pre {
+    margin: 0em 0px;
+}
+.bonds {
+    margin: 17% 11% 0;
+    span {
+        &.title {
+            @include letter(50px, 1.6px, $font-weight: bold, $font-family: Rubik, $color: #feffdf);
+        }
+    }
+    p {
+        padding: 0 3em;
+        margin: 0;
+        @include letter(14px, 0.5px, 2, $font-family: Rubik, $color: #feffdf);
+    }
+}
+.holdings {
+    margin: 12% 3% 0;
+    span {
+        &.title {
+            @include letter(50px, 1.6px, $font-weight: bold, $font-family: Rubik, $color: #f5e1db);
+        }
+    }
+    p {
+        padding: 0 6em;
+        margin: 0;
+        @include letter(14px, 0.5px, 2, $font-family: Rubik, $color: #f5e1db);
+    }
+}
+[dir='ltr'].holdings {
+    margin: 15% 15% 0 !important;
+}
+
+.otherSolution {
+    margin: 16% 12% 0;
+    span {
+        &.title {
+            @include letter(50px, 1.6px, $font-weight: bold, $font-family: Rubik, $color: #b6cfe7);
+        }
+    }
+    p {
+        padding: 0 4em;
+        margin: 0;
+        margin-top: 2em;
+
+        @include letter(14px, 0.5px, 2, $font-family: Rubik, $color: #b6cfe7);
+    }
+}
+.contactUs {
+    margin: 31% 20% 0;
+
+    span {
+        &.title {
+            @include letter(50px, 2.3px, 1, $font-weight: bold, $font-family: Rubik, $color: #feffdf);
+        }
+    }
+    p {
+        padding: 0 3em;
+        margin: 0;
+        @include letter(16px, 0.6px, 1.75, $font-family: Rubik, $color: #feffdf);
+    }
+}

@@ -1,16 +1,11 @@
-<div fxLayout="column">
-    <span>{{ placeholder }}</span>
-    <mat-radio-group (change)="change($event.value)" fxLayout="column">
-        <!--        <mat-radio-button color="primary" [value]="undefined" [checked]="!settings.selected">-->
-        <!--            none-->
-        <!--        </mat-radio-button>-->
-        <mat-radio-button
-            style="margin: 5px;"
-            color="primary"
-            *ngFor="let option of settings.options"
-            [checked]="!!settings.selected && option._id === settings.selected._id"
-            [value]="option"
-            >{{ option.name }}</mat-radio-button
-        >
-    </mat-radio-group>
-</div>
+<mat-label>{{ placeholder }}</mat-label>
+<mat-radio-group (change)="change($event.value)" fxLayout="row wrap" [labelPosition]="labelPosition">
+    <mat-radio-button
+        style="margin: 5px;"
+        color="primary"
+        *ngFor="let option of options"
+        [checked]="!!settings.selected && option._id === settings.selected._id"
+        [value]="option"
+        >{{ option.name }}</mat-radio-button
+    >
+</mat-radio-group>

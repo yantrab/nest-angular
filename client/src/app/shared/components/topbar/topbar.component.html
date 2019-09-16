@@ -4,7 +4,9 @@
             <div fxFlex="93px" class="logout" fxLayoutAlign="center">
                 <p-nav-menu [items]="model?.menuItems"></p-nav-menu>
             </div>
-            <button class="logout" mat-stroked-button>{{ model?.logoutTitle }}</button>
+            <button class="logout" mat-stroked-button (click)="model.logout()">
+                <b>{{ model?.logoutTitle }}</b>
+            </button>
         </div>
         <div fxFlex fxLayoutAlign="center center">
             <a

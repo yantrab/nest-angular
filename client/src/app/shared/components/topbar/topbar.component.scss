@@ -1,28 +1,47 @@
-#topbar{
+@import '../../../../assets/styles/style';
+
+#topbar {
     box-shadow: 0 1px 0 0 #dfe4ea;
     background-color: #ffffff;
 
-    .logout{
+    .logout {
         height: 36px;
-        }
-        
+        font-size: 12px !important;
+    }
+
     .logo {
         width: 133px;
         height: 42px;
         object-fit: contain;
-        }
-    
-    .tab{
-        cursor: pointer;
-        a{
-            text-decoration: none;
-        };
-        height: 36px;
-    
     }
-    
-    .active{
-        border-bottom: 2px solid blue;
+    .praedicta {
+        @include letter(13px, normal, $font-weight: 500, $font-family: Cabin, $color: #2f3542);
+        width: 67px;
+        height: 16px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        text-align: right;
+    }
+    .tab {
+        cursor: pointer;
+        @include letter(12px, 0.2px, $font-weight: bold, $line-height: none, $font-family: Cabin, $color: #2f3542);
+
+        a {
+            text-decoration: none;
+        }
+        height: 36px;
+    }
+
+    .active {
+        border-bottom: 2px solid #1e90ff;
+        border-radius: 0px !important;
     }
 }
-
+.mat-button,
+.mat-flat-button,
+.mat-icon-button,
+.mat-stroked-button {
+    padding: 0 !important;
+    margin: 0 25px !important;
+}

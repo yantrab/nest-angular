@@ -1,8 +1,9 @@
-import { Controller, Post, Get, Body, Req, UseInterceptors } from '@nestjs/common';
+import { Controller, Post, Get, Body, UseInterceptors } from '@nestjs/common';
 import { LoginRequest, User, signinRequest } from 'shared';
 import { UserService } from 'services/user.service';
 import { LoginInterceptor, GetUserAuthenticatedInterceptor } from '../middlewares/login.middleware';
 import { ReqUser } from 'decorators/user.decorator';
+import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 
 @Controller('rest/auth')
 export class AuthController {
@@ -10,8 +11,14 @@ export class AuthController {
 
     @Post('login')
     @UseInterceptors(LoginInterceptor)
-    async login(@Body() user: LoginRequest): Promise<User> {
-        return this.authService.validateUser(user.email, user.password);
+    async login(@Body() user: LoginRequest): Promise<{ status: number }> {
+        return this.authService.validateUser(user.email, user.password) as any;
+    }
+
+    @Post('logout')
+    @UseInterceptors(AuthorizeInterceptor)
+    async logout(@ReqUser() user: User): Promise<{ status: number }> {
+        return this.authService.logout(user) as any;
     }
 
     @Post('signin')

@@ -7,6 +7,7 @@
         "rePassword": "rePassword"
     },
     "validation": {
-        "required": "required"
+        "required": "required",
+        "loginFailedMsg": "user name or password is incorrect"
     }
 }

@@ -8,8 +8,15 @@ export class DialogService {
     constructor(private i18nService: I18nService, private dialog: MatDialog) {}
     open<T, D = any, R = any>(
         componentOrTemplateRef: ComponentType<T> | TemplateRef<T>,
-        config?: MatDialogConfig<D>,
+        config?: MatDialogConfig<D> & { title?: string },
     ): MatDialogRef<T, R> {
-        return this.dialog.open(componentOrTemplateRef, Object.assign(config, { direction: this.i18nService.dir }));
+        const ref = this.dialog.open(componentOrTemplateRef, Object.assign(config, { direction: this.i18nService.dir }));
+        if (config.title) {
+            const el = document.createElement('span');
+            el.textContent = config.title;
+            el.className = 'dialogTitle';
+            document.getElementsByTagName('mat-dialog-container')[0].prepend(el);
+        }
+        return ref;
     }
 }

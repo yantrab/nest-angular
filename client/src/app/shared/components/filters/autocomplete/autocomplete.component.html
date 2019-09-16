@@ -1,16 +1,26 @@
-<mat-form-field style="width: 100%;" #matForm [appearance]="appearance">
-    <mat-chip-list *ngIf="chips">
-        <mat-chip
-            *ngFor="let selectedOption of settings?.selected"
-            [removable]="true"
-            (removed)="optionDeSelected(selectedOption)"
-        >
-            {{ selectedOption.name }}
-            <mat-icon matChipRemove>cancel</mat-icon>
-        </mat-chip>
-    </mat-chip-list>
+<mat-form-field style="width: 100%;" floatLabel="always" #matForm [appearance]="appearance">
+    <mat-label *ngIf="chips && title">{{ title }}</mat-label>
+    <div fxLayout="row wrap" (click)="setInputFocus()">
+        <mat-chip-list *ngIf="chips">
+            <mat-chip
+                *ngFor="let selectedOption of settings?.selected"
+                [removable]="true"
+                (removed)="optionDeSelected(selectedOption)"
+            >
+                {{ selectedOption.name }}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
 
-    <input id="input" matInput [placeholder]="placeholder" [matAutocomplete]="auto" [formControl]="input" />
+        <input
+            style="width: auto !important;"
+            id="input"
+            matInput
+            [placeholder]="!settings.selected ? placeholder : ''"
+            [matAutocomplete]="auto"
+            [formControl]="input"
+        />
+    </div>
     <mat-autocomplete
         #auto="matAutocomplete"
         [displayWith]="displayFn"
@@ -24,8 +34,8 @@
         >
             <div fxLayout="row" fxFlex>
                 <span fxFlex> {{ option.name }}</span>
-                <div fxFlex="20px" [title]="removeTitle">
-                    <mat-icon fxFlexstyle="cursor: pointer;" (click)="remove(option)">clear</mat-icon>
+                <div fxFlex="20px" [title]="removeTitle" *ngIf="canRemove">
+                    <mat-icon style="cursor: pointer;" (click)="remove(option, $event)">clear</mat-icon>
                 </div>
             </div>
         </mat-option>

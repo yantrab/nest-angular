@@ -1,0 +1,35 @@
+@import '../../../../assets/styles/style';
+.text {
+}
+
+::ng-deep p-parameter-picker {
+    .dialog {
+        .text {
+            @include letter(
+                $font-size: 17px,
+                $letter-spacing: 0.2px,
+                $line-height: normal,
+                $font-weight: bold,
+                $font-family: sans-serif,
+                $color: #2f3542
+            );
+        }
+        ::ng-deep.mat-checkbox-inner-container {
+            width: 20px !important;
+            height: 20px !important;
+            margin-bottom: 15px !important;
+            margin-left: 10px !important;
+            border: solid 1px #ced6e0 !important;
+        }
+        ::ng-deep.mat-checkbox-frame {
+            border-style: none !important;
+        }
+        ::ng-deep.mat-checkbox-checkmark-path {
+            stroke: black !important;
+        }
+
+        ::ng-deep.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+            background: none !important;
+        }
+    }
+}

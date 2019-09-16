@@ -18,7 +18,7 @@ const isCordovaApp = Object(window).cordova != null;
 export class AppComponent {}
 
 const routes: Routes = [
-    { path: '', redirectTo: 'intercom-admin', pathMatch: 'full' },
+    { path: '', redirectTo: 'tador', pathMatch: 'full' },
     { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },
     { path: 'signin/:site/:token', loadChildren: 'src/app/auth/auth.module#AuthModule' },
     { path: 'admin/:site', loadChildren: 'src/app/admin/admin.module#AdminModule' },

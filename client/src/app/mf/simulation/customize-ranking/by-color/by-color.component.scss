@@ -1,0 +1,13 @@
+.mat-fab {
+    height: 46px;
+    width: 46px;
+    &.selected {
+        height: 60px;
+        width: 60px;
+    }
+}
+::ng-deep p-customize-template{
+.filter{
+    height: 100% !important;
+}
+}

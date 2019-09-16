@@ -1,0 +1,15 @@
+:host {
+    overflow-y: auto;
+    .empty {
+        visibility: hidden;
+    }
+    .height {
+        height: 100%;
+    }
+    .font {
+        font-size: 11px;
+    }
+    .card {
+        opacity: 1 !important;
+    }
+}

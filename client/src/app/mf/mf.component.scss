@@ -1,0 +1,58 @@
+@mixin letterMf(
+    $font-size: 12px,
+    $letter-spacing: 0.2px,
+    $line-height: normal,
+    $font-weight: bold,
+    $font-family: Open Sans Hebrew,
+    $color: #2f3542,
+    $width: auto,
+    $height: auto
+) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+    color: $color;
+    width: $width;
+    height: $height;
+}
+
+$topbar-hight: 70px;
+::ng-deep {
+    .card {
+        //max-width: 227px;
+        width: 24.2%;
+        height: 16%;
+        min-width: 200px;
+        min-height: 96px;
+        padding: 10px 24px;
+        margin-bottom: 1.1%;
+        opacity: 0.35;
+        background-color: #ffffff;
+        &.hasfunds {
+            opacity: 0.5;
+            border: solid 1px #1e90ff;
+            background-color: #bcdeff;
+            cursor: pointer;
+        }
+        &.active {
+            opacity: 1;
+            box-shadow: 0 4px 10px 0 rgba(30, 144, 255, 0.1);
+            border: solid 1px #1e90ff;
+            background-color: #bcdeff;
+            cursor: pointer;
+        }
+    }
+}
+p-topbar {
+    height: $topbar-hight;
+}
+.content {
+    letter-spacing: 0.2px;
+
+    height: calc(100vh - #{$topbar-hight});
+    background-color: #f1f2f6;
+}

@@ -1,0 +1,100 @@
+@import '../../../assets/styles/style';
+@import '../mf.component';
+:host {
+    height: 100%;
+    width: 100%;
+    letter-spacing: 0.2px;
+}
+$padding-top: 30px;
+#simulation {
+    padding-top: $padding-top;
+    height: calc(100% - #{$padding-top * 2});
+    width: 90%;
+    margin: auto;
+    mat-divider {
+        width: 100%;
+    }
+    .exludeFundsContainer {
+        background: #ffffff;
+        height: 60%;
+        margin: 10px 0 0 0;
+
+        .wrap-button {
+            width: 100%;
+            .button {
+                width: 146px;
+                height: 42px;
+            }
+        }
+        .exludeTitle {
+            line-height: 77px;
+            width: 100%;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.2px;
+            text-align: center;
+            color: #2f3542;
+        }
+        .filterContainer {
+            width: 66%;
+            margin-bottom: 8%;
+        }
+        .excludeTotal {
+            line-height: 50px;
+            color: #a4b0be;
+        }
+    }
+    .parameters {
+        background-color: #ffffff;
+        color: #2f3542;
+        height: 75%;
+        ::ng-deep p-parameter-picker {
+            height: 81%;
+            .text {
+                @include letterMf($font-size: 17px, $font-family: sans-serif);
+            }
+
+            .mat-checkbox-inner-container {
+                margin-bottom: 15px !important;
+                border: solid 1px #ced6e0 !important;
+                margin-right: 8px !important;
+            }
+            .mat-checkbox-frame {
+                border-style: none !important;
+            }
+            .mat-checkbox-checkmark-path {
+                stroke: black !important;
+            }
+            ::ng-deep.mat-checkbox-inner-container {
+                width: 20px !important;
+                height: 20px !important;
+                margin-bottom: 15px !important;
+                margin-left: 10px !important;
+                border: solid 1px #ced6e0 !important;
+            }
+            ::ng-deep.mat-checkbox-frame {
+                border-style: none !important;
+            }
+            ::ng-deep.mat-checkbox-checkmark-path {
+                stroke: black !important;
+            }
+
+            ::ng-deep.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+                background: none !important;
+            }
+        }
+        .wrap-button {
+            width: 30%;
+            .button1 {
+                width: 60%;
+                height: 42px;
+                border: solid 1px #1e90ff;
+                color: #1e90ff;
+            }
+            .button2 {
+                width: 35%;
+                height: 42px;
+            }
+        }
+    }
+}

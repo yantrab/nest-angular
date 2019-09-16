@@ -28,7 +28,7 @@ export class SpecialFilterComponent extends BaseFilterComponent implements OnIni
     ngOnInit(): void {
         const options = cloneDeep(this.settings.options);
         options.forEach(o => (o.name = this.dic[o.name] || o.name));
-        this.autoSettings = new AutocompleteFilter({ options });
+        this.autoSettings = new AutocompleteFilter({ options, placeholder: this.settings.placeholder });
         if (this.settings.selected) {
             this.settings.selected = this.settings.selected.filter(s => s.selected && s.isActive);
             if (!this.settings.selected.length) {

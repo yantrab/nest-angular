@@ -1,0 +1,10 @@
+<ng-container *ngIf="model.typeRankFilter.selected">
+    <p-freely *ngIf="model.typeRankFilter.selected._id == SimulationRankType.freely"></p-freely>
+    <p-by-color
+        [state]="state"
+        (next)="next.emit()"
+        [groups]="model.gridGroups"
+        [parameterGroups]="model.simlulationSettings.customizeParameters"
+        *ngIf="model.typeRankFilter.selected._id == SimulationRankType.subGroup"
+    ></p-by-color>
+</ng-container>

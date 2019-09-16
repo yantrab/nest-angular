@@ -2,11 +2,12 @@
     "loginPage": {
         "login": "כניסה",
         "signin": "שמור",
-        "email": "אמייל",
-        "password": "ססמה",
+        "email": "שם משתמש",
+        "password": "סיסמא",
         "rePassword": "הקש ססמה שנית"
     },
     "validation": {
-        "required": "required"
+        "required": "required",
+        "loginFailedMsg": "שם המשתמש או הסיסמא שגויים"
     }
 }

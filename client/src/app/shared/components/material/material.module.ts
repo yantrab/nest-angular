@@ -25,15 +25,7 @@ import {
 } from '@angular/material';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { Injectable, NgModule } from '@angular/core';
-import {
-    DateAdapter,
-    MAT_DATE_FORMATS,
-    MAT_DATE_LOCALE,
-    NativeDateAdapter,
-    SatDatepickerModule,
-    SatNativeDateModule,
-} from 'saturn-datepicker';
-import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_LOCALE, NativeDateAdapter, SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { format } from 'date-fns';
 import { Platform } from '@angular/cdk/platform';
@@ -69,7 +61,7 @@ const modules = [
 
 @Injectable()
 export class MyDateAdapter extends NativeDateAdapter {
-    constructor(matDateLocale?: string) {
+    constructor(matDateLocale: string) {
         super(matDateLocale, new Platform());
     }
     format(date: Date, displayFormat: any): string {

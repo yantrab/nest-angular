@@ -1,13 +1,14 @@
 import { Injectable, NestInterceptor, ExecutionContext, CallHandler, ForbiddenException } from '@nestjs/common';
 import { UserService } from '../services/user.service';
-import { hasPermission } from 'shared';
+import { App } from 'shared/models';
 
 @Injectable()
 export class AuthorizeInterceptor implements NestInterceptor {
+    apps: App = App as any;
     constructor(private userService: UserService) {}
     async intercept(context: ExecutionContext, next: CallHandler) {
         const user = await this.userService.getUserAuthenticated(context.getArgs()[0].cookies.t);
-        if (!hasPermission(user, context.getClass()['app'])) {
+        if (!user && user.hasPermission(this.apps[context.getClass()['app']])) {
             throw new ForbiddenException();
         }
 
@@ -15,10 +16,6 @@ export class AuthorizeInterceptor implements NestInterceptor {
         return next.handle();
     }
 }
-
-
-
-
 
 // import { Injectable, NestInterceptor, ExecutionContext, CallHandler, ForbiddenException } from '@nestjs/common';
 // import { UserService } from '../services/user.service';

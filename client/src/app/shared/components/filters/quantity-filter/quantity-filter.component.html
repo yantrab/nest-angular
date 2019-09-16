@@ -1,10 +1,19 @@
-<span>{{ placeholder }}</span>
-<dx-range-selector [value]="settings.selected" (onValueChanged)="optionSelected($event.value)" [dataSource]="settings.options">
-    <dxo-scale>
-        <dxo-label [visible]="false"> </dxo-label>
-    </dxo-scale>
-    <dxo-chart>
-        <dxi-series type="spline" argumentField="x" valueField="y"></dxi-series>
-    </dxo-chart>
-    <dxo-size [height]="50"></dxo-size>
-</dx-range-selector>
+<ng-container *ngIf="options && options.length">
+    <span>{{ placeholder }}</span>
+    <dx-range-selector
+        #rangeSelector
+        [scale]="{ tick: { width: 0 }, minorTick: { width: 0 } }"
+        [value]="settings.selected"
+        (dataSourceChange)="dataSourceChange($event)"
+        (onValueChanged)="onValueChanged($event)"
+        [dataSource]="options"
+    >
+        <dxo-scale>
+            <dxo-label [visible]="false"> </dxo-label>
+        </dxo-scale>
+        <dxo-chart>
+            <dxi-series type="splinearea" argumentField="x" valueField="y"></dxi-series>
+        </dxo-chart>
+        <dxo-size [height]="50"></dxo-size>
+    </dx-range-selector>
+</ng-container>

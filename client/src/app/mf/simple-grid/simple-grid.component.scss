@@ -1,0 +1,31 @@
+@import '../mf.component';
+:host {
+    height: 100%;
+}
+.groupName {
+    @include letterMf($height: 17px);
+    margin: 6px 5px;
+}
+.groupCount {
+    @include letterMf($font-size: 18px, $letter-spacing: 0.3px);
+}
+.items {
+    height: 50px;
+    background-color: aquamarine;
+    width: 200px;
+    position: absolute;
+}
+.cdk-overlay-container {
+    ::-webkit-scrollbar {
+        width: 10px !important;
+        background: #f1f1f1 !important;
+    }
+}
+button {
+    min-width: 30px !important;
+    line-height: 30px !important;
+    padding: 0 0 !important;
+}
+::ng-deep mat-virtual-table {
+    height: 100%;
+}

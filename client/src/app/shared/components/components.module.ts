@@ -12,7 +12,7 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { RouterModule } from '@angular/router';
 import { AutocompleteComponent } from './filters/autocomplete/autocomplete.component';
-import { TableModule } from 'mat-virtual-table';
+import { TableComponent, TableModule } from 'mat-virtual-table';
 import { I18nService } from '../services/i18n.service';
 import { XLSXService } from '../services/xlsx.service';
 import { TreeComponent } from './tree/tree.component';
@@ -24,6 +24,8 @@ import { ComboboxComponent } from './filters/combobox/combobox.component';
 import { ParameterPickerComponent } from './parameter-picker/parameter-picker.component';
 import { MultiSliderRangeSelectorComponent } from './multi-slider-range-selector/multi-slider-range-selector.component';
 import { DialogService } from '../services/dialog.service';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+
 const components = [
     DropdownComponent,
     CheckboxComponent,
@@ -49,6 +51,7 @@ const exportsM = [
     ReactiveFormsModule,
     DynaFormModule,
     DxRangeSelectorModule,
+    AngularSvgIconModule,
     ...components,
 ];
 @Injectable()
@@ -103,6 +106,6 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
     declarations: components,
     exports: exportsM,
     providers: [I18nService, XLSXService, { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }, DialogService],
-    entryComponents: [ParameterPickerComponent],
+    entryComponents: [ParameterPickerComponent, TableComponent],
 })
 export class ComponentsModule {}

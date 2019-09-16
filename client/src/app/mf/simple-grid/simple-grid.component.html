@@ -1,0 +1,21 @@
+<div
+    *ngFor="let group of groups"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    [class]="'card ' + (group.count > 0 && group.isActive ? 'active' : group.count > 0 ? 'hasfunds' : '')"
+    (click)="groupClick.next(group)"
+>
+    <div fxLayout="row" style="width: 155px">
+        <button *ngIf="group.count" mat-button (click)="$event.stopPropagation(); openList(group)">
+            <mat-icon>add_circle_outline</mat-icon>
+        </button>
+
+        <span class="groupName">
+            {{ group.name }}
+        </span>
+    </div>
+
+    <span class="groupCount">
+        {{ group.count }}
+    </span>
+</div>

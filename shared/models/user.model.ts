@@ -1,9 +1,11 @@
-import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested } from 'class-validator';
+import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested, IsNotEmpty } from 'class-validator';
 //import {EqualTo} from '../customValidation/equalTo'
 import { Entity } from './Entity';
 export enum App {
-    admin = 'admin',
-    tador = 'tador',
+    admin,
+    mf,
+    macro,
+    tador,
 }
 
 export enum Permission {
@@ -31,15 +33,22 @@ export class User extends Entity {
     @IsOptional() @IsString() details?: string;
     @IsOptional() @IsString() fName?: string;
     @IsOptional() @IsString() lName?: string;
+
     get fullName() {
         return this.fName + ' ' + this.lName;
     }
+
     @ValidateNested({ each: true }) roles: Role[];
+
     constructor(user: Partial<User>) {
         super(user);
         if (user && user.roles) {
             this.roles = user.roles.map(role => new Role(role));
         }
+    }
+
+    hasPermission(app: App) {
+        return this.roles && this.roles.some(role => role.app === App.admin || role.app === app);
     }
 }
 
@@ -49,7 +58,7 @@ export class LoginRequest {
     email: string;
 
     @IsString()
-    @Length(5, 10)
+    @IsNotEmpty()
     password: string;
     constructor(login?: Partial<LoginRequest>) {
         Object.assign(this, login);

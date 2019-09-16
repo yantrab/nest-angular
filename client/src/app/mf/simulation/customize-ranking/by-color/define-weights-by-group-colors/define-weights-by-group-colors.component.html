@@ -1,0 +1,105 @@
+<div fxLayout="column" fxFill style="padding-top: 31px">
+    <div fxFlex="9px" fxLayout="row" style="margin: 0 71px">
+        <div *ngFor="let group of groups.parameterGroups" [fxFlex]="group.percent + '%'">
+            <div fxFlex></div>
+            <div fxFlex="13px" class="triangle up" [style.border-top-color]="groups.color"></div>
+        </div>
+    </div>
+    <div fxFlex="8px" [style.background-color]="groups.color" style="margin: 0 71px"></div>
+
+    <div fxFlex fxLayout="row" style="height: 37.5em ; padding: 0 71px; padding-bottom: 59px">
+        <div
+            [style.border-color]="groups.color + 20"
+            style="border-top: 2px  solid;border-left: 2px  solid ;width: 100%;position: relative"
+        >
+            <div
+                (click)="selectedGroup = group"
+                class="group"
+                *ngFor="let group of groups.parameterGroups; let i = index"
+                style="border-right: 2px  dotted "
+                [style.border-right-color]="groups.color + 20"
+                [style.background-color]="groups.color + (selectedGroup.name === group.name ? 20 : 10)"
+                fxLayout="row"
+                [fxFlex]="group.percent + '%'"
+                [ngStyle]="{ 'align-items': i == 3 ? 'flex-end' : '' }"
+            >
+                <div
+                    fxFlex="100%"
+                    fxLayout="column"
+                    [ngStyle]="{ 'margin-top': i == 1 || i == 2 ? i * 150 + 'px' : '', 'margin-bottom': i == 3 ? '-44px' : '' }"
+                >
+                    <div fxLayout="row" fxLayoutAlign="space-between">
+                        <span fxFlex="50px" style="padding: 6px 16px">{{ group.name }}</span>
+                    </div>
+                    <div fxLayout="column" style="overflow: auto;width: 100%">
+                        <div *ngFor="let parameter of group.parameters" fxLayout="row">
+                            <mat-checkbox
+                                (change)="parameter.isActive = $event.checked; resetPercent(group)"
+                                [checked]="parameter.isActive"
+                                >{{
+                                    parameter.name +
+                                        (parameter.isActive && group.name === selectedGroup.name
+                                            ? ' - ' + (getPercentFromTotal(group, parameter) | number: '.0-2') + '%'
+                                            : '')
+                                }}</mat-checkbox
+                            >
+                        </div>
+                    </div>
+
+                    <div
+                        fxFlex="30px"
+                        fxLayoutAlign="center center"
+                        fxLayout="row"
+                        #headercell
+                        (mousemove)="mousemove($event, i)"
+                        (mousedown)="resizeTable($event, i)"
+                    >
+                        <div
+                            [style.background-color]="groups.color + 20"
+                            style="width: 100%; height: 2px;position: absolute;right: 0"
+                        ></div>
+
+                        <p-multi-slider-range-selector
+                            *ngIf="group.name === selectedGroup.name"
+                            [style.background]="groups.color"
+                            fxFlex
+                            [color]="groups.color"
+                            [group]="group.activeParameters"
+                        >
+                        </p-multi-slider-range-selector>
+                        <div
+                            fxFlex
+                            *ngIf="group.name != selectedGroup.name"
+                            style="height: 2px;background-color:  #ced6e0;z-index: 9999"
+                        ></div>
+                        <div
+                            fxFlex="14px"
+                            *ngIf="i < groups.parameterGroups.length - 1"
+                            [style.border-color]="groups.color"
+                            class="thumb"
+                            [style.cursor]="inMove ? 'grabbing' : 'grab'"
+                        ></div>
+                    </div>
+                    <div fxFlex="30px" fxLayoutAlign="center center" fxLayout="row">
+                        <div fxLayout="column" fxLayoutAlign="center center">
+                            <div fxFlex="13px" class="triangle down" [style.border-bottom-color]="groups.color"></div>
+                            <div
+                                fxFlex="29px"
+                                fxLayoutAlign="center center"
+                                style="width: 40px;"
+                                [style.background]="groups.color"
+                            >
+                                <span class="percent">{{ group.percent | number: '.0-0' }}%</span>
+                            </div>
+                        </div>
+                        <div *ngIf="group.previous" fxLayout="column" fxLayoutAlign="end " style="height: 42px;">
+                            <div fxFlex="29px" fxLayoutAlign="center center" style="width: 40px;background:#ced6e0;">
+                                <span class="percent">{{ group.previous | number: '.0-0' }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

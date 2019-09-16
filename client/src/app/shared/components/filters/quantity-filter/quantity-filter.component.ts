@@ -1,4 +1,4 @@
-import { Component, KeyValueDiffers, OnInit } from '@angular/core';
+import { Component, KeyValueDiffers } from '@angular/core';
 import { BaseFilterComponent } from '../base.component';
 
 @Component({
@@ -9,5 +9,18 @@ import { BaseFilterComponent } from '../base.component';
 export class QuantityFilterComponent extends BaseFilterComponent {
     constructor(differs: KeyValueDiffers) {
         super(differs);
+    }
+    flag = false;
+    onValueChanged(ev) {
+        // if (!ev.event) return;
+        if (this.flag) {
+            this.flag = false;
+            return;
+        }
+        this.optionSelected(ev.value);
+    }
+
+    dataSourceChange() {
+        this.flag = true;
     }
 }

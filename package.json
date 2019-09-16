@@ -40,13 +40,13 @@
         "tslint": "^5.13.1",
         "tslint-class-validator-rule": "^1.0.3",
         "tslint-eslint-rules": "^5.4.0",
-        "typescript": "^3.3.1"
+        "typescript": "^3.3.1",
+        "nest-client-generator": "^1.1.5"
     },
     "dependencies": {
         "bson": "^4.0.2",
         "class-validator": "^0.9.1",
         "lodash": "^4.17.11",
-        "nest-client-generator": "^1.1.3",
         "nosql-normalizer": "^1.0.6",
         "tsconfig-paths": "^3.8.0"
     }

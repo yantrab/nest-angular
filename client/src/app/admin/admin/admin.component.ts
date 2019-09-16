@@ -6,6 +6,7 @@ import { ColumnDef } from 'mat-virtual-table';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { last } from 'lodash';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'p-admin',
@@ -27,9 +28,14 @@ export class AdminComponent {
         { field: 'details', title: 'פרטים נוספים' },
     ];
 
-    constructor(private api: AdminController, private dialog: MatDialog, private snackBar: MatSnackBar) {
-        this.app = last(window.location.pathname.split('/')) as App;
-        this.api.users(this.app).then(users => (this.users = users));
+    constructor(
+        private api: AdminController,
+        private dialog: MatDialog,
+        private snackBar: MatSnackBar,
+        private route: ActivatedRoute,
+    ) {
+        this.app = App[this.route.snapshot.params.site] as any;
+        this.api.users(this.route.snapshot.params.site).then(users => (this.users = users));
     }
 
     openEditUserDialog(id?: string): void {
