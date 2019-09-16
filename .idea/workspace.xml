@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/app.e2e-spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/app.e2e-spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,10 +25,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/src/tador/client.ts">
+        <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+            <state relative-caret-position="-396">
+              <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -35,9 +40,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addStatus</find>
-      <find>data.map(panel =&gt; merge(panel, new Panels[panel.type + 'Panel']()))</find>
-      <find>merge</find>
       <find>51</find>
       <find>code</find>
       <find>58996</find>
@@ -62,9 +64,12 @@
       <find>PanelDump</find>
       <find>getpanel</find>
       <find>getPanel</find>
-      <find>panelDumpRepo</find>
       <find>saveDump</find>
       <find>git</find>
+      <find>RegisterAction</find>
+      <find>panelDumpRepo</find>
+      <find>register</find>
+      <find>pId</find>
     </findStrings>
     <replaceStrings>
       <replace>default</replace>
@@ -88,8 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/shared/models/tador.model.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html" />
         <option value="$PROJECT_DIR$/shared/models/tador/conf.ts" />
         <option value="$PROJECT_DIR$/server/tslint.json" />
         <option value="$PROJECT_DIR$/server/src/app.module.ts" />
@@ -133,12 +136,14 @@
         <option value="$PROJECT_DIR$/client/src/assets/i18n/tador/en.json" />
         <option value="$PROJECT_DIR$/client/src/assets/i18n/tador/he.json" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" />
-        <option value="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" />
         <option value="$PROJECT_DIR$/server/package.json" />
         <option value="$PROJECT_DIR$/server/node_modules/mongo-nest/lib/repo.ts" />
         <option value="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
+        <option value="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" />
         <option value="$PROJECT_DIR$/server/src/tador/client.ts" />
+        <option value="$PROJECT_DIR$/server/test/app.e2e-spec.ts" />
+        <option value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
+        <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
       </list>
     </option>
   </component>
@@ -157,6 +162,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -182,29 +188,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="tador" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="tador" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -215,6 +202,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/server/node_modules/jest" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -243,14 +231,14 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.start-server">
-    <configuration name="gen-client" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="gen-client" />
-      </scripts>
+    <configuration name="tador.service.spec.ts" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
       <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
       <method v="2" />
     </configuration>
     <configuration name="start-dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -295,11 +283,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start-tador-client" />
         <item itemvalue="npm.start-server" />
+        <item itemvalue="Jest.tador.service.spec.ts" />
+        <item itemvalue="npm.start-tador-client" />
         <item itemvalue="npm.start-dev" />
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.gen-client" />
       </list>
     </recent_temporary>
   </component>
@@ -334,7 +322,8 @@
       <workItem from="1563511358071" duration="26483000" />
       <workItem from="1564015901094" duration="12168000" />
       <workItem from="1567650681239" duration="11683000" />
-      <workItem from="1567751503250" duration="5829000" />
+      <workItem from="1567751503250" duration="10125000" />
+      <workItem from="1568358754660" duration="4939000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -637,11 +626,23 @@
       <option name="project" value="LOCAL" />
       <updated>1567758481726</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="fix save pannel">
+      <created>1567758843933</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1567758843933</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="tador_service_spec_ts - 2019.09.13 at 11h 07m 34s.xml">
+      <configuration name="tador.service.spec.ts" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210136000" />
+    <option name="totallyTimeSpent" value="219371000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -656,14 +657,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.78" visible="true" weight="0.17317708" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7804878" visible="true" weight="0.17317708" />
       <window_info id="Structure" order="1" sideWeight="0.21775898" side_tool="true" weight="0.26822916" />
       <window_info id="npm" order="2" sideWeight="0.2164751" side_tool="true" weight="0.2265625" />
-      <window_info id="Favorites" order="3" sideWeight="0.22" side_tool="true" visible="true" weight="0.17317708" />
+      <window_info id="Favorites" order="3" sideWeight="0.2195122" side_tool="true" weight="0.17317708" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.57509625" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.35558408" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.29396662" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.49037227" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32991013" />
@@ -671,8 +672,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32991013" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.25288832" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.4338896" />
-      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.29653403" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -717,14 +718,27 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/node_modules/mongo-nest/lib/repo.ts</url>
           <line>17</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/node_modules/mongo-nest/lib/repo.ts</url>
           <line>11</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/tador/client.ts</url>
+          <line>38</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/tador/client.ts</url>
+          <line>46</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/tador/client.ts</url>
+          <line>56</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -749,82 +763,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/base.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="56" lean-forward="true" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dist/nest-angular/server/src/admin/admin.controller.js" />
-    <entry file="file://$PROJECT_DIR$/server/tsconfig-paths-bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/app.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="52" column="83" selection-start-line="52" selection-start-column="83" selection-end-line="52" selection-end-column="83" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/material/material.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/main.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -906,15 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="617">
           <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/utils.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1026,13 +955,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
@@ -1040,37 +962,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/lib/repo.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/dist/repo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/lib/EntityWithoutGetters.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1527">
-          <caret line="153" column="21" lean-forward="true" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/lib/repo.ts" />
+    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/dist/repo.js" />
+    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/lib/EntityWithoutGetters.ts" />
     <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1102,16 +996,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="69" column="10" lean-forward="true" selection-start-line="69" selection-start-column="10" selection-end-line="69" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -1129,10 +1013,115 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/nest-cli.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="95" column="4" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/node_modules/@types/mongodb/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="1647" column="4" selection-start-line="1647" selection-start-column="4" selection-end-line="1647" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/jest-e2e.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/module.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/repo.factory.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" selection-start-line="6" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/tador/client.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+        <state relative-caret-position="160">
+          <caret line="29" selection-start-line="29" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/app.e2e-spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/utils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" selection-start-line="10" selection-end-line="11" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#148#187#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="184" column="5" lean-forward="true" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+            <element signature="n#!!block;n#addStatus#0;n#TadorService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-396">
+          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>

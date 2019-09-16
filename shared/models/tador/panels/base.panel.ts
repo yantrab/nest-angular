@@ -92,6 +92,8 @@ export class Panel extends Entity {
     @IsString()
     phoneNumber?: string;
 
+    @IsString()
+    panelId: string;
     @IsNumber()
     maxEEprom: number;
     @IsString()

@@ -30,9 +30,9 @@ client.on('close', function() {
 let pId: any = '5d7219d024cba11c06c38e1d';
 const test = async () => {
     //  ----------- REGISTER ------------
-    const registerAction = { type: ActionType.register, data: { type: PanelType.MP, uId: 'admin@admin.com' } };
+    const registerAction = { type: ActionType.register, data: { type: PanelType.MP, uId: 'hadar453@012.net.il' } };
     const registerActionString = JSON.stringify(registerAction);
-    pId = await write(registerActionString);
+    await write(registerActionString);
     // 5d7219d024cba11c06c38e1d
     //  ---------------------------------
     //  ----------- STATUS ------------
