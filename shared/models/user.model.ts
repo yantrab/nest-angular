@@ -24,12 +24,11 @@ export class Role {
 }
 
 export class User extends Entity {
-    @IsOptional() @IsString() @Length(5, 10) password: string;
+    @IsOptional() @IsString() password: string;
     @IsString() company: string;
     @IsString() phone: string;
-    @IsString()
-    @IsEmail()
-    email: string;
+    @IsString() code: string;
+    @IsString() @IsEmail() email: string;
     @IsOptional() @IsString() details?: string;
     @IsOptional() @IsString() fName?: string;
     @IsOptional() @IsString() lName?: string;

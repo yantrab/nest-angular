@@ -3,7 +3,6 @@ import { App, User, Permission, Role } from 'shared/models/user.model';
 import { UserService } from '../services/user.service';
 import { cryptPassword, getRandomToken } from '../utils';
 import { MailerService } from '../services/mailer.service';
-import { exec } from 'child_process';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 @Controller('rest/admin')
 @UseInterceptors(AuthorizeInterceptor)
@@ -25,12 +24,8 @@ export class AdminController {
         });
     }
 
-    // @Post('restart')
-    // async restart(): Promise<any> {
-    //     return exec('pm2 restart server');
-    // }
-    @Get('users/:app')
-    async users(@Param('app') app: App): Promise<User[]> {
+    @Post('users/:app')
+    async users(@Body() app: App): Promise<User[]> {
         return this.userService.getUsers({ 'roles.app': app } as any);
     }
 
@@ -41,8 +36,10 @@ export class AdminController {
         if (existUser) {
             newRole = user.roles.find(r => !existUser.roles.find(rr => rr.permission === r.permission && rr.app == r.app));
             if (newRole) existUser.roles.push(newRole);
+            user.roles = existUser.roles;
         }
-        const result = (await this.userService.saveUser(existUser || user)) as any;
+
+        const result = (await this.userService.saveUser(user)) as any;
         if (req && (newRole || !existUser)) {
             const token = await getRandomToken();
             this.userService.saveUserToekn(user.email, token);

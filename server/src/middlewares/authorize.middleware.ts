@@ -8,7 +8,7 @@ export class AuthorizeInterceptor implements NestInterceptor {
     constructor(private userService: UserService) {}
     async intercept(context: ExecutionContext, next: CallHandler) {
         const user = await this.userService.getUserAuthenticated(context.getArgs()[0].cookies.t);
-        if (!user && user.hasPermission(this.apps[context.getClass()['app']])) {
+        if (!user || !user.hasPermission(this.apps[context.getClass()['app']])) {
             throw new ForbiddenException();
         }
 

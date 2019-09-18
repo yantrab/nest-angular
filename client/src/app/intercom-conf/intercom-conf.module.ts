@@ -4,12 +4,28 @@ import { ComponentsModule } from '../shared/components/components.module';
 import { TadorController } from 'src/api/tador.controller';
 import { IntercomConfComponent } from './intercom-conf/intercom-conf.component';
 import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
+import { FormModel } from '../shared/components/form/form.component';
+import { App, User } from 'shared/models';
+import { AdminModel } from '../admin/admin/admin.component';
+
+const model: AdminModel = {
+    userFormModel: {
+        feilds: [
+            { placeHolder: 'אמייל', key: 'email' },
+            { placeHolder: 'חברה', key: 'company' },
+            { placeHolder: 'שם פרטי', key: 'fName' },
+            { placeHolder: 'שם משפחה', key: 'lName' },
+            { placeHolder: 'טלפון', key: 'phone' },
+            { placeHolder: 'קוד', key: 'code' },
+        ],
+        modelConstructor: User,
+        model: undefined,
+    },
+    app: App.tador,
+};
 
 @NgModule({
-    declarations: [
-        IntercomConfComponent,
-        ContactsComponent
-    ],
+    declarations: [IntercomConfComponent, ContactsComponent],
     imports: [
         ComponentsModule,
         RouterModule.forChild([
@@ -17,8 +33,13 @@ import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
                 path: '',
                 component: IntercomConfComponent,
             },
+            { path: 'admin', loadChildren: 'src/app/admin/admin.module#AdminModule' },
         ]),
     ],
-    providers: [TadorController, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }],
+    providers: [
+        TadorController,
+        { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' },
+        { provide: 'userEditModel', useValue: model },
+    ],
 })
 export class IntercomConfModule {}

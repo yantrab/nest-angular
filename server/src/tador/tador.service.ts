@@ -20,7 +20,7 @@ interface Action {
 }
 
 export interface RegisterAction extends Action {
-    data: { type: PanelType; uId: string; pId: string };
+    data: { type: PanelType; uPhone: string; uCode: string; pId: string };
 }
 class StatusActionResult {
     index: number;
@@ -166,7 +166,7 @@ export class TadorService {
 
     private async register(action: RegisterAction, sock: Socket) {
         const data = action.data;
-        const user = await this.userService.userRepo.findOne({ email: data.uId });
+        const user = await this.userService.userRepo.findOne({ phone: data.uPhone, code: data.uCode });
         if (!user) return sock.write('0');
 
         let panel = await this.panelRepo.findOne({ panelId: data.pId });
@@ -178,7 +178,7 @@ export class TadorService {
             name: '',
             address: '',
             panelId: data.pId,
-            userId: user.email,
+            userId: user.id,
         });
         const saveResult = await this.panelRepo.collection.insertOne(panel);
         sock.write(saveResult.result.ok.toString());

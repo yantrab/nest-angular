@@ -23,9 +23,11 @@ export class UserService {
     }
 
     async validateUser(email, password) {
-        const user = (await this.userRepo.collection.findOne({
-            email,
-        })) as User;
+        const user = new User(
+            await this.userRepo.collection.findOne({
+                email,
+            }),
+        );
         if (!user || !(await comparePassword(password, user.password))) {
             return null;
         }

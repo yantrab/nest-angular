@@ -32,23 +32,28 @@ describe('tador', async () => {
     describe('register', () => {
         it('should register new panel', async () => {
             const result = '1';
-            const registerAction = { type: ActionType.register, data: { type: PanelType.MP, uId, pId } };
+            const registerAction = {
+                type: ActionType.register,
+                data: { type: PanelType.MP, uPhone: '0558858104', uCode: '81079', pId },
+            };
             const registerActionString = JSON.stringify(registerAction);
-            //{"type":1,"data":{"type":"MP","uId":"admin@admin.com","pId":"04a03035fea7c827"}}
+            // {"type":1,"data":{"type":"MP","uPhone":"0558858104","uCode":"81079","pId":"1234"}}
             expect(await await write(registerActionString)).toBe(result);
         });
 
         it('should not register old panel', async () => {
             const result = '0';
-            const registerAction = { type: ActionType.register, data: { type: PanelType.MP, uId, pId } };
+            const registerAction = {
+                type: ActionType.register,
+                data: { type: PanelType.MP, uPhone: '0558858104', uCode: '81079', pId },
+            };
             const registerActionString = JSON.stringify(registerAction);
-            //{"type":1,"data":{"type":"MP","uId":"admin@admin.com","pId":"04a03035fea7c827"}}
             expect(await await write(registerActionString)).toBe(result);
         });
 
         it('should not register panel for unknown user ', async () => {
             const result = '0';
-            const registerAction = { type: ActionType.register, data: { type: PanelType.MP, uId: '-', pId } };
+            const registerAction = { type: ActionType.register, data: { type: PanelType.MP, uPhone: '-', uCode: '81079', pId } };
             const registerActionString = JSON.stringify(registerAction);
             expect(await await write(registerActionString)).toBe(result);
         });

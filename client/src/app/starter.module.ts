@@ -21,7 +21,6 @@ const routes: Routes = [
     { path: '', redirectTo: 'tador', pathMatch: 'full' },
     { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },
     { path: 'signin/:site/:token', loadChildren: 'src/app/auth/auth.module#AuthModule' },
-    { path: 'admin/:site', loadChildren: 'src/app/admin/admin.module#AdminModule' },
     {
         path: 'tador',
         loadChildren: 'src/app/intercom-conf/intercom-conf.module#IntercomConfModule',
@@ -29,7 +28,8 @@ const routes: Routes = [
         data: { app: App.tador },
     },
     { path: 'intercom', loadChildren: 'src/app/intercom/intercom.module#IntercomModule' },
-    { path: 'webrtc', loadChildren: 'src/app/webRTC/webRTC.module#App2Module' },
+    // { path: ':site/admin', loadChildren: 'src/app/admin/admin.module#AdminModule' },
+
     { path: '**', redirectTo: 'login/tador' },
 ];
 

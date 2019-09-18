@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class InterceptorsService implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const proxyReq = req.clone({ url: environment.apiUrl + '/' + req.url });
+        const proxyReq = req.clone({ url: req.url.endsWith('svg') ? req.url : environment.apiUrl + '/' + req.url });
         return next.handle(proxyReq);
     }
 }

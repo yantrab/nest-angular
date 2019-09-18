@@ -1,12 +1,16 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, Optional, ViewEncapsulation } from '@angular/core';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
 import { AdminController } from '../../../api/admin.controller';
 import { App, Permission, User } from 'shared/models';
 import { ColumnDef } from 'mat-virtual-table';
 import { MatDialog, MatSnackBar } from '@angular/material';
-import { EditUserComponent } from './edit-user/edit-user.component';
-import { last } from 'lodash';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { FormComponent, FormModel } from '../../shared/components/form/form.component';
+
+export interface AdminModel {
+    app: App;
+    userFormModel: FormModel<User>;
+}
 
 @Component({
     selector: 'p-admin',
@@ -17,7 +21,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AdminComponent {
     topbarModel: ITopBarModel = { logoutTitle: 'logout', routerLinks: [], menuItems: [] };
     users: User[];
-    app: App;
     columns: ColumnDef[] = [
         { field: 'edit', title: ' ', width: '70px', isSortable: false },
         { field: 'email', title: 'מייל' },
@@ -33,18 +36,36 @@ export class AdminComponent {
         private dialog: MatDialog,
         private snackBar: MatSnackBar,
         private route: ActivatedRoute,
+        @Optional() @Inject('userEditModel') private readonly model: AdminModel,
     ) {
-        this.app = App[this.route.snapshot.params.site] as any;
-        this.api.users(this.route.snapshot.params.site).then(users => (this.users = users));
+        if (!model) {
+            this.model = {
+                app: App[this.route.snapshot.params.site] as any,
+                userFormModel: {
+                    feilds: [
+                        { placeHolder: 'אמייל', key: 'email' },
+                        { placeHolder: 'חברה', key: 'company' },
+                        { placeHolder: 'שם פרטי', key: 'fName' },
+                        { placeHolder: 'שם משפחה', key: 'lName' },
+                        { placeHolder: 'טלפון', key: 'phone' },
+                    ],
+                    modelConstructor: User,
+                    model: undefined,
+                },
+            };
+        }
+        this.api.users(this.model.app).then(users => (this.users = users));
     }
 
     openEditUserDialog(id?: string): void {
-        const dialogRef = this.dialog.open(EditUserComponent, {
+        this.model.userFormModel.model = id
+            ? { ...this.users.find(user => user.id === id) }
+            : new User({ roles: [{ app: this.model.app, permission: Permission.user }] });
+
+        const dialogRef = this.dialog.open(FormComponent, {
             width: '80%',
             maxWidth: '540px',
-            data: id
-                ? { ...this.users.find(user => user.id === id) }
-                : new User({ roles: [{ app: this.app, permission: Permission.user }] }),
+            data: this.model.userFormModel,
             direction: 'rtl',
         });
 

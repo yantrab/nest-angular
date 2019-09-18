@@ -25,6 +25,7 @@ import { ParameterPickerComponent } from './parameter-picker/parameter-picker.co
 import { MultiSliderRangeSelectorComponent } from './multi-slider-range-selector/multi-slider-range-selector.component';
 import { DialogService } from '../services/dialog.service';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { FormComponent } from './form/form.component';
 
 const components = [
     DropdownComponent,
@@ -40,6 +41,7 @@ const components = [
     ComboboxComponent,
     MultiSliderRangeSelectorComponent,
     ParameterPickerComponent,
+    FormComponent,
 ];
 
 const exportsM = [
@@ -106,6 +108,6 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
     declarations: components,
     exports: exportsM,
     providers: [I18nService, XLSXService, { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }, DialogService],
-    entryComponents: [ParameterPickerComponent, TableComponent],
+    entryComponents: [ParameterPickerComponent, TableComponent, FormComponent],
 })
 export class ComponentsModule {}
