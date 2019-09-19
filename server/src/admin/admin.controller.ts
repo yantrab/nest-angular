@@ -50,7 +50,7 @@ export class AdminController {
                 html: `<div dir="rtl">
                             <h1>שלום</h1>
                             <h2>יש לך הרשאות עבור מערכת ${req.headers.referer.split('/')[4]}</h2>
-                            <a href="${req.headers.referer.replace('admin/', 'auth/signin/')}/${token}">
+                            <a href="${req.headers.referer.replace('admin', 'auth/signin/')}/${token}">
                                  היכנס
                             </a>
                        </div>`,
