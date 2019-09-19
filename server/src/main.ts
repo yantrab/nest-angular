@@ -8,6 +8,7 @@ import { readFileSync } from 'fs';
 // import { AuthModule } from 'auth/auth.module';
 // import { UserService } from 'services/user.service';
 import { join } from 'path';
+import { FrontendMiddleware } from './middlewares/frontend.middleware';
 const clientPath = join(__dirname, '../../client/dist');
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
@@ -62,8 +63,6 @@ async function bootstrap() {
             forbidUnknownValues: true,
         }),
     );
-
-    // app.useGlobalInterceptors(new AuthorizeInterceptor(app.select(AuthModule).get(UserService)));
 
     app.useStaticAssets({ root: clientPath });
     await app.listen(3000, '0.0.0.0');

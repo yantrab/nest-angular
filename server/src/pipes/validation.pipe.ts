@@ -50,8 +50,4 @@ export class ValidationPipe implements PipeTransform<any> {
         const types = [String, Boolean, Number, Array, Object];
         return !types.some(t => metatype === t) && !isNil(metatype);
     }
-
-    toEmptyIfNil<T = any, R = any>(value: T): R | {} {
-        return isNil(value) ? {} : value;
-    }
 }

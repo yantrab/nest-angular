@@ -4,7 +4,6 @@ import { ReqUser } from '../decorators/user.decorator';
 import { App, User } from 'shared/models';
 import { Panel } from 'shared/models/tador/panels';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
-import { ActionType } from 'shared/models/tador/enum';
 
 @UseInterceptors(AuthorizeInterceptor)
 @Controller('tador')

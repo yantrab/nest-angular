@@ -18,19 +18,23 @@ const isCordovaApp = Object(window).cordova != null;
 export class AppComponent {}
 
 const routes: Routes = [
-    { path: '', redirectTo: 'tador', pathMatch: 'full' },
-    { path: 'login/:site', loadChildren: 'src/app/auth/auth.module#AuthModule' },
-    { path: 'signin/:site/:token', loadChildren: 'src/app/auth/auth.module#AuthModule' },
+    { path: '', redirectTo: 'site/tador', pathMatch: 'full' },
     {
-        path: 'tador',
-        loadChildren: 'src/app/intercom-conf/intercom-conf.module#IntercomConfModule',
-        canActivate: [Guard],
-        data: { app: App.tador },
+        path: 'site',
+        children: [
+            { path: ':site/auth', loadChildren: 'src/app/auth/auth.module#AuthModule' },
+            {
+                path: 'tador',
+                loadChildren: 'src/app/intercom-conf/intercom-conf.module#IntercomConfModule',
+                canActivate: [Guard],
+                data: { app: App.tador },
+            },
+            { path: 'site/:site/admin', loadChildren: 'src/app/admin/admin.module#AdminModule' },
+            { path: '**', redirectTo: 'site/login/tador' },
+        ],
     },
-    { path: 'intercom', loadChildren: 'src/app/intercom/intercom.module#IntercomModule' },
-    // { path: ':site/admin', loadChildren: 'src/app/admin/admin.module#AdminModule' },
 
-    { path: '**', redirectTo: 'login/tador' },
+    { path: '**', redirectTo: 'site/login/tador' },
 ];
 
 @NgModule({

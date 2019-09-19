@@ -45,8 +45,8 @@ export class AuthComponent {
         this.dynaFB
             .buildFormFromClass(signinRequest, { token: this.route.snapshot.params.token })
             .then(form => (this.signinFrom = form));
-        this.currentSystem = window.location.pathname.split('/')[2] as any;
-        this.state = window.location.pathname.split('/')[1] as any;
+        this.currentSystem = this.route.snapshot.params.site;
+        this.state = this.route.snapshot.params.state;
     }
 
     login(e) {
@@ -55,7 +55,7 @@ export class AuthComponent {
         if (this.form.valid) {
             this.authService.login(this.form.value).then(res => {
                 if (res.status) {
-                    this.router.navigate([this.route.snapshot.params.site]).then();
+                    this.router.navigate(['site/' + this.route.snapshot.params.site]).then();
                 } else {
                     this.form.controls.password.setErrors({ 0: this.dic.validation.loginFailedMsg });
                 }
@@ -70,7 +70,7 @@ export class AuthComponent {
         if (this.signinFrom.valid) {
             //
             this.authService.signin(this.signinFrom.value).then(() => {
-                this.router.navigate([this.route.snapshot.params.site]).then();
+                this.router.navigate(['site/' + this.route.snapshot.params.site]).then();
             });
         }
         e.preventDefault();

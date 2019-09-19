@@ -1,89 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/yantr.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/nest-angular.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="dyanamic form">
+      <change afterPath="$PROJECT_DIR$/server/src/middlewares/frontend.middleware.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/auth.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/auth.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/auth.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/auth.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/auth.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/components.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/components.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/base.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/base.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/checkbox/checkbox.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/checkbox/checkbox.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/combobox/combobox.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/combobox/combobox.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/combobox/combobox.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/combobox/combobox.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/combobox/combobox.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/combobox/combobox.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/dropdown/dropdown.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/dropdown/dropdown.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/filter/filter.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/filter/filter.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/quantity-filter/quantity-filter.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/quantity-filter/quantity-filter.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/quantity-filter/quantity-filter.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/quantity-filter/quantity-filter.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/special-filter/special-filter.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/special-filter/special-filter.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/filters/special-filter/special-filter.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/filters/special-filter/special-filter.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/material/material.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/material/material.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/multi-slider-range-selector/multi-slider-range-selector.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/multi-slider-range-selector/multi-slider-range-selector.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/parameter-picker/parameter-picker.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/parameter-picker/parameter-picker.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/parameter-picker/parameter-picker.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/parameter-picker/parameter-picker.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/parameter-picker/parameter-picker.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/parameter-picker/parameter-picker.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/topbar/topbar.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/services/dialog.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/services/dialog.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/starter.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/starter.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/he.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/i18n/login/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/i18n/login/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/i18n/login/he.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/i18n/login/he.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/panels/panel.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/material/mat-horizontal-stepper.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/material/mat-horizontal-stepper.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/generator/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/dictionaries/yaniv.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/runConfigurations/server.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/watcherTasks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/decorators/user.decorator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/decorators/user.decorator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/middlewares/authorize.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/middlewares/authorize.middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/middlewares/login.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/middlewares/login.middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/crypt.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/customValidation/equalTo.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/filter.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/filter.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/tador/tador.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tslint.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/shared/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/pipes/validation.pipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/pipes/validation.pipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -100,10 +29,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shared/models/user.model.ts">
+        <entry file="file://$PROJECT_DIR$/client/src/app/auth/auth.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+            <state relative-caret-position="298">
+              <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -112,17 +41,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>apiUrl</find>
-      <find>actiontype</find>
-      <find>option()</find>
-      <find>option</find>
-      <find>SettingField</find>
-      <find>data</find>
-      <find>info@</find>
-      <find>1234</find>
-      <find>slice</find>
-      <find>12345</find>
-      <find>123456</find>
       <find>1234567</find>
       <find>12345678</find>
       <find>123456789</find>
@@ -135,13 +53,24 @@
       <find>git</find>
       <find>RegisterAction</find>
       <find>panelDumpRepo</find>
-      <find>register</find>
       <find>pId</find>
       <find>EqualTo</find>
       <find>fund</find>
       <find>bcrypt</find>
       <find>hasPermission</find>
       <find>tad</find>
+      <find>admin</find>
+      <find>AdminModule</find>
+      <find>this.cache</find>
+      <find>baseUrlI18n</find>
+      <find>register</find>
+      <find>EditUserComponent</find>
+      <find>@Get('*')</find>
+      <find>@Get('')</find>
+      <find>*ngIf</find>
+      <find>this.state</find>
+      <find>state</find>
+      <find>Routes</find>
     </findStrings>
     <replaceStrings>
       <replace>default</replace>
@@ -157,6 +86,7 @@
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\yantr\Desktop\nest-angular\nest-angular</dir>
+      <dir>C:\Users\yantr\Desktop\nest-angular\nest-angular\client\src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -165,24 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server/src/tador/tador.module.ts" />
-        <option value="$PROJECT_DIR$/shared/models/tador/tador.model.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/server.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/autocomplete/autocomplete.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" />
-        <option value="$PROJECT_DIR$/shared/models/tador/enum.ts" />
-        <option value="$PROJECT_DIR$/client/src/api/app.controller.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/base.component.ts" />
-        <option value="$PROJECT_DIR$/server/tsconfig.json" />
-        <option value="$PROJECT_DIR$/server/tsconfig-paths-bootstrap.js" />
-        <option value="$PROJECT_DIR$/server/src/main.ts" />
-        <option value="$PROJECT_DIR$/server/src/app.controller.ts" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/components/material/material.module.ts" />
-        <option value="$PROJECT_DIR$/client/src/main.ts" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/client/src/environments/environment.dev.ts" />
         <option value="$PROJECT_DIR$/client/src/environments/environment.prod.ts" />
         <option value="$PROJECT_DIR$/client/src/environments/environment.ts" />
         <option value="$PROJECT_DIR$/shared/models/filter.model.ts" />
@@ -190,8 +102,6 @@
         <option value="$PROJECT_DIR$/client/src/api/tador.controller.ts" />
         <option value="$PROJECT_DIR$/tslint.json" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" />
-        <option value="$PROJECT_DIR$/server/src/admin/admin.controller.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/tador.controller.ts" />
         <option value="$PROJECT_DIR$/client/src/assets/i18n/tador/en.json" />
         <option value="$PROJECT_DIR$/client/src/assets/i18n/tador/he.json" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" />
@@ -200,22 +110,42 @@
         <option value="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" />
         <option value="$PROJECT_DIR$/server/src/tador/client.ts" />
         <option value="$PROJECT_DIR$/server/test/app.e2e-spec.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
-        <option value="$PROJECT_DIR$/generator/index.ts" />
         <option value="$PROJECT_DIR$/shared/models/macro.model.ts" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/shared/models/user.model.ts" />
         <option value="$PROJECT_DIR$/server/package.json" />
         <option value="$PROJECT_DIR$/server/src/utils.ts" />
         <option value="$PROJECT_DIR$/server/src/services/fund.service.ts" />
         <option value="$PROJECT_DIR$/shared/index.ts" />
         <option value="$PROJECT_DIR$/shared/models/index.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/guard.ts" />
         <option value="$PROJECT_DIR$/client/package.json" />
         <option value="$PROJECT_DIR$/client/src/app/mf/mf.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.ts" />
+        <option value="$PROJECT_DIR$/server/src/middlewares/authorize.middleware.ts" />
+        <option value="$PROJECT_DIR$/server/src/services/user.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/shared/components/components.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/admin/admin/edit-user/edit-user.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/shared/components/form/form.component.scss" />
+        <option value="$PROJECT_DIR$/client/src/app/shared/services/interceptors.service.ts" />
+        <option value="$PROJECT_DIR$/shared/models/user.model.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/shared/components/form/form.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/shared/components/form/form.component.html" />
+        <option value="$PROJECT_DIR$/server/src/admin/admin.controller.ts" />
+        <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
+        <option value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/admin/admin.module.ts" />
+        <option value="$PROJECT_DIR$/server/src/pipes/validation.pipe.ts" />
+        <option value="$PROJECT_DIR$/server/src/tador/tador.controller.ts" />
+        <option value="$PROJECT_DIR$/generator/index.ts" />
+        <option value="$PROJECT_DIR$/server/src/app.controller.ts" />
+        <option value="$PROJECT_DIR$/server/src/middlewares/frontend.middleware.ts" />
+        <option value="$PROJECT_DIR$/server/src/app.module.ts" />
+        <option value="$PROJECT_DIR$/server/src/main.ts" />
         <option value="$PROJECT_DIR$/client/src/app/starter.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/guard.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/auth/auth.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/auth/auth.component.ts" />
       </list>
     </option>
   </component>
@@ -251,6 +181,27 @@
               <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
               <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@angular" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@angular" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -266,7 +217,7 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="mf" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
@@ -274,8 +225,16 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="mf" type="462c0819:PsiDirectoryNode" />
-              <item name="findFund" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
@@ -293,18 +252,7 @@
               <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="middlewares" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -316,7 +264,7 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/assets/i18n/tador" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/src/middlewares" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -329,11 +277,12 @@
     <property name="ts.external.directory.path" value="C:\Users\yantr\Desktop\nest-angular\nest-angular\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yantr\Desktop\nest-angular\nest-angular\server\src\middlewares" />
+      <recent name="C:\Users\yantr\Desktop\nest-angular\nest-angular\client\src\assets\i18n\tador" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\yantr\Desktop\nest\nest-angular\shared\models\tador" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\yantr\Desktop\nest-angular\nest-angular\client\src\assets\i18n\tador" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -357,6 +306,16 @@
       <envs />
       <scope-kind value="TEST_FILE" />
       <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
+      <method v="2" />
+    </configuration>
+    <configuration name="gen-client" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="gen-client" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="start-dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -389,23 +348,13 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/server/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="npm.start-server" />
+        <item itemvalue="npm.gen-client" />
         <item itemvalue="Jest.tador.service.spec.ts" />
         <item itemvalue="npm.start-tador-client" />
         <item itemvalue="npm.start-dev" />
-        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -442,7 +391,7 @@
       <workItem from="1567650681239" duration="11683000" />
       <workItem from="1567751503250" duration="10125000" />
       <workItem from="1568358754660" duration="4939000" />
-      <workItem from="1568585676923" duration="4230000" />
+      <workItem from="1568585676923" duration="30099000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -759,7 +708,21 @@
       <option name="project" value="LOCAL" />
       <updated>1568594579506</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="include other systems">
+      <created>1568598846904</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1568598846904</updated>
+    </task>
+    <task id="LOCAL-00047" summary="dyanamic form">
+      <created>1568774624105</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1568774624105</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -768,7 +731,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223601000" />
+    <option name="totallyTimeSpent" value="249470000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -783,14 +746,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7804878" visible="true" weight="0.22851562" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7804878" visible="true" weight="0.24479167" />
       <window_info id="Structure" order="1" sideWeight="0.21775898" side_tool="true" weight="0.26822916" />
       <window_info id="npm" order="2" sideWeight="0.2164751" side_tool="true" weight="0.2265625" />
       <window_info id="Favorites" order="3" sideWeight="0.2195122" side_tool="true" weight="0.17317708" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5738126" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35558408" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.49037227" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35558408" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32349166" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32991013" />
@@ -799,7 +762,7 @@
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.25288832" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.29653403" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.5673941" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -832,7 +795,9 @@
     <MESSAGE value="admin" />
     <MESSAGE value="fix save pannel" />
     <MESSAGE value="tador testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="tador testing" />
+    <MESSAGE value="include other systems" />
+    <MESSAGE value="dyanamic form" />
+    <option name="LAST_COMMIT_MESSAGE" value="dyanamic form" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -867,6 +832,12 @@
           <line>56</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/middlewares/frontend.middleware.ts</url>
+          <line>10</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -890,167 +861,20 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom/intercom.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
+    <entry file="file://$PROJECT_DIR$/client/src/app/mf/mf.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/lib/repo.ts" />
-    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/dist/repo.js" />
-    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/lib/EntityWithoutGetters.ts" />
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        <state relative-caret-position="2860">
+          <caret line="149" column="32" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="32" />
           <folding>
-            <element signature="e#0#89#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/bson/lib/bson/objectid.js">
+    <entry file="file://$PROJECT_DIR$/shared/models/filter.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="58" column="10" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="190">
-            <caret line="258" column="22" selection-start-line="258" selection-start-column="22" selection-end-line="258" selection-end-column="22" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/nest-cli.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="95" column="4" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/@types/mongodb/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="1647" column="4" selection-start-line="1647" selection-start-column="4" selection-end-line="1647" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/test/jest-e2e.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/module.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/repo.factory.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" selection-start-line="6" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/client.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="29" selection-start-line="29" selection-end-line="30" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/test/app.e2e-spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2560">
-          <caret line="184" column="5" lean-forward="true" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-            <element signature="n#!!block;n#addStatus#0;n#TadorService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/config.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-          <folding>
-            <element signature="e#72#130#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/customValidation/equalTo.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="23" />
+        <state relative-caret-position="132">
+          <caret line="177" column="13" selection-start-line="177" selection-start-column="13" selection-end-line="177" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1060,38 +884,222 @@
     <entry file="file://$PROJECT_DIR$/shared/models/tador/enum.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="12" />
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/tador.model.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/praedicta-logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/admin/admin/edit-user/edit-user.component.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/admin/admin/edit-user/edit-user.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/node_modules/ng-dyna-form/lib/dyna-form/dyna-form.builder.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="89" column="24" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/middlewares/authorize.middleware.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/services/user.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/components.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="110" column="77" selection-start-line="110" selection-start-column="77" selection-end-line="110" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/admin/admin/edit-user/edit-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/form/form.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/node_modules/ng-dyna-form/lib/text-box/text-box.component.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/services/i18n.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="62" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/services/interceptors.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/user.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/form/form.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="8" />
+          <folding>
+            <element signature="n#!!block;n#save#0;n#FormComponent#0" />
+            <element signature="n#!!block;n#cancel#0;n#FormComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/form/form.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="93" selection-start-column="93" selection-end-column="93" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/api/admin.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/admin/admin.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="46" column="46" lean-forward="true" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="180" column="27" selection-start-line="180" selection-start-column="27" selection-end-line="180" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/admin/admin.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="40">
+            <caret line="258" selection-start-line="258" selection-end-line="258" selection-end-column="70" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/api/app.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/Entity.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tslint.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/macro.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1105,157 +1113,168 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/client/src/api/tador.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        <state>
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/package.json">
+    <entry file="file://$PROJECT_DIR$/generator/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+        <state relative-caret-position="240">
+          <caret line="57" column="75" selection-start-line="57" selection-start-column="75" selection-end-line="57" selection-end-column="75" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/utils.ts">
+    <entry file="file://$PROJECT_DIR$/server/src/middlewares/normelize.middleware.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/middlewares/login.middleware.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/node_modules/@nestjs/common/interfaces/nest-application.interface.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="110" column="4" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/node_modules/@nestjs/common/interfaces/features/arguments-host.interface.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/node_modules/@nestjs/common/interfaces/features/execution-context.interface.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="2" column="50" lean-forward="true" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/pipes/validation.pipe.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/polyfills.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding>
-            <element signature="e#148#187#0" expanded="true" />
-          </folding>
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/middlewares/frontend.middleware.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/app.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="200">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#445#473#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/services/crypt.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/admin/admin/admin.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" selection-start-column="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/fund.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/mf.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="112" column="19" lean-forward="true" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
+        <state relative-caret-position="40">
+          <caret line="42" column="56" lean-forward="true" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="56" />
           <folding>
-            <element signature="e#0#74#0" expanded="true" />
+            <element signature="e#0#79#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/services/fund.service.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/auth/auth.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="63" lean-forward="true" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/node_modules/@angular/router/router.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="581" column="20" selection-start-line="581" selection-start-column="20" selection-end-line="581" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/guard.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/guard.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/filter.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="177" column="13" selection-start-line="177" selection-start-column="13" selection-end-line="177" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/mf.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="168" selection-start-line="168" selection-end-line="168" />
+          <caret line="12" column="68" selection-start-line="12" selection-start-column="68" selection-end-line="12" selection-end-column="68" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1942" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/starter.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+        <state relative-caret-position="137">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/mf/findFund/findFund.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/auth/auth.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="160">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/guard.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/auth/auth.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/user.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        <state relative-caret-position="298">
+          <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
         </state>
       </provider>
     </entry>
