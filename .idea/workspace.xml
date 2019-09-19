@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,13 +20,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/src/admin/admin.controller.ts">
+        <entry file="file://$PROJECT_DIR$/server/src/utils.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="52" column="73" lean-forward="true" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
-              <folding>
-                <element signature="e#0#90#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -107,7 +104,6 @@
         <option value="$PROJECT_DIR$/shared/models/macro.model.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/server/package.json" />
-        <option value="$PROJECT_DIR$/server/src/utils.ts" />
         <option value="$PROJECT_DIR$/server/src/services/fund.service.ts" />
         <option value="$PROJECT_DIR$/shared/index.ts" />
         <option value="$PROJECT_DIR$/shared/models/index.ts" />
@@ -140,6 +136,7 @@
         <option value="$PROJECT_DIR$/client/src/app/auth/auth.module.ts" />
         <option value="$PROJECT_DIR$/client/src/app/auth/auth.component.ts" />
         <option value="$PROJECT_DIR$/server/src/admin/admin.controller.ts" />
+        <option value="$PROJECT_DIR$/server/src/utils.ts" />
       </list>
     </option>
   </component>
@@ -406,21 +403,7 @@
       <workItem from="1567650681239" duration="11683000" />
       <workItem from="1567751503250" duration="10125000" />
       <workItem from="1568358754660" duration="4939000" />
-      <workItem from="1568585676923" duration="31667000" />
-    </task>
-    <task id="LOCAL-00001" summary="tador">
-      <created>1557605126179</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1557605126179</updated>
-    </task>
-    <task id="LOCAL-00002" summary="tador">
-      <created>1558944051030</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1558944051030</updated>
+      <workItem from="1568585676923" duration="32425000" />
     </task>
     <task id="LOCAL-00003" summary="mf">
       <created>1558962959805</created>
@@ -751,7 +734,21 @@
       <option name="project" value="LOCAL" />
       <updated>1568871034315</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="fix routes">
+      <created>1568871423454</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1568871423455</updated>
+    </task>
+    <task id="LOCAL-00051" summary="fix routes">
+      <created>1568871670521</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1568871670521</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -760,7 +757,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251038000" />
+    <option name="totallyTimeSpent" value="251796000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -775,19 +772,19 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7804878" visible="true" weight="0.24479167" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7804878" visible="true" weight="0.24479167" />
       <window_info id="Structure" order="1" sideWeight="0.21775898" side_tool="true" weight="0.26822916" />
       <window_info id="npm" order="2" sideWeight="0.2164751" side_tool="true" weight="0.2265625" />
       <window_info id="Favorites" order="3" sideWeight="0.2195122" side_tool="true" weight="0.17317708" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5738126" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35558408" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35558408" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32349166" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32991013" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32991013" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32991013" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.25288832" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" />
@@ -891,9 +888,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/conf.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/models/tador/enum.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -1302,11 +1296,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/admin/admin.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="52" column="73" lean-forward="true" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
+        <state relative-caret-position="184">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
           <folding>
             <element signature="e#0#90#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/utils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
         </state>
       </provider>
     </entry>

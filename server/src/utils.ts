@@ -7,5 +7,5 @@ export const cryptPassword = async password => {
 
 export const getRandomToken = async () => {
     const buffer = await randomBytes(48);
-    return buffer.toString();
+    return buffer.toString('hex');
 };
