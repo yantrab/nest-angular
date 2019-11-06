@@ -1,62 +1,76 @@
+.macro {
+    ::ng-deep .save_button {
+        background: #ffc400;
+    }
+}
+.mf {
+    ::ng-deep .save_button {
+        background: #70a1ff;
+    }
+}
+
 #login-page {
+    ::ng-deep .save_button {
+        background: #70a1ff;
+    }
     background-image: linear-gradient(to top, #1e90ff, #70a1ff);
     -moz-osx-font-smoothing: grayscale;
     width: calc(100vw);
     height: calc(100vh);
     font-family: 'Roboto', sans-serif;
-    .login-main {
-        width: 300px;
-        height: 342px;
-        background: #ffffff;
-        // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-        // padding: 25px;
 
+    .login-main {
+        width: 470px;
+        //height: 411px;
+        background: #ffffff;
         padding-right: 5em;
         padding-left: 5em;
-        //padding-top: 5.6875em;
-        padding-bottom: 5.0625em;
+        padding-top: 40px;
         .login-logo {
             margin-bottom: 30px;
             text-align: center;
+
             img {
                 width: 70px;
                 height: 70px;
                 object-fit: contain;
             }
         }
-        input,
-        button {
-            font-family: 'Roboto', sans-serif;
-        }
-        button {
-            text-transform: uppercase;
-            //background: #1e90ff;
-            width: 100%;
-            border: 1;
-            padding: 4px;
-            color: #ffffff;
-            font-size: 14px;
-            transition: all 0.3 ease;
-            cursor: pointer;
-            border-color: #1e90ff;
-        }
-        //button:hover,
-        //.form button:active,
-        //.form button:focus {
-        //    background: rgb(127, 203, 247)!important;
-        //}
-        p-text-box {
-            ::ng-deep.mat-form-field-infix {
-                border-top: 0 !important;
+
+        ::ng-deep {
+            .save_button {
+                text-transform: uppercase;
+                width: 100%;
+                padding: 4px;
+                color: #ffffff;
+                font-size: 14px;
+                cursor: pointer;
+                border-color: #1e90ff;
             }
-            ::ng-deep.mat-form-field-flex {
-                height: 42px;
-            }
-            ::ng-deep.mat-form-field-appearance-outline .mat-form-field-infix {
-                padding: 14px 0 0 0 !important;
-            }
-            ::ng-deep .mat-input-element {
-                padding: 0 0 5px !important;
+
+            p-text-box {
+                width: 100%;
+                .mat-form-field-should-float {
+                    .mat-form-field-label {
+                        top: 40px;
+                    }
+                }
+                ::ng-deep.mat-form-field-infix {
+                    border-top: 0 !important;
+                }
+
+                ::ng-deep.mat-form-field-flex {
+                    height: 42px;
+                }
+
+                ::ng-deep.mat-form-field-appearance-outline .mat-form-field-infix {
+                    padding: 14px 0 0 0 !important;
+                }
+
+                ::ng-deep .mat-input-element {
+                    padding: 0 0 1px !important;
+                    font-size: 13px !important;
+                }
             }
         }
     }

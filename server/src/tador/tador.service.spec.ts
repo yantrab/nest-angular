@@ -1,10 +1,9 @@
 import { Socket } from 'net';
 import { getRandomToken } from '../utils';
 import { ActionType, PanelType } from '../../../shared/models/tador/enum';
-const uId = 'admin@admin.com';
 const port = 4000;
 let pId;
-const host = 'localhost';
+const host = '128.199.41.162'; //'localhost';
 describe('tador', async () => {
     beforeAll(async () => {
         pId = await getRandomToken();

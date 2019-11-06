@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { LoginRequest, signinRequest } from 'shared';
-import { DynaFormBuilder, validateAllFields } from 'ng-dyna-form';
+import { DynaFormBuilder, FormModel } from 'ng-dyna-form';
 import { I18nService } from '../shared/services/i18n.service';
 import { I18nRootObject } from 'src/api/i18n/login.i18n';
 import { MyErrorStateMatcher } from './MyErrorStateMatcher';
@@ -13,6 +13,9 @@ import { MyErrorStateMatcher } from './MyErrorStateMatcher';
     styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
+    loginFormModel: FormModel<LoginRequest>;
+    signinFormModel: FormModel<signinRequest>;
+
     matcher = new MyErrorStateMatcher();
     form: FormGroup;
     signinFrom: FormGroup;
@@ -21,6 +24,7 @@ export class AuthComponent {
     state: 'login' | 'signin';
     currentSystem: 'macro' | 'mf';
     settings;
+    private loginError: string;
     constructor(
         private router: Router,
         private route: ActivatedRoute,
@@ -39,7 +43,31 @@ export class AuthComponent {
                 backgroundHover: 'rgb(127, 203, 247)',
             },
         };
-        this.i18nService.dic.subscribe(result => (this.dic = result as any));
+        this.i18nService.dic.subscribe(result => {
+            this.dic = result as any;
+            this.loginFormModel = {
+                appearance: 'outline',
+                errorTranslations: this.dic.validation,
+                feilds: [
+                    { key: 'email', placeHolder: this.dic.loginPage.email },
+                    { placeHolder: this.dic.loginPage.password, key: 'password', type: 'password' },
+                ],
+                modelConstructor: LoginRequest,
+                formSaveButtonTitle: this.dic.loginPage.login,
+            };
+            this.signinFormModel = {
+                appearance: 'outline',
+                errorTranslations: this.dic.validation,
+                feilds: [
+                    { key: 'email', placeHolder: this.dic.loginPage.email },
+                    { placeHolder: this.dic.loginPage.password, key: 'password', type: 'password' },
+                    { placeHolder: this.dic.loginPage.rePassword, key: 'rePassword', type: 'password' },
+                ],
+                modelConstructor: signinRequest,
+                model: { token: this.route.snapshot.params.token },
+                formSaveButtonTitle: this.dic.loginPage.signin,
+            };
+        });
 
         this.dynaFB.buildFormFromClass(LoginRequest).then(form => (this.form = form));
         this.dynaFB
@@ -49,30 +77,19 @@ export class AuthComponent {
         this.state = this.route.snapshot.params.state;
     }
 
-    login(e) {
-        // On case that there is no changes in form
-        validateAllFields(this.form);
-        if (this.form.valid) {
-            this.authService.login(this.form.value).then(res => {
-                if (res.status) {
-                    this.router.navigate(['site/' + this.route.snapshot.params.site]).then();
-                } else {
-                    this.form.controls.password.setErrors({ 0: this.dic.validation.loginFailedMsg });
-                }
-            });
-        }
-        e.preventDefault();
+    login(val) {
+        this.authService.login(val).then(res => {
+            if (res.status) {
+                this.router.navigate(['site/' + this.route.snapshot.params.site]).then();
+            } else {
+                this.loginError = this.dic.validation.loginFailedMsg;
+            }
+        });
     }
 
-    signin(e) {
-        // On case that there is no changes in form
-        validateAllFields(this.signinFrom);
-        if (this.signinFrom.valid) {
-            //
-            this.authService.signin(this.signinFrom.value).then(() => {
-                this.router.navigate(['site/' + this.route.snapshot.params.site]).then();
-            });
-        }
-        e.preventDefault();
+    signin(val) {
+        this.authService.signin(val).then(() => {
+            this.router.navigate(['site/' + this.route.snapshot.params.site]).then();
+        });
     }
 }

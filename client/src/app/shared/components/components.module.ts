@@ -16,7 +16,7 @@ import { TableComponent, TableModule } from 'mat-virtual-table';
 import { I18nService } from '../services/i18n.service';
 import { XLSXService } from '../services/xlsx.service';
 import { TreeComponent } from './tree/tree.component';
-import { MatPaginatorIntl } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef, MatPaginatorIntl } from '@angular/material';
 import { QuantityFilterComponent } from './filters/quantity-filter/quantity-filter.component';
 import { DxRangeSelectorModule } from 'devextreme-angular';
 import { SpecialFilterComponent } from './filters/special-filter/special-filter.component';
@@ -107,7 +107,14 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
     ],
     declarations: components,
     exports: exportsM,
-    providers: [I18nService, XLSXService, { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }, DialogService],
+    providers: [
+        I18nService,
+        XLSXService,
+        { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl },
+        DialogService,
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: [] },
+    ],
     entryComponents: [ParameterPickerComponent, TableComponent, FormComponent],
 })
 export class ComponentsModule {}

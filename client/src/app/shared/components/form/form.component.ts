@@ -11,7 +11,7 @@ export interface FormModel<T> {
 }
 
 @Component({
-    selector: 'p-form',
+    selector: 'p-form-sss',
     templateUrl: './form.component.html',
     styleUrls: ['./form.component.scss'],
 })

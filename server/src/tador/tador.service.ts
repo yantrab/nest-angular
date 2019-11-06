@@ -140,8 +140,6 @@ export class TadorService {
                     const action: Action = JSON.parse(msgString);
                     console.log('DATA ' + sock.remoteAddress + ': ' + action);
                     switch (action.type) {
-                        case ActionType.register:
-                            return this.register(action, sock);
                         case ActionType.readAll:
                             return this.read(action, sock, 16);
                         case ActionType.read:
@@ -164,24 +162,19 @@ export class TadorService {
         });
     }
 
-    private async register(action: RegisterAction, sock: Socket) {
-        const data = action.data;
-        const user = await this.userService.userRepo.findOne({ phone: data.uPhone, code: data.uCode });
-        if (!user) return sock.write('0');
-
-        let panel = await this.panelRepo.findOne({ panelId: data.pId });
+    async register(pId: string, uId: string, pType) {
+        let panel = await this.panelRepo.findOne({ panelId: pId });
         if (panel) {
-            return sock.write('0');
+            throw 'panel already signed up';
         }
 
-        panel = new Panels[data.type + 'Panel']({
+        panel = new Panels[pType + 'Panel']({
             name: '',
             address: '',
-            panelId: data.pId,
-            userId: user.id,
+            panelId: pId,
+            userId: uId,
         });
-        const saveResult = await this.panelRepo.collection.insertOne(panel);
-        sock.write(saveResult.result.ok.toString());
+        return this.panelRepo.collection.insertOne(panel);
     }
 
     private async read(action: Action, sock: Socket, multiply = 1) {
