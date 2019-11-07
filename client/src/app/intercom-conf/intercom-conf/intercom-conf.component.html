@@ -9,7 +9,7 @@
             [settings]="autocompleteSettings"
         ></p-autocomplete>
         <div fxFlex fxLayout="column">
-            <mat-tab-group fxFlex #tabGroup mat-stretch-tabs>
+            <mat-tab-group fxFlex mat-stretch-tabs>
                 <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
                     <div>
                         <mat-form-field>
@@ -44,11 +44,7 @@
                 <mat-tab label="settings">
                     <ng-template matTabContent>
                         <mat-accordion fxFlex>
-                            <mat-expansion-panel
-                                *ngFor="let group of selectedPanel.settings; let panelOpenState = false"
-                                (closed)="panelOpenState = false"
-                                (opened)="panelOpenState = true"
-                            >
+                            <mat-expansion-panel *ngFor="let group of selectedPanel.settings">
                                 <mat-expansion-panel-header>
                                     {{ group.name }}
                                 </mat-expansion-panel-header>

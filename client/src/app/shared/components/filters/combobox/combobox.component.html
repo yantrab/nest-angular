@@ -1,10 +1,11 @@
 <mat-label>{{ placeholder }}</mat-label>
-<mat-radio-group (change)="change($event.value)" fxLayout="row wrap" [labelPosition]="labelPosition">
+<mat-radio-group [disabled]="isDisabled" (change)="change($event.value)" fxLayout="row wrap" [labelPosition]="labelPosition">
     <mat-radio-button
         style="margin: 5px;"
+        [disabled]="option.isDisabled"
         color="primary"
         *ngFor="let option of options"
-        [checked]="!!settings.selected && option._id === settings.selected._id"
+        [checked]="!!settings.selected && option._id === settings.selected._id && settings.isActive"
         [value]="option"
         >{{ option.name }}</mat-radio-button
     >

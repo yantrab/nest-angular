@@ -1,9 +1,0 @@
-<div fxFlex fxFill fxLayout="row" fxLayoutAlign="start start">
-    <mat-icon class="mat-icon-rtl-mirror icon-back" (click)="back.emit(null)">chevron_left</mat-icon>
-    <div fxFlex="390px" class="filter"  fxLayout="column" fxLayoutAlign="start center" [style.background]="'#ffffff'">
-        <span class="title">{{ tTitle }}</span>
-        <ng-content select="[id=button]"></ng-content>
-    </div>
-    <div fxFlex="16px"></div>
-    <ng-content select="[id=grid]"></ng-content>
-</div>

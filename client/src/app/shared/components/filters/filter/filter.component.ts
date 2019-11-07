@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ComboboxFilter, DateRangeComboFilter, Filter, QuantityFilter, SpecialFilter } from 'shared';
-import { CheckboxFilter, DropdownFilter, AutocompleteFilter } from 'shared/models/filter.model';
-// import { QuantityFilterComponent } from '../quantity-filter/quantity-filter.component';
+import { Filter } from 'shared';
+import * as Filters from 'shared/models/filter.model';
+
 @Component({
     selector: 'p-filter',
     styles: [':host {height: 100%;width: 100%;}'],
@@ -9,44 +9,44 @@ import { CheckboxFilter, DropdownFilter, AutocompleteFilter } from 'shared/model
         <p-checkbox
             (selectedChange)="selectedChange.emit()"
             [dic]="dic"
-            *ngIf="filter.kind == filterTypes.checkboxFilter"
+            *ngIf="filter.kind == filters.CheckboxFilter.name"
             [settings]="filter"
-            [dataSource]="dataSource"
         ></p-checkbox>
         <p-dropdown
             [dic]="dic"
             (selectedChange)="selectedChange.emit()"
-            *ngIf="filter.kind == filterTypes.dropdownFilter"
+            *ngIf="filter.kind == filters.DropdownFilter.name"
             [settings]="filter"
-            [dataSource]="dataSource"
         ></p-dropdown>
         <p-autocomplete
             [dic]="dic"
             (selectedChange)="selectedChange.emit()"
-            *ngIf="filter.kind == filterTypes.autocompleteFilter"
+            *ngIf="filter.kind == filters.AutocompleteFilter.name"
             [settings]="filter"
-            [dataSource]="dataSource"
         ></p-autocomplete>
         <p-quantity-filter
             [dic]="dic"
             (selectedChange)="selectedChange.emit()"
-            *ngIf="filter.kind == filterTypes.quantityFilterComponent"
+            *ngIf="filter.kind == filters.QuantityFilter.name"
             [settings]="filter"
-            [dataSource]="dataSource"
         ></p-quantity-filter>
         <p-special-filter
             [dic]="dic"
             (selectedChange)="selectedChange.emit()"
-            *ngIf="filter.kind == filterTypes.specialFilterComponent"
+            *ngIf="filter.kind == filters.SpecialFilter.name"
             [settings]="filter"
-            [dataSource]="dataSource"
         ></p-special-filter>
+        <p-special-filter-grid
+            [dic]="dic"
+            (selectedChange)="selectedChange.emit()"
+            *ngIf="filter.kind == filters.SpecialFilterGrid.name"
+            [settings]="filter"
+        ></p-special-filter-grid>
         <p-combobox
             [dic]="dic"
             (selectedChange)="selectedChange.emit()"
-            *ngIf="[filterTypes.DateRangeComboFilter, filterTypes.ComboboxFilter].includes(filter.kind)"
+            *ngIf="[filters.DateRangeComboFilter.name, filters.ComboboxFilter.name].includes(filter.kind)"
             [settings]="filter"
-            [dataSource]="dataSource"
         ></p-combobox>
     `,
 })
@@ -54,14 +54,5 @@ export class FilterComponent {
     @Input() filter: Filter;
     @Input() dic = { placeholder: {}, titles: {} };
     @Output() selectedChange = new EventEmitter();
-    @Input() dataSource;
-    filterTypes = {
-        checkboxFilter: CheckboxFilter.name,
-        dropdownFilter: DropdownFilter.name,
-        autocompleteFilter: AutocompleteFilter.name,
-        quantityFilterComponent: QuantityFilter.name,
-        specialFilterComponent: SpecialFilter.name,
-        DateRangeComboFilter: DateRangeComboFilter.name,
-        ComboboxFilter: ComboboxFilter.name,
-    };
+    filters = Filters;
 }

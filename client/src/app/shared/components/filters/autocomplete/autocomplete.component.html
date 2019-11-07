@@ -1,4 +1,4 @@
-<mat-form-field style="width: 100%;" floatLabel="always" #matForm [appearance]="appearance">
+<mat-form-field style="width: 100%;" floatLabel="always" [appearance]="appearance">
     <mat-label *ngIf="chips && title">{{ title }}</mat-label>
     <div fxLayout="row wrap" (click)="setInputFocus()">
         <mat-chip-list *ngIf="chips">
@@ -22,7 +22,7 @@
         />
     </div>
     <mat-autocomplete
-        #auto="matAutocomplete"
+        #auto
         [displayWith]="displayFn"
         [class.maxHight]="keepOpen"
         (optionSelected)="optionSelected($event.option.value)"
@@ -31,6 +31,7 @@
             *ngFor="let option of filteredOptions | async"
             [class.selected]="keepOpen && settings.selected && settings.selected._id === option._id"
             [value]="option"
+            [disabled]="option.isDisabled"
         >
             <div fxLayout="row" fxFlex>
                 <span fxFlex> {{ option.name }}</span>

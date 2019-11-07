@@ -1,4 +1,4 @@
-import { Component, KeyValueDiffers, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, KeyValueDiffers, OnChanges, OnInit, SimpleChanges, Input } from '@angular/core';
 import { BaseFilterComponent } from '../base.component';
 import { AutocompleteFilter, Filter } from 'shared/models';
 import { cloneDeep } from 'lodash';

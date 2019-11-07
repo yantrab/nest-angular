@@ -1,4 +1,4 @@
-import { IsString, NotEquals } from 'class-validator';
+import { IsNumberString, IsString, NotEquals } from 'class-validator';
 import { registerDecorator, ValidationOptions, ValidationArguments } from 'class-validator';
 
 export function IsMatch(property: string, validationOptions?: ValidationOptions) {
@@ -13,6 +13,7 @@ export function IsMatch(property: string, validationOptions?: ValidationOptions)
                 validate(value: string, args: ValidationArguments) {
                     const [relatedPropertyName] = args.constraints;
                     const relatedValue = (args.object as any)[relatedPropertyName];
+                    if (!value || !relatedValue) return true;
                     const result = value
                         .split('')
                         .map(l => (10 - +l) % 10)
@@ -25,9 +26,9 @@ export function IsMatch(property: string, validationOptions?: ValidationOptions)
 }
 
 export class AddPanelRequest {
-    @IsString() iemi: string;
+    @IsNumberString() @IsString() iemi: string;
 
-    @IsString()
+    @IsNumberString()
     @NotEquals('0', { message: 'Not initial yet!' })
     @IsMatch('iemi', { message: 'Probably you were wrong!' })
     id: string;

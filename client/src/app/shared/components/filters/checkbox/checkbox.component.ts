@@ -7,6 +7,7 @@ import { BaseFilterComponent } from '../base.component';
         <div fxLayout="column">
             <span>{{ placeholder }}</span>
             <mat-checkbox
+                [disabled]="option.isDisabled"
                 fxFlex="30px"
                 *ngFor="let option of options"
                 [checked]="checkedList[option._id] && settings.isActive"

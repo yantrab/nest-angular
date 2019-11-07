@@ -9,7 +9,7 @@ import { ColumnDef } from 'mat-virtual-table';
 })
 export class ContactsComponent implements OnInit {
     @Input() contacts: Contacts;
-    @ViewChild('ref', null) set refField(ref) {
+    @ViewChild('ref', { static: true }) set refField(ref) {
         if (!ref) {
             return;
         }

@@ -11,20 +11,20 @@ interface Node {
     styleUrls: ['./tree.component.scss'],
 })
 export class TreeComponent {
-    treeControl = new NestedTreeControl<Node>(node => node.children);
-    selectedNode;
     @Input() set data(data) {
         this.dataSource.data = data;
     }
+    treeControl = new NestedTreeControl<Node>(node => node.children);
+    selectedNode;
 
     @Output() select = new EventEmitter();
     dataSource = new MatTreeNestedDataSource<Node>();
 
     @Input() itemSize = '40px';
-    hasChild = (_: number, node: Node) => !!node.children && node.children.length > 0;
 
     @Input() iconMore = 'expand_more';
     @Input() iconless = 'chevron_right';
+    hasChild = (_: number, node: Node) => !!node.children && node.children.length > 0;
     updateNode(node, selected) {
         node.selected = selected;
         if (selected) {

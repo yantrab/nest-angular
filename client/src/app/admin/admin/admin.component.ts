@@ -3,9 +3,10 @@ import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
 import { AdminController } from '../../../api/admin.controller';
 import { App, Permission, User } from 'shared/models';
 import { ColumnDef } from 'mat-virtual-table';
-import { MatDialog, MatSnackBar } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { FormComponent, FormModel } from '../../shared/components/form/form.component';
+import { FormComponent, FormModel } from 'ng-dyna-form';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface AdminModel {
     app: App;

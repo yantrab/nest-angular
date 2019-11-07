@@ -1,5 +1,5 @@
 import { Component, Inject, Input, Optional } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
     selector: 'p-parameter-picker',
@@ -22,8 +22,8 @@ export class ParameterPickerComponent {
     @Input() title: string;
     @Input() groups: any[];
     @Input() dic: any[];
-    @Input() childrenPatameterName: string = 'parameters';
-    @Input() bindingParamterName: string = 'isActive';
-    @Input() parameterTitleName: string = 'name';
-    @Input() isSmall: boolean = false;
+    @Input() childrenPatameterName = 'parameters';
+    @Input() bindingParamterName = 'isActive';
+    @Input() parameterTitleName = 'name';
+    @Input() isSmall = false;
 }

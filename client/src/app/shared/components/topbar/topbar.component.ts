@@ -12,8 +12,8 @@ export class TopbarComponent implements OnInit {
     @Input() inProgress;
     ngOnInit(): void {
         this.model.logo = 'assets/img/mf/logoMf.png';
-        this.model.menuItems.push({ action: () => (this.i18nService.language = 'en'), title: 'en' });
-        this.model.menuItems.push({ action: () => (this.i18nService.language = 'he'), title: 'he' });
+        // this.model.menuItems.push({ action: () => (this.i18nService.language = 'en'), title: 'en' });
+        // this.model.menuItems.push({ action: () => (this.i18nService.language = 'he'), title: 'he' });
     }
     constructor(public i18nService: I18nService) {}
 }

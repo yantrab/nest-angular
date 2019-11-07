@@ -2,26 +2,19 @@ import { Input, Output, EventEmitter, KeyValueDiffers, DoCheck, KeyValueDiffer }
 import { Filter } from 'shared';
 
 export class BaseFilterComponent implements DoCheck {
-    @Input() dic = { placeholders: {}, titles: {} };
-    options;
-    private _dataSource;
-    @Input() set dataSource(data) {
-        if (this.justChange) {
-            this.justChange = false;
-            return;
-        }
-        this._dataSource = data;
-        if (this.settings) {
-            this.options = this.settings.options || this.settings.getOptions(data);
+    get isDisabled() {
+        return !this.settings.lastChange && this.settings.isDisabled;
+    }
+    @Input() set options(ops) {
+        this._options = ops;
+        if (this.options.filter(o => !o.isDisabled).length === 1) {
+            // this.settings.selected = this.options.filter(o => !o.isDisabled);
         }
     }
-    get dataSource() {
-        return this._dataSource;
+    get options() {
+        return this._options || this.settings.options || this.settings._options;
     }
 
-    ngOnInit(): void {
-        this.options = this.settings.options || this.settings.getOptions(this._dataSource);
-    }
     get placeholder() {
         return (
             this.dic.placeholders[this.settings.placeholder] ||
@@ -37,9 +30,6 @@ export class BaseFilterComponent implements DoCheck {
     }
 
     constructor(private _differs: KeyValueDiffers) {}
-    justChange = false;
-    private _differ: KeyValueDiffer<any, any>;
-    _settings: Filter;
     @Input() set settings(settings: Filter) {
         this._settings = settings;
         if (!this._differ && settings) {
@@ -49,6 +39,11 @@ export class BaseFilterComponent implements DoCheck {
     get settings(): Filter {
         return this._settings;
     }
+    @Input() dic = { placeholders: {}, titles: {} };
+    _options;
+    private _differ: KeyValueDiffer<any, any>;
+    _settings: Filter;
+    @Output() selectedChange = new EventEmitter();
     ngDoCheck() {
         if (this._differ) {
             const changes = this._differ.diff(this._settings);
@@ -57,10 +52,9 @@ export class BaseFilterComponent implements DoCheck {
             }
         }
     }
-    @Output() selectedChange = new EventEmitter();
     onSettingsChange(changes) {}
     optionSelected(val) {
-        this.justChange = true;
+        this.settings.lastChange = true;
         if (this.settings.isMultiple) {
             if (!this.settings.selected) {
                 this.settings.selected = [];

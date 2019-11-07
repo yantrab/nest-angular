@@ -22,14 +22,3 @@ export abstract class Entity {
         }
     }
 }
-
-// tslint:disable-next-line: max-classes-per-file
-export abstract class Poly extends Entity {
-    @IsOptional()
-    @IsString()
-    kind?: string;
-    protected constructor(data?) {
-        super(data);
-        this.kind = this.constructor.name;
-    }
-}

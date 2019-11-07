@@ -10,7 +10,7 @@ import { cloneDeep } from 'lodash';
 import { ActionType } from 'shared/models/tador/enum';
 import { FormModel, FormComponent } from 'ng-dyna-form';
 import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
-import { NgDialogAnimationService } from 'ng-dialog-animation';
+import { DialogService } from '../../shared/services/dialog.service';
 
 // import * as conf from 'shared/models/tador/conf';
 // Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
@@ -27,12 +27,7 @@ export class IntercomConfComponent {
             { placeHolder: 'id', key: 'id', appearance: 'outline' },
         ],
         modelConstructor: AddPanelRequest,
-        model: undefined,
-        // errorTranslations: {
-        //     'must be an email': 'נא הכנס מייל תקין',
-        //     'must be a string': 'שדה חובה',
-        // },
-        formTitle: 'עריכה',
+        formTitle: 'הוספת פאנל',
     };
 
     FieldType = FieldType;
@@ -42,7 +37,7 @@ export class IntercomConfComponent {
         routerLinks: [],
         menuItems: [],
     };
-    constructor(private api: TadorController, public i18nService: I18nService, public dialog: NgDialogAnimationService) {
+    constructor(private api: TadorController, public i18nService: I18nService, public dialog: DialogService) {
         this.api.initialData().then(data => {
             this.panels = data.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
             this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
@@ -59,6 +54,7 @@ export class IntercomConfComponent {
     }
     panels: Panel[];
     autocompleteSettings: AutocompleteFilter;
+
     selectedPanel: Panel;
     cloneSelectedPanel: Panel;
     contacts: ContactField[];

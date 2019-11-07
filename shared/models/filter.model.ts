@@ -15,7 +15,16 @@ export abstract class Filter {
     @IsOptional() @IsBoolean() show?: boolean = true;
     @IsOptional() @IsString() placeholder?: string;
     @IsString() @IsOptional() format?: string;
-
+        @IsOptional()
+    @IsBoolean() lastChange?: boolean;
+    _options: any[];
+    get isDisabled() {
+        if (this.lastChange) {
+            this.lastChange = false;
+            return false;
+        }
+        return this._options && this._options.filter(o => !o.isDisabled).length < 2;
+    }
     constructor(filter?: Partial<Filter>) {
         Object.assign(this, filter);
         this.kind = this.constructor.name;
@@ -24,16 +33,12 @@ export abstract class Filter {
     doFilter(items: any[]): any[] {
         throw new Error('not implemented');
     }
-
-    hasOptions(items) {
-        return !!((this.options && this.options.length) || items.some(item => get(item, this.optionIdPath)));
-    }
-
-    getOptions(items) {
+    _getOptions(items: any[]): any[] {
         return (
             this.options ||
             uniqBy(
                 items
+
                     .map(item => ({
                         _id: get(item, this.optionIdPath),
                         name: get(item, this.optionNamePath || this.optionIdPath),
@@ -43,18 +48,44 @@ export abstract class Filter {
             )
         );
     }
+    get hasOptions() {
+        return (this.options && this.options.length) || (this._options && this._options.length);
+    }
+    setOptions(all) {
+        if (this.options) {
+            return;
+        }
+        this._options = this._getOptions(all);
+        this._options.forEach(option => (option.isDisabled = true));
+    }
+
+    disableOptions(items: any[]) {
+        if (!this._options) {
+            return;
+        }
+        this._options.forEach(option => (option.isDisabled = false));
+        if (this.lastChange) {
+            return;
+        }
+        const relevant = this._getOptions(items);
+        this._options.forEach(option => (option.isDisabled = !relevant.some(r => r._id === option._id)));
+        // const enabledOptions = this._options.filter(option => !option.isDisabled);
+        // if (enabledOptions.length === 1) {
+        //     this.selected = this.isMultiple ? [enabledOptions[0]] : enabledOptions[0];
+        // }
+    }
 }
 
 export class CheckboxFilter extends Filter {
-    constructor(filter) {
-        super(filter);
+    constructor(checkboxFilter: Partial<CheckboxFilter>) {
+        super(checkboxFilter);
         this.isMultiple = true;
     }
     doFilter(items: any[]): any[] {
         return items.filter(item => this.selected.find(s => s._id === get(item, this.optionIdPath)));
     }
 
-    getOptions(items) {
+    _getOptions(items: any[]) {
         return (
             this.options ||
             uniqBy(
@@ -71,7 +102,7 @@ export class ComboboxFilter extends Filter {
         return items.filter(item => this.selected._id === get(item, this.optionIdPath));
     }
 
-    getOptions(items) {
+    _getOptions(items: any[]) {
         return (
             this.options ||
             uniqBy(
@@ -99,7 +130,7 @@ export class QuantityFilter extends Filter {
         });
     }
 
-    getOptions(items) {
+    _getOptions(items: any[]) {
         const result = getDistribution(items.map(item => get(item, this.optionIdPath)));
         if (!result[0].x) return [];
         return result;
@@ -115,15 +146,47 @@ export class DropdownFilter extends AutocompleteFilter {}
 export class SpecialFilter extends Filter {
     constructor(filter: Partial<SpecialFilter>) {
         super(filter);
-        if (!filter) {
-            return;
-        }
         this.options.forEach(op => {
             op.filter = new Filters[op.filter.kind](op.filter);
         });
         if (this.selected) {
             this.selected = filter.selected.map(op => new Filters[op.kind](op));
         }
+    }
+
+    setOptions(all) {
+        this.options.forEach(option => option.filter.setOptions(all));
+    }
+    disableOptions(items: any[]) {
+        this.options.forEach(option => option.filter.disableOptions(items));
+    }
+
+    doFilter(items: any[]): any[] {
+        let result = items;
+        this.selected.forEach(filter => {
+            if (filter.isActive && filter.selected) {
+                result = filter.doFilter(result);
+            }
+        });
+        return result;
+    }
+}
+
+export class SpecialFilterGrid extends Filter {
+    constructor(filter: Partial<SpecialFilterGrid>) {
+        super(filter);
+        this.options.forEach(ops => {
+            ops.filters = ops.filters.map(filter => new Filters[filter.kind](filter));
+        });
+    }
+
+    setOptions(all) {
+        this.options.forEach(ops => {
+            ops.filters.forEach(filter => filter.setOptions(all));
+        });
+    }
+    disableOptions(items: any[]) {
+        this.options.forEach(option => option.filter.disableOptions(items));
     }
 
     doFilter(items: any[]): any[] {
@@ -163,7 +226,12 @@ export class FilterGroup extends Entity {
     }
     constructor(filterGroup: Partial<FilterGroup>) {
         super(filterGroup);
-        this.filters = filterGroup.filters.map(filter => new Filters[filter.kind](filter));
+        this.filters = filterGroup.filters.map(filter => {
+            if (!Filters[filter.kind]) {
+                return console.log(JSON.stringify(filterGroup));
+            }
+            return new Filters[filter.kind](filter);
+        });
     }
 }
 

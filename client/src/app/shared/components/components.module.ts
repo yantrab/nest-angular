@@ -16,17 +16,17 @@ import { TableComponent, TableModule } from 'mat-virtual-table';
 import { I18nService } from '../services/i18n.service';
 import { XLSXService } from '../services/xlsx.service';
 import { TreeComponent } from './tree/tree.component';
-import { MAT_DIALOG_DATA, MatDialogRef, MatPaginatorIntl } from '@angular/material';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 import { QuantityFilterComponent } from './filters/quantity-filter/quantity-filter.component';
 import { DxRangeSelectorModule } from 'devextreme-angular';
 import { SpecialFilterComponent } from './filters/special-filter/special-filter.component';
+import { SpecialFilterGridComponent } from './filters/special-filter-grid/special-filter-grid.component';
 import { ComboboxComponent } from './filters/combobox/combobox.component';
 import { ParameterPickerComponent } from './parameter-picker/parameter-picker.component';
 import { MultiSliderRangeSelectorComponent } from './multi-slider-range-selector/multi-slider-range-selector.component';
 import { DialogService } from '../services/dialog.service';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { FormComponent } from './form/form.component';
-
+import { ContentComponent } from './content/content.component';
 const components = [
     DropdownComponent,
     CheckboxComponent,
@@ -38,24 +38,13 @@ const components = [
     AutocompleteComponent,
     TreeComponent,
     SpecialFilterComponent,
+    SpecialFilterGridComponent,
     ComboboxComponent,
     MultiSliderRangeSelectorComponent,
     ParameterPickerComponent,
-    FormComponent,
+    ContentComponent,
 ];
 
-const exportsM = [
-    TableModule,
-    MaterialModule,
-    FlexLayoutModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    DynaFormModule,
-    DxRangeSelectorModule,
-    AngularSvgIconModule,
-    ...components,
-];
 @Injectable()
 export class CustomMatPaginatorIntl extends MatPaginatorIntl {
     base = new MatPaginatorIntl();
@@ -90,7 +79,7 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
         // If the start index exceeds the list length, do not try and fix the end index to the end.
         const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
         return startIndex + 1 + ' - ' + endIndex + ' מתוך ' + length;
-    };
+    }
 }
 
 @NgModule({
@@ -102,19 +91,38 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
         FlexLayoutModule,
         RouterModule,
         TableModule,
-        DynaFormModule,
         DxRangeSelectorModule,
     ],
     declarations: components,
-    exports: exportsM,
-    providers: [
-        I18nService,
-        XLSXService,
-        { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl },
-        DialogService,
-        { provide: MatDialogRef, useValue: {} },
-        { provide: MAT_DIALOG_DATA, useValue: [] },
+    exports: [
+        DropdownComponent,
+        CheckboxComponent,
+        QuantityFilterComponent,
+        FilterComponent,
+        KeyboardComponent,
+        TopbarComponent,
+        NavMenuComponent,
+        AutocompleteComponent,
+        TreeComponent,
+        SpecialFilterComponent,
+        SpecialFilterGridComponent,
+        ComboboxComponent,
+        ContentComponent,
+        MultiSliderRangeSelectorComponent,
+        ParameterPickerComponent,
+        TableModule,
+        MaterialModule,
+        FlexLayoutModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        DynaFormModule,
+        DxRangeSelectorModule,
+        AngularSvgIconModule,
+        DynaFormModule,
+        RouterModule,
     ],
-    entryComponents: [ParameterPickerComponent, TableComponent, FormComponent],
+    providers: [I18nService, XLSXService, { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }, DialogService],
+    entryComponents: [ParameterPickerComponent, TableComponent],
 })
 export class ComponentsModule {}

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 export class XLSXData {
-    rows: Object[];
+    rows: any[];
     description?: {};
     title?: string;
 }

@@ -7,13 +7,14 @@ import { BaseFilterComponent } from '../base.component';
         <mat-form-field style="width: 100%;" *ngIf="settings" floatLabel="always" [appearance]="appearance">
             <mat-label *ngIf="title">{{ title }}</mat-label>
             <mat-select
+                [disabled]="settings.isDisabled"
                 [multiple]="settings.isMultiple"
                 (selectionChange)="optionSelected($event.value)"
                 [value]="settings.selected"
                 [compareWith]="compareFn"
                 [placeholder]="placeholder"
             >
-                <mat-option *ngFor="let option of options" [value]="option">
+                <mat-option *ngFor="let option of options" [disabled]="option.isDisabled" [value]="option">
                     {{ option.name }}
                 </mat-option>
             </mat-select>

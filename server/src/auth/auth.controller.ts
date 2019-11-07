@@ -2,7 +2,7 @@ import { Controller, Post, Get, Body, UseInterceptors } from '@nestjs/common';
 import { LoginRequest, User, signinRequest } from 'shared';
 import { UserService } from 'services/user.service';
 import { LoginInterceptor, GetUserAuthenticatedInterceptor } from '../middlewares/login.middleware';
-import { ReqUser } from 'decorators/user.decorator';
+import { ReqUser } from '../decorators/user.decorator';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 
 @Controller('rest/auth')

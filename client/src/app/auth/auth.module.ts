@@ -5,6 +5,7 @@ import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { RouterModule } from '@angular/router';
 import { DynaFormModule } from 'ng-dyna-form';
 import { AuthController } from 'src/api/auth.controller';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
     declarations: [AuthComponent],
@@ -16,6 +17,7 @@ import { AuthController } from 'src/api/auth.controller';
             { path: ':state', component: AuthComponent },
         ]),
         DynaFormModule,
+        AngularSvgIconModule,
     ],
     providers: [AuthController, { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' }],
 })

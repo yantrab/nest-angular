@@ -4,7 +4,6 @@ import { ComponentsModule } from '../shared/components/components.module';
 import { TadorController } from 'src/api/tador.controller';
 import { IntercomConfComponent } from './intercom-conf/intercom-conf.component';
 import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
-import { FormModel } from '../shared/components/form/form.component';
 import { App, User } from 'shared/models';
 import { AdminModel } from '../admin/admin/admin.component';
 

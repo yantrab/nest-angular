@@ -1,8 +1,9 @@
 @import '~@angular/material/theming';
+@import './assets/styles/material/style';
 @include mat-core();
-
+@import url(//fonts.googleapis.com/earlyaccess/opensanshebrew.css);
 $candy-app-primary: mat-palette($mat-blue, A200, A100, A400);
-$candy-app-accent: mat-palette($mat-orange);
+$candy-app-accent: mat-palette($mat-grey);
 
 // The warn palette is optional (defaults to red).
 $candy-app-warn: mat-palette($mat-red);
@@ -46,6 +47,20 @@ mat-tab-group {
     height: 100%;
 }
 
+.mat-step-icon {
+    width: 20px !important;
+    height: 20px !important;
+    border: solid 4px #dfe4ea !important;
+    background: none !important;
+}
+.mat-step-icon-selected {
+    border: solid 4px #1e90ff !important;
+}
+.mat-step-icon-state-done,
+.mat-step-icon-state-edit {
+    border: solid 4px #1e90ff !important;
+    background: #1e90ff !important;
+}
 mat-grid-list {
     height: 100%;
 }
@@ -66,7 +81,19 @@ mat-grid-list {
 .mat-expansion-panel-content {
     height: 100%;
 }
+
+.mat-expansion-panel-header.mat-expanded {
+    background: none !important;
+}
 .mat-expansion-panel-body {
     height: 100%;
 }
 @import '~saturn-datepicker/bundle.css';
+
+.mat-dialog-container {
+    display: flex !important;
+    flex-direction: column;
+    .dialogTitle {
+        margin: 10px 0 10px 0;
+    }
+}

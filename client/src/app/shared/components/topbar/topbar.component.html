@@ -2,7 +2,7 @@
     <div fxFlex fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="200px">
             <div fxFlex="93px" class="logout" fxLayoutAlign="center">
-                <p-nav-menu [items]="model?.menuItems"></p-nav-menu>
+                <p-nav-menu *ngIf="model?.menuItems.length" [items]="model?.menuItems"></p-nav-menu>
             </div>
             <button class="logout" mat-stroked-button (click)="model.logout()">
                 <b>{{ model?.logoutTitle }}</b>

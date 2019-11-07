@@ -10,7 +10,7 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "importHelpers": true,
-        "target": "es2015",
+        "target": "es6",
         "typeRoots": ["node_modules/@types"],
         "lib": ["es2018", "dom"],
         "paths": {
@@ -18,5 +18,10 @@
             "shared/*": ["../shared/*"],
             "jszip": ["node_modules/jszip/dist/jszip.min.js"]
         }
+    },
+    "angularCompilerOptions": {
+        "enableIvy": false,
+        "fullTemplateTypeCheck": false,
+        "strictInjectionParameters": false
     }
 }

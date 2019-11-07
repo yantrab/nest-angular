@@ -3,8 +3,6 @@ import { Length, IsEmail, IsOptional, IsString, IsEnum, ValidateNested, IsNotEmp
 import { Entity } from './Entity';
 export enum App {
     admin,
-    mf,
-    macro,
     tador,
 }
 

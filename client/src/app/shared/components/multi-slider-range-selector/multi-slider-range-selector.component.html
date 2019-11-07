@@ -2,7 +2,6 @@
     <div
         *ngFor="let p of group; let i = index"
         [fxFlex]="p.percent + '%'"
-        #headercell
         (mousemove)="mousemove($event, i)"
         (mousedown)="resizeTable($event, i)"
     >

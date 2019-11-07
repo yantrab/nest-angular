@@ -48,3 +48,8 @@ p-topbar {
         max-height: none;
     }
 }
+::ng-deep {
+    .mat-dialog-content {
+        flex-direction: row;
+    }
+}

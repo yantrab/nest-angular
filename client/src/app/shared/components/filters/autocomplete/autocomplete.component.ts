@@ -1,11 +1,22 @@
-import { AfterViewInit, Component, EventEmitter, Input, KeyValueDiffers, OnInit, Output, ViewChild } from '@angular/core';
+import {
+    AfterViewInit,
+    Component,
+    ElementRef,
+    EventEmitter,
+    Input,
+    KeyValueDiffers,
+    OnInit,
+    Output,
+    ViewChild,
+} from '@angular/core';
 import { BaseFilterComponent } from '../base.component';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { MatAutocompleteTrigger, MatInput } from '@angular/material';
+import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { UserFilter } from 'shared/models';
 import { get } from 'lodash';
+import { MatInput } from '@angular/material/input';
 
 @Component({
     selector: 'p-autocomplete',
@@ -20,14 +31,6 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     filteredOptions: Observable<any[]>;
     input: FormControl = new FormControl();
 
-    @Input() filterFn = query => {
-        const result = this.queries.filter(q => q.q.includes(query.trim())).map(q => q.option);
-        if (result.length || !this.freeText) {
-            return result;
-        }
-        return [{ name: query + this.freeTextAddNewTitle } as UserFilter].concat(result);
-    };
-
     @Input() appearance = 'outline';
     @Input() paths: string[] = ['name', '_id'];
     @Input() idPath = '_id';
@@ -37,13 +40,21 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     @Output() onRemove = new EventEmitter();
     @Input() freeTextAddNewTitle = 'Create New';
     @Input() keepOpen: boolean;
-    @ViewChild(MatAutocompleteTrigger, null) inputAutocomplete: MatAutocompleteTrigger;
-    @ViewChild(MatInput, null) matInput;
+    @ViewChild(MatAutocompleteTrigger, { static: true }) inputAutocomplete: MatAutocompleteTrigger;
+    @ViewChild(MatInput, { static: true }) matInput;
+
+    private queries = [];
+
+    @Input() filterFn = query => {
+        const result = this.queries.filter(q => q.q.startsWith(query.trim())).map(q => q.option);
+        if (result.length || !this.freeText) {
+            return result;
+        }
+        return [{ name: query + this.freeTextAddNewTitle } as UserFilter].concat(result);
+    };
     @Input() displayFn = val => {
         return val ? val.name : '';
     };
-
-    private queries = [];
     private filter = (value: any): string[] => {
         if (!value || typeof value !== 'string') {
             return this.options;
@@ -59,7 +70,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
         }
         this.options.forEach(option => {
             this.queries.push({
-                q: this.paths.reduce((query, path) => query + ' ' + (option[path] || ''), '').toLowerCase(),
+                q: this.paths.reduce((query, path) => (query ? query + ' ' : '') + (option[path] || ''), '').toLowerCase(),
                 option,
             });
         });
@@ -89,12 +100,11 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
             this.matInput._elementRef.nativeElement.blur();
         }
         setTimeout(() => {
-            // this.input.setValue('');
-        }, 100);
+            this.input.setValue('');
+        }, 1);
     }
 
     ngOnInit(): void {
-        super.ngOnInit();
         if (this.chips === undefined) {
             this.chips = this.settings.isMultiple;
         }
@@ -115,10 +125,7 @@ export class AutocompleteComponent extends BaseFilterComponent implements OnInit
     ngAfterViewInit() {
         if (this.keepOpen) {
             setTimeout(() => this.inputAutocomplete.openPanel());
-
-            if (this.keepOpen) {
-                window.addEventListener('click', () => this.inputAutocomplete.openPanel());
-            }
+            window.addEventListener('click', () => this.inputAutocomplete.openPanel());
         }
     }
 

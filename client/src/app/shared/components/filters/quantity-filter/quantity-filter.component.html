@@ -1,10 +1,9 @@
 <ng-container *ngIf="options && options.length">
     <span>{{ placeholder }}</span>
     <dx-range-selector
-        #rangeSelector
         [scale]="{ tick: { width: 0 }, minorTick: { width: 0 } }"
         [value]="settings.selected"
-        (dataSourceChange)="dataSourceChange($event)"
+        (dataSourceChange)="dataSourceChange()"
         (onValueChanged)="onValueChanged($event)"
         [dataSource]="options"
     >

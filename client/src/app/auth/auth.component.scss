@@ -1,18 +1,4 @@
-.macro {
-    ::ng-deep .save_button {
-        background: #ffc400;
-    }
-}
-.mf {
-    ::ng-deep .save_button {
-        background: #70a1ff;
-    }
-}
-
 #login-page {
-    ::ng-deep .save_button {
-        background: #70a1ff;
-    }
     background-image: linear-gradient(to top, #1e90ff, #70a1ff);
     -moz-osx-font-smoothing: grayscale;
     width: calc(100vw);
@@ -46,6 +32,7 @@
                 font-size: 14px;
                 cursor: pointer;
                 border-color: #1e90ff;
+                background: #70a1ff;
             }
 
             p-text-box {

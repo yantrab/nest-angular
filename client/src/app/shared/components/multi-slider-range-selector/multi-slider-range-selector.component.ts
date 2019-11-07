@@ -8,25 +8,25 @@ import { sum } from 'lodash';
     styleUrls: ['./multi-slider-range-selector.component.scss'],
 })
 export class MultiSliderRangeSelectorComponent implements OnInit {
-    @Input() group;
-    @Input() color;
-    private totalWidth: any;
     constructor(private i18Service: I18nService) {}
-
-    ngOnInit() {}
-    private getTargetX(e) {
-        const rect = e.currentTarget.getBoundingClientRect();
-        return e.clientX - rect.left;
-    }
-    _headerCells: ElementRef[];
     @ViewChildren('headercell') set headerCells(cells) {
         this._headerCells = cells.toArray();
         setTimeout(() => {
             this.totalWidth = sum(this._headerCells.map(c => c.nativeElement.clientWidth));
         });
     }
+    @Input() group;
+    @Input() color;
+    private totalWidth: any;
+    _headerCells: ElementRef[];
     isResizeActive = false;
     inMove: boolean;
+
+    ngOnInit() {}
+    private getTargetX(e) {
+        const rect = e.currentTarget.getBoundingClientRect();
+        return e.clientX - rect.left;
+    }
     resizeTable(event, i) {
         const cells = this._headerCells;
         const elNextIndex = i + 1;

@@ -10,7 +10,7 @@ export class Guard implements CanActivate {
         const user = await this.authService.getUserAuthenticated();
         const hasPerm = user && user.hasPermission(route.data.app);
         if (!hasPerm) {
-            this.router.navigate(['site/' + App[route.data.app] + '/auth/login', {}]);
+            this.router.navigate([App[route.data.app] + '/auth/login', {}]);
         }
         return true;
     }
