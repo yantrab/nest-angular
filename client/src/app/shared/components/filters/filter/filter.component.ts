@@ -36,12 +36,6 @@ import * as Filters from 'shared/models/filter.model';
             *ngIf="filter.kind == filters.SpecialFilter.name"
             [settings]="filter"
         ></p-special-filter>
-        <p-special-filter-grid
-            [dic]="dic"
-            (selectedChange)="selectedChange.emit()"
-            *ngIf="filter.kind == filters.SpecialFilterGrid.name"
-            [settings]="filter"
-        ></p-special-filter-grid>
         <p-combobox
             [dic]="dic"
             (selectedChange)="selectedChange.emit()"

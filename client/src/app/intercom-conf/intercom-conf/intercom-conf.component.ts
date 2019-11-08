@@ -7,8 +7,8 @@ import * as Panels from 'shared/models/tador/panels';
 import { ContactField, FieldType, Panel } from 'shared/models/tador/panels';
 import { AutocompleteFilter } from 'shared/models/filter.model';
 import { cloneDeep } from 'lodash';
-import { ActionType } from 'shared/models/tador/enum';
-import { FormModel, FormComponent } from 'ng-dyna-form';
+import { ActionType, PanelType } from 'shared/models/tador/enum';
+import { FormComponent, FormModel } from 'ng-dyna-form';
 import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
 import { DialogService } from '../../shared/services/dialog.service';
 
@@ -23,11 +23,12 @@ import { DialogService } from '../../shared/services/dialog.service';
 export class IntercomConfComponent {
     formModel: FormModel<AddPanelRequest> = {
         feilds: [
-            { placeHolder: 'iemi', key: 'iemi', appearance: 'outline' },
-            { placeHolder: 'id', key: 'id', appearance: 'outline' },
+            { placeHolder: 'iemi', key: 'iemi'},
+            { placeHolder: 'id', key: 'id'},
         ],
         modelConstructor: AddPanelRequest,
         formTitle: 'הוספת פאנל',
+        model: new AddPanelRequest(),
     };
 
     FieldType = FieldType;
@@ -99,8 +100,22 @@ export class IntercomConfComponent {
             maxWidth: '540px',
             data: this.formModel,
         });
-        dialogRef.afterClosed().subscribe(result => {
-            this.api.savePanel(new Panel({ panelId: result })).then(panel => this.panels.push(panel));
+        dialogRef.afterClosed().subscribe((result: AddPanelRequest) => {
+            if (!result) {
+                return;
+            }
+            result = Object.assign(new AddPanelRequest(), result)
+            if (!result.isMatch) {
+                this.formModel.model = result;
+                return this.openAddPanel();
+            }
+
+            this.formModel.model = new AddPanelRequest();
+            this.api.addNewPanel({type: PanelType.MP, panelId: result.iemi})
+                .then(panel => {
+                    this.panels.push(panel);
+                    this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
+                });
         });
     }
 }
