@@ -113,8 +113,9 @@ export class IntercomConfComponent {
             this.formModel.model = new AddPanelRequest();
             this.api.addNewPanel({type: PanelType.MP, panelId: result.iemi})
                 .then(panel => {
-                    this.panels.push(panel);
-                    this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
+                    this.panels.push( new Panels[panel.type + 'Panel'](panel));
+                    this.autocompleteSettings.options = [...this.panels];
+                    // this.autocompleteSettings.selected.selectedPanel = this.panels[this.panels.length - 1];
                 });
         });
     }

@@ -28,16 +28,9 @@ async function bootstrap() {
     // enable cors for static angular site.
     const corsOptions = {
         origin: [
-            'https://localhost:3000',
             'https://localhost:4200',
-            'https://praedicta-2b6a3.firebaseapp.com',
-            'https://arkadiy-8',
-            'https://192.168.200.201',
-            'http://localhost:3000',
             'http://localhost:4200',
-            'http://praedicta-2b6a3.firebaseapp.com',
-            'http://arkadiy-8',
-            'http://192.168.200.201',
+            'http://128.199.41.162:4200'
         ],
         optionsSuccessStatus: 200,
         credentials: true,
