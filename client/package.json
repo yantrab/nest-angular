@@ -3,7 +3,6 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
         "start:ssl": "ng serve  -c dev --ssl --ssl-key ../../localhost-key.pem  --ssl-cert ../../localhost.pem --open",
         "start": "ng serve --open   -c dev",
         "build": "ng build",

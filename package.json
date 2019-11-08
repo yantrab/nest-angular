@@ -23,6 +23,8 @@
         "test": "ts-node ./test/index",
         "git": "git reset --hard HEAD&&git pull",
         "deploy-dev": "npm run git&&npm i&& npm run start-dev",
+        "deploy-prod": "npm run git&&npm i&& build-client-prod&& npm run serve-static &&npm run pm2-start-server",
+        "serve-static": "npm i serve&&cd client/dist&&serve -p 4200",
         "build:client:cordova": "cd client&& npm run build:cordova",
         "gen-uml": "tsuml --glob ./shared/**/*.ts",
         "lint": "tslint -p .",
