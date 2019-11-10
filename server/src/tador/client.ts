@@ -35,7 +35,7 @@ const test = async () => {
     await write(registerActionString);
     // 5d7219d024cba11c06c38e1d
     //  ---------------------------------
-    //  ----------- STATUS ------------
+    //  ----------- STATUS ------------{type:6,pId:"?"}
     const statusAction = { type: ActionType.status, pId };
     const statusActionString = JSON.stringify(statusAction);
     for (let i = 0; i < 10; i++) await write(statusActionString);
@@ -48,13 +48,13 @@ const test = async () => {
     //  ---------------------------------
 
     //  ----------- GET CHANGES ------------
-    const getAction = { type: ActionType.read, pId, data: { start: 2551, length: 100 } };
+    const getAction = { type:4, pId:'?', data: { start: 2551, length: 100 } };
     const getString = JSON.stringify(getAction);
     await write(getString);
     //  ---------------------------------
 
     //  ----------- GET ALL ------------
-    const getAllAction = { type: ActionType.readAll, pId, data: { start: 318, length: 10 } };
+    const getAllAction = { type: 3, pId:'?', data: { start: 318, length: 10 } };
     const getAllString = JSON.stringify(getAllAction);
     await write(getAllString);
     //  ---------------------------------
