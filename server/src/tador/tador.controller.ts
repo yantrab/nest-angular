@@ -4,6 +4,7 @@ import { ReqUser } from '../decorators/user.decorator';
 import { App, User } from 'shared/models';
 import { Panel } from 'shared/models/tador/panels';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
+import { PanelType } from 'shared/models/tador/enum';
 
 @UseInterceptors(AuthorizeInterceptor)
 @Controller('tador')
@@ -26,6 +27,10 @@ export class TadorController {
     @Post('savePanel')
     async savePanel(@Body() panel: Panel): Promise<any> {
         return this.service.panelRepo.saveOrUpdateOne(panel);
+    }
+    @Post('addPanel')
+    async addNewPanel(@Body() body:{panelId: string, type:PanelType}, @ReqUser() user: User): Promise<Panel> {
+        return  this.service.addNewPanel({panelId:body.panelId, userId:user.email,type:body.type});
     }
 
     @Post('status')

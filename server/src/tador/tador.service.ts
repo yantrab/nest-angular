@@ -218,4 +218,11 @@ export class TadorService {
         }
         return this.panelDumpRepo.saveOrUpdateOne(dump || { panelId: panel.panelId, dump: panel.dump() });
     }
+
+    async addNewPanel(param: {panelId: string; type: PanelType; userId: any}) : Promise<Panel> {
+        const panel =  new Panels[param.type + 'Panel'](param);
+        panel.name = panel.panelId;
+        panel._id = (await this.panelRepo.collection.insertOne(panel)).insertedId;
+        return  panel;
+    }
 }
