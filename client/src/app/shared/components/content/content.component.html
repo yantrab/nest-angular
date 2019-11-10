@@ -1,0 +1,5 @@
+<pre><p [innerHTML]="content"></p></pre>
+<pre *ngIf="more"><p fxFlex  [innerHTML]="contentMore + (contentMoreFooter ? contentMoreFooter : '')"></p>
+</pre>
+<a *ngIf="!more && contentMore" href="javascript:void(0);" (click)="more = true; open.emit()">{{ moreTitle }} </a>
+<a *ngIf="more" href="javascript:void(0);" (click)="more = false; close.emit()">{{ lessTitle }} </a>

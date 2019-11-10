@@ -1,0 +1,15 @@
+<div id="special-filter-grid" *ngIf="true">
+    <button (click)="isOpen = !isOpen" mat-button color="primary">
+        {{ settings.placeholder }}
+    </button>
+    <div *ngFor="let option of settings.selected">
+        <p-filter [dic]="dic" *ngFor="let filter of option.filters" [filter]="filter"> </p-filter>
+        <mat-divider></mat-divider>
+    </div>
+
+    <div *ngIf="isOpen" class="gridContainer">
+        <button (click)="add(filterGroup)" mat-button color="primary" *ngFor="let filterGroup of settings.options">
+            {{ filterGroup.placeholder }}
+        </button>
+    </div>
+</div>
