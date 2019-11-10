@@ -25,7 +25,7 @@ createServer((request, response) => {
     readFile(filePath, (error, content) => {
         if (error) {
             if (error.code === 'ENOENT') {
-                console.log('---');
+                console.log(filePath);
             } else {
                 response.writeHead(500);
                 response.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
