@@ -21,11 +21,15 @@ import { DialogService } from '../../shared/services/dialog.service';
     encapsulation: ViewEncapsulation.None,
 })
 export class IntercomConfComponent {
+    constructor(private api: TadorController, public i18nService: I18nService, public dialog: DialogService) {
+        this.api.initialData().then(data => {
+            this.panels = data.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
+            this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
+            this.setSelectedPanel(this.panels[0]);
+        });
+    }
     formModel: FormModel<AddPanelRequest> = {
-        feilds: [
-            { placeHolder: 'iemi', key: 'iemi'},
-            { placeHolder: 'id', key: 'id'},
-        ],
+        feilds: [{ placeHolder: 'iemi', key: 'iemi' }, { placeHolder: 'id', key: 'id' }],
         modelConstructor: AddPanelRequest,
         formTitle: 'הוספת פאנל',
         model: new AddPanelRequest(),
@@ -38,13 +42,12 @@ export class IntercomConfComponent {
         routerLinks: [],
         menuItems: [],
     };
-    constructor(private api: TadorController, public i18nService: I18nService, public dialog: DialogService) {
-        this.api.initialData().then(data => {
-            this.panels = data.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
-            this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
-            this.setSelectedPanel(this.panels[0]);
-        });
-    }
+    panels: Panel[];
+    autocompleteSettings: AutocompleteFilter;
+
+    selectedPanel: Panel;
+    cloneSelectedPanel: Panel;
+    contacts: ContactField[];
     setSelectedPanel(panel: Panel) {
         this.selectedPanel = panel;
         this.cloneSelectedPanel = cloneDeep(this.selectedPanel);
@@ -53,15 +56,9 @@ export class IntercomConfComponent {
         const blob = new Blob([this.selectedPanel.dump()], { type: 'text/plain;charset=utf-8' });
         saveAs(blob, 'dump.txt');
     }
-    panels: Panel[];
-    autocompleteSettings: AutocompleteFilter;
 
-    selectedPanel: Panel;
-    cloneSelectedPanel: Panel;
-    contacts: ContactField[];
-
-    handleFileInput(target: EventTarget) {
-        const file = target['files'][0];
+    handleFileInput(target: any) {
+        const file = target.files[0];
         const reader = new FileReader();
         reader.onload = e => {
             this.selectedPanel.reDump(reader.result.toString());
@@ -104,19 +101,18 @@ export class IntercomConfComponent {
             if (!result) {
                 return;
             }
-            result = Object.assign(new AddPanelRequest(), result)
+            result = Object.assign(new AddPanelRequest(), result);
             if (!result.isMatch) {
                 this.formModel.model = result;
                 return this.openAddPanel();
             }
 
             this.formModel.model = new AddPanelRequest();
-            this.api.addNewPanel({type: PanelType.MP, panelId: result.iemi})
-                .then(panel => {
-                    this.panels.push( new Panels[panel.type + 'Panel'](panel));
-                    this.autocompleteSettings.options = [...this.panels];
-                    // this.autocompleteSettings.selected.selectedPanel = this.panels[this.panels.length - 1];
-                });
+            this.api.addNewPanel({ type: PanelType.MP, panelId: result.iemi }).then(panel => {
+                this.panels.push(new Panels[panel.type + 'Panel'](panel));
+                this.autocompleteSettings.options = [...this.panels];
+                // this.autocompleteSettings.selected.selectedPanel = this.panels[this.panels.length - 1];
+            });
         });
     }
 }

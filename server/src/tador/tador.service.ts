@@ -52,7 +52,7 @@ export class TadorService {
         }
         switch (type) {
             case ActionType.read: {
-                const oldDump = (await this.panelDumpRepo.findOne({ panelId: panel.id })).dump;
+                const oldDump = (await this.getDump(panel.panelId)).dump;
                 const newDump = panel.dump();
                 panel.contacts.contactFields.forEach(field => {
                     const fieldLength = field.length;
@@ -212,17 +212,18 @@ export class TadorService {
     }
 
     private async saveDump(panel: Panel) {
-        const dump = await this.panelDumpRepo.findOne({ panelId: panel.id });
+        const dump = await this.panelDumpRepo.findOne({ panelId: panel.panelId });
         if (dump) {
             dump.dump = panel.dump();
         }
         return this.panelDumpRepo.saveOrUpdateOne(dump || { panelId: panel.panelId, dump: panel.dump() });
     }
 
-    async addNewPanel(param: {panelId: string; type: PanelType; userId: any}) : Promise<Panel> {
-        const panel =  new Panels[param.type + 'Panel'](param);
+    async addNewPanel(param: { panelId: string; type: PanelType; userId: any }): Promise<Panel> {
+        const panel = new Panels[param.type + 'Panel'](param);
         panel.name = panel.panelId;
         panel._id = (await this.panelRepo.collection.insertOne(panel)).insertedId;
-        return  panel;
+        await this.saveDump(panel);
+        return panel;
     }
 }
