@@ -29,7 +29,8 @@
         "build:client:cordova": "cd client&& npm run build:cordova",
         "gen-uml": "tsuml --glob ./shared/**/*.ts",
         "lint": "tslint -p .",
-        "lint:fix": "tslint -p . --fix&&cd client&&ng lint --fix"
+        "lint:fix": "tslint -p . --fix&&cd client&&ng lint --fix",
+        "open-ports": "sudo iptables -A INPUT -p tcp --dport 4200 --jump ACCEPT"
     },
     "author": "",
     "license": "ISC",

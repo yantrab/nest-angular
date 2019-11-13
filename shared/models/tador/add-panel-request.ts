@@ -32,11 +32,11 @@ export class AddPanelRequest {
     @NotEquals('0', { message: 'Not initial yet!' })
     @IsMatch('iemi', { message: 'Probably you were wrong!' })
     id: string;
-    get isMatch(){
+    get isMatch() {
         const result = this.iemi
             .split('')
             .map(l => (10 - +l) % 10)
-            .join();
+            .join('');
         return result === this.id;
     }
 }

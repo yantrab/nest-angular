@@ -107,7 +107,8 @@ export class Panel extends Entity {
     @IsString()
     userId: string;
     @IsString()
-    address: string;
+    @IsOptional()
+    address?: string;
     constructor(panel?: Partial<Panel>) {
         super(panel);
         this.contacts = new Contacts(panel.contacts);
