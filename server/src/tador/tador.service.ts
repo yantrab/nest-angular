@@ -137,6 +137,7 @@ export class TadorService {
             sock.on('data', msg => {
                 try {
                     const msgString = msg.toString('utf8');
+                    console.log('DATA ' + sock.remoteAddress + ': ' + msgString);
                     const action: Action = JSON.parse(msgString);
                     console.log('DATA ' + sock.remoteAddress + ': ' + action);
                     switch (action.type) {
