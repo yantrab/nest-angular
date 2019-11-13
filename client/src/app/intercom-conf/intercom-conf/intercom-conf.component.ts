@@ -67,6 +67,7 @@ export class IntercomConfComponent {
     }
 
     save() {
+        // a
         this.api.savePanel(this.selectedPanel).then(result => {
             this.cloneSelectedPanel = cloneDeep(this.selectedPanel);
         });
