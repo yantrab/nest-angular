@@ -47,8 +47,8 @@ export class TadorService {
     statuses = {};
 
     async addStatus(panel: Panel, type: ActionType) {
-        if (!this.statuses[panel._id]) {
-            this.statuses[panel._id] = [];
+        if (!this.statuses[panel.panelId]) {
+            this.statuses[panel.panelId] = [];
         }
         switch (type) {
             case ActionType.read: {
@@ -62,7 +62,7 @@ export class TadorService {
                         const oldValue = oldDump ? oldDump.slice(start, start + fieldLength + 1) : undefined;
                         const newValue = newDump.slice(start, start + fieldLength + 1);
                         if (oldValue != newValue) {
-                            this.statuses[panel._id].push(
+                            this.statuses[panel.panelId].push(
                                 new StatusActionResult({ action: ActionType.read, index: start, data: newValue }).toString(),
                             );
                         }
@@ -74,7 +74,7 @@ export class TadorService {
                         const newValue = newDump.slice(s.index, s.length + 1);
                         const oldValue = oldDump ? oldDump.slice(s.index, s.length + 1) : undefined;
                         if (newValue != oldValue) {
-                            this.statuses[panel._id].push(
+                            this.statuses[panel.panelId].push(
                                 new StatusActionResult({ action: ActionType.read, index: s.index, data: newValue }).toString(),
                             );
                         }
@@ -85,7 +85,7 @@ export class TadorService {
                         const newValue = newDump.slice(f.index, f.length + 1);
                         const oldValue = oldDump ? oldDump.slice(f.index, f.length + 1) : undefined;
                         if (newValue != oldValue) {
-                            this.statuses[panel._id].push(
+                            this.statuses[panel.panelId].push(
                                 new StatusActionResult({ action: ActionType.read, index: s.index, data: newValue }).toString(),
                             );
                         }
@@ -94,11 +94,11 @@ export class TadorService {
                 break;
             }
             case ActionType.readAll: {
-                this.statuses[panel._id].push(ActionType.readAll);
+                this.statuses[panel.panelId].push(ActionType.readAll);
                 break;
             }
             case ActionType.writeAll: {
-                this.statuses[panel._id].push(ActionType.writeAll);
+                this.statuses[panel.panelId].push(ActionType.writeAll);
                 break;
             }
         }
