@@ -89,7 +89,7 @@ export class TadorService {
                     });
                 });
                 this.statuses[panel.panelId] = temp.concat(this.statuses[panel.panelId]);
-                this.saveDump(panel);
+                //this.saveDump(panel);
                 break;
             }
             case ActionType.readAll: {
