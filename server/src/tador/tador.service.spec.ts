@@ -3,7 +3,7 @@ import { getRandomToken } from '../utils';
 import { ActionType, PanelType } from '../../../shared/models/tador/enum';
 const port = 4000;
 let pId = '867057031591342';
-const host = '128.199.41.162'; //'localhost'; //
+const host = 'localhost'; //'128.199.41.162'; //
 describe('tador', async () => {
     beforeAll(async () => {
         // pId = await getRandomToken();
@@ -31,12 +31,23 @@ describe('tador', async () => {
     describe('status', () => {
         it('should return 0', async () => {
             const result = '0';
-            const registerAction = {
-                type: ActionType.status,
-                pId,
-            };
+            const registerAction = { type: ActionType.status, pId };
             const registerActionString = JSON.stringify(registerAction);
-            // {"type":1,"data":{"type":"MP","uPhone":"0558858104","uCode":"81079","pId":"1234"}}
+            expect(await await write(registerActionString)).toBe(result);
+        });
+        it('should return 0', async () => {
+            const result = '0';
+            const registerAction = { type: ActionType.status, pId, d: 1 };
+            const registerActionString = JSON.stringify(registerAction);
+            expect(await await write(registerActionString)).toBe(result);
+        });
+    });
+
+    describe('read', () => {
+        it('should return 0', async () => {
+            const result = '0';
+            const registerAction = { type: ActionType.read, pId, data: { start: 2551, length: 100 } };
+            const registerActionString = JSON.stringify(registerAction);
             expect(await await write(registerActionString)).toBe(result);
         });
     });

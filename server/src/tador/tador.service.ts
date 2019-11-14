@@ -3,7 +3,6 @@ import { Repository, RepositoryFactory } from 'mongo-nest';
 import * as Panels from 'shared/models/tador/panels';
 import { Panel } from 'shared/models/tador/panels';
 import { createServer, Socket } from 'net';
-import { UserService } from '../services/user.service';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
 import { ObjectId } from 'bson';
@@ -19,9 +18,6 @@ interface Action {
     data: any;
 }
 
-export interface RegisterAction extends Action {
-    data: { type: PanelType; uPhone: string; uCode: string; pId: string };
-}
 class StatusActionResult {
     index: number;
     data: any;
@@ -39,7 +35,7 @@ class StatusActionResult {
 export class TadorService {
     panelRepo: Repository<Panel>;
     panelDumpRepo: Repository<PanelDump>;
-    constructor(private repositoryFactory: RepositoryFactory, private userService: UserService) {
+    constructor(private repositoryFactory: RepositoryFactory) {
         this.panelRepo = this.repositoryFactory.getRepository<Panel>(Panel, 'tador');
         this.panelDumpRepo = this.repositoryFactory.getRepository<PanelDump>(PanelDump, 'tador');
         this.startListen();
@@ -52,6 +48,7 @@ export class TadorService {
         }
         switch (type) {
             case ActionType.read: {
+                const temp = [];
                 const oldDump = (await this.getDump(panel.panelId)).dump;
                 const newDump = panel.dump();
                 panel.contacts.contactFields.forEach(field => {
@@ -62,7 +59,7 @@ export class TadorService {
                         const oldValue = oldDump ? oldDump.slice(start, start + fieldLength + 1) : undefined;
                         const newValue = newDump.slice(start, start + fieldLength + 1);
                         if (oldValue != newValue) {
-                            this.statuses[panel.panelId].push(
+                            temp.push(
                                 new StatusActionResult({ action: ActionType.read, index: start, data: newValue }).toString(),
                             );
                         }
@@ -74,7 +71,7 @@ export class TadorService {
                         const newValue = newDump.slice(s.index, s.length + 1);
                         const oldValue = oldDump ? oldDump.slice(s.index, s.length + 1) : undefined;
                         if (newValue != oldValue) {
-                            this.statuses[panel.panelId].push(
+                            temp.push(
                                 new StatusActionResult({ action: ActionType.read, index: s.index, data: newValue }).toString(),
                             );
                         }
@@ -85,12 +82,14 @@ export class TadorService {
                         const newValue = newDump.slice(f.index, f.length + 1);
                         const oldValue = oldDump ? oldDump.slice(f.index, f.length + 1) : undefined;
                         if (newValue != oldValue) {
-                            this.statuses[panel.panelId].push(
+                            temp.push(
                                 new StatusActionResult({ action: ActionType.read, index: s.index, data: newValue }).toString(),
                             );
                         }
                     });
                 });
+                this.statuses[panel.panelId] = temp.concat(this.statuses[panel.panelId]);
+                this.saveDump(panel);
                 break;
             }
             case ActionType.readAll: {
@@ -139,7 +138,6 @@ export class TadorService {
                     const msgString = msg.toString('utf8');
                     console.log('DATA ' + sock.remoteAddress + ': ' + msgString);
                     const action: Action = JSON.parse(msgString);
-                    console.log('DATA ' + sock.remoteAddress + ': ' + action);
                     switch (action.type) {
                         case ActionType.readAll:
                             return this.read(action, sock, 16);
@@ -150,7 +148,7 @@ export class TadorService {
                         case ActionType.writeAll:
                             return this.write(action, sock, 16);
                         case ActionType.status:
-                            return this.getStatus(action, sock);
+                            return this.getStatus(action as any, sock);
                     }
                 } catch (e) {
                     console.log(e);
@@ -204,12 +202,14 @@ export class TadorService {
         sock.write(saveResult.result.ok.toString());
     }
 
-    private getStatus(action: Action, sock: Socket) {
+    private getStatus(action: Action & { d }, sock: Socket) {
         const panelStatus = this.statuses[action.pId];
         if (!panelStatus || !panelStatus.length) {
             return sock.write('0');
         }
-        return sock.write(panelStatus.pop().toString());
+        if (action.d) panelStatus.pop();
+        if (!panelStatus.length) return sock.write('0');
+        return sock.write(panelStatus[panelStatus.length - 1].toString());
     }
 
     private async saveDump(panel: Panel) {
