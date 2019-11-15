@@ -48,7 +48,6 @@ export class TadorService {
         }
         switch (type) {
             case ActionType.read: {
-                const temp = [];
                 const oldDump = (await this.getDump(panel.panelId)).dump;
                 const newDump = panel.dump();
                 panel.contacts.contactFields.forEach(field => {
@@ -59,7 +58,7 @@ export class TadorService {
                         const oldValue = oldDump ? oldDump.slice(start, start + fieldLength + 1) : undefined;
                         const newValue = newDump.slice(start, start + fieldLength + 1);
                         if (oldValue != newValue) {
-                            temp.push(
+                            this.statuses[panel.panelId].push(
                                 new StatusActionResult({ action: ActionType.read, index: start, data: newValue }).toString(),
                             );
                         }
@@ -71,7 +70,7 @@ export class TadorService {
                         const newValue = newDump.slice(s.index, s.length + 1);
                         const oldValue = oldDump ? oldDump.slice(s.index, s.length + 1) : undefined;
                         if (newValue != oldValue) {
-                            temp.push(
+                            this.statuses[panel.panelId].push(
                                 new StatusActionResult({ action: ActionType.read, index: s.index, data: newValue }).toString(),
                             );
                         }
@@ -82,14 +81,14 @@ export class TadorService {
                         const newValue = newDump.slice(f.index, f.length + 1);
                         const oldValue = oldDump ? oldDump.slice(f.index, f.length + 1) : undefined;
                         if (newValue != oldValue) {
-                            temp.push(
+                            this.statuses[panel.panelId].push(
                                 new StatusActionResult({ action: ActionType.read, index: s.index, data: newValue }).toString(),
                             );
                         }
                     });
                 });
-                this.statuses[panel.panelId] = temp.concat(this.statuses[panel.panelId]);
-                //this.saveDump(panel);
+
+                // this.saveDump(panel);
                 break;
             }
             case ActionType.readAll: {
@@ -207,9 +206,10 @@ export class TadorService {
         if (!panelStatus || !panelStatus.length) {
             return sock.write('0');
         }
-        if (action.d) panelStatus.pop();
+        if (action.d) panelStatus.shift();
+        // if (panelStatus.length) this.saveDump()
         if (!panelStatus.length) return sock.write('0');
-        return sock.write(panelStatus[panelStatus.length - 1].toString());
+        return sock.write(panelStatus[0].toString());
     }
 
     private async saveDump(panel: Panel) {
