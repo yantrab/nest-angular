@@ -121,7 +121,14 @@ export class Panel extends Entity {
         this.contacts.contactFields.forEach(field => {
             const fieldLength = field.length;
             const index = field.index;
-            const all = this.contacts.list.map(c => (c[field.property] || ' ').slice(0, fieldLength + 1)).join('');
+            const all = this.contacts.list
+                .map(c =>
+                    (c[field.property] ? c[field.property] + ' '.repeat(fieldLength) : ' '.repeat(fieldLength)).slice(
+                        0,
+                        fieldLength + 1,
+                    ),
+                )
+                .join('');
             all.split('').forEach((c, i) => {
                 arr[index + i] = c;
             });

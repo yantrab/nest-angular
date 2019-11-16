@@ -29,15 +29,29 @@ describe('tador', async () => {
     };
 
     describe('status', () => {
-        it('should return 0', async () => {
-            const result = '0';
-            const registerAction = { type: ActionType.status, pId };
+        it('should return This panel is not register!!!', async () => {
+            const result = 'This panel is not register!!!';
+            const registerAction = { type: ActionType.status, pId: '-1' };
             const registerActionString = JSON.stringify(registerAction);
             expect(await await write(registerActionString)).toBe(result);
         });
+
         it('should return 0', async () => {
             const result = '0';
-            const registerAction = { type: ActionType.status, pId, d: 1 };
+            const registerAction = { type: ActionType.status, pId: '1' };
+            const registerActionString = JSON.stringify(registerAction);
+            expect(await await write(registerActionString)).toBe(result);
+        });
+        it('should return change', async () => {
+            const result = '0';
+            const registerAction = { type: ActionType.status, pId: '2' };
+            const registerActionString = JSON.stringify(registerAction);
+            expect(await await write(registerActionString)).not.toBe(result);
+        });
+
+        it('should return 0 after return change', async () => {
+            const result = '0';
+            const registerAction = { type: ActionType.status, pId: '2', d: 1 };
             const registerActionString = JSON.stringify(registerAction);
             expect(await await write(registerActionString)).toBe(result);
         });

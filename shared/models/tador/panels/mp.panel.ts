@@ -10,7 +10,7 @@ export class MPPanel extends Panel {
                 name: panel.name,
                 version: 1.1,
                 contacts: new Contacts({
-                    count: 250,
+                    count: 249,
                     contactFields: [
                         new ContactField({ property: 'Name', title: 'שם 1', index: 2551, length: 16 }),
                         new ContactField({ property: 'Tel1Num', title: 'טלפון 1', index: 36382, length: 15 }),

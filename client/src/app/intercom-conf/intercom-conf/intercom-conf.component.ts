@@ -12,8 +12,8 @@ import { FormComponent, FormModel } from 'ng-dyna-form';
 import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
 import { DialogService } from '../../shared/services/dialog.service';
 
-// import * as conf from 'shared/models/tador/conf';
-// Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
+import * as conf from 'shared/models/tador/conf';
+Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
     templateUrl: './intercom-conf.component.html',
@@ -112,6 +112,7 @@ export class IntercomConfComponent {
             this.api.addNewPanel({ type: PanelType.MP, panelId: result.iemi }).then(panel => {
                 this.panels.push(new Panels[panel.type + 'Panel'](panel));
                 this.autocompleteSettings.options = [...this.panels];
+                this.setSelectedPanel(panel);
                 // this.autocompleteSettings.selected.selectedPanel = this.panels[this.panels.length - 1];
             });
         });
