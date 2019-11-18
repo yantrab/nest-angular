@@ -46,6 +46,7 @@ export class TadorService {
         if (!this.statuses[panel.panelId]) {
             this.statuses[panel.panelId] = { panel, arr: [] };
         }
+        '    יניב שדגשדג';
         switch (type) {
             case ActionType.read: {
                 const oldDump = (await this.getDump(panel.panelId)).dump;
@@ -55,8 +56,8 @@ export class TadorService {
                     const index = field.index;
                     for (let i = 0; i < panel.contacts.count; i++) {
                         const start = index + fieldLength * i;
-                        const oldValue = oldDump ? oldDump.slice(start, start + fieldLength + 1) : undefined;
-                        const newValue = newDump.slice(start, start + fieldLength + 1);
+                        const oldValue = oldDump ? oldDump.slice(start, start + fieldLength) : undefined;
+                        const newValue = newDump.slice(start, start + fieldLength);
                         if (oldValue != newValue) {
                             this.statuses[panel.panelId].arr.push(
                                 new StatusActionResult({ action: ActionType.read, index: start, data: newValue }).toString(),

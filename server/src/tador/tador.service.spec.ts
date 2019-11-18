@@ -38,7 +38,7 @@ describe('tador', async () => {
 
         it('should return 0', async () => {
             const result = '0';
-            const registerAction = { type: ActionType.status, pId: '1' };
+            const registerAction = { type: ActionType.status, pId: '4', d: 1 };
             const registerActionString = JSON.stringify(registerAction);
             expect(await await write(registerActionString)).toBe(result);
         });
