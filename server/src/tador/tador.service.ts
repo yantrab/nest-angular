@@ -140,7 +140,7 @@ export class TadorService {
                     const action: Action = JSON.parse(msgString);
                     const panel = await this.getDump(action.pId);
                     if (!panel) {
-                        return sock.write('This panel is not register!!!');
+                        return sock.write('9');
                     }
                     let result;
                     switch (action.type) {
