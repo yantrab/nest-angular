@@ -3,7 +3,7 @@ import { getRandomToken } from '../utils';
 import { ActionType, PanelType } from '../../../shared/models/tador/enum';
 const port = 4000;
 let pId = '867057031591342';
-const host = 'localhost'; //'128.199.41.162'; // 'localhost'; //
+const host = 'localhost'; //'128.199.41.162'; //'localhost'; //'128.199.41.162'; // 'localhost'; //
 describe('tador', async () => {
     beforeAll(async () => {
         // pId = await getRandomToken();

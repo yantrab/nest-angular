@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/client.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/tador/enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/enum.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +169,7 @@
       <workItem from="1573147425291" duration="7796000" />
       <workItem from="1573366347667" duration="131000" />
       <workItem from="1573545081536" duration="412000" />
-      <workItem from="1574410297408" duration="3931000" />
+      <workItem from="1574410297408" duration="4653000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -324,7 +322,13 @@
       <option name="presentableId" value="LOCAL‎00022" />
       <updated>1573366462762</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL‎00023" summary="tador">
+      <created>1574424039466</created>
+      <option name="number" value="LOCAL‎00023" />
+      <option name="presentableId" value="LOCAL‎00023" />
+      <updated>1574424039466</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,13 +362,13 @@
     <MESSAGE value="auto complete keep open style" />
     <MESSAGE value="timer tador" />
     <MESSAGE value="text alighn tador" />
-    <MESSAGE value="tador" />
     <MESSAGE value="generator" />
     <MESSAGE value="socket" />
     <MESSAGE value="redump" />
     <MESSAGE value="admin" />
     <MESSAGE value="update to angular 9" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to angular 9" />
+    <MESSAGE value="tador" />
+    <option name="LAST_COMMIT_MESSAGE" value="tador" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -381,9 +385,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>209</line>
+          <line>211</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
+          <line>210</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
