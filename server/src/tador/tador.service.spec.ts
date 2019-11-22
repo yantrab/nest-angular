@@ -3,7 +3,7 @@ import { getRandomToken } from '../utils';
 import { ActionType, PanelType } from '../../../shared/models/tador/enum';
 const port = 4000;
 let pId = '867057031591342';
-const host = 'localhost'; //'128.199.41.162'; //
+const host = 'localhost'; //'128.199.41.162'; // 'localhost'; //
 describe('tador', async () => {
     beforeAll(async () => {
         // pId = await getRandomToken();
@@ -44,16 +44,16 @@ describe('tador', async () => {
         });
         it('should return change', async () => {
             const result = '0';
-            const registerAction = { type: ActionType.status, pId: '2' };
+            const registerAction = { type: ActionType.status, pId };
             const registerActionString = JSON.stringify(registerAction);
             expect(await await write(registerActionString)).not.toBe(result);
         });
 
         it('should return 0 after return change', async () => {
             const result = '0';
-            const registerAction = { type: ActionType.status, pId: '2', d: 1 };
+            const registerAction = { type: ActionType.status, pId, d: 1 };
             const registerActionString = JSON.stringify(registerAction);
-            expect(await await write(registerActionString)).toBe(result);
+            expect(await await write(registerActionString)).not.toBe(result);
         });
     });
 
@@ -61,6 +61,15 @@ describe('tador', async () => {
         it('should return 0', async () => {
             const result = '0';
             const registerAction = { type: ActionType.read, pId, data: { start: 2551, length: 100 } };
+            const registerActionString = JSON.stringify(registerAction);
+            expect(await await write(registerActionString)).toBe(result);
+        });
+    });
+
+    describe('write', () => {
+        it('should return 0', async () => {
+            const result = '0';
+            const registerAction = { type: ActionType.write, pId, data: { start: 2551, data: 'מוחמד' } };
             const registerActionString = JSON.stringify(registerAction);
             expect(await await write(registerActionString)).toBe(result);
         });

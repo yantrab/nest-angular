@@ -103,7 +103,7 @@ export class TadorService {
     }
 
     async getPanel(id: string): Promise<Panel> {
-        return this.panelRepo.findOne({ _id: new ObjectId(id) });
+        return this.panelRepo.findOne({ panelId: id });
     }
     async getDump(id: string): Promise<PanelDump> {
         return this.panelDumpRepo.findOne({ panelId: id });
@@ -200,12 +200,9 @@ export class TadorService {
     }
 
     private async read(action: Action, sock: Socket, multiply = 1) {
-        //let panel = await this.getPanel(action.pId);
-        //panel = new Panels[panel.type + 'Panel'](panel);
         const dump = await this.getDump(action.pId);
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
-        // await this.saveDump(panel);
         sock.write(dump.dump.slice(start, start + length));
     }
 

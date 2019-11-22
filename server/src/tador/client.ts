@@ -42,7 +42,7 @@ const test = async () => {
     //  ---------------------------------
 
     //  ----------- WRITE ------------
-    const writeAction = { type: ActionType.write, pId, data: { start: 2551, data: 'יניב טרבלסי' } };
+    const writeAction = { 'type': 5, 'pId':'867057031591342', data: { start: 2551, data: 'יניב טרבלסי' } };
     const writeString = JSON.stringify(writeAction);
     await write(writeString);
     //  ---------------------------------

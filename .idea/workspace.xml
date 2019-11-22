@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/client.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/tador/enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/enum.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,219 +14,19 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="159" column="72" selection-start-line="159" selection-start-column="72" selection-end-line="159" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>SpecialFilterGridComponent,</find>
-      <find>p-special-filter-grid</find>
-      <find>content</find>
-      <find>type</find>
-      <find>PanelType</find>
-      <find>ca</find>
-      <find>InsertOneWriteOpResult</find>
-      <find>user</find>
-      <find>reg</find>
-      <find>autocompleteSettings</find>
-      <find>tsc</find>
-      <find>pm2-start-server</find>
-      <find>build:prod</find>
-      <find>iptables</find>
-      <find>pm2</find>
-      <find>mimeTypes</find>
-      <find>address</find>
-      <find>panels</find>
-      <find>panelDumpRepo</find>
-      <find>getDump</find>
-      <find>saved</find>
-      <find>stat</find>
-      <find>panel._id</find>
-      <find>selectedPanel</find>
-      <find>reDump(dump: string) {</find>
-      <find>maxEEprom</find>
-      <find>38</find>
-      <find>comsp</find>
-      <find>comms</find>
-      <find>getStatus</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/client/src/extra-webpack.config.js" />
-        <option value="$PROJECT_DIR$/client/tsconfig.app.json" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/components/components.module.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/components/filters/filter/filter.component.ts" />
-        <option value="$PROJECT_DIR$/shared/models/filter.base.model.ts" />
-        <option value="$PROJECT_DIR$/shared/models/filter.model.ts" />
-        <option value="$PROJECT_DIR$/shared/models/index.ts" />
-        <option value="$PROJECT_DIR$/client/src/api/tador.controller.ts" />
-        <option value="$PROJECT_DIR$/client/tsconfig.json" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html" />
-        <option value="$PROJECT_DIR$/server/src/tador/tador.controller.ts" />
-        <option value="$PROJECT_DIR$/server/src/main.ts" />
-        <option value="$PROJECT_DIR$/client/package.json" />
-        <option value="$PROJECT_DIR$/client/src/environments/environment.prod.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/client.ts" />
-        <option value="$PROJECT_DIR$/client/server.ts" />
-        <option value="$PROJECT_DIR$/server.ts" />
-        <option value="$PROJECT_DIR$/shared/models/tador/add-panel-request.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" />
-        <option value="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
-        <option value="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1050" />
   </component>
   <component name="ProjectId" id="1TISHHVBBsxn7NyFgkpz7miMImt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
-              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
-              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
-              <item name="contacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tador" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="tador" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="tador" type="462c0819:PsiDirectoryNode" />
-              <item name="panels" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../nest-angular/nest-angular" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -235,12 +36,10 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\yantr\Desktop\nest\nest-angular\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
-    <property name="ts.external.directory.path" value="C:\Users\yantr\Desktop\Tador\nest-angular\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\arkadiy\Desktop\tador\nest-angular\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\yantr\Desktop\Tador\nest-angular" />
-      <recent name="C:\Users\yantr\Desktop\Tador\nest-angular\client" />
       <recent name="C:\Users\yantr\Desktop\nest\nest-angular\shared\models\tador" />
     </key>
   </component>
@@ -256,18 +55,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.tador.status.should return 0">
-    <configuration name="tador.status" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.tador.write.should return 0">
+    <configuration name="tador.read.should return 0" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$/server" />
       <envs />
-      <scope-kind value="SUITE" />
+      <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
       <test-names>
         <test-name value="tador" />
-        <test-name value="status" />
+        <test-name value="read" />
+        <test-name value="should return 0" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -286,36 +86,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="tador.status.should return 0" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/server" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
-      <test-names>
-        <test-name value="tador" />
-        <test-name value="status" />
-        <test-name value="should return 0" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="tador.status.should return This panel is not register!!!" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/server" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
-      <test-names>
-        <test-name value="tador" />
-        <test-name value="status" />
-        <test-name value="should return This panel is not register!!!" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="tador.status.should return change" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -331,13 +101,38 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="tador.write.should return 0" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
+      <test-names>
+        <test-name value="tador" />
+        <test-name value="write" />
+        <test-name value="should return 0" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="start-server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start-server" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.tador.status" />
-        <item itemvalue="Jest.tador.status.should return 0" />
-        <item itemvalue="Jest.tador.status.should return This panel is not register!!!" />
-        <item itemvalue="Jest.tador.status.should return 0 after return change" />
+        <item itemvalue="Jest.tador.write.should return 0" />
+        <item itemvalue="npm.start-server" />
+        <item itemvalue="Jest.tador.read.should return 0" />
         <item itemvalue="Jest.tador.status.should return change" />
+        <item itemvalue="Jest.tador.status.should return 0 after return change" />
       </list>
     </recent_temporary>
   </component>
@@ -373,10 +168,10 @@
       <workItem from="1564068849976" duration="4739000" />
       <workItem from="1564314200818" duration="33000" />
       <workItem from="1573146028840" duration="1169000" />
-      <workItem from="1573147425291" duration="7368000" />
-      <workItem from="1573162042362" duration="22000" />
-      <workItem from="1573162099357" duration="25769000" />
-      <workItem from="1573611127530" duration="22973000" />
+      <workItem from="1573147425291" duration="7796000" />
+      <workItem from="1573366347667" duration="131000" />
+      <workItem from="1573545081536" duration="412000" />
+      <workItem from="1574410297408" duration="3931000" />
     </task>
     <task id="LOCAL-00001" summary="tador">
       <created>1557605126179</created>
@@ -511,172 +306,26 @@
       <option name="project" value="LOCAL" />
       <updated>1564072452981</updated>
     </task>
-    <task id="LOCAL-00020" summary="tador">
-      <created>1573200583066</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1573200583067</updated>
+    <task id="LOCAL‎00020" summary="update to angular 9">
+      <created>1573157420089</created>
+      <option name="number" value="LOCAL‎00020" />
+      <option name="presentableId" value="LOCAL‎00020" />
+      <updated>1573157420089</updated>
     </task>
-    <task id="LOCAL-00021" summary="tador">
-      <created>1573209699638</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1573209699638</updated>
+    <task id="LOCAL‎00021" summary="update to angular 9">
+      <created>1573366391419</created>
+      <option name="number" value="LOCAL‎00021" />
+      <option name="presentableId" value="LOCAL‎00021" />
+      <updated>1573366391419</updated>
     </task>
-    <task id="LOCAL-00022" summary="tador">
-      <created>1573210729244</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1573210729244</updated>
+    <task id="LOCAL‎00022" summary="update to angular 9">
+      <created>1573366462762</created>
+      <option name="number" value="LOCAL‎00022" />
+      <option name="presentableId" value="LOCAL‎00022" />
+      <updated>1573366462762</updated>
     </task>
-    <task id="LOCAL-00023" summary="tador">
-      <created>1573211079972</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1573211079972</updated>
-    </task>
-    <task id="LOCAL-00024" summary="tador">
-      <created>1573213677146</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1573213677146</updated>
-    </task>
-    <task id="LOCAL-00025" summary="tador">
-      <created>1573355515314</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1573355515314</updated>
-    </task>
-    <task id="LOCAL-00026" summary="tador">
-      <created>1573356714883</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1573356714883</updated>
-    </task>
-    <task id="LOCAL-00027" summary="tador">
-      <created>1573358561783</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1573358561783</updated>
-    </task>
-    <task id="LOCAL-00028" summary="tador">
-      <created>1573612694063</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1573612694063</updated>
-    </task>
-    <task id="LOCAL-00029" summary="tador">
-      <created>1573614869694</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1573614869694</updated>
-    </task>
-    <task id="LOCAL-00030" summary="tador">
-      <created>1573614919941</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1573614919941</updated>
-    </task>
-    <task id="LOCAL-00031" summary="tador">
-      <created>1573615396391</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1573615396391</updated>
-    </task>
-    <task id="LOCAL-00032" summary="tador">
-      <created>1573694196194</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1573694196194</updated>
-    </task>
-    <task id="LOCAL-00033" summary="tador">
-      <created>1573791671904</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1573791671904</updated>
-    </task>
-    <task id="LOCAL-00034" summary="tador">
-      <created>1573942557302</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1573942557302</updated>
-    </task>
-    <option name="localTasksCounter" value="35" />
+    <option name="localTasksCounter" value="23" />
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="tador_status_should_return_0 - 2019.11.18 at 04h 22m 07s.xml">
-      <configuration name="tador.status.should return 0" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="tador_status_should_return_0 - 2019.11.18 at 04h 22m 24s.xml">
-      <configuration name="tador.status.should return 0" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="tador_status_should_return_0 - 2019.11.18 at 04h 22m 30s.xml">
-      <configuration name="tador.status.should return 0" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="tador_status_should_return_0 - 2019.11.18 at 04h 22m 54s.xml">
-      <configuration name="tador.status.should return 0" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="tador_status_should_return_0 - 2019.11.18 at 04h 35m 59s.xml">
-      <configuration name="tador.status.should return 0" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="tador_status_should_return_This_panel_is_not_register!!! - 2019.11.18 at 04h 36m 56s.xml">
-      <configuration name="tador.status.should return This panel is not register!!!" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="tador_status_should_return_0 - 2019.11.18 at 04h 37m 03s.xml">
-      <configuration name="tador.status.should return 0" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="tador_status_should_return_0 - 2019.11.18 at 04h 40m 16s.xml">
-      <configuration name="tador.status.should return 0" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="tador_status_should_return_0 - 2019.11.18 at 04h 40m 32s.xml">
-      <configuration name="tador.status.should return 0" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="tador_status_should_return_0 - 2019.11.18 at 04h 40m 50s.xml">
-      <configuration name="tador.status.should return 0" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48764000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22265625" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.38382542" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.4287548" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32991013" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32991013" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" order="11" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -697,28 +346,8 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
           </value>
         </entry>
       </map>
@@ -729,16 +358,22 @@
     <MESSAGE value="auto complete keep open style" />
     <MESSAGE value="timer tador" />
     <MESSAGE value="text alighn tador" />
+    <MESSAGE value="tador" />
     <MESSAGE value="generator" />
     <MESSAGE value="socket" />
     <MESSAGE value="redump" />
     <MESSAGE value="admin" />
-    <MESSAGE value="tador" />
-    <option name="LAST_COMMIT_MESSAGE" value="tador" />
+    <MESSAGE value="update to angular 9" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to angular 9" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
+          <line>189</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/shared/guard.ts</url>
           <line>4</line>
@@ -746,401 +381,11 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>102</line>
+          <line>209</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>62</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="46" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="breakpointCondition">
-      <expression>
-        <expression-string>(jInit + j) &lt;= 36381 &amp;&amp; (jInit + j) &gt;=35631</expression-string>
-        <language-id>TypeScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/filters/filter/filter.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/components/components.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="109" column="11" selection-start-line="109" selection-start-column="11" selection-end-line="109" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-            <element signature="e#1534#1608#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/extra-webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="8" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/firebase.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/angular.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="47" column="43" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/tslint.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tslint.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/filter.base.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/filter.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="105" column="2" selection-start-line="105" selection-start-column="2" selection-end-line="105" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/services/fund.service.ts" />
-    <entry file="file://$PROJECT_DIR$/server/src/services/mailer.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/services/user.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/auth/auth.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/tsconfig.app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/api/tador.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/.bin/tslint">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/environments/environment.prod.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/add-panel-request.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="116">
-            <caret line="255" column="5" selection-start-line="255" selection-start-column="5" selection-end-line="255" selection-end-column="5" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/NodeJS/lib/NodeJS.jar!/com/jetbrains/nodejs/packageJson/packageJsonSchema.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="298" column="12" selection-start-line="298" selection-start-column="12" selection-end-line="298" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="28" column="66" lean-forward="true" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/client.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="50" selection-start-line="50" selection-end-line="52" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/mongo-nest/repo.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/dist/1-es5.a5f1ff5c5eaee00df2fd.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/jest-jasmine2/build/jasmine/Env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="439" column="19" selection-start-line="439" selection-start-column="19" selection-end-line="439" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/bson/lib/bson/objectid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="64" column="44" lean-forward="true" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/index.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/panels.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/conf.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="120" column="18" selection-start-line="120" selection-start-column="13" selection-end-line="120" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/enum.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/app.controller.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="23" column="99" selection-start-line="23" selection-start-column="99" selection-end-line="23" selection-end-column="109" />
-          <folding>
-            <element signature="e#0#89#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="40" column="76" lean-forward="true" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-            <element signature="n#PanelDump#0" />
-            <element signature="n#!!block;n#Action#0" />
-            <element signature="n#StatusActionResult#0" />
-            <element signature="n#!!block;n#register#0;n#TadorService#0" />
-            <element signature="n#!!block;n#read#0;n#TadorService#0" />
-            <element signature="n#!!block;n#write#0;n#TadorService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="13" column="18" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="60" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="60" />
-          <folding>
-            <element signature="n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ng-template#0;n#ng-container#0;n#mat-virtual-table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#ng-template#0;n#ng-container#0;n#mat-virtual-table#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="159" column="72" selection-start-line="159" selection-start-column="72" selection-end-line="159" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
