@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import * as Panels from 'shared/models/tador/panels';
 import { Panel } from 'shared/models/tador/panels';
@@ -6,7 +6,6 @@ import { createServer, Socket } from 'net';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
 import { ObjectId } from 'bson';
-
 class PanelDump extends Entity {
     dump: string;
     panelId: string;
@@ -17,7 +16,8 @@ interface Action {
     pId: string;
     data: any;
 }
-
+const logger = new Logger();
+const TIMEOUT = 1000 * 60;
 class StatusActionResult {
     index: number;
     data: any;
@@ -46,7 +46,6 @@ export class TadorService {
         if (!this.statuses[panel.panelId]) {
             this.statuses[panel.panelId] = { panel, arr: [] };
         }
-        '    יניב שדגשדג';
         switch (type) {
             case ActionType.read: {
                 const oldDump = (await this.getDump(panel.panelId)).dump;
@@ -115,9 +114,13 @@ export class TadorService {
         const server = createServer();
 
         const listen = () => {
-            server.listen(port, host, () => {
-                console.log('TCP Server is running on port ' + port + '.');
-            });
+            server
+                .listen(port, host, () => {
+                    logger.log('TCP Server is running on port ' + port + '.');
+                })
+                .on('error', err => {
+                    logger.log('error', err.message);
+                });
         };
         const close = () => {
             server.close();
@@ -125,18 +128,25 @@ export class TadorService {
 
         listen();
         server.on('error', err => {
-            console.log(err);
-            close();
-            listen();
+            logger.error('Some problem, check error log!');
+            // close();
+            // listen();
         });
-
+        server.on('end', err => {
+            logger.log('END');
+        });
         server.on('connection', sock => {
-            console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
-            // setTimeout(() => sock.end(), 1000 * 60);
+            logger.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
+            const timeOut = setTimeout(() => {
+                sock.end();
+                logger.log('force close client connection!');
+            }, TIMEOUT);
+            sock.on('error', err => Logger.error(err.message));
             sock.on('data', async msg => {
+                timeOut.refresh();
                 try {
                     const msgString = msg.toString('utf8');
-                    console.log('DATA ' + sock.remoteAddress + ': ' + msgString);
+                    logger.log('DATA ' + sock.remoteAddress + ': ' + msgString);
                     const action: Action = JSON.parse(msgString);
                     const panel = await this.getDump(action.pId);
                     if (!panel) {
@@ -155,15 +165,17 @@ export class TadorService {
                         case ActionType.status:
                             result = this.getStatus(action as any);
                     }
-                    console.log('return: ' + result);
+                    logger.log('return: ' + result);
                     return sock.write(result);
                 } catch (e) {
-                    console.log(e);
+                    logger.error(JSON.stringify(e));
+                    sock.end();
                 }
             });
 
             sock.on('close', () => {
-                console.log('CLOSED: ' + sock.remoteAddress + ' ' + sock.remotePort);
+                clearTimeout(timeOut);
+                logger.log('CLOSED: ' + sock.remoteAddress + ':' + sock.remotePort);
             });
         });
     }
