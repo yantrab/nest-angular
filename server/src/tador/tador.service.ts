@@ -17,7 +17,7 @@ interface Action {
     data: any;
 }
 const logger = new Logger();
-const TIMEOUT = 1000 * 60;
+const TIMEOUT = 1000 * 30;
 class StatusActionResult {
     index: number;
     data: any;
