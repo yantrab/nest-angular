@@ -17,13 +17,14 @@ describe('tador', async () => {
             client.connect(port, host, function() {
                 console.log('Connected');
                 client.write(str);
-                client.on('data', data => {
-                    client.end();
-                    client.on('close', () => {
-                        console.log(data.toString());
-                        return resolve(data.toString());
-                    });
-                });
+                setInterval(() => client.write(str), 5000);
+                // client.on('data', data => {
+                //     //client.end();
+                //     client.on('close', () => {
+                //         console.log(data.toString());
+                //         return resolve(data.toString());
+                //     });
+                // });
             });
         });
     };

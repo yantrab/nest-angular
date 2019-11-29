@@ -42,19 +42,19 @@ const test = async () => {
     //  ---------------------------------
 
     //  ----------- WRITE ------------
-    const writeAction = { 'type': 5, 'pId':'867057031591342', data: { start: 2551, data: 'יניב טרבלסי' } };
+    const writeAction = { type: 5, pId: '867057031591342', data: { start: 2551, data: 'יניב טרבלסי' } };
     const writeString = JSON.stringify(writeAction);
     await write(writeString);
     //  ---------------------------------
 
     //  ----------- GET CHANGES ------------
-    const getAction = { type:4, pId:'?', data: { start: 2551, length: 100 } };
+    const getAction = { type: 4, pId: '?', data: { start: 2551, length: 100 } };
     const getString = JSON.stringify(getAction);
     await write(getString);
     //  ---------------------------------
 
     //  ----------- GET ALL ------------
-    const getAllAction = { type: 3, pId:'?', data: { start: 318, length: 10 } };
+    const getAllAction = { type: 3, pId: '?', data: { start: 318, length: 10 } };
     const getAllString = JSON.stringify(getAllAction);
     await write(getAllString);
     //  ---------------------------------

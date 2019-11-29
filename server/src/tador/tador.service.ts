@@ -146,7 +146,7 @@ export class TadorService {
                 timeOut.refresh();
                 try {
                     const msgString = msg.toString('utf8');
-                    logger.log('DATA ' + sock.remoteAddress + ': ' + msgString);
+                    logger.log('DATA: ' + msgString);
                     const action: Action = JSON.parse(msgString);
                     const panel = await this.getDump(action.pId);
                     if (!panel) {
@@ -169,7 +169,7 @@ export class TadorService {
                     return sock.write(result);
                 } catch (e) {
                     logger.error(JSON.stringify(e));
-                    sock.end();
+                    // sock.end();
                 }
             });
 
