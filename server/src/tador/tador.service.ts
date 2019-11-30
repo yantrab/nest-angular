@@ -5,7 +5,6 @@ import { Panel } from 'shared/models/tador/panels';
 import { createServer, Socket } from 'net';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
-import { ObjectId } from 'bson';
 class PanelDump extends Entity {
     dump: string;
     panelId: string;
@@ -67,8 +66,9 @@ export class TadorService {
 
                 panel.settings.forEach(s => {
                     if (s.index) {
-                        const newValue = newDump.slice(s.index, s.length + 1);
-                        const oldValue = oldDump ? oldDump.slice(s.index, s.length + 1) : undefined;
+                        const length = s.fields.length * s.length;
+                        const newValue = newDump.slice(s.index, s.index + length);
+                        const oldValue = oldDump ? oldDump.slice(s.index, s.index + length) : undefined;
                         if (newValue != oldValue) {
                             this.statuses[panel.panelId].arr.push(
                                 new StatusActionResult({ action: ActionType.read, index: s.index, data: newValue }).toString(),
@@ -78,11 +78,11 @@ export class TadorService {
                     }
 
                     s.fields.forEach((f, i) => {
-                        const newValue = newDump.slice(f.index, f.length + 1);
-                        const oldValue = oldDump ? oldDump.slice(f.index, f.length + 1) : undefined;
+                        const newValue = newDump.slice(f.index, f.index + f.length);
+                        const oldValue = oldDump ? oldDump.slice(f.index, f.index + f.length) : undefined;
                         if (newValue != oldValue) {
                             this.statuses[panel.panelId].arr.push(
-                                new StatusActionResult({ action: ActionType.read, index: s.index, data: newValue }).toString(),
+                                new StatusActionResult({ action: ActionType.read, index: f.index, data: newValue }).toString(),
                             );
                         }
                     });

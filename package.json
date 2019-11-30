@@ -25,7 +25,7 @@
         "deploy-prod": "npm run git&&npm i&&npm run build-client-prod&& npm run serve-static &&npm run pm2-start-server",
         "serve-static": "ts-node -r tsconfig-paths/register server.ts",
         "pm2-start-server": "cd server && pm2 start --name server npm --  start",
-        "pm2-serve-static": "pm2 start --name static npm --  serve-static",
+        "pm2-serve-static": "tsc server && pm2 start server --name static",
         "build:client:cordova": "cd client&& npm run build:cordova",
         "gen-uml": "tsuml --glob ./shared/**/*.ts",
         "lint": "tslint -p .",
