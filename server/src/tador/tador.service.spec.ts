@@ -2,7 +2,7 @@ import { Socket } from 'net';
 import { getRandomToken } from '../utils';
 import { ActionType, PanelType } from '../../../shared/models/tador/enum';
 const port = 4000;
-let pId = '867057031591342';
+let pId = '5'; //'867057031591342';
 const host = 'localhost'; //'128.199.41.162'; //'localhost'; //'128.199.41.162'; // 'localhost'; //
 describe('tador', async () => {
     beforeAll(async () => {
@@ -17,14 +17,13 @@ describe('tador', async () => {
             client.connect(port, host, function() {
                 console.log('Connected');
                 client.write(str);
-                setInterval(() => client.write(str), 5000);
-                // client.on('data', data => {
-                //     //client.end();
-                //     client.on('close', () => {
-                //         console.log(data.toString());
-                //         return resolve(data.toString());
-                //     });
-                // });
+                client.on('data', data => {
+                    client.end();
+                    client.on('close', () => {
+                        console.log(data.toString());
+                        return resolve(data.toString());
+                    });
+                });
             });
         });
     };
