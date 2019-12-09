@@ -22,6 +22,7 @@ class StatusActionResult {
     data: any;
     action: ActionType;
     constructor(action: StatusActionResult) {
+        logger.log(JSON.stringify(action));
         Object.assign(this, action);
     }
 
@@ -42,6 +43,7 @@ export class TadorService {
     statuses: { [id: string]: { panel: Panel; arr: string[] } } = {};
 
     async addStatus(panel: Panel, type: ActionType) {
+        logger.log('add status: ' + type);
         if (!this.statuses[panel.panelId]) {
             this.statuses[panel.panelId] = { panel, arr: [] };
         }
