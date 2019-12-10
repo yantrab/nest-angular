@@ -5,6 +5,8 @@ import { Panel } from 'shared/models/tador/panels';
 import { createServer, Socket } from 'net';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
+import { keyBy, values } from 'lodash';
+
 class PanelDump extends Entity {
     dump: string;
     panelId: string;
@@ -49,6 +51,7 @@ export class TadorService {
         }
         switch (type) {
             case ActionType.read: {
+                const oldpanelStatus = keyBy(this.statuses[panel.panelId].arr, 'index');
                 const oldDump = (await this.getDump(panel.panelId)).dump;
                 const newDump = panel.dump();
                 panel.contacts.contactFields.forEach(field => {
@@ -59,9 +62,11 @@ export class TadorService {
                         const oldValue = oldDump ? oldDump.slice(start, start + fieldLength) : undefined;
                         const newValue = newDump.slice(start, start + fieldLength);
                         if (oldValue != newValue) {
-                            this.statuses[panel.panelId].arr.push(
-                                new StatusActionResult({ action: ActionType.read, index: start, data: newValue }).toString(),
-                            );
+                            oldpanelStatus[start] = new StatusActionResult({
+                                action: ActionType.read,
+                                index: start,
+                                data: newValue,
+                            }).toString();
                         }
                     }
                 });
@@ -72,9 +77,11 @@ export class TadorService {
                         const newValue = newDump.slice(s.index, s.index + length);
                         const oldValue = oldDump ? oldDump.slice(s.index, s.index + length) : undefined;
                         if (newValue != oldValue) {
-                            this.statuses[panel.panelId].arr.push(
-                                new StatusActionResult({ action: ActionType.read, index: s.index, data: newValue }).toString(),
-                            );
+                            oldpanelStatus[s.index] = new StatusActionResult({
+                                action: ActionType.read,
+                                index: s.index,
+                                data: newValue,
+                            }).toString();
                         }
                         return;
                     }
@@ -83,13 +90,15 @@ export class TadorService {
                         const newValue = newDump.slice(f.index, f.index + f.length);
                         const oldValue = oldDump ? oldDump.slice(f.index, f.index + f.length) : undefined;
                         if (newValue != oldValue) {
-                            this.statuses[panel.panelId].arr.push(
-                                new StatusActionResult({ action: ActionType.read, index: f.index, data: newValue }).toString(),
-                            );
+                            oldpanelStatus[s.index] = new StatusActionResult({
+                                action: ActionType.read,
+                                index: f.index,
+                                data: newValue,
+                            }).toString();
                         }
                     });
                 });
-
+                this.statuses[panel.panelId].arr = values(oldpanelStatus);
                 break;
             }
             case ActionType.readAll: {
