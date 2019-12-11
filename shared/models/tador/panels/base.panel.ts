@@ -172,9 +172,9 @@ export class Panel extends Entity {
                     f.type != FieldType.timer
                         ? value
                         : {
-                              day: value.slice(0, 8),
-                              from: value.slice(8, 10) + ':' + value.slice(10, 12),
-                              to: value.slice(12, 14) + ':' + value.slice(14, 16),
+                              day: value.slice(0, 7),
+                              from: value.slice(7, 9) + ':' + value.slice(9, 11),
+                              to: value.slice(11, 13) + ':' + value.slice(13, 15),
                           };
             });
         });

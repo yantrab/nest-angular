@@ -46,7 +46,7 @@
         "mat-virtual-table": "^9.0.0",
         "ng-dialog-animation": "^1.0.0",
         "ng-dyna-form": "^9.0.1",
-        "ngx-material-timepicker": "^5.2.2",
+        "ngx-material-timepicker": "4.0.2",
         "rxjs": "~6.5.3",
         "saturn-datepicker": "^8.0.1",
         "tslib": "^1.10.0",
