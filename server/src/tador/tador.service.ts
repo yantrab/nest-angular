@@ -161,7 +161,7 @@ export class TadorService {
                     const action: Action = JSON.parse(msgString);
                     const panel = await this.getDump(action.pId);
                     if (!panel) {
-                        return sock.write('9');
+                        return sock.write('999');
                     }
                     let result;
                     switch (action.type) {
@@ -194,14 +194,14 @@ export class TadorService {
     private getStatus(action: Action & { d }) {
         const panelStatus = this.statuses[action.pId];
         if (!panelStatus) {
-            return '0';
+            return '000';
         }
         if (action.d) panelStatus.arr.shift();
         if (!panelStatus.arr.length) {
             this.saveDump(panelStatus.panel).then(() => {
                 delete this.statuses[action.pId];
             });
-            return '0';
+            return '000';
         }
 
         return panelStatus.arr[0];
