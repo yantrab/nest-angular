@@ -102,11 +102,11 @@ export class TadorService {
                 break;
             }
             case ActionType.readAll: {
-                this.statuses[panel.panelId].arr.push(ActionType.readAll.toString());
+                this.statuses[panel.panelId].arr.push(ActionType.readAll.toString().repeat(3));
                 break;
             }
             case ActionType.writeAll: {
-                this.statuses[panel.panelId].arr.push(ActionType.writeAll.toString());
+                this.statuses[panel.panelId].arr.push(ActionType.writeAll.toString().repeat(3));
                 break;
             }
         }
@@ -242,7 +242,7 @@ export class TadorService {
         const saveResult = await this.panelRepo.saveOrUpdateOne(panel);
         await this.saveDump(panel);
 
-        sock.write(saveResult.result.ok.toString());
+        sock.write(saveResult.result.ok.toString().repeat(3));
     }
 
     private async saveDump(panel: Panel) {
