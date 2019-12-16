@@ -62,6 +62,7 @@ export class TadorService {
                         const oldValue = oldDump ? oldDump.slice(start, start + fieldLength) : undefined;
                         const newValue = newDump.slice(start, start + fieldLength);
                         if (oldValue != newValue) {
+                            logger.log(field.title);
                             oldpanelStatus[start] = new StatusActionResult({
                                 action: ActionType.read,
                                 index: start,
@@ -74,25 +75,33 @@ export class TadorService {
                 panel.settings.forEach(s => {
                     if (s.index) {
                         const length = s.fields.length * s.length;
-                        const newValue = newDump.slice(s.index, s.index + length);
-                        const oldValue = oldDump ? oldDump.slice(s.index, s.index + length) : undefined;
-                        if (newValue != oldValue) {
-                            oldpanelStatus[s.index] = new StatusActionResult({
-                                action: ActionType.read,
-                                index: s.index,
-                                data: newValue,
-                            }).toString();
+                        if (length < 60) {
+                            const newValue = newDump.slice(s.index, s.index + length);
+                            const oldValue = oldDump ? oldDump.slice(s.index, s.index + length) : undefined;
+                            if (newValue != oldValue) {
+                                logger.log(s.name);
+                                oldpanelStatus[s.index] = new StatusActionResult({
+                                    action: ActionType.read,
+                                    index: s.index,
+                                    data: newValue,
+                                }).toString();
+                            }
+                            return;
                         }
-                        return;
                     }
 
                     s.fields.forEach((f, i) => {
-                        const newValue = newDump.slice(f.index, f.index + f.length);
-                        const oldValue = oldDump ? oldDump.slice(f.index, f.index + f.length) : undefined;
+                        const length = f.length || s.length;
+                        const index = f.index || s.index + i * length;
+
+                        const newValue = newDump.slice(index, index + length);
+                        const oldValue = oldDump ? oldDump.slice(index, index + length) : undefined;
+
                         if (newValue != oldValue) {
-                            oldpanelStatus[s.index] = new StatusActionResult({
+                            logger.log(s.name);
+                            oldpanelStatus[index] = new StatusActionResult({
                                 action: ActionType.read,
-                                index: f.index,
+                                index: index,
                                 data: newValue,
                             }).toString();
                         }
