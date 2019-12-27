@@ -6,6 +6,8 @@ import { createServer, Socket } from 'net';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
 import { keyBy, values } from 'lodash';
+import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
+import { Server } from 'socket.io';
 
 class PanelDump extends Entity {
     dump: string;
@@ -34,13 +36,32 @@ class StatusActionResult {
 }
 
 @Injectable()
+@WebSocketGateway(4001)
 export class TadorService {
+    @WebSocketServer()
+    server: Server;
+
+    @SubscribeMessage('register')
+    async onRegister(sock, message) {
+        const pId = message;
+        this.clientSockets[pId] = sock;
+    }
+
+    @SubscribeMessage('unregister')
+    async onUnRegister(sock, message) {
+        const pId = message;
+        delete this.clientSockets[pId];
+    }
+    unregister;
+
+    clientSockets: { [pId: string]: Socket } = {};
     panelRepo: Repository<Panel>;
     panelDumpRepo: Repository<PanelDump>;
     constructor(private repositoryFactory: RepositoryFactory) {
         this.panelRepo = this.repositoryFactory.getRepository<Panel>(Panel, 'tador');
         this.panelDumpRepo = this.repositoryFactory.getRepository<PanelDump>(PanelDump, 'tador');
-        this.startListen();
+        // this.startListen();
+        this.startListenToPanels();
     }
     statuses: { [id: string]: { panel: Panel; arr: string[] } } = {};
 
@@ -128,7 +149,7 @@ export class TadorService {
         return this.panelDumpRepo.findOne({ panelId: id });
     }
 
-    startListen() {
+    startListenToPanels() {
         const port = 4000;
         const host = '0.0.0.0';
         const server = createServer();
@@ -200,19 +221,34 @@ export class TadorService {
         });
     }
 
+    private sentMsg(pId, msg, type) {
+        const sock = this.clientSockets[pId];
+        if (!sock) {
+            return;
+        }
+        try {
+            sock.emit(type, msg);
+        } catch (e) {
+            console.log(e);
+        }
+    }
     private getStatus(action: Action & { d }) {
         const panelStatus = this.statuses[action.pId];
         if (!panelStatus) {
             return '000';
         }
-        if (action.d) panelStatus.arr.shift();
+        if (action.d) {
+            this.sentMsg(action.pId, 'panel got - ' + JSON.stringify(panelStatus.arr.shift()), 'log');
+        }
         if (!panelStatus.arr.length) {
-            this.saveDump(panelStatus.panel).then(() => {
+            panelStatus.panel.actionType = ActionType.idle;
+            Promise.all([this.saveDump(panelStatus.panel), this.panelRepo.saveOrUpdateOne(panelStatus.panel)]).then(_ => {
+                this.sentMsg(action.pId, ActionType.idle, 'status');
                 delete this.statuses[action.pId];
             });
             return '000';
         }
-
+        this.sentMsg(action.pId, 'wait to panel for delivary - ' + JSON.stringify(panelStatus.arr), 'log');
         return panelStatus.arr[0];
     }
 

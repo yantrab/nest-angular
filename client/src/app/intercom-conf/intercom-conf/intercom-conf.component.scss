@@ -3,7 +3,10 @@ $topbar-hight: 70px;
 p-topbar {
     height: $topbar-hight;
 }
-
+.snack {
+    width: 40vw;
+    max-width: 100% !important;
+}
 .content {
     height: calc(100vh - #{$topbar-hight});
     background-color: #f1f2f6;
@@ -13,7 +16,7 @@ p-topbar {
         overflow: hidden;
         display: inline-block;
         button {
-            margin-top: 27%;
+            margin-top: 10%;
         }
     }
 

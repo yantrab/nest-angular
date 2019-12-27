@@ -6,6 +6,9 @@ import { IntercomConfComponent } from './intercom-conf/intercom-conf.component';
 import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
 import { App, User } from 'shared/models';
 import { AdminModel } from '../admin/admin/admin.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:4001', options: { a: 1 } };
 
 const model: AdminModel = {
     userFormModel: {
@@ -26,6 +29,7 @@ const model: AdminModel = {
 @NgModule({
     declarations: [IntercomConfComponent, ContactsComponent],
     imports: [
+        SocketIoModule.forRoot(config),
         ComponentsModule,
         RouterModule.forChild([
             {

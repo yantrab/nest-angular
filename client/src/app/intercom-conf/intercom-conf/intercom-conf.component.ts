@@ -11,9 +11,9 @@ import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { FormComponent, FormModel } from 'ng-dyna-form';
 import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
 import { DialogService } from '../../shared/services/dialog.service';
-
-import * as conf from 'shared/models/tador/conf';
-Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { Socket } from 'ngx-socket-io';
+// Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
     templateUrl: './intercom-conf.component.html',
@@ -21,13 +21,28 @@ Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
     encapsulation: ViewEncapsulation.None,
 })
 export class IntercomConfComponent {
-    constructor(private api: TadorController, public i18nService: I18nService, public dialog: DialogService) {
+    constructor(
+        private api: TadorController,
+        public i18nService: I18nService,
+        public dialog: DialogService,
+        private snackBar: MatSnackBar,
+        private socket: Socket,
+    ) {
         this.api.initialData().then(data => {
             this.panels = data.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
             this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
             this.setSelectedPanel(this.panels[0]);
         });
+        socket.on('error', console.log);
+        socket.fromEvent('log').subscribe(msg => {
+            console.log(msg);
+        });
+        socket.fromEvent('status').subscribe(status => {
+            this.selectedPanel.actionType = status as ActionType;
+            this.openSnack(ActionType[this.selectedPanel.actionType]);
+        });
     }
+
     formModel: FormModel<AddPanelRequest> = {
         feilds: [{ placeHolder: 'iemi', key: 'iemi' }, { placeHolder: 'id', key: 'id' }],
         modelConstructor: AddPanelRequest,
@@ -48,7 +63,20 @@ export class IntercomConfComponent {
     selectedPanel: Panel;
     cloneSelectedPanel: Panel;
     contacts: ContactField[];
+    openSnack(
+        title: string,
+        action = 'סגור',
+        config: MatSnackBarConfig = { duration: 2000, panelClass: 'snack', horizontalPosition: 'right' },
+    ) {
+        return this.snackBar.open(title, action, config);
+    }
+
     setSelectedPanel(panel: Panel) {
+        if (this.selectedPanel) {
+            this.socket.emit('unregister', this.selectedPanel.panelId);
+        }
+
+        this.socket.emit('register', panel.panelId);
         this.selectedPanel = panel;
         this.cloneSelectedPanel = cloneDeep(this.selectedPanel);
     }
@@ -67,29 +95,33 @@ export class IntercomConfComponent {
     }
 
     save() {
-        // a
+        this.openSnack('שומר');
         this.api.savePanel(this.selectedPanel).then(result => {
             this.cloneSelectedPanel = cloneDeep(this.selectedPanel);
+            this.openSnack('נשמר');
         });
     }
 
     cancel() {
         this.selectedPanel = cloneDeep(this.cloneSelectedPanel);
+        this.openSnack('שינויים בוטלו');
     }
-
-    sentAll() {
-        this.selectedPanel.actionType = ActionType.readAll;
+    status(status: ActionType) {
+        this.selectedPanel.actionType = status;
         this.api.status(this.selectedPanel);
+        const snackBarRef = this.openSnack(ActionType[status], 'בטל', { panelClass: 'snack', horizontalPosition: 'right' });
+        snackBarRef.onAction().subscribe(() => {});
+    }
+    sentAll() {
+        this.status(ActionType.readAll);
     }
 
     sentChanges() {
-        this.selectedPanel.actionType = ActionType.read;
-        this.api.status(this.selectedPanel);
+        this.status(ActionType.read);
     }
 
     getAll() {
-        this.selectedPanel.actionType = ActionType.writeAll;
-        this.api.status(this.selectedPanel);
+        this.status(ActionType.writeAll);
     }
 
     openAddPanel() {
@@ -113,7 +145,7 @@ export class IntercomConfComponent {
                 this.panels.push(new Panels[panel.type + 'Panel'](panel));
                 this.autocompleteSettings.options = [...this.panels];
                 this.setSelectedPanel(panel);
-                // this.autocompleteSettings.selected.selectedPanel = this.panels[this.panels.length - 1];
+                this.openSnack('פנל הוסף בהצלחה');
             });
         });
     }
