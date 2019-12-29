@@ -8,7 +8,7 @@ import { App, User } from 'shared/models';
 import { AdminModel } from '../admin/admin/admin.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
-const config: SocketIoConfig = { url: 'http://localhost:4001', options: { a: 1 } };
+const config: SocketIoConfig = { url: 'http://128.199.41.162:4001' };
 
 const model: AdminModel = {
     userFormModel: {

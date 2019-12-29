@@ -36,7 +36,7 @@ class StatusActionResult {
 }
 
 @Injectable()
-@WebSocketGateway(4001)
+@WebSocketGateway(4001, {})
 export class TadorService {
     @WebSocketServer()
     server: Server;
@@ -138,6 +138,9 @@ export class TadorService {
             case ActionType.writeAll: {
                 this.statuses[panel.panelId].arr.push(ActionType.writeAll.toString().repeat(3));
                 break;
+            }
+            case ActionType.idle: {
+                this.statuses[panel.panelId].arr = [ActionType.idle.toString().repeat(3)];
             }
         }
     }

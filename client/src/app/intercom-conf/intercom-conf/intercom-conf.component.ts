@@ -13,6 +13,7 @@ import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
 import { DialogService } from '../../shared/services/dialog.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { Socket } from 'ngx-socket-io';
+import { __await } from 'tslib';
 // Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
@@ -106,11 +107,16 @@ export class IntercomConfComponent {
         this.selectedPanel = cloneDeep(this.cloneSelectedPanel);
         this.openSnack('שינויים בוטלו');
     }
-    status(status: ActionType) {
+    async status(status: ActionType) {
         this.selectedPanel.actionType = status;
-        this.api.status(this.selectedPanel);
+        await this.api.status(this.selectedPanel);
         const snackBarRef = this.openSnack(ActionType[status], 'בטל', { panelClass: 'snack', horizontalPosition: 'right' });
-        snackBarRef.onAction().subscribe(() => {});
+        snackBarRef.onAction().subscribe(async () => {
+            this.selectedPanel.actionType = ActionType.idle;
+            this.openSnack('מבטל שליחה');
+            await this.api.status(this.selectedPanel);
+            this.openSnack('שליחה מבוטלת');
+        });
     }
     sentAll() {
         this.status(ActionType.readAll);
