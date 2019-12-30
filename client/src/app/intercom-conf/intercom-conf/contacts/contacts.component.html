@@ -13,7 +13,13 @@
                         {{ row[field.property] }}
                     </div>
                     <mat-form-field *ngIf="inEdit">
-                        <input #ref (blur)="inEdit = false" matInput [(ngModel)]="row[field.property]" />
+                        <input
+                            [maxlength]="field.length"
+                            #ref
+                            (blur)="inEdit = false"
+                            matInput
+                            [(ngModel)]="row[field.property]"
+                        />
                     </mat-form-field>
                 </div>
             </ng-template>
