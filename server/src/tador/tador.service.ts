@@ -294,7 +294,7 @@ export class TadorService {
     private async read(action: Action, sock: Socket, multiply = 1) {
         if (this.statuses[action.pId].arr[0] == ActionType.idle.toString().repeat(3)) {
             this.statuses[action.pId].arr = [];
-            return sock.write(ActionType.idle.toString().repeat(3));
+            return sock.write(92);
         }
 
         const dump = await this.getDump(action.pId);
@@ -306,7 +306,7 @@ export class TadorService {
     private async write(action: Action, sock: Socket, multiply = 1) {
         if (this.statuses[action.pId].arr[0] == ActionType.idle.toString().repeat(3)) {
             this.statuses[action.pId].arr = [];
-            return sock.write(ActionType.idle.toString().repeat(3));
+            return sock.write(91);
         }
 
         let panel = await this.getPanel(action.pId);
