@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import { TadorController } from 'src/api/tador.controller';
 import { I18nService } from 'src/app/shared/services/i18n.service';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
@@ -28,6 +28,7 @@ export class IntercomConfComponent {
         public dialog: DialogService,
         private snackBar: MatSnackBar,
         private socket: Socket,
+        private ref: ChangeDetectorRef,
     ) {
         this.api.initialData().then(data => {
             this.panels = data.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
@@ -98,8 +99,11 @@ export class IntercomConfComponent {
     save() {
         this.openSnack('שומר');
         this.api.savePanel(this.selectedPanel).then(result => {
+            this.selectedPanel = result;
             this.cloneSelectedPanel = cloneDeep(this.selectedPanel);
             this.openSnack('נשמר');
+            this.ref.markForCheck();
+            console.table(this.selectedPanel.contacts.changesList);
         });
     }
 
@@ -154,5 +158,8 @@ export class IntercomConfComponent {
                 this.openSnack('פנל הוסף בהצלחה');
             });
         });
+    }
+    fieldChange(field: ContactField) {
+        field.length;
     }
 }

@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import * as Panels from 'shared/models/tador/panels';
-import { Panel } from 'shared/models/tador/panels';
+import { Panel, Source } from 'shared/models/tador/panels';
 import { createServer, Socket } from 'net';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
@@ -65,6 +65,27 @@ export class TadorService {
     }
     statuses: { [id: string]: { panel: Panel; arr: string[] } } = {};
 
+    async updatePanel(panel: Panel) {
+        logger.log('save panel ' + panel.panelId);
+        const oldDump = (await this.getDump(panel.panelId)).dump;
+        const newDump = panel.dump();
+        panel.contacts.changesList = panel.contacts.changesList || [];
+        panel.contacts.contactFields.forEach(field => {
+            const fieldLength = field.length;
+            const index = field.index;
+            for (let i = 0; i < panel.contacts.count; i++) {
+                const start = index + fieldLength * i;
+                const oldValue = oldDump ? oldDump.slice(start, start + fieldLength) : undefined;
+                const newValue = newDump.slice(start, start + fieldLength);
+                if (oldValue != newValue) {
+                    panel.contacts.changesList[i] = panel.contacts.changesList[i] || {};
+                    panel.contacts.changesList[i][field.property] = Source.client;
+                }
+            }
+        });
+        await this.panelRepo.saveOrUpdateOne(panel);
+        return panel;
+    }
     async addStatus(panel: Panel, type: ActionType) {
         logger.log('add status: ' + type);
         if (!this.statuses[panel.panelId]) {

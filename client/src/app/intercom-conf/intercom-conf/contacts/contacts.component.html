@@ -7,9 +7,13 @@
         [columnsDef]="contactColumns"
     >
         <ng-container *ngFor="let field of contacts.contactFields">
-            <ng-template pCellDef [column]="field.property" let-row="row" let-inEdit="false">
+            <ng-template pCellDef [column]="field.property" let-row="row" let-i="index" let-inEdit="false">
                 <div style="height: 50px; width: 100%" (click)="inEdit = true">
-                    <div style="height: 50px; width: 100%;line-height: 50px;" *ngIf="!inEdit">
+                    <div
+                        style="height: 50px; width: 100%;line-height: 50px;"
+                        [style.background-color]="getColor(+row['id'] - 1, field.property)"
+                        *ngIf="!inEdit"
+                    >
                         {{ row[field.property] }}
                     </div>
                     <mat-form-field *ngIf="inEdit">

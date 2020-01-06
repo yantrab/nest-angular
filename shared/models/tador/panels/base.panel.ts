@@ -2,6 +2,10 @@ import { Entity } from '../../Entity';
 import { IsArray, IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { ActionType } from '../enum';
 
+export enum Source {
+    Panel,
+    client,
+}
 export class ContactField extends Entity {
     @IsString()
     property: string;
@@ -14,6 +18,9 @@ export class ContactField extends Entity {
     @IsOptional()
     @IsNumber()
     length?: number;
+    @IsOptional()
+    @IsString()
+    lastValue?: number;
 }
 
 export enum FieldType {
@@ -67,7 +74,13 @@ export class Contacts extends Entity {
     count: number;
 
     @IsArray()
+    @IsOptional()
     list?: any[];
+
+    @IsArray()
+    @IsOptional()
+    changesList?: any[];
+
     constructor(contacts: Partial<Contacts>) {
         super(contacts);
         this.contactFields = this.contactFields.map(f => new ContactField(f));
