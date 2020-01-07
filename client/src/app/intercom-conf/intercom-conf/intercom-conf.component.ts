@@ -43,6 +43,13 @@ export class IntercomConfComponent {
             this.selectedPanel.actionType = status as ActionType;
             this.openSnack(ActionType[this.selectedPanel.actionType]);
         });
+
+        socket.fromEvent('sent').subscribe((location: any) => {
+            console.log(location);
+            delete this.selectedPanel.contacts.changesList[location.index][location.field];
+            this.selectedPanel.contacts = cloneDeep(this.selectedPanel.contacts);
+            this.ref.markForCheck();
+        });
     }
 
     formModel: FormModel<AddPanelRequest> = {
@@ -158,8 +165,5 @@ export class IntercomConfComponent {
                 this.openSnack('פנל הוסף בהצלחה');
             });
         });
-    }
-    fieldChange(field: ContactField) {
-        field.length;
     }
 }

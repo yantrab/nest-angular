@@ -6,6 +6,7 @@ export const environment = {
     production: false,
     inBrowser: true,
     apiUrl: 'http://localhost:3000',
+    socketUrl: 'http://localhost:4001',
 };
 
 /*

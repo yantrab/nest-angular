@@ -13,7 +13,9 @@ class PanelDump extends Entity {
     dump: string;
     panelId: string;
 }
-
+const replaceByIndex = (s, start, substitute) => {
+    return s.substring(0, start) + substitute + s.substring(start + substitute.length);
+};
 interface Action {
     type: ActionType;
     pId: string;
@@ -52,7 +54,6 @@ export class TadorService {
         const pId = message;
         delete this.clientSockets[pId];
     }
-    unregister;
 
     clientSockets: { [pId: string]: Socket } = {};
     panelRepo: Repository<Panel>;
@@ -60,10 +61,15 @@ export class TadorService {
     constructor(private repositoryFactory: RepositoryFactory) {
         this.panelRepo = this.repositoryFactory.getRepository<Panel>(Panel, 'tador');
         this.panelDumpRepo = this.repositoryFactory.getRepository<PanelDump>(PanelDump, 'tador');
-        // this.startListen();
-        this.startListenToPanels();
+        this.startListen();
     }
-    statuses: { [id: string]: { panel: Panel; arr: string[] } } = {};
+    statuses: {
+        [id: string]: {
+            panel: Panel;
+            oldDump: string;
+            arr: { action: string; location?: { index: number; field: string; dumpIndex: number; value: string } }[];
+        };
+    } = {};
 
     async updatePanel(panel: Panel) {
         logger.log('save panel ' + panel.panelId);
@@ -89,13 +95,14 @@ export class TadorService {
     async addStatus(panel: Panel, type: ActionType) {
         logger.log('add status: ' + type);
         if (!this.statuses[panel.panelId]) {
-            this.statuses[panel.panelId] = { panel, arr: [] };
+            this.statuses[panel.panelId] = { panel, arr: [], oldDump: (await this.getDump(panel.panelId)).dump };
         }
         switch (type) {
             case ActionType.read: {
-                const oldpanelStatus = keyBy(this.statuses[panel.panelId].arr, 'index');
-                const oldDump = (await this.getDump(panel.panelId)).dump;
+                const oldpanelStatus: any = keyBy(this.statuses[panel.panelId].arr, 'action.index');
+                const oldDump = this.statuses[panel.panelId].oldDump;
                 const newDump = panel.dump();
+
                 panel.contacts.contactFields.forEach(field => {
                     const fieldLength = field.length;
                     const index = field.index;
@@ -105,11 +112,14 @@ export class TadorService {
                         const newValue = newDump.slice(start, start + fieldLength);
                         if (oldValue != newValue) {
                             logger.log(field.title);
-                            oldpanelStatus[start] = new StatusActionResult({
-                                action: ActionType.read,
-                                index: start,
-                                data: newValue,
-                            }).toString();
+                            oldpanelStatus[start] = {
+                                action: new StatusActionResult({
+                                    action: ActionType.read,
+                                    index: start,
+                                    data: newValue,
+                                }).toString(),
+                                location: { index: i, field: field.property, dumpIndex: start, value: newValue },
+                            };
                         }
                     }
                 });
@@ -122,11 +132,15 @@ export class TadorService {
                             const oldValue = oldDump ? oldDump.slice(s.index, s.index + length) : undefined;
                             if (newValue != oldValue) {
                                 logger.log(s.name);
-                                oldpanelStatus[s.index] = new StatusActionResult({
-                                    action: ActionType.read,
-                                    index: s.index,
-                                    data: newValue,
-                                }).toString();
+
+                                oldpanelStatus[s.index] = {
+                                    action: new StatusActionResult({
+                                        action: ActionType.read,
+                                        index: s.index,
+                                        data: newValue,
+                                    }).toString(),
+                                    location: {},
+                                };
                             }
                             return;
                         }
@@ -141,11 +155,14 @@ export class TadorService {
 
                         if (newValue != oldValue) {
                             logger.log(s.name);
-                            oldpanelStatus[index] = new StatusActionResult({
-                                action: ActionType.read,
-                                index: index,
-                                data: newValue,
-                            }).toString();
+                            oldpanelStatus[index] = {
+                                action: new StatusActionResult({
+                                    action: ActionType.read,
+                                    index: index,
+                                    data: newValue,
+                                }).toString(),
+                                location: {},
+                            };
                         }
                     });
                 });
@@ -153,15 +170,16 @@ export class TadorService {
                 break;
             }
             case ActionType.readAll: {
-                this.statuses[panel.panelId].arr.push(ActionType.readAll.toString().repeat(3));
+                this.statuses[panel.panelId].arr.push({ action: ActionType.readAll.toString().repeat(3) });
                 break;
             }
             case ActionType.writeAll: {
-                this.statuses[panel.panelId].arr.push(ActionType.writeAll.toString().repeat(3));
+                this.statuses[panel.panelId].arr.push({ action: ActionType.writeAll.toString().repeat(3) });
                 break;
             }
             case ActionType.idle: {
-                this.statuses[panel.panelId].arr = [ActionType.idle.toString().repeat(3)];
+                this.statuses[panel.panelId].arr = [{ action: ActionType.idle.toString().repeat(3) }];
+                break;
             }
         }
     }
@@ -173,7 +191,7 @@ export class TadorService {
         return this.panelDumpRepo.findOne({ panelId: id });
     }
 
-    startListenToPanels() {
+    startListen() {
         const port = 4000;
         const host = '0.0.0.0';
         const server = createServer();
@@ -228,13 +246,13 @@ export class TadorService {
                         case ActionType.writeAll:
                             return this.write(action, sock, 16);
                         case ActionType.status:
-                            result = this.getStatus(action as any);
+                            result = await this.getStatus(action as any);
                     }
                     logger.log('return: ' + result);
                     return sock.write(result);
                 } catch (e) {
                     logger.error(JSON.stringify(e));
-                    // sock.end();
+                    sock.end();
                 }
             });
 
@@ -256,24 +274,32 @@ export class TadorService {
             console.log(e);
         }
     }
-    private getStatus(action: Action & { d }) {
+    private async getStatus(action: Action & { d }): Promise<string> {
         const panelStatus = this.statuses[action.pId];
         if (!panelStatus) {
             return '000';
         }
-        if (action.d) {
-            this.sentMsg(action.pId, 'panel got - ' + JSON.stringify(panelStatus.arr.shift()), 'log');
+
+        if (!action.d) {
+            return panelStatus.arr[0].action;
         }
+
+        const sendedItem = panelStatus.arr.shift();
+        this.sentMsg(action.pId, sendedItem.location, 'sent');
+        let result = panelStatus.arr.length ? panelStatus.arr[0].action : '000';
+        panelStatus.oldDump = replaceByIndex(panelStatus.oldDump, sendedItem.location.dumpIndex, sendedItem.location.value);
+        await this.panelDumpRepo.collection.updateOne({ panelId: action.pId }, { $set: { dump: panelStatus.oldDump } });
+
         if (!panelStatus.arr.length) {
             panelStatus.panel.actionType = ActionType.idle;
-            Promise.all([this.saveDump(panelStatus.panel), this.panelRepo.saveOrUpdateOne(panelStatus.panel)]).then(_ => {
-                this.sentMsg(action.pId, ActionType.idle, 'status');
-                delete this.statuses[action.pId];
-            });
-            return '000';
+            delete this.statuses[action.pId];
+            this.sentMsg(action.pId, ActionType.idle, 'status');
         }
-        this.sentMsg(action.pId, 'wait to panel for delivary - ' + JSON.stringify(panelStatus.arr), 'log');
-        return panelStatus.arr[0];
+
+        delete panelStatus.panel.contacts.changesList[sendedItem.location.index][sendedItem.location.field];
+        await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
+
+        return result;
     }
 
     async register(pId: string, uId: string, pType) {
@@ -292,7 +318,7 @@ export class TadorService {
     }
 
     private async read(action: Action, sock: Socket, multiply = 1) {
-        if (this.statuses[action.pId].arr[0] == ActionType.idle.toString().repeat(3)) {
+        if (this.statuses[action.pId].arr[0].action == ActionType.idle.toString().repeat(3)) {
             this.statuses[action.pId].arr = [];
             return sock.write(92);
         }
@@ -304,7 +330,7 @@ export class TadorService {
     }
 
     private async write(action: Action, sock: Socket, multiply = 1) {
-        if (this.statuses[action.pId].arr[0] == ActionType.idle.toString().repeat(3)) {
+        if (this.statuses[action.pId].arr[0].action == ActionType.idle.toString().repeat(3)) {
             this.statuses[action.pId].arr = [];
             return sock.write(91);
         }
