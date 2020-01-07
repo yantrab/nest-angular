@@ -67,6 +67,7 @@ export class TadorService {
         [id: string]: {
             panel: Panel;
             oldDump: string;
+            canceled?:boolean;
             arr: { action: string; location?: { index: number; field: string; dumpIndex: number; value: string } }[];
         };
     } = {};
@@ -178,7 +179,8 @@ export class TadorService {
                 break;
             }
             case ActionType.idle: {
-                this.statuses[panel.panelId].arr = [{ action: ActionType.idle.toString().repeat(3) }];
+                this.statuses[panel.panelId].arr = [];
+                this.statuses[panel.panelId].canceled = true;
                 break;
             }
         }
@@ -252,6 +254,7 @@ export class TadorService {
                     return sock.write(result);
                 } catch (e) {
                     logger.error(JSON.stringify(e));
+                    sock.write('001');
                     sock.end();
                 }
             });
@@ -318,9 +321,9 @@ export class TadorService {
     }
 
     private async read(action: Action, sock: Socket, multiply = 1) {
-        if (this.statuses[action.pId].arr[0].action == ActionType.idle.toString().repeat(3)) {
-            this.statuses[action.pId].arr = [];
-            return sock.write(92);
+        if (this.statuses[action.pId].canceled) {
+            delete this.statuses[action.pId];
+            return sock.write('100');
         }
 
         const dump = await this.getDump(action.pId);
@@ -330,9 +333,9 @@ export class TadorService {
     }
 
     private async write(action: Action, sock: Socket, multiply = 1) {
-        if (this.statuses[action.pId].arr[0].action == ActionType.idle.toString().repeat(3)) {
-            this.statuses[action.pId].arr = [];
-            return sock.write(91);
+        if (this.statuses[action.pId].canceled) {
+            delete this.statuses[action.pId];
+            return sock.write('010');
         }
 
         let panel = await this.getPanel(action.pId);

@@ -4,7 +4,7 @@ import { I18nService } from 'src/app/shared/services/i18n.service';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
 import { saveAs } from 'file-saver';
 import * as Panels from 'shared/models/tador/panels';
-import { ContactField, FieldType, Panel } from 'shared/models/tador/panels';
+import { FieldType, Panel } from 'shared/models/tador/panels';
 import { AutocompleteFilter } from 'shared/models/filter.model';
 import { cloneDeep } from 'lodash';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
@@ -13,7 +13,7 @@ import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
 import { DialogService } from '../../shared/services/dialog.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { Socket } from 'ngx-socket-io';
-import { __await } from 'tslib';
+import { Source } from 'shared/models/tador/panels';
 // Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
@@ -50,6 +50,18 @@ export class IntercomConfComponent {
             this.selectedPanel.contacts = cloneDeep(this.selectedPanel.contacts);
             this.ref.markForCheck();
         });
+
+        socket.fromEvent('write').subscribe((location: any) => {
+            if (!this.selectedPanel.contacts.changesList) {
+                this.selectedPanel.contacts.changesList = [];
+            }
+            if (!this.selectedPanel.contacts.changesList[location.index] ) {
+                this.selectedPanel.contacts.changesList[location.index] = {};
+            }
+            this.selectedPanel.contacts.changesList[location.index][location.field] = Source.Panel;
+            this.selectedPanel.contacts = cloneDeep(this.selectedPanel.contacts);
+            this.ref.markForCheck();
+        });
     }
 
     formModel: FormModel<AddPanelRequest> = {
@@ -71,11 +83,10 @@ export class IntercomConfComponent {
 
     selectedPanel: Panel;
     cloneSelectedPanel: Panel;
-    contacts: ContactField[];
     openSnack(
         title: string,
         action = 'סגור',
-        config: MatSnackBarConfig = { duration: 2000, panelClass: 'snack', horizontalPosition: 'right' },
+        config: MatSnackBarConfig = { duration: 1000, panelClass: 'snack', horizontalPosition: 'right' },
     ) {
         return this.snackBar.open(title, action, config);
     }
@@ -124,7 +135,7 @@ export class IntercomConfComponent {
         const snackBarRef = this.openSnack(ActionType[status], 'בטל', { panelClass: 'snack', horizontalPosition: 'right' });
         snackBarRef.onAction().subscribe(async () => {
             this.selectedPanel.actionType = ActionType.idle;
-            this.openSnack('מבטל שליחה');
+            this.openSnack('מבטל שליחה', '', { panelClass: 'snack', horizontalPosition: 'right' });
             await this.api.status(this.selectedPanel);
             this.openSnack('שליחה מבוטלת');
         });
@@ -164,6 +175,14 @@ export class IntercomConfComponent {
                 this.setSelectedPanel(panel);
                 this.openSnack('פנל הוסף בהצלחה');
             });
+        });
+    }
+
+    removeChanges() {
+        this.openSnack('מוחק שינויים', '', { panelClass: 'snack', horizontalPosition: 'right' });
+        this.api.removeChanges(this.selectedPanel).then((panel) => {
+            this.openSnack('בוצע');
+            this.selectedPanel = panel;
         });
     }
 }

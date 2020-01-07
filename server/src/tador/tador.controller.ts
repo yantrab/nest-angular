@@ -35,4 +35,13 @@ export class TadorController {
     async status(@Body() panel: Panel): Promise<any> {
         return this.service.addStatus(panel, panel.actionType);
     }
+
+    @Post('removeChanges')
+    async removeChanges(@Body() panel: Panel): Promise<Panel> {
+        const dump = await this.service.getDump(panel.panelId);
+        panel.reDump(dump.dump);
+        panel.contacts.changesList = undefined;
+        await this.service.panelRepo.saveOrUpdateOne(panel);
+        return  panel;
+    }
 }
