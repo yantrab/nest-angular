@@ -168,6 +168,7 @@ export class TadorService {
                     });
                 });
                 this.statuses[panel.panelId].arr = values(oldpanelStatus);
+                logger.log(this.statuses[panel.panelId].arr);
                 if (!this.statuses[panel.panelId].arr.length) {
                     delete this.statuses[panel.panelId];
                     this.sentMsg(panel.panelId, ActionType.idle, 'status');
