@@ -253,7 +253,7 @@ export class TadorService {
                     logger.log('return: ' + result);
                     return sock.write(result);
                 } catch (e) {
-                    logger.error(JSON.stringify(e));
+                    logger.error(e);
                     sock.write('001');
                     sock.end();
                 }
