@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -187,14 +186,7 @@
       <workItem from="1577925756756" duration="5929000" />
       <workItem from="1578191810158" duration="24125000" />
       <workItem from="1578415301320" duration="5609000" />
-      <workItem from="1578639842128" duration="2537000" />
-    </task>
-    <task id="LOCAL-00008" summary="tador">
-      <created>1559537399591</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1559537399591</updated>
+      <workItem from="1578639842128" duration="2651000" />
     </task>
     <task id="LOCAL-00009" summary="tador">
       <created>1559662893020</created>
@@ -528,7 +520,13 @@
       <option name="presentableId" value="LOCAL‎00056" />
       <updated>1578643839637</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL‎00057" summary="colors">
+      <created>1578644477499</created>
+      <option name="number" value="LOCAL‎00057" />
+      <option name="presentableId" value="LOCAL‎00057" />
+      <updated>1578644477499</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

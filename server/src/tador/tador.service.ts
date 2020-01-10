@@ -170,7 +170,7 @@ export class TadorService {
                 this.statuses[panel.panelId].arr = values(oldpanelStatus);
                 if (!this.statuses[panel.panelId].arr.length) {
                     delete this.statuses[panel.panelId];
-                    this.sentMsg(action.pId, ActionType.idle, 'status');
+                    this.sentMsg(panel.panelId, ActionType.idle, 'status');
                 }
 
                 break;
