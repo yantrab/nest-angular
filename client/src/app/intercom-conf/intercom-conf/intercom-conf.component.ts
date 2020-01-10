@@ -4,7 +4,7 @@ import { I18nService } from 'src/app/shared/services/i18n.service';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
 import { saveAs } from 'file-saver';
 import * as Panels from 'shared/models/tador/panels';
-import { FieldType, Panel } from 'shared/models/tador/panels';
+import { ContactField, FieldType, Panel } from 'shared/models/tador/panels';
 import { AutocompleteFilter } from 'shared/models/filter.model';
 import { cloneDeep } from 'lodash';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
@@ -55,7 +55,7 @@ export class IntercomConfComponent {
             if (!this.selectedPanel.contacts.changesList) {
                 this.selectedPanel.contacts.changesList = [];
             }
-            if (!this.selectedPanel.contacts.changesList[location.index] ) {
+            if (!this.selectedPanel.contacts.changesList[location.index]) {
                 this.selectedPanel.contacts.changesList[location.index] = {};
             }
             this.selectedPanel.contacts.changesList[location.index][location.field] = Source.Panel;
@@ -83,6 +83,16 @@ export class IntercomConfComponent {
 
     selectedPanel: Panel;
     cloneSelectedPanel: Panel;
+    contacts: ContactField[];
+    get sendChangesLabel() {
+        let count = 0;
+        if (this.selectedPanel.contacts.changesList) {
+            this.selectedPanel.contacts.changesList.forEach(c => {
+                count += Object.values(c).filter(cc => cc).length;
+            });
+        }
+        return 'שלח שינויים' + (count ? ' ( ' + count + ' )' : '');
+    }
     openSnack(
         title: string,
         action = 'סגור',
@@ -180,7 +190,7 @@ export class IntercomConfComponent {
 
     removeChanges() {
         this.openSnack('מוחק שינויים', '', { panelClass: 'snack', horizontalPosition: 'right' });
-        this.api.removeChanges(this.selectedPanel).then((panel) => {
+        this.api.removeChanges(this.selectedPanel).then(panel => {
             this.openSnack('בוצע');
             this.selectedPanel = panel;
         });
