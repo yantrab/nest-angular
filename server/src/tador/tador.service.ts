@@ -278,8 +278,6 @@ export class TadorService {
         }
     }
     private async getStatus(action: Action & { d }): Promise<string> {
-        try {
-
         const panelStatus = this.statuses[action.pId];
         logger.log(1)
         if (!panelStatus) {
@@ -287,6 +285,7 @@ export class TadorService {
         }
 
         if (!action.d) {
+            logger.log(JSON.stringify(panelStatus))
             return panelStatus.arr[0].action;
         }
         logger.log(2)
@@ -311,10 +310,6 @@ export class TadorService {
         logger.log(6)
 
         return result;
-        }
-        catch (e) {
-            logger.error(e)
-        }
     }
 
     async register(pId: string, uId: string, pType) {

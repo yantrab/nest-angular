@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="Jest.tador.status.should return change">
     <configuration name="tador.read.should return 0" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -133,9 +134,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.tador.status.should return change" />
         <item itemvalue="npm.start" />
         <item itemvalue="Jest.tador.status.should return 0 after return change" />
-        <item itemvalue="Jest.tador.status.should return change" />
         <item itemvalue="Jest.tador.write.should return 0" />
         <item itemvalue="Jest.tador.read.should return 0" />
       </list>
@@ -187,14 +188,7 @@
       <workItem from="1577925756756" duration="5929000" />
       <workItem from="1578191810158" duration="24125000" />
       <workItem from="1578415301320" duration="5609000" />
-      <workItem from="1578639842128" duration="1226000" />
-    </task>
-    <task id="LOCAL-00006" summary="tador">
-      <created>1559288261785</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1559288261785</updated>
+      <workItem from="1578639842128" duration="1903000" />
     </task>
     <task id="LOCAL-00007" summary="tador">
       <created>1559451772766</created>
@@ -530,7 +524,13 @@
       <option name="presentableId" value="LOCAL‎00054" />
       <updated>1578642733655</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL‎00055" summary="colors">
+      <created>1578643164446</created>
+      <option name="number" value="LOCAL‎00055" />
+      <option name="presentableId" value="LOCAL‎00055" />
+      <updated>1578643164446</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,6 +601,24 @@
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
           <line>255</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts</url>
+          <line>45</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
+          <line>286</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts</url>
+          <line>48</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
