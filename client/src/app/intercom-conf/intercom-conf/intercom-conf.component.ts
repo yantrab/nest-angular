@@ -90,10 +90,12 @@ export class IntercomConfComponent {
     contacts: ContactField[];
     get sendChangesLabel() {
         let count = 0;
-        if (this.selectedPanel.contacts.changesList) {
-            this.selectedPanel.contacts.changesList.forEach(c => {
-                count += Object.values(c).filter(cc => cc).length;
-            });
+        if (this.selectedPanel && this.selectedPanel.contacts.changesList) {
+            this.selectedPanel.contacts.changesList
+                .filter(c => c)
+                .forEach(c => {
+                    count += Object.values(c).filter(cc => cc).length;
+                });
         }
         return 'שלח שינויים' + (count ? ' ( ' + count + ' )' : '');
     }
