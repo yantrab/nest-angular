@@ -12,8 +12,9 @@ import { FormComponent, FormModel } from 'ng-dyna-form';
 import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
 import { DialogService } from '../../shared/services/dialog.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
-import { Socket } from 'ngx-socket-io';
+import * as Socket from 'socket.io-client';
 import { Source } from 'shared/models/tador/panels';
+import { environment } from '../../../environments/environment';
 // Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
@@ -22,12 +23,12 @@ import { Source } from 'shared/models/tador/panels';
     encapsulation: ViewEncapsulation.None,
 })
 export class IntercomConfComponent {
+    socket = Socket(environment.socketUrl);
     constructor(
         private api: TadorController,
         public i18nService: I18nService,
         public dialog: DialogService,
         private snackBar: MatSnackBar,
-        private socket: Socket,
         private ref: ChangeDetectorRef,
     ) {
         this.api.initialData().then(data => {
@@ -35,23 +36,26 @@ export class IntercomConfComponent {
             this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
             this.setSelectedPanel(this.panels[0]);
         });
-        socket.on('error', console.log);
-        socket.fromEvent('log').subscribe(msg => {
+
+        this.socket.on('connect', () => console.log('socket connect!!!'));
+        this.socket.on('status', status => {
+                this.selectedPanel.actionType = status as ActionType;
+                this.openSnack(ActionType[this.selectedPanel.actionType]);
+        });
+        this.socket.on('disconnect', () => console.log('disconnect socket!!!!'));
+        this.socket.on('error', console.log);
+        this.socket.on('log', msg => {
             console.log(msg);
         });
-        socket.fromEvent('status').subscribe(status => {
-            this.selectedPanel.actionType = status as ActionType;
-            this.openSnack(ActionType[this.selectedPanel.actionType]);
-        });
 
-        socket.fromEvent('sent').subscribe((location: any) => {
+        this.socket.on('sent', (location: any) => {
             console.log(location);
             delete this.selectedPanel.contacts.changesList[location.index][location.field];
             this.selectedPanel.contacts = cloneDeep(this.selectedPanel.contacts);
             this.ref.markForCheck();
         });
 
-        socket.fromEvent('write').subscribe((location: any) => {
+        this.socket.on('write', (location: any) => {
             if (!this.selectedPanel.contacts.changesList) {
                 this.selectedPanel.contacts.changesList = [];
             }
