@@ -39,8 +39,8 @@ export class IntercomConfComponent {
 
         this.socket.on('connect', () => console.log('socket connect!!!'));
         this.socket.on('status', status => {
-                this.selectedPanel.actionType = status as ActionType;
-                this.openSnack(ActionType[this.selectedPanel.actionType]);
+            this.selectedPanel.actionType = status as ActionType;
+            this.openSnack(ActionType[this.selectedPanel.actionType]);
         });
         this.socket.on('disconnect', () => console.log('disconnect socket!!!!'));
         this.socket.on('error', console.log);
@@ -55,15 +55,8 @@ export class IntercomConfComponent {
             this.ref.markForCheck();
         });
 
-        this.socket.on('write', (location: any) => {
-            if (!this.selectedPanel.contacts.changesList) {
-                this.selectedPanel.contacts.changesList = [];
-            }
-            if (!this.selectedPanel.contacts.changesList[location.index]) {
-                this.selectedPanel.contacts.changesList[location.index] = {};
-            }
-            this.selectedPanel.contacts.changesList[location.index][location.field] = Source.Panel;
-            this.selectedPanel.contacts = cloneDeep(this.selectedPanel.contacts);
+        this.socket.on('write', (contacts: any) => {
+            this.selectedPanel.contacts = contacts;
             this.ref.markForCheck();
         });
     }

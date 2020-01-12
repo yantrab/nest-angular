@@ -67,7 +67,7 @@ export class TadorService {
         [id: string]: {
             panel: Panel;
             oldDump: string;
-            canceled?:boolean;
+            canceled?: boolean;
             arr: { action: string; location?: { index: number; field: string; dumpIndex: number; value: string } }[];
         };
     } = {};
@@ -76,7 +76,12 @@ export class TadorService {
         logger.log('save panel ' + panel.panelId);
         const oldDump = (await this.getDump(panel.panelId)).dump;
         const newDump = panel.dump();
-        panel.contacts.changesList = panel.contacts.changesList || [];
+        this.signChanges(panel, oldDump, newDump, Source.client);
+        await this.panelRepo.saveOrUpdateOne(panel);
+        return panel;
+    }
+    signChanges(panel: Panel, oldDump: string, newDump: string, source: Source, initialChangesList = []) {
+        panel.contacts.changesList = initialChangesList;
         panel.contacts.contactFields.forEach(field => {
             const fieldLength = field.length;
             const index = field.index;
@@ -86,12 +91,10 @@ export class TadorService {
                 const newValue = newDump.slice(start, start + fieldLength);
                 if (oldValue != newValue) {
                     panel.contacts.changesList[i] = panel.contacts.changesList[i] || {};
-                    panel.contacts.changesList[i][field.property] = Source.client;
+                    panel.contacts.changesList[i][field.property] = source;
                 }
             }
         });
-        await this.panelRepo.saveOrUpdateOne(panel);
-        return panel;
     }
     async addStatus(panel: Panel, type: ActionType) {
         logger.log('add status: ' + type);
@@ -327,7 +330,7 @@ export class TadorService {
     }
 
     private async read(action: Action, sock: Socket, multiply = 1) {
-        if (this.statuses[action.pId].canceled) {
+        if (this.statuses[action.pId] && this.statuses[action.pId].canceled) {
             delete this.statuses[action.pId];
             return sock.write('100');
         }
@@ -339,7 +342,7 @@ export class TadorService {
     }
 
     private async write(action: Action, sock: Socket, multiply = 1) {
-        if (this.statuses[action.pId].canceled) {
+        if (this.statuses[action.pId] && this.statuses[action.pId].canceled) {
             delete this.statuses[action.pId];
             return sock.write('010');
         }
@@ -349,13 +352,17 @@ export class TadorService {
         const dump = panel.dump().split('');
         const start = action.data.start * multiply;
         const length = action.data.data.length;
+        const oldDump = panel.dump();
         for (let i = start; i < start + length; i++) {
             dump[i] = action.data.data[i - start];
         }
         panel.reDump(dump.join(''));
+        this.signChanges(panel, oldDump, panel.dump(), Source.Panel, panel.contacts.changesList);
+
         const saveResult = await this.panelRepo.saveOrUpdateOne(panel);
         await this.saveDump(panel);
 
+        this.sentMsg(action.pId, panel.contacts, 'write');
         sock.write(saveResult.result.ok.toString().repeat(3));
     }
 

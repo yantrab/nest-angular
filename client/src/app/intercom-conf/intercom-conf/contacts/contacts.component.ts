@@ -19,6 +19,7 @@ export class ContactsComponent implements OnInit {
     }
 
     contactColumns: ColumnDef[] = [{ field: 'id', title: '', isSortable: false }];
+    Source = Source;
 
     ngOnInit() {
         this.contactColumns.push(
@@ -41,5 +42,12 @@ export class ContactsComponent implements OnInit {
         if (source === Source.Panel) {
             return 'green';
         }
+    }
+
+    signChange(index, field) {
+        this.contacts.changesList = this.contacts.changesList || [];
+        this.contacts.changesList[index] = this.contacts.changesList[index] || {};
+
+        this.contacts.changesList[index][field.property] = Source.client;
     }
 }

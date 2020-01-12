@@ -21,6 +21,7 @@
                             [maxlength]="field.length"
                             #ref
                             (blur)="inEdit = false"
+                            (change)="signChange(+row['id'] - 1, field)"
                             matInput
                             [(ngModel)]="row[field.property]"
                         />

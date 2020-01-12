@@ -2,8 +2,8 @@ import { Socket } from 'net';
 import { getRandomToken } from '../utils';
 import { ActionType, PanelType } from '../../../shared/models/tador/enum';
 const port = 4000;
-let pId = '1'//, '867057031591342';//'1'//
-const host =  'localhost'; //'128.199.41.162'; //
+let pId = '1'; //, '867057031591342';//'1'//
+const host = 'localhost'; //'128.199.41.162'; //
 describe('tador', async () => {
     beforeAll(async () => {
         // pId = await getRandomToken();
@@ -69,7 +69,11 @@ describe('tador', async () => {
     describe('write', () => {
         it('should return 0', async () => {
             const result = '0';
-            const registerAction = { type: ActionType.write, pId, data: { start: 2551, data: 'מוחמד' } };
+            const registerAction = {
+                type: ActionType.write,
+                pId,
+                data: { start: 2551, data: 'מוחמד       hbhc         ksdf       lsdf' },
+            };
             const registerActionString = JSON.stringify(registerAction);
             expect(await await write(registerActionString)).toBe(result);
         });
