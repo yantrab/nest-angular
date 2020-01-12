@@ -97,6 +97,7 @@ export class TadorService {
         });
     }
     async addStatus(panel: Panel, type: ActionType) {
+        this.updatePanel(panel);
         logger.log('add status: ' + type);
         if (!this.statuses[panel.panelId]) {
             this.statuses[panel.panelId] = { panel, arr: [], oldDump: (await this.getDump(panel.panelId)).dump };
