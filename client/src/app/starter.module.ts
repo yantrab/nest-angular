@@ -9,7 +9,7 @@ import { AuthService } from './auth/auth.service';
 import { InterceptorsService } from './shared/services/interceptors.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIService } from 'src/api/http.service';
-import { GestureConfig } from '@angular/material';
+import { GestureConfig } from '@angular/material/core';
 const isCordovaApp = Object(window).cordova != null;
 @Component({
     selector: 'p-root',

@@ -263,6 +263,7 @@ export class TadorService {
                     logger.log('return: ' + result);
                     return sock.write(result);
                 } catch (e) {
+                    console.log(e);
                     logger.error(e);
                     sock.write('001');
                     sock.end();
@@ -290,6 +291,11 @@ export class TadorService {
     private async getStatus(action: Action & { d }): Promise<string> {
         const panelStatus = this.statuses[action.pId];
         if (!panelStatus) {
+            return '000';
+        }
+
+        if (panelStatus.canceled) {
+            this.statuses[action.pId];
             return '000';
         }
 

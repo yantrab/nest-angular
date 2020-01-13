@@ -11,7 +11,7 @@ import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { FormComponent, FormModel } from 'ng-dyna-form';
 import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
 import { DialogService } from '../../shared/services/dialog.service';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import * as Socket from 'socket.io-client';
 import { Source } from 'shared/models/tador/panels';
 import { environment } from '../../../environments/environment';
