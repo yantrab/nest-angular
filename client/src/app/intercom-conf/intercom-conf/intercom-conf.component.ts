@@ -13,8 +13,8 @@ import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
 import { DialogService } from '../../shared/services/dialog.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import * as Socket from 'socket.io-client';
-import { Source } from 'shared/models/tador/panels';
 import { environment } from '../../../environments/environment';
+
 // Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
@@ -100,7 +100,8 @@ export class IntercomConfComponent {
         return this.snackBar.open(title, action, config);
     }
 
-    setSelectedPanel(panel: Panel) {
+    async setSelectedPanel(panel: Panel, reloadFromServer = false) {
+        this.snackBar.dismiss();
         if (this.selectedPanel) {
             this.socket.emit('unregister', this.selectedPanel.panelId);
         }
@@ -108,6 +109,13 @@ export class IntercomConfComponent {
         this.socket.emit('register', panel.panelId);
         this.selectedPanel = panel;
         this.cloneSelectedPanel = cloneDeep(this.selectedPanel);
+        if (reloadFromServer) {
+            this.selectedPanel = await this.api.panels(panel.panelId);
+        }
+
+        if (this.selectedPanel.actionType !== undefined && this.selectedPanel.actionType !== ActionType.idle) {
+            this.openSnackStatus(this.selectedPanel.actionType);
+        }
     }
     dump() {
         const blob = new Blob([this.selectedPanel.dump()], { type: 'text/plain;charset=utf-8' });
@@ -139,8 +147,12 @@ export class IntercomConfComponent {
         this.openSnack('שינויים בוטלו');
     }
     async status(status: ActionType) {
+        this.openSnackStatus(status);
         this.selectedPanel.actionType = status;
         await this.api.status(this.selectedPanel);
+    }
+
+    openSnackStatus(status: ActionType) {
         const snackBarRef = this.openSnack(ActionType[status], 'בטל', { panelClass: 'snack', horizontalPosition: 'right' });
         snackBarRef.onAction().subscribe(async () => {
             this.selectedPanel.actionType = ActionType.idle;
@@ -149,6 +161,7 @@ export class IntercomConfComponent {
             this.openSnack('שליחה מבוטלת');
         });
     }
+
     sentAll() {
         this.status(ActionType.readAll);
     }

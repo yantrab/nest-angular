@@ -26,7 +26,7 @@ export class APIService {
     handleError(error) {
         let errorMessage = '';
         if (error.status === 403) {
-            return this.router.navigate(['/login' + window.location.pathname, {}]);
+            return (window.location.href += '/login');
         }
         if (error.error instanceof ErrorEvent) {
             // client-side error

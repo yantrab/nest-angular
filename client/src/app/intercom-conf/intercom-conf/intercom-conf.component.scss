@@ -4,7 +4,8 @@ p-topbar {
     height: $topbar-hight;
 }
 .snack {
-    width: 40vw;
+    margin: 37px 142px 37px 5px !important;
+    width: 46vw;
     max-width: 100% !important;
 }
 .content {
@@ -31,7 +32,7 @@ p-topbar {
         height: 100%;
 
         .mat-tab-body-content {
-            padding: 25px;
+            // padding: 25px;
             height: 100%;
         }
 

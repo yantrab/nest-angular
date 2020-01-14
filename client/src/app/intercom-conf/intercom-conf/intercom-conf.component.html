@@ -4,11 +4,11 @@
     <div class="content" fxLayout="row" *ngIf="selectedPanel">
         <p-autocomplete
             fxFlex="120px"
-            (selectedChange)="setSelectedPanel($event)"
+            (selectedChange)="setSelectedPanel($event, true)"
             [keepOpen]="true"
             [settings]="autocompleteSettings"
         ></p-autocomplete>
-        <div fxFlex fxLayout="column">
+        <div fxFlex fxLayout="column" style="padding: 25px">
             <mat-tab-group fxFlex mat-stretch-tabs>
                 <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
                     <div>

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common';
 import { TadorService } from './tador.service';
 import { ReqUser } from '../decorators/user.decorator';
 import { App, User } from 'shared/models';
@@ -14,12 +14,16 @@ export class TadorController {
 
     @Get('initialData')
     async initialData(@ReqUser() user: User) {
-        //Promise<Array<{ panel: Panel; dump: string }>> {
         const panels = await this.service.panelRepo.findMany({ userId: user.email });
         return panels.map(p => {
             const result = { panel: p, dump: new Panel(p).dump() };
             return result;
         });
+    }
+
+    @Get('panel/:id')
+    async panels(@Param('id') id: string) {
+        return this.service.getPanel(id);
     }
 
     @Post('savePanel')
@@ -42,6 +46,6 @@ export class TadorController {
         panel.reDump(dump.dump);
         panel.contacts.changesList = undefined;
         await this.service.panelRepo.saveOrUpdateOne(panel);
-        return  panel;
+        return panel;
     }
 }

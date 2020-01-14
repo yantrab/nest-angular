@@ -4,11 +4,10 @@ import { App } from 'shared/models';
 
 @Injectable()
 export class AuthorizeInterceptor implements NestInterceptor {
-    apps: App = App as any;
     constructor(private userService: UserService) {}
     async intercept(context: ExecutionContext, next: CallHandler) {
         const user = await this.userService.getUserAuthenticated(context.getArgs()[0].cookies.t);
-        if (!user || !user.hasPermission(this.apps[context.getClass()['app']])) {
+        if (!user || !user.hasPermission(context.getClass()['app'])) {
             throw new ForbiddenException();
         }
 
