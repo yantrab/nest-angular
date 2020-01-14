@@ -16,6 +16,7 @@ export class AuthComponent {
     dic: I18nRootObject;
     loginError;
     state: 'login' | 'signin';
+    currentSystem: 'macro' | 'mf';
     settings;
     constructor(
         private router: Router,
@@ -60,6 +61,7 @@ export class AuthComponent {
                 formSaveButtonTitle: this.dic.loginPage.signin,
             };
         });
+        this.currentSystem = this.route.snapshot.params.site;
         this.state = this.route.snapshot.params.state;
     }
 

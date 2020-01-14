@@ -28,11 +28,11 @@ export class UserService {
                 email,
             }),
         );
-        if (!user || !(await comparePassword(password, user.password))) {
+        if (!user.password || !(await comparePassword(password, user.password))) {
             return null;
         }
         delete user.password;
-        // TODO use token instead id.
+        // TODO use token instead of id.
         setTimeout(() => this.cache.set(user._id.toString(), user));
         return user;
     }
@@ -65,7 +65,7 @@ export class UserService {
         this.cache.set(email, token);
     }
     async changePassword(user: signinRequest) {
-        const cacheToken = this.cache[user.email];
+        const cacheToken = this.cache.get(user.email);
         if (!cacheToken || cacheToken != user.token) {
             return { status: 0 };
         }

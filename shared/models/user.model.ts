@@ -25,7 +25,7 @@ export class User extends Entity {
     @IsOptional() @IsString() password: string;
     @IsString() company: string;
     @IsString() phone: string;
-    @IsString() code: string;
+    // @IsString() code: string;
     @IsString() @IsEmail() email: string;
     @IsOptional() @IsString() details?: string;
     @IsOptional() @IsString() fName?: string;

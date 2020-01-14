@@ -28,7 +28,7 @@ export class AdminComponent {
         { field: 'company', title: 'חברה' },
         { field: 'name', title: 'שם' },
         { field: 'phone', title: 'טלפון' },
-        { field: 'code', title: 'קוד' },
+        // { field: 'code', title: 'קוד' },
         { field: 'permission', title: 'הרשאה' },
         { field: 'details', title: 'פרטים נוספים' },
     ];
@@ -50,7 +50,6 @@ export class AdminComponent {
                         { placeHolder: 'שם פרטי', key: 'fName' },
                         { placeHolder: 'שם משפחה', key: 'lName' },
                         { placeHolder: 'טלפון', key: 'phone' },
-                        { placeHolder: 'קוד', key: 'code' },
                     ],
                     modelConstructor: User,
                     model: undefined,

@@ -14,16 +14,7 @@
         height: 42px;
         object-fit: contain;
     }
-    .praedicta {
-        @include letter(13px, normal, $font-weight: 500, $font-family: Cabin, $color: #2f3542);
-        width: 67px;
-        height: 16px;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        text-align: right;
-    }
-    .tab {
+    = .tab {
         cursor: pointer;
         @include letter(12px, 0.2px, $font-weight: bold, $line-height: none, $font-family: Cabin, $color: #2f3542);
 

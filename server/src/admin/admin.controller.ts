@@ -44,7 +44,7 @@ export class AdminController {
             const token = await getRandomToken();
             this.userService.saveUserToekn(user.email, token);
             this.mailer.send({
-                from: '"Praedicta holdings management" <server@tador.com>',
+                from: '"Tador system management" <server@tador.com>',
                 to: user.email,
                 subject: 'הרשאות למערכת תאדור',
                 html: `<div dir="rtl">
