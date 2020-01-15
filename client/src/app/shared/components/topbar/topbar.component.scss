@@ -14,7 +14,7 @@
         height: 42px;
         object-fit: contain;
     }
-    = .tab {
+    .tab {
         cursor: pointer;
         @include letter(12px, 0.2px, $font-weight: bold, $line-height: none, $font-family: Cabin, $color: #2f3542);
 

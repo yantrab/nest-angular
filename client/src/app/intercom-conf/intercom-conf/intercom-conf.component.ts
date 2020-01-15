@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { TadorController } from 'src/api/tador.controller';
 import { I18nService } from 'src/app/shared/services/i18n.service';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
@@ -34,6 +34,7 @@ export class IntercomConfComponent {
         this.api.initialData().then(data => {
             this.panels = data.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
             this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
+            this.inProgress = false;
             this.setSelectedPanel(this.panels[0]);
         });
 
@@ -81,6 +82,7 @@ export class IntercomConfComponent {
     selectedPanel: Panel;
     cloneSelectedPanel: Panel;
     contacts: ContactField[];
+    inProgress = true;
     get sendChangesLabel() {
         let count = 0;
         if (this.selectedPanel && this.selectedPanel.contacts.changesList) {
@@ -99,8 +101,12 @@ export class IntercomConfComponent {
     ) {
         return this.snackBar.open(title, action, config);
     }
-
+    // @HostListener('window:focus', ['$event'])
+    // onFocus(event: any): void {
+    //     this.setSelectedPanel(this.selectedPanel, true);
+    // }
     async setSelectedPanel(panel: Panel, reloadFromServer = false) {
+        this.inProgress = true;
         this.snackBar.dismiss();
         if (this.selectedPanel) {
             this.socket.emit('unregister', this.selectedPanel.panelId);
@@ -116,6 +122,7 @@ export class IntercomConfComponent {
         if (this.selectedPanel.actionType !== undefined && this.selectedPanel.actionType !== ActionType.idle) {
             this.openSnackStatus(this.selectedPanel.actionType);
         }
+        this.inProgress = false;
     }
     dump() {
         const blob = new Blob([this.selectedPanel.dump()], { type: 'text/plain;charset=utf-8' });
@@ -155,10 +162,13 @@ export class IntercomConfComponent {
     openSnackStatus(status: ActionType) {
         const snackBarRef = this.openSnack(ActionType[status], 'בטל', { panelClass: 'snack', horizontalPosition: 'right' });
         snackBarRef.onAction().subscribe(async () => {
-            this.selectedPanel.actionType = ActionType.idle;
             this.openSnack('מבטל שליחה', '', { panelClass: 'snack', horizontalPosition: 'right' });
+            const prevStatus = this.selectedPanel.actionType;
+            this.selectedPanel.actionType = ActionType.idle;
             await this.api.status(this.selectedPanel);
-            this.openSnack('שליחה מבוטלת');
+            if (prevStatus === ActionType.read) {
+                this.openSnack('שליחה מבוטלת');
+            }
         });
     }
 

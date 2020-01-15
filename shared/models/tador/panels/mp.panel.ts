@@ -1,10 +1,10 @@
 import { ContactField, Contacts, FieldType, SettingField, Settings } from './base.panel';
 import { Panel } from './base.panel';
-
+import { merge } from 'lodash';
 export class MPPanel extends Panel {
     constructor(panel: Panel, dump?: string) {
         super(
-            Object.assign(
+            merge(
                 {
                     maxEEprom: 62203,
                     type: 'MP',

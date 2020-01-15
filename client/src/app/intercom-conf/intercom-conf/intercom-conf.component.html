@@ -1,5 +1,5 @@
 <div [dir]="i18nService.dir">
-    <p-topbar [model]="topbarModel" [inProgress]="!panels"></p-topbar>
+    <p-topbar [model]="topbarModel" [inProgress]="inProgress"></p-topbar>
     <button mat-button (click)="openAddPanel()">add panel with IEMI</button>
     <div class="content" fxLayout="row" *ngIf="selectedPanel">
         <p-autocomplete
