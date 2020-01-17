@@ -116,7 +116,7 @@ export class IntercomConfComponent {
         this.selectedPanel = panel;
         this.cloneSelectedPanel = cloneDeep(this.selectedPanel);
         if (reloadFromServer) {
-            this.selectedPanel = await this.api.panels(panel.panelId);
+            this.selectedPanel = new Panels[panel.type](await this.api.panels(panel.panelId));
         }
 
         if (this.selectedPanel.actionType !== undefined && this.selectedPanel.actionType !== ActionType.idle) {

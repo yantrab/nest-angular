@@ -40,7 +40,7 @@ export class ContactsComponent implements OnInit {
             return 'yellow';
         }
         if (source === Source.Panel) {
-            return 'green';
+            return 'greenyellow';
         }
     }
 
