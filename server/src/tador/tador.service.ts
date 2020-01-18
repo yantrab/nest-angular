@@ -286,7 +286,7 @@ export class TadorService {
     }
     private async getStatus(action: Action & { d }): Promise<string> {
         const panelStatus = this.statuses[action.pId];
-        if (!panelStatus) {
+        if (!panelStatus || !panelStatus.arr || !panelStatus.arr.length) {
             return '000';
         }
 
@@ -296,7 +296,6 @@ export class TadorService {
 
         const sendedItem = panelStatus.arr.shift();
         this.sentMsg(action.pId, sendedItem.location, 'sent');
-        let result = panelStatus.arr.length ? panelStatus.arr[0].action : '000';
         panelStatus.oldDump = replaceByIndex(panelStatus.oldDump, sendedItem.location.dumpIndex, sendedItem.location.value);
         await this.panelDumpRepo.collection.updateOne({ panelId: action.pId }, { $set: { dump: panelStatus.oldDump } });
 
@@ -309,7 +308,7 @@ export class TadorService {
         delete panelStatus.panel.contacts.changesList[sendedItem.location.index][sendedItem.location.field];
         await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
 
-        return result;
+        return sendedItem.action;
     }
 
     async register(pId: string, uId: string, pType) {
