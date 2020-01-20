@@ -6,6 +6,10 @@ export enum ActionType {
     read = 4,
     write = 5,
     status = 6,
+    writeAllProgress = 10,
+    readAllProgress = 11,
+    readProgress = 12,
+    writeProgress = 13,
 }
 
 export enum PanelType {

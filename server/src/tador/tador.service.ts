@@ -332,6 +332,14 @@ export class TadorService {
             return sock.write('100');
         }
 
+        const panel = this.statuses[action.pId].panel;
+        if (panel.actionType !== ActionType.readProgress && panel.actionType !== ActionType.readAllProgress) {
+            panel.actionType = panel.actionType === ActionType.read ? ActionType.readProgress : ActionType.readAllProgress;
+            this.sentMsg(action.pId, panel.actionType, 'status');
+
+            await this.updatePanel(panel);
+        }
+
         const dump = await this.getDump(action.pId);
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
@@ -343,9 +351,14 @@ export class TadorService {
             this.sentMsg(action.pId, ActionType.idle, 'status');
             return sock.write('010');
         }
-
         let panel = await this.getPanel(action.pId);
         panel = new Panels[panel.type + 'Panel'](panel);
+
+        if (panel.actionType !== ActionType.writeProgress && panel.actionType !== ActionType.writeAllProgress) {
+            panel.actionType = panel.actionType === ActionType.write ? ActionType.writeProgress : ActionType.writeAllProgress;
+            this.sentMsg(action.pId, panel.actionType, 'status');
+            await this.updatePanel(panel);
+        }
         const dump = panel.dump().split('');
         const start = action.data.start * multiply;
         const length = action.data.data.length;

@@ -101,10 +101,10 @@ export class IntercomConfComponent {
     ) {
         return this.snackBar.open(title, action, config);
     }
-    // @HostListener('window:focus', ['$event'])
-    // onFocus(event: any): void {
-    //     this.setSelectedPanel(this.selectedPanel, true);
-    // }
+    @HostListener('window:focus', ['$event'])
+    onFocus(event: any): void {
+        this.setSelectedPanel(this.selectedPanel, this.selectedPanel.actionType !== ActionType.idle);
+    }
     async setSelectedPanel(panel: Panel, reloadFromServer = false) {
         this.inProgress = true;
         this.snackBar.dismiss();
@@ -116,7 +116,7 @@ export class IntercomConfComponent {
         this.selectedPanel = panel;
         this.cloneSelectedPanel = cloneDeep(this.selectedPanel);
         if (reloadFromServer) {
-            this.selectedPanel = new Panels[panel.type](await this.api.panels(panel.panelId));
+            this.selectedPanel = new Panels[panel.type + 'Panel'](await this.api.panels(panel.panelId));
         }
 
         if (this.selectedPanel.actionType !== undefined && this.selectedPanel.actionType !== ActionType.idle) {
@@ -166,7 +166,7 @@ export class IntercomConfComponent {
             const prevStatus = this.selectedPanel.actionType;
             this.selectedPanel.actionType = ActionType.idle;
             await this.api.status(this.selectedPanel);
-            if (prevStatus === ActionType.read) {
+            if ([ActionType.read, ActionType.readAll, ActionType.write, ActionType.writeAll].find(a => a === prevStatus)) {
                 this.openSnack('שליחה מבוטלת');
             }
         });
