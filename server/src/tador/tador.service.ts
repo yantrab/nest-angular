@@ -70,6 +70,7 @@ export class TadorService {
         };
     } = {};
 
+    canceleds: { [id: string]: string[] } = {};
     async updatePanel(panel: Panel) {
         logger.log('save panel ' + panel.panelId);
         const oldDump = (await this.getDump(panel.panelId)).dump;
@@ -98,6 +99,20 @@ export class TadorService {
         this.updatePanel(panel);
         logger.log('add status: ' + type);
         if (type === ActionType.idle) {
+            if (!this.statuses[panel.panelId]) return;
+            switch (this.statuses[panel.panelId].panel.actionType) {
+                case ActionType.readAll: {
+                    this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
+                    this.canceleds[panel.panelId].push('RRR');
+                    break;
+                }
+                case ActionType.writeAll: {
+                    this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
+                    this.canceleds[panel.panelId].push('SSS');
+                    break;
+                }
+            }
+
             return delete this.statuses[panel.panelId];
         }
 
@@ -285,6 +300,18 @@ export class TadorService {
         }
     }
     private async getStatus(action: Action & { d }): Promise<string> {
+        const panelCaneled = this.canceleds[action.pId];
+        if (panelCaneled) {
+            const result = panelCaneled[0];
+            if (action.d) {
+                panelCaneled.shift();
+                if (panelCaneled.length === 0) {
+                    delete this.canceleds[action.pId];
+                }
+            }
+            return result;
+        }
+
         const panelStatus = this.statuses[action.pId];
         if (!panelStatus || !panelStatus.arr || !panelStatus.arr.length) {
             return '000';
@@ -329,7 +356,7 @@ export class TadorService {
     private async read(action: Action, sock: Socket, multiply = 1) {
         if (!this.statuses[action.pId]) {
             this.sentMsg(action.pId, ActionType.idle, 'status');
-            return sock.write('100');
+            return sock.write('RRR');
         }
 
         const panel = this.statuses[action.pId].panel;
@@ -349,7 +376,7 @@ export class TadorService {
     private async write(action: Action, sock: Socket, multiply = 1) {
         if (!this.statuses[action.pId]) {
             this.sentMsg(action.pId, ActionType.idle, 'status');
-            return sock.write('010');
+            return sock.write('FFF');
         }
         let panel = await this.getPanel(action.pId);
         panel = new Panels[panel.type + 'Panel'](panel);

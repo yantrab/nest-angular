@@ -14,6 +14,7 @@ import { DialogService } from '../../shared/services/dialog.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import * as Socket from 'socket.io-client';
 import { environment } from '../../../environments/environment';
+import { Source } from 'shared/models/tador/panels';
 
 // Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
@@ -166,9 +167,9 @@ export class IntercomConfComponent {
             const prevStatus = this.selectedPanel.actionType;
             this.selectedPanel.actionType = ActionType.idle;
             await this.api.status(this.selectedPanel);
-            if ([ActionType.read, ActionType.readAll, ActionType.write, ActionType.writeAll].find(a => a === prevStatus)) {
-                this.openSnack('שליחה מבוטלת');
-            }
+            //if ([ActionType.read, ActionType.readAll, ActionType.write, ActionType.writeAll].find(a => a === prevStatus)) {
+            this.openSnack('שליחה מבוטלת');
+            //}
         });
     }
 
@@ -215,6 +216,21 @@ export class IntercomConfComponent {
         this.api.removeChanges(this.selectedPanel).then(panel => {
             this.openSnack('בוצע');
             this.selectedPanel = panel;
+        });
+    }
+
+    removeGreenChanges() {
+        this.openSnack('מוחק סמונים ירוקים', '', { panelClass: 'snack', horizontalPosition: 'right' });
+        for (const c of this.selectedPanel.contacts.changesList) {
+            Object.keys(c).forEach(key => {
+                if (c[key] === Source.Panel) {
+                    delete c[key];
+                }
+            });
+        }
+        this.api.savePanel(this.selectedPanel).then(panel => {
+            this.openSnack('בוצע');
+            this.ref.markForCheck();
         });
     }
 }
