@@ -101,18 +101,13 @@ export class TadorService {
         if (type === ActionType.idle) {
             if (!this.statuses[panel.panelId]) return;
             switch (this.statuses[panel.panelId].panel.actionType) {
-                case ActionType.readAll: {
-                    if (this.statuses[panel.panelId].panel.actionType == ActionType.readAllProgress) {
-                        this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
-                        this.canceleds[panel.panelId].push('RRR');
-                    }
-                    break;
+                case ActionType.readAllProgress: {
+                    this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
+                    this.canceleds[panel.panelId].push('RRR');
                 }
-                case ActionType.writeAll: {
-                    if (this.statuses[panel.panelId].panel.actionType == ActionType.writeAllProgress) {
-                        this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
-                        this.canceleds[panel.panelId].push('SSS');
-                    }
+                case ActionType.writeAllProgress: {
+                    this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
+                    this.canceleds[panel.panelId].push('SSS');
                     break;
                 }
             }
