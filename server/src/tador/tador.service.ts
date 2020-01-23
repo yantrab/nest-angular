@@ -380,8 +380,8 @@ export class TadorService {
             this.sentMsg(action.pId, ActionType.idle, 'status');
             return sock.write('FFF');
         }
-        let panel = await this.getPanel(action.pId);
-        panel = new Panels[panel.type + 'Panel'](panel);
+        let panel = this.statuses[action.pId].panel;
+        // panel = new Panels[panel.type + 'Panel'](panel);
 
         if (panel.actionType !== ActionType.writeProgress && panel.actionType !== ActionType.writeAllProgress) {
             panel.actionType = panel.actionType === ActionType.write ? ActionType.writeProgress : ActionType.writeAllProgress;
@@ -393,11 +393,13 @@ export class TadorService {
         const length = action.data.data.length;
         const oldDump = panel.dump();
         for (let i = start; i < start + length; i++) {
+            dump[i] = '^';
+        }
+        this.signChanges(panel, oldDump, dump.join(''), Source.Panel, panel.contacts.changesList);
+        for (let i = start; i < start + length; i++) {
             dump[i] = action.data.data[i - start];
         }
         panel.reDump(dump.join(''));
-        this.signChanges(panel, oldDump, panel.dump(), Source.Panel, panel.contacts.changesList);
-
         const saveResult = await this.panelRepo.saveOrUpdateOne(panel);
         await this.saveDump(panel);
 

@@ -228,9 +228,9 @@ export class IntercomConfComponent {
                 }
             });
         }
+        this.selectedPanel.contacts = cloneDeep(this.selectedPanel.contacts);
         this.api.savePanel(this.selectedPanel).then(panel => {
             this.openSnack('בוצע');
-            this.ref.markForCheck();
         });
     }
 }
