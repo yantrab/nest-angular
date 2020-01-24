@@ -320,7 +320,6 @@ export class TadorService {
             return panelStatus.arr[0].action;
         }
 
-        let result = '000';
         const sendedItem = panelStatus.arr.shift();
         this.sentMsg(action.pId, sendedItem.location, 'sent');
         panelStatus.oldDump = replaceByIndex(panelStatus.oldDump, sendedItem.location.dumpIndex, sendedItem.location.value);
@@ -330,14 +329,12 @@ export class TadorService {
             panelStatus.panel.actionType = ActionType.idle;
             delete this.statuses[action.pId];
             this.sentMsg(action.pId, ActionType.idle, 'status');
-        } else {
-            result = panelStatus.arr[0].action;
         }
 
         delete panelStatus.panel.contacts.changesList[sendedItem.location.index][sendedItem.location.field];
         await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
 
-        return result;
+        return sendedItem.action;
     }
 
     async register(pId: string, uId: string, pType) {
