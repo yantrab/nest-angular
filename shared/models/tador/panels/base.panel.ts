@@ -5,6 +5,7 @@ import { ActionType } from '../enum';
 export enum Source {
     Panel,
     client,
+    PanelProgress,
 }
 export class ContactField extends Entity {
     @IsString()

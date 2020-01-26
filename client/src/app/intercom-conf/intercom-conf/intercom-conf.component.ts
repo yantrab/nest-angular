@@ -56,6 +56,11 @@ export class IntercomConfComponent {
             this.selectedPanel.contacts = cloneDeep(this.selectedPanel.contacts);
             this.ref.markForCheck();
         });
+        this.socket.on('sent-progress', (location: any) => {
+            console.log(location);
+            this.selectedPanel.contacts.changesList[location.index][location.field] = Source.PanelProgress;
+            this.ref.markForCheck();
+        });
 
         this.socket.on('write', (contacts: any) => {
             this.selectedPanel.contacts = contacts;

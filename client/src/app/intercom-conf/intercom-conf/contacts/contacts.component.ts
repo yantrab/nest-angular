@@ -42,6 +42,10 @@ export class ContactsComponent implements OnInit {
         if (source === Source.Panel) {
             return 'greenyellow';
         }
+
+        if (source === Source.PanelProgress) {
+            return 'orangered';
+        }
     }
 
     signChange(index, field) {
