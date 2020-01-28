@@ -337,12 +337,13 @@ export class TadorService {
             this.sentMsg(action.pId, ActionType.idle, 'status');
         } else {
             result = panelStatus.arr[0].action;
-        }
-
         panelStatus.panel.contacts.changesList[panelStatus.arr[0].location.index][panelStatus.arr[0].location.field] =
             Source.PanelProgress;
         this.sentMsg(action.pId, panelStatus.arr[0].location, 'sent-progress');
 
+}
+
+        
         delete panelStatus.panel.contacts.changesList[sendedItem.location.index][sendedItem.location.field];
         await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
 
