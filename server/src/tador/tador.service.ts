@@ -271,7 +271,7 @@ export class TadorService {
                             result = await this.getStatus(action as any);
                     }
                     logger.log('return: ' + result);
-                    return sock.write(result);
+                    return sock.write(result, 'utf8');
                 } catch (e) {
                     console.log(e);
                     logger.error(e);
@@ -367,7 +367,7 @@ export class TadorService {
     private async read(action: Action, sock: Socket, multiply = 1) {
         if (!this.statuses[action.pId]) {
             this.sentMsg(action.pId, ActionType.idle, 'status');
-            return sock.write('RRR');
+            return sock.write('RRR', 'utf8');
         }
 
         const panel = this.statuses[action.pId].panel;
@@ -381,13 +381,13 @@ export class TadorService {
         const dump = await this.getDump(action.pId);
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
-        sock.write(dump.dump.slice(start, start + length));
+        sock.write(dump.dump.slice(start, start + length), 'utf8');
     }
 
     private async write(action: Action, sock: Socket, multiply = 1) {
         if (!this.statuses[action.pId]) {
             this.sentMsg(action.pId, ActionType.idle, 'status');
-            return sock.write('FFF');
+            return sock.write('FFF', 'utf8');
         }
         let panel = this.statuses[action.pId].panel;
         // panel = new Panels[panel.type + 'Panel'](panel);
