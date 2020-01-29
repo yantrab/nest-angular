@@ -271,7 +271,7 @@ export class TadorService {
                             result = await this.getStatus(action as any);
                     }
                     logger.log('return: ' + result);
-                    return sock.write(result, 'utf8');
+                    return sock.write(result);
                 } catch (e) {
                     console.log(e);
                     logger.error(e);
@@ -317,15 +317,9 @@ export class TadorService {
         }
 
         if (!action.d) {
-            const toSent = panelStatus.arr[0];
-            panelStatus.panel.contacts.changesList[toSent.location.index][toSent.location.field] = Source.PanelProgress;
-            this.sentMsg(action.pId, toSent.location, 'sent-progress');
-            await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
-
-            return toSent.action;
+            return panelStatus.arr[0].action;
         }
 
-        let result = '000';
         const sendedItem = panelStatus.arr.shift();
         this.sentMsg(action.pId, sendedItem.location, 'sent');
         panelStatus.oldDump = replaceByIndex(panelStatus.oldDump, sendedItem.location.dumpIndex, sendedItem.location.value);
@@ -335,19 +329,12 @@ export class TadorService {
             panelStatus.panel.actionType = ActionType.idle;
             delete this.statuses[action.pId];
             this.sentMsg(action.pId, ActionType.idle, 'status');
-        } else {
-            result = panelStatus.arr[0].action;
-        panelStatus.panel.contacts.changesList[panelStatus.arr[0].location.index][panelStatus.arr[0].location.field] =
-            Source.PanelProgress;
-        this.sentMsg(action.pId, panelStatus.arr[0].location, 'sent-progress');
+        }
 
-}
-
-        
         delete panelStatus.panel.contacts.changesList[sendedItem.location.index][sendedItem.location.field];
         await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
 
-        return result;
+        return sendedItem.action;
     }
 
     async register(pId: string, uId: string, pType) {
@@ -368,7 +355,7 @@ export class TadorService {
     private async read(action: Action, sock: Socket, multiply = 1) {
         if (!this.statuses[action.pId]) {
             this.sentMsg(action.pId, ActionType.idle, 'status');
-            return sock.write('RRR', 'utf8');
+            return sock.write('RRR');
         }
 
         const panel = this.statuses[action.pId].panel;
@@ -382,13 +369,13 @@ export class TadorService {
         const dump = await this.getDump(action.pId);
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
-        sock.write(dump.dump.slice(start, start + length), 'utf8');
+        sock.write(dump.dump.slice(start, start + length));
     }
 
     private async write(action: Action, sock: Socket, multiply = 1) {
         if (!this.statuses[action.pId]) {
             this.sentMsg(action.pId, ActionType.idle, 'status');
-            return sock.write('FFF', 'utf8');
+            return sock.write('FFF');
         }
         let panel = this.statuses[action.pId].panel;
         // panel = new Panels[panel.type + 'Panel'](panel);
