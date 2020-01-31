@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="utf-8">
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="275" column="23" selection-start-line="275" selection-start-column="23" selection-end-line="275" selection-end-column="23" />
+            <state relative-caret-position="380">
+              <caret line="324" column="13" selection-start-line="324" selection-start-column="13" selection-end-line="324" selection-end-column="13" />
               <folding>
                 <element signature="n#PanelDump#0" />
                 <element signature="e#667#758#0" />
@@ -36,8 +37,6 @@
                 <element signature="e#3290#3474#0" />
                 <element signature="n#!!block;n#getPanel#0;n#TadorService#0" />
                 <element signature="n#!!block;n#getDump#0;n#TadorService#0" />
-                <element signature="n#!!block;n#sentMsg#0;n#TadorService#0" />
-                <element signature="n#!!block;n#register#0;n#TadorService#0" />
                 <element signature="n#!!block;n#saveDump#0;n#TadorService#0" />
                 <element signature="n#!!block;n#addNewPanel#0;n#TadorService#0" />
               </folding>
@@ -76,9 +75,9 @@
       <find>read(</find>
       <find>changesList</find>
       <find>rrr</find>
-      <find>getstat</find>
       <find>getStatus</find>
       <find>sock.write(</find>
+      <find>getstat</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\yantr\Desktop\Tador\nest-angular\client</dir>
@@ -393,20 +392,6 @@
       <workItem from="1579267526075" duration="788000" />
       <workItem from="1579371768879" duration="2615000" />
       <workItem from="1579479934766" duration="12888000" />
-    </task>
-    <task id="LOCAL-00021" summary="tador">
-      <created>1573209699638</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1573209699638</updated>
-    </task>
-    <task id="LOCAL-00022" summary="tador">
-      <created>1573210729244</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1573210729244</updated>
     </task>
     <task id="LOCAL-00023" summary="tador">
       <created>1573211079972</created>
@@ -737,7 +722,21 @@
       <option name="project" value="LOCAL" />
       <updated>1580329574904</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="rollback">
+      <created>1580331303274</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1580331303274</updated>
+    </task>
+    <task id="LOCAL-00071" summary="rollback">
+      <created>1580333559209</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1580333559209</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -773,12 +772,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11213000" />
+    <option name="totallyTimeSpent" value="13843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13085938" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13085938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -789,7 +789,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.37612325" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.37612325" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32991013" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32991013" />
@@ -860,7 +860,8 @@
     <MESSAGE value="fix dump" />
     <MESSAGE value="colors" />
     <MESSAGE value="utf-8" />
-    <option name="LAST_COMMIT_MESSAGE" value="utf-8" />
+    <MESSAGE value="rollback" />
+    <option name="LAST_COMMIT_MESSAGE" value="rollback" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -925,7 +926,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
+        <state relative-caret-position="20">
           <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
@@ -935,8 +936,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="275" column="23" selection-start-line="275" selection-start-column="23" selection-end-line="275" selection-end-column="23" />
+        <state relative-caret-position="380">
+          <caret line="324" column="13" selection-start-line="324" selection-start-column="13" selection-end-line="324" selection-end-column="13" />
           <folding>
             <element signature="n#PanelDump#0" />
             <element signature="e#667#758#0" />
@@ -956,8 +957,6 @@
             <element signature="e#3290#3474#0" />
             <element signature="n#!!block;n#getPanel#0;n#TadorService#0" />
             <element signature="n#!!block;n#getDump#0;n#TadorService#0" />
-            <element signature="n#!!block;n#sentMsg#0;n#TadorService#0" />
-            <element signature="n#!!block;n#register#0;n#TadorService#0" />
             <element signature="n#!!block;n#saveDump#0;n#TadorService#0" />
             <element signature="n#!!block;n#addNewPanel#0;n#TadorService#0" />
           </folding>

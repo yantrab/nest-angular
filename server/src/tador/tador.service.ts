@@ -318,10 +318,11 @@ export class TadorService {
 
         if (!action.d) {
             const toSent = panelStatus.arr[0];
-            panelStatus.panel.contacts.changesList[toSent.location.index][toSent.location.field] = Source.PanelProgress;
-            this.sentMsg(action.pId, toSent.location, 'sent-progress');
-            await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
-
+            if (toSent.location) {
+                panelStatus.panel.contacts.changesList[toSent.location.index][toSent.location.field] = Source.PanelProgress;
+                this.sentMsg(action.pId, toSent.location, 'sent-progress');
+                await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
+            }
             return toSent.action;
         }
 
