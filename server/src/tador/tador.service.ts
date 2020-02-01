@@ -412,7 +412,6 @@ export class TadorService {
         const saveResult = await this.panelRepo.saveOrUpdateOne(panel);
         await this.saveDump(panel);
 
-        this.sentMsg(action.pId, panel.contacts, 'write');
         sock.write(saveResult.result.ok.toString().repeat(3));
     }
 
