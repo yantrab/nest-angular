@@ -252,7 +252,14 @@ export class TadorService {
                 try {
                     const msgString = msg.toString('utf8');
                     logger.log('DATA: ' + msgString);
-                    const action: Action = JSON.parse(msgString);
+                    let action: Action;
+                    if (msgString[0] !== '!') action = JSON.parse(msgString);
+                    else
+                        action = {
+                            pId: msgString.slice(1, 16),
+                            type: ActionType.write,
+                            data: { start: +msgString.slice(16, 21), data: msgString.slice(24) },
+                        };
                     const panel = await this.getDump(action.pId);
                     if (!panel) {
                         return sock.write('999');

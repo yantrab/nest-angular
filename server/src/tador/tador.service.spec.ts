@@ -2,7 +2,7 @@ import { Socket } from 'net';
 import { getRandomToken } from '../utils';
 import { ActionType, PanelType } from '../../../shared/models/tador/enum';
 const port = 4000;
-let pId = '1'; //'867057031591342'; //
+let pId = '867057031591342'; //
 const host = 'localhost'; //'128.199.41.162'; //
 describe('tador', async () => {
     beforeAll(async () => {
@@ -75,7 +75,7 @@ describe('tador', async () => {
                 data: { start: 2551, data: 'מוחמד       hbhc         ksdf       lsdf' },
             };
             const registerActionString = JSON.stringify(registerAction);
-            expect(await await write(registerActionString)).toBe(result);
+            expect(await await write(`!${pId}02551000hbhc         ksdf       lsdf`)).toBe(result);
         });
     });
 });
