@@ -396,6 +396,7 @@ export class TadorService {
             this.sentMsg(action.pId, ActionType.idle, 'status');
             return sock.write('FFF', 'utf8');
         }
+action.data.start = +action.data.start
         let panel = this.statuses[action.pId].panel;
         // panel = new Panels[panel.type + 'Panel'](panel);
 
