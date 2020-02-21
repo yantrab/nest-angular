@@ -13,20 +13,25 @@ class PanelDump extends Entity {
     dump: string;
     panelId: string;
 }
+
 const replaceByIndex = (s, start, substitute) => {
     return s.substring(0, start) + substitute + s.substring(start + substitute.length);
 };
+
 interface Action {
     type: ActionType;
     pId: string;
     data: any;
 }
+
 const logger = new Logger();
 const TIMEOUT = 1000 * 30;
+
 class StatusActionResult {
     index: number;
     data: any;
     action: ActionType;
+
     constructor(action: StatusActionResult) {
         logger.log(JSON.stringify(action));
         Object.assign(this, action);
@@ -57,11 +62,13 @@ export class TadorService {
     clientSockets: { [pId: string]: Socket } = {};
     panelRepo: Repository<Panel>;
     panelDumpRepo: Repository<PanelDump>;
+
     constructor(private repositoryFactory: RepositoryFactory) {
         this.panelRepo = this.repositoryFactory.getRepository<Panel>(Panel, 'tador');
         this.panelDumpRepo = this.repositoryFactory.getRepository<PanelDump>(PanelDump, 'tador');
         this.startListen();
     }
+
     statuses: {
         [id: string]: {
             panel: Panel;
@@ -71,6 +78,7 @@ export class TadorService {
     } = {};
 
     canceleds: { [id: string]: string[] } = {};
+
     async updatePanel(panel: Panel) {
         logger.log('save panel ' + panel.panelId);
         const oldDump = (await this.getDump(panel.panelId)).dump;
@@ -79,6 +87,7 @@ export class TadorService {
         await this.panelRepo.saveOrUpdateOne(panel);
         return panel;
     }
+
     signChanges(panel: Panel, oldDump: string, newDump: string, source: Source, initialChangesList = []) {
         panel.contacts.changesList = initialChangesList;
         panel.contacts.contactFields.forEach(field => {
@@ -95,6 +104,7 @@ export class TadorService {
             }
         });
     }
+
     async addStatus(panel: Panel, type: ActionType) {
         this.updatePanel(panel);
         logger.log('add status: ' + type);
@@ -209,6 +219,7 @@ export class TadorService {
         }
         return panel;
     }
+
     async getDump(id: string): Promise<PanelDump> {
         return this.panelDumpRepo.findOne({ panelId: id });
     }
@@ -282,7 +293,7 @@ export class TadorService {
                 } catch (e) {
                     console.log(e);
                     logger.error(e);
-                    sock.write('001');
+                    sock.write('100');
                     sock.end();
                 }
             });
@@ -305,6 +316,7 @@ export class TadorService {
             console.log(e);
         }
     }
+
     private async getStatus(action: Action & { d }): Promise<string> {
         const panelCaneled = this.canceleds[action.pId];
         if (panelCaneled) {
@@ -396,7 +408,7 @@ export class TadorService {
             this.sentMsg(action.pId, ActionType.idle, 'status');
             return sock.write('FFF', 'utf8');
         }
-action.data.start = +action.data.start
+        action.data.start = +action.data.start;
         let panel = this.statuses[action.pId].panel;
         // panel = new Panels[panel.type + 'Panel'](panel);
 
@@ -419,6 +431,7 @@ action.data.start = +action.data.start
         panel.reDump(dump.join(''));
         const saveResult = await this.panelRepo.saveOrUpdateOne(panel);
         await this.saveDump(panel);
+        this.sentMsg(action.pId, '', 'write');
 
         sock.write(saveResult.result.ok.toString().repeat(3));
     }

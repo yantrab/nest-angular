@@ -63,9 +63,8 @@ export class IntercomConfComponent {
             this.ref.markForCheck();
         });
 
-        this.socket.on('write', (contacts: any) => {
-            this.selectedPanel.contacts = contacts;
-            this.ref.markForCheck();
+        this.socket.on('write', () => {
+            this.setSelectedPanel(this.selectedPanel, true);
         });
     }
 
