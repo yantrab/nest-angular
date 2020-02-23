@@ -363,6 +363,7 @@ if(sendedItem.location) {
             this.sentMsg(action.pId, panelStatus.arr[0].location, 'sent-progress');
         }
 
+if(sendedItem.location)
         delete panelStatus.panel.contacts.changesList[sendedItem.location.index][sendedItem.location.field];
         await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
 
