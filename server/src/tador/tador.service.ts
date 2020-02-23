@@ -347,10 +347,11 @@ export class TadorService {
 
         let result = '000';
         const sendedItem = panelStatus.arr.shift();
-        this.sentMsg(action.pId, sendedItem.location, 'sent');
+        this.sentMsg(action.pId, sendedItem.location, 'sent')
+if(sendedItem.location) {
         panelStatus.oldDump = replaceByIndex(panelStatus.oldDump, sendedItem.location.dumpIndex, sendedItem.location.value);
         await this.panelDumpRepo.collection.updateOne({ panelId: action.pId }, { $set: { dump: panelStatus.oldDump } });
-
+}
         if (!panelStatus.arr.length) {
             panelStatus.panel.actionType = ActionType.idle;
             delete this.statuses[action.pId];
