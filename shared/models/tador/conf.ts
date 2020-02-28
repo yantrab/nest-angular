@@ -98,10 +98,10 @@ export const CMaxRelay2MeM = 1; // relay 2 status
 // *********** System EEprom *****************
 export const Status_SAC = 1;
 export const Type = Status_SAC + 4;
-export const MDMCode = Type + 16;// 21
-export const MasterCode = MDMCode + MaxMDMCode * CMaxMDMCode; //31
-export const TecUserCode = MasterCode + MaxMasterCode * CMaxMasterCode;//41
-export const Code = TecUserCode + MaxTecUserCode * CMaxTecUserCode; //51
+export const MDMCode = Type + 16;
+export const MasterCode = MDMCode + MaxMDMCode * CMaxMDMCode; // real code out of modem mape scope
+export const TecUserCode = MasterCode + MaxMasterCode * CMaxMasterCode;
+export const Code = TecUserCode + MaxTecUserCode * CMaxTecUserCode;
 export const Name = Code + MaxCode * CMaxCode; // 1
 export const OutPut = Name + MaxName * CMaxName * 2; // 7 /IMP
 export const TimeCycle = OutPut + MaxOutPut * CMaxOutPut; // 7
