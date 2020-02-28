@@ -20,7 +20,7 @@ export class MPPanel extends Panel {
                             new ContactField({ property: 'Tel4Num', title: 'טלפון 4', index: 47632, length: 15 }),
                             new ContactField({ property: 'Tel5Num', title: 'טלפון 5', index: 51382, length: 15 }),
                             new ContactField({ property: 'Tel6Num', title: 'טלפון 6', index: 55132, length: 15 }),
-                            new ContactField({ property: 'Code', title: 'קוד', index: 58996, length: 10 }),
+                            new ContactField({ property: 'Code', title: 'קוד', index: 51, length: 10 }),
                             new ContactField({ property: 'OutPut', title: 'reff', index: 10551, length: 3 }),
                             new ContactField({ property: 'NewNo', title: 'apartment', index: 35631, length: 3 }),
                         ],

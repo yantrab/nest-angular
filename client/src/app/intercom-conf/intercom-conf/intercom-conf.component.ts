@@ -15,8 +15,8 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import * as Socket from 'socket.io-client';
 import { environment } from '../../../environments/environment';
 import { Source } from 'shared/models/tador/panels';
-
-// Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
+const conf = require('shared/models/tador/conf')
+Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
     templateUrl: './intercom-conf.component.html',

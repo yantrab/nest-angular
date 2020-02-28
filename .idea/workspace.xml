@@ -4,8 +4,8 @@
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/tador/conf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/conf.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +35,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\yantr\Desktop\nest\nest-angular\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
-    <property name="ts.external.directory.path" value="C:\Users\yantr\Desktop\Tador\nest-angular\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\arkadiy\Desktop\tador\nest-angular\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -56,7 +56,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.tador.write.should return 0">
+  <component name="RunManager" selected="npm.start">
     <configuration name="tador.status.should return 0" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -128,8 +128,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.tador.write.should return 0" />
         <item itemvalue="npm.start" />
+        <item itemvalue="Jest.tador.write.should return 0" />
         <item itemvalue="Jest.tador.status.should return 0" />
         <item itemvalue="Jest.tador.write" />
         <item itemvalue="Jest.tador.status.should return change" />
@@ -199,13 +199,7 @@
       <workItem from="1580585671966" duration="2073000" />
       <workItem from="1580697616621" duration="682000" />
       <workItem from="1581892954879" duration="2031000" />
-    </task>
-    <task id="LOCAL-00025" summary="tador">
-      <created>1573355515314</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1573355515314</updated>
+      <workItem from="1582883731145" duration="1886000" />
     </task>
     <task id="LOCAL-00026" summary="tador">
       <created>1573356714883</created>
@@ -543,7 +537,13 @@
       <option name="project" value="LOCAL" />
       <updated>1580588223338</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL‎00074" summary="fix write all">
+      <created>1582270690136</created>
+      <option name="number" value="LOCAL‎00074" />
+      <option name="presentableId" value="LOCAL‎00074" />
+      <updated>1582270690137</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
