@@ -15,7 +15,7 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import * as Socket from 'socket.io-client';
 import { environment } from '../../../environments/environment';
 import { Source } from 'shared/models/tador/panels';
-const conf = require('shared/models/tador/conf')
+import * as conf from 'shared/models/tador/conf';
 Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
@@ -52,7 +52,9 @@ export class IntercomConfComponent {
 
         this.socket.on('sent', (location: any) => {
             console.log(location);
-            delete this.selectedPanel.contacts.changesList[location.index][location.field];
+            if (this.selectedPanel.contacts.changesList[location.index]) {
+                delete this.selectedPanel.contacts.changesList[location.index][location.field];
+            }
             this.selectedPanel.contacts = cloneDeep(this.selectedPanel.contacts);
             this.ref.markForCheck();
         });

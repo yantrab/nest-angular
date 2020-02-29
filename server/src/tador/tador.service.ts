@@ -114,6 +114,7 @@ export class TadorService {
                 case ActionType.readAllProgress: {
                     this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
                     this.canceleds[panel.panelId].push('RRR');
+                    break;
                 }
                 case ActionType.writeAllProgress: {
                     this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
@@ -347,11 +348,11 @@ export class TadorService {
 
         let result = '000';
         const sendedItem = panelStatus.arr.shift();
-        this.sentMsg(action.pId, sendedItem.location, 'sent')
-if(sendedItem.location) {
-        panelStatus.oldDump = replaceByIndex(panelStatus.oldDump, sendedItem.location.dumpIndex, sendedItem.location.value);
-        await this.panelDumpRepo.collection.updateOne({ panelId: action.pId }, { $set: { dump: panelStatus.oldDump } });
-}
+        this.sentMsg(action.pId, sendedItem.location, 'sent');
+        if (sendedItem.location) {
+            panelStatus.oldDump = replaceByIndex(panelStatus.oldDump, sendedItem.location.dumpIndex, sendedItem.location.value);
+            await this.panelDumpRepo.collection.updateOne({ panelId: action.pId }, { $set: { dump: panelStatus.oldDump } });
+        }
         if (!panelStatus.arr.length) {
             panelStatus.panel.actionType = ActionType.idle;
             delete this.statuses[action.pId];
@@ -363,8 +364,8 @@ if(sendedItem.location) {
             this.sentMsg(action.pId, panelStatus.arr[0].location, 'sent-progress');
         }
 
-if(sendedItem.location)
-        delete panelStatus.panel.contacts.changesList[sendedItem.location.index][sendedItem.location.field];
+        if (sendedItem.location)
+            delete panelStatus.panel.contacts.changesList[sendedItem.location.index][sendedItem.location.field];
         await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
 
         return result;
