@@ -52,6 +52,7 @@ export class IntercomConfComponent {
 
         this.socket.on('sent', (location: any) => {
             console.log(location);
+            if (!location) return;
             if (this.selectedPanel.contacts.changesList[location.index]) {
                 delete this.selectedPanel.contacts.changesList[location.index][location.field];
             }
