@@ -1,4 +1,4 @@
-<div style="height:100%;width:100%;">
+<div style="height:100%">
     <mat-virtual-table
         fxFlex
         [rows]="contacts.list"
@@ -8,13 +8,11 @@
     >
         <ng-container *ngFor="let field of contacts.contactFields">
             <ng-template pCellDef [column]="field.property" let-row="row" let-i="index" let-inEdit="false">
-                <div style="height: 50px; width: 100%" (click)="inEdit = true">
-                    <div
-                        style="height: 50px; width: 100%;line-height: 50px;"
-                        [style.background-color]="getColor(+row['id'] - 1, field.property)"
-                        *ngIf="!inEdit"
-                    >
-                        {{ row[field.property] }}
+                <div style="height: 50px;width: 100%;` text-align: center" (click)="inEdit = true" dir="ltr">
+                    <div [style.background-color]="getColor(+row['id'] - 1, field.property)">
+                        <span style="height: 50px; width: 100%;line-height: 50px; white-space: pre;" *ngIf="!inEdit">
+                            {{ row[field.property] }}
+                        </span>
                     </div>
                     <mat-form-field *ngIf="inEdit">
                         <input

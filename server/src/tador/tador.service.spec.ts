@@ -3,7 +3,7 @@ import { getRandomToken } from '../utils';
 import { ActionType, PanelType } from '../../../shared/models/tador/enum';
 const port = 4000;
 let pId = '867057031591342'; //'1'//
-const host = 'localhost'; //'128.199.41.162'; //
+const host = '128.199.41.162'; //'localhost'; //
 describe('tador', async () => {
     beforeAll(async () => {
         // pId = await getRandomToken();
@@ -68,9 +68,9 @@ describe('tador', async () => {
 
     describe('write', () => {
         it('should return 0', async () => {
-            await write('!8670570315913420118500' + ' '.repeat(1185));
-            await write('!8670570315913420118500 ' + ' '.repeat(1185));
-            await write('!8670570315913420236900 ' + ' '.repeat(1185));
+            await write('!86705703159134200001000����201�����������������������123456    252525    123');
+            //await write('!8670570315913420118500 ' + ' '.repeat(1185));
+            //await write('!8670570315913420236900 ' + ' '.repeat(1185));
         });
     });
 });

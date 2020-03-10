@@ -239,9 +239,6 @@ export class TadorService {
                     logger.log('error', err.message);
                 });
         };
-        const close = () => {
-            server.close();
-        };
 
         listen();
         server.on('error', err => {
@@ -272,6 +269,7 @@ export class TadorService {
                             type: ActionType.write,
                             data: { start: +msgString.slice(16, 21), data: msgString.slice(24) },
                         };
+                    logger.log('Action:' + JSON.stringify(action));
                     const panel = await this.getDump(action.pId);
                     if (!panel) {
                         return sock.write('999');
@@ -279,16 +277,22 @@ export class TadorService {
                     let result;
                     switch (action.type) {
                         case ActionType.readAll:
-                            return this.read(action, sock, 16);
+                            result = this.read(action, sock, 16);
+                            break;
                         case ActionType.read:
-                            return this.read(action, sock, 1);
+                            result = this.read(action, sock, 1);
+                            break;
                         case ActionType.write:
-                            return this.write(action, sock, 1);
+                            result = this.write(action, sock, 1);
+                            break;
                         case ActionType.writeAll:
-                            return this.write(action, sock, 16);
+                            result = this.write(action, sock, 16);
+                            break;
                         case ActionType.status:
                             result = await this.getStatus(action as any);
+                            break;
                     }
+
                     logger.log('return: ' + result);
                     return sock.write(result, 'utf8');
                 } catch (e) {
@@ -359,10 +363,12 @@ export class TadorService {
             this.sentMsg(action.pId, ActionType.idle, 'status');
         } else {
             result = panelStatus.arr[0].action;
-            if (panelStatus.panel.contacts.changesList && 
-                panelStatus.panel.contacts.changesList[panelStatus.arr[0].location.index])
-            panelStatus.panel.contacts.changesList[panelStatus.arr[0].location.index][panelStatus.arr[0].location.field] =
-                Source.PanelProgress;
+            if (
+                panelStatus.panel.contacts.changesList &&
+                panelStatus.panel.contacts.changesList[panelStatus.arr[0].location.index]
+            )
+                panelStatus.panel.contacts.changesList[panelStatus.arr[0].location.index][panelStatus.arr[0].location.field] =
+                    Source.PanelProgress;
             this.sentMsg(action.pId, panelStatus.arr[0].location, 'sent-progress');
         }
 
@@ -405,13 +411,13 @@ export class TadorService {
         const dump = await this.getDump(action.pId);
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
-        sock.write(dump.dump.slice(start, start + length), 'utf8');
+        return dump.dump.slice(start, start + length);
     }
 
     private async write(action: Action, sock: Socket, multiply = 1) {
         if (!this.statuses[action.pId]) {
             this.sentMsg(action.pId, ActionType.idle, 'status');
-            return sock.write('FFF', 'utf8');
+            return 'FFF';
         }
         action.data.start = +action.data.start;
         let panel = this.statuses[action.pId].panel;
@@ -438,7 +444,7 @@ export class TadorService {
         await this.saveDump(panel);
         this.sentMsg(action.pId, '', 'write');
 
-        sock.write(saveResult.result.ok.toString().repeat(3));
+        return saveResult.result.ok.toString().repeat(3);
     }
 
     private async saveDump(panel: Panel) {
