@@ -359,6 +359,8 @@ export class TadorService {
             this.sentMsg(action.pId, ActionType.idle, 'status');
         } else {
             result = panelStatus.arr[0].action;
+            if (panelStatus.panel.contacts.changesList && 
+                panelStatus.panel.contacts.changesList[panelStatus.arr[0].location.index])
             panelStatus.panel.contacts.changesList[panelStatus.arr[0].location.index][panelStatus.arr[0].location.field] =
                 Source.PanelProgress;
             this.sentMsg(action.pId, panelStatus.arr[0].location, 'sent-progress');
