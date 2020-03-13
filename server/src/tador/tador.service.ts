@@ -262,8 +262,14 @@ export class TadorService {
                     const msgString = msg.toString('utf8');
                     logger.log('DATA: ' + msgString);
                     let action: Action;
-                    if (msgString[0] !== '!') action = JSON.parse(msgString);
-                    else
+
+                    if (msgString[0] !== '!') {
+                        try {
+                            action = JSON.parse(msgString);
+                        } catch (e) {
+                            sock.end();
+                        }
+                    } else
                         action = {
                             pId: msgString.slice(1, 16),
                             type: ActionType.write,
@@ -277,16 +283,16 @@ export class TadorService {
                     let result;
                     switch (action.type) {
                         case ActionType.readAll:
-                            result = this.read(action, sock, 16);
+                            result = await this.read(action, sock, 16);
                             break;
                         case ActionType.read:
-                            result = this.read(action, sock, 1);
+                            result = await this.read(action, sock, 1);
                             break;
                         case ActionType.write:
-                            result = this.write(action, sock, 1);
+                            result = await this.write(action, sock, 1);
                             break;
                         case ActionType.writeAll:
-                            result = this.write(action, sock, 16);
+                            result = await this.write(action, sock, 16);
                             break;
                         case ActionType.status:
                             result = await this.getStatus(action as any);
