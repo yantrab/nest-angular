@@ -302,7 +302,6 @@ export class TadorService {
                     logger.log('return: ' + result);
                     return sock.write(result, 'utf8');
                 } catch (e) {
-                    console.log(e);
                     logger.error(e);
                     sock.write('100');
                     sock.end();
@@ -324,7 +323,7 @@ export class TadorService {
         try {
             sock.emit(type, msg);
         } catch (e) {
-            console.log(e);
+            logger.log(e);
         }
     }
 
