@@ -347,7 +347,7 @@ export class TadorService {
 
         if (!action.d) {
             const toSent = panelStatus.arr[0];
-            if (toSent.location) {
+            if (toSent.location && toSent.location.dumpIndex) {
                 panelStatus.panel.contacts.changesList[toSent.location.index][toSent.location.field] = Source.PanelProgress;
                 this.sentMsg(action.pId, toSent.location, 'sent-progress');
                 await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
@@ -357,8 +357,8 @@ export class TadorService {
 
         let result = '000';
         const sendedItem = panelStatus.arr.shift();
-        this.sentMsg(action.pId, sendedItem.location, 'sent');
-        if (sendedItem.location) {
+        if (sendedItem.location && sendedItem.location.dumpIndex) {
+            this.sentMsg(action.pId, sendedItem.location, 'sent');
             panelStatus.oldDump = replaceByIndex(panelStatus.oldDump, sendedItem.location.dumpIndex, sendedItem.location.value);
             await this.panelDumpRepo.collection.updateOne({ panelId: action.pId }, { $set: { dump: panelStatus.oldDump } });
         }
@@ -377,7 +377,7 @@ export class TadorService {
             this.sentMsg(action.pId, panelStatus.arr[0].location, 'sent-progress');
         }
 
-        if (sendedItem.location)
+        if (sendedItem.location && sendedItem.location.dumpIndex)
             delete panelStatus.panel.contacts.changesList[sendedItem.location.index][sendedItem.location.field];
         await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
 
