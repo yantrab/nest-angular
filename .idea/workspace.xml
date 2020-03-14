@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/tador/a.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,58 +17,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
+        <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="274" column="39" selection-start-line="274" selection-start-column="39" selection-end-line="274" selection-end-column="39" />
+            <state relative-caret-position="320">
+              <caret line="86" column="46" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="46" />
               <folding>
-                <element signature="n#PanelDump#0" />
-                <element signature="e#668#759#0" />
-                <element signature="n#StatusActionResult#0" />
-                <element signature="n#!!block;n#constructor#0;n#StatusActionResult#0" />
-                <element signature="n#!!block;n#toString#0;n#StatusActionResult#0" />
-                <element signature="n#!!block;n#onRegister#0;n#TadorService#0" />
-                <element signature="n#!!block;n#onUnRegister#0;n#TadorService#0" />
-                <element signature="n#!!block;n#constructor#0;n#TadorService#0" />
-                <element signature="e#2049#2264#0" />
-                <element signature="e#2073#2257#0" />
-                <element signature="n#!!block;n#addStatus#0;n#TadorService#0" />
-                <element signature="e#3685#4388#0" />
-                <element signature="e#3754#4321#0" />
-                <element signature="e#3827#4058#0" />
-                <element signature="e#4075#4307#0" />
-                <element signature="e#4508#8536#0" />
-                <element signature="e#4536#8318#0" />
-                <element signature="e#4840#5909#0" />
-                <element signature="e#5010#5891#0" />
-                <element signature="e#5315#5869#0" />
-                <element signature="e#5422#5842#0" />
-                <element signature="e#5487#5685#0" />
-                <element signature="e#5957#7902#0" />
-                <element signature="e#5992#6964#0" />
-                <element signature="e#6102#6942#0" />
-                <element signature="e#6354#6880#0" />
-                <element signature="e#6467#6849#0" />
-                <element signature="e#6536#6752#0" />
-                <element signature="e#7013#7882#0" />
-                <element signature="e#7379#7860#0" />
-                <element signature="e#7481#7833#0" />
-                <element signature="e#7546#7744#0" />
-                <element signature="e#8104#8280#0" />
-                <element signature="e#8368#8526#0" />
-                <element signature="n#!!block;n#getPanel#0;n#TadorService#0" />
-                <element signature="e#8705#8764#0" />
-                <element signature="e#9061#9345#0" />
-                <element signature="e#9124#9222#0" />
-                <element signature="e#9260#9333#0" />
-                <element signature="e#9375#9414#0" />
-                <element signature="e#9469#9589#0" />
-                <element signature="e#9543#9554#0" />
-                <element signature="e#9624#9666#0" />
-                <element signature="e#9840#9945#0" />
-                <element signature="n#!!block;n#saveDump#0;n#TadorService#0" />
-                <element signature="e#17461#17510#0" />
-                <element signature="n#!!block;n#addNewPanel#0;n#TadorService#0" />
+                <element signature="e#0#89#0" expanded="true" />
+                <element signature="e#481#1735#0" />
               </folding>
             </state>
           </provider>
@@ -82,9 +33,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>open</find>
-      <find>this.sentMsg(action.pId, ActionType.idle, 'status')</find>
-      <find>stat</find>
       <find>status</find>
       <find>green</find>
       <find>upda</find>
@@ -112,6 +60,9 @@
       <find>015000299033030401008124006201000000</find>
       <find>11301</find>
       <find>29</find>
+      <find>sock.write</find>
+      <find>Del</find>
+      <find>consol</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\yantr\Desktop\Tador\nest-angular\client</dir>
@@ -129,12 +80,13 @@
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.ts" />
         <option value="$PROJECT_DIR$/client/tsconfig.json" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" />
-        <option value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
         <option value="$PROJECT_DIR$/server/src/tador/a" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.scss" />
         <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html" />
+        <option value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
         <option value="$PROJECT_DIR$/server/src/tador/a.txt" />
         <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
+        <option value="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" />
       </list>
     </option>
   </component>
@@ -291,7 +243,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.tador.write">
+  <component name="RunManager" selected="Jest.tador.write.should return 0">
     <configuration name="tador.status.should return 0" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -363,8 +315,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.tador.write" />
         <item itemvalue="Jest.tador.write.should return 0" />
+        <item itemvalue="Jest.tador.write" />
         <item itemvalue="npm.start" />
         <item itemvalue="Jest.tador.status.should return 0" />
         <item itemvalue="Jest.tador.status.should return change" />
@@ -440,28 +392,7 @@
       <workItem from="1582748323870" duration="3223000" />
       <workItem from="1583002827377" duration="2965000" />
       <workItem from="1583436697335" duration="1023000" />
-      <workItem from="1583662571656" duration="8396000" />
-    </task>
-    <task id="LOCAL-00028" summary="tador">
-      <created>1573612694063</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1573612694063</updated>
-    </task>
-    <task id="LOCAL-00029" summary="tador">
-      <created>1573614869694</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1573614869694</updated>
-    </task>
-    <task id="LOCAL-00030" summary="tador">
-      <created>1573614919941</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1573614919941</updated>
+      <workItem from="1583662571656" duration="11942000" />
     </task>
     <task id="LOCAL-00031" summary="tador">
       <created>1573615396391</created>
@@ -785,13 +716,31 @@
       <option name="project" value="LOCAL" />
       <updated>1583436992724</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="fix">
+      <created>1583876018431</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1583876018431</updated>
+    </task>
+    <task id="LOCAL-00078" summary="fix">
+      <created>1584071550544</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1584071550544</updated>
+    </task>
+    <task id="LOCAL-00079" summary="fix">
+      <created>1584071625981</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1584071625981</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="tador_write - 2020.03.08 at 12h 27m 07s.xml">
-      <configuration name="tador.write" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
     <history-entry file="tador_write_should_return_0 - 2020.03.08 at 12h 32m 25s.xml">
       <configuration name="tador.write.should return 0" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
@@ -819,20 +768,23 @@
     <history-entry file="tador_write - 2020.03.09 at 04h 03m 11s.xml">
       <configuration name="tador.write" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
+    <history-entry file="tador_write_should_return_0 - 2020.03.13 at 05h 34m 05s.xml">
+      <configuration name="tador.write.should return 0" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38557000" />
+    <option name="totallyTimeSpent" value="42103000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49935815" visible="true" weight="0.23307292" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7730307" visible="true" weight="0.22265625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" sideWeight="0.5006418" side_tool="true" visible="true" weight="0.23307292" />
+      <window_info id="Favorites" order="2" sideWeight="0.22696929" side_tool="true" visible="true" weight="0.22265625" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991013" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.07445443" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.03851091" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.31964058" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -922,12 +874,6 @@
           <url>file://$PROJECT_DIR$/shared/guard.ts</url>
           <line>4</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>433</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1041,43 +987,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/models/tador/conf.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="107" column="60" selection-start-line="107" selection-start-column="54" selection-end-line="107" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/tador/a.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="65" column="78" lean-forward="true" selection-start-line="65" selection-start-column="78" selection-end-line="65" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="109" column="42" lean-forward="true" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#89#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="185">
+          <caret line="125" column="58" lean-forward="true" selection-start-line="125" selection-start-column="58" selection-end-line="125" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
+        <state>
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/a.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8314">
+          <caret line="1623" column="73" selection-start-line="1623" selection-start-column="52" selection-end-line="1623" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="274" column="39" selection-start-line="274" selection-start-column="39" selection-end-line="274" selection-end-column="39" />
+        <state relative-caret-position="382">
+          <caret line="331" column="27" lean-forward="true" selection-start-line="331" selection-start-column="27" selection-end-line="331" selection-end-column="27" />
           <folding>
+            <element signature="e#0#52#0" expanded="true" />
             <element signature="n#PanelDump#0" />
             <element signature="e#668#759#0" />
             <element signature="n#StatusActionResult#0" />
@@ -1114,17 +1050,21 @@
             <element signature="e#8368#8526#0" />
             <element signature="n#!!block;n#getPanel#0;n#TadorService#0" />
             <element signature="e#8705#8764#0" />
-            <element signature="e#9061#9345#0" />
             <element signature="e#9124#9222#0" />
             <element signature="e#9260#9333#0" />
-            <element signature="e#9375#9414#0" />
-            <element signature="e#9469#9589#0" />
-            <element signature="e#9543#9554#0" />
-            <element signature="e#9624#9666#0" />
-            <element signature="e#9840#9945#0" />
             <element signature="n#!!block;n#saveDump#0;n#TadorService#0" />
-            <element signature="e#17461#17510#0" />
             <element signature="n#!!block;n#addNewPanel#0;n#TadorService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="86" column="46" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#89#0" expanded="true" />
+            <element signature="e#481#1735#0" />
           </folding>
         </state>
       </provider>

@@ -6,7 +6,7 @@ export class MPPanel extends Panel {
         super(
             merge(
                 {
-                    maxEEprom: 62203,
+                    maxEEprom: 62202,
                     type: 'MP',
                     name: panel.name,
                     version: 1.1,
@@ -32,49 +32,49 @@ export class MPPanel extends Panel {
                                 new SettingField({
                                     type: FieldType.text,
                                     name: 'MasterCode',
-                                    index: 31,
+                                    index: 30,
                                     length: 10,
                                     value: '123456',
                                 }),
                                 new SettingField({
                                     type: FieldType.text,
                                     name: 'TecUserCode',
-                                    index: 41,
+                                    index: 40,
                                     length: 10,
                                     value: '252525',
                                 }),
                                 new SettingField({
                                     type: FieldType.text,
                                     name: 'ExtKeys',
-                                    index: 11337,
+                                    index: 11336,
                                     length: 2,
                                     value: '00',
                                 }),
                                 new SettingField({
                                     type: FieldType.text,
                                     name: 'FASTstep',
-                                    index: 35553,
+                                    index: 35552,
                                     length: 1,
                                     value: '1',
                                 }),
                                 new SettingField({
                                     type: FieldType.text,
                                     name: 'Ofset',
-                                    index: 35627,
+                                    index: 35626,
                                     length: 4,
                                     value: '0000',
                                 }),
                                 new SettingField({
                                     type: FieldType.text,
                                     name: 'CommSpd',
-                                    index: 36381,
+                                    index: 36380,
                                     length: 1,
                                     value: '2',
                                 }),
                                 new SettingField({
                                     type: FieldType.text,
                                     name: 'FamilyNo',
-                                    index: 58995,
+                                    index: 58994,
                                     length: 1,
                                     value: '0',
                                 }),
@@ -82,7 +82,7 @@ export class MPPanel extends Panel {
                                     options: () => new Array(250).fill(0).map((__, j) => j),
                                     type: FieldType.list,
                                     name: 'Relay1MeM',
-                                    index: 62201,
+                                    index: 62200,
                                     length: 1,
                                     value: 250,
                                 }),
@@ -98,7 +98,7 @@ export class MPPanel extends Panel {
                         }),
                         new Settings({
                             name: 'TimeCycle',
-                            index: 11301,
+                            index: 11300,
                             length: 2,
                             fields: [
                                 'DelayT',
@@ -135,7 +135,7 @@ export class MPPanel extends Panel {
                         new Settings({
                             name: 'AnswerY_N',
                             length: 1,
-                            index: 35347,
+                            index: 35346,
                             fields: [
                                 'ApartmentS',
                                 'DetectorBL',
@@ -163,7 +163,7 @@ export class MPPanel extends Panel {
                         }),
                         new Settings({
                             name: 'BusySogTone',
-                            index: 58884,
+                            index: 58883,
                             length: 2,
                             fields: [
                                 'BusyTone1',
@@ -194,7 +194,7 @@ export class MPPanel extends Panel {
                                     type: FieldType.list,
                                     options: () => Array.from(Array(7).keys()).map(n => n.toString()),
                                     name: 'SpeechLevel',
-                                    index: 35554,
+                                    index: 35553,
                                     length: 1,
                                     value: '7',
                                 }),
@@ -202,7 +202,7 @@ export class MPPanel extends Panel {
                                     type: FieldType.list,
                                     options: () => Array.from(Array(100).keys()).map(n => n.toString()),
                                     name: 'RingingNum',
-                                    index: 58882,
+                                    index: 58881,
                                     length: 2,
                                     value: '02',
                                 }),
@@ -210,21 +210,21 @@ export class MPPanel extends Panel {
                                     type: FieldType.list,
                                     options: () => ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-'],
                                     name: 'toneCode 1',
-                                    index: 58902,
+                                    index: 58901,
                                     length: 1,
                                 }),
                                 new SettingField({
                                     type: FieldType.list,
                                     options: () => ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-'],
                                     name: 'toneCode 2',
-                                    index: 58903,
+                                    index: 58902,
                                     length: 1,
                                 }),
                                 new SettingField({
                                     type: FieldType.list,
                                     options: () => ['0', '1', '2', '3', '4', '5', '6', '7', '-'],
                                     name: 'ConfirmTone',
-                                    index: 58904,
+                                    index: 58903,
                                     length: 1,
                                 }),
                             ],
@@ -232,7 +232,7 @@ export class MPPanel extends Panel {
                         new Settings({
                             name: 'FloorValue',
                             length: 3,
-                            index: 35363,
+                            index: 35362,
                             fields: Array.from(Array(30).keys()).map(
                                 j =>
                                     new SettingField({
@@ -245,7 +245,7 @@ export class MPPanel extends Panel {
                         new Settings({
                             name: 'SetReadTimer',
                             length: 16,
-                            index: 58910,
+                            index: 58909,
                             fields: ['dialer1', 'dialer2', 'relay1', 'relay2'].map(
                                 name =>
                                     new SettingField({
