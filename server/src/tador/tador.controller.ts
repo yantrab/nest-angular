@@ -28,7 +28,9 @@ export class TadorController {
 
     @Post('savePanel')
     async savePanel(@Body() panel: Panel) {
-        return this.service.updatePanel(panel);
+        const p = await this.service.updatePanel(panel);
+        const result = { panel: p, dump: new Panel(p).dump() };
+        return result;
     }
     @Post('addPanel')
     async addNewPanel(@Body() body: { panelId: string; type: PanelType }, @ReqUser() user: User): Promise<Panel> {

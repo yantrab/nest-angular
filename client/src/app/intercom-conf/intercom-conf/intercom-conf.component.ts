@@ -150,7 +150,7 @@ export class IntercomConfComponent {
     save() {
         this.openSnack('שומר');
         this.api.savePanel(this.selectedPanel).then(result => {
-            this.selectedPanel = result;
+            this.selectedPanel = new Panels[result.panel.type + 'Panel'](result.panel, result.dump);
             this.cloneSelectedPanel = cloneDeep(this.selectedPanel);
             this.openSnack('נשמר');
             this.ref.markForCheck();
