@@ -184,7 +184,7 @@ export class Panel extends Entity {
                 }
                 f.value =
                     f.type != FieldType.timer
-                        ? value
+                        ? value.trim()
                         : {
                               day: value.slice(0, 7),
                               from: value.slice(7, 9) + ':' + value.slice(9, 11),
