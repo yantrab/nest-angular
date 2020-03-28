@@ -206,6 +206,7 @@ export class TadorService {
                 break;
             }
             case ActionType.readAll:
+                await this.saveDump(panel);
             case ActionType.writeAll: {
                 this.statuses[panel.panelId].arr.push({ action: type.toString().repeat(3) });
                 break;
