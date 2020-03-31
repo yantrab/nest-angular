@@ -301,6 +301,8 @@ export class TadorService {
                     }
 
                     logger.log('return: ' + result);
+                    logger.log('return length: ' + result.length);
+
                     return sock.write(result, 'utf8');
                 } catch (e) {
                     logger.error(e);
