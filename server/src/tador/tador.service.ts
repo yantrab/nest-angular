@@ -419,7 +419,7 @@ export class TadorService {
         const dump = await this.getDump(action.pId);
         const start = action.data.start * multiply;
         const length = action.data.length * multiply;
-        return dump.dump.slice(start, start + length);
+        return 'S' + dump.dump.slice(start, start + length);
     }
 
     private async write(action: Action, sock: Socket, multiply = 1) {
