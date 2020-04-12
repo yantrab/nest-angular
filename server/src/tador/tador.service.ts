@@ -299,10 +299,11 @@ export class TadorService {
                             result = await this.getStatus(action as any);
                             break;
                     }
-                    result = result.map(l => {
+                    result = result.split('').map(l => {
                         const code = l.charCodeAt(0);
-                        return code < 32 ? 32 : code;
-                    })
+                        return String.fromCharCode(code < 32 ? 32 : code);
+                    }).join('');
+
                     logger.log('return: ' + result);
                     logger.log('return length: ' + result.length);
 
