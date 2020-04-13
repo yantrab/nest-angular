@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,24 +15,218 @@
   <component name="FavoritesManager">
     <favorites_list name="nest-angular" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="70" column="87" lean-forward="true" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="87" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getStatus</find>
+      <find>sock.write(</find>
+      <find>getstat</find>
+      <find>delete this.selectedPanel.contacts.changesL</find>
+      <find>43882</find>
+      <find>this.selectedPanel.contacts.changesList[e.inde</find>
+      <find>this.socket.on(&quot;sent&quot;</find>
+      <find>#</find>
+      <find>1 0    # 3    2`</find>
+      <find>height: 50px; width: 100%; line-height: 50px; background-color: yellow;</find>
+      <find>timecy</find>
+      <find>015000299033030401008124006201000000</find>
+      <find>11301</find>
+      <find>29</find>
+      <find>sock.write</find>
+      <find>Del</find>
+      <find>consol</find>
+      <find>.location</find>
+      <find>red</find>
+      <find>initialData</find>
+      <find>save</find>
+      <find>.sna</find>
+      <find>-&gt;</find>
+      <find>35521</find>
+      <find>open-ports</find>
+      <find>:--&gt;</find>
+      <find>wo</find>
+      <find>50</find>
+      <find>:50</find>
+      <find>action.data</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>:</replace>
+      <replace>--&gt;</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\yantr\Desktop\Tador\nest-angular\client</dir>
+      <dir>C:\Users\yantr\Desktop\Tador\nest-angular\server</dir>
+      <dir>C:\Users\yantr\Desktop\Tador\nest-angular\server\src\tador</dir>
+    </dirStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.ts" />
+        <option value="$PROJECT_DIR$/client/tsconfig.json" />
+        <option value="$PROJECT_DIR$/server/src/tador/a" />
+        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html" />
+        <option value="$PROJECT_DIR$/server/src/tador/a.txt" />
+        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" />
+        <option value="$PROJECT_DIR$/server/src/tador/tador.controller.ts" />
+        <option value="$PROJECT_DIR$/client/src/styles.scss" />
+        <option value="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.scss" />
+        <option value="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" />
+        <option value="$PROJECT_DIR$/../../The Call of the Wild.2020.HDRip.XviD.AC3-EVO.srt" />
+        <option value="$PROJECT_DIR$/../../The Call of the Wild.2020.HDRip.XviD.AC3-EV.srt" />
+        <option value="$PROJECT_DIR$/../../The Call of the Wild.2020.HDRip.XviD.AC3-EVO - Copy.txt" />
+        <option value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/client/package.json" />
+        <option value="$PROJECT_DIR$/server/src/tador/tador.service.ts" />
+        <option value="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-70" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectId" id="1TISHHVBBsxn7NyFgkpz7miMImt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
+              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
+              <item name="intercom-conf" type="462c0819:PsiDirectoryNode" />
+              <item name="contacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tador" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="tador" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nest-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="tador" type="462c0819:PsiDirectoryNode" />
+              <item name="panels" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../preaedicta/yangular" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -40,7 +236,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\yantr\Desktop\nest\nest-angular\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="C:\Users\yantr\Desktop\Tador\nest-angular\client\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -49,8 +245,20 @@
       <recent name="C:\Users\yantr\Desktop\nest\nest-angular\shared\models\tador" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="npm.start">
-    <configuration name="tador.read" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="tador.status" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
@@ -60,22 +268,7 @@
       <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
       <test-names>
         <test-name value="tador" />
-        <test-name value="read" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="tador.read.should return 0" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/server" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
-      <test-names>
-        <test-name value="tador" />
-        <test-name value="read" />
-        <test-name value="should return 0" />
+        <test-name value="status" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -91,6 +284,20 @@
         <test-name value="tador" />
         <test-name value="status" />
         <test-name value="should return change" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="tador.write" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
+      <test-names>
+        <test-name value="tador" />
+        <test-name value="write" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -122,12 +329,22 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="Jest.tador.read" />
-        <item itemvalue="Jest.tador.read.should return 0" />
+        <item itemvalue="Jest.tador.status" />
         <item itemvalue="Jest.tador.status.should return change" />
         <item itemvalue="Jest.tador.write.should return 0" />
+        <item itemvalue="Jest.tador.write" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -188,17 +405,23 @@
       <workItem from="1582748323870" duration="3223000" />
       <workItem from="1583002827377" duration="2965000" />
       <workItem from="1583436697335" duration="1023000" />
-      <workItem from="1583662571656" duration="13236000" />
-      <workItem from="1584428073079" duration="1422000" />
-      <workItem from="1584430715849" duration="3922000" />
-      <workItem from="1584865376692" duration="82000" />
-      <workItem from="1585424749714" duration="415000" />
-      <workItem from="1585561350164" duration="28000" />
-      <workItem from="1585641931610" duration="4179000" />
-      <workItem from="1585735349546" duration="19000" />
-      <workItem from="1585796368226" duration="41000" />
-      <workItem from="1585807940516" duration="33000" />
-      <workItem from="1586656667192" duration="2248000" />
+      <workItem from="1583662571656" duration="14510000" />
+      <workItem from="1585098324736" duration="8628000" />
+      <workItem from="1586742865692" duration="1017000" />
+    </task>
+    <task id="LOCAL-00035" summary="tador">
+      <created>1574045978199</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1574045978200</updated>
+    </task>
+    <task id="LOCAL-00036" summary="tador">
+      <created>1574911116264</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1574911116264</updated>
     </task>
     <task id="LOCAL-00037" summary="tador">
       <created>1575015151573</created>
@@ -508,52 +731,92 @@
       <option name="project" value="LOCAL" />
       <updated>1584224680429</updated>
     </task>
-    <task id="LOCAL-00081" summary="index">
-      <created>1584428145606</created>
+    <task id="LOCAL-00081" summary="fix sent changes">
+      <created>1584225829873</created>
       <option name="number" value="00081" />
       <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
-      <updated>1584428145607</updated>
+      <updated>1584225829873</updated>
     </task>
-    <task id="LOCAL-00082" summary="index">
-      <created>1584428203443</created>
+    <task id="LOCAL-00082" summary="fix save panel">
+      <created>1585100051641</created>
       <option name="number" value="00082" />
       <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
-      <updated>1584428203443</updated>
+      <updated>1585100051641</updated>
     </task>
-    <task id="LOCAL-00083" summary="index">
-      <created>1585425056241</created>
+    <task id="LOCAL-00083" summary="style">
+      <created>1585184750385</created>
       <option name="number" value="00083" />
       <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1585425056242</updated>
+      <updated>1585184750385</updated>
     </task>
-    <task id="LOCAL-00084" summary="index">
-      <created>1585651535449</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1585651535450</updated>
-    </task>
-    <task id="LOCAL-00085" summary="remove special characters">
-      <created>1586669128491</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1586669128493</updated>
-    </task>
-    <option name="localTasksCounter" value="86" />
+    <option name="localTasksCounter" value="84" />
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="tador_write - 2020.03.09 at 03h 49m 16s.xml">
+      <configuration name="tador.write" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="tador_write - 2020.03.09 at 04h 03m 11s.xml">
+      <configuration name="tador.write" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="tador_write_should_return_0 - 2020.03.13 at 05h 34m 05s.xml">
+      <configuration name="tador.write.should return 0" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="tador_status_should_return_change - 2020.03.15 at 00h 35m 37s.xml">
+      <configuration name="tador.status.should return change" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="tador_status_should_return_change - 2020.03.15 at 00h 38m 37s.xml">
+      <configuration name="tador.status.should return change" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="tador_status_should_return_change - 2020.03.15 at 00h 40m 08s.xml">
+      <configuration name="tador.status.should return change" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="tador_status_should_return_change - 2020.03.15 at 00h 42m 24s.xml">
+      <configuration name="tador.status.should return change" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="tador_status_should_return_change - 2020.03.15 at 00h 42m 34s.xml">
+      <configuration name="tador.status.should return change" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="tador_status_should_return_change - 2020.03.15 at 00h 43m 09s.xml">
+      <configuration name="tador.status.should return change" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="tador_status - 2020.03.30 at 23h 22m 59s.xml">
+      <configuration name="tador.status" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="54316000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.77020204" visible="true" weight="0.22265625" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" sideWeight="0.22979797" side_tool="true" weight="0.22265625" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32991013" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.0872914" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37612325" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.37612325" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32991013" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32991013" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/../../store_assistant_event_service/lib/datadog-api.js" />
-        <option value="$PROJECT_DIR$/../../store_assistant_event_service/lib/datadog-api.js.map" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -571,6 +834,12 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -612,144 +881,10 @@
     <MESSAGE value="fix write all" />
     <MESSAGE value="fix" />
     <MESSAGE value="index" />
-    <MESSAGE value="remove special characters" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove special characters" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="4530" y="427" width="538" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584460359401">
-      <screen x="3840" y="115" width="1920" height="1080" />
-    </state>
-    <state x="4530" y="427" width="538" height="388" key="#com.intellij.fileTypes.FileTypeChooser/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1584460359401" />
-    <state x="527" y="50" width="865" height="913" key="CommitChangelistDialog2" timestamp="1586669128307">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state x="527" y="50" width="865" height="913" key="CommitChangelistDialog2/0.24.1920.993@0.24.1920.993" timestamp="1586669128307" />
-    <state x="527" y="52" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585651535259" />
-    <state x="4367" y="144" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1584429311697" />
-    <state x="527" y="51" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1585425056084" />
-    <state width="1062" height="568" key="DebuggerActiveHint" timestamp="1585642582841">
-      <screen x="3840" y="115" width="1920" height="1080" />
-    </state>
-    <state width="1062" height="568" key="DebuggerActiveHint/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642582841" />
-    <state x="99" y="92" width="1722" height="773" key="DiffContextDialog" timestamp="1585425039710">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state x="99" y="96" width="1722" height="822" key="DiffContextDialog/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1584428118256" />
-    <state x="99" y="92" width="1722" height="773" key="DiffContextDialog/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1585425039710" />
-    <state x="4587" y="380" width="424" height="482" key="FileChooserDialogImpl" timestamp="1584865455698">
-      <screen x="3840" y="115" width="1920" height="1080" />
-    </state>
-    <state x="4587" y="380" width="424" height="482" key="FileChooserDialogImpl/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1584865455698" />
-    <state width="1897" height="322" key="GridCell.Tab.0.bottom" timestamp="1586657611366">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.0.bottom/0.24.1920.993@0.24.1920.993" timestamp="1586657611366" />
-    <state width="1897" height="322" key="GridCell.Tab.0.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669399956" />
-    <state width="1897" height="414" key="GridCell.Tab.0.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642539730" />
-    <state width="1897" height="322" key="GridCell.Tab.0.center" timestamp="1586657611365">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.0.center/0.24.1920.993@0.24.1920.993" timestamp="1586657611365" />
-    <state width="1897" height="322" key="GridCell.Tab.0.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669399956" />
-    <state width="1897" height="414" key="GridCell.Tab.0.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642539730" />
-    <state width="1897" height="322" key="GridCell.Tab.0.left" timestamp="1586657611365">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.0.left/0.24.1920.993@0.24.1920.993" timestamp="1586657611365" />
-    <state width="1897" height="322" key="GridCell.Tab.0.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669399956" />
-    <state width="1897" height="414" key="GridCell.Tab.0.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642539729" />
-    <state width="1897" height="322" key="GridCell.Tab.0.right" timestamp="1586657611365">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.0.right/0.24.1920.993@0.24.1920.993" timestamp="1586657611365" />
-    <state width="1897" height="322" key="GridCell.Tab.0.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669399956" />
-    <state width="1897" height="414" key="GridCell.Tab.0.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642539730" />
-    <state width="1897" height="322" key="GridCell.Tab.1.bottom" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.1.bottom/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.1.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669396609" />
-    <state width="1897" height="322" key="GridCell.Tab.1.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642610322" />
-    <state width="1897" height="322" key="GridCell.Tab.1.center" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.1.center/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.1.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669396609" />
-    <state width="1897" height="322" key="GridCell.Tab.1.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642610322" />
-    <state width="1897" height="322" key="GridCell.Tab.1.left" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.1.left/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.1.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669396609" />
-    <state width="1897" height="322" key="GridCell.Tab.1.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642610322" />
-    <state width="1897" height="322" key="GridCell.Tab.1.right" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.1.right/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.1.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669396609" />
-    <state width="1897" height="322" key="GridCell.Tab.1.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642610322" />
-    <state width="1897" height="322" key="GridCell.Tab.2.bottom" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.2.bottom/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.2.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669400297" />
-    <state width="1897" height="322" key="GridCell.Tab.2.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642538774" />
-    <state width="1897" height="322" key="GridCell.Tab.2.center" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.2.center/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.2.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669400296" />
-    <state width="1897" height="322" key="GridCell.Tab.2.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642538774" />
-    <state width="1897" height="322" key="GridCell.Tab.2.left" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.2.left/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.2.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669400296" />
-    <state width="1897" height="322" key="GridCell.Tab.2.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642538774" />
-    <state width="1897" height="322" key="GridCell.Tab.2.right" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.2.right/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.2.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669400296" />
-    <state width="1897" height="322" key="GridCell.Tab.2.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642538774" />
-    <state width="1897" height="322" key="GridCell.Tab.3.bottom" timestamp="1586657611285">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.3.bottom/0.24.1920.993@0.24.1920.993" timestamp="1586657611285" />
-    <state width="1897" height="322" key="GridCell.Tab.3.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669393017" />
-    <state width="1897" height="322" key="GridCell.Tab.3.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642538775" />
-    <state width="1897" height="322" key="GridCell.Tab.3.center" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.3.center/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.3.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669393017" />
-    <state width="1897" height="322" key="GridCell.Tab.3.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642538774" />
-    <state width="1897" height="322" key="GridCell.Tab.3.left" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.3.left/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.3.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669393017" />
-    <state width="1897" height="322" key="GridCell.Tab.3.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642538774" />
-    <state width="1897" height="322" key="GridCell.Tab.3.right" timestamp="1586657611284">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state width="1897" height="322" key="GridCell.Tab.3.right/0.24.1920.993@0.24.1920.993" timestamp="1586657611284" />
-    <state width="1897" height="322" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585669393017" />
-    <state width="1897" height="322" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1585642538775" />
-    <state x="670" y="226" key="MultipleFileMergeDialog" timestamp="1585424973718">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state x="670" y="226" key="MultipleFileMergeDialog/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1585424973718" />
-    <state x="560" y="231" key="Vcs.Push.Dialog.v2" timestamp="1586669130900">
-      <screen x="0" y="24" width="1920" height="993" />
-    </state>
-    <state x="560" y="231" key="Vcs.Push.Dialog.v2/0.24.1920.993@0.24.1920.993" timestamp="1586669130900" />
-    <state x="560" y="244" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1585651537696" />
-    <state x="560" y="231" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1585425058522" />
-    <state x="4463" y="335" key="search.everywhere.popup" timestamp="1584460347730">
-      <screen x="3840" y="115" width="1920" height="1080" />
-    </state>
-    <state x="4463" y="335" key="search.everywhere.popup/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@3840.115.1920.1080" timestamp="1584460347730" />
+    <MESSAGE value="fix sent changes" />
+    <MESSAGE value="fix save panel" />
+    <MESSAGE value="style" />
+    <option name="LAST_COMMIT_MESSAGE" value="style" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -758,31 +893,6 @@
           <url>file://$PROJECT_DIR$/shared/guard.ts</url>
           <line>4</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>337</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>409</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>414</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>425</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts</url>
-          <line>65</line>
-          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -795,5 +905,236 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/client/extra-webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.nomedia" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="220">
+            <caret line="264" lean-forward="true" selection-start-line="264" selection-end-line="264" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/karma.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/client.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/a" />
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#ng-template#0;n#ng-container#0;n#mat-virtual-table#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/tador/conf.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="125" column="58" lean-forward="true" selection-start-line="125" selection-start-column="58" selection-end-line="125" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/a.txt" />
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="187" column="27" selection-start-line="187" selection-start-column="27" selection-end-line="187" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/filter.base.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-862">
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../The Call of the Wild.2020.HDRip.XviD.AC3-EVO.srt" />
+    <entry file="file://$PROJECT_DIR$/../../The Call of the Wild.2020.HDRip.XviD.AC3-EVO - Copy.txt" />
+    <entry file="file://$PROJECT_DIR$/../../The Call of the Wild.2020.HDRip.XviD.AC3-EV.srt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="83" column="2" selection-start-line="83" selection-start-column="2" selection-end-line="83" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="31" column="52" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="32" column="86" selection-start-line="32" selection-start-column="86" selection-end-line="32" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/tador/tador.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="245" column="59" selection-start-line="245" selection-start-column="59" selection-end-line="245" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+            <element signature="n#PanelDump#0" />
+            <element signature="e#668#759#0" />
+            <element signature="n#StatusActionResult#0" />
+            <element signature="n#!!block;n#constructor#0;n#StatusActionResult#0" />
+            <element signature="n#!!block;n#toString#0;n#StatusActionResult#0" />
+            <element signature="n#!!block;n#onRegister#0;n#TadorService#0" />
+            <element signature="n#!!block;n#onUnRegister#0;n#TadorService#0" />
+            <element signature="n#!!block;n#constructor#0;n#TadorService#0" />
+            <element signature="e#2049#2264#0" />
+            <element signature="e#2073#2257#0" />
+            <element signature="n#!!block;n#addStatus#0;n#TadorService#0" />
+            <element signature="e#3685#4388#0" />
+            <element signature="e#3754#4321#0" />
+            <element signature="e#3827#4058#0" />
+            <element signature="e#4075#4307#0" />
+            <element signature="e#4508#8580#0" />
+            <element signature="e#4536#8318#0" />
+            <element signature="e#4840#5909#0" />
+            <element signature="e#5010#5891#0" />
+            <element signature="e#5315#5869#0" />
+            <element signature="e#5422#5842#0" />
+            <element signature="e#5487#5685#0" />
+            <element signature="e#5957#7902#0" />
+            <element signature="e#5992#6964#0" />
+            <element signature="e#6102#6942#0" />
+            <element signature="e#6354#6880#0" />
+            <element signature="e#6467#6849#0" />
+            <element signature="e#6536#6752#0" />
+            <element signature="e#7013#7882#0" />
+            <element signature="e#7379#7860#0" />
+            <element signature="e#7481#7833#0" />
+            <element signature="e#7546#7744#0" />
+            <element signature="e#8104#8280#0" />
+            <element signature="n#!!block;n#saveDump#0;n#TadorService#0" />
+            <element signature="n#!!block;n#addNewPanel#0;n#TadorService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="156" column="39" lean-forward="true" selection-start-line="156" selection-start-column="39" selection-end-line="156" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#89#0" expanded="true" />
+            <element signature="e#481#1735#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="70" column="87" lean-forward="true" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="87" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

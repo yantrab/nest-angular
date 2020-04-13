@@ -244,8 +244,6 @@ export class TadorService {
         listen();
         server.on('error', err => {
             logger.error('Some problem, check error log!');
-            // close();
-            // listen();
         });
         server.on('end', err => {
             logger.log('END');
@@ -299,10 +297,13 @@ export class TadorService {
                             result = await this.getStatus(action as any);
                             break;
                     }
-                    result = result.split('').map(l => {
-                        const code = l.charCodeAt(0);
-                        return String.fromCharCode(code < 32 ? 32 : code);
-                    }).join('');
+                    result = result
+                        .split('')
+                        .map(l => {
+                            const code = l.charCodeAt(0);
+                            return String.fromCharCode(code < 32 ? 32 : code);
+                        })
+                        .join('');
 
                     logger.log('return: ' + result);
                     logger.log('return length: ' + result.length);
@@ -409,7 +410,7 @@ export class TadorService {
     private async read(action: Action, sock: Socket, multiply = 1) {
         if (!this.statuses[action.pId]) {
             this.sentMsg(action.pId, ActionType.idle, 'status');
-            return sock.write('RRR', 'utf8');
+            return 'RRR'; // sock.write('RRR', 'utf8');
         }
 
         const panel = this.statuses[action.pId].panel;
@@ -440,7 +441,7 @@ export class TadorService {
             this.sentMsg(action.pId, panel.actionType, 'status');
             await this.updatePanel(panel);
         }
-        const dump = panel.dump().split('');
+        let dump = panel.dump().split('');
         const start = action.data.start * multiply;
         const length = action.data.data.length;
         const oldDump = panel.dump();
@@ -451,6 +452,11 @@ export class TadorService {
         for (let i = start; i < start + length; i++) {
             dump[i] = action.data.data[i - start];
         }
+
+        dump = dump.map(l => {
+            const code = l.charCodeAt(0);
+            return String.fromCharCode(code < 32 ? 32 : code);
+        });
         panel.reDump(dump.join(''));
         const saveResult = await this.panelRepo.saveOrUpdateOne(panel);
         await this.saveDump(panel);
