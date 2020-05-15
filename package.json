@@ -26,6 +26,7 @@
         "pm2-start-server": "cd server && pm2 start --name server npm --  start",
         "pm2-serve-static": "tsc serve-static && pm2 start serve-static.js",
         "build:client:cordova": "cd client&& npm run build:cordova",
+        "serve-static": "ts-node serve-static",
         "gen-uml": "tsuml --glob ./shared/**/*.ts",
         "lint": "tslint -p .",
         "lint:fix": "tslint -p . --fix&&cd client&&ng lint --fix",
@@ -50,6 +51,8 @@
     "dependencies": {
         "bson": "^4.0.2",
         "class-validator": "^0.11.0",
+        "fastify": "^2.14.1",
+        "fastify-static": "^2.7.0",
         "lodash": "^4.17.11",
         "nosql-normalizer": "^1.0.6",
         "tsconfig-paths": "^3.8.0"

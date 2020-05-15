@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="style">
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serve-static.ts" beforeDir="false" afterPath="$PROJECT_DIR$/serve-static.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,50 +13,6 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="nest-angular" />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>getStatus</find>
-      <find>sock.write(</find>
-      <find>getstat</find>
-      <find>delete this.selectedPanel.contacts.changesL</find>
-      <find>43882</find>
-      <find>this.selectedPanel.contacts.changesList[e.inde</find>
-      <find>this.socket.on(&quot;sent&quot;</find>
-      <find>#</find>
-      <find>1 0    # 3    2`</find>
-      <find>height: 50px; width: 100%; line-height: 50px; background-color: yellow;</find>
-      <find>timecy</find>
-      <find>015000299033030401008124006201000000</find>
-      <find>11301</find>
-      <find>29</find>
-      <find>sock.write</find>
-      <find>Del</find>
-      <find>consol</find>
-      <find>.location</find>
-      <find>red</find>
-      <find>initialData</find>
-      <find>save</find>
-      <find>.sna</find>
-      <find>-&gt;</find>
-      <find>35521</find>
-      <find>open-ports</find>
-      <find>:--&gt;</find>
-      <find>wo</find>
-      <find>50</find>
-      <find>:50</find>
-      <find>action.data</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-      <replace>:</replace>
-      <replace>--&gt;</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\Users\yantr\Desktop\Tador\nest-angular\client</dir>
-      <dir>C:\Users\yantr\Desktop\Tador\nest-angular\server</dir>
-      <dir>C:\Users\yantr\Desktop\Tador\nest-angular\server\src\tador</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -98,7 +55,7 @@
       <recent name="C:\Users\yantr\Desktop\nest\nest-angular\shared\models\tador" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.serve-static">
     <configuration name="tador.status" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -128,20 +85,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="tador.write" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/server" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
-      <test-names>
-        <test-name value="tador" />
-        <test-name value="write" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="tador.write.should return 0" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -157,6 +100,16 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="serve-static" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve-static" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/server/package.json" />
       <command value="run" />
@@ -169,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.serve-static" />
         <item itemvalue="npm.start" />
         <item itemvalue="Jest.tador.status" />
         <item itemvalue="Jest.tador.status.should return change" />
         <item itemvalue="Jest.tador.write.should return 0" />
-        <item itemvalue="Jest.tador.write" />
       </list>
     </recent_temporary>
   </component>
@@ -239,21 +192,7 @@
       <workItem from="1583662571656" duration="14510000" />
       <workItem from="1585098324736" duration="8628000" />
       <workItem from="1586742865692" duration="1017000" />
-      <workItem from="1589527161871" duration="57000" />
-    </task>
-    <task id="LOCAL-00035" summary="tador">
-      <created>1574045978199</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1574045978200</updated>
-    </task>
-    <task id="LOCAL-00036" summary="tador">
-      <created>1574911116264</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1574911116264</updated>
+      <workItem from="1589527161871" duration="2897000" />
     </task>
     <task id="LOCAL-00037" summary="tador">
       <created>1575015151573</created>
@@ -584,7 +523,21 @@
       <option name="project" value="LOCAL" />
       <updated>1585184750385</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="style">
+      <created>1589527226976</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1589527226976</updated>
+    </task>
+    <task id="LOCAL-00085" summary="style">
+      <created>1589527255086</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1589527255086</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -685,14 +638,78 @@
     <option name="LAST_COMMIT_MESSAGE" value="style" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="527" y="50" key="CommitChangelistDialog2" timestamp="1589527226849">
+    <state x="527" y="50" key="CommitChangelistDialog2" timestamp="1589527255032">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="527" y="50" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589527226849" />
-    <state x="560" y="243" key="Vcs.Push.Dialog.v2" timestamp="1589527228567">
+    <state x="527" y="50" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589527255032" />
+    <state width="1897" height="318" key="GridCell.Tab.0.bottom" timestamp="1589530353894">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589527228567" />
+    <state width="1897" height="318" key="GridCell.Tab.0.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530353894" />
+    <state width="1897" height="318" key="GridCell.Tab.0.center" timestamp="1589530353894">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.0.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530353894" />
+    <state width="1897" height="318" key="GridCell.Tab.0.left" timestamp="1589530353894">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.0.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530353894" />
+    <state width="1897" height="318" key="GridCell.Tab.0.right" timestamp="1589530353894">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.0.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530353894" />
+    <state width="1897" height="318" key="GridCell.Tab.1.bottom" timestamp="1589530349674">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.1.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530349674" />
+    <state width="1897" height="318" key="GridCell.Tab.1.center" timestamp="1589530349674">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.1.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530349674" />
+    <state width="1897" height="318" key="GridCell.Tab.1.left" timestamp="1589530349674">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.1.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530349674" />
+    <state width="1897" height="318" key="GridCell.Tab.1.right" timestamp="1589530349674">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.1.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530349674" />
+    <state width="1897" height="318" key="GridCell.Tab.2.bottom" timestamp="1589530348019">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.2.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530348019" />
+    <state width="1897" height="318" key="GridCell.Tab.2.center" timestamp="1589530348019">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.2.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530348019" />
+    <state width="1897" height="318" key="GridCell.Tab.2.left" timestamp="1589530348019">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.2.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530348019" />
+    <state width="1897" height="318" key="GridCell.Tab.2.right" timestamp="1589530348019">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.2.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530348019" />
+    <state width="1897" height="318" key="GridCell.Tab.3.bottom" timestamp="1589530348019">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.3.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530348019" />
+    <state width="1897" height="318" key="GridCell.Tab.3.center" timestamp="1589530348019">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.3.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530348019" />
+    <state width="1897" height="318" key="GridCell.Tab.3.left" timestamp="1589530348019">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.3.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530348019" />
+    <state width="1897" height="318" key="GridCell.Tab.3.right" timestamp="1589530348019">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state width="1897" height="318" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530348019" />
+    <state x="560" y="243" key="Vcs.Push.Dialog.v2" timestamp="1589527257191">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589527257191" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -701,6 +718,24 @@
           <url>file://$PROJECT_DIR$/shared/guard.ts</url>
           <line>4</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/serve-static.ts</url>
+          <line>7</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/serve-static.ts</url>
+          <line>12</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/serve-static.ts</url>
+          <line>10</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
