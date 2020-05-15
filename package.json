@@ -56,6 +56,7 @@
         "fastify-static": "^2.7.0",
         "lodash": "^4.17.11",
         "nosql-normalizer": "^1.0.6",
+        "serve-static": "^1.14.1",
         "tsconfig-paths": "^3.8.0"
     }
 }
