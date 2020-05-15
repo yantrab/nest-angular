@@ -414,7 +414,7 @@ export class TadorService {
     private async read(action: Action, sock: Socket, multiply = 1) {
         if (!this.statuses[action.pId]) {
             this.sentMsg(action.pId, ActionType.idle, 'status');
-            return 'RRR'; // sock.write('RRR', 'utf8');
+            return 'RRR';
         }
 
         const panel = this.statuses[action.pId].panel;
@@ -438,8 +438,6 @@ export class TadorService {
         }
         action.data.start = +action.data.start;
         let panel = this.statuses[action.pId].panel;
-        // panel = new Panels[panel.type + 'Panel'](panel);
-
         if (panel.actionType !== ActionType.writeProgress && panel.actionType !== ActionType.writeAllProgress) {
             panel.actionType = panel.actionType === ActionType.write ? ActionType.writeProgress : ActionType.writeAllProgress;
             this.sentMsg(action.pId, panel.actionType, 'status');
