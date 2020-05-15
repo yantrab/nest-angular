@@ -1,4 +1,4 @@
-const fastify = require('fastify')()
+const fastify = require('fastify')({ logger: true })
 const path = require('path')
 
 fastify.register(require('fastify-static'), {
