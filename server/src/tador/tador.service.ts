@@ -304,6 +304,10 @@ export class TadorService {
                             return String.fromCharCode(code < 32 ? 32 : code);
                         })
                         .join('');
+                    result = result.split('').map(l => {
+                        const code = l.charCodeAt(0);
+                        return String.fromCharCode((code < 32 || code > 256) ? 32 : code);
+                    }).join('');
 
                     logger.log('return: ' + result);
                     logger.log('return length: ' + result.length);
@@ -450,13 +454,13 @@ export class TadorService {
         }
         this.signChanges(panel, oldDump, dump.join(''), Source.Panel, panel.contacts.changesList);
         for (let i = start; i < start + length; i++) {
-            dump[i] = action.data.data[i - start];
-        }
+            let value = action.data.data[i - start]
+            const code = value.charCodeAt(0)
+            if (code < 32 || code > 256)
+                value = ' '
 
-        dump = dump.map(l => {
-            const code = l.charCodeAt(0);
-            return String.fromCharCode(code < 32 ? 32 : code);
-        });
+            dump[i] = value;
+        }
         panel.reDump(dump.join(''));
         const saveResult = await this.panelRepo.saveOrUpdateOne(panel);
         await this.saveDump(panel);

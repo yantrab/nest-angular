@@ -68,7 +68,7 @@
                                                     NO
                                                     <mat-slide-toggle
                                                         (change)="field.value = $event.checked ? '1' : '0'"
-                                                        [checked]="field.value === '1'"
+                                                        [checked]="field.value && field.value != '0' && field.value != 'N'"
                                                     >
                                                     </mat-slide-toggle>
                                                     YES
