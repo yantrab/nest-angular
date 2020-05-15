@@ -30,7 +30,7 @@ fastify.get('*', (_, reply) => {
 // Run the server!
 const start = async () => {
     try {
-        await fastify.listen(4200)
+        await fastify.listen(4200,'0.0.0.0')
         fastify.log.info(`server listening on ${fastify.server.address().port}`)
     } catch (err) {
         fastify.log.error(err)
