@@ -4,7 +4,6 @@
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serve-static.ts" beforeDir="false" afterPath="$PROJECT_DIR$/serve-static.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,14 +191,7 @@
       <workItem from="1583662571656" duration="14510000" />
       <workItem from="1585098324736" duration="8628000" />
       <workItem from="1586742865692" duration="1017000" />
-      <workItem from="1589527161871" duration="2897000" />
-    </task>
-    <task id="LOCAL-00037" summary="tador">
-      <created>1575015151573</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1575015151573</updated>
+      <workItem from="1589527161871" duration="2978000" />
     </task>
     <task id="LOCAL-00038" summary="tador">
       <created>1575142056086</created>
@@ -537,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589527255086</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="serve static files with fastify">
+      <created>1589530397374</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1589530397374</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -635,13 +634,14 @@
     <MESSAGE value="fix sent changes" />
     <MESSAGE value="fix save panel" />
     <MESSAGE value="style" />
-    <option name="LAST_COMMIT_MESSAGE" value="style" />
+    <MESSAGE value="serve static files with fastify" />
+    <option name="LAST_COMMIT_MESSAGE" value="serve static files with fastify" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="527" y="50" key="CommitChangelistDialog2" timestamp="1589527255032">
+    <state x="527" y="50" key="CommitChangelistDialog2" timestamp="1589530397295">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="527" y="50" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589527255032" />
+    <state x="527" y="50" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530397295" />
     <state width="1897" height="318" key="GridCell.Tab.0.bottom" timestamp="1589530353894">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
@@ -706,10 +706,10 @@
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state width="1897" height="318" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530348019" />
-    <state x="560" y="243" key="Vcs.Push.Dialog.v2" timestamp="1589527257191">
+    <state x="560" y="243" key="Vcs.Push.Dialog.v2" timestamp="1589530398547">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589527257191" />
+    <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589530398547" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
