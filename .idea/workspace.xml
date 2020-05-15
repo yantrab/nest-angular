@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serve-static.ts" beforeDir="false" afterPath="$PROJECT_DIR$/serve-static.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,28 +191,7 @@
       <workItem from="1583662571656" duration="14510000" />
       <workItem from="1585098324736" duration="8628000" />
       <workItem from="1586742865692" duration="1017000" />
-      <workItem from="1589527161871" duration="7714000" />
-    </task>
-    <task id="LOCAL-00042" summary="tador">
-      <created>1575941395361</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1575941395361</updated>
-    </task>
-    <task id="LOCAL-00043" summary="tador">
-      <created>1576027511301</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1576027511301</updated>
-    </task>
-    <task id="LOCAL-00044" summary="tador">
-      <created>1576455452156</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1576455452156</updated>
+      <workItem from="1589527161871" duration="9171000" />
     </task>
     <task id="LOCAL-00045" summary="snack">
       <created>1577433975916</created>
@@ -537,7 +515,28 @@
       <option name="project" value="LOCAL" />
       <updated>1589537011737</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="serve static files with fastify">
+      <created>1589537470529</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1589537470529</updated>
+    </task>
+    <task id="LOCAL-00092" summary="serve static files with fastify">
+      <created>1589537558286</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1589537558286</updated>
+    </task>
+    <task id="LOCAL-00093" summary="serve static files with fastify">
+      <created>1589537588731</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1589537588731</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -639,18 +638,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="serve static files with fastify" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="527" y="50" key="CommitChangelistDialog2" timestamp="1589537558174">
+    <state x="527" y="50" key="CommitChangelistDialog2" timestamp="1589537588673">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="527" y="50" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589537558174" />
+    <state x="527" y="50" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589537588673" />
     <state width="1918" height="542" key="DebuggerActiveHint" timestamp="1589536599211">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state width="1918" height="542" key="DebuggerActiveHint/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589536599211" />
-    <state x="3843" y="111" width="1720" height="849" maximized="true" key="DiffContextDialog" timestamp="1589537463512">
+    <state x="3843" y="111" width="1720" height="849" maximized="true" key="DiffContextDialog" timestamp="1589537770424">
       <screen x="3840" y="115" width="1920" height="1080" />
     </state>
-    <state x="3843" y="111" width="1720" height="849" maximized="true" key="DiffContextDialog/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589537463512" />
+    <state x="3843" y="111" width="1720" height="849" maximized="true" key="DiffContextDialog/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589537770424" />
     <state width="1897" height="426" key="GridCell.Tab.0.bottom" timestamp="1589537454840">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
@@ -731,10 +730,10 @@
     </state>
     <state width="1897" height="426" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589537454842" />
     <state width="1897" height="318" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589534620566" />
-    <state x="560" y="243" key="Vcs.Push.Dialog.v2" timestamp="1589537560430">
+    <state x="560" y="243" key="Vcs.Push.Dialog.v2" timestamp="1589537591483">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589537560430" />
+    <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589537591483" />
     <state x="608" y="217" width="704" height="578" key="find.popup" timestamp="1589534245843">
       <screen x="0" y="24" width="1920" height="993" />
     </state>

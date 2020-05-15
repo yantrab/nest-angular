@@ -369,6 +369,9 @@ export class TadorService {
 
         let result = '000';
         const sendedItem = panelStatus.arr.shift();
+        if (sendedItem.action == ActionType.read.toString() || sendedItem.action == ActionType.readAll.toString())
+            panelStatus.arr.push({action:'RRR'})
+
         if (sendedItem.location && sendedItem.location.dumpIndex) {
             this.sentMsg(action.pId, sendedItem.location, 'sent');
             panelStatus.oldDump = replaceByIndex(panelStatus.oldDump, sendedItem.location.dumpIndex, sendedItem.location.value);
