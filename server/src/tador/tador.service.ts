@@ -369,7 +369,8 @@ export class TadorService {
 
         let result = '000';
         const sendedItem = panelStatus.arr.shift();
-        if (sendedItem.action == ActionType.read.toString() || sendedItem.action == ActionType.readAll.toString())
+        if (sendedItem.action ==
+            ActionType.read.toString().repeat(3) || sendedItem.action == ActionType.readAll.toString().repeat(3) )
             panelStatus.arr.push({action:'RRR'})
 
         if (sendedItem.location && sendedItem.location.dumpIndex) {
