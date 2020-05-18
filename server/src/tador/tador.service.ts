@@ -376,11 +376,11 @@ export class TadorService {
             await this.panelDumpRepo.collection.updateOne({ panelId: action.pId }, { $set: { dump: panelStatus.oldDump } });
         }
 
-        if (sendedItem.action ==
-            ActionType.read.toString().repeat(3) || sendedItem.action == ActionType.readAll.toString().repeat(3) ) {
-            //panelStatus.arr.push({ action: 'RRR' })
-            result = 'RRR'
-        }
+        // if (sendedItem.action ==
+        //     ActionType.read.toString().repeat(3) || sendedItem.action == ActionType.readAll.toString().repeat(3) ) {
+        //     //panelStatus.arr.push({ action: 'RRR' })
+        //     result = 'RRR'
+        // }
 
         if (!panelStatus.arr.length) {
             panelStatus.panel.actionType = ActionType.idle;
