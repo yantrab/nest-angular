@@ -379,7 +379,7 @@ export class TadorService {
         if (sendedItem.action ==
             ActionType.read.toString().repeat(3) || sendedItem.action == ActionType.readAll.toString().repeat(3) ) {
             //panelStatus.arr.push({ action: 'RRR' })
-            return  'RRR'
+            result = 'RRR'
         }
 
         if (!panelStatus.arr.length) {
