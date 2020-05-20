@@ -198,14 +198,7 @@
       <workItem from="1589791973812" duration="1202000" />
       <workItem from="1589817931609" duration="5597000" />
       <workItem from="1589868617443" duration="605000" />
-      <workItem from="1590001781854" duration="2959000" />
-    </task>
-    <task id="LOCAL-00053" summary="colors">
-      <created>1578376921153</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1578376921153</updated>
+      <workItem from="1590001781854" duration="3670000" />
     </task>
     <task id="LOCAL-00054" summary="colors">
       <created>1578547882544</created>
@@ -543,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590003815944</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="fix  delete rrr when send status with d">
+      <created>1590004750680</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1590004750680</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,11 +615,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix  delete rrr when send status with d" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="527" y="48" key="CommitChangelistDialog2" timestamp="1590003815816">
+    <state x="527" y="48" key="CommitChangelistDialog2" timestamp="1590004750541">
       <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state x="527" y="50" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589826543130" />
-    <state x="527" y="48" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1590003815816" />
+    <state x="527" y="48" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1590004750541" />
     <state width="1918" height="542" key="DebuggerActiveHint" timestamp="1589818206375">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
@@ -708,11 +708,11 @@
     </state>
     <state width="1897" height="236" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231511" />
     <state width="1897" height="426" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970549" />
-    <state x="560" y="230" key="Vcs.Push.Dialog.v2" timestamp="1590003819165">
+    <state x="560" y="230" key="Vcs.Push.Dialog.v2" timestamp="1590004752562">
       <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589826545081" />
-    <state x="560" y="230" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1590003819165" />
+    <state x="560" y="230" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1590004752562" />
     <state x="608" y="217" width="704" height="578" key="find.popup" timestamp="1589534245843">
       <screen x="0" y="24" width="1920" height="993" />
     </state>
@@ -728,7 +728,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>427</line>
+          <line>433</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
