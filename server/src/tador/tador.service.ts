@@ -310,7 +310,7 @@ export class TadorService {
                     }).join('');
 
                     logger.log('return: ' + result);
-                    logger.log('return length: ' + result.length);
+                    // logger.log('return length: ' + result.length);
 
                     return sock.write(result);
                 } catch (e) {
@@ -447,7 +447,7 @@ export class TadorService {
     private async write(action: Action, sock: Socket, multiply = 1) {
         if (!this.statuses[action.pId]) {
             this.sentMsg(action.pId, ActionType.idle, 'status');
-            return 'FFF';
+            return 'SSS';
         }
         action.data.start = +action.data.start;
         let panel = this.statuses[action.pId].panel;
