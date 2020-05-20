@@ -246,13 +246,13 @@ export class TadorService {
             logger.error('Some problem, check error log!');
         });
         server.on('end', err => {
-            logger.log('END');
+            // logger.log('END');
         });
         server.on('connection', sock => {
-            logger.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
+            // logger.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
             const timeOut = setTimeout(() => {
                 sock.end();
-                logger.log('force close client connection!');
+                //logger.log('force close client connection!');
             }, TIMEOUT);
             sock.on('error', err => Logger.error(err.message));
             sock.on('data', async msg => {
@@ -274,7 +274,7 @@ export class TadorService {
                             type: ActionType.write,
                             data: { start: +msgString.slice(16, 21), data: msgString.slice(24) },
                         };
-                    logger.log('Action:' + JSON.stringify(action));
+                    // logger.log('Action:' + JSON.stringify(action));
                     const panel = await this.getDump(action.pId);
                     if (!panel) {
                         return sock.write('999');
@@ -343,13 +343,15 @@ export class TadorService {
         const panelCaneled = this.canceleds[action.pId];
         if (panelCaneled) {
             const result = panelCaneled[0];
+            if (!action.d) return  result;
             if (action.d) {
                 panelCaneled.shift();
                 if (panelCaneled.length === 0) {
                     delete this.canceleds[action.pId];
                 }
+                else
+                    return panelCaneled[0]
             }
-            return result;
         }
 
         const panelStatus = this.statuses[action.pId];
