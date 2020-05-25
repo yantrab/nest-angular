@@ -162,6 +162,27 @@ export class MPPanel extends Panel {
                             ),
                         }),
                         new Settings({
+                            name: 'massageYeNo',
+                            length: 1,
+                            index: 35339,
+                            fields: [
+                                'EntryMessage',
+                                'StageMessage',
+                                'CloseDoorMes',
+                                'NameAnnounce',
+                                'DoorForgetMes',
+                                'WelcomeByDet',
+                                'RingingMes',
+                                'OpenDoorMes'
+                            ].map(
+                                name =>
+                                    new SettingField({
+                                        type: FieldType.yesNo,
+                                        name,
+                                    }),
+                            ),
+                        }),
+                        new Settings({
                             name: 'BusySogTone',
                             index: 58884,
                             length: 2,
