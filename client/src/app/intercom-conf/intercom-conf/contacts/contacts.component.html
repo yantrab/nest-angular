@@ -1,4 +1,24 @@
-<div style="height:100%">
+<div style="height:100%" fxLayout="column">
+    <div fxFlex="50px"  fxLayoutAlign="space-between center"  fxLayout="row" >
+        <div>
+            <label>כיוון כתיבת שמות:</label>
+            <mat-radio-group [(ngModel)]="contacts.nameDirection">
+                <mat-radio-button class="example-margin" [value]="ContactNameDirection.RTL">
+                    ימין לשמאל
+                </mat-radio-button>
+                <mat-radio-button class="example-margin" [value]="ContactNameDirection.LTR">
+                    שמאל לימין
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div  fxLayout="row" >
+            <div class="upload-btn-wrapper" >
+                <button mat-button>יבא</button>
+                <input type="file" name="myfile" (change)="handleFileInput($event.target.files)" />
+            </div>
+            <button (click)="export()" mat-button>יצא</button>
+        </div>
+    </div>
     <mat-virtual-table
         fxFlex
         [rows]="contacts.list"
@@ -8,7 +28,8 @@
     >
         <ng-container *ngFor="let field of contacts.contactFields">
             <ng-template pCellDef [column]="field.property" let-row="row" let-i="index" let-inEdit="false">
-                <div style="height: 50px;width: 100%;` text-align: center" (click)="inEdit = true" dir="ltr">
+                <div style="height: 50px;width: 100%;text-align: center" (click)="inEdit = true"
+                     [dir]="field.property.startsWith('Name') ? (contacts.nameDirection ===  ContactNameDirection.LTR ? 'ltr' : 'rtl') : ''">
                     <div [style.background-color]="getColor(+row['id'] - 1, field.property)">
                         <span style="height: 50px; width: 100%;line-height: 50px; white-space: pre;" *ngIf="!inEdit">
                             {{ row[field.property] }}
@@ -16,12 +37,13 @@
                     </div>
                     <mat-form-field *ngIf="inEdit">
                         <input
-                            [maxlength]="field.length"
-                            #ref
-                            (blur)="inEdit = false"
-                            (change)="signChange(+row['id'] - 1, field)"
-                            matInput
-                            [(ngModel)]="row[field.property]"
+                                autocomplete="off"
+                                [maxlength]="field.length"
+                                #ref
+                                (blur)="inEdit = false"
+                                (change)="signChange(+row['id'] - 1, field)"
+                                matInput
+                                [(ngModel)]="row[field.property]"
                         />
                     </mat-form-field>
                 </div>

@@ -73,4 +73,14 @@ export class XLSXService {
         const wbout: string = XLSX.write(wb, this.wopts);
         saveAs(new Blob([this.s2ab(wbout)]), fileName);
     }
+
+    import(arrayBuffer) {
+        const data = new Uint8Array(arrayBuffer);
+        const arr = new Array();
+        for (let i = 0; i !== data.length; ++i) { arr[i] = String.fromCharCode(data[i]); }
+        const bstr = arr.join('');
+        const workbook = XLSX.read(bstr, {type: 'binary'});
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        return XLSX.utils.sheet_to_json(worksheet, {raw: true});
+    }
 }

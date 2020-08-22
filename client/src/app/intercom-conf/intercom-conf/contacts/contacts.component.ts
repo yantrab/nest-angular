@@ -1,6 +1,16 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Contacts, Source } from 'shared/models/tador/panels';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    EventEmitter,
+    Input,
+    OnInit,
+    Output,
+    ViewChild,
+} from '@angular/core';
+import { ContactNameDirection, Contacts, Source } from 'shared/models/tador/panels';
 import { ColumnDef } from 'mat-virtual-table';
+import { XLSXData, XLSXService } from '../../../shared/services/xlsx.service';
 
 @Component({
     selector: 'p-contacts',
@@ -9,6 +19,7 @@ import { ColumnDef } from 'mat-virtual-table';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactsComponent implements OnInit {
+    ContactNameDirection = ContactNameDirection;
     @Input() contacts: Contacts;
     @Output() fieldChange = new EventEmitter();
     @ViewChild('ref', { static: true }) set refField(ref) {
@@ -21,6 +32,8 @@ export class ContactsComponent implements OnInit {
     contactColumns: ColumnDef[] = [{ field: 'id', title: '', isSortable: false }];
     Source = Source;
 
+    constructor(private xlsxService: XLSXService, private ref: ChangeDetectorRef) {
+    }
     ngOnInit() {
         this.contactColumns.push(
             ...this.contacts.contactFields.map(f => ({
@@ -51,7 +64,34 @@ export class ContactsComponent implements OnInit {
     signChange(index, field) {
         this.contacts.changesList = this.contacts.changesList || [];
         this.contacts.changesList[index] = this.contacts.changesList[index] || {};
-
         this.contacts.changesList[index][field.property] = Source.client;
+    }
+
+    export() {
+       const data: XLSXData[] = [{rows: this.contacts.list}];
+       this.xlsxService.export(data, ['contacts'], 'contacts.xlsx');
+    }
+
+    handleFileInput(files: FileList) {
+        const file =  files.item(0);
+        const reader = new FileReader();
+        reader.onload = e => {
+            const asd: any[] = this.xlsxService.import(reader.result);
+            // tslint:disable-next-line:prefer-for-of
+            for (let i = 0; i < asd.length; i++) {
+                const props = this.contacts.contactFields.map(c => c.property);
+                props.forEach(prop => {
+                    const val = asd[i][prop];
+                    if (val && this.contacts.list[i][prop] !== val) {
+                        this.contacts.list[i][prop] = val;
+                        this.signChange(i, {property: prop});
+                    }
+                });
+            }
+            this.ref.markForCheck();
+
+            //this.contacts = {...this.contacts} as any;
+        };
+        reader.readAsArrayBuffer(file);
     }
 }

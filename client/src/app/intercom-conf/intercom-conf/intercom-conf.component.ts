@@ -138,8 +138,8 @@ export class IntercomConfComponent {
         saveAs(blob, 'dump.txt');
     }
 
-    handleFileInput(target: any) {
-        const file = target.files[0];
+    handleFileInput(files: FileList) {
+        const file =  files.item(0);
         const reader = new FileReader();
         reader.onload = e => {
             this.selectedPanel.reDump(reader.result.toString());

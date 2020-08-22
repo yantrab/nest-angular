@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/env/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/env/env-up.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/contacts/contacts.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/shared/services/xlsx.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/services/xlsx.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="nest-angular" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,14 +48,15 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="NewWatcherDialog.advanced.open" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../preaedicta/yangular" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/env" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -44,13 +69,16 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/env" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\yantr\Desktop\Tador\nest-angular" />
       <recent name="C:\Users\yantr\Desktop\Tador\nest-angular\client" />
       <recent name="C:\Users\yantr\Desktop\nest\nest-angular\shared\models\tador" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.tador.read">
+  <component name="RunManager" selected="npm.start-server">
     <configuration name="tador.read" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -122,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start-server" />
         <item itemvalue="Jest.tador.read" />
         <item itemvalue="Jest.tador.status.should return 0" />
         <item itemvalue="Jest.tador.status.should return change" />
         <item itemvalue="Jest.tador.read.should return 0" />
-        <item itemvalue="npm.start-server" />
       </list>
     </recent_temporary>
   </component>
@@ -203,14 +231,8 @@
       <workItem from="1590066564164" duration="599000" />
       <workItem from="1590301484842" duration="611000" />
       <workItem from="1590359592249" duration="1083000" />
-      <workItem from="1590389276317" duration="1517000" />
-    </task>
-    <task id="LOCAL-00054" summary="colors">
-      <created>1578547882544</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1578547882544</updated>
+      <workItem from="1590389276317" duration="2608000" />
+      <workItem from="1597883806042" duration="19782000" />
     </task>
     <task id="LOCAL-00055" summary="colors">
       <created>1578660991061</created>
@@ -548,83 +570,18 @@
       <option name="project" value="LOCAL" />
       <updated>1590004750680</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="Add massages yes/no">
+      <created>1590423111424</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1590423111425</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/server.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/server.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/engineProducts.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/engineProducts.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/index.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/ProbeRectification.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/enginePrices.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/index.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/IEngineData.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/shelfDetector.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/shelfDetector.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/IEngineData.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/ProbeRectification.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/engineDal/enginePrices.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/shiftEvents.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/featureFlags.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/approvals.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/planogramImage.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/trainingProbe.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/planogramImage.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/users.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/shiftEvents.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/featureFlags.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/teamLeader.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/liveAlerts.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/users.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/teamLeader.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/liveAlerts.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/trainingProbe.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/logic/approvals.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/queues.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/tasksCommonDal.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/featureFlags.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/queues.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/trainingProbe.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/planogramImage.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/tasksCommonDal.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/liveAlerts.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/trainingProbe.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/liveAlerts.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/shiftEvents.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/planogramImage.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/shiftEvents.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/selector.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/selector.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/dal/featureFlags.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/entities/entity.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/entities/baseEntity.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/entities/baseEntity.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/entities/entity.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/entities/probeEntity.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/entities/probeEntity.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/routes/utils.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/routes/shared.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/routes/shared.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/routes/smart.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/routes/smart.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/routes/utils.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/tasks/baseTask.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/tasks/recognitionTask.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/tasks/recognitionTask.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/tasks/baseTask.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/utils/reduced-logger.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/utils/reduced-logger.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/states/taskState.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/states/taskState.js" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/newLogic/recognitionLogic.js.map" />
-        <option value="$PROJECT_DIR$/../../trax_smart/app/app-server/lib/newLogic/recognitionLogic.js" />
-      </list>
-    </option>
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -641,9 +598,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -662,9 +617,9 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mf" />
     <MESSAGE value="auto complete keep open style" />
     <MESSAGE value="timer tador" />
     <MESSAGE value="text alighn tador" />
@@ -689,13 +644,14 @@
     <MESSAGE value="serve static files with fastify" />
     <MESSAGE value="add &quot;RRR&quot; to queue when finish reading" />
     <MESSAGE value="fix  delete rrr when send status with d" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix  delete rrr when send status with d" />
+    <MESSAGE value="Add massages yes/no" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add massages yes/no" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="527" y="48" key="CommitChangelistDialog2" timestamp="1590006433017">
-      <screen x="0" y="24" width="1920" height="993" />
+    <state x="527" y="50" key="CommitChangelistDialog2" timestamp="1590423111052">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="527" y="50" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589826543130" />
+    <state x="527" y="50" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1590423111052" />
     <state x="527" y="48" key="CommitChangelistDialog2/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1590006433017" />
     <state width="1918" height="542" key="DebuggerActiveHint" timestamp="1589818206375">
       <screen x="0" y="24" width="1920" height="1056" />
@@ -705,95 +661,95 @@
       <screen x="3840" y="115" width="1920" height="1080" />
     </state>
     <state x="3843" y="139" width="1720" height="849" maximized="true" key="DiffContextDialog/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589826534544" />
-    <state width="1897" height="344" key="GridCell.Tab.0.bottom" timestamp="1589826503599">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.0.bottom" timestamp="1598121887092">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="344" key="GridCell.Tab.0.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589826503599" />
-    <state width="1897" height="316" key="GridCell.Tab.0.bottom/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589680029683" />
-    <state width="1897" height="344" key="GridCell.Tab.0.center" timestamp="1589826503599">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.0.bottom/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121887092" />
+    <state width="1897" height="283" key="GridCell.Tab.0.center" timestamp="1598121887092">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="344" key="GridCell.Tab.0.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589826503599" />
-    <state width="1897" height="316" key="GridCell.Tab.0.center/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589680029683" />
-    <state width="1897" height="344" key="GridCell.Tab.0.left" timestamp="1589826503598">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.0.center/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121887092" />
+    <state width="1897" height="283" key="GridCell.Tab.0.left" timestamp="1598121887092">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="344" key="GridCell.Tab.0.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589826503598" />
-    <state width="1897" height="316" key="GridCell.Tab.0.left/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589680029682" />
-    <state width="1897" height="344" key="GridCell.Tab.0.right" timestamp="1589826503599">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.0.left/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121887092" />
+    <state width="1897" height="283" key="GridCell.Tab.0.right" timestamp="1598121887092">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="344" key="GridCell.Tab.0.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589826503599" />
-    <state width="1897" height="316" key="GridCell.Tab.0.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589680029683" />
-    <state width="1897" height="236" key="GridCell.Tab.1.bottom" timestamp="1589818231510">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.0.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121887092" />
+    <state width="1897" height="283" key="GridCell.Tab.1.bottom" timestamp="1598121886894">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.1.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231510" />
-    <state width="1897" height="426" key="GridCell.Tab.1.bottom/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970548" />
-    <state width="1897" height="236" key="GridCell.Tab.1.center" timestamp="1589818231510">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.1.bottom/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886894" />
+    <state width="1897" height="283" key="GridCell.Tab.1.center" timestamp="1598121886894">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.1.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231510" />
-    <state width="1897" height="426" key="GridCell.Tab.1.center/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970548" />
-    <state width="1897" height="236" key="GridCell.Tab.1.left" timestamp="1589818231510">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.1.center/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886894" />
+    <state width="1897" height="283" key="GridCell.Tab.1.left" timestamp="1598121886894">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.1.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231510" />
-    <state width="1897" height="426" key="GridCell.Tab.1.left/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970548" />
-    <state width="1897" height="236" key="GridCell.Tab.1.right" timestamp="1589818231510">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.1.left/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886894" />
+    <state width="1897" height="283" key="GridCell.Tab.1.right" timestamp="1598121886894">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.1.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231510" />
-    <state width="1897" height="426" key="GridCell.Tab.1.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970548" />
-    <state width="1897" height="236" key="GridCell.Tab.2.bottom" timestamp="1589818231510">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.1.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886894" />
+    <state width="1897" height="283" key="GridCell.Tab.2.bottom" timestamp="1598121886894">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.2.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231510" />
-    <state width="1897" height="426" key="GridCell.Tab.2.bottom/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970549" />
-    <state width="1897" height="236" key="GridCell.Tab.2.center" timestamp="1589818231510">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.2.bottom/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886894" />
+    <state width="1897" height="283" key="GridCell.Tab.2.center" timestamp="1598121886894">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.2.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231510" />
-    <state width="1897" height="426" key="GridCell.Tab.2.center/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970549" />
-    <state width="1897" height="236" key="GridCell.Tab.2.left" timestamp="1589818231510">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.2.center/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886894" />
+    <state width="1897" height="283" key="GridCell.Tab.2.left" timestamp="1598121886894">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.2.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231510" />
-    <state width="1897" height="426" key="GridCell.Tab.2.left/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970548" />
-    <state width="1897" height="236" key="GridCell.Tab.2.right" timestamp="1589818231510">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.2.left/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886894" />
+    <state width="1897" height="283" key="GridCell.Tab.2.right" timestamp="1598121886894">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.2.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231510" />
-    <state width="1897" height="426" key="GridCell.Tab.2.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970549" />
-    <state width="1897" height="236" key="GridCell.Tab.3.bottom" timestamp="1589818231511">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.2.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886894" />
+    <state width="1897" height="283" key="GridCell.Tab.3.bottom" timestamp="1598121886895">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.3.bottom/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231511" />
-    <state width="1897" height="426" key="GridCell.Tab.3.bottom/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970549" />
-    <state width="1897" height="236" key="GridCell.Tab.3.center" timestamp="1589818231511">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.3.bottom/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886895" />
+    <state width="1897" height="283" key="GridCell.Tab.3.center" timestamp="1598121886895">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.3.center/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231511" />
-    <state width="1897" height="426" key="GridCell.Tab.3.center/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970549" />
-    <state width="1897" height="236" key="GridCell.Tab.3.left" timestamp="1589818231511">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.3.center/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886895" />
+    <state width="1897" height="283" key="GridCell.Tab.3.left" timestamp="1598121886894">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.3.left/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231511" />
-    <state width="1897" height="426" key="GridCell.Tab.3.left/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970549" />
-    <state width="1897" height="236" key="GridCell.Tab.3.right" timestamp="1589818231511">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1897" height="283" key="GridCell.Tab.3.left/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886894" />
+    <state width="1897" height="283" key="GridCell.Tab.3.right" timestamp="1598121886895">
+      <screen x="0" y="24" width="1920" height="993" />
     </state>
     <state width="1897" height="236" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231511" />
-    <state width="1897" height="426" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589679970549" />
-    <state x="560" y="230" key="Vcs.Push.Dialog.v2" timestamp="1590006435214">
-      <screen x="0" y="24" width="1920" height="993" />
+    <state width="1897" height="283" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598121886895" />
+    <state x="560" y="243" key="Vcs.Push.Dialog.v2" timestamp="1590423115880">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589826545081" />
+    <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1590423115880" />
     <state x="560" y="230" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1590006435214" />
-    <state x="608" y="217" width="704" height="578" key="find.popup" timestamp="1589534245843">
+    <state x="1002" y="202" width="704" height="578" key="find.popup" timestamp="1598122392580">
       <screen x="0" y="24" width="1920" height="993" />
     </state>
-    <state x="608" y="217" width="704" height="578" key="find.popup/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1589534245843" />
+    <state x="1002" y="202" width="704" height="578" key="find.popup/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598122392580" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

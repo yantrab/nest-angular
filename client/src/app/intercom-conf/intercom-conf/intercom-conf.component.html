@@ -141,7 +141,7 @@
                 <button mat-button style="height: 50px" (click)="dump()">הורד</button>
                 <div style="height: 50px" class="upload-btn-wrapper">
                     <button mat-button>העלה</button>
-                    <input type="file" name="myfile" />
+                    <input type="file" name="myfile" (change)="handleFileInput($event.target.files)" />
                 </div>
             </div>
         </div>

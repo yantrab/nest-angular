@@ -22,6 +22,16 @@ export class ContactField extends Entity {
     @IsOptional()
     @IsString()
     lastValue?: number;
+    @IsOptional()
+    @IsNumber()
+    emptySpace?: number;
+    constructor(contact: Partial<ContactField>) {
+        super(contact);
+    }
+}
+export enum ContactNameDirection{
+    LTR,
+    RTL
 }
 
 export enum FieldType {
@@ -82,6 +92,9 @@ export class Contacts extends Entity {
     @IsOptional()
     changesList?: any[];
 
+    @IsOptional()
+    @IsEnum(ContactNameDirection) nameDirection?: ContactNameDirection = ContactNameDirection.LTR;
+
     constructor(contacts: Partial<Contacts>) {
         super(contacts);
         this.contactFields = this.contactFields.map(f => new ContactField(f));
@@ -137,12 +150,14 @@ export class Panel extends Entity {
             const index = field.index;
             const all = this.contacts.list
                 .map(c =>
+                    (field.emptySpace ? (' '.repeat(field.emptySpace) + (this.contacts.nameDirection == ContactNameDirection.LTR ? ' ' : '')) : '') +
                     (c[field.property] ? c[field.property] + ' '.repeat(fieldLength) : ' '.repeat(fieldLength)).slice(
                         0,
                         fieldLength,
                     ),
                 )
                 .join('');
+
             all.split('').forEach((c, i) => {
                 arr[index + i] = c;
             });
@@ -164,12 +179,13 @@ export class Panel extends Entity {
         });
         return arr.join('');
     }
+
     reDump(dump: string) {
         this.contacts.contactFields.forEach(field => {
             const fieldLength = field.length;
             const index = field.index;
             this.contacts.list.forEach((item, i) => {
-                const start = index + i * fieldLength;
+                const start = index + i * fieldLength + (field.emptySpace ? (field.emptySpace + (this.contacts.nameDirection == ContactNameDirection.LTR ? 1 : 0)) : 0);
                 const end = start + fieldLength;
                 item[field.property] = dump.slice(start, end).trim();
             });
