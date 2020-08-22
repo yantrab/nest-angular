@@ -89,8 +89,6 @@ export class ContactsComponent implements OnInit {
                 });
             }
             this.ref.markForCheck();
-
-            //this.contacts = {...this.contacts} as any;
         };
         reader.readAsArrayBuffer(file);
     }
