@@ -13,7 +13,10 @@ export class MPPanel extends Panel {
                     contacts: new Contacts({
                         count: 249,
                         contactFields: [
-                            new ContactField({ property: 'Name', title: 'שם 1', index: 2551, length: 12, emptySpace: 4}),
+                            new ContactField({ property: 'Name 1_1', title: 'שם 1_1', index: 2551, length: 12, emptySpace: 3}),
+                            new ContactField({ property: 'Name 1_2', title: 'שם 1_2', index: 6551, length: 12, emptySpace: 3}),
+                            new ContactField({ property: 'Name 2_1', title: 'שם 2_1', index: 2567, length: 12, emptySpace: 3}),
+                            new ContactField({ property: 'Name 2_2', title: 'שם 2_2', index: 6567, length: 12, emptySpace: 3}),
                             new ContactField({ property: 'Tel1Num', title: 'טלפון 1', index: 36382, length: 15 }),
                             new ContactField({ property: 'Tel2Num', title: 'טלפון 2', index: 40132, length: 15 }),
                             new ContactField({ property: 'Tel3Num', title: 'טלפון 3', index: 43882, length: 15 }),
