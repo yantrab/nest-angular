@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="a">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/mp.panel.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,14 +224,7 @@
       <workItem from="1597883806042" duration="21651000" />
       <workItem from="1598231841829" duration="2239000" />
       <workItem from="1598327801120" duration="1577000" />
-      <workItem from="1598338954110" duration="15000" />
-    </task>
-    <task id="LOCAL-00060" summary="colors">
-      <created>1578969927845</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1578969927845</updated>
+      <workItem from="1598338954110" duration="306000" />
     </task>
     <task id="LOCAL-00061" summary="colors">
       <created>1579058746420</created>
@@ -570,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598328919716</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="a">
+      <created>1598338975583</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1598338975583</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -750,11 +749,11 @@
     <state width="1897" height="283" key="GridCell.Tab.3.right/0.24.1920.993@0.24.1920.993" timestamp="1598243286714" />
     <state width="1897" height="236" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1589818231511" />
     <state width="1897" height="283" key="GridCell.Tab.3.right/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598161651234" />
-    <state x="560" y="230" key="Vcs.Push.Dialog.v2" timestamp="1598328925179">
-      <screen x="0" y="24" width="1920" height="993" />
+    <state x="560" y="243" key="Vcs.Push.Dialog.v2" timestamp="1598338977919">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="560" y="230" key="Vcs.Push.Dialog.v2/0.24.1920.993@0.24.1920.993" timestamp="1598232562646" />
-    <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1590423115880" />
+    <state x="560" y="243" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.1056/3840.115.1920.1080@0.24.1920.1056" timestamp="1598338977919" />
     <state x="560" y="230" key="Vcs.Push.Dialog.v2/1920.115.1920.1080/0.24.1920.993/3840.115.1920.1080@0.24.1920.993" timestamp="1598328925179" />
     <state x="1002" y="202" width="704" height="578" key="find.popup" timestamp="1598232225865">
       <screen x="0" y="24" width="1920" height="993" />
