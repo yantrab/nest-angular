@@ -177,10 +177,29 @@ export class Panel extends Entity {
                 }
             });
         });
+
+        // Hebrew fix
+        for (let i = 0; i < arr.length; i++)
+        {
+            let value = arr[i];
+            const code = value.charCodeAt(0)
+            if (code < 155 && code > 127)
+               arr[i] = String.fromCharCode(code + 32);
+        }
         return arr.join('');
     }
 
     reDump(dump: string) {
+        // Hebrew fix
+        const arr = dump.split('');
+        for (let i = 0; i < dump.length; i++) {
+            let value = arr[i];
+            const code = value.charCodeAt(0)
+            if (code < 187 && code > 159)
+                arr[i] = String.fromCharCode(code - 32);
+        }
+        dump = arr.join('');
+
         this.contacts.contactFields.forEach(field => {
             const fieldLength = field.length;
             const index = field.index;
