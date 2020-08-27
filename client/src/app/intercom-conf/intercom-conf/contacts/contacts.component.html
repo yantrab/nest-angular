@@ -38,7 +38,7 @@
                     <mat-form-field *ngIf="inEdit">
                         <input
                                 autocomplete="off"
-                                [maxlength]="field.length"
+                                [maxlength]="field.maxLength || field.length"
                                 #ref
                                 (blur)="inEdit = false"
                                 (change)="signChange(+row['id'] - 1, field)"

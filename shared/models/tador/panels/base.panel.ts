@@ -19,6 +19,11 @@ export class ContactField extends Entity {
     @IsOptional()
     @IsNumber()
     length?: number;
+
+    @IsOptional()
+    @IsNumber()
+    maxLength?: number;
+
     @IsOptional()
     @IsString()
     lastValue?: number;
@@ -110,6 +115,7 @@ export class Contacts extends Entity {
             });
         }
     }
+
 }
 export class Panel extends Entity {
     @IsOptional()
@@ -150,11 +156,9 @@ export class Panel extends Entity {
             const index = field.index;
             const all = this.contacts.list
                 .map(c =>
-                    (field.emptySpace ? (' '.repeat(field.emptySpace) + (this.contacts.nameDirection == ContactNameDirection.LTR ? ' ' : '')) : '') +
-                    (c[field.property] ? c[field.property] + ' '.repeat(fieldLength) : ' '.repeat(fieldLength)).slice(
-                        0,
-                        fieldLength,
-                    ),
+                    (c[field.property] ?
+                        ' '.repeat(fieldLength - (field.maxLength || 0)) +  (c[field.property] + ' '.repeat(fieldLength))
+                        : ' '.repeat(fieldLength)).slice(0, fieldLength),
                 )
                 .join('');
 
@@ -183,8 +187,8 @@ export class Panel extends Entity {
         {
             let value = arr[i];
             const code = value.charCodeAt(0)
-            if (code < 155 && code > 127)
-               arr[i] = String.fromCharCode(code + 32);
+            if (code < 1515 && code > 1487)
+               arr[i] = String.fromCharCode(code - 1327);
         }
         return arr.join('');
     }
@@ -196,7 +200,7 @@ export class Panel extends Entity {
             let value = arr[i];
             const code = value.charCodeAt(0)
             if (code < 187 && code > 159)
-                arr[i] = String.fromCharCode(code - 32);
+                arr[i] = String.fromCharCode(code + 1327);
         }
         dump = arr.join('');
 
@@ -204,7 +208,7 @@ export class Panel extends Entity {
             const fieldLength = field.length;
             const index = field.index;
             this.contacts.list.forEach((item, i) => {
-                const start = index + i * fieldLength + (field.emptySpace ? (field.emptySpace + (this.contacts.nameDirection == ContactNameDirection.LTR ? 1 : 0)) : 0);
+                const start = index + i * fieldLength;
                 const end = start + fieldLength;
                 item[field.property] = dump.slice(start, end).trim();
             });
