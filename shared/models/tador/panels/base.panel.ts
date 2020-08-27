@@ -188,7 +188,7 @@ export class Panel extends Entity {
             let value = arr[i];
             const code = value.charCodeAt(0)
             if (code < 1515 && code > 1487)
-               arr[i] = String.fromCharCode(code - 1327);
+               arr[i] = String.fromCharCode(code + 32);
         }
         return arr.join('');
     }
@@ -199,8 +199,8 @@ export class Panel extends Entity {
         for (let i = 0; i < dump.length; i++) {
             let value = arr[i];
             const code = value.charCodeAt(0)
-            if (code < 187 && code > 159)
-                arr[i] = String.fromCharCode(code + 1327);
+            if (code < (1515 - 32) && code > (1487 + 32))
+                arr[i] = String.fromCharCode(code  - 32);
         }
         dump = arr.join('');
 
