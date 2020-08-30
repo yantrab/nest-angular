@@ -2,8 +2,8 @@ import { Socket } from 'net';
 import { getRandomToken } from '../utils';
 import { ActionType, PanelType } from '../../../shared/models/tador/enum';
 const port = 4000;
-let pId = '861311009983668'; //'1'//
-const host = '128.199.41.162'; //'localhost'; //
+let pId = '2'//'861311009983668'; //'1'//
+const host = 'localhost'; //'128.199.41.162'; //
 describe('tador', async () => {
     beforeAll(async () => {
         // pId = await getRandomToken();
@@ -18,6 +18,7 @@ describe('tador', async () => {
                 console.log('Connected');
                 client.write(str);
                 client.on('data', data => {
+                    console.log(data)
                     client.end();
                     client.on('close', () => {
                         console.log(data.toString());

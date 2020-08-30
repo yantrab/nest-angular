@@ -8,6 +8,7 @@ import { Entity } from 'shared/models';
 import { keyBy, values } from 'lodash';
 import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
+import { buffer } from 'rxjs/operators';
 
 class PanelDump extends Entity {
     dump: string;
@@ -311,8 +312,8 @@ export class TadorService {
 
                     logger.log('return: ' + result);
                     // logger.log('return length: ' + result.length);
-
-                    return sock.write(result);
+                    const buffer = Buffer.from(result, 'utf8');
+                    return sock.write(buffer.filter(a => a !== 194));
                 } catch (e) {
                     logger.error(e);
                     sock.write('100');

@@ -1,13 +1,12 @@
 <div style="height:100%" fxLayout="column">
     <div fxFlex="50px"  fxLayoutAlign="space-between center"  fxLayout="row" >
         <div>
-            <label>כיוון כתיבת שמות:</label>
             <mat-radio-group [(ngModel)]="contacts.nameDirection">
                 <mat-radio-button class="example-margin" [value]="ContactNameDirection.RTL">
-                    ימין לשמאל
+                    עברית
                 </mat-radio-button>
                 <mat-radio-button class="example-margin" [value]="ContactNameDirection.LTR">
-                    שמאל לימין
+                   אנגלית
                 </mat-radio-button>
             </mat-radio-group>
         </div>

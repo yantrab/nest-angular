@@ -114,6 +114,7 @@ export class Contacts extends Entity {
                 );
             });
         }
+        this.nameDirection = contacts.nameDirection;
     }
 
 }
@@ -155,13 +156,20 @@ export class Panel extends Entity {
             const fieldLength = field.length;
             const index = field.index;
             const all = this.contacts.list
-                .map(c =>
-                    (c[field.property] ?
-                        ' '.repeat(fieldLength - (field.maxLength || 0)) +  (c[field.property] + ' '.repeat(fieldLength))
-                        : ' '.repeat(fieldLength)).slice(0, fieldLength),
-                )
-                .join('');
+                .map(c => {
+                    let result = c[field.property];
+                    if (!result){return;}
+                    if (this.contacts.nameDirection === ContactNameDirection.RTL) {
+                        result = result.split('').reverse().join('');
+                    }
+                    // prefix
+                    result = ' '.repeat(fieldLength - (field.maxLength || 0)) + result;
 
+                    // postfix
+                    result = (result + ' '.repeat(fieldLength)).slice(0, fieldLength)
+                    return result;
+                })
+                .join('');
             all.split('').forEach((c, i) => {
                 arr[index + i] = c;
             });
@@ -211,6 +219,9 @@ export class Panel extends Entity {
                 const start = index + i * fieldLength;
                 const end = start + fieldLength;
                 item[field.property] = dump.slice(start, end).trim();
+                if (this.contacts.nameDirection === ContactNameDirection.RTL) {
+                    item[field.property].split('').reverse().join('');
+                }
             });
         });
 
