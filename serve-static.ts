@@ -17,14 +17,33 @@ const mimeTypes = {
     '.eot': 'application/vnd.ms-fontobject',
     '.otf': 'application/font-otf',
     '.wasm': 'application/wasm',
+    '.gz':'application/gzip'
 };
+const cache = {};
 
 fastify.get('*', (_, reply) => {
-    const filePath = extname(_.raw.url) ? './client/dist' + _.raw.url : './client/dist/index.html';
-    const ext = extname(filePath).toLowerCase();
-    const contentType = mimeTypes[ext] || 'application/octet-stream';
-    const stream = fs.createReadStream(filePath)
-    reply.type(contentType).send(stream)
+    try{
+        const filePath = extname(_.raw.url) ? './client/dist' + _.raw.url : './client/dist/index.html';
+        const ext = extname(filePath).toLowerCase();
+        let contentType = mimeTypes[ext] || 'application/octet-stream';
+        if (!cache[filePath]){
+            if (fs.existsSync(filePath))
+                cache[filePath] =  {file:fs.readFileSync(filePath), type:contentType}
+            else {
+                cache[filePath] = {file:fs.readFileSync(filePath + '.gz'), type: mimeTypes['.gz']}
+            }
+        }
+
+        const file = cache[filePath];
+        if (file.type === mimeTypes['.gz']){
+            reply.header('Content-Encoding', 'gzip').type(file.type).send(file.file)
+        } else{
+            reply.type(file.type).send(file.file)
+        }
+    }
+    catch (e) {
+
+    }
 })
 
 // Run the server!
