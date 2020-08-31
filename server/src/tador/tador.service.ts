@@ -319,13 +319,13 @@ export class TadorService {
                     logger.log('return: ' + result);
                     // logger.log('return length: ' + result.length);
                     let buffer = Buffer.from(result, 'utf8');
-                    logger.log('return: ' + JSON.stringify(buffer));
+                    logger.log('return buffer 1: ' + JSON.stringify(buffer));
                     for (let i = 0; i < buffer.length; i++) {
                         if (buffer[i] < 171 && buffer[i] > 143) {
                             buffer = Buffer.concat([buffer.slice(0, i - 1), new Buffer([buffer[i] + 16]), buffer.slice(i + 1, buffer.length + 1)]);
-                            i++;
                         }
                     }
+                    logger.log('return buffer 2: ' + JSON.stringify(buffer));
 
                     return sock.write(buffer);
                 } catch (e) {

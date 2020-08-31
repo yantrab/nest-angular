@@ -16,7 +16,7 @@ describe('tador', async () => {
 
             client.connect(port, host, function() {
                 console.log('Connected');
-                client.write(new Buffer([186, 35, 184]));
+                client.write(str);
                 client.on('data', data => {
                     console.log(data)
                     client.end();

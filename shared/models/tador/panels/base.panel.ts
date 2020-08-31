@@ -222,7 +222,7 @@ export class Panel extends Entity {
                 const end = start + fieldLength;
                 item[field.property] = dump.slice(start, end).trim();
                 if (this.contacts.nameDirection === ContactNameDirection.RTL) {
-                    item[field.property].split('').reverse().join('');
+                    item[field.property] = item[field.property].split('').reverse().join('');
                 }
             });
         });
