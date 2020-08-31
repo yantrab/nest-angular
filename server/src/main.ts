@@ -30,6 +30,7 @@ async function bootstrap() {
         origin: [
             'https://localhost:4200',
             'http://localhost:4200',
+            'http://localhost:3200',
             'http://128.199.41.162:4200'
         ],
         optionsSuccessStatus: 200,

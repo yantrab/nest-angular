@@ -5,10 +5,9 @@ import { Panel, Source } from 'shared/models/tador/panels';
 import { createServer, Socket } from 'net';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
-import { keyBy, values } from 'lodash';
+import { keyBy, values, cloneDeep } from 'lodash';
 import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
-import { buffer } from 'rxjs/operators';
 
 class PanelDump extends Entity {
     dump: string;
@@ -259,6 +258,13 @@ export class TadorService {
             sock.on('data', async msg => {
                 timeOut.refresh();
                 try {
+                    logger.log('DATA: ' + JSON.stringify(msg));
+                    for (let i = 0; i < msg.length; i++) {
+                        if (msg[i] < 187 && msg[i] > 159) {
+                            msg = Buffer.concat([msg.slice(0, i), new Buffer([215, msg[i] - 16]), msg.slice(i + 1, msg.length + 1)]);
+                            i++;
+                        }
+                    }
                     const msgString = msg.toString('utf8');
                     logger.log('DATA: ' + msgString);
                     let action: Action;
@@ -298,22 +304,30 @@ export class TadorService {
                             result = await this.getStatus(action as any);
                             break;
                     }
-                    result = result
-                        .split('')
-                        .map(l => {
-                            const code = l.charCodeAt(0);
-                            return String.fromCharCode(code < 32 ? 32 : code);
-                        })
-                        .join('');
-                    result = result.split('').map(l => {
-                        const code = l.charCodeAt(0);
-                        return String.fromCharCode((code < 32 || code > 256) ? 32 : code);
-                    }).join('');
+                    // result = result
+                    //     .split('')
+                    //     .map(l => {
+                    //         const code = l.charCodeAt(0);
+                    //         return String.fromCharCode(code < 32 ? 32 : code);
+                    //     })
+                    //     .join('');
+                    // result = result.split('').map(l => {
+                    //     const code = l.charCodeAt(0);
+                    //     return String.fromCharCode((code < 32 || code > 256) ? 32 : code);
+                    // }).join('');
 
                     logger.log('return: ' + result);
                     // logger.log('return length: ' + result.length);
-                    const buffer = Buffer.from(result, 'utf8');
-                    return sock.write(buffer.filter(a => a !== 194));
+                    let buffer = Buffer.from(result, 'utf8');
+                    logger.log('return: ' + JSON.stringify(buffer));
+                    for (let i = 0; i < buffer.length; i++) {
+                        if (buffer[i] < 171 && buffer[i] > 143) {
+                            buffer = Buffer.concat([buffer.slice(0, i - 1), new Buffer([buffer[i] + 16]), buffer.slice(i + 1, buffer.length + 1)]);
+                            i++;
+                        }
+                    }
+
+                    return sock.write(buffer);
                 } catch (e) {
                     logger.error(e);
                     sock.write('100');
