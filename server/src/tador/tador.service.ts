@@ -258,13 +258,15 @@ export class TadorService {
             sock.on('data', async msg => {
                 timeOut.refresh();
                 try {
-                    logger.log('DATA: ' + JSON.stringify(msg));
+                    logger.log('DATA 1: ' + JSON.stringify(msg));
                     for (let i = 0; i < msg.length; i++) {
                         if (msg[i] < 187 && msg[i] > 159) {
                             msg = Buffer.concat([msg.slice(0, i), new Buffer([215, msg[i] - 16]), msg.slice(i + 1, msg.length + 1)]);
                             i++;
                         }
                     }
+                    logger.log('DATA 2: ' + JSON.stringify(msg));
+
                     const msgString = msg.toString('utf8');
                     logger.log('DATA: ' + msgString);
                     let action: Action;
@@ -486,12 +488,7 @@ export class TadorService {
         }
         this.signChanges(panel, oldDump, dump.join(''), Source.Panel, panel.contacts.changesList);
         for (let i = start; i < start + length; i++) {
-            let value = action.data.data[i - start]
-            const code = value.charCodeAt(0)
-            if (code < 32 || code > 256)
-                value = ' '
-
-            dump[i] = value;
+            dump[i] = action.data.data[i - start]
         }
         panel.reDump(dump.join(''));
         const saveResult = await this.panelRepo.saveOrUpdateOne(panel);

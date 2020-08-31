@@ -42,7 +42,7 @@ fastify.get('*', (_, reply) => {
         }
     }
     catch (e) {
-
+        console.log(e)
     }
 })
 

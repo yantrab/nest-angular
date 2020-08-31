@@ -159,9 +159,9 @@ export class Panel extends Entity {
                 .map(c => {
                     let result = c[field.property];
                     if (!result){return;}
-                    if (this.contacts.nameDirection === ContactNameDirection.RTL) {
-                        result = result.split('').reverse().join('');
-                    }
+                    // if (this.contacts.nameDirection === ContactNameDirection.RTL) {
+                    //     result = result.split('').reverse().join('');
+                    // }
                     // prefix
                     result = ' '.repeat(fieldLength - (field.maxLength || 0)) + result;
 
@@ -221,10 +221,11 @@ export class Panel extends Entity {
                 const start = index + i * fieldLength;
                 const end = start + fieldLength;
                 item[field.property] = dump.slice(start, end).trim();
-                if (this.contacts.nameDirection === ContactNameDirection.RTL) {
-                    item[field.property] = item[field.property].split('').reverse().join('');
-                }
+                // if (this.contacts.nameDirection === ContactNameDirection.RTL) {
+                //     item[field.property] = item[field.property].split('').reverse().join('');
+                // }
             });
+
         });
 
         this.settings.forEach(s => {
