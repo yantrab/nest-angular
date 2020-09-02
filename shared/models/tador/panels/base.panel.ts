@@ -159,11 +159,8 @@ export class Panel extends Entity {
                 .map(c => {
                     let result = c[field.property];
                     if (!result){return;}
-                    // if (this.contacts.nameDirection === ContactNameDirection.RTL) {
-                    //     result = result.split('').reverse().join('');
-                    // }
                     // prefix
-                    result = ' '.repeat(fieldLength - (field.maxLength || 0)) + result;
+                    result = ' '.repeat(fieldLength - (field.maxLength || fieldLength)) + result;
 
                     // postfix
                     result = (result + ' '.repeat(fieldLength)).slice(0, fieldLength)
