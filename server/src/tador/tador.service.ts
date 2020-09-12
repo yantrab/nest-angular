@@ -488,7 +488,14 @@ export class TadorService {
         }
         this.signChanges(panel, oldDump, dump.join(''), Source.Panel, panel.contacts.changesList);
         for (let i = start; i < start + length; i++) {
-            dump[i] = action.data.data[i - start]
+            const value = action.data.data[i - start];
+            if (value === String.fromCharCode(0)){
+                for (let j = i; j < start + length; j++) {
+                    dump[j] = ' ';
+                }
+                break;
+            }
+            dump[i] = value;
         }
         panel.reDump(dump.join(''));
         const saveResult = await this.panelRepo.saveOrUpdateOne(panel);

@@ -1,13 +1,11 @@
-version: "2"
+version: '3.7'
 services:
-  mongo:
-    image: mongo:3.6
-    container_name: mongo
+  mongodb_container:
+    image: mongo:latest
+    ports:
+      - 27017:27017
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      MONGODB_USER: "test"
-      MONGODB_PASS: "test1234"
-    networks:
-      dev:
-        ipv4_address: 10.1.1.1
+      - mongodb_data_container:/data/db
+
+volumes:
+  mongodb_data_container:
