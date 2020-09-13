@@ -157,8 +157,8 @@ export class Panel extends Entity {
             const index = field.index;
             const all = this.contacts.list
                 .map(c => {
-                    let result = c[field.property];
-                    if (!result){return;}
+                    let result = c[field.property] || '';
+
                     // prefix
                     result = ' '.repeat(fieldLength - (field.maxLength || fieldLength)) + result;
 
