@@ -150,6 +150,35 @@ export class Panel extends Entity {
 
         // if (this.constructor.name === 'Panel') return new panels[panel.type](panel);
     }
+
+    private swap(name: string, start: number, end: number){
+        return name.slice(0, start) + name.slice(start, end + 1).split('').reverse().join('') + name.slice(end + 1);
+    }
+
+    private reverse(name: string){
+        let start;
+        let end;
+        for (let i=0; i < name.length; i++) {
+            const code = name.charCodeAt(i)
+            if (code != 32 && code < 122){
+                if (start){
+                    end = i;
+                } else {
+                    start = i;
+                }
+            } else{
+                if(start !== undefined && end !== undefined){
+                    name = this.swap(name, start, end);
+                }
+                end = start = undefined;
+            }
+        }
+        if(start !== undefined && end !== undefined){
+            name = this.swap(name, start, end);
+        }
+
+        return name;
+    }
     dump() {
         const arr = new Array(this.maxEEprom).fill(' ');
         this.contacts.contactFields.forEach(field => {
@@ -164,6 +193,10 @@ export class Panel extends Entity {
 
                     // postfix
                     result = (result + ' '.repeat(fieldLength)).slice(0, fieldLength)
+
+                    if (field.property.startsWith('Name') && this.contacts.nameDirection === ContactNameDirection.RTL){
+                        result = this.reverse(result);
+                    }
                     return result;
                 })
                 .join('');
@@ -218,9 +251,9 @@ export class Panel extends Entity {
                 const start = index + i * fieldLength;
                 const end = start + fieldLength;
                 item[field.property] = dump.slice(start, end).trim();
-                // if (this.contacts.nameDirection === ContactNameDirection.RTL) {
-                //     item[field.property] = item[field.property].split('').reverse().join('');
-                // }
+                if (field.property.startsWith('Name') && this.contacts.nameDirection === ContactNameDirection.RTL){
+                    item[field.property] = this.reverse(item[field.property]);
+                }
             });
 
         });
