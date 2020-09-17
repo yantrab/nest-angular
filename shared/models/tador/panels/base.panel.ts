@@ -145,17 +145,17 @@ export class Panel extends Entity {
     address?: string;
     constructor(panel?: Partial<Panel>) {
         super(panel);
+        this.contacts.nameDirection = this.contacts.nameDirection || ContactNameDirection.RTL;
         this.contacts = new Contacts(panel.contacts);
         this.settings = panel.settings.map(s => new Settings(s));
         const maxNameLength = this.contacts.nameDirection === ContactNameDirection.RTL ? 12 : 13
         this.contacts.contactFields[0].maxLength = maxNameLength;
         this.contacts.contactFields[1].maxLength = maxNameLength;
-        this.contacts.nameDirection = this.contacts.nameDirection || ContactNameDirection.RTL;
     }
 
     private reverse(name: string){
         const arr = name.match(/[A-Za-z0-9]+[A-Za-z0-9 ]*[A-Za-z0-9]+/g);
-        if (!arr) return ;
+        if (!arr) return name;
         arr.forEach(r => {
             name = name.replace(r, r.split('').reverse().join(''))
         })
