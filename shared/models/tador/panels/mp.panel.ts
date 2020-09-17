@@ -3,7 +3,6 @@ import { merge } from 'lodash';
 
 export class MPPanel extends Panel {
     constructor(panel: Panel, dump?: string) {
-        const maxNameLength =  panel && panel.contacts && panel.contacts.nameDirection === ContactNameDirection.RTL ? 12 : 13
         super(
             merge(
                 {
@@ -14,10 +13,8 @@ export class MPPanel extends Panel {
                     contacts: new Contacts({
                         count: 249,
                         contactFields: [
-                            new ContactField({ property: 'Name 1_1', title: 'שם 1', index: 2551, length: 16,
-                                maxLength: maxNameLength}),
-                            new ContactField({ property: 'Name 1_2', title: 'שם 2', index: 6551, length: 16,
-                                maxLength: maxNameLength}),
+                            new ContactField({ property: 'Name 1_1', title: 'שם 1', index: 2551, length: 16}),
+                            new ContactField({ property: 'Name 1_2', title: 'שם 2', index: 6551, length: 16}),
                             new ContactField({ property: 'Tel1Num', title: 'טלפון 1', index: 36382, length: 15 }),
                             new ContactField({ property: 'Tel2Num', title: 'טלפון 2', index: 40132, length: 15 }),
                             new ContactField({ property: 'Tel3Num', title: 'טלפון 3', index: 43882, length: 15 }),
@@ -285,8 +282,7 @@ export class MPPanel extends Panel {
                 panel,
             ),
         );
+
         if (dump) this.reDump(dump);
-        this.contacts.contactFields[0].maxLength = maxNameLength;
-        this.contacts.contactFields[1].maxLength = maxNameLength;
     }
 }

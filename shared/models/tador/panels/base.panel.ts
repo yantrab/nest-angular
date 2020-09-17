@@ -147,8 +147,10 @@ export class Panel extends Entity {
         super(panel);
         this.contacts = new Contacts(panel.contacts);
         this.settings = panel.settings.map(s => new Settings(s));
-
-        // if (this.constructor.name === 'Panel') return new panels[panel.type](panel);
+        const maxNameLength = this.contacts.nameDirection === ContactNameDirection.RTL ? 12 : 13
+        this.contacts.contactFields[0].maxLength = maxNameLength;
+        this.contacts.contactFields[1].maxLength = maxNameLength;
+        this.contacts.nameDirection = this.contacts.nameDirection || ContactNameDirection.RTL;
     }
 
     private reverse(name: string){
