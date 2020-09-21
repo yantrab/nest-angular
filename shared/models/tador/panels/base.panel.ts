@@ -145,8 +145,8 @@ export class Panel extends Entity {
     address?: string;
     constructor(panel?: Partial<Panel>) {
         super(panel);
-        this.contacts.nameDirection = this.contacts.nameDirection || ContactNameDirection.RTL;
         this.contacts = new Contacts(panel.contacts);
+        this.contacts.nameDirection = this.contacts.nameDirection || ContactNameDirection.RTL;
         this.settings = panel.settings.map(s => new Settings(s));
         const maxNameLength = this.contacts.nameDirection === ContactNameDirection.RTL ? 12 : 13
         this.contacts.contactFields[0].maxLength = maxNameLength;
