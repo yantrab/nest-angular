@@ -11,6 +11,8 @@ import {
 import { ContactNameDirection, Contacts, Source } from 'shared/models/tador/panels';
 import { ColumnDef } from 'mat-virtual-table';
 import { XLSXData, XLSXService } from '../../../shared/services/xlsx.service';
+import { fromEvent, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'p-contacts',
@@ -22,6 +24,8 @@ export class ContactsComponent implements OnInit {
     ContactNameDirection = ContactNameDirection;
     @Input() contacts: Contacts;
     @Output() fieldChange = new EventEmitter();
+    complete$ = new Subject<any>();
+
     @ViewChild('ref', { static: true }) set refField(ref) {
         if (!ref) {
             return;
@@ -34,7 +38,16 @@ export class ContactsComponent implements OnInit {
 
     constructor(private xlsxService: XLSXService, private ref: ChangeDetectorRef) {
     }
+
     ngOnInit() {
+        fromEvent(document, 'keypress').pipe(
+            takeUntil(this.complete$),
+        ).subscribe((e: KeyboardEvent) => {
+            if (this.contacts.nameDirection === ContactNameDirection.LTR && e.keyCode >= 1488) {
+                e.preventDefault();
+            }
+        });
+
         this.contactColumns.push(
             ...this.contacts.contactFields.map(f => ({
                 field: f.property,
@@ -42,6 +55,7 @@ export class ContactsComponent implements OnInit {
             })),
         );
     }
+
     getColor(index, property: string) {
         // console.log(index + property);
         const source: Source = this.contacts.changesList
@@ -68,12 +82,12 @@ export class ContactsComponent implements OnInit {
     }
 
     export() {
-       const data: XLSXData[] = [{rows: this.contacts.list}];
-       this.xlsxService.export(data, ['contacts'], 'contacts.xlsx');
+        const data: XLSXData[] = [{ rows: this.contacts.list }];
+        this.xlsxService.export(data, ['contacts'], 'contacts.xlsx');
     }
 
     handleFileInput(files: FileList) {
-        const file =  files.item(0);
+        const file = files.item(0);
         const reader = new FileReader();
         reader.onload = e => {
             const asd: any[] = this.xlsxService.import(reader.result);
@@ -84,12 +98,17 @@ export class ContactsComponent implements OnInit {
                     const val = asd[i][prop];
                     if (val && this.contacts.list[i][prop] !== val) {
                         this.contacts.list[i][prop] = val;
-                        this.signChange(i, {property: prop});
+                        this.signChange(i, { property: prop });
                     }
                 });
             }
             this.ref.markForCheck();
         };
         reader.readAsArrayBuffer(file);
+    }
+
+    // tslint:disable-next-line:use-lifecycle-interface
+    ngOnDestroy(): void {
+        this.complete$.next();
     }
 }
