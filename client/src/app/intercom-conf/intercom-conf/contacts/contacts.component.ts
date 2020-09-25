@@ -91,7 +91,6 @@ export class ContactsComponent implements OnInit {
         const reader = new FileReader();
         reader.onload = e => {
             this.inProgress = true;
-
             const asd: any[] = this.xlsxService.import(reader.result);
             // tslint:disable-next-line:prefer-for-of
             for (let i = 0; i < asd.length; i++) {
@@ -104,8 +103,8 @@ export class ContactsComponent implements OnInit {
                     }
                 });
             }
+            this.contacts.list = [...this.contacts.list];
             this.ref.detectChanges();
-            this.ref.markForCheck();
             this.myFileInput.nativeElement.value = '';
             this.inProgress = false;
         };
