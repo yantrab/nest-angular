@@ -13,7 +13,6 @@ import { ColumnDef } from 'mat-virtual-table';
 import { XLSXData, XLSXService } from '../../../shared/services/xlsx.service';
 import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-
 @Component({
     selector: 'p-contacts',
     templateUrl: './contacts.component.html',
@@ -25,7 +24,7 @@ export class ContactsComponent implements OnInit {
     @Input() contacts: Contacts;
     @Output() fieldChange = new EventEmitter();
     complete$ = new Subject<any>();
-
+    @ViewChild('myFileInput') myFileInput;
     @ViewChild('ref', { static: true }) set refField(ref) {
         if (!ref) {
             return;
@@ -102,7 +101,9 @@ export class ContactsComponent implements OnInit {
                     }
                 });
             }
+            this.ref.detectChanges();
             this.ref.markForCheck();
+            this.myFileInput.nativeElement.value = '';
         };
         reader.readAsArrayBuffer(file);
     }

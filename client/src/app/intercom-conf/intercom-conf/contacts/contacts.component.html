@@ -13,7 +13,7 @@
         <div  fxLayout="row" >
             <div class="upload-btn-wrapper" >
                 <button mat-button>יבא</button>
-                <input type="file" name="myfile" (change)="handleFileInput($event.target.files)" />
+                <input #myFileInput type="file" name="myfile" (change)="handleFileInput($event.target.files)" />
             </div>
             <button (click)="export()" mat-button>יצא</button>
         </div>

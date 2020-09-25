@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, ViewChild, ViewEncapsulation } from '@angular/core';
 import { TadorController } from 'src/api/tador.controller';
 import { I18nService } from 'src/app/shared/services/i18n.service';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
@@ -24,6 +24,7 @@ Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
     encapsulation: ViewEncapsulation.None,
 })
 export class IntercomConfComponent {
+    @ViewChild('myFileInput') myFileInput;
     socket = Socket(environment.socketUrl);
     constructor(
         private api: TadorController,
@@ -143,6 +144,8 @@ export class IntercomConfComponent {
         const reader = new FileReader();
         reader.onload = e => {
             this.selectedPanel.reDump(reader.result.toString());
+            this.ref.detectChanges();
+            this.myFileInput.nativeElement.value = '';
         };
         reader.readAsText(file);
     }
