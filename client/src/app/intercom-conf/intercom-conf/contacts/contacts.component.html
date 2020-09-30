@@ -11,6 +11,7 @@
             </mat-radio-group>
         </div>
         <div  fxLayout="row" >
+            <button (click)="sendStatus.emit(ActionType.nameOrder)" mat-button>ארגן שמות</button>
             <div class="upload-btn-wrapper" >
                 <button mat-button>יבא</button>
                 <input #myFileInput type="file" name="myfile" (change)="handleFileInput($event.target.files)" />
