@@ -1,13 +1,14 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Repository, RepositoryFactory } from 'mongo-nest';
 import * as Panels from 'shared/models/tador/panels';
-import { Panel, Source } from 'shared/models/tador/panels';
+import { ContactNameDirection, Panel, Source } from 'shared/models/tador/panels';
 import { createServer, Socket } from 'net';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
 import { keyBy, values, cloneDeep } from 'lodash';
 import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
+import { dumps } from './initial_daumps';
 
 class PanelDump extends Entity {
     dump: string;
@@ -513,8 +514,9 @@ export class TadorService {
         return this.panelDumpRepo.saveOrUpdateOne(dump || { panelId: panel.panelId, dump: panel.dump() });
     }
 
-    async addNewPanel(param: { panelId: string; type: PanelType; userId: any }): Promise<Panel> {
-        const panel = new Panels[param.type + 'Panel'](param);
+    async addNewPanel(param: { panelId: string; type: PanelType; userId: any, direction: ContactNameDirection }): Promise<Panel> {
+        const panel: Panel = new Panels[param.type + 'Panel'](param);
+        panel.reDump(dumps[param.type][param.direction])
         panel.name = panel.panelId;
         panel._id = (await this.panelRepo.collection.insertOne(panel)).insertedId;
         await this.saveDump(panel);

@@ -44,7 +44,7 @@ export class AdminComponent {
             this.model = {
                 app: App[this.route.snapshot.params.site] as any,
                 userFormModel: {
-                    feilds: [
+                    fields: [
                         { placeHolder: 'אמייל', key: 'email' },
                         { placeHolder: 'חברה', key: 'company' },
                         { placeHolder: 'שם פרטי', key: 'fName' },

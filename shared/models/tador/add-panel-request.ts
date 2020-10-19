@@ -1,5 +1,6 @@
-import { IsNumberString, IsString, NotEquals } from 'class-validator';
+import { IsEnum, IsNumberString, IsString, NotEquals } from 'class-validator';
 import { registerDecorator, ValidationOptions, ValidationArguments } from 'class-validator';
+import { ContactNameDirection } from './panels';
 
 export function IsMatch(property: string, validationOptions?: ValidationOptions) {
     return function(object: Object, propertyName: string) {
@@ -26,6 +27,10 @@ export function IsMatch(property: string, validationOptions?: ValidationOptions)
 }
 
 export class AddPanelRequest {
+
+    @IsEnum(ContactNameDirection)
+    nameDirection: ContactNameDirection = ContactNameDirection.RTL;
+
     @IsNumberString() @IsString() iemi: string;
 
     @IsNumberString()

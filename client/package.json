@@ -46,7 +46,7 @@
         "luxon": "^1.16.0",
         "mat-virtual-table": "^9.0.2",
         "ng-dialog-animation": "^1.0.0",
-        "ng-dyna-form": "^9.0.1",
+        "ng-dyna-form": "^9.0.4",
         "ngx-material-timepicker": "4.0.2",
         "ngx-socket-io": "^3.0.1",
         "rxjs": "~6.5.3",

@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/com
 import { TadorService } from './tador.service';
 import { ReqUser } from '../decorators/user.decorator';
 import { App, User } from 'shared/models';
-import { Panel } from 'shared/models/tador/panels';
+import { ContactNameDirection, Panel } from 'shared/models/tador/panels';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 import { PanelType } from 'shared/models/tador/enum';
 
@@ -33,8 +33,8 @@ export class TadorController {
         return result;
     }
     @Post('addPanel')
-    async addNewPanel(@Body() body: { panelId: string; type: PanelType }, @ReqUser() user: User): Promise<Panel> {
-        return this.service.addNewPanel({ panelId: body.panelId, userId: user.email, type: body.type });
+    async addNewPanel(@Body() body: { panelId: string; type: PanelType, direction: ContactNameDirection }, @ReqUser() user: User): Promise<Panel> {
+        return this.service.addNewPanel({ panelId: body.panelId, userId: user.email, type: body.type, direction: body.direction });
     }
 
     @Post('status')

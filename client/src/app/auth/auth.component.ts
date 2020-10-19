@@ -41,7 +41,7 @@ export class AuthComponent {
             this.loginFormModel = {
                 appearance: 'outline',
                 errorTranslations: this.dic.validation,
-                feilds: [
+                fields: [
                     { key: 'email', placeHolder: this.dic.loginPage.email },
                     { placeHolder: this.dic.loginPage.password, key: 'password', type: 'password' },
                 ],
@@ -51,7 +51,7 @@ export class AuthComponent {
             this.signinFormModel = {
                 appearance: 'outline',
                 errorTranslations: this.dic.validation,
-                feilds: [
+                fields: [
                     { key: 'email', placeHolder: this.dic.loginPage.email },
                     { placeHolder: this.dic.loginPage.password, key: 'password', type: 'password' },
                     { placeHolder: this.dic.loginPage.rePassword, key: 'rePassword', type: 'password' },

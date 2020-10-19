@@ -4,7 +4,7 @@ import { I18nService } from 'src/app/shared/services/i18n.service';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
 import { saveAs } from 'file-saver';
 import * as Panels from 'shared/models/tador/panels';
-import { ContactField, FieldType, Panel } from 'shared/models/tador/panels';
+import { ContactField, ContactNameDirection, FieldType, Panel } from 'shared/models/tador/panels';
 import { AutocompleteFilter } from 'shared/models/filter.model';
 import { cloneDeep } from 'lodash';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
@@ -16,7 +16,7 @@ import * as Socket from 'socket.io-client';
 import { environment } from '../../../environments/environment';
 import { Source } from 'shared/models/tador/panels';
 import * as conf from 'shared/models/tador/conf';
-Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
+// Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
     templateUrl: './intercom-conf.component.html',
@@ -73,7 +73,11 @@ export class IntercomConfComponent {
     }
 
     formModel: FormModel<AddPanelRequest> = {
-        feilds: [{ placeHolder: 'iemi', key: 'iemi' }, { placeHolder: 'id', key: 'id' }],
+        fields: [{ placeHolder: 'iemi', key: 'iemi' },
+            { placeHolder: 'id', key: 'id' },
+            { placeHolder: 'Lang', key: 'nameDirection', type: 'radio',
+                options: [{title: 'Hebrew', value: ContactNameDirection.RTL}, {title: 'English', value: ContactNameDirection.LTR}]}
+            ],
         modelConstructor: AddPanelRequest,
         formTitle: 'הוספת פאנל',
         model: new AddPanelRequest(),
@@ -113,9 +117,12 @@ export class IntercomConfComponent {
     }
     @HostListener('window:focus', ['$event'])
     onFocus(event: any): void {
-        this.setSelectedPanel(this.selectedPanel, this.selectedPanel.actionType !== ActionType.idle);
+        if (this.selectedPanel) {
+          this.setSelectedPanel(this.selectedPanel, this.selectedPanel.actionType !== ActionType.idle);
+        }
     }
     async setSelectedPanel(panel: Panel, reloadFromServer = false) {
+        if (!panel) {return; }
         this.inProgress = true;
         this.snackBar.dismiss();
         if (this.selectedPanel) {
@@ -200,6 +207,7 @@ export class IntercomConfComponent {
         const dialogRef = this.dialog.open(FormComponent, {
             width: '80%',
             maxWidth: '540px',
+            height: '400px',
             data: this.formModel,
         });
         dialogRef.afterClosed().subscribe((result: AddPanelRequest) => {
@@ -213,7 +221,7 @@ export class IntercomConfComponent {
             }
 
             this.formModel.model = new AddPanelRequest();
-            this.api.addNewPanel({ type: PanelType.MP, panelId: result.iemi }).then(panel => {
+            this.api.addNewPanel({ type: PanelType.MP, panelId: result.iemi, direction: result.nameDirection }).then(panel => {
                 this.panels.push(new Panels[panel.type + 'Panel'](panel));
                 this.autocompleteSettings.options = [...this.panels];
                 this.setSelectedPanel(panel);
