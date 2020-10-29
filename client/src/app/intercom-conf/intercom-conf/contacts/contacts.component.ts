@@ -95,15 +95,12 @@ export class ContactsComponent implements OnInit {
         reader.onload = e => {
             this.inProgress = true;
             const asd: any[] = this.xlsxService.import(reader.result);
+            const props = this.contacts.contactFields.map(c => c.property);
             // tslint:disable-next-line:prefer-for-of
-            for (let i = 0; i < asd.length; i++) {
-                const props = this.contacts.contactFields.map(c => c.property);
+            for (let i = 0; i < this.contacts.list.length; i++) {
                 props.forEach(prop => {
-                    const val = asd[i][prop];
-                    if (val && this.contacts.list[i][prop] !== val) {
-                        this.contacts.list[i][prop] = val;
-                        this.signChange(i, { property: prop });
-                    }
+                    const val = asd[i] ? asd[i][prop] : '';
+                    this.contacts.list[i][prop] = val;
                 });
             }
             this.contacts.list = [...this.contacts.list];

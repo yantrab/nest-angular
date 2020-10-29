@@ -11,12 +11,15 @@
         <div fxFlex fxLayout="column" style="padding: 25px">
             <mat-tab-group fxFlex mat-stretch-tabs>
                 <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
-                    <div>
+                    <div class="general_container">
+                        <mat-form-field *ngIf="users[selectedPanel.userId]">
+                            <input [value]="users[selectedPanel.userId].fullName" disabled matInput placeholder="טכנאי" />
+                        </mat-form-field>
                         <mat-form-field>
                             <input [value]="selectedPanel._id" disabled matInput placeholder="מזהה" />
                         </mat-form-field>
                         <mat-form-field>
-                            <input [value]="selectedPanel.phoneNumber" matInput placeholder="טלפון" />
+                            <input [value]="selectedPanel.phoneNumber || ''" matInput placeholder="טלפון" />
                         </mat-form-field>
                         <mat-form-field>
                             <input matInput placeholder="שם" [(ngModel)]="selectedPanel.name" />

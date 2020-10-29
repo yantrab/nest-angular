@@ -6,7 +6,7 @@ import { saveAs } from 'file-saver';
 import * as Panels from 'shared/models/tador/panels';
 import { ContactField, ContactNameDirection, FieldType, Panel } from 'shared/models/tador/panels';
 import { AutocompleteFilter } from 'shared/models/filter.model';
-import { cloneDeep } from 'lodash';
+import { cloneDeep, keyBy } from 'lodash';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { FormComponent, FormModel } from 'ng-dyna-form';
 import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
@@ -16,6 +16,7 @@ import * as Socket from 'socket.io-client';
 import { environment } from '../../../environments/environment';
 import { Source } from 'shared/models/tador/panels';
 import * as conf from 'shared/models/tador/conf';
+import { User } from 'shared';
 // Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
@@ -34,7 +35,8 @@ export class IntercomConfComponent {
         private ref: ChangeDetectorRef,
     ) {
         this.api.initialData().then(data => {
-            this.panels = data.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
+            this.panels = data.panels.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
+            this.users = keyBy<User>(data.users,  u => u.email);
             this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
             this.inProgress = false;
             this.setSelectedPanel(this.panels[0]);
@@ -91,6 +93,7 @@ export class IntercomConfComponent {
         menuItems: [],
     };
     panels: Panel[];
+    users: {[id: string]: User};
     autocompleteSettings: AutocompleteFilter;
 
     selectedPanel: Panel;

@@ -28,7 +28,7 @@
     >
         <ng-container *ngFor="let field of contacts.contactFields">
             <ng-template pCellDef [column]="field.property" let-row="row" let-i="index" let-inEdit="false">
-                <div style="height: 50px;width: 100%;text-align: center" (click)="inEdit = true">
+                <div style="height: 50px;width: 100%;" (click)="inEdit = true">
                     <div [style.background-color]="getColor(+row['id'] - 1, field.property)">
                         <span style="height: 50px; width: 100%;line-height: 50px; white-space: pre;" *ngIf="!inEdit">
                             {{ row[field.property] }}

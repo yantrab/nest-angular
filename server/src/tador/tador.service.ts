@@ -212,6 +212,10 @@ export class TadorService {
                 this.statuses[panel.panelId].arr.push({ action: type.toString().repeat(3) });
                 break;
             }
+            case ActionType.nameOrder:{
+                this.statuses[panel.panelId].arr.push({ action: type.toString().repeat(7) });
+                break;
+            }
         }
     }
 

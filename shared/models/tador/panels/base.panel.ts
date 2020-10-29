@@ -126,6 +126,10 @@ export class Panel extends Entity {
     @IsString()
     phoneNumber?: string;
 
+    @IsNumber()
+    @IsOptional()
+    direction?: number;
+
     @IsString()
     panelId: string;
     @IsNumber()

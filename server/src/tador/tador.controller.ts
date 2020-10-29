@@ -5,20 +5,25 @@ import { App, User } from 'shared/models';
 import { ContactNameDirection, Panel } from 'shared/models/tador/panels';
 import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 import { PanelType } from 'shared/models/tador/enum';
+import { UserService } from '../services/user.service';
+import { keyBy } from 'lodash';
 
 @UseInterceptors(AuthorizeInterceptor)
 @Controller('tador')
 export class TadorController {
     static app = App.tador;
-    constructor(private service: TadorService) {}
+    constructor(private service: TadorService, private userService: UserService) {}
 
     @Get('initialData')
     async initialData(@ReqUser() user: User) {
         const panels = await this.service.panelRepo.findMany({ userId: user.email });
-        return panels.map(p => {
+        const users = user.roles.find(r => r.app === App.admin) ? await this.userService.getUsers({}) : {};
+        const allPanels = panels.map(p => {
             const result = { panel: p, dump: new Panel(p).dump() };
             return result;
         });
+
+        return {users, panels: allPanels};
     }
 
     @Get('panel/:id')

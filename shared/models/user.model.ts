@@ -23,13 +23,12 @@ export class Role {
 
 export class User extends Entity {
     @IsOptional() @IsString() password: string;
-    @IsString() company: string;
+    @IsOptional() @IsString() company?: string;
     @IsString() phone: string;
-    // @IsString() code: string;
     @IsString() @IsEmail() email: string;
     @IsOptional() @IsString() details?: string;
-    @IsOptional() @IsString() fName?: string;
-    @IsOptional() @IsString() lName?: string;
+    @IsString() fName: string;
+    @IsString() lName: string;
 
     get fullName() {
         return this.fName + ' ' + this.lName;
