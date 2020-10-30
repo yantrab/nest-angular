@@ -7,6 +7,7 @@ import { AuthorizeInterceptor } from '../middlewares/authorize.middleware';
 import { PanelType } from 'shared/models/tador/enum';
 import { UserService } from '../services/user.service';
 import { keyBy } from 'lodash';
+import { dumps } from './initial_daumps';
 
 @UseInterceptors(AuthorizeInterceptor)
 @Controller('tador')
@@ -35,6 +36,7 @@ export class TadorController {
     async savePanel(@Body() panel: Panel) {
         const p = await this.service.updatePanel(panel);
         const result = { panel: p, dump: new Panel(p).dump() };
+        result.panel.reDump(result.dump);
         return result;
     }
     @Post('addPanel')
@@ -54,5 +56,10 @@ export class TadorController {
         panel.contacts.changesList = undefined;
         await this.service.panelRepo.saveOrUpdateOne(panel);
         return panel;
+    }
+
+    @Get('getDefaultFile/:type/:direction')
+    async getDefaultFile(@Param() params:{type: string, direction: ContactNameDirection}) {
+       return  {dump: dumps[params.type][params.direction]};
     }
 }

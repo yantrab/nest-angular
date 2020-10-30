@@ -213,7 +213,7 @@ export class TadorService {
                 break;
             }
             case ActionType.nameOrder:{
-                this.statuses[panel.panelId].arr.push({ action: type.toString().repeat(7) });
+                this.statuses[panel.panelId].arr.push({ action: type.toString().repeat(3) });
                 break;
             }
         }

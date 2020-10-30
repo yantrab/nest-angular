@@ -255,4 +255,16 @@ export class IntercomConfComponent {
             this.openSnack('בוצע');
         });
     }
+
+    async reset() {
+        this.openSnack('מביא קובץ איתחול', '', { panelClass: 'snack', horizontalPosition: 'right' });
+        const data = await this.api.getDefaultFile(this.selectedPanel.type, this.selectedPanel.direction);
+        const panel = this.selectedPanel;
+        this.selectedPanel = undefined;
+        panel.reDump(data.dump);
+        this.ref.detectChanges();
+        this.selectedPanel = panel;
+        this.ref.detectChanges();
+        this.openSnack('בוצע');
+    }
 }
