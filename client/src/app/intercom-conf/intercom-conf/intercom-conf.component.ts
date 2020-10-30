@@ -258,7 +258,7 @@ export class IntercomConfComponent {
 
     async reset() {
         this.openSnack('מביא קובץ איתחול', '', { panelClass: 'snack', horizontalPosition: 'right' });
-        const data = await this.api.getDefaultFile(this.selectedPanel.type, this.selectedPanel.direction);
+        const data = await this.api.getDefaultFile(this.selectedPanel.type, this.selectedPanel.contacts.nameDirection);
         const panel = this.selectedPanel;
         this.selectedPanel = undefined;
         panel.reDump(data.dump);

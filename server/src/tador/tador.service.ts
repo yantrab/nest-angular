@@ -122,6 +122,12 @@ export class TadorService {
                     this.canceleds[panel.panelId].push('SSS');
                     break;
                 }
+
+                case ActionType.nameOrder: {
+                    this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
+                    this.canceleds[panel.panelId].push('TTT');
+                    break;
+                }
             }
 
             return delete this.statuses[panel.panelId];
