@@ -7,6 +7,7 @@ export enum ActionType {
     write = 5,
     status = 6,
     nameOrder,
+    powerUp =8,
     writeAllProgress = 10,
     readAllProgress = 11,
     readProgress = 12,

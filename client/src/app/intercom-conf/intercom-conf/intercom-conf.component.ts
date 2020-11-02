@@ -170,7 +170,7 @@ export class IntercomConfComponent {
             console.table(this.selectedPanel.contacts.changesList);
         });
     }
-
+    ActionType = ActionType;
     cancel() {
         this.selectedPanel = cloneDeep(this.cloneSelectedPanel);
         this.openSnack('שינויים בוטלו');

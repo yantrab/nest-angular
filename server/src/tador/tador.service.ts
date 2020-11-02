@@ -128,6 +128,11 @@ export class TadorService {
                     this.canceleds[panel.panelId].push('TTT');
                     break;
                 }
+                case ActionType.powerUp: {
+                    this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
+                    this.canceleds[panel.panelId].push('808');
+                    break;
+                }
             }
 
             return delete this.statuses[panel.panelId];
@@ -219,6 +224,10 @@ export class TadorService {
                 break;
             }
             case ActionType.nameOrder:{
+                this.statuses[panel.panelId].arr.push({ action: type.toString().repeat(3) });
+                break;
+            }
+            case ActionType.powerUp:{
                 this.statuses[panel.panelId].arr.push({ action: type.toString().repeat(3) });
                 break;
             }

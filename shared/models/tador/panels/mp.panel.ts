@@ -222,7 +222,7 @@ export class MPPanel extends Panel {
                                 }),
                                 new SettingField({
                                     type: FieldType.list,
-                                    options: () => Array.from(Array(100).keys()).map(n => n.toString()),
+                                    options: () => Array.from(Array(100).keys()).map(n => ('0' + n.toString()).slice(-2)),
                                     name: 'RingingNum',
                                     index: 58882,
                                     length: 2,
