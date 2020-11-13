@@ -5,7 +5,7 @@ import { ContactNameDirection, Panel, Source } from 'shared/models/tador/panels'
 import { createServer, Socket } from 'net';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { Entity } from 'shared/models';
-import { keyBy, values, cloneDeep } from 'lodash';
+import { keyBy, values } from 'lodash';
 import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
 import { dumps } from './initial_daumps';
@@ -74,7 +74,8 @@ export class TadorService {
         [id: string]: {
             panel: Panel;
             oldDump: string;
-            arr: { action: string; location?: { index: number; field: string; dumpIndex: number; value: string } }[];
+            arr: { actionType?: ActionType, action: string; location?: { index: number; field: string; dumpIndex: number; value: string } }[];
+            lastSentAction?: ActionType;
         };
     } = {};
 
@@ -110,32 +111,34 @@ export class TadorService {
         this.updatePanel(panel);
         logger.log('add status: ' + type);
         if (type === ActionType.idle) {
-            if (!this.statuses[panel.panelId]) return;
-            switch (this.statuses[panel.panelId].panel.actionType) {
+            if (!this.statuses[panel.panelId]) return
+            const lastSentAction = this.statuses[panel.panelId].lastSentAction || ActionType.idle;
+            const actionType = this.statuses[panel.panelId].panel.actionType;
+            delete this.statuses[panel.panelId]
+            delete this.canceleds[panel.panelId]
+            if (lastSentAction === ActionType.idle) return;
+            this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
+
+            switch (actionType) {
                 case ActionType.readAllProgress: {
-                    this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
                     this.canceleds[panel.panelId].push('RRR');
                     break;
                 }
                 case ActionType.writeAllProgress: {
-                    this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
                     this.canceleds[panel.panelId].push('SSS');
                     break;
                 }
-
                 case ActionType.nameOrder: {
-                    this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
                     this.canceleds[panel.panelId].push('TTT');
                     break;
                 }
                 case ActionType.powerUp: {
-                    this.canceleds[panel.panelId] = this.canceleds[panel.panelId] || [];
                     this.canceleds[panel.panelId].push('808');
                     break;
                 }
             }
 
-            return delete this.statuses[panel.panelId];
+            return ;
         }
 
         this.statuses[panel.panelId] = { panel, arr: [], oldDump: (await this.getDump(panel.panelId)).dump };
@@ -219,16 +222,10 @@ export class TadorService {
             }
             case ActionType.readAll:
                 await this.saveDump(panel);
+            case ActionType.nameOrder:
+            case ActionType.powerUp:
             case ActionType.writeAll: {
-                this.statuses[panel.panelId].arr.push({ action: type.toString().repeat(3) });
-                break;
-            }
-            case ActionType.nameOrder:{
-                this.statuses[panel.panelId].arr.push({ action: type.toString().repeat(3) });
-                break;
-            }
-            case ActionType.powerUp:{
-                this.statuses[panel.panelId].arr.push({ action: type.toString().repeat(3) });
+                this.statuses[panel.panelId].arr.push({actionType:type, action: type.toString().repeat(3) });
                 break;
             }
         }
@@ -326,17 +323,6 @@ export class TadorService {
                             result = await this.getStatus(action as any);
                             break;
                     }
-                    // result = result
-                    //     .split('')
-                    //     .map(l => {
-                    //         const code = l.charCodeAt(0);
-                    //         return String.fromCharCode(code < 32 ? 32 : code);
-                    //     })
-                    //     .join('');
-                    // result = result.split('').map(l => {
-                    //     const code = l.charCodeAt(0);
-                    //     return String.fromCharCode((code < 32 || code > 256) ? 32 : code);
-                    // }).join('');
 
                     logger.log('return: ' + result);
                     // logger.log('return length: ' + result.length);
@@ -403,6 +389,7 @@ export class TadorService {
                 this.sentMsg(action.pId, toSent.location, 'sent-progress');
                 await this.panelRepo.saveOrUpdateOne(panelStatus.panel);
             }
+            panelStatus.lastSentAction = toSent.actionType;
             return toSent.action;
         }
 
@@ -415,15 +402,11 @@ export class TadorService {
             await this.panelDumpRepo.collection.updateOne({ panelId: action.pId }, { $set: { dump: panelStatus.oldDump } });
         }
 
-        if (sendedItem.action ==
-            ActionType.read.toString().repeat(3) || sendedItem.action == ActionType.readAll.toString().repeat(3) ) {
-            //panelStatus.arr.push({ action: 'RRR' })
+        if (sendedItem.actionType == ActionType.read || sendedItem.actionType == ActionType.readAll) {
             result = 'RRR'
         }
 
-        if (sendedItem.action ==
-            ActionType.write.toString().repeat(3) || sendedItem.action == ActionType.writeAll.toString().repeat(3) ) {
-            //panelStatus.arr.push({ action: 'RRR' })
+        if (sendedItem.actionType == ActionType.write || sendedItem.actionType == ActionType.writeAll) {
             result = 'SSS'
         }
 
