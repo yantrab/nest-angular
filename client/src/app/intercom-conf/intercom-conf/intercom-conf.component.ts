@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { TadorController } from 'src/api/tador.controller';
 import { I18nService } from 'src/app/shared/services/i18n.service';
 import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
@@ -100,6 +100,7 @@ export class IntercomConfComponent {
     cloneSelectedPanel: Panel;
     contacts: ContactField[];
     inProgress = true;
+    settingsChange = 0;
     get sendChangesLabel() {
         let count = 0;
         if (this.selectedPanel && this.selectedPanel.contacts.changesList) {
@@ -109,8 +110,13 @@ export class IntercomConfComponent {
                     count += Object.values(c).filter(cc => cc).length;
                 });
         }
+        count += this.settingsChange;
         return 'שלח שינויים' + (count ? ' ( ' + count + ' )' : '');
     }
+    ngOnChanges(changes: SimpleChanges) {
+        console.log(changes);
+    }
+
     openSnack(
         title: string,
         action = 'סגור',

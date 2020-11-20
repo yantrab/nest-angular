@@ -55,11 +55,11 @@
                                     <div fxLayout="row wrap" fxLayoutAlign="space-between center">
                                         <ng-container *ngFor="let field of group.fields">
                                             <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.text">
-                                                <input matInput [placeholder]="field.name" [(ngModel)]="field.value" />
+                                                <input matInput (change)="settingsChange = 1" [placeholder]="field.name" [(ngModel)]="field.value" />
                                             </mat-form-field>
                                             <mat-form-field style="margin: 20px;" *ngIf="field.type === FieldType.list">
                                                 <mat-label>{{ field.name }}</mat-label>
-                                                <select [(ngModel)]="field.value" matNativeControl>
+                                                <select  (ngModelChange)="settingsChange = 1" [(ngModel)]="field.value" matNativeControl>
                                                     <option *ngFor="let option of field.options()" [value]="option">{{
                                                         option
                                                     }}</option>
@@ -68,13 +68,14 @@
                                             <div style="margin: 20px;" *ngIf="field.type === FieldType.yesNo">
                                                 <div fxFlex="200px">{{ field.name }} :</div>
                                                 <div fxFlex="110px">
-                                                    NO
+                                                    YES
                                                     <mat-slide-toggle
-                                                        (change)="field.value = $event.checked ? '1' : '0'"
+                                                        (change)="field.value = $event.checked ? 'Y' : 'N';settingsChange = 1"
                                                         [checked]="field.value && field.value != '0' && field.value != 'N'"
                                                     >
                                                     </mat-slide-toggle>
-                                                    YES
+                                                    NO
+
                                                 </div>
                                             </div>
 

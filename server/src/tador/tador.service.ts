@@ -199,7 +199,7 @@ export class TadorService {
                         const oldValue = oldDump ? oldDump.slice(index, index + length) : undefined;
 
                         if (newValue != oldValue) {
-                            logger.log(s.name);
+                            logger.log('change - ' + s.name + ' - ' + f.name);
                             oldpanelStatus[index] = {
                                 action: new StatusActionResult({
                                     action: ActionType.read,
@@ -275,17 +275,17 @@ export class TadorService {
             sock.on('data', async msg => {
                 timeOut.refresh();
                 try {
-                    logger.log('DATA 1: ' + JSON.stringify(msg));
+                    //logger.log('DATA 1: ' + JSON.stringify(msg));
                     for (let i = 0; i < msg.length; i++) {
                         if (msg[i] < 187 && msg[i] > 159) {
                             msg = Buffer.concat([msg.slice(0, i), new Buffer([215, msg[i] - 16]), msg.slice(i + 1, msg.length + 1)]);
                             i++;
                         }
                     }
-                    logger.log('DATA 2: ' + JSON.stringify(msg));
+                    //logger.log('DATA 2: ' + JSON.stringify(msg));
 
                     const msgString = msg.toString('utf8');
-                    logger.log('DATA: ' + msgString);
+                    //logger.log('DATA: ' + msgString);
                     let action: Action;
 
                     if (msgString[0] !== '!') {
