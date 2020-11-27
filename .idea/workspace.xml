@@ -22,7 +22,8 @@
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="fix rings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,14 +293,7 @@
       <workItem from="1605257050306" duration="4887000" />
       <workItem from="1605422648832" duration="1199000" />
       <workItem from="1605856804477" duration="5594000" />
-      <workItem from="1606458696848" duration="12908000" />
-    </task>
-    <task id="LOCAL-00089" summary="serve static files with fastify">
-      <created>1589531329925</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1589531329925</updated>
+      <workItem from="1606458696848" duration="14883000" />
     </task>
     <task id="LOCAL-00090" summary="serve static files with fastify">
       <created>1589537011737</created>
@@ -637,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606460379296</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="fix rings">
+      <created>1606484429295</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1606484429295</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

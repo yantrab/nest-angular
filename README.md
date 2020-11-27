@@ -201,6 +201,7 @@ git clone https://github.com/yantrab/nest-angular.git
 https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-debian-9
 
 sudo ufw allow from 80.179.57.44/32 to any port 27017
+sudo ufw allow from 10.110.0.3/32 to any port 27017
 sudo iptables -A INPUT -s 188.64.207.118 -p tcp --destination-port 27017 -m state --state NEW,ESTABLISHED -j ACCEPT
 sudo iptables -A OUTPUT -d 188.64.207.118 -p tcp --source-port 27017 -m state --state ESTABLISHED -j ACCEPT
 
