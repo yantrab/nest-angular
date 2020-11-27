@@ -196,19 +196,14 @@ sudo apt-get install nodejs
 sudo apt-get install npm
 git clone https://github.com/yantrab/nest-angular.git
 
-https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-sudo apt-get update
-sudo apt-get install -y mongodb-org
 
-echo "mongodb-org hold" | sudo dpkg --set-selections
-echo "mongodb-org-server hold" | sudo dpkg --set-selections
-echo "mongodb-org-shell hold" | sudo dpkg --set-selections
-echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
-echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+//DB
+https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-debian-9
 
-sudo service mongod start
+sudo ufw allow from 80.179.57.44/32 to any port 27017
+sudo iptables -A INPUT -s 188.64.207.118 -p tcp --destination-port 27017 -m state --state NEW,ESTABLISHED -j ACCEPT
+sudo iptables -A OUTPUT -d 188.64.207.118 -p tcp --source-port 27017 -m state --state ESTABLISHED -j ACCEPT
+
 
 echo "export const macroConf = {
 db: {
@@ -238,6 +233,7 @@ ufw allow OpenSSH
 ufw enable
 ufw status
 ssh yaniv@your_server_ip
+
 sudo apt update
 sudo apt install nginx
 sudo ufw allow 'Nginx HTTP'
@@ -251,12 +247,15 @@ sudo apt install nodejs
 sudo apt install git
 git config --global user.name "yantrab"
 git config --global user.email "yantrab@gmail.com"
+mkdir tador
+cd tador
 git clone https://github.com/yantrab/nest-angular.git
 cd nest-angular
 npm i
 
 // copy dist from windows
 scp -r dist yaniv@128.199.41.162:/home/yaniv/tador/nest-angular/client
+scp -r dist yaniv@178.62.237.25:/home/yaniv/tador/nest-angular/client
 
 
 sudo npm install pm2@latest -g
@@ -267,19 +266,14 @@ sudo nano /etc/nginx/sites-available/default
 server {
 ...
 location / {
-proxy_pass http://localhost:3000;
-proxy_http_version 1.1;
-proxy_set_header Upgrade $http_upgrade;
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
         proxy_set_header Host $host;
-proxy_cache_bypass \$http_upgrade;
+        proxy_cache_bypass \$http_upgrade;
 }
 ...
 }
 
 sudo systemctl reload nginx
-
-iptables -A INPUT -s 128.199.41.162 -p tcp --destination-port 27017 -m state --state NEW,ESTABLISHED -j ACCEPT
-iptables -A OUTPUT -d 128.199.41.162 -p tcp --source-port 27017 -m state --state ESTABLISHED -j ACCEPT
-iptables -A INPUT -s 192.168.200.119 -p tcp --destination-port 27017 -m state --state NEW,ESTABLISHED -j ACCEPT
-iptables -A OUTPUT -d 192.168.200.119 -p tcp --source-port 27017 -m state --state ESTABLISHED -j ACCEPT

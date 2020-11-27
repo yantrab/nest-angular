@@ -7,7 +7,7 @@
         "format": "prettier --write \"**/*.ts\"",
         "install-client": "cd client&&npm i",
         "install-server": "cd server&&npm i",
-        "install": "npm run install-client&&npm run install-server&&npm run gen-client",
+        "install": "npm run install-client&&npm run install-server",
         "gen-client": "ts-node ./generator && prettier --write \"./client/src/api/**/*.ts\"",
         "serve-client": "cd client&&npm run start",
         "debug-server": "cd server&&npm run start:debug",
