@@ -15,7 +15,7 @@ export class AdminController {
             const user = new User({
                 email: 'admin@admin.com',
                 phone: '0555555',
-                fName: 'yoyo',
+                fName: 'Admin',
                 lName: 'toto',
                 roles: [{ app: App.admin, permission: Permission.user }],
             });

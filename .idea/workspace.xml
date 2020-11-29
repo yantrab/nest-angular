@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="fix rings">
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="&#10;fix: fixa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/middlewares/authorize.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/middlewares/authorize.middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,14 +291,7 @@
       <workItem from="1605257050306" duration="4887000" />
       <workItem from="1605422648832" duration="1199000" />
       <workItem from="1605856804477" duration="5594000" />
-      <workItem from="1606458696848" duration="22259000" />
-    </task>
-    <task id="LOCAL-00092" summary="serve static files with fastify">
-      <created>1589537558286</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1589537558286</updated>
+      <workItem from="1606458696848" duration="22943000" />
     </task>
     <task id="LOCAL-00093" summary="serve static files with fastify">
       <created>1589537588731</created>
@@ -638,19 +629,26 @@
       <option name="project" value="LOCAL" />
       <updated>1606626182661</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="&#10;fix: fixa">
+      <created>1606630260847</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1606630260847</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
+    <option name="COLUMN_ID_ORDER">
       <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
       </list>
     </option>
   </component>
@@ -682,7 +680,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="admin" />
     <MESSAGE value="tador" />
     <MESSAGE value="snack" />
     <MESSAGE value="cancel" />
@@ -707,7 +704,8 @@
     <MESSAGE value="default dump" />
     <MESSAGE value="fix" />
     <MESSAGE value="fix rings" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix rings" />
+    <MESSAGE value="&#10;fix: fixa" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;fix: fixa" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -726,23 +724,6 @@
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
           <line>404</line>
           <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/services/user.service.ts</url>
-          <line>81</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/auth/auth.controller.ts</url>
-          <line>20</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/middlewares/authorize.middleware.ts</url>
-          <line>8</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
