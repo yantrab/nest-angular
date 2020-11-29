@@ -22,7 +22,8 @@
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="fix rings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/middlewares/authorize.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/middlewares/authorize.middleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,14 +293,7 @@
       <workItem from="1605257050306" duration="4887000" />
       <workItem from="1605422648832" duration="1199000" />
       <workItem from="1605856804477" duration="5594000" />
-      <workItem from="1606458696848" duration="20214000" />
-    </task>
-    <task id="LOCAL-00091" summary="serve static files with fastify">
-      <created>1589537470529</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1589537470529</updated>
+      <workItem from="1606458696848" duration="22259000" />
     </task>
     <task id="LOCAL-00092" summary="serve static files with fastify">
       <created>1589537558286</created>
@@ -637,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606486408912</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="fix rings">
+      <created>1606626182661</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1606626182661</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -725,6 +726,23 @@
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
           <line>404</line>
           <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/services/user.service.ts</url>
+          <line>81</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/auth/auth.controller.ts</url>
+          <line>20</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/middlewares/authorize.middleware.ts</url>
+          <line>8</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

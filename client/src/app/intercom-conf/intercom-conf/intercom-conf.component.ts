@@ -17,6 +17,7 @@ import { environment } from '../../../environments/environment';
 import { Source } from 'shared/models/tador/panels';
 import * as conf from 'shared/models/tador/conf';
 import { User } from 'shared';
+import { AuthService } from '../../auth/auth.service';
 // Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
@@ -33,12 +34,15 @@ export class IntercomConfComponent {
         public dialog: DialogService,
         private snackBar: MatSnackBar,
         private ref: ChangeDetectorRef,
+        private authService: AuthService
     ) {
-        this.api.initialData().then(data => {
+        this.api.initialData().then(async data => {
             this.panels = data.panels.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
-            this.users = keyBy<User>(data.users,  u => u.email);
+            this.users = data.users && Object.keys(data.users).length  ?  keyBy<User>(data.users.map(u => new User(u)),  u => u.email) : {}
             this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
             this.inProgress = false;
+            const user = await this.authService.getUserAuthenticated();
+            this.topbarModel.routerLinks.push({link: user.fullName, title: user.fullName});
             this.setSelectedPanel(this.panels[0]);
         });
 
@@ -91,6 +95,7 @@ export class IntercomConfComponent {
         logoutTitle: 'logout',
         routerLinks: [],
         menuItems: [],
+        logout: () => this.authService.logout()
     };
     panels: Panel[];
     users: {[id: string]: User};
