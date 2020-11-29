@@ -200,11 +200,11 @@ git clone https://github.com/yantrab/nest-angular.git
 //DB
 https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-debian-9
 
-sudo ufw allow from 80.179.57.44/32 to any port 27017
+sudo ufw allow from 178.62.247.227/32 to any port 27017
 sudo ufw allow from 10.110.0.3/32 to any port 27017
 sudo iptables -A INPUT -s 188.64.207.118 -p tcp --destination-port 27017 -m state --state NEW,ESTABLISHED -j ACCEPT
 sudo iptables -A OUTPUT -d 188.64.207.118 -p tcp --source-port 27017 -m state --state ESTABLISHED -j ACCEPT
-
+sudo systemctl restart mongod
 
 echo "export const macroConf = {
 db: {
@@ -267,7 +267,7 @@ sudo nano /etc/nginx/sites-available/default
 server {
 ...
 location / {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://localhost:4200;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';

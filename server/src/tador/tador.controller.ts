@@ -17,8 +17,9 @@ export class TadorController {
 
     @Get('initialData')
     async initialData(@ReqUser() user: User) {
-        const panels = await this.service.panelRepo.findMany({ userId: user.email });
-        const users = user.roles.find(r => r.app === App.admin) ? await this.userService.getUsers({}) : {};
+        const isAdmins = user.roles.find(r => r.app === App.admin);
+        const panels = await this.service.panelRepo.findMany(!isAdmins ? { userId: user.email } : {});
+        const users = isAdmins ? await this.userService.getUsers({}) : {};
         const allPanels = panels.map(p => {
             const result = { panel: p, dump: new Panel(p).dump() };
             return result;
