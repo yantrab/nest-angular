@@ -16,7 +16,7 @@ export class AdminController {
                 email: 'admin@admin.com',
                 phone: '0555555',
                 fName: 'Admin',
-                lName: 'toto',
+                lName: '',
                 roles: [{ app: App.admin, permission: Permission.user }],
             });
             user.password = await cryptPassword('123456');
