@@ -43,14 +43,15 @@ export class AdminController {
         if (req && (newRole || !existUser)) {
             const token = await getRandomToken();
             this.userService.saveUserToekn(user.email, token);
+            const url = req.headers.origin +  '/tador/auth/signin/' + token;
             this.mailer.send({
                 from: '"Tador system management" <server@tador.com>',
                 to: user.email,
                 subject: 'הרשאות למערכת תאדור',
                 html: `<div dir="rtl">
                             <h1>שלום</h1>
-                            <h2>יש לך הרשאות עבור מערכת ${req.headers.referer.split('/')[3]}</h2>
-                            <a href="${req.headers.referer.replace('/admin', '/auth/signin')}/${token}">
+                            <h2>יש לך הרשאות עבור מערכת תאדור</h2>
+                            <a href="${url}">
                                  היכנס
                             </a>
                        </div>`,

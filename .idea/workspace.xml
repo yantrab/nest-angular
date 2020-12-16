@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="&#10;fix: fixa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -293,6 +292,13 @@
       <workItem from="1605422648832" duration="1199000" />
       <workItem from="1605856804477" duration="5594000" />
       <workItem from="1606458696848" duration="23422000" />
+      <workItem from="1606634946086" duration="21000" />
+      <workItem from="1606829493020" duration="625000" />
+      <workItem from="1606836178650" duration="24000" />
+      <workItem from="1607421282447" duration="906000" />
+      <workItem from="1608016360483" duration="1235000" />
+      <workItem from="1608128083366" duration="314000" />
+      <workItem from="1608128661486" duration="1051000" />
     </task>
     <task id="LOCAL-00094" summary="add &quot;RRR&quot; to queue when finish reading">
       <created>1589557628056</created>
@@ -725,6 +731,11 @@
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
           <line>404</line>
           <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/admin/admin.controller.ts</url>
+          <line>46</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
