@@ -4,6 +4,9 @@ import { ComponentsModule } from '../shared/components/components.module';
 import { TadorController } from 'src/api/tador.controller';
 import { IntercomConfComponent } from './intercom-conf/intercom-conf.component';
 import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
+import { NgDialogAnimationService } from 'ng-dialog-animation';
+import { LogsComponent } from './intercom-conf/logs/logs.component';
+
 //import { App, User } from 'shared/models';
 //import { AdminModel } from '../admin/admin/admin.component';
 
@@ -24,7 +27,7 @@ import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
 // };
 
 @NgModule({
-    declarations: [IntercomConfComponent, ContactsComponent],
+    declarations: [IntercomConfComponent, ContactsComponent, LogsComponent],
     imports: [
         ComponentsModule,
         RouterModule.forChild([
@@ -36,9 +39,11 @@ import { ContactsComponent } from './intercom-conf/contacts/contacts.component';
         ]),
     ],
     providers: [
+        NgDialogAnimationService,
         TadorController,
         { provide: 'baseUrlI18n', useValue: '../../assets/i18n/login' },
         // { provide: 'userEditModel', useValue: model },
     ],
+    entryComponents:[LogsComponent]
 })
 export class IntercomConfModule {}

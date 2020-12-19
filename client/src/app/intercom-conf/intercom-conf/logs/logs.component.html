@@ -1,0 +1,11 @@
+<div style="overflow: auto; height: 100%" >
+    <div fxLayout="row" *ngFor="let log of logs">
+        <span fxFlex="100px">{{log.time | date : "HH:MM:SS"}}</span>
+        <!--                    <span> - </span>-->
+        <span fxFlex="100px">{{log.type}}</span>
+        <!--                    <span> - </span>-->
+        <span fxFlex="200px">{{log.msg}}</span>
+        <!--                    <span> - </span>-->
+        <span fxFlex>{{log.result}}</span>
+    </div>
+</div>

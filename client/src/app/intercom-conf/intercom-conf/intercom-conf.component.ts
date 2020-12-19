@@ -10,7 +10,7 @@ import { cloneDeep, keyBy } from 'lodash';
 import { ActionType, PanelType } from 'shared/models/tador/enum';
 import { FormComponent, FormModel } from 'ng-dyna-form';
 import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
-import { DialogService } from '../../shared/services/dialog.service';
+import { NgDialogAnimationService } from 'ng-dialog-animation';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import * as Socket from 'socket.io-client';
 import { environment } from '../../../environments/environment';
@@ -18,6 +18,7 @@ import { Source } from 'shared/models/tador/panels';
 import * as conf from 'shared/models/tador/conf';
 import { User } from 'shared';
 import { AuthService } from '../../auth/auth.service';
+import { LogsComponent } from './logs/logs.component';
 // Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
@@ -28,17 +29,18 @@ import { AuthService } from '../../auth/auth.service';
 export class IntercomConfComponent {
     @ViewChild('myFileInput') myFileInput;
     socket = Socket(environment.socketUrl);
+    private logs: any[] = [];
     constructor(
         private api: TadorController,
         public i18nService: I18nService,
-        public dialog: DialogService,
+        public dialog: NgDialogAnimationService,
         private snackBar: MatSnackBar,
         private ref: ChangeDetectorRef,
         private authService: AuthService
     ) {
         this.api.initialData().then(async data => {
             this.panels = data.panels.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
-            this.users = data.users && Object.keys(data.users).length  ?  keyBy<User>(data.users.map(u => new User(u)),  u => u.email) : {}
+            this.users = data.users && Object.keys(data.users).length  ?  keyBy<User>(data.users.map(u => new User(u)),  u => u.email) : {};
             this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
             this.inProgress = false;
             const user = await this.authService.getUserAuthenticated();
@@ -55,6 +57,7 @@ export class IntercomConfComponent {
         this.socket.on('error', console.log);
         this.socket.on('log', msg => {
             console.log(msg);
+            this.logs = [{ ...msg, time: Date.now()}, ...this.logs];
         });
 
         this.socket.on('sent', (location: any) => {
@@ -154,6 +157,7 @@ export class IntercomConfComponent {
             this.openSnackStatus(this.selectedPanel.actionType);
         }
         this.inProgress = false;
+        // this.logs = [];
     }
     dump() {
         const blob = new Blob([this.selectedPanel.dump()], { type: 'text/plain;charset=utf-8' });
@@ -277,5 +281,15 @@ export class IntercomConfComponent {
         this.selectedPanel = panel;
         this.ref.detectChanges();
         this.openSnack('בוצע');
+    }
+
+    openLog() {
+        this.dialog.open(LogsComponent, {
+            height: '1000px',
+            data: this.logs,
+            animation: {to: 'top'},
+            width: '80%',
+            maxWidth: '1000px',
+        });
     }
 }

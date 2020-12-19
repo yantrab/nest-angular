@@ -274,6 +274,8 @@ export class TadorService {
             sock.on('error', err => Logger.error(err.message));
             sock.on('data', async msg => {
                 timeOut.refresh();
+                let action: Action;
+
                 try {
                     //logger.log('DATA 1: ' + JSON.stringify(msg));
                     for (let i = 0; i < msg.length; i++) {
@@ -286,7 +288,6 @@ export class TadorService {
 
                     const msgString = msg.toString('utf8');
                     //logger.log('DATA: ' + msgString);
-                    let action: Action;
 
                     if (msgString[0] !== '!') {
                         try {
@@ -325,6 +326,7 @@ export class TadorService {
                     }
 
                     logger.log('return: ' + result);
+                    this.sentMsg(action.pId, { type:ActionType[action.type], result,  msg: JSON.stringify(action.data)}, 'log')
                     // logger.log('return length: ' + result.length);
                     let buffer = Buffer.from(result, 'utf8');
                     logger.log('return buffer 1: ' + JSON.stringify(buffer));
@@ -337,6 +339,7 @@ export class TadorService {
 
                     return sock.write(buffer);
                 } catch (e) {
+                    this.sentMsg(action.pId, {from: 'server', e}, 'log')
                     logger.error(e);
                     sock.write('100');
                     sock.end();

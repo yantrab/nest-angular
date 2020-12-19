@@ -21,7 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="&#10;fix: fixa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/i18n/tador/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/i18n/tador/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/env" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../yangular" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -75,19 +82,18 @@
       <recent name="C:\Users\yantr\Desktop\nest\nest-angular\shared\models\tador" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start-server">
-    <configuration name="tador.status.should return 0 after return change" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="tador.read" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$/server" />
       <envs />
-      <scope-kind value="TEST" />
+      <scope-kind value="SUITE" />
       <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
       <test-names>
         <test-name value="tador" />
-        <test-name value="status" />
-        <test-name value="should return 0 after return change" />
+        <test-name value="read" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -136,11 +142,11 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="start-server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
       <command value="run" />
       <scripts>
-        <script value="start-server" />
+        <script value="start" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -148,10 +154,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start-server" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="Jest.tador.read" />
         <item itemvalue="Jest.tador.status.should return 0" />
         <item itemvalue="Jest.tador.status.should return change" />
-        <item itemvalue="Jest.tador.status.should return 0 after return change" />
         <item itemvalue="Jest.tador.status.should return This panel is not register!!!" />
       </list>
     </recent_temporary>
@@ -298,14 +304,9 @@
       <workItem from="1607421282447" duration="906000" />
       <workItem from="1608016360483" duration="1235000" />
       <workItem from="1608128083366" duration="314000" />
-      <workItem from="1608128661486" duration="1051000" />
-    </task>
-    <task id="LOCAL-00094" summary="add &quot;RRR&quot; to queue when finish reading">
-      <created>1589557628056</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1589557628056</updated>
+      <workItem from="1608128661486" duration="1990000" />
+      <workItem from="1608180992498" duration="37000" />
+      <workItem from="1608276862720" duration="12824000" />
     </task>
     <task id="LOCAL-00095" summary="add &quot;RRR&quot; to queue when finish reading">
       <created>1589557726363</created>
@@ -643,7 +644,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606630742112</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="&#10;fix: fixa">
+      <created>1608130752437</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1608130752437</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -719,18 +727,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>473</line>
+          <line>476</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>502</line>
+          <line>505</line>
           <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>404</line>
-          <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/admin/admin.controller.ts</url>

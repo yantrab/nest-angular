@@ -134,21 +134,34 @@
                     </ng-template>
                 </mat-tab>
             </mat-tab-group>
-            <div fxLayout="row" fxFlexAlign="start center" fxFlex="100px" fxLayout>
-                <button (click)="save()" style="height: 50px" mat-button>שמור</button>
-                <button (click)="cancel()" style="height: 50px" mat-button>בטל</button>
-                <button (click)="sentAll()" style="height: 50px" mat-button>שלח הכל</button>
-                <button (click)="getAll()" style="height: 50px" mat-button>קבל הכל</button>
-                <button (click)="sentChanges()" style="height: 50px" mat-button>{{ sendChangesLabel }}</button>
-                <button (click)="removeChanges()" style="height: 50px" mat-button>מחק שינויים</button>
-                <button (click)="removeGreenChanges()" style="height: 50px" mat-button>ביטול סימון-התקבלו</button>
-                <button mat-button style="height: 50px" (click)="dump()">הורד</button>
-                <div style="height: 50px" class="upload-btn-wrapper">
-                    <button mat-button>העלה</button>
-                    <input type="file" name="myfile" (change)="handleFileInput($event.target.files)" />
+            <div  fxLayout="row" fxFlexAlign="center space-between" fxFlex="50px" >
+                <div fxLayout="row" fxFlexAlign="start center" fxFlex="900px" fxLayout>
+                    <button (click)="save()" style="height: 50px" mat-button>שמור</button>
+                    <button (click)="cancel()" style="height: 50px" mat-button>בטל</button>
+                    <button (click)="sentAll()" style="height: 50px" mat-button>שלח הכל</button>
+                    <button (click)="getAll()" style="height: 50px" mat-button>קבל הכל</button>
+                    <button (click)="sentChanges()" style="height: 50px" mat-button>{{ sendChangesLabel }}</button>
+                    <button (click)="removeChanges()" style="height: 50px" mat-button>מחק שינויים</button>
+                    <button (click)="removeGreenChanges()" style="height: 50px" mat-button>ביטול סימון-התקבלו</button>
+                    <button mat-button style="height: 50px" (click)="dump()">הורד</button>
+                    <div style="height: 50px" class="upload-btn-wrapper">
+                        <button mat-button>העלה</button>
+                        <input type="file" name="myfile" (change)="handleFileInput($event.target.files)" />
+                    </div>
+                    <button (click)="reset()" style="height: 50px" mat-button>שחזר ברירת מחדל </button>
+                    <button (click)="status(ActionType.powerUp)" style="height: 50px" mat-button>Power Up </button>
                 </div>
-                <button (click)="reset()" style="height: 50px" mat-button>שחזר ברירת מחדל </button>
-                <button (click)="status(ActionType.powerUp)" style="height: 50px" mat-button>Power Up </button>
+                <div (click)="openLog()" *ngIf="logs[0]" fxLayout="column" fxFlexAlign="center center" fxFlex   style="height: 50px; direction: ltr; justify-content: center;" >
+                    <div fxFlex="50%" fxLayout="row" >
+                        <span fxFlex="100px">{{logs[0].time | date : "HH:MM:SS"}}</span>
+                        <!--                    <span> - </span>-->
+                        <span fxFlex="100px">{{logs[0].type}}</span>
+                        <!--                    <span> - </span>-->
+                        <span fxFlex="200px">{{logs[0].msg}}</span>
+                        <!--                    <span> - </span>-->
+                        <span fxFlex>{{logs[0].result}}</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
