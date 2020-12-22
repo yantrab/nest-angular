@@ -20,15 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="&#10;fix: fixa">
+      <change afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/app.compnent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/conf.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/panels/panels.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/panels/panels.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/panels/panels.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/panels/panels.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/admin/admin/admin.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/i18n/tador/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/i18n/tador/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/shared/components/components.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/components/components.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/starter.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/starter.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/admin/admin.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/tador/add-panel-request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/add-panel-request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/tador/panels/base.panel.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +90,7 @@
       <recent name="$PROJECT_DIR$/server/env" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/app/intercom-conf/panels" />
       <recent name="C:\Users\yantr\Desktop\Tador\nest-angular" />
       <recent name="C:\Users\yantr\Desktop\Tador\nest-angular\client" />
       <recent name="C:\Users\yantr\Desktop\nest\nest-angular\shared\models\tador" />
@@ -306,14 +320,10 @@
       <workItem from="1608128083366" duration="314000" />
       <workItem from="1608128661486" duration="1990000" />
       <workItem from="1608180992498" duration="37000" />
-      <workItem from="1608276862720" duration="12824000" />
-    </task>
-    <task id="LOCAL-00095" summary="add &quot;RRR&quot; to queue when finish reading">
-      <created>1589557726363</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1589557726363</updated>
+      <workItem from="1608276862720" duration="15155000" />
+      <workItem from="1608444535936" duration="169000" />
+      <workItem from="1608612579963" duration="10179000" />
+      <workItem from="1608631503073" duration="12719000" />
     </task>
     <task id="LOCAL-00096" summary="add &quot;RRR&quot; to queue when finish reading">
       <created>1589697449830</created>
@@ -651,7 +661,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608130752437</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="&#10;fix: fixa">
+      <created>1608408067472</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1608408067472</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -727,18 +744,43 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>476</line>
+          <line>477</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>505</line>
+          <line>506</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/admin/admin.controller.ts</url>
-          <line>46</line>
-          <option name="timeStamp" value="53" />
+          <url>file://$PROJECT_DIR$/server/src/auth/auth.controller.ts</url>
+          <line>14</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/services/user.service.ts</url>
+          <line>11</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/services/user.service.ts</url>
+          <line>30</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/auth/auth.controller.ts</url>
+          <line>25</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/services/user.service.ts</url>
+          <line>67</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

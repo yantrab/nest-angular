@@ -259,7 +259,6 @@ npm i
 scp -r dist yaniv@128.199.41.162:/home/yaniv/tador/nest-angular/client
 scp -r dist yaniv@178.62.237.25:/home/yaniv/tador/nest-angular/client
 
-
 sudo npm install pm2@latest -g
 cd server
 pm2 start npm -- start

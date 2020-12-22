@@ -10,6 +10,7 @@ import { InterceptorsService } from './shared/services/interceptors.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIService } from 'src/api/http.service';
 import { GestureConfig } from '@angular/material/core';
+import { NgDialogAnimationService } from 'ng-dialog-animation';
 const isCordovaApp = Object(window).cordova != null;
 @Component({
     selector: 'p-root',
@@ -19,7 +20,6 @@ export class AppComponent {}
 
 const routes: Routes = [
     { path: ':site/auth', loadChildren: () => import('src/app/auth/auth.module').then(m => m.AuthModule) },
-    { path: ':site/admin', loadChildren: () => import('src/app/admin/admin.module').then(m => m.AdminModule) },
     {
         path: 'tador',
         loadChildren: () => import('src/app/intercom-conf/intercom-conf.module').then(m => m.IntercomConfModule),
@@ -35,6 +35,7 @@ const routes: Routes = [
     imports: [BrowserModule, BrowserAnimationsModule, RouterModule.forRoot(routes, { useHash: isCordovaApp }), HttpClientModule],
     bootstrap: [AppComponent],
     providers: [
+        NgDialogAnimationService,
         Guard,
         AuthService,
         APIService,

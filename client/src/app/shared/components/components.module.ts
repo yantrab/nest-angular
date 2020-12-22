@@ -120,7 +120,7 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
         DxRangeSelectorModule,
         AngularSvgIconModule,
         DynaFormModule,
-        RouterModule,
+        RouterModule
     ],
     providers: [I18nService, XLSXService, { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }, DialogService],
     entryComponents: [ParameterPickerComponent, TableComponent],

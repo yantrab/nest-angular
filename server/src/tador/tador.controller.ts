@@ -8,6 +8,7 @@ import { PanelType } from 'shared/models/tador/enum';
 import { UserService } from '../services/user.service';
 import { keyBy } from 'lodash';
 import { dumps } from './initial_daumps';
+import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
 
 @UseInterceptors(AuthorizeInterceptor)
 @Controller('tador')
@@ -41,8 +42,9 @@ export class TadorController {
         return result;
     }
     @Post('addPanel')
-    async addNewPanel(@Body() body: { panelId: string; type: PanelType, direction: ContactNameDirection }, @ReqUser() user: User): Promise<Panel> {
-        return this.service.addNewPanel({ panelId: body.panelId, userId: user.email, type: body.type, direction: body.direction });
+    async addNewPanel(@Body() body: any, @ReqUser() user: User): Promise<Panel> {
+        body.userId = user.email;
+        return this.service.addNewPanel(body);
     }
 
     @Post('status')

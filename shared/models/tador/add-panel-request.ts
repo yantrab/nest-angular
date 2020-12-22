@@ -1,6 +1,6 @@
-import { IsEnum, IsNumberString, IsString, NotEquals } from 'class-validator';
+import { IsEnum, IsNumberString, IsOptional, IsString, NotEquals } from 'class-validator';
 import { registerDecorator, ValidationOptions, ValidationArguments } from 'class-validator';
-import { ContactNameDirection } from './panels';
+import { ContactNameDirection, Panel } from './panels';
 
 export function IsMatch(property: string, validationOptions?: ValidationOptions) {
     return function(object: Object, propertyName: string) {
@@ -26,19 +26,43 @@ export function IsMatch(property: string, validationOptions?: ValidationOptions)
     };
 }
 
-export class AddPanelRequest {
+export class AddPanelRequest{
 
     @IsEnum(ContactNameDirection)
     nameDirection: ContactNameDirection = ContactNameDirection.RTL;
 
-    @IsNumberString() @IsString() iemi: string;
+    @IsNumberString() panelId: string;
+
+    @IsOptional()
+    @IsString()
+    phoneNumber?: string;
+
+
+    @IsOptional()
+    @IsString()
+    contactName?: string;
+
+    @IsOptional()
+    @IsString()
+    contactPhone?: string;
+
+    @IsString()
+    @IsOptional()
+    address?: string;
+
+    @IsString()
+    @IsOptional()
+    userId?: string;
 
     @IsNumberString()
     @NotEquals('0', { message: 'Not initial yet!' })
-    @IsMatch('iemi', { message: 'Probably you were wrong!' })
+    @IsMatch('panelId', { message: 'Probably you were wrong!' })
     id: string;
+
+
+
     get isMatch() {
-        const result = this.iemi
+        const result = this.panelId
             .split('')
             .map(l => (10 - +l) % 10)
             .join('');

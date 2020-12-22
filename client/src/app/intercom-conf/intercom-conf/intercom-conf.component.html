@@ -1,44 +1,11 @@
-<div [dir]="i18nService.dir">
-    <p-topbar [model]="topbarModel" [inProgress]="inProgress"></p-topbar>
-    <button mat-button (click)="openAddPanel()">add panel with IEMI</button>
+   <ng-container *ngIf="selectedPanel">
+
+
+    <div><span>עריכת פנל {{this.selectedPanel.panelId}} {{selectedPanel.address}}</span></div>
     <div class="content" fxLayout="row" *ngIf="selectedPanel">
-        <p-autocomplete
-            fxFlex="120px"
-            (selectedChange)="setSelectedPanel($event, true)"
-            [keepOpen]="true"
-            [settings]="autocompleteSettings"
-        ></p-autocomplete>
+
         <div fxFlex fxLayout="column" style="padding: 25px">
             <mat-tab-group fxFlex mat-stretch-tabs>
-                <mat-tab label="general" fxFlexFill fxLayout="column" fxFlexAlign="center center">
-                    <div class="general_container">
-                        <mat-form-field *ngIf="users[selectedPanel.userId]">
-                            <input [value]="users[selectedPanel.userId].fullName" disabled matInput placeholder="טכנאי" />
-                        </mat-form-field>
-                        <mat-form-field>
-                            <input [value]="selectedPanel._id" disabled matInput placeholder="מזהה" />
-                        </mat-form-field>
-                        <mat-form-field>
-                            <input [value]="selectedPanel.phoneNumber || ''" matInput placeholder="טלפון" />
-                        </mat-form-field>
-                        <mat-form-field>
-                            <input matInput placeholder="שם" [(ngModel)]="selectedPanel.name" />
-                        </mat-form-field>
-                        <p>
-                            <mat-form-field>
-                                <input matInput placeholder="Address" [(ngModel)]="selectedPanel.address"
-                            /></mat-form-field>
-                        </p>
-
-                        <mat-form-field>
-                            <input matInput placeholder="סוג" disabled [(ngModel)]="selectedPanel.type" />
-                        </mat-form-field>
-
-                        <mat-form-field>
-                            <input matInput placeholder="גירסה" [(ngModel)]="selectedPanel.version" />
-                        </mat-form-field>
-                    </div>
-                </mat-tab>
                 <mat-tab label="contacts">
                     <ng-template matTabContent>
                         <p-contacts [contacts]="selectedPanel.contacts" [inProgress]="inProgress" (sendStatus)="status($event)"></p-contacts>
@@ -165,4 +132,4 @@
             </div>
         </div>
     </div>
-</div>
+   </ng-container>

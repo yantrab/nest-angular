@@ -102,6 +102,8 @@ export class Contacts extends Entity {
 
     constructor(contacts: Partial<Contacts>) {
         super(contacts);
+        if (!contacts) return;
+
         this.contactFields = this.contactFields.map(f => new ContactField(f));
         if (!this.list) {
             this.list = new Array(this.count).fill(1).map((_, i) => {
@@ -126,6 +128,15 @@ export class Panel extends Entity {
     @IsString()
     phoneNumber?: string;
 
+
+    @IsOptional()
+    @IsString()
+    contactName?: string;
+
+    @IsOptional()
+    @IsString()
+    contactPhone?: string;
+
     @IsNumber()
     @IsOptional()
     direction?: number;
@@ -149,6 +160,7 @@ export class Panel extends Entity {
     address?: string;
     constructor(panel?: Partial<Panel>) {
         super(panel);
+        if (!panel || !this.contacts){return;}
         this.contacts = new Contacts(panel.contacts);
         this.settings = panel.settings.map(s => new Settings(s));
         this.contacts.nameDirection = this.contacts.nameDirection != undefined ? this.contacts.nameDirection : ContactNameDirection.RTL;

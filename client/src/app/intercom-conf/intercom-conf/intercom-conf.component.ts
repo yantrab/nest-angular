@@ -1,7 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
-import { TadorController } from 'src/api/tador.controller';
-import { I18nService } from 'src/app/shared/services/i18n.service';
-import { ITopBarModel } from '../../shared/components/topbar/topbar.interface';
+import { ChangeDetectorRef, Component, HostListener, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { saveAs } from 'file-saver';
 import * as Panels from 'shared/models/tador/panels';
 import { ContactField, ContactNameDirection, FieldType, Panel } from 'shared/models/tador/panels';
@@ -15,39 +12,26 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import * as Socket from 'socket.io-client';
 import { environment } from '../../../environments/environment';
 import { Source } from 'shared/models/tador/panels';
-import * as conf from 'shared/models/tador/conf';
 import { User } from 'shared';
-import { AuthService } from '../../auth/auth.service';
 import { LogsComponent } from './logs/logs.component';
-// Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
+import { ConfService } from '../conf.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 @Component({
     selector: 'p-intercom-conf',
     templateUrl: './intercom-conf.component.html',
     styleUrls: ['./intercom-conf.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export class IntercomConfComponent {
-    @ViewChild('myFileInput') myFileInput;
-    socket = Socket(environment.socketUrl);
-    private logs: any[] = [];
+export class IntercomConfComponent implements OnInit {
     constructor(
-        private api: TadorController,
-        public i18nService: I18nService,
+        public api: ConfService,
         public dialog: NgDialogAnimationService,
         private snackBar: MatSnackBar,
         private ref: ChangeDetectorRef,
-        private authService: AuthService
+        private route: ActivatedRoute
     ) {
-        this.api.initialData().then(async data => {
-            this.panels = data.panels.map(d => new Panels[d.panel.type + 'Panel'](d.panel, d.dump));
-            this.users = data.users && Object.keys(data.users).length  ?  keyBy<User>(data.users.map(u => new User(u)),  u => u.email) : {};
-            this.autocompleteSettings = new AutocompleteFilter({ options: this.panels });
-            this.inProgress = false;
-            const user = await this.authService.getUserAuthenticated();
-            this.topbarModel.routerLinks.push({link: user.fullName, title: user.fullName});
-            this.setSelectedPanel(this.panels[0]);
-        });
-
         this.socket.on('connect', () => console.log('socket connect!!!'));
         this.socket.on('status', status => {
             this.selectedPanel.actionType = status as ActionType;
@@ -62,7 +46,7 @@ export class IntercomConfComponent {
 
         this.socket.on('sent', (location: any) => {
             console.log(location);
-            if (!location) return;
+            if (!location) { return; }
             if (this.selectedPanel.contacts.changesList[location.index]) {
                 delete this.selectedPanel.contacts.changesList[location.index][location.field];
             }
@@ -80,35 +64,6 @@ export class IntercomConfComponent {
             this.setSelectedPanel(this.selectedPanel, true);
         });
     }
-
-    formModel: FormModel<AddPanelRequest> = {
-        fields: [{ placeHolder: 'iemi', key: 'iemi' },
-            { placeHolder: 'id', key: 'id' },
-            { placeHolder: 'Lang', key: 'nameDirection', type: 'radio',
-                options: [{title: 'Hebrew', value: ContactNameDirection.RTL}, {title: 'English', value: ContactNameDirection.LTR}]}
-            ],
-        modelConstructor: AddPanelRequest,
-        formTitle: 'הוספת פאנל',
-        model: new AddPanelRequest(),
-    };
-
-    FieldType = FieldType;
-
-    topbarModel: ITopBarModel = {
-        logoutTitle: 'logout',
-        routerLinks: [],
-        menuItems: [],
-        logout: () => this.authService.logout()
-    };
-    panels: Panel[];
-    users: {[id: string]: User};
-    autocompleteSettings: AutocompleteFilter;
-
-    selectedPanel: Panel;
-    cloneSelectedPanel: Panel;
-    contacts: ContactField[];
-    inProgress = true;
-    settingsChange = 0;
     get sendChangesLabel() {
         let count = 0;
         if (this.selectedPanel && this.selectedPanel.contacts.changesList) {
@@ -121,10 +76,31 @@ export class IntercomConfComponent {
         count += this.settingsChange;
         return 'שלח שינויים' + (count ? ' ( ' + count + ' )' : '');
     }
-    ngOnChanges(changes: SimpleChanges) {
-        console.log(changes);
-    }
+    complete$ = new Subject<any>();
+    @ViewChild('myFileInput') myFileInput;
+    socket = Socket(environment.socketUrl);
+    private logs: any[] = [];
 
+    FieldType = FieldType;
+    panels: Panel[];
+    users: {[id: string]: User};
+    autocompleteSettings: AutocompleteFilter;
+
+    selectedPanel: Panel;
+    cloneSelectedPanel: Panel;
+    contacts: ContactField[];
+    inProgress = true;
+    settingsChange = 0;
+    ActionType = ActionType;
+
+    ngOnInit(): void {
+        this.route.params.pipe(takeUntil(this.complete$)).subscribe(async params => {
+            const id = params.id;
+            const panel = await this.api.getPanel(id);
+            this.setSelectedPanel(panel);
+        });
+
+    }
     openSnack(
         title: string,
         action = 'סגור',
@@ -150,7 +126,7 @@ export class IntercomConfComponent {
         this.selectedPanel = panel;
         this.cloneSelectedPanel = cloneDeep(this.selectedPanel);
         if (reloadFromServer) {
-            this.selectedPanel = new Panels[panel.type + 'Panel'](await this.api.panels(panel.panelId));
+            this.selectedPanel = await this.api.getPanel(panel.panelId);
         }
 
         if (this.selectedPanel.actionType !== undefined && this.selectedPanel.actionType !== ActionType.idle) {
@@ -185,7 +161,6 @@ export class IntercomConfComponent {
             console.table(this.selectedPanel.contacts.changesList);
         });
     }
-    ActionType = ActionType;
     cancel() {
         this.selectedPanel = cloneDeep(this.cloneSelectedPanel);
         this.openSnack('שינויים בוטלו');
@@ -203,9 +178,9 @@ export class IntercomConfComponent {
             const prevStatus = this.selectedPanel.actionType;
             this.selectedPanel.actionType = ActionType.idle;
             await this.api.status(this.selectedPanel);
-            //if ([ActionType.read, ActionType.readAll, ActionType.write, ActionType.writeAll].find(a => a === prevStatus)) {
+            // if ([ActionType.read, ActionType.readAll, ActionType.write, ActionType.writeAll].find(a => a === prevStatus)) {
             this.openSnack('שליחה מבוטלת');
-            //}
+            // }
         });
     }
 
@@ -219,33 +194,6 @@ export class IntercomConfComponent {
 
     getAll() {
         this.status(ActionType.writeAll);
-    }
-
-    openAddPanel() {
-        const dialogRef = this.dialog.open(FormComponent, {
-            width: '80%',
-            maxWidth: '540px',
-            height: '400px',
-            data: this.formModel,
-        });
-        dialogRef.afterClosed().subscribe((result: AddPanelRequest) => {
-            if (!result) {
-                return;
-            }
-            result = Object.assign(new AddPanelRequest(), result);
-            if (!result.isMatch) {
-                this.formModel.model = result;
-                return this.openAddPanel();
-            }
-
-            this.formModel.model = new AddPanelRequest();
-            this.api.addNewPanel({ type: PanelType.MP, panelId: result.iemi, direction: result.nameDirection }).then(panel => {
-                this.panels.push(new Panels[panel.type + 'Panel'](panel));
-                this.autocompleteSettings.options = [...this.panels];
-                this.setSelectedPanel(panel);
-                this.openSnack('פנל הוסף בהצלחה');
-            });
-        });
     }
 
     removeChanges() {
@@ -291,5 +239,9 @@ export class IntercomConfComponent {
             width: '80%',
             maxWidth: '1000px',
         });
+    }
+
+    ngOnDestroy() {
+        this.complete$.next();            // <-- close open subscriptions
     }
 }

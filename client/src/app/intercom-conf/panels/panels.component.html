@@ -1,0 +1,18 @@
+<div class="content" *ngIf="panels" fxLayout="column">
+    <button style="width: 100px;"
+            (click)="openCreatePanelDialog()"
+            mat-raised-button color="primary">חדש</button>
+    <mat-virtual-table fxFlex [rows]="panels" [filterPlaceholder]="'חיפוש'" [paginator]="true" [columnsDef]="columns">
+        <ng-template pCellDef column="edit" let-row="row">
+            <div style="width: 100%" class="buttons"  fxLayout="row" fxLayoutAlign="space-around center" >
+                <a class="edit" style="cursor: pointer" (click)="openEditPanelDialog(row)">
+                    <mat-icon>edit</mat-icon>
+                </a>
+                <a class="edit" [routerLink]="'/tador/edit/' + row.panelId">
+                    <mat-icon>settings</mat-icon>
+                </a>
+            </div>
+        </ng-template>
+
+    </mat-virtual-table>
+</div>

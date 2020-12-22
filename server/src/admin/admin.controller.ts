@@ -26,7 +26,7 @@ export class AdminController {
 
     @Post('users/:app')
     async users(@Body() app: App): Promise<User[]> {
-        return this.userService.getUsers({ 'roles.app': app } as any);
+        return this.userService.getUsers({ 'roles.app': App.tador } as any);
     }
 
     @Post('addUser')

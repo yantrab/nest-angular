@@ -1,0 +1,22 @@
+:host{
+  .content {
+    height: calc(100vh - 70px);
+    background-color: #f1f2f6;
+    padding: 20px;
+  }
+
+
+
+  ::ng-deep.mat-row {
+    color: #000;
+    .buttons {
+      display: none !important;
+    }
+
+    :hover {
+      .buttons{
+        display: flex !important;
+      }
+    }
+  }
+}

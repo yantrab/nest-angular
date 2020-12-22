@@ -9,6 +9,7 @@ import { keyBy, values } from 'lodash';
 import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
 import { dumps } from './initial_daumps';
+import { AddPanelRequest } from 'shared/models/tador/add-panel-request';
 
 class PanelDump extends Entity {
     dump: string;
@@ -519,9 +520,10 @@ export class TadorService {
         return this.panelDumpRepo.saveOrUpdateOne(dump || { panelId: panel.panelId, dump: panel.dump() });
     }
 
-    async addNewPanel(param: { panelId: string; type: PanelType; userId: any, direction: ContactNameDirection }): Promise<Panel> {
-        const panel: Panel = new Panels[param.type + 'Panel'](param);
-        panel.reDump(dumps[param.type][param.direction])
+    async addNewPanel(param: AddPanelRequest): Promise<Panel> {
+        delete param.id
+        const panel: Panel = new Panels['MPPanel'](param as any);
+        panel.reDump(dumps['MP'][param.nameDirection])
         panel.name = panel.panelId;
         panel._id = (await this.panelRepo.collection.insertOne(panel)).insertedId;
         await this.saveDump(panel);

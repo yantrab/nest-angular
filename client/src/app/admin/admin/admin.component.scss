@@ -1,11 +1,5 @@
-#admin {
-    $topbar-hight: 70px;
-
-    p-topbar {
-        height: $topbar-hight;
-    }
     .content {
-        height: calc(100vh - #{$topbar-hight});
+        height: calc(100vh - 70px);
         background-color: #f1f2f6;
         padding: 20px;
     }
@@ -20,4 +14,3 @@
             }
         }
     }
-}

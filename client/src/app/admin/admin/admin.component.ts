@@ -42,7 +42,7 @@ export class AdminComponent {
     ) {
         if (!model) {
             this.model = {
-                app: App[this.route.snapshot.params.site] as any,
+                app: App.tador,
                 userFormModel: {
                     fields: [
                         { placeHolder: 'אמייל', key: 'email' },
