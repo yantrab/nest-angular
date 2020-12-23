@@ -1,63 +1,68 @@
-$topbar-hight: 70px;
 
-p-topbar {
-    height: $topbar-hight;
-}
-.snack {
-    margin: 26px 147px 37px 5px !important;
-    width: 52vw;
-    max-width: 100% !important;
-}
-.content {
-    height: calc(100vh - 115px);
-    background-color: #f1f2f6;
-    padding: 5px;
-    .upload-btn-wrapper {
-        position: relative;
-        overflow: hidden;
-        display: inline-block;
-        button {
-            margin-top: 10%;
-        }
+
+    .snack {
+        margin: 26px 30px 17px 5px !important;
+        width: 52vw;
+        max-width: 100% !important;
     }
 
-    .upload-btn-wrapper input[type='file'] {
-        font-size: 100px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        opacity: 0;
-    }
-    .mat-tab-body-wrapper {
+    .content {
         height: 100%;
 
-        .mat-tab-body-content {
-            // padding: 25px;
-            height: 100%;
-        }
-        .general_container{
-            .mat-form-field{
-                margin: 20px;
+        background-color: #f1f2f6;
+        padding: 5px;
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+
+            button {
+                margin-top: 10%;
             }
         }
-        //div {
-        //  height: 100%;
-        //
-        //}
-    }
-}
 
-.cdk-overlay-pane {
-    //height: 80%;
-    max-height: 80%;
+        .upload-btn-wrapper input[type='file'] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
 
-    .mat-autocomplete-panel {
-        //height: 100%;
-        max-height: none;
+        .mat-tab-body-wrapper {
+            height: 100%;
+
+            .mat-tab-body-content {
+                // padding: 25px;
+                height: 100%;
+            }
+
+            .general_container {
+                .mat-form-field {
+                    margin: 20px;
+                }
+            }
+
+            //div {
+            //  height: 100%;
+            //
+            //}
+        }
     }
-}
-::ng-deep {
-    .mat-dialog-content {
-        flex-direction: row;
+
+    .cdk-overlay-pane {
+        //height: 80%;
+        max-height: 80%;
+
+        .mat-autocomplete-panel {
+            //height: 100%;
+            max-height: none;
+        }
     }
-}
+
+    ::ng-deep {
+        .mat-dialog-content {
+            flex-direction: row;
+        }
+    }

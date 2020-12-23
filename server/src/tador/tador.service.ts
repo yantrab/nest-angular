@@ -523,7 +523,7 @@ export class TadorService {
     async addNewPanel(param: AddPanelRequest): Promise<Panel> {
         delete param.id
         const panel: Panel = new Panels['MPPanel'](param as any);
-        panel.reDump(dumps['MP'][param.nameDirection])
+        panel.reDump(dumps['MP'][param.direction])
         panel.name = panel.panelId;
         panel._id = (await this.panelRepo.collection.insertOne(panel)).insertedId;
         await this.saveDump(panel);

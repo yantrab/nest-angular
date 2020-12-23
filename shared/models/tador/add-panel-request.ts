@@ -29,7 +29,7 @@ export function IsMatch(property: string, validationOptions?: ValidationOptions)
 export class AddPanelRequest{
 
     @IsEnum(ContactNameDirection)
-    nameDirection: ContactNameDirection = ContactNameDirection.RTL;
+    direction: ContactNameDirection = ContactNameDirection.RTL;
 
     @IsNumberString() panelId: string;
 

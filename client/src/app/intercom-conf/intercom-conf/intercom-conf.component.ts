@@ -18,6 +18,8 @@ import { ConfService } from '../conf.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import * as conf from 'shared/models/tador/conf';
+Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 @Component({
     selector: 'p-intercom-conf',
     templateUrl: './intercom-conf.component.html',

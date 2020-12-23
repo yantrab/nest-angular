@@ -9,7 +9,9 @@ import { App } from 'shared';
     template: `
         <div [dir]="i18nService.dir">
             <p-topbar [model]="topbarModel" [inProgress]="inProgress"></p-topbar>
-            <router-outlet></router-outlet>
+            <div style="height: calc(100vh - 48px)">
+                <router-outlet></router-outlet>
+            </div>
         </div>
     `,
 })

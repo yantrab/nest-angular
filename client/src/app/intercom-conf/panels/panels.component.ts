@@ -34,7 +34,7 @@ export class PanelsComponent implements OnInit {
     fields: [
       { placeHolder: 'iemi', key: 'panelId' },
       { placeHolder: 'id', key: 'id' },
-      { placeHolder: 'Lang', key: 'nameDirection', type: 'radio',
+      { placeHolder: 'Lang', key: 'direction', type: 'radio',
         options: [{title: 'Hebrew', value: ContactNameDirection.RTL}, {title: 'English', value: ContactNameDirection.LTR}]},
       {key: 'address', placeHolder: 'כתובת'},
       {key: 'contactName', placeHolder: 'שם איש קשר'},
@@ -71,7 +71,8 @@ export class PanelsComponent implements OnInit {
     model.model = panel;
     const dialogRef = this.dialog.open(FormComponent, {
       width: '80%',
-      maxWidth: '540px',
+      maxWidth: '450px',
+      height: '350px',
       data: model,
       direction: 'rtl',
     });
@@ -101,7 +102,12 @@ export class PanelsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (!result) {return;}
+      if (!result) {return; }
+      result = Object.assign(new AddPanelRequest(), result);
+      if (!result.isMatch) {
+        this.addPanelFormModel.model = result;
+        return this.openCreatePanelDialog();
+      }
       this.api.addNewPanel(result).then(saveResult => {
         this.snackBar.open('נשמר', 'בטל', {
           duration: 2000,
