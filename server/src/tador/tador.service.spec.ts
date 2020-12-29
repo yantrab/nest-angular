@@ -2,7 +2,7 @@ import { Socket } from 'net';
 import { getRandomToken } from '../utils';
 import { ActionType, PanelType } from '../../../shared/models/tador/enum';
 const port = 4000;
-let pId =  '11'//'861311009983668'; //'1'//
+let pId =  '1'//'861311009983668'; //'1'//
 const host = 'localhost'; //'128.199.41.162'; //'178.62.237.25' //'
 describe('tador', async () => {
     beforeAll(async () => {

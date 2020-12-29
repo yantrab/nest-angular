@@ -302,7 +302,7 @@ export class TadorService {
                             type: ActionType.write,
                             data: { start: +msgString.slice(16, 21), data: msgString.slice(24) },
                         };
-                    // logger.log('Action:' + JSON.stringify(action));
+                    logger.log('Action:' + JSON.stringify(action));
                     const panel = await this.getDump(action.pId);
                     if (!panel) {
                         return sock.write('999');
@@ -330,13 +330,11 @@ export class TadorService {
                     this.sentMsg(action.pId, { type:ActionType[action.type], result,  msg: JSON.stringify(action.data)}, 'log')
                     // logger.log('return length: ' + result.length);
                     let buffer = Buffer.from(result, 'utf8');
-                    logger.log('return buffer 1: ' + JSON.stringify(buffer));
                     for (let i = 0; i < buffer.length; i++) {
                         if (buffer[i] < 171 && buffer[i] > 143) {
                             buffer = Buffer.concat([buffer.slice(0, i - 1), new Buffer([buffer[i] + 16]), buffer.slice(i + 1, buffer.length + 1)]);
                         }
                     }
-                    logger.log('return buffer 2: ' + JSON.stringify(buffer));
 
                     return sock.write(buffer);
                 } catch (e) {
@@ -349,7 +347,7 @@ export class TadorService {
 
             sock.on('close', () => {
                 clearTimeout(timeOut);
-                logger.log('CLOSED: ' + sock.remoteAddress + ':' + sock.remotePort);
+                // logger.log('CLOSED: ' + sock.remoteAddress + ':' + sock.remotePort);
             });
         });
     }
