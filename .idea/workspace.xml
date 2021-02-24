@@ -19,12 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="&#10;fix: big changes 3">
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="circle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/auth.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/auth.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
@@ -333,14 +329,7 @@
       <workItem from="1611158635717" duration="598000" />
       <workItem from="1611246095822" duration="1737000" />
       <workItem from="1611584967624" duration="96000" />
-      <workItem from="1614194624904" duration="3423000" />
-    </task>
-    <task id="LOCAL-00099" summary="add &quot;RRR&quot; to queue when finish reading">
-      <created>1589823392730</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1589823392731</updated>
+      <workItem from="1614194624904" duration="3695000" />
     </task>
     <task id="LOCAL-00100" summary="add &quot;RRR&quot; to queue when finish reading">
       <created>1589826543240</created>
@@ -678,7 +667,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609239960728</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="circle">
+      <created>1614198127897</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1614198127897</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,7 +718,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix dump" />
     <MESSAGE value="colors" />
     <MESSAGE value="utf-8" />
     <MESSAGE value="rollback" />
@@ -747,7 +742,8 @@
     <MESSAGE value="&#10;fix: big changes" />
     <MESSAGE value="&#10;fix: big changes 2" />
     <MESSAGE value="&#10;fix: big changes 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;fix: big changes 3" />
+    <MESSAGE value="circle" />
+    <option name="LAST_COMMIT_MESSAGE" value="circle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -49,7 +49,7 @@ export class IntercomConfComponent implements OnInit {
             console.log(msg);
             this.logs = [{ ...msg, time: Date.now()}, ...this.logs];
         });
-        this.socket.on('ping', msg => {
+        this.socket.on('pingg', msg => {
             if (!this.lastConnect){
                 this.lastConnect = 0;
                 setInterval(() => this.lastConnect++,1000)

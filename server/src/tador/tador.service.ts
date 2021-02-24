@@ -276,7 +276,7 @@ export class TadorService {
             sock.on('data', async msg => {
                 timeOut.refresh();
                 let action: Action;
-                this.sentMsg(action.pId, "", 'ping')
+                this.sentMsg(action.pId, "", 'pingg')
                 try {
                     //logger.log('DATA 1: ' + JSON.stringify(msg));
                     for (let i = 0; i < msg.length; i++) {
