@@ -1,5 +1,17 @@
 
-
+.circle {
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    opacity: .25;
+    margin: 0 5px;
+    &.connect{
+        background-color: green;
+    }
+    &.disconnect{
+        background-color: red;
+    }
+}
     .snack {
         margin: 26px 30px 17px 5px !important;
         width: 52vw;

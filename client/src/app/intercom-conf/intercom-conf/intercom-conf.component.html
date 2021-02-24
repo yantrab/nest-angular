@@ -1,7 +1,14 @@
    <ng-container *ngIf="selectedPanel">
 
 
-    <div><span>עריכת פנל {{this.selectedPanel.panelId}} {{selectedPanel.address}}</span></div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <span>עריכת פנל {{this.selectedPanel.panelId}} {{selectedPanel.address}}</span>
+        <div fxLayoutAlign="center center">
+            <span fxFlex="30px"> {{lastConnect}}</span>
+            <div  class="circle" [class.connect]="isConnected" [class.disconnect]="!isConnected"></div>
+        </div>
+
+    </div>
     <div class="content" fxLayout="row" *ngIf="selectedPanel">
 
         <div fxFlex fxLayout="column" style="padding: 25px">

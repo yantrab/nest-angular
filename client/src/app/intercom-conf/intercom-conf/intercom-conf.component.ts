@@ -27,6 +27,10 @@ Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
     encapsulation: ViewEncapsulation.None,
 })
 export class IntercomConfComponent implements OnInit {
+    get isConnected(){
+        return this.lastConnect < 7
+    }
+    lastConnect?: number;
     constructor(
         public api: ConfService,
         public dialog: NgDialogAnimationService,
@@ -44,6 +48,14 @@ export class IntercomConfComponent implements OnInit {
         this.socket.on('log', msg => {
             console.log(msg);
             this.logs = [{ ...msg, time: Date.now()}, ...this.logs];
+        });
+        this.socket.on('ping', msg => {
+            if (!this.lastConnect){
+                this.lastConnect = 0;
+                setInterval(() => this.lastConnect++,1000)
+            }else{
+                this.lastConnect = 0;
+            }
         });
 
         this.socket.on('sent', (location: any) => {

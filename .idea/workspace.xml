@@ -19,15 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="&#10;fix: big changes 2">
-      <change afterPath="$PROJECT_DIR$/new server/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new server/.prettierrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new server/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new server/src/app.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new server/tsconfig.build.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new server/tsconfig.json" afterDir="false" />
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="&#10;fix: big changes 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/auth/auth.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/auth.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,8 +158,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.tador.status.should return change" />
         <item itemvalue="npm.start" />
+        <item itemvalue="Jest.tador.status.should return change" />
         <item itemvalue="Jest.tador.read" />
         <item itemvalue="Jest.tador.read.should return 0" />
         <item itemvalue="Jest.tador.status.should return 0" />
@@ -323,14 +322,18 @@
       <workItem from="1609046686747" duration="2431000" />
       <workItem from="1609150320178" duration="2948000" />
       <workItem from="1609223642062" duration="21000" />
-      <workItem from="1609239255993" duration="381000" />
-    </task>
-    <task id="LOCAL-00098" summary="add &quot;RRR&quot; to queue when finish reading">
-      <created>1589823112795</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1589823112795</updated>
+      <workItem from="1609239255993" duration="4798000" />
+      <workItem from="1609309392606" duration="599000" />
+      <workItem from="1609349613696" duration="606000" />
+      <workItem from="1609863741539" duration="6513000" />
+      <workItem from="1610028208308" duration="7495000" />
+      <workItem from="1610861346289" duration="5292000" />
+      <workItem from="1610989398144" duration="4631000" />
+      <workItem from="1611120762288" duration="1799000" />
+      <workItem from="1611158635717" duration="598000" />
+      <workItem from="1611246095822" duration="1737000" />
+      <workItem from="1611584967624" duration="96000" />
+      <workItem from="1614194624904" duration="3423000" />
     </task>
     <task id="LOCAL-00099" summary="add &quot;RRR&quot; to queue when finish reading">
       <created>1589823392730</created>
@@ -668,7 +671,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608732509387</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="&#10;fix: big changes 3">
+      <created>1609239960728</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1609239960728</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -712,7 +722,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="cancel" />
     <MESSAGE value="fix dump" />
     <MESSAGE value="colors" />
     <MESSAGE value="utf-8" />
@@ -737,19 +746,20 @@
     <MESSAGE value="&#10;fix: fixa" />
     <MESSAGE value="&#10;fix: big changes" />
     <MESSAGE value="&#10;fix: big changes 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;fix: big changes 2" />
+    <MESSAGE value="&#10;fix: big changes 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;fix: big changes 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>477</line>
+          <line>475</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>506</line>
+          <line>504</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -774,8 +784,14 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>473</line>
+          <line>471</line>
           <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
+          <line>278</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
