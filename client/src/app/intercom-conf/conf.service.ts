@@ -29,6 +29,9 @@ export class ConfService {
     }
 
     async addNewPanel(body: AddPanelRequest): Promise<Panel> {
+        if (this.data.panels.find((p: Panel) => p.panelId === body.panelId)){
+            throw new Error("הפנל כבר קיים במערכת!")
+        }
         const result = await this.api.addNewPanel(body);
         this.data.panels.push(new Panels[result.type + 'Panel'](result));
         this.dataSub.next(this.data);

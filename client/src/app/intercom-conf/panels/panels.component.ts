@@ -108,9 +108,14 @@ export class PanelsComponent implements OnInit {
         this.addPanelFormModel.model = result;
         return this.openCreatePanelDialog();
       }
+
       this.api.addNewPanel(result).then(saveResult => {
         this.snackBar.open('נשמר', 'בטל', {
           duration: 2000,
+        });
+      }).catch(e =>{
+        this.snackBar.open(e, 'סבבה', {
+          duration: 10000,
         });
       });
     });
