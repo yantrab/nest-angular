@@ -232,8 +232,9 @@ export class TadorService {
         }
     }
 
-    async getPanel(id: string): Promise<Panel> {
-        const panel = await this.panelRepo.findOne({ panelId: id });
+    async getPanel(panelId: string): Promise<Panel> {
+        const panel = await this.panelRepo.findOne({ panelId });
+        if (!panel) {return panel}
         if (!this.statuses[panel.panelId]) {
             panel.actionType = ActionType.idle;
         }

@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="circle">
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="prevent saving duplicatge panels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/conf.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/conf.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/panels/panels.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/panels/panels.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,14 +335,7 @@
       <workItem from="1617774007182" duration="2083000" />
       <workItem from="1617778351302" duration="781000" />
       <workItem from="1618392734309" duration="6327000" />
-      <workItem from="1618721110211" duration="1177000" />
-    </task>
-    <task id="LOCAL-00101" summary="fix  delete rrr when send status with d">
-      <created>1590003815943</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1590003815944</updated>
+      <workItem from="1618721110211" duration="2165000" />
     </task>
     <task id="LOCAL-00102" summary="fix  delete rrr when send status with d">
       <created>1590004750680</created>
@@ -680,7 +673,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614198550658</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="prevent saving duplicatge panels">
+      <created>1618722445713</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1618722445714</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -724,7 +724,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="colors" />
     <MESSAGE value="utf-8" />
     <MESSAGE value="rollback" />
     <MESSAGE value="fix location null bug" />
@@ -749,19 +748,20 @@
     <MESSAGE value="&#10;fix: big changes 2" />
     <MESSAGE value="&#10;fix: big changes 3" />
     <MESSAGE value="circle" />
-    <option name="LAST_COMMIT_MESSAGE" value="circle" />
+    <MESSAGE value="prevent saving duplicatge panels" />
+    <option name="LAST_COMMIT_MESSAGE" value="prevent saving duplicatge panels" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>475</line>
+          <line>476</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>504</line>
+          <line>505</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -786,12 +786,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>471</line>
+          <line>472</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/tador/tador.service.ts</url>
-          <line>278</line>
+          <line>279</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>

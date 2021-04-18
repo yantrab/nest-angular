@@ -20,6 +20,7 @@ export class ConfService {
 
     async getPanel(id: string): Promise<any> {
         const panel = await this.api.panels(id);
+        if (!panel) return panel;
         const result = new Panels[panel.type + 'Panel'](panel);
         return result;
     }
@@ -29,9 +30,10 @@ export class ConfService {
     }
 
     async addNewPanel(body: AddPanelRequest): Promise<Panel> {
-        if (this.data.panels.find((p: Panel) => p.panelId === body.panelId)){
+        if (this.data.panels.find((p: Panel) => p.panelId === body.panelId) || await this.getPanel(body.panelId)){
             throw new Error("הפנל כבר קיים במערכת!")
         }
+
         const result = await this.api.addNewPanel(body);
         this.data.panels.push(new Panels[result.type + 'Panel'](result));
         this.dataSub.next(this.data);
