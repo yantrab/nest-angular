@@ -339,7 +339,8 @@ export class TadorService {
 
                     return sock.write(buffer);
                 } catch (e) {
-                    this.sentMsg(action.pId, {from: 'server', e}, 'log')
+                    if (action)
+                        this.sentMsg(action.pId, {from: 'server', e}, 'log')
                     logger.error(e);
                     sock.write('100');
                     sock.end();
