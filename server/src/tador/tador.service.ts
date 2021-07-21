@@ -293,7 +293,6 @@ export class TadorService {
                     if (msgString[0] !== '!') {
                         try {
                             action = JSON.parse(msgString);
-                            this.sentMsg(action.pId, "", 'pingg')
                         } catch (e) {
                             sock.end();
                         }
@@ -303,6 +302,7 @@ export class TadorService {
                             type: ActionType.write,
                             data: { start: +msgString.slice(16, 21), data: msgString.slice(24) },
                         };
+                    this.sentMsg(action.pId, "", 'pingg')
                     logger.log('Action:' + JSON.stringify(action));
                     const panel = await this.getDump(action.pId);
                     if (!panel) {

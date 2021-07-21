@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="prevent saving duplicatge panels">
+    <list default="true" id="c9448c1c-4402-42b8-b657-6389c210876a" name="Default Changelist" comment="fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/intercom-conf/intercom-conf/intercom-conf.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/tador/tador.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tador/tador.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +76,7 @@
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\yantr\Desktop\nest\nest-angular\node_modules\prettier" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.tslint" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -88,37 +92,8 @@
       <recent name="C:\Users\yantr\Desktop\nest\nest-angular\shared\models\tador" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start (1)">
-    <configuration name="tador.read" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/server" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
-      <test-names>
-        <test-name value="tador" />
-        <test-name value="read" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="tador.read.should return 0" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/server" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
-      <test-names>
-        <test-name value="tador" />
-        <test-name value="read" />
-        <test-name value="should return 0" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="tador.status.should return change" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.tador.status.should return 0">
+    <configuration name="tador.status.should return 0" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
@@ -129,8 +104,33 @@
       <test-names>
         <test-name value="tador" />
         <test-name value="status" />
-        <test-name value="should return change" />
+        <test-name value="should return 0" />
       </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="tador.status.should return This panel is not register!!!" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/server/src/tador/tador.service.spec.ts" />
+      <test-names>
+        <test-name value="tador" />
+        <test-name value="status" />
+        <test-name value="should return This panel is not register!!!" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="gen-client" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="gen-client" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="start (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -155,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.tador.status.should return 0" />
+        <item itemvalue="Jest.tador.status.should return This panel is not register!!!" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.start (1)" />
-        <item itemvalue="Jest.tador.status.should return change" />
-        <item itemvalue="Jest.tador.read" />
-        <item itemvalue="Jest.tador.read.should return 0" />
+        <item itemvalue="npm.gen-client" />
       </list>
     </recent_temporary>
   </component>
@@ -342,14 +342,8 @@
       <workItem from="1617778351302" duration="781000" />
       <workItem from="1618392734309" duration="6327000" />
       <workItem from="1618721110211" duration="2165000" />
-      <workItem from="1626855492071" duration="165000" />
-    </task>
-    <task id="LOCAL-00102" summary="fix  delete rrr when send status with d">
-      <created>1590004750680</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1590004750680</updated>
+      <workItem from="1626855492071" duration="1152000" />
+      <workItem from="1626857693446" duration="835000" />
     </task>
     <task id="LOCAL-00103" summary="Add massages yes/no">
       <created>1590423111424</created>
@@ -687,7 +681,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618722445714</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <task id="LOCAL-00151" summary="fix">
+      <created>1626855670596</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1626855670597</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -748,7 +749,6 @@
     <MESSAGE value="gzip" />
     <MESSAGE value="name order" />
     <MESSAGE value="default dump" />
-    <MESSAGE value="fix" />
     <MESSAGE value="fix rings" />
     <MESSAGE value="&#10;fix: fixa" />
     <MESSAGE value="&#10;fix: big changes" />
@@ -756,7 +756,8 @@
     <MESSAGE value="&#10;fix: big changes 3" />
     <MESSAGE value="circle" />
     <MESSAGE value="prevent saving duplicatge panels" />
-    <option name="LAST_COMMIT_MESSAGE" value="prevent saving duplicatge panels" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

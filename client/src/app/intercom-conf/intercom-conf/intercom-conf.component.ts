@@ -28,7 +28,7 @@ Object.keys(conf).forEach(k => console.log(k + ':' + conf[k]));
 })
 export class IntercomConfComponent implements OnInit {
     get isConnected(){
-        return this.lastConnect < 7
+        return this.lastConnect < 61
     }
     lastConnect?: number;
     constructor(
