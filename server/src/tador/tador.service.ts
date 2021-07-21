@@ -277,7 +277,6 @@ export class TadorService {
             sock.on('data', async msg => {
                 timeOut.refresh();
                 let action: Action;
-                this.sentMsg(action.pId, "", 'pingg')
                 try {
                     //logger.log('DATA 1: ' + JSON.stringify(msg));
                     for (let i = 0; i < msg.length; i++) {
@@ -294,6 +293,7 @@ export class TadorService {
                     if (msgString[0] !== '!') {
                         try {
                             action = JSON.parse(msgString);
+                            this.sentMsg(action.pId, "", 'pingg')
                         } catch (e) {
                             sock.end();
                         }
